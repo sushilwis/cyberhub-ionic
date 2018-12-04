@@ -1,0 +1,159 @@
+import { Component } from '@angular/core';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { AlertController } from 'ionic-angular';
+import { Http } from '@angular/http';
+import 'rxjs/add/operator/map';
+import { apiUrl } from '../../apiUrl'
+
+/**
+ * Generated class for the SchoolcalenderPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+
+@IonicPage()
+@Component({
+  selector: 'page-schoolcalender',
+  templateUrl: 'schoolcalender.html',
+})
+export class SchoolcalenderPage {
+  eventSource
+  isToday: boolean;
+  viewTitle
+  calendar = {
+    mode: 'month',
+    currentDate: new Date(),
+    dateFormatter: {
+      formatMonthViewDay: function (date: Date) {
+        return date.getDate().toString();
+      },
+      formatMonthViewDayHeader: function (date: Date) {
+        return 'MonMH';
+      },
+      formatMonthViewTitle: function (date: Date) {
+        return 'testMT';
+      },
+      formatWeekViewDayHeader: function (date: Date) {
+        return 'MonWH';
+      },
+      formatWeekViewTitle: function (date: Date) {
+        return 'testWT';
+      },
+      formatWeekViewHourColumn: function (date: Date) {
+        return 'testWH';
+      },
+      formatDayViewHourColumn: function (date: Date) {
+        return 'testDH';
+      },
+      formatDayViewTitle: function (date: Date) {
+        return 'testDT';
+      }
+    }
+  };
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+    private alertCtrl: AlertController, private http: Http,) {
+    let id =  this.navParams.get('id');
+    //this.getDetails(id);
+    this.loadEvents();
+  }
+
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad SchoolcalenderPage');
+  }
+  today() {
+    this.calendar.currentDate = new Date();
+  }
+  onCurrentDateChanged(event: Date) {
+    var today = new Date();
+    today.setHours(0, 0, 0, 0);
+    event.setHours(0, 0, 0, 0);
+    this.isToday = today.getTime() === event.getTime();
+  }
+
+  onViewTitleChanged(title) {
+    this.viewTitle = title;
+  }
+  onTimeSelected(ev) {
+    // console.log('Selected time: ' + ev.selectedTime + ', hasEvents: ' +
+    //   (ev.events !== undefined && ev.events.length !== 0) + ', disabled: ' + ev.disabled);
+  }
+  loadEvents() {
+    this.eventSource = this.createRandomEvents();
+    // console.log(this.eventSource)
+  }
+
+  onEventSelected(event) {
+    //console.log('Event selected:' + event.startTime + '-' + event.endTime + ',' + event.title);
+    let alert = this.alertCtrl.create({
+      title: event.title,
+      subTitle: 'Event Started:' + event.startTime + ', To: ' + event.endTime,
+      buttons: ['Dismiss']
+    });
+    alert.present();
+  }
+  createRandomEvents() {
+    var events = [];
+    for (var i = 0; i < 10; i += 1) {
+      var date = new Date();
+      var eventType = Math.floor(Math.random() * 2);
+      var startDay = Math.floor(Math.random() * 90) - 45;
+      var endDay = Math.floor(Math.random() * 2) + startDay;
+      var startTime;
+      var endTime;
+      if (eventType === 0) {
+        startTime = new Date(Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate() + startDay));
+        if (endDay === startDay) {
+          endDay += 1;
+        }
+        endTime = new Date(Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate() + endDay));
+        events.push({
+          title: 'All Day - ' + i,
+          startTime: startTime,
+          endTime: endTime,
+          allDay: true
+        });
+      } else {
+        var startMinute = Math.floor(Math.random() * 24 * 60);
+        var endMinute = Math.floor(Math.random() * 180) + startMinute;
+        startTime = new Date(date.getFullYear(), date.getMonth(), date.getDate() + startDay, 0, date.getMinutes() + startMinute);
+        endTime = new Date(date.getFullYear(), date.getMonth(), date.getDate() + endDay, 0, date.getMinutes() + endMinute);
+        events.push({
+          title: 'Event - ' + i,
+          startTime: startTime,
+          endTime: endTime,
+          allDay: false
+        });
+      }
+    }
+    console.log(events);
+
+    return events;
+  }
+  // getDetails(id: string) {
+  //   let listOfEvents = [];
+  //   var date = new Date();
+  //   this.http.get(`${apiUrl.url}/event/${id}`).
+  //     map(res => res.json()).subscribe(data => {
+  //       console.log(data);
+  //       data.forEach(ele => {
+  //         if (ele.allday == 0) {
+  //           let strt_arry = ele.start_date.split(" ");
+  //           let start_date = strt_arry[0].split("-")
+  //           let end_arry = ele.start_date.split(" ");
+  //           let end_date = end_arry[0].split("-")
+  //           let startTime = new Date(Date.UTC(start_date[0], start_date[1], start_date[2]));
+  //           let endTime = new Date(Date.UTC(end_date[0], end_date[1], end_date[2]));
+  //           listOfEvents.push({
+  //             allDay: true,
+  //             startTime: startTime,
+  //             endTime: endTime
+  //           })
+  //         }
+  //       });
+  //     })
+  //   console.log(listOfEvents);
+
+  // }
+
+}

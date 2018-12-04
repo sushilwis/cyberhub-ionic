@@ -1,0 +1,22 @@
+page-staff-complain {
+	.enquiry-form h3{
+			color: #00109f;
+			position: relative;
+		}
+		.enquiry-form h3:after{
+			position: absolute;
+			width: 80%;
+			height: 2px;
+			margin: 0px auto;
+			background:#00109f;
+			bottom: -5px;
+			content: '';
+			left: 50%;
+			transform: translateX(-50%);
+
+		}
+		.text-blue{
+			font-size:10px;
+			color:#00109f;
+		}
+}

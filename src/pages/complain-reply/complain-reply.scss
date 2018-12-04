@@ -1,0 +1,20 @@
+page-complain-reply {
+	h1{
+		color: #00109f;
+		position: relative;
+		margin-bottom: 10px;
+		padding-bottom: 10px;
+	}
+	h1:after{
+		position: absolute;
+		content: "";
+		bottom:0;
+		margin: 0px auto;
+		width: 60%;
+		height: 2px;
+		left: 50%;
+		transform: translateX(-50%);
+		background: #00109f;
+		margin-top: 30px;
+	}
+}
