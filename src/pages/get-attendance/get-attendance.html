@@ -41,7 +41,7 @@
 				<ion-item>
 					<ion-label>Department</ion-label>
 					<ion-select [(ngModel)]="department">
-						<ion-option value="{{sec.sec_id}}" *ngFor="let sec of filteredArrayForSectionList">{{sec.section_name}}</ion-option>
+						<ion-option value="{{sec.classSectionIndexId}}" *ngFor="let sec of filteredArrayForSectionList">{{sec.section_name}}</ion-option>
 					</ion-select>
 				</ion-item>
 		</ion-list>		

@@ -33,6 +33,7 @@ export class AttendanceListPage implements OnInit {
 
 
   ngOnInit(){
+    this.getStudentList();
     this.getUserDataFromLocal();
     // this.roomName = {
     //   room: JSON.parse(localStorage.getItem('attedCode')),
@@ -78,11 +79,12 @@ export class AttendanceListPage implements OnInit {
     header.set("Content-Type", "application/json");
 
     let data = {
-
+      dept_id: localStorage.getItem('department'),
+      org_id: this.localUserData.org_code
     }
     
     this.http
-      .post(`${apiUrl.node_url}/`, data, {headers: header})
+      .post(`${apiUrl.url}student/classstudentlist`, data, {headers: header})
       .map(res => res.json())
       .subscribe(
         async data => {

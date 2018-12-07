@@ -87,7 +87,7 @@ export class GetAttendancePage {
   onChooseShift(e){
     this.sortArray = [];
     this.shiftID = e;
-    console.log(e);
+    // console.log(e);
     // console.log(this.allSelected);        
     // console.log('shift : ', e.value);  
     
@@ -148,7 +148,7 @@ export class GetAttendancePage {
 
 
   onChooseClassStream(e) {
-    console.log(e);    
+    // console.log(e);    
     this.filteredArrayForSectionList = [];
     this.classStreamID = e;
 
@@ -159,6 +159,8 @@ export class GetAttendancePage {
     if(this.filteredArrayForSectionList.length > 0){
       this.filteredArrayForSectionList = this.filteredArrayForSectionList[0].sections;
     }  
+
+    console.log(this.filteredArrayForSectionList);    
   }
 
 
@@ -295,6 +297,7 @@ export class GetAttendancePage {
           if(data.success){
             this.genAttCode = await data.data[0].atted_code;
             localStorage.setItem('attedCode', JSON.stringify(this.genAttCode));
+            localStorage.setItem('department', JSON.stringify(this.department));
             this.showTeacherForm = false;
             this.showAlert(data.msg);
           }else{
