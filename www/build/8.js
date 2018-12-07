@@ -1,14 +1,14 @@
 webpackJsonp([8],{
 
-/***/ 349:
+/***/ 403:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StaffComplainPageModule", function() { return StaffComplainPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StaffInfoPageModule", function() { return StaffInfoPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__staff_complain__ = __webpack_require__(132);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__staff_info__ = __webpack_require__(75);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,23 +18,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var StaffComplainPageModule = /** @class */ (function () {
-    function StaffComplainPageModule() {
+var StaffInfoPageModule = /** @class */ (function () {
+    function StaffInfoPageModule() {
     }
-    StaffComplainPageModule = __decorate([
+    StaffInfoPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__staff_complain__["a" /* StaffComplainPage */],
+                __WEBPACK_IMPORTED_MODULE_2__staff_info__["a" /* StaffInfoPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__staff_complain__["a" /* StaffComplainPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__staff_info__["a" /* StaffInfoPage */]),
             ],
         })
-    ], StaffComplainPageModule);
-    return StaffComplainPageModule;
+    ], StaffInfoPageModule);
+    return StaffInfoPageModule;
 }());
 
-//# sourceMappingURL=staff-complain.module.js.map
+//# sourceMappingURL=staff-info.module.js.map
 
 /***/ })
 

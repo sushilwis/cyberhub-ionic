@@ -1,14 +1,14 @@
 webpackJsonp([22],{
 
-/***/ 335:
+/***/ 388:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LibraryListPageModule", function() { return LibraryListPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LiveStreamPageModule", function() { return LiveStreamPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__library_list__ = __webpack_require__(68);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__live_stream__ = __webpack_require__(12);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,23 +18,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var LibraryListPageModule = /** @class */ (function () {
-    function LibraryListPageModule() {
+var LiveStreamPageModule = /** @class */ (function () {
+    function LiveStreamPageModule() {
     }
-    LibraryListPageModule = __decorate([
+    LiveStreamPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__library_list__["a" /* LibraryListPage */],
+                __WEBPACK_IMPORTED_MODULE_2__live_stream__["a" /* LiveStreamPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__library_list__["a" /* LibraryListPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__live_stream__["a" /* LiveStreamPage */]),
             ],
         })
-    ], LibraryListPageModule);
-    return LibraryListPageModule;
+    ], LiveStreamPageModule);
+    return LiveStreamPageModule;
 }());
 
-//# sourceMappingURL=library-list.module.js.map
+//# sourceMappingURL=live-stream.module.js.map
 
 /***/ })
 

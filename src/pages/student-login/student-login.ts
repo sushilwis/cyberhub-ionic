@@ -27,6 +27,7 @@ export class StudentLoginPage {
 	isShown: boolean = false;
 	isHide: boolean = true;
 	student_register: string;
+	student_password: string;
 	phone: string;
 	OTP: number;
 	otp_pass: number;
@@ -38,6 +39,14 @@ export class StudentLoginPage {
 		// 	//
 		// }, 1000);
   }
+
+
+
+  ngOnInit(){
+    localStorage.clear();
+  }
+
+  
 
 	initLoader() {
 		this.loading = this.loadingController.create({
@@ -58,7 +67,7 @@ export class StudentLoginPage {
 
 
 
-	goToListing(){
+	goToListing() {
 		
 		this.presentLoading(true);
 
@@ -67,27 +76,29 @@ export class StudentLoginPage {
 		let options = new RequestOptions({headers: headers});
 
 		let data = {
-		  'username': this.student_register
+		  'username': this.student_register,
+		  'pass': this.student_password
 		}
 
-		this.http.post(`${apiUrl.url}user/student`, data, options).
+		this.http.post(`${apiUrl.url}user/applogin`, data, options).
 			map(res => res.json()).subscribe(data => {				
-				// console.log(data)
+				console.log(data)
 
 				if (data.data) {
 					this.presentLoading(false);
-
-					this.userdata = data.data;
-					this.isShown = true;
-					this.isHide = false;
-					this.phone = data.data[0].mobile_no;
-					this.OTP = Math.floor(Math.random() * (9999 - 1000 + 1) + 1000);
-
 					localStorage.setItem('userData', JSON.stringify(data.data[0]));
-					// this.jsonp.request(`http://control.msg91.com/api/sendotp.php?otp_length=4&authkey=${messageVendor.authkey}&sender=${messageVendor.sender}&mobile=${data[0].mobile_no}&otp=${this.OTP}`).subscribe(data =>{
-					// 	console.log(data);						
-					// })
-					console.log(this.OTP);					
+					this.navCtrl.setRoot(StudentsTabsPage);
+					
+
+				// 	this.userdata = data.data;
+				// 	this.isShown = true;
+				// 	this.isHide = false;
+				// 	// this.phone = data.data[0].mobile_no;
+				// 	// this.OTP = Math.floor(Math.random() * (9999 - 1000 + 1) + 1000);				
+				// 	// this.jsonp.request(`http://control.msg91.com/api/sendotp.php?otp_length=4&authkey=${messageVendor.authkey}&sender=${messageVendor.sender}&mobile=${data[0].mobile_no}&otp=${this.OTP}`).subscribe(data =>{
+				// 	// 	console.log(data);						
+				// 	// })
+				// 	// console.log(this.OTP);					
 				}
 			});
 	}

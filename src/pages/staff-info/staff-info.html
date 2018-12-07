@@ -21,15 +21,15 @@
 
 
 <ion-card>
-  <img src="assets/imgs/SCHOOLS-Banner-Images.jpg"/>
+  <img src="{{orgDetails?.org_img}}"/>
   <ion-card-content>
     <ion-card-title>
-      My College Name
+      {{orgDetails?.org_name}}
       </ion-card-title>
-      <p><strong>Email</strong>: demo@gmail.com</p>
-      <p><strong>Mobile</strong>: 1234567890</p>
-      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-      </p>
+      <div [innerHtml]="orgDetails?.org_text"></div>
+      <p><strong>About</strong> : </p>
+      <div [innerHtml]="orgDetails?.org_about" class="mt-4"></div>
+      
       <p (click)=goToPrincipal()>PRINCIPAL</p> <p (click)=goToComplainDesk()>PRINCIPAL COMPLAIN DESK</p>
       <p (click)=goToStuffDuty()>Stuff Duty</p>
   </ion-card-content>

@@ -13,9 +13,14 @@
 		 <h3 class="title" text-center text-uppercase margin-bottom>Enter Regitration Id</h3>
 	 	<form>
 			<ion-list style="background-color: none;">
-			  <ion-item >
+			  <ion-item>
 			  	<ion-label> <ion-icon ios="ios-mail" md="md-mail"></ion-icon></ion-label>
 			    <ion-input type="text" autofocus name="student_register" placeholder="Register Id" no-margin [(ngModel)]="student_register"></ion-input>
+				</ion-item>
+				
+				<ion-item>
+			  	<ion-label> <ion-icon ios="ios-mail" md="md-mail"></ion-icon></ion-label>
+			    <ion-input type="password" autofocus name="student_password" placeholder="Password" no-margin [(ngModel)]="student_password"></ion-input>
 			  </ion-item>
 			
 			<button ion-button block outline color="blue" class="mt-10" *ngIf="isHide" (click)=goToListing()>Submit</button>

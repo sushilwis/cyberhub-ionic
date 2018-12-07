@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, MenuController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, MenuController, LoadingController } from 'ionic-angular';
+import { RequestOptions, Headers, Http } from '@angular/http';
+import { apiUrl } from '../../apiUrl';
+
 
 import { StudentLibraryListPage } from '../student-library-list/student-library-list';
 import { StudentNoticeBoardPage } from '../student-notice-board/student-notice-board';
@@ -26,9 +29,22 @@ import { StuffExamdutyPage } from '../stuff-examduty/stuff-examduty';
 })
 export class StaffInfoPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public menuCtrl: MenuController) {
+  localUserData: any;
+  orgDetails: any;
+  loading: any;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public menuCtrl: MenuController, public loadingController: LoadingController, private http: Http) {
     this.menuCtrl.enable(true);
+    this.initLoader();
   }
+
+
+  ngOnInit(){
+    this.getUserDataFromLocal();
+    this.getUserData();
+  }
+
+
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad StaffInfoPage');
@@ -65,5 +81,66 @@ export class StaffInfoPage {
   }
   goToStuffDuty(){
     this.navCtrl.push(StuffExamdutyPage);
+  }
+
+
+
+  getUserData() {
+    this.presentLoading(true);
+		var header = new Headers();
+		header.append('Content-Type', 'application/json');
+		let options = new RequestOptions({headers: header});
+
+		let data = {
+      'org_id': this.localUserData.org_code,
+    }
+    
+		this.http.post(`${apiUrl.url}org/getdetail`, data, options).
+			map(res => res.json()).subscribe(data => {				
+				console.log('org_details : ', data.data[0]);
+
+				if (data.data) {
+          this.presentLoading(false);
+          this.orgDetails = data.data[0];					
+				}
+			});
+  }
+
+
+
+
+
+
+  presentLoading(load: boolean) {
+		if (load) {
+			return this.loading.present();
+		}
+		else {
+			setTimeout(() => {
+				return this.loading.dismiss();
+			}, 1000);
+		}
+  }
+
+
+
+  
+
+
+  initLoader() {
+		this.loading = this.loadingController.create({
+			spinner: 'hide',
+			content: '<img class="loader-class" src="assets/icon/tail-spin.svg"> <p>Loading please wait...</p>',
+		});
+  }
+
+
+  
+
+
+  getUserDataFromLocal() {
+    let data = localStorage.getItem('userData');
+    this.localUserData = JSON.parse(data);
+    console.log('local data : ', this.localUserData);    
   }
 }

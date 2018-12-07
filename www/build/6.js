@@ -1,14 +1,14 @@
 webpackJsonp([6],{
 
-/***/ 357:
+/***/ 404:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StaffLoginPageModule", function() { return StaffLoginPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StudentLibraryListPageModule", function() { return StudentLibraryListPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__staff_login__ = __webpack_require__(135);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__student_library_list__ = __webpack_require__(56);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,23 +18,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var StaffLoginPageModule = /** @class */ (function () {
-    function StaffLoginPageModule() {
+var StudentLibraryListPageModule = /** @class */ (function () {
+    function StudentLibraryListPageModule() {
     }
-    StaffLoginPageModule = __decorate([
+    StudentLibraryListPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__staff_login__["a" /* StaffLoginPage */],
+                __WEBPACK_IMPORTED_MODULE_2__student_library_list__["a" /* StudentLibraryListPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__staff_login__["a" /* StaffLoginPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__student_library_list__["a" /* StudentLibraryListPage */]),
             ],
         })
-    ], StaffLoginPageModule);
-    return StaffLoginPageModule;
+    ], StudentLibraryListPageModule);
+    return StudentLibraryListPageModule;
 }());
 
-//# sourceMappingURL=staff-login.module.js.map
+//# sourceMappingURL=student-library-list.module.js.map
 
 /***/ })
 

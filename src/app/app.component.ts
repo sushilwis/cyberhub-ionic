@@ -12,6 +12,8 @@ import { PersonalNoticePage } from '../pages/personal-notice/personal-notice';
 import { GuestEnquiryPage } from '../pages/guest-enquiry/guest-enquiry';
 import { StudentLoginPage } from '../pages/student-login/student-login';
 import { StudentsTabsPage } from '../pages/students-tabs/students-tabs';
+import { StaffInfoPage } from '../pages/staff-info/staff-info';
+
 
 
 @Component({
@@ -52,6 +54,9 @@ export class MyApp {
         if(localVal.user_type_id == 4){
           this.rootPage = StudentsTabsPage;
         }
+        if(localVal.user_type_id == 2){
+          this.rootPage = StaffInfoPage;
+        }
       }else{
         this.rootPage = HomePage;
       }
@@ -78,7 +83,7 @@ export class MyApp {
 
   logOut(){
     localStorage.clear();
-    this.nav.setRoot(StudentLoginPage);
+    this.nav.setRoot(HomePage);
   }
 
 

@@ -41,6 +41,7 @@ import { PrincipalExamviewPage } from '../pages/principal-examview/principal-exa
 import { PrincipalComplaindeskPage } from '../pages/principal-complaindesk/principal-complaindesk';
 import { ComplainReplyPage } from '../pages/complain-reply/complain-reply';
 import { StuffExamdutyPage } from '../pages/stuff-examduty/stuff-examduty';
+// import { StaffInfoPage } from '../pages/staff-info/staff-info';
 import { SchoolcalenderPage } from '../pages/schoolcalender/schoolcalender';
 import { StudentsTabsPage } from '../pages/students-tabs/students-tabs';
 // import { AccountPage, ModalPage } from '../pages/account/account';
@@ -49,6 +50,8 @@ import { RippleDirective } from 'ng2-ripple-directive';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { ChatServProvider } from '../providers/chat-serv/chat-serv';
+import { TestPage } from '../pages/test/test';
 
 
 
@@ -90,7 +93,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     RippleDirective,
     AnimatesDirective,
     SchoolcalenderPage,
-    StudentsTabsPage
+    StudentsTabsPage,
+    TestPage
   ],
   imports: [
     BrowserModule,
@@ -134,7 +138,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     ComplainReplyPage,
     StuffExamdutyPage,
     SchoolcalenderPage,
-    StudentsTabsPage
+    StudentsTabsPage,
+    TestPage
   ],
   providers: [
     StatusBar,
@@ -144,7 +149,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     File,
     DocumentViewer,
     FileTransfer,
-    NativePageTransitions
+    NativePageTransitions,
+    ChatServProvider
   ]
 })
 export class AppModule {}
