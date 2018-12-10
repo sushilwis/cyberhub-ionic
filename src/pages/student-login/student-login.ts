@@ -42,9 +42,9 @@ export class StudentLoginPage {
 
 
 
-  ngOnInit(){
-    localStorage.clear();
-  }
+  	ngOnInit(){
+    	localStorage.clear();
+  	}
 
   
 
@@ -81,24 +81,14 @@ export class StudentLoginPage {
 		}
 
 		this.http.post(`${apiUrl.url}user/applogin`, data, options).
-			map(res => res.json()).subscribe(data => {				
-				console.log(data)
+			map(res => res.json()).subscribe(data => {	
+
+				console.log('student data : ', data);
 
 				if (data.data) {
 					this.presentLoading(false);
 					localStorage.setItem('userData', JSON.stringify(data.data[0]));
-					this.navCtrl.setRoot(StudentsTabsPage);
-					
-
-				// 	this.userdata = data.data;
-				// 	this.isShown = true;
-				// 	this.isHide = false;
-				// 	// this.phone = data.data[0].mobile_no;
-				// 	// this.OTP = Math.floor(Math.random() * (9999 - 1000 + 1) + 1000);				
-				// 	// this.jsonp.request(`http://control.msg91.com/api/sendotp.php?otp_length=4&authkey=${messageVendor.authkey}&sender=${messageVendor.sender}&mobile=${data[0].mobile_no}&otp=${this.OTP}`).subscribe(data =>{
-				// 	// 	console.log(data);						
-				// 	// })
-				// 	// console.log(this.OTP);					
+					this.navCtrl.setRoot(StudentsTabsPage);					
 				}
 			});
 	}

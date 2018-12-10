@@ -15,61 +15,12 @@
 
 <ion-content >
 	<ion-list>
-	  <ion-item>
-	    <ion-label>Student One</ion-label>
-	    <ion-checkbox [(ngModel)]="Student1"></ion-checkbox>
-	  </ion-item>
 
-	  <ion-item>
-	    <ion-label>Student Two</ion-label>
-	    <ion-checkbox [(ngModel)]="Student2"></ion-checkbox>
-	  </ion-item>
-
-	  <ion-item>
-	    <ion-label>Student Three</ion-label>
-	    <ion-checkbox [(ngModel)]="Student3"></ion-checkbox>
-	  </ion-item>
-
-	  <ion-item>
-	    <ion-label>Student Four</ion-label>
-	    <ion-checkbox [(ngModel)]="Student4"></ion-checkbox>
-	  </ion-item>
-
-	  <ion-item>
-	    <ion-label>Student Five</ion-label>
-	    <ion-checkbox [(ngModel)]="Student5"></ion-checkbox>
-	  </ion-item>
-
-	  <ion-item>
-	    <ion-label>Student Six</ion-label>
-	    <ion-checkbox [(ngModel)]="Student6"></ion-checkbox>
-	  </ion-item>
-
-	  <ion-item>
-	    <ion-label>Student Seven</ion-label>
-	    <ion-checkbox [(ngModel)]="Student7"></ion-checkbox>
-	  </ion-item>
-
-	  <ion-item>
-	    <ion-label>Student Eight</ion-label>
-	    <ion-checkbox [(ngModel)]="Student8"></ion-checkbox>
-	  </ion-item>
-
-
-	  <ion-item>
-	    <ion-label>Student Nine</ion-label>
-	    <ion-checkbox [(ngModel)]="Student9"></ion-checkbox>
-	  </ion-item>
-
-	  <ion-item>
-	    <ion-label>Student Ten</ion-label>
-	    <ion-checkbox [(ngModel)]="Student10"></ion-checkbox>
-	  </ion-item>
-
-	  <ion-item>
-	    <ion-label>Student Eleven</ion-label>
-	    <ion-checkbox [(ngModel)]="Student11"></ion-checkbox>
-	  </ion-item>
+	  <ion-item *ngFor="let student of attenStudentList">
+	    <ion-label>{{student.name}}</ion-label>
+	    <ion-checkbox checked="{{student.isChecked}}"></ion-checkbox>
+		</ion-item>
+		
 	</ion-list>
 	<div class="padding">
 		<button ion-button type="submit" block outline color="blue" class="mt-10">Submit</button>

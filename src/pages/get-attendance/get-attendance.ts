@@ -76,7 +76,7 @@ export class GetAttendancePage {
       .map(res => res.json())
       .subscribe(
         data => {
-          console.log("Org shift list ", data.data);
+          // console.log("Org shift list ", data.data);
           this.orgShiftLists = data.data;
     });
   }
@@ -133,7 +133,7 @@ export class GetAttendancePage {
       .map(res => res.json())
       .subscribe(
         data => {
-          console.log("Org Class list : ", data.data);
+          // console.log("Org Class list : ", data.data);
           this.orgClassSectionList = data.data;
           // this.createSortArray(this.orgClassSectionList);
           // this.sortArray.unshift({
@@ -160,7 +160,7 @@ export class GetAttendancePage {
       this.filteredArrayForSectionList = this.filteredArrayForSectionList[0].sections;
     }  
 
-    console.log(this.filteredArrayForSectionList);    
+    // console.log(this.filteredArrayForSectionList);    
   }
 
 
@@ -198,7 +198,7 @@ export class GetAttendancePage {
   getUserDataFromLocal() {
     let data = localStorage.getItem('userData');
     this.localUserData = JSON.parse(data);
-    console.log('local data : ', this.localUserData);    
+    // console.log('local data : ', this.localUserData);    
   }
 
 
@@ -261,7 +261,7 @@ export class GetAttendancePage {
       .map(res => res.json())
       .subscribe(
         data => {
-          console.log("period list : ", data.data);
+          // console.log("period list : ", data.data);
           this.periodList = data.data;
     });  
   }
@@ -283,7 +283,7 @@ export class GetAttendancePage {
       date: this.makeDateString(new Date()),
     };
 
-    console.log(data);
+    // console.log(data);
     
     let header = new Headers();
     header.set("Content-Type", "application/json");
@@ -293,7 +293,7 @@ export class GetAttendancePage {
       .map(res => res.json())
       .subscribe(
         async data => {
-          console.log("data : ", data);
+          // console.log("data : ", data);
           if(data.success){
             this.genAttCode = await data.data[0].atted_code;
             localStorage.setItem('attedCode', JSON.stringify(this.genAttCode));
