@@ -293,11 +293,12 @@ export class GetAttendancePage {
       .map(res => res.json())
       .subscribe(
         async data => {
-          // console.log("data : ", data);
+          console.log("data : ", data);
           if(data.success){
             this.genAttCode = await data.data[0].atted_code;
             localStorage.setItem('attedCode', JSON.stringify(this.genAttCode));
             localStorage.setItem('department', JSON.stringify(this.department));
+            localStorage.setItem('atted_id', JSON.stringify(data.data[0]._id));
             this.showTeacherForm = false;
             this.showAlert(data.msg);
           }else{

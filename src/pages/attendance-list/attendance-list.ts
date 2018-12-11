@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { RequestOptions, Headers, Http } from '@angular/http';
 import { apiUrl } from '../../apiUrl';
 import * as io from "socket.io-client";
+import { StaffInfoPage } from '../staff-info/staff-info';
 
 /**
  * Generated class for the AttendanceListPage page.
@@ -29,7 +30,7 @@ export class AttendanceListPage implements OnInit {
   attenStudentList: any = [];
   test: boolean = false;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private http: Http) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private http: Http, public alertCtrl: AlertController) {
   }
 
 
@@ -69,6 +70,7 @@ export class AttendanceListPage implements OnInit {
 
 
       });
+
       console.log("student list : ", this.attenStudentList);
       console.log('Students that gave attendence : ', this.studentList);
 
@@ -86,7 +88,11 @@ export class AttendanceListPage implements OnInit {
 
 
   ionViewDidLoad() {
+    console.log('Atted ID : ', JSON.parse(localStorage.getItem('atted_id')));
     // console.log('ionViewDidLoad AttendanceListPage');
+    setTimeout(()=>{
+      this.deactivatePeriodAtted(JSON.parse(localStorage.getItem('atted_id')));
+    }, 15000);
   }
 
 
@@ -139,6 +145,8 @@ export class AttendanceListPage implements OnInit {
   }
 
 
+
+
   // emitJoin(){
   //   this.socket.emit('join', this.roomName, function (err) {
   //     if (err) {
@@ -168,6 +176,120 @@ export class AttendanceListPage implements OnInit {
             // this.showAlert(data.msg);
           }          
     });
+  }
+
+
+
+
+
+  deactivatePeriodAtted(id){
+    let header = new Headers();
+    header.set("Content-Type", "application/json");
+
+    let data = {
+      id: id,
+    }
+    
+    this.http
+      .post(`${apiUrl.node_url}attendance/deactivateAtted`, data, {headers: header})
+      .map(res => res.json())
+      .subscribe(
+        async data => {
+          console.log("deactivate data : ", data);
+          if(data.success){
+            // this.showAlert(data.msg);
+          }else{
+            // this.showAlert(data.msg);
+          }          
+    });
+  }
+
+
+
+
+
+  checkboxChange(e, id) {
+    console.log('checked value : ', e.value, ' and ID : ', id);    
+    if(e.value){
+
+        let foundStd = this.attenStudentList.filter((std)=>{
+          return std.id == id;
+        });
+
+        if(foundStd.length > 0) {
+          let i = this.attenStudentList.indexOf(foundStd[0]);
+          this.attenStudentList.splice(i,1);
+          foundStd[0].isChecked = true;
+          this.attenStudentList.splice(i, 0, foundStd[0]);
+        }     
+    }else{
+      let foundStd = this.attenStudentList.filter((std)=>{
+        return std.id == id;
+      });
+
+      if(foundStd.length > 0) {
+        let i = this.attenStudentList.indexOf(foundStd[0]);
+        this.attenStudentList.splice(i,1);
+        foundStd[0].isChecked = false;
+        this.attenStudentList.splice(i, 0, foundStd[0]);
+      } 
+    }
+  }
+
+
+
+
+
+
+  onSubmitStdAttendence(){
+    let finalStdList = this.attenStudentList.filter((item)=> {
+      return item.isChecked == true;
+    });
+    console.log(finalStdList);
+    let finalStdIdList = finalStdList.map((item)=>{
+      return item.id;
+    });
+    console.log(finalStdIdList);
+
+
+    let header = new Headers();
+    header.set("Content-Type", "application/json");
+
+    let data = {
+      id: JSON.parse(localStorage.getItem('atted_id')),
+      std_list: finalStdIdList,
+    }
+    
+    this.http
+      .post(`${apiUrl.node_url}attendance/addStdListOnPeriod`, data, {headers: header})
+      .map(res => res.json())
+      .subscribe(
+        async data => {
+          console.log("attendence data : ", data);
+          if(data.success){
+            await localStorage.removeItem('atted_id');
+            await localStorage.removeItem('attedCode');
+            await localStorage.removeItem('department');
+            this.showAlert(data.msg); 
+            this.navCtrl.push(StaffInfoPage);           
+          }else{
+            this.showAlert(data.msg);
+          }          
+    });
+  }
+
+
+
+
+
+
+  showAlert(msg) {
+    const alert = this.alertCtrl.create({
+      title: 'Alert!',
+      subTitle: msg,
+      buttons: ['OK']
+    });
+    alert.present();
   }
   
 

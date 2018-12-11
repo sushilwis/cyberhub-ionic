@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, LoadingController } from 'ionic-angular';
 import * as io from "socket.io-client";
+import { StudentsTabsPage } from '../students-tabs/students-tabs';
+import { StudentOwndetailsPage } from '../student-owndetails/student-owndetails';
 
 /**
  * Generated class for the TestPage page.
@@ -17,6 +19,7 @@ import * as io from "socket.io-client";
 export class TestPage implements OnInit{
 
   chats: any;
+  loading: any;
   room: any;
   joinned: boolean = false;
   newUser: any = { nickname: '', room: '' };
@@ -24,10 +27,12 @@ export class TestPage implements OnInit{
   socket = io('http://localhost:3000');
   localRoomData: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController, public loadingController: LoadingController) {
+    this.initLoader();
   }
 
   ngOnInit(){
+    this.presentLoading(true);
     this.getRoomDataFromLocal();
 
     this.socket.on('connect', () => {
@@ -40,13 +45,36 @@ export class TestPage implements OnInit{
       });
     });
 
-    this.socket.on('updateUserList', function (users) {
+    this.socket.on('updateUserList', (users)=> {
       console.log(users);
     });
+
+    this.socket.on('attedStatus', (status)=> {
+      console.log('Status : ', status);
+      if(status){
+        this.presentLoading(false);
+        this.showAlert('Attendence Successful.');
+        this.socket.emit('forceDisconnect');
+        this.navCtrl.setRoot(StudentOwndetailsPage);
+      }else{
+        this.showAlert('Attendence Not Successful.');
+      }      
+    });
+
+    this.socket.on('disconnect', function () {
+      console.log('Disconnected from server');
+    });
+
+
+    // setTimeout(()=>{
+    //   this.presentLoading(false);
+    //   this.navCtrl.setRoot(StudentsTabsPage);
+    // }, 15000);
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad TestPage');
+    // this.presentLoading(true);
+    console.log('ionViewDidLoad TestPage');    
   }
 
 
@@ -60,5 +88,41 @@ export class TestPage implements OnInit{
     //   name: this.localUserData.master_id
     // }   
   }
+
+
+
+
+  showAlert(msg) {
+    const alert = this.alertCtrl.create({
+      title: 'Alert!',
+      subTitle: msg,
+      buttons: ['OK']
+    });
+    alert.present();
+  }
+
+
+
+
+  presentLoading(load: boolean) {
+		if (load) {
+			return this.loading.present();
+		}
+		else {
+			setTimeout(() => {
+				return this.loading.dismiss();
+			}, 1000);
+		}
+  }
+  
+
+
+
+  initLoader() {
+		this.loading = this.loadingController.create({
+			spinner: 'hide',
+			content: '<img class="loader-class" src="assets/icon/tail-spin.svg"> <p>Loading please wait...</p>',
+		});
+	}
 
 }

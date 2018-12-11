@@ -18,11 +18,11 @@
 
 	  <ion-item *ngFor="let student of attenStudentList">
 	    <ion-label>{{student.name}}</ion-label>
-	    <ion-checkbox checked="{{student.isChecked}}"></ion-checkbox>
+	    <ion-checkbox checked="{{student.isChecked}}" (ionChange)="checkboxChange($event, student.id)"></ion-checkbox>
 		</ion-item>
 		
 	</ion-list>
 	<div class="padding">
-		<button ion-button type="submit" block outline color="blue" class="mt-10">Submit</button>
+		<button ion-button type="submit" block outline color="blue" class="mt-10" (click)="onSubmitStdAttendence()">Submit</button>
 	</div>
 </ion-content>
