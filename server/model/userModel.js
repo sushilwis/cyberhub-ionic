@@ -49,7 +49,8 @@ var periodSchema = new mongoose.Schema({
     active: {
         type: Boolean,
         default: true,
-    },   
+    },  
+    std_list: [], 
 });
 
 

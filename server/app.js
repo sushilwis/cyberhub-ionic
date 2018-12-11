@@ -36,6 +36,7 @@ io.on('connection', (socket) => {
     users.addUser(socket.id, params.name, params.room);
 
     io.to(params.room).emit('updateUserList', users.getUserList(params.room));
+    io.to(socket.id).emit('attedStatus', true);
     // socket.emit('newMessage', generateMessage('Admin', 'Welcome to the chat app'));
     // socket.broadcast.to(params.room).emit('newMessage', generateMessage('Admin', `${params.name} has joined.`));
     // socket.broadcast.to(params.room).emit('updateUserList', users.getUserList(params.room));
@@ -60,14 +61,22 @@ io.on('connection', (socket) => {
   //   }
   // });
 
-  socket.on('disconnect', () => {
-    // var user = users.removeUser(socket.id);
+  socket.on('forceDisconnect', () => {
+    
+    io.to(socket.id).emit('disconnect');
+    var user = users.removeUser(socket.id);
+
+    if(user){
+      socket.disconnect();
+    }    
 
     // if (user) {
     //   io.to(user.room).emit('updateUserList', users.getUserList(user.room));
     //   io.to(user.room).emit('newMessage', generateMessage('Admin', `${user.name} has left.`));
     // }
   });
+  
+
 });
 
 

@@ -71,4 +71,69 @@ router.post('/getAttedData', function(req, res, next) {
 
 
 
+router.post('/deactivateAtted', function(req, res, next) {
+
+  // console.log('from student', req.body);
+
+  Period.findByIdAndUpdate(req.body.id, {active: false}, (err, updateData)=>{
+    if(err){
+      res.json({
+        success: false,
+        msg: "ERROR : Sorry, Something Wrong. Try Again.",
+        data: []
+      });
+    }else if(!updateData){
+      res.json({
+        success: false,
+        msg: "ERROR : Deactivation Not Success.",
+        data: []
+      });
+    }else{
+      res.json({
+        success: true,
+        msg: "SUCCESS : Period Deactivation Successful.",
+        data: [updateData]
+      });
+    }
+  });  
+});
+
+
+
+
+
+
+
+router.post('/addStdListOnPeriod', function(req, res, next) {
+
+  Period.findByIdAndUpdate(req.body.id, {std_list: req.body.std_list}, (err, updateData)=>{
+    if(err){
+      res.json({
+        success: false,
+        msg: "ERROR : Sorry, Something Wrong. Try Again.",
+        data: []
+      });
+    }else if(!updateData){
+      res.json({
+        success: false,
+        msg: "ERROR : Attendence Not Success.",
+        data: []
+      });
+    }else{
+      res.json({
+        success: true,
+        msg: "SUCCESS : Attendence Successful.",
+        data: [updateData]
+      });
+    }
+  });  
+});
+
+
+
+
+
+
+
+
 module.exports = router;
