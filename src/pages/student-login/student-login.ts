@@ -83,7 +83,7 @@ export class StudentLoginPage {
 		this.http.post(`${apiUrl.url}user/applogin`, data, options).
 			map(res => res.json()).subscribe(data => {	
 
-				console.log('student data : ', data);
+				// console.log('student data : ', data);
 
 				if (data.data) {
 					this.presentLoading(false);

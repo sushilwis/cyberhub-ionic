@@ -55,7 +55,7 @@ export class AttendancePage {
 
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad AttendancePage');
+    // console.log('ionViewDidLoad AttendancePage');
   }
   gotoHome(){
     this.navCtrl.setRoot(StudentOwndetailsPage);
@@ -70,10 +70,10 @@ export class AttendancePage {
 
 
   onSubmitStudentAttPin(){
-    console.log('pin entered.'); 
+    // console.log('pin entered.'); 
 
     if(this.attendenceCode == this.attPin){
-      console.log('correct pin.'); 
+      // console.log('correct pin.'); 
 
       this.room = {
         room: this.attPin,
@@ -128,7 +128,7 @@ export class AttendancePage {
       .map(res => res.json())
       .subscribe(
         data => {
-          console.log("period list : ", data.data);
+          // console.log("period list : ", data.data);
           this.periodList = data.data;
     });  
   }
@@ -139,7 +139,7 @@ export class AttendancePage {
   getUserDataFromLocal() {
     let data = localStorage.getItem('userData');
     this.localUserData = JSON.parse(data);
-    console.log('local data : ', this.localUserData);    
+    // console.log('local data : ', this.localUserData);    
   }
 
 
@@ -157,7 +157,7 @@ export class AttendancePage {
       date: this.makeDateString(new Date()),
     };
 
-    console.log("data : ", data);
+    // console.log("data : ", data);
 
     let header = new Headers();
     header.set("Content-Type", "application/json");
@@ -168,7 +168,7 @@ export class AttendancePage {
       .subscribe(
         async data => {
 
-          console.log("data : ", data.data[0]);
+          // console.log("data : ", data.data[0]);
 
           if(data.success){
 

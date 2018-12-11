@@ -47,7 +47,7 @@ export class StaffInfoPage {
 
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad StaffInfoPage');
+    // console.log('ionViewDidLoad StaffInfoPage');
   }
   goToAllPdf(){
 		this.navCtrl.push(StudentNoticeBoardPage);
@@ -97,7 +97,7 @@ export class StaffInfoPage {
     
 		this.http.post(`${apiUrl.url}org/getdetail`, data, options).
 			map(res => res.json()).subscribe(data => {				
-				console.log('org_details : ', data.data[0]);
+				// console.log('org_details : ', data.data[0]);
 
 				if (data.data) {
           this.presentLoading(false);
@@ -141,6 +141,6 @@ export class StaffInfoPage {
   getUserDataFromLocal() {
     let data = localStorage.getItem('userData');
     this.localUserData = JSON.parse(data);
-    console.log('local data : ', this.localUserData);    
+    // console.log('local data : ', this.localUserData);    
   }
 }

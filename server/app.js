@@ -91,7 +91,9 @@ io.on('connection', (socket) => {
 
 
 //database connection
-mongoose.connect(config.localDB, {useNewUrlParser: true});
+mongoose.connect(config.localDB, {useNewUrlParser: true}, ()=>{
+  console.log('Connected to database...');
+});
 mongoose.Promise = global.Promise;
 
 // view engine setup

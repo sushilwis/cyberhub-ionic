@@ -45,7 +45,7 @@ export class AttendanceListPage implements OnInit {
     this.socket.on('connect', () => {
       this.socket.emit('join', this.room, function (err) {
         if (err) {
-          console.log(err);
+          // console.log(err);
         } else {
           // console.log('No error');
         }
@@ -71,8 +71,8 @@ export class AttendanceListPage implements OnInit {
 
       });
 
-      console.log("student list : ", this.attenStudentList);
-      console.log('Students that gave attendence : ', this.studentList);
+      // console.log("student list : ", this.attenStudentList);
+      // console.log('Students that gave attendence : ', this.studentList);
 
       // let   data = {
       //             search: {
@@ -88,7 +88,7 @@ export class AttendanceListPage implements OnInit {
 
 
   ionViewDidLoad() {
-    console.log('Atted ID : ', JSON.parse(localStorage.getItem('atted_id')));
+    // console.log('Atted ID : ', JSON.parse(localStorage.getItem('atted_id')));
     // console.log('ionViewDidLoad AttendanceListPage');
     setTimeout(()=>{
       this.deactivatePeriodAtted(JSON.parse(localStorage.getItem('atted_id')));
@@ -122,7 +122,7 @@ export class AttendanceListPage implements OnInit {
                 ele.isChecked = false;
               });
 
-              console.log("student list : ", this.attenStudentList);
+              // console.log("student list : ", this.attenStudentList);
             }else{
             }          
       });     
@@ -137,7 +137,7 @@ export class AttendanceListPage implements OnInit {
     let data = localStorage.getItem('userData');
     this.localUserData = JSON.parse(data);
     // this.localUserData = 
-    console.log('local data : ', this.localUserData); 
+    // console.log('local data : ', this.localUserData); 
     this.room = {
       room: JSON.parse(localStorage.getItem('attedCode')),
       name: this.localUserData.master_id
@@ -169,7 +169,7 @@ export class AttendanceListPage implements OnInit {
       .map(res => res.json())
       .subscribe(
         async data => {
-          console.log("data : ", data);
+          // console.log("data : ", data);
           if(data.success){
             // this.showAlert(data.msg);
           }else{
@@ -195,7 +195,7 @@ export class AttendanceListPage implements OnInit {
       .map(res => res.json())
       .subscribe(
         async data => {
-          console.log("deactivate data : ", data);
+          // console.log("deactivate data : ", data);
           if(data.success){
             // this.showAlert(data.msg);
           }else{
@@ -209,7 +209,7 @@ export class AttendanceListPage implements OnInit {
 
 
   checkboxChange(e, id) {
-    console.log('checked value : ', e.value, ' and ID : ', id);    
+    // console.log('checked value : ', e.value, ' and ID : ', id);    
     if(e.value){
 
         let foundStd = this.attenStudentList.filter((std)=>{
@@ -245,11 +245,11 @@ export class AttendanceListPage implements OnInit {
     let finalStdList = this.attenStudentList.filter((item)=> {
       return item.isChecked == true;
     });
-    console.log(finalStdList);
+    // console.log(finalStdList);
     let finalStdIdList = finalStdList.map((item)=>{
       return item.id;
     });
-    console.log(finalStdIdList);
+    // console.log(finalStdIdList);
 
 
     let header = new Headers();
@@ -265,7 +265,7 @@ export class AttendanceListPage implements OnInit {
       .map(res => res.json())
       .subscribe(
         async data => {
-          console.log("attendence data : ", data);
+          // console.log("attendence data : ", data);
           if(data.success){
             await localStorage.removeItem('atted_id');
             await localStorage.removeItem('attedCode');

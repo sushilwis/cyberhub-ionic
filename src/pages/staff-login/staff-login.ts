@@ -29,7 +29,7 @@ export class StaffLoginPage implements OnInit {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad StaffLoginPage');
+    // console.log('ionViewDidLoad StaffLoginPage');
   }
 
   goToStaffInfo(){
@@ -49,12 +49,13 @@ export class StaffLoginPage implements OnInit {
       'pass': this.pass
     }
     
-    console.log(data);
+    // console.log(data);
+
 
 		this.http.post(`${apiUrl.url}user/applogin`, data, options).
 			map(res => res.json()).subscribe(data => {
         if(data){
-          console.log(data.data[0]);                    
+          // console.log(data.data[0]);                    
           localStorage.setItem('userData', JSON.stringify(data.data[0]));
           this.navCtrl.setRoot(StaffInfoPage);
         }        

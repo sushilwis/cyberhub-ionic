@@ -106,7 +106,7 @@ router.post('/deactivateAtted', function(req, res, next) {
 
 router.post('/addStdListOnPeriod', function(req, res, next) {
 
-  Period.findByIdAndUpdate(req.body.id, {std_list: req.body.std_list}, (err, updateData)=>{
+  Period.findOneAndUpdate(req.body.id, {std_list: req.body.std_list}, (err, updateData)=>{
     if(err){
       res.json({
         success: false,

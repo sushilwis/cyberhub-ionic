@@ -293,7 +293,7 @@ export class GetAttendancePage {
       .map(res => res.json())
       .subscribe(
         async data => {
-          console.log("data : ", data);
+          // console.log("data : ", data);
           if(data.success){
             this.genAttCode = await data.data[0].atted_code;
             localStorage.setItem('attedCode', JSON.stringify(this.genAttCode));

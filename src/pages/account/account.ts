@@ -244,7 +244,7 @@ export class ModalPage {
         .map(res => res.json())
         .subscribe(
           data => {
-            console.log("Org shift list ", data.data);
+            // console.log("Org shift list ", data.data);
             this.orgShiftLists = data.data;
       });
   }
@@ -270,7 +270,7 @@ export class ModalPage {
         .subscribe(
           data => {
             this.orgClassSectionList = data.data;
-            console.log("Org class list ", data.data);
+            // console.log("Org class list ", data.data);
             this.createSortArray(this.orgClassSectionList);
       });
   }
@@ -288,7 +288,7 @@ export class ModalPage {
     this.shiftID = e;
     // console.log(e);
     // console.log(this.allSelected);        
-    console.log('shift : ', e);  
+    // console.log('shift : ', e);  
     
     // let ifAllSelect = e.value.filter((ele)=>{
     //   return ele == "all";
@@ -313,7 +313,7 @@ export class ModalPage {
     // }
 
 
-    console.log('sort array : ', this.sortArray);
+    // console.log('sort array : ', this.sortArray);
   }
 
 
@@ -324,7 +324,7 @@ export class ModalPage {
 //      ------------------ After choose class/stream -----------------
 // ########################################################################
 onChooseClassStream(e) {
-  console.log(e); 
+  // console.log(e); 
 
   this.filteredArrayForSectionList = [];
   this.classStreamID = e;
@@ -344,7 +344,7 @@ onChooseClassStream(e) {
     this.filteredArrayForSectionList = this.filteredArrayForSectionList[0].sections;
   }  
 
-  console.log('filter section array : ', this.filteredArrayForSectionList);
+  // console.log('filter section array : ', this.filteredArrayForSectionList);
 }
 
 
@@ -380,7 +380,7 @@ submitDepartment() {
         .map(res => res.json())
         .subscribe(
           data => {
-            console.log("after add data : ", data);
+            // console.log("after add data : ", data);
       });
 }
 

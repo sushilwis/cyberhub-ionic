@@ -99,7 +99,7 @@ export class StudentOwndetailsPage implements OnInit {
 
 				if (data.data) {
           this.presentLoading(false);
-          console.log('receive data : ', data.data[0]);
+          // console.log('receive data : ', data.data[0]);
           this.orgDetails = data.data[0];					
 				}
 			});
@@ -140,6 +140,6 @@ export class StudentOwndetailsPage implements OnInit {
   getUserDataFromLocal() {
     let data = localStorage.getItem('userData');
     this.localUserData = JSON.parse(data);
-    console.log('local data : ', this.localUserData);    
+    // console.log('local data : ', this.localUserData);    
   }
 }
