@@ -10,7 +10,7 @@
       <ion-buttons end class="search-icon"> <i class="fas fa-search fa-lg"></i> </ion-buttons>
   </ion-navbar>
    <ion-toolbar>
-    <ion-searchbar></ion-searchbar>
+    <ion-searchbar (keyup)="onChangeSearch($event)"></ion-searchbar>
   </ion-toolbar>
 </ion-header>
 
@@ -18,52 +18,20 @@
 <ion-content>
 
 <ion-list>
-
-  <ion-item>
+  <ion-item *ngFor="let book of allBookList" (click)="presentProfileModal(book.id)">
     <ion-thumbnail item-start>
       <img src="assets/imgs/book.png">
     </ion-thumbnail>
-    <h2><strong>Book Name</strong>: The Federalist Papers</h2>
-    <p><strong>Author Name</strong>: Serial installment</p>
-    <small><strong>Number of Copies</strong>: 10</small>
-  </ion-item>
-
-  <ion-item>
-    <ion-thumbnail item-start>
-      <img src="assets/imgs/book.png">
-    </ion-thumbnail>
-    <h2><strong>Book Name</strong>: The Federalist Papers</h2>
-    <p><strong>Author Name</strong>: Serial installment</p>
-    <small><strong>Number of Copies</strong>: 10</small>
-  </ion-item>
-
-  <ion-item>
-    <ion-thumbnail item-start>
-      <img src="assets/imgs/book.png">
-    </ion-thumbnail>
-    <h2><strong>Book Name</strong>: The Federalist Papers</h2>
-    <p><strong>Author Name</strong>: Serial installment</p>
-    <small><strong>Number of Copies</strong>: 10</small>
-  </ion-item>
-
-  <ion-item>
-    <ion-thumbnail item-start>
-      <img src="assets/imgs/book.png">
-    </ion-thumbnail>
-    <h2><strong>Book Name</strong>: The Federalist Papers</h2>
-    <p><strong>Author Name</strong>: Serial installment</p>
-    <small><strong>Number of Copies</strong>: 10</small>
-  </ion-item>
-
-  <ion-item>
-    <ion-thumbnail item-start>
-      <img src="assets/imgs/book.png">
-    </ion-thumbnail>
-    <h2><strong>Book Name</strong>: The Federalist Papers</h2>
-    <p><strong>Author Name</strong>: Serial installment</p>
-    <small><strong>Number of Copies</strong>: 10</small>
+    <h2 *ngIf="book.book_name"><strong>{{book.book_name}}</strong></h2>
+    <p><strong>Author Name</strong>: {{book.author}}</p>
+    <small><strong>Number of Copies</strong>: {{book.no_copy}}</small>
   </ion-item>
 </ion-list>
+
+<ion-infinite-scroll (ionInfinite)="doInfinite($event)" *ngIf="page < totalPage">
+  <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more..."></ion-infinite-scroll-content>
+</ion-infinite-scroll>
+<!-- *ngIf="page < totalPage" *ngIf="book.book_name"-->
 
 </ion-content>
 

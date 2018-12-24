@@ -28,6 +28,7 @@ import { ParentsLoginPage } from '../pages/parents-login/parents-login';
 import { ParentsStudentViewPage } from '../pages/parents-student-view/parents-student-view';
 import { ParentsChildTabsPage } from '../pages/parents-child-tabs/parents-child-tabs';
 import { StudentLibraryListPage } from '../pages/student-library-list/student-library-list';
+import { ProfilePage } from '../pages/student-library-list/student-library-list';
 import { StudentNoticeBoardPage } from '../pages/student-notice-board/student-notice-board';
 import { AccountPage, ModalPage } from '../pages/account/account';
 import { ChangepasswordPage } from '../pages/changepassword/changepassword';
@@ -99,7 +100,8 @@ import { StdRegPage } from '../pages/std-reg/std-reg';
     SchoolcalenderPage,
     StudentsTabsPage,
     TestPage,
-    StdRegPage
+    StdRegPage,
+    ProfilePage,
   ],
   imports: [
     BrowserModule,
@@ -145,7 +147,8 @@ import { StdRegPage } from '../pages/std-reg/std-reg';
     SchoolcalenderPage,
     StudentsTabsPage,
     TestPage,
-    StdRegPage
+    StdRegPage,
+    ProfilePage,
   ],
   providers: [
     StatusBar,
