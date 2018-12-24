@@ -47,11 +47,15 @@ import { StudentsTabsPage } from '../pages/students-tabs/students-tabs';
 // import { AccountPage, ModalPage } from '../pages/account/account';
 
 import { RippleDirective } from 'ng2-ripple-directive';
+import { Camera } from '@ionic-native/camera';
+import { StreamingMedia } from '@ionic-native/streaming-media';
+
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { ChatServProvider } from '../providers/chat-serv/chat-serv';
 import { TestPage } from '../pages/test/test';
+import { StdRegPage } from '../pages/std-reg/std-reg';
 
 
 
@@ -94,7 +98,8 @@ import { TestPage } from '../pages/test/test';
     AnimatesDirective,
     SchoolcalenderPage,
     StudentsTabsPage,
-    TestPage
+    TestPage,
+    StdRegPage
   ],
   imports: [
     BrowserModule,
@@ -139,7 +144,8 @@ import { TestPage } from '../pages/test/test';
     StuffExamdutyPage,
     SchoolcalenderPage,
     StudentsTabsPage,
-    TestPage
+    TestPage,
+    StdRegPage
   ],
   providers: [
     StatusBar,
@@ -150,7 +156,9 @@ import { TestPage } from '../pages/test/test';
     DocumentViewer,
     FileTransfer,
     NativePageTransitions,
-    ChatServProvider
+    ChatServProvider,
+    Camera,
+    StreamingMedia
   ]
 })
 export class AppModule {}

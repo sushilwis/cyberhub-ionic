@@ -85,14 +85,16 @@ export class AttendanceListPage implements OnInit {
     });
   }
 
+  
+
 
 
   ionViewDidLoad() {
     // console.log('Atted ID : ', JSON.parse(localStorage.getItem('atted_id')));
     // console.log('ionViewDidLoad AttendanceListPage');
-    setTimeout(()=>{
-      this.deactivatePeriodAtted(JSON.parse(localStorage.getItem('atted_id')));
-    }, 15000);
+    // setTimeout(()=>{
+    //   this.deactivatePeriodAtted(JSON.parse(localStorage.getItem('atted_id')));
+    // }, 15000);
   }
 
 
@@ -114,7 +116,7 @@ export class AttendanceListPage implements OnInit {
         .map(res => res.json())
         .subscribe(
           async data => {
-            // console.log("student list : ", data);
+            console.log("student list : ", data);
             if(data.data.length > 1){
               this.attenStudentList = await data.data;
 

@@ -23,7 +23,8 @@
 			    <ion-input type="password" autofocus name="student_password" placeholder="Password" no-margin [(ngModel)]="student_password"></ion-input>
 			  </ion-item>
 			
-			<button ion-button block outline color="blue" class="mt-10" *ngIf="isHide" (click)=goToListing()>Submit</button>
+			<button ion-button block outline color="blue" class="mt-10" *ngIf="isHide" (click)=loginSubmit()>Submit</button>
+			<button ion-button block outline color="blue" class="" (click)='goToRegister()'>Registration</button>
 
 			<button block ion-button outline text-left color="blue" *ngIf="isShown">Register_Id: {{student_register}} </button>
 			<button block ion-button outline text-left color="blue" *ngIf="isShown">Phone: {{phone}}</button>

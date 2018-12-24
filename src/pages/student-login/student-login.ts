@@ -6,6 +6,7 @@ import { Http, RequestOptions, Headers, Jsonp } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { apiUrl } from '../../apiUrl';
 import {messageVendor} from '../../vendors';
+import { StdRegPage } from '../std-reg/std-reg';
 // declare var $: any;
 // declare var jquery : any;
 
@@ -67,7 +68,7 @@ export class StudentLoginPage {
 
 
 
-	goToListing() {
+  loginSubmit() {
 		
 		this.presentLoading(true);
 
@@ -82,9 +83,6 @@ export class StudentLoginPage {
 
 		this.http.post(`${apiUrl.url}user/applogin`, data, options).
 			map(res => res.json()).subscribe(data => {	
-
-				// console.log('student data : ', data);
-
 				if (data.data) {
 					this.presentLoading(false);
 					localStorage.setItem('userData', JSON.stringify(data.data[0]));
@@ -92,6 +90,17 @@ export class StudentLoginPage {
 				}
 			});
 	}
+
+
+
+
+
+	goToRegister() {
+		// this.presentLoading(true);
+		this.navCtrl.push(StdRegPage);
+		// this.presentLoading(false);	
+	}
+
 
 
 
