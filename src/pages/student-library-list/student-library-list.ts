@@ -29,6 +29,7 @@ export class StudentLibraryListPage {
   loading: any;
   matchItem: any;
   allBook: any;
+  showNotFound: boolean;
   
 
 
@@ -97,6 +98,7 @@ export class StudentLibraryListPage {
             }          
       });        
   }
+  
 
 
 
@@ -130,25 +132,36 @@ export class StudentLibraryListPage {
 
 
 
-  onChangeSearch(e){
+  async onChangeSearch(e){
+    this.showNotFound = false;
     let tempArr = [];
-    console.log('search change...', e.target.value);
+    // console.log('search change...', e.target.value);
     if(e.target.value != ""){     
       for (let index = 0; index < this.allBookList.length; index++) {
-            var matchFound = this.allBookList[index].book_name.toLowerCase().match(e.target.value); 
-            var matchAuthor = this.allBookList[index].author.toLowerCase().match(e.target.value);
+            var matchFound = await this.allBookList[index].book_name.toLowerCase().match(e.target.value);
+            var matchAuthor = await this.allBookList[index].author.toLowerCase().match(e.target.value);
                 
             if (matchFound != null) {
-              // this.matchItem = matchFound.input;
-              // console.log('match items : ', index, 'value : ', this.matchItem);
               tempArr.push(this.allBookList[index]);
+              this.showNotFound = false;
             }
 
             if (matchAuthor != null) {
-              // this.matchItem = matchAuthor.input;
-              // console.log('match items : ', index, 'value : ', this.matchItem);
               tempArr.push(this.allBookList[index]);
+              this.showNotFound = false;
             }
+
+            
+      }
+
+      // if(matchFound === null && matchAuthor === null){
+      //   console.log('not found any thing...');
+      //   this.showNotFound = true;
+      // }
+
+      if(tempArr.length == 0){
+        console.log('not found any thing...');
+        this.showNotFound = true;
       }
 
       tempArr = tempArr.filter(function(item, pos) {
@@ -156,8 +169,10 @@ export class StudentLibraryListPage {
       }) 
 
       this.allBookList = tempArr;
+      // this.showNotFound = false;
     }else{
       this.allBookList = this.allBook;
+      
     }   
   }
 
@@ -185,7 +200,7 @@ export class StudentLibraryListPage {
 		else {
 			setTimeout(() => {
 				return this.loading.dismiss();
-			}, 1000);
+			}, 500);
 		}
   }
   

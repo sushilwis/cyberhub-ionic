@@ -29,7 +29,7 @@ import { ParentsStudentViewPage } from '../pages/parents-student-view/parents-st
 import { ParentsChildTabsPage } from '../pages/parents-child-tabs/parents-child-tabs';
 import { StudentLibraryListPage } from '../pages/student-library-list/student-library-list';
 import { ProfilePage } from '../pages/student-library-list/student-library-list';
-import { StudentNoticeBoardPage } from '../pages/student-notice-board/student-notice-board';
+import { StudentNoticeBoardPage, NoticeModalPage } from '../pages/student-notice-board/student-notice-board';
 import { AccountPage, ModalPage } from '../pages/account/account';
 import { ChangepasswordPage } from '../pages/changepassword/changepassword';
 import { ParentsAccountPage } from '../pages/parents-account/parents-account';
@@ -46,6 +46,8 @@ import { StuffExamdutyPage } from '../pages/stuff-examduty/stuff-examduty';
 import { SchoolcalenderPage } from '../pages/schoolcalender/schoolcalender';
 import { StudentsTabsPage } from '../pages/students-tabs/students-tabs';
 // import { AccountPage, ModalPage } from '../pages/account/account';
+// import { StudentNoticeBoardPage, NoticeModalPage } from './student-notice-board';
+import { StuffChangePassPage } from '../pages/stuff-change-pass/stuff-change-pass';
 
 import { RippleDirective } from 'ng2-ripple-directive';
 import { Camera } from '@ionic-native/camera';
@@ -57,6 +59,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { ChatServProvider } from '../providers/chat-serv/chat-serv';
 import { TestPage } from '../pages/test/test';
 import { StdRegPage } from '../pages/std-reg/std-reg';
+import { StuffEditPage } from '../pages/stuff-edit/stuff-edit';
 
 
 
@@ -102,6 +105,9 @@ import { StdRegPage } from '../pages/std-reg/std-reg';
     TestPage,
     StdRegPage,
     ProfilePage,
+    NoticeModalPage,
+    StuffChangePassPage,
+    StuffEditPage
   ],
   imports: [
     BrowserModule,
@@ -149,6 +155,9 @@ import { StdRegPage } from '../pages/std-reg/std-reg';
     TestPage,
     StdRegPage,
     ProfilePage,
+    NoticeModalPage,
+    StuffChangePassPage,
+    StuffEditPage
   ],
   providers: [
     StatusBar,

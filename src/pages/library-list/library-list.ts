@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { IonicPage, NavController, NavParams, MenuController, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, MenuController, AlertController, LoadingController, ModalController, ViewController } from 'ionic-angular';
 import { SchoolDetailsPage } from '../school-details/school-details';
 import { RequestOptions, Headers, Http } from '@angular/http';
 import { LiveStreamPage } from '../live-stream/live-stream';
 import { apiUrl } from '../../apiUrl';
+import { ProfilePage } from '../student-library-list/student-library-list';
 /**
  * Generated class for the LibraryListPage page.
  *
@@ -18,21 +19,30 @@ import { apiUrl } from '../../apiUrl';
 })
 export class LibraryListPage implements OnInit {
   localUserData: any;
-  allBookList: any;
+  allBookList: any = [];
+  schoolId: any;
+  loading: any;
+  allBook: any = [];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private menu:MenuController,  private http: Http, public alertCtrl: AlertController) {
-
-  	this.menu.enable(false);
-
+  constructor(public navCtrl: NavController, public navParams: NavParams, private menu:MenuController,  private http: Http, public alertCtrl: AlertController, public loadingController: LoadingController, public modalCtrl: ModalController, public viewCtrl: ViewController) {
+    this.menu.enable(false);
+    this.schoolId = navParams.get('id');
+    this.initLoader();
   }
+
+
+
+
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LibraryListPage');
   }
+
   
-   goToHome(){
+  goToHome(){
 		this.navCtrl.push(SchoolDetailsPage);
-	}
+  }
+  
   
   gotoLiveStream(){
     this.navCtrl.push(LiveStreamPage);
@@ -48,25 +58,27 @@ export class LibraryListPage implements OnInit {
 
 
   async getBookList(){
-    await this.getUserDataFromLocal();
+    this.presentLoading(true);
+    // await this.getUserDataFromLocal();
     let header = new Headers();
     header.set("Content-Type", "application/json");
 
       let data = {
-        master_id: this.localUserData.org_code
-      }
-      
-      console.log('Data sent : ', data);
-      
+        master_id: this.schoolId
+      }      
+      // console.log('Data sent : ', data);
+
       this.http
         .post(`${apiUrl.url}library/librarydetails`, data, {headers: header})
         .map(res => res.json())
         .subscribe(
           async data => {
+              this.presentLoading(false);
             console.log("book list : ", data);
             if(data.data.length > 1){
               this.allBookList = await data.data;
             }else{
+              this.presentLoading(false);
             }          
       });        
   }
@@ -75,8 +87,58 @@ export class LibraryListPage implements OnInit {
 
 
 
-  getUserDataFromLocal() {
-    let data = localStorage.getItem('userData');
-    this.localUserData = JSON.parse(data);  
+
+  // getUserDataFromLocal() {
+  //   let data = localStorage.getItem('userData');
+  //   this.localUserData = JSON.parse(data);  
+  // }
+
+
+  initLoader() {
+    this.loading = this.loadingController.create({
+      spinner: 'hide',
+      content: '<img class="loader-class" src="assets/icon/tail-spin.svg"> <p>Loading please wait...</p>',
+    });
   }
+
+
+
+
+
+  presentLoading(load: boolean) {
+    if (load){
+      return this.loading.present();
+    }
+    else{
+      setTimeout(() => {
+        return this.loading.dismiss();
+      }, 500);
+    }
+  }
+
+
+
+
+
+
+  presentProfileModal(id) {
+    // console.log('clicked...', id); 
+    let filterBook = this.allBookList.filter(function(item) {
+      return item.id == id;
+    })   
+    let profileModal = this.modalCtrl.create(ProfilePage, { book: filterBook[0] });
+    profileModal.present();
+  }
+
+
+
+
+
+  dismiss() {
+    this.viewCtrl.dismiss();
+  }
+
+
+
+
 }

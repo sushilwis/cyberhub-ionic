@@ -13,29 +13,29 @@
   </ion-navbar>
 </ion-header>
 
+
+
+
+
 <ion-content>
-<ion-card color="light" [ripple]>
-  <ion-card-header>
-    <strong>Submit fine </strong>
-  </ion-card-header>
-  <ion-card-content>
-    <p>You must submit fine for book submit date over.</p>
-    <ion-note text-right float-right>10 hours ago</ion-note>
-  </ion-card-content>
-</ion-card>
+  <ion-card color="light" [ripple] *ngFor="let personalNotice of allPersonalNotice" (click)="presentProfileModal(personalNotice.id)">
+    <ion-card-header>
+      <strong>{{personalNotice.notice.subject}}</strong>
+    </ion-card-header>
+    <ion-card-content>
+      <p>{{personalNotice.notice.text}}</p>
+      <ion-note text-right float-right>10 hours ago</ion-note>
+    </ion-card-content>
+  </ion-card>
 
-<ion-card color="light" [ripple]>
-  <ion-card-header>
-    <strong>Submit fine </strong>
-  </ion-card-header>
-  <ion-card-content>
-    <p>You must submit fine for book submit date over.</p>
-    <ion-note text-right float-right>10 hours ago</ion-note>
-  </ion-card-content>
-</ion-card>
-
-
+  <ion-card text-center *ngIf="showNothingMsg">
+    <p>Nothing To Show</p>
+  </ion-card>
 </ion-content>
+
+
+
+
 
 <ion-footer class="fixed">
   <ion-toolbar color="primary">

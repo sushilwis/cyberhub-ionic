@@ -12,9 +12,7 @@
 					<ion-icon name="search" color="light"></ion-icon>
 				</button>
 			</ion-buttons>
-			<ion-searchbar #search (ionInput)="getItems($event)" *ngIf="isSearchbarOpened" showCancelButton="true" (ionCancel)="isSearchbarOpened=false">
-
-			</ion-searchbar>
+			<ion-searchbar #search (ionInput)="getItems($event)" *ngIf="isSearchbarOpened" showCancelButton="true" (ionCancel)="isSearchbarOpened=false"></ion-searchbar>
 		</ion-navbar>
 		<div class="search-result" [ngStyle]="{'display':isSearchbarOpened ? 'block' : 'none' }">
 			<ion-list>

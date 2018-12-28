@@ -15,7 +15,7 @@
 
 <ion-content>
 
-  <ion-list>
+  <!-- <ion-list>
 
     <ion-item *ngFor="let list of noticeList">
       <ion-thumbnail item-start>
@@ -25,7 +25,27 @@
       <p>{{list?.subject}}</p>
       <button ion-button clear item-end (click)="downloadAndOpenPdf(list?.file_url)"><i class="fas fa-download fa-2x"></i></button>
     </ion-item>
-  </ion-list>
+  </ion-list> -->
+  <!-- (click)="presentProfileModal(notice.id)" -->
+    <ion-list *ngFor="let notice of noticeList">
+      <ion-item *ngIf="notice.notice">
+        <ion-thumbnail item-start (click)="presentProfileModal(notice.id)">
+          <img src="assets/imgs/download-img.png">
+        </ion-thumbnail>
+        <h2>{{notice?.notice?.subject}}</h2>
+        <p>{{notice?.notice?.text}}</p>
+        <p>{{notice?.noticetype?.type_name}}</p>
+        <button ion-button clear item-end (click)="showPdf(notice?.notice?.file_url)">
+          <i class="fas fa-download fa-2x"></i>
+        </button>
+      </ion-item>  
+    </ion-list>
+
+    <ion-list *ngIf="!showList">
+      <ion-item text-center>
+        <p>No Data Found</p>
+      </ion-item>  
+    </ion-list>
 </ion-content>
 
 

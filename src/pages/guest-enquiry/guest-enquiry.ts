@@ -32,56 +32,81 @@ export class GuestEnquiryPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, private http: Http) {
     this.getData();
   }
+
+
+
+
   getData() {
-    this.http.get(`${apiUrl.url}/schools`).
+    this.http.get(`${apiUrl.url}org/alllist`).
       map(res => res.json()).subscribe(data =>{
         this.allSchoolsList = data;
-        data.forEach(ele => {
+        console.log('student list : ', this.allSchoolsList);        
+        data.data.forEach(ele => {
           const obj = {
             'id': ele.id,
-            'name': ele.school_name
+            'name': ele.org_name
           }
           this.list.push(obj);
-
         });
     });
   }
+
+
+
+
   initializeItems(){
     this.items = this.list;
   }
+
+
+
   onSearchButtonClick(){
     this.isSearchbarOpened = true;
     setTimeout(() => {
       this.searchbox.setFocus();
     }, 150);
-
   }
+
+
+
   schoolsDetails(id){
     this.navCtrl.push(SchoolDetailsPage, {
       id: id
-    },{ animation: 'transition', duration: 1000, direction: 'forward' });
-
+    }, { animation: 'transition', duration: 1000, direction: 'forward' });
   }
+
+
+
   ionViewDidLoad() {
     console.log('ionViewDidLoad GuestEnquiryPage');
   }
+
+
 
 	goToListing(){
 		this.navCtrl.push(SchoolListingPage);
   }
 
+
+
   getItems(ev: any) {
     // Reset items back to all of the items
+    // console.log('value : ', ev.target.value);    
     this.initializeItems();
 
     // set val to the value of the searchbar
     const val = ev.target.value;
+    // console.log(this.items);    
 
     // if the value is an empty string don't filter the items
     if (val && val.trim() != '') {
       this.items = this.items.filter((item) => {
-        return (item['name'].toLowerCase().indexOf(val.toLowerCase()) > -1);
+        return (item.name.toLowerCase().indexOf(val.toLowerCase()) > -1);
       })
     }
   }
+
+
+
+
 }

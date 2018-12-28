@@ -14,19 +14,21 @@
 <ion-content>
   <div class="back-ground">
       <img src="assets/imgs/student-icon.png"/>
-      <h5 text-center text-uppercase color="light">My Name</h5>
-      <p text-center text-uppercase>Register Id: 123456789</p>
+      <h5 text-center text-uppercase color="light">{{teacherDetails?.name}}</h5>
+      <p text-center text-uppercase>Register Id: {{teacherDetails?.user_name}}</p>
   </div>
 
   <ion-card>
   <ion-card-content>
-      <p><strong>Email</strong>: demo@gmail.com</p>
+      <p><strong>Email</strong>: {{teacherDetails?.email}}</p>
+      <p><strong>Aadhar</strong>: {{teacherDetails?.adhar_no}}</p>
       <p><strong>Mobile</strong>: 1234567890</p>
-      <p><strong>Child Name One</strong>: Loriem Ipsum</p>
-      <p><strong>Child Name Two</strong>: Loriem Ipsum</p>
-      <p><strong>Child Name Three</strong>: Loriem Ipsum</p>
+      <p><strong>Gender</strong>: {{teacherDetails?.gender}}</p>
+      <p><strong>qualification</strong>: {{teacherDetails?.qualification}}</p>
+      <p><strong>Short Name</strong>: {{teacherDetails?.short_name}}</p>
       <br/>
       <button ion-button type="submit" block outline color="blue" class="mt-10" (click)=goToPassword()>Change Password</button>
+      <button ion-button type="submit" block outline color="blue" class="mt-10" (click)=goToEditProfile()>Edit Profile</button>
   </ion-card-content>
 </ion-card>
 

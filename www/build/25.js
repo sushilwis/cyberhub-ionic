@@ -1,14 +1,15 @@
 webpackJsonp([25],{
 
-/***/ 389:
+/***/ 393:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GuestEnquiryPageModule", function() { return GuestEnquiryPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LiveStreamPageModule", function() { return LiveStreamPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__guest_enquiry__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__live_stream__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_streaming_media__ = __webpack_require__(137);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,23 +19,25 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var GuestEnquiryPageModule = /** @class */ (function () {
-    function GuestEnquiryPageModule() {
+
+var LiveStreamPageModule = /** @class */ (function () {
+    function LiveStreamPageModule() {
     }
-    GuestEnquiryPageModule = __decorate([
+    LiveStreamPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__guest_enquiry__["a" /* GuestEnquiryPage */],
+                __WEBPACK_IMPORTED_MODULE_2__live_stream__["a" /* LiveStreamPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__guest_enquiry__["a" /* GuestEnquiryPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__live_stream__["a" /* LiveStreamPage */]),
             ],
+            providers: [__WEBPACK_IMPORTED_MODULE_3__ionic_native_streaming_media__["a" /* StreamingMedia */]]
         })
-    ], GuestEnquiryPageModule);
-    return GuestEnquiryPageModule;
+    ], LiveStreamPageModule);
+    return LiveStreamPageModule;
 }());
 
-//# sourceMappingURL=guest-enquiry.module.js.map
+//# sourceMappingURL=live-stream.module.js.map
 
 /***/ })
 

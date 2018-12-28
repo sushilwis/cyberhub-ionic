@@ -23,7 +23,8 @@
 			padding: 30px 40px;
 		}
 		.enquiry-form h3{
-			color: #00109f;
+			// color: #00109f;
+			color: #000;
 			position: relative;
 		}
 		.enquiry-form h3:after{
@@ -31,7 +32,8 @@
 			width: 80%;
 			height: 2px;
 			margin: 0px auto;
-			background:#00109f;
+			// background:#00109f;
+			background: #000;
 			bottom: -5px;
 			content: '';
 			left: 50%;
@@ -51,14 +53,16 @@
 			background:  none !important
 		}
 		.curve{
-			background: #00109f;
+			// background: #00109f;
+			background: #000;
 			height: 15vh;
 			width: 100%;
 			shape-outside: ellipse(100px 200px at 50% 50%);
 		}
 		.heading{
 			font-size: 40px;
-		    color: linear-gradient(141deg, #23309e 0%, #1b7bc5 51%, #2635bf 75%);;
+			// color: linear-gradient(141deg, #23309e 0%, #1b7bc5 51%, #2635bf 75%);
+			color: #000;
 		    position: relative;
 		    text-align: center;
 		    left: 50%;

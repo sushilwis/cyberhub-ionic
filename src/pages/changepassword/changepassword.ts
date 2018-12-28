@@ -37,7 +37,7 @@ export class ChangepasswordPage implements OnInit {
     // console.log('ionViewDidLoad ChangepasswordPage');
   }
 
-
+  
 
   getUserDataFromLocal() {
     let data = localStorage.getItem('userData');

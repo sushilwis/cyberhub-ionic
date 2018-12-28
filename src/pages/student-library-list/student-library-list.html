@@ -17,6 +17,12 @@
 
 <ion-content>
 
+    <ion-list>
+        <ion-item *ngIf="showNotFound" text-center>
+          <p>Not Found Any Book</p>
+        </ion-item>
+    </ion-list>
+
 <ion-list>
   <ion-item *ngFor="let book of allBookList" (click)="presentProfileModal(book.id)">
     <ion-thumbnail item-start>

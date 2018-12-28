@@ -14,47 +14,21 @@
 
 
 <ion-content>
+  <ion-list>
 
-<ion-list>
+    <ion-item *ngFor="let notice of allNotice">
+      <ion-thumbnail item-start (click)="presentProfileModal(notice.id)">
+        <img src="assets/imgs/download-img.png">
+      </ion-thumbnail>
+      <h2>{{notice?.notice?.subject}}</h2>
+      <p>{{notice?.notice?.text}}</p>
+      <p>{{notice?.noticetype?.type_name}}</p>
+      <button ion-button clear item-end (click)="showPdf(notice?.notice?.file_url)">
+        <i class="fas fa-download fa-2x"></i>
+      </button>
+    </ion-item>
 
-  <ion-item>
-    <ion-thumbnail item-start>
-      <img src="assets/imgs/download-img.png">
-    </ion-thumbnail>
-    <h2>Your Pdf Download</h2>
-    <p>Hayao Miyazaki • 1992</p>
-    <button ion-button clear item-end><i class="fas fa-download fa-2x"></i></button>
-  </ion-item>
-
-
-  <ion-item>
-    <ion-thumbnail item-start>
-      <img src="assets/imgs/download-img.png">
-    </ion-thumbnail>
-    <h2>My School Name</h2>
-    <p>Hayao Miyazaki • 1992</p>
-    <button ion-button clear item-end><i class="fas fa-download fa-2x"></i></button>
-  </ion-item>
-
-
-  <ion-item>
-    <ion-thumbnail item-start>
-      <img src="assets/imgs/download-img.png">
-    </ion-thumbnail>
-    <h2>My School Name</h2>
-    <p>Hayao Miyazaki • 1992</p>
-    <button ion-button clear item-end><i class="fas fa-download fa-2x"></i></button>
-  </ion-item>
-
-  <ion-item>
-    <ion-thumbnail item-start>
-      <img src="assets/imgs/download-img.png">
-    </ion-thumbnail>
-    <h2>My School Name</h2>
-    <p>Hayao Miyazaki • 1992</p>
-    <button ion-button clear item-end><i class="fas fa-download fa-2x"></i></button>
-  </ion-item>
-</ion-list>
+  </ion-list>
 </ion-content>
 
 

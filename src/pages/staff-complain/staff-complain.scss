@@ -1,6 +1,7 @@
 page-staff-complain {
 	.enquiry-form h3{
-			color: #00109f;
+			// color: #00109f;
+			color: #000;
 			position: relative;
 		}
 		.enquiry-form h3:after{
@@ -8,7 +9,8 @@ page-staff-complain {
 			width: 80%;
 			height: 2px;
 			margin: 0px auto;
-			background:#00109f;
+			// background:#00109f;
+			background: #000;
 			bottom: -5px;
 			content: '';
 			left: 50%;
@@ -17,6 +19,7 @@ page-staff-complain {
 		}
 		.text-blue{
 			font-size:10px;
-			color:#00109f;
+			// color:#00109f;
+			color: #000;
 		}
 }

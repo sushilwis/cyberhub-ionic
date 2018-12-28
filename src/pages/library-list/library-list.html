@@ -16,16 +16,24 @@
 
 
 <ion-content>
-  <!-- <ion-list>
-    <ion-item>
+  <ion-list>
+    <!-- <ion-item >
       <ion-thumbnail item-start>
         <img src="assets/imgs/book.png">
       </ion-thumbnail>
       <h2><strong>Book Name</strong>: The Federalist Papers</h2>
       <p><strong>Author Name</strong>: Serial installment</p>
       <small><strong>Number of Copies</strong>: 10</small>
+    </ion-item> -->
+    <ion-item *ngFor="let book of allBookList" (click)="presentProfileModal(book.id)">
+      <ion-thumbnail item-start>
+        <img src="assets/imgs/book.png">
+      </ion-thumbnail>
+      <h2 *ngIf="book.book_name"><strong>{{book.book_name}}</strong></h2>
+      <p><strong>Author Name</strong>: {{book.author}}</p>
+      <small><strong>Number of Copies</strong>: {{book.no_copy}}</small>
     </ion-item>
-  </ion-list> -->
+  </ion-list>
 </ion-content>
 
 

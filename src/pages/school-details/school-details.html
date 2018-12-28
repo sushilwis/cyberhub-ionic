@@ -16,23 +16,45 @@
 
 <ion-content fullscreen="" #mycontent="">
 
-<ion-card>
+<!-- <ion-card>
   <img src="assets/imgs/SCHOOLS-Banner-Images.jpg"/>
   <ion-card-content>
     <ion-card-title>
 
       {{ schoolDetails && schoolDetails[0]?.school_name }}
       </ion-card-title>
-      <p><strong>Address</strong>: {{ schoolDetails && schoolDetails[0]?.location }}</p>
-      <p><strong>Email</strong>: demo@gmail.com</p>
-      <p><strong>Mobile</strong>: 1234567890</p>
+      <p><strong>Address</strong>: {{schoolDetails.org_address}}</p>
+      <p><strong>Email</strong>: {{schoolDetails.org_address}}</p>
+      <p><strong>Mobile</strong>: {{schoolDetails.org_address}}</p>
+
       <p>The most popular industrial group ever, and largely responsible for bringing the music to a mass audience. The most popular industrial group ever, and largely responsible for bringing the music to a mass audience.
         The most popular industrial group ever, and largely responsible for bringing the music to a mass audience.
         The most popular industrial group ever, and largely responsible for bringing the music to a mass audience.
         The most popular industrial group ever, and largely responsible for bringing the music to a mass audience.
       </p>
   </ion-card-content>
-</ion-card>
+</ion-card> -->
+
+
+<ion-card>
+    <img [src]="schoolDetails?.org_img"/>
+    <ion-card-content>
+      <ion-card-title>
+        {{schoolDetails?.org_name}}
+      </ion-card-title>
+        <div float-right >
+          <p [ngStyle]="{'font-size': '24px'}">
+            <ion-icon name="cloud"></ion-icon>
+          17 °C</p>
+        </div>
+        <!-- <p ><strong>Email</strong>: demo@gmail.com</p>
+        <p><strong>Mobile</strong>: 1234567890</p> -->
+        <div [innerHtml]="schoolDetails?.org_text"></div>
+        <p><strong>About</strong> : </p>
+        <div [innerHtml]="schoolDetails?.org_about" class="mt-4"></div>
+    </ion-card-content>
+    
+  </ion-card>
 
 
 <ion-grid>
