@@ -30,6 +30,9 @@ export class StudentOwndetailsPage implements OnInit {
   localUserData: any;
   orgDetails: any;
   loading: any;
+  allNotice: any;
+  allPersonalNotice: any;
+  personalNoticeCount: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public menuCtrl: MenuController, public loadingController: LoadingController, private http: Http) {
     this.menuCtrl.enable(true);
@@ -39,6 +42,7 @@ export class StudentOwndetailsPage implements OnInit {
   ngOnInit(){
     this.getUserDataFromLocal();
     this.getUserData();
+    this.getNoticeList();
   }
 
 
@@ -142,4 +146,45 @@ export class StudentOwndetailsPage implements OnInit {
     this.localUserData = JSON.parse(data);
     // console.log('local data : ', this.localUserData);    
   }
+
+
+
+
+
+  async getNoticeList(){
+    // this.presentLoading(true);
+    await this.getUserDataFromLocal();
+
+    let header = new Headers();
+    header.set("Content-Type", "application/json");
+
+      let data = {
+        org_id: this.localUserData.org_code,
+        user_type_id: this.localUserData.user_type_id,
+        master_id: this.localUserData.master_id
+      } 
+      
+      this.http
+        .post(`${apiUrl.url}notice/get`, data, {headers: header})
+        .map(res => res.json())
+        .subscribe(
+          async data => {
+            if(data.data.length > 1){
+              this.allNotice = await data.data;
+              this.allPersonalNotice = await this.allNotice.filter((item)=>{
+                return item.notiece_type_id == 3; 
+              });              
+              this.personalNoticeCount = this.allPersonalNotice.length;
+              console.log('personal notice count : ', this.personalNoticeCount);
+              // this.presentLoading(false);             
+            }else{
+              // this.presentLoading(false);
+            }          
+      });
+  }
+
+
+
+
+  
 }

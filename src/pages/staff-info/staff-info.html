@@ -20,57 +20,65 @@
   </div> -->
 
 
-<ion-card>
-  <img src="{{orgDetails?.org_img}}"/>
-  <ion-card-content>
-    <ion-card-title>
-      {{orgDetails?.org_name}}
-      </ion-card-title>
-      <div [innerHtml]="orgDetails?.org_text"></div>
-      <p><strong>About</strong> : </p>
-      <div [innerHtml]="orgDetails?.org_about" class="mt-4"></div>
-      
-      <p (click)=goToPrincipal()>PRINCIPAL</p> <p (click)=goToComplainDesk()>PRINCIPAL COMPLAIN DESK</p>
-      <p (click)=goToStuffDuty()>Stuff Duty</p>
-  </ion-card-content>
-</ion-card>
+  <ion-card>
+    <img src="{{orgDetails?.org_img}}"/>
+    <ion-card-content>
+      <ion-card-title>
+        {{orgDetails?.org_name}}
+        </ion-card-title>
+        <div [innerHtml]="orgDetails?.org_text"></div>
+        <p><strong>About</strong> : </p>
+        <div [innerHtml]="orgDetails?.org_about" class="mt-4"></div>
+        
+        <!-- <p (click)=goToPrincipal()>PRINCIPAL</p> <p (click)=goToComplainDesk()>PRINCIPAL COMPLAIN DESK</p> -->
+        <!-- <p (click)=goToStuffDuty()>Stuff Duty</p> -->
+    </ion-card-content>
+  </ion-card>
 
-<ion-grid>
-  <ion-row>
-    <ion-col col-md-3 class="icon-center" (click)=goToLibrary()>
-      <img src="assets/imgs/icon.png"/>
-      <p>Library</p>
-    </ion-col>
-    <ion-col col-md-3 class="icon-center" (click)=goToAllPdf()>
-      <img src="assets/imgs/icon2.png"/>
-      <p>Notice Board</p>
-    </ion-col>
-    <ion-col col-md-3 class="icon-center" (click)=goToPersonalNotice()>
-      <img src="assets/imgs/icon6.png"/>
-      <p>Personal Notice</p>
-    </ion-col>
-    <ion-col col-md-3 class="icon-center" (click)=goToAccount()>
-      <img src="assets/imgs/icon5.png"/>
-      <p>Account</p>
-    </ion-col>
-  </ion-row>
-  <ion-row>
-    <ion-col col-md-3 class="icon-center" (click)=goToAttendance()>
-      <img src="assets/imgs/icon3.png"/>
-      <p>Attendance</p>
-    </ion-col>
-    <ion-col col-md-3 class="icon-center" (click)=gotoLiveStream()>
-      <img src="assets/imgs/icon1.png"/>
-      <p>Live Stream</p>
-    </ion-col>
-    <ion-col col-md-3 class="icon-center" (click)=goToComplain()>
-      <img src="assets/imgs/icon7.png"/>
-      <p>Complain</p>
-    </ion-col>
-    <ion-col col-md-3 class="icon-center" (click)=goToGuest()>
-      <img src="assets/imgs/guest.png"/>
-      <p>Guest</p>
-    </ion-col>
-  </ion-row>
-</ion-grid>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-md-3 class="icon-center" (click)=goToLibrary()>
+        <img src="assets/imgs/icon.png"/>
+        <p>Library</p>
+      </ion-col>
+      <ion-col col-md-3 class="icon-center" (click)=goToAllPdf()>
+        <img src="assets/imgs/icon2.png"/>
+        <p>Notice Board</p>
+      </ion-col>
+      <ion-col col-md-3 class="icon-center" (click)=goToPersonalNotice()>
+        <img src="assets/imgs/icon6.png"/>
+        <p>Personal Notice</p>
+      </ion-col>
+      <ion-col col-md-3 class="icon-center" (click)=goToAccount()>
+        <img src="assets/imgs/icon5.png"/>
+        <p>Account</p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-md-3 class="icon-center" (click)=goToAttendance()>
+        <img src="assets/imgs/icon3.png"/>
+        <p>Attendance</p>
+      </ion-col>
+      <ion-col col-md-3 class="icon-center" (click)=goToStuffDuty()>
+        <img src="assets/imgs/calendar1.png"/>
+        <p>Stuff Duty</p>
+      </ion-col>
+      <ion-col col-md-3 class="icon-center" (click)=gotoLiveStream()>
+        <img src="assets/imgs/icon1.png"/>
+        <p>Live Stream</p>
+      </ion-col>
+      <ion-col col-md-3 class="icon-center" (click)=goToComplain()>
+        <img src="assets/imgs/icon7.png"/>
+        <p>Complain</p>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col col-md-3 class="" (click)=goToGuest()>
+        <img src="assets/imgs/guest.png"/>
+        <p>Guest</p>
+      </ion-col>
+    </ion-row>
+    
+  </ion-grid>
 </ion-content>

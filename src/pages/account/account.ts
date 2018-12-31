@@ -95,7 +95,6 @@ export class AccountPage implements OnInit {
 
 		this.http.post(`${apiUrl.url}student/studentdetail`, data, options).
 			map(res => res.json()).subscribe(data => {				
-				// console.log('student details : ', data.data[0]);
 				if (data.data[0]) {
           this.presentLoading(false);
           this.studentDetails = data.data[0];
@@ -105,7 +104,6 @@ export class AccountPage implements OnInit {
           }else{
             this.showSelectDepartmentBtn = true;
           }
-
 				}
 			});
   }

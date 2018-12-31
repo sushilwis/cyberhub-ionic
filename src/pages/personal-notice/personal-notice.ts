@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { IonicPage, NavController, NavParams, MenuController, LoadingController } from 'ionic-angular';
 import { LiveStreamPage } from '../live-stream/live-stream';
 import { AttendancePage } from '../attendance/attendance';
@@ -9,6 +9,7 @@ import { apiUrl } from '../../apiUrl';
 import { ModalController, Platform, ViewController } from 'ionic-angular';
 import { DocumentViewer } from '@ionic-native/document-viewer';
 import { NoticeModalPage } from '../student-notice-board/student-notice-board';
+import * as moment from 'moment';
 /**
  * Generated class for the PersonalNoticePage page.
  *
@@ -21,12 +22,13 @@ import { NoticeModalPage } from '../student-notice-board/student-notice-board';
   selector: 'page-personal-notice',
   templateUrl: 'personal-notice.html',
 })
-export class PersonalNoticePage implements OnInit {
+export class PersonalNoticePage implements OnInit, AfterViewInit {
   localUserData: any;
-  allNotice: any;
+  allNotice: any = [];
   loading: any;
-  allPersonalNotice: any;
+  allPersonalNotice: any = [];
   showNothingMsg: boolean;
+  personalNoticeCount: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController, public document: DocumentViewer, public menuCtrl: MenuController, public loadingController: LoadingController, public modalCtrl: ModalController, private http: Http) {
     this.initLoader();
@@ -36,6 +38,11 @@ export class PersonalNoticePage implements OnInit {
   ngOnInit(){
     this.getNoticeList();
     this.showNothingMsg = false;
+  }
+
+
+  ngAfterViewInit(){
+    console.log('after view init');    
   }
 
 
@@ -62,8 +69,8 @@ export class PersonalNoticePage implements OnInit {
   async getNoticeList(){
 
     this.presentLoading(true);
-
     await this.getUserDataFromLocal();
+
     let header = new Headers();
     header.set("Content-Type", "application/json");
 
@@ -85,13 +92,24 @@ export class PersonalNoticePage implements OnInit {
               this.allPersonalNotice = await this.allNotice.filter((item)=>{
                 return item.notiece_type_id == 3; 
               });
+
+              // this.personalNoticeCount = this.allPersonalNotice.length;
               // console.log('personal notice : ', this.allPersonalNotice);
-              if(this.allPersonalNotice.length > 0){
+              // this.createJavascriptDate();
+
+              if(this.allPersonalNotice.length > 0) {
                 this.showNothingMsg = false;
+                this.allPersonalNotice = await this.allNotice.filter((item)=>{
+                  return item.notiece_type_id == 3; 
+                });               
+                this.allPersonalNotice.forEach(item => {                  
+                  item.timeDifference = this.createJavascriptDate(item.created_at);
+                });
               }else{
                 this.showNothingMsg = true;
               }
-              // console.log('show nothing value : ', this.showNothingMsg);
+
+              // console.log('personal notice with time defference : ', this.allPersonalNotice);
               this.presentLoading(false);             
             }else{
               this.presentLoading(false);
@@ -104,11 +122,17 @@ export class PersonalNoticePage implements OnInit {
 
 
 
+
+
+
+
+
+
+
   getUserDataFromLocal() {
     let data = localStorage.getItem('userData');
     this.localUserData = JSON.parse(data);
-    console.log('local data : ', this.localUserData);
-      
+    console.log('local data : ', this.localUserData);      
   }
 
 
@@ -172,4 +196,25 @@ export class PersonalNoticePage implements OnInit {
   showPdf(url: string) {   
     this.document.viewDocument(url, 'application/pdf', {});
   }
+
+
+
+
+
+
+  createJavascriptDate(strDate){
+    // let date = await new Date();
+    let onlyDate = strDate.substring(0, 10);
+    let dateArr = onlyDate.split('-'); 
+    let date = dateArr[0]+dateArr[1]-1+dateArr[2];
+    console.log('date str : ', date);
+    return moment(date, "YYYYMMDD").fromNow(); 
+    // let timeStamp = new Date().setFullYear(dateArr[0], dateArr[1]-1, dateArr[2]);  
+    // let jsDate = new Date(timeStamp);       
+    // return jsDate;
+  }
+
+
+
+
 }

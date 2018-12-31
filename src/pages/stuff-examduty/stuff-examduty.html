@@ -15,7 +15,58 @@
 
 <ion-content no-padding>
 
-<ion-card>
+
+
+    <ion-list>
+        <ion-item *ngFor="let routine of routineList" (click)="toggleDetails(routine)"><ion-icon color="primary" item-right [name]="routine?.icon"></ion-icon>
+          Day {{routine?.day}}
+          <!-- <table *ngIf="routine.showDetails">{{routine}}</table> -->
+    
+          <ion-list *ngIf="routine?.showDetails">
+            <ion-item *ngFor="let r of routine.priods">
+              <!-- <p>Priod : {{r?.priod_name}} Priod</p>
+              <p *ngIf="r?.rutinedetails[0]">CC Name : {{r?.rutinedetails[0]?.cc_name}}</p>
+              <p *ngIf="!r?.rutinedetails[0]">CC Name : No Priod</p>
+              <p *ngIf="r?.rutinedetails[0]">Time : {{r?.from_time}} to {{r?.to_time}}</p>
+              <p *ngIf="!r?.rutinedetails[0]">Time : NA</p>
+              <p *ngIf="r?.rutinedetails[0]">Teacher : {{r?.rutinedetails[0]?.teacher?.name}} ({{r?.rutinedetails[0]?.teacher?.short_name}})</p>
+              <p *ngIf="!r?.rutinedetails[0]">Teacher : NA</p> -->
+
+              <ion-card>
+                  <ion-grid>
+                    <ion-row>
+                      <ion-col col-md-12 text-uppercase text-center>
+                        <h2 ><strong>{{r?.sub}}</strong></h2>
+                    </ion-col>
+                    </ion-row>
+                    <ion-row class="border">
+                      <ion-col col-md-4 >
+                        <p><strong>Time</strong>:</p>
+                        <p>{{r?.from_time}} - {{r?.to_time}}</p>
+                      </ion-col>
+                      <ion-col col-md-4>
+                        <p><strong>Room No</strong>:</p>
+                        <p>{{r?.room}}</p>
+                      </ion-col>
+                      <ion-col col-md-4>
+                        <p><strong>Floor</strong>:</p>
+                        <p>{{r?.floor}}</p>
+                      </ion-col>
+                    </ion-row>
+                  </ion-grid>  
+              </ion-card>
+            </ion-item>
+
+            
+          </ion-list>
+        
+        </ion-item>
+    </ion-list>
+
+
+
+
+<!-- <ion-card>
 <ion-grid>
   <ion-row>
     <ion-col col-md-12 text-uppercase text-center>
@@ -86,5 +137,5 @@
     </ion-col>
   </ion-row>
 </ion-grid>  
-</ion-card>
+</ion-card> -->
 </ion-content>

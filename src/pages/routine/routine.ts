@@ -26,14 +26,14 @@ export class RoutinePage implements OnInit {
   rawRoutineList: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public menuCtrl: MenuController, public loadingController: LoadingController, private http: Http) {
-  		for(let i = 1; i < 7; i++ ){
-      this.data.push({
-          title: 'Day '+ i,
-          details: 'Your New Routine',
-          icon: 'ios-add-circle-outline',
-          showDetails: false
-        });
-      }
+  		// for(let i = 1; i < 7; i++ ){
+      // this.data.push({
+      //     title: 'Day '+ i,
+      //     details: 'Your New Routine',
+      //     icon: 'ios-add-circle-outline',
+      //     showDetails: false
+      //   });
+      // }
     this.initLoader();
     this.getUserDataFromLocal();
   }
@@ -45,6 +45,12 @@ export class RoutinePage implements OnInit {
   }
 
 
+
+// |--------------------------------------------------------------------
+// |--------- toggle accordian method --------------
+// |--------------------------------------------------------------------
+
+
 	toggleDetails(data) {
 	    if (data.showDetails) {
 	        data.showDetails = false;
@@ -53,17 +59,37 @@ export class RoutinePage implements OnInit {
 	        data.showDetails = true;
 	        data.icon = 'ios-remove-circle-outline';
 	    }
-  	}
+    }
+    
+
+
 
 	ionViewDidLoad() {
 	    console.log('ionViewDidLoad RoutinePage');
-	}
+  }
+  
+
+
+// |--------------------------------------------------------------------
+// |--------- goto home page method --------------
+// |--------------------------------------------------------------------
   gotoHome(){
     this.navCtrl.setRoot(StudentOwndetailsPage);
   }
+
+
+
+// |--------------------------------------------------------------------
+// |--------- goto live stream page method --------------
+// |--------------------------------------------------------------------
   gotoLiveStream(){
     this.navCtrl.push(LiveStreamPage);
   }
+
+
+// |--------------------------------------------------------------------
+// |--------- goto attendence page method --------------
+// |--------------------------------------------------------------------
   goToAttendance(){
     this.navCtrl.push(AttendancePage);
   }
@@ -71,7 +97,9 @@ export class RoutinePage implements OnInit {
 
 
 
-
+// |--------------------------------------------------------------------
+// |--------- getting logged user data from localstorage --------------
+// |--------------------------------------------------------------------
 
   getUserDataFromLocal() {
     let data = localStorage.getItem('userData');
@@ -82,7 +110,9 @@ export class RoutinePage implements OnInit {
 
 
 
-
+// |--------------------------------------------------------------------
+// |--------- getting all routine for a specific student --------------
+// |--------------------------------------------------------------------
 
   getStudentRoutine() {
     this.presentLoading(true);
@@ -93,10 +123,11 @@ export class RoutinePage implements OnInit {
 
 		let data = {
       'master_id': this.localUserData.master_id,
-      'org_id': this.localUserData.org_code
+      'org_id': this.localUserData.org_code,
+      'user_type_id': this.localUserData.user_type_id
     }
     
-    console.log('sent data : ', data);    
+    // console.log('sent data : ', data);    
 
 		this.http.post(`${apiUrl.url}routine/std-rutine`, data, options).
 			map(res => res.json()).subscribe(data => {				
@@ -117,7 +148,9 @@ export class RoutinePage implements OnInit {
 
 
 
-
+// |--------------------------------------------------------------------
+// |-- loading start and stop method by passing true or false --
+// |--------------------------------------------------------------------
 
   presentLoading(load: boolean) {
 		if (load) {
@@ -134,7 +167,9 @@ export class RoutinePage implements OnInit {
 
 
 
-
+// |--------------------------------------------------------------------
+// |--------- loading initialization --------------
+// |--------------------------------------------------------------------
 
   initLoader() {
 		this.loading = this.loadingController.create({
@@ -146,7 +181,9 @@ export class RoutinePage implements OnInit {
 
 
 
-
+// |--------------------------------------------------------------------
+// |--------- sorting raw routine array --------------
+// |--------------------------------------------------------------------
 
 
   async sortArr(rawRoutineArr) {
