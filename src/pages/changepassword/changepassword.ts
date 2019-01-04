@@ -34,7 +34,7 @@ export class ChangepasswordPage implements OnInit {
   }
 
   ionViewDidLoad() {
-    // console.log('ionViewDidLoad ChangepasswordPage');
+    console.log('ionViewDidLoad ChangepasswordPage');
   }
 
   
@@ -48,31 +48,35 @@ export class ChangepasswordPage implements OnInit {
 
 
   onChangePassSubmit(){
-    if(this.newPassword == this.confNewPassword){
-      var headers = new Headers();
-      headers.append('Content-Type', 'application/json');
-      let options = new RequestOptions({headers: headers});
-  
-      let data = {
-        'id': this.localUserData.id,
-        'user_type_id': this.localUserData.user_type_id,
-        'pass': this.newPassword,
-        'oldpass': this.oldPassword,
+    if(this.newPassword && this.confNewPassword){
+      if(this.newPassword == this.confNewPassword) {
+        var headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+        let options = new RequestOptions({headers: headers});
+    
+        let data = {
+          'id': this.localUserData.id,
+          'user_type_id': this.localUserData.user_type_id,
+          'pass': this.newPassword,
+          'oldpass': this.oldPassword,
+        }
+    
+        this.http.post(`${apiUrl.url}user/changepass`, data, options).
+          map(res => res.json()).subscribe(data => {				
+            console.log(data);   
+            if(data.status == "1"){
+              this.showAlert('Password Changed Successfully.');
+              this.navCtrl.push(AccountPage);
+            }else{
+              this.showAlert(data.mssg);
+            }       
+          });
+      } else {
+        this.showAlert('Password Not Match.');
       }
-  
-      this.http.post(`${apiUrl.url}user/changepass`, data, options).
-        map(res => res.json()).subscribe(data => {				
-          console.log(data);   
-          if(data.status == "1"){
-            this.showAlert('Password Changed Successfully.');
-            this.navCtrl.push(AccountPage);
-          }else{
-            this.showAlert(data.mssg);
-          }       
-        });
-    }else{
-      this.showAlert('Password Not Match.');
-    }
+    } else{
+      this.showAlert('Please enter New Password and Password field.');
+    }    
   }
 
 

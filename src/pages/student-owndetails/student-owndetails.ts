@@ -43,13 +43,14 @@ export class StudentOwndetailsPage implements OnInit {
     this.getUserDataFromLocal();
     this.getUserData();
     this.getNoticeList();
+    this.getWheatherData();
   }
 
 
 
 
   ionViewDidLoad() {
-    // console.log('ionViewDidLoad StudentOwndetailsPage');
+    console.log('ionViewDidLoad StudentOwndetailsPage');
   }
 
 
@@ -106,6 +107,23 @@ export class StudentOwndetailsPage implements OnInit {
           // console.log('receive data : ', data.data[0]);
           this.orgDetails = data.data[0];					
 				}
+			});
+  }
+
+
+
+
+
+
+  getWheatherData() {
+    // this.presentLoading(true);
+		var header = new Headers();
+		header.append('Content-Type', 'application/json');
+		let options = new RequestOptions({headers: header});
+    
+		this.http.get(`https://api.openweathermap.org/data/2.5/weather?zip=700124,in`, options).
+			map(res => res.json()).subscribe(data => {				
+				console.log(data);
 			});
   }
 

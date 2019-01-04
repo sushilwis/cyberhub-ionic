@@ -13,9 +13,8 @@
 </ion-header>
 
 
-<ion-content>
+<ion-content>  
   <ion-list>
-
     <ion-item *ngFor="let notice of allNotice">
       <ion-thumbnail item-start (click)="presentProfileModal(notice.id)">
         <img src="assets/imgs/download-img.png">
@@ -27,8 +26,12 @@
         <i class="fas fa-download fa-2x"></i>
       </button>
     </ion-item>
-
   </ion-list>
+
+
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)" *ngIf="page < totalPage">
+      <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more..."></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
 </ion-content>
 
 

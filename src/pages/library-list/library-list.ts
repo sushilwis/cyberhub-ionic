@@ -23,11 +23,19 @@ export class LibraryListPage implements OnInit {
   schoolId: any;
   loading: any;
   allBook: any = [];
+  page: any = 1;
+  perPage: any = 5;
+  totalData: any = 0;
+  totalPage: any = 0;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private menu:MenuController,  private http: Http, public alertCtrl: AlertController, public loadingController: LoadingController, public modalCtrl: ModalController, public viewCtrl: ViewController) {
     this.menu.enable(false);
     this.schoolId = navParams.get('id');
     this.initLoader();
+
+    for (let i = 0; i < 5; i++) {
+      this.allBookList.push( this.allBookList.length );
+    }
   }
 
 
@@ -57,7 +65,7 @@ export class LibraryListPage implements OnInit {
 
 
 
-  async getBookList(){
+  async getBookList() {
     this.presentLoading(true);
     // await this.getUserDataFromLocal();
     let header = new Headers();
@@ -77,6 +85,8 @@ export class LibraryListPage implements OnInit {
             console.log("book list : ", data);
             if(data.data.length > 1){
               this.allBookList = await data.data;
+              this.totalData = await data.data.length;
+              this.totalPage = await Math.floor(data.data.length/5);
             }else{
               this.presentLoading(false);
             }          
@@ -137,6 +147,25 @@ export class LibraryListPage implements OnInit {
   dismiss() {
     this.viewCtrl.dismiss();
   }
+
+
+
+
+
+  doInfinite(infiniteScroll) {
+    this.page = this.page+1;
+    console.log('Begin async operation');
+
+    setTimeout(() => {
+      for (let i = 0; i < 5; i++) {
+        this.allBookList.push( this.allBookList.length );
+      }
+
+      console.log('Async operation has ended');
+      infiniteScroll.complete();
+    }, 500);
+  }
+
 
 
 

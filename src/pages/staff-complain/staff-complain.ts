@@ -22,7 +22,8 @@ export class StaffComplainPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad StaffComplainPage');
   }
-  goHide(){
+
+  goHide() {
   	this.isShown = true;
   }
 

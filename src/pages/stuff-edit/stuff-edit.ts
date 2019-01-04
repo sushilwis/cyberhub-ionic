@@ -49,35 +49,38 @@ export class StuffEditPage {
 
 
   stuffProfileEditSubmit() {
-    this.presentLoading(true);
+    if(this.stuffFName && this.stuffLName && this.stuffShortName && this.stuffQualification) {
+      this.presentLoading(true);
 
-    var headers = new Headers();
-    headers.append('Content-Type', 'application/json');
-    let options = new RequestOptions({headers: headers});
-
-    let data = {
-      master_id: this.editData.id,
-      f_name: this.stuffFName,
-      l_name: this.stuffLName,
-      short_name: this.stuffShortName,
-      qualification: this.stuffQualification,
-    }
-
-    // console.log(data);      
-
-    this.http.post(`${apiUrl.url}staff/update`, data, options).
-      map(res => res.json()).subscribe(data => {
-        console.log('stuff data : ', data);	  
-        if (data.data) {
-          this.presentLoading(false);
-          this.showAlert('Success!', `Update Successful.`);	
-          this.navCtrl.push(ParentsAccountPage);			
-        }else{
-          this.presentLoading(false);
-          this.showAlert('Error!', `Something Wrong. Please Try Again.`);
-          this.navCtrl.push(ParentsAccountPage);
-        }
-    })
+      var headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      let options = new RequestOptions({headers: headers});
+  
+      let data = {
+        master_id: this.editData.id,
+        f_name: this.stuffFName,
+        l_name: this.stuffLName,
+        short_name: this.stuffShortName,
+        qualification: this.stuffQualification,
+      }
+  
+      // console.log(data);
+      this.http.post(`${apiUrl.url}staff/update`, data, options).
+        map(res => res.json()).subscribe(data => {
+          console.log('stuff data : ', data);	  
+          if (data.data) {
+            this.presentLoading(false);
+            this.showAlert('Success!', `Update Successful.`);	
+            this.navCtrl.push(ParentsAccountPage);			
+          }else{
+            this.presentLoading(false);
+            this.showAlert('Error!', `Something Wrong. Please Try Again.`);
+            this.navCtrl.push(ParentsAccountPage);
+          }
+      })
+    } else {
+      this.showAlert('Error!', `Please fill all the data.`);
+    }    
   }
 
 
@@ -88,8 +91,7 @@ export class StuffEditPage {
   presentLoading(load: boolean) {
 		if (load) {
 			return this.loading.present();
-		}
-		else {
+		} else {
 			setTimeout(() => {
 				return this.loading.dismiss();
 			}, 1000);

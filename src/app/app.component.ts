@@ -74,7 +74,7 @@ export class MyApp {
     // we wouldn't want the back button to show in this scenario
     if(page.title == "Log out"){
       this.logOut();
-    }else{
+    } else {
       this.nav.setRoot(page.component);
     }    
   }

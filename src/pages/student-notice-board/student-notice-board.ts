@@ -24,15 +24,22 @@ import { DocumentViewer } from '@ionic-native/document-viewer';
 export class StudentNoticeBoardPage implements OnInit {
   localUserData: any;
   loading: any;
-  allNotice: any;
+  allNotice: any = [];
+  page: any = 0;
+  perPage: any = 4;
+  totalData: any = 0;
+  totalPage: any = 0;
 
   constructor(public navCtrl: NavController, private http: Http, public navParams: NavParams, public menuCtrl: MenuController, public loadingController: LoadingController, public modalCtrl: ModalController, public jsonp: Jsonp, public viewCtrl: ViewController, public document: DocumentViewer) {
     this.menuCtrl.enable(false);
     this.initLoader();
+
+    for (let i = 0; i < 5; i++) {
+      this.allNotice.push(this.allNotice.length);
+    }
   }
 
   ngOnInit(){
-    // this.getUserDataFromLocal();
     this.getNoticeList();
   }
 
@@ -57,7 +64,7 @@ export class StudentNoticeBoardPage implements OnInit {
 
 
 
-  async getNoticeList(){
+  async getNoticeList(infiniteScroll?) {
 
     this.presentLoading(true);
     await this.getUserDataFromLocal();
@@ -76,15 +83,46 @@ export class StudentNoticeBoardPage implements OnInit {
         .map(res => res.json())
         .subscribe(
           async data => {
-            if(data.data.length > 1){
-              console.log('Receive data : ', data.data); 
-              this.allNotice = data.data;            
+            if(data.data.length > 1) {
+              // console.log('Receive data : ', data.data); 
+              this.allNotice = await data.data;
+              this.totalData = await data.data.length;
+              this.totalPage = await Math.floor(this.totalData/5);            
               this.presentLoading(false);             
-            }else{
+            } else {
               this.presentLoading(false);
             }          
       });
 
+      // if(infiniteScroll) {
+      //   infiniteScroll.complete();
+      // }
+  }
+
+
+
+
+
+
+  doInfinite(infiniteScroll) {
+    this.page = this.page+1;
+    console.log('Begin async operation');
+
+    // this.getNoticeList(infiniteScroll);
+
+    if (this.page === this.totalPage) {
+      infiniteScroll.enable(false);
+    }
+
+    setTimeout(() => {
+
+      for (let i = 0; i < 5; i++) {
+        this.allNotice.push(this.allNotice.length);
+      }
+
+      console.log('Async operation has ended');
+      infiniteScroll.complete();
+    }, 500)
   }
 
 
@@ -95,8 +133,7 @@ export class StudentNoticeBoardPage implements OnInit {
   getUserDataFromLocal() {
     let data = localStorage.getItem('userData');
     this.localUserData = JSON.parse(data);
-    console.log('local data : ', this.localUserData);
-      
+    // console.log('local data : ', this.localUserData);      
   }
 
 
@@ -185,7 +222,9 @@ export class NoticeModalPage implements OnInit {
  }
 
 
- dismiss() {
+dismiss() {
   this.viewCtrl.dismiss();
-  }
+}
+
+
 }

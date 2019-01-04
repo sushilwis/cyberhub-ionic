@@ -36,6 +36,10 @@ export class StudentLibraryListPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, private menuCtrl:MenuController,  private http: Http, public alertCtrl: AlertController, public loadingController: LoadingController, public modalCtrl: ModalController, public viewCtrl: ViewController) {
       this.menuCtrl.enable(false);
       this.initLoader();
+
+      for (let i = 0; i < 5; i++) {
+        this.allBookList.push( this.allBookList.length );
+      }
   }
 
   ionViewDidLoad() {
@@ -67,7 +71,7 @@ export class StudentLibraryListPage {
 
 
 
-  async getBookList(){
+  async getBookList() {
     this.presentLoading(true);
     await this.getUserDataFromLocal();
     let header = new Headers();
@@ -85,15 +89,15 @@ export class StudentLibraryListPage {
         .subscribe(
           async data => {
             // console.log("book list : ", data.data);
-            if(data.data.length > 1){
+            if(data.data.length > 1) {
               this.presentLoading(false);
               this.allBookList = await data.data;
               this.allBook = await data.data; 
               this.totalData = await data.data.length;
-              this.totalPage = await Math.floor(data.data.length/5)+1;
+              this.totalPage = await Math.floor(data.data.length/5);
               // console.log('total data : ', this.totalData);
               // console.log('total page : ', this.totalPage);              
-            }else{
+            } else {
               this.presentLoading(false);
             }          
       });        
@@ -118,7 +122,7 @@ export class StudentLibraryListPage {
     console.log('Begin async operation');
 
     setTimeout(() => {
-      for (let i = 0; i < 2; i++) {
+      for (let i = 0; i < 5; i++) {
         this.allBookList.push( this.allBookList.length );
       }
 
@@ -132,7 +136,7 @@ export class StudentLibraryListPage {
 
 
 
-  async onChangeSearch(e){
+  async onChangeSearch(e) {
     this.showNotFound = false;
     let tempArr = [];
     // console.log('search change...', e.target.value);
