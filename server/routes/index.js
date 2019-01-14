@@ -5,7 +5,6 @@ var router = express.Router();
 
 
 router.post('/addAttedData', function(req, res, next) {
-  // console.log(req.body);
   let periodData = new Period(req.body);
 
   periodData.save((err, savedData)=>{
@@ -127,6 +126,17 @@ router.post('/addStdListOnPeriod', function(req, res, next) {
       });
     }
   });  
+});
+
+
+
+
+
+
+
+
+router.get('/oauth2callback', function(req, res, next) {
+    console.log('from the redirect uri...');      
 });
 
 

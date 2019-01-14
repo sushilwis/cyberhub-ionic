@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
-import { StreamingMedia, StreamingVideoOptions } from '@ionic-native/streaming-media';
+// import { StreamingMedia, StreamingVideoOptions } from '@ionic-native/streaming-media';
 import { Http, RequestOptions, Headers } from '@angular/http';
 import { apiUrl } from '../../apiUrl';
 
@@ -18,7 +18,7 @@ import { apiUrl } from '../../apiUrl';
 })
 export class LiveStreamPage implements OnInit {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public loadingCtrl: LoadingController, private streamingMedia: StreamingMedia, private http: Http) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public loadingCtrl: LoadingController, private http: Http) {
 	// this.loadingCtrl.page(true);  	
   }
 
@@ -44,17 +44,17 @@ export class LiveStreamPage implements OnInit {
 
 
 
-  createLiveStream(){
+  // createLiveStream(){
 
-    let options: StreamingVideoOptions = {
-      successCallback: () => { console.log('Video played') },
-      errorCallback: (e) => { console.log('Error streaming') },
-      orientation: 'landscape',
-      shouldAutoClose: true,
-      controls: true
-    };
+  //   let options: StreamingVideoOptions = {
+  //     successCallback: () => { console.log('Video played') },
+  //     errorCallback: (e) => { console.log('Error streaming') },
+  //     orientation: 'landscape',
+  //     shouldAutoClose: true,
+  //     controls: true
+  //   };
 
-    this.streamingMedia.playVideo('https://path/to/video/stream', options);
+    // this.streamingMedia.playVideo('https://path/to/video/stream', options);
 
     // let header = new Headers();
     // header.set("Content-Type", "application/json");
@@ -74,7 +74,7 @@ export class LiveStreamPage implements OnInit {
 
     //         }          
     // });
-  }
+  // }
   
 
 }
