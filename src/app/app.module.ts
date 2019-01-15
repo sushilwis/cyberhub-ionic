@@ -51,7 +51,7 @@ import { StuffChangePassPage } from '../pages/stuff-change-pass/stuff-change-pas
 
 import { RippleDirective } from 'ng2-ripple-directive';
 import { Camera } from '@ionic-native/camera';
-import { StreamingMedia } from '@ionic-native/streaming-media';
+// import { StreamingMedia } from '@ionic-native/streaming-media';
 
 
 import { StatusBar } from '@ionic-native/status-bar';
