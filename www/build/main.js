@@ -113,7 +113,7 @@ var StuffChangePassPage = /** @class */ (function () {
     };
     StuffChangePassPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-stuff-change-pass',template:/*ion-inline-start:"/home/wis/sushil/cyberHubApp/cyberhub-ionic/src/pages/stuff-change-pass/stuff-change-pass.html"*/'<!--\n  Generated template for the StuffChangePassPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar color="black">\n    <ion-title>Change Password</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <div class="enquiry-form">\n    <h2 class="title" text-center text-uppercase margin-bottom>Change Your Password</h2>\n    <form>\n      <!-- or with standalone set to true -->\n      <ion-item class="select-css">\n         <ion-input type="password" name="oldPassword" placeholder="Old Password" [(ngModel)]="oldPassword"></ion-input>\n      </ion-item>\n  \n      <ion-item class="select-css">\n        <ion-input type="password" name="newPassword" placeholder="New Password" [(ngModel)]="newPassword"></ion-input>\n      </ion-item>\n  \n      <ion-item class="select-css">\n         <ion-input type="password" name="confNewPassword" placeholder="Confirm New Password" [(ngModel)]="confNewPassword"></ion-input>\n      </ion-item>\n      \n      <button ion-button type="submit" block outline color="blue" class="mt-10" (click)="onChangePassSubmit()">Submit</button>\n    </form>\n  </div>  \n</ion-content>\n'/*ion-inline-end:"/home/wis/sushil/cyberHubApp/cyberhub-ionic/src/pages/stuff-change-pass/stuff-change-pass.html"*/,
+            selector: 'page-stuff-change-pass',template:/*ion-inline-start:"E:\ionic\cyberHub\cyberhub-ionic\src\pages\stuff-change-pass\stuff-change-pass.html"*/'<!--\n\n  Generated template for the StuffChangePassPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar color="black">\n\n    <ion-title>Change Password</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n  <div class="enquiry-form">\n\n    <h2 class="title" text-center text-uppercase margin-bottom>Change Your Password</h2>\n\n    <form>\n\n      <!-- or with standalone set to true -->\n\n      <ion-item class="select-css">\n\n         <ion-input type="password" name="oldPassword" placeholder="Old Password" [(ngModel)]="oldPassword"></ion-input>\n\n      </ion-item>\n\n  \n\n      <ion-item class="select-css">\n\n        <ion-input type="password" name="newPassword" placeholder="New Password" [(ngModel)]="newPassword"></ion-input>\n\n      </ion-item>\n\n  \n\n      <ion-item class="select-css">\n\n         <ion-input type="password" name="confNewPassword" placeholder="Confirm New Password" [(ngModel)]="confNewPassword"></ion-input>\n\n      </ion-item>\n\n      \n\n      <button ion-button type="submit" block outline color="blue" class="mt-10" (click)="onChangePassSubmit()">Submit</button>\n\n    </form>\n\n  </div>  \n\n</ion-content>\n\n'/*ion-inline-end:"E:\ionic\cyberHub\cyberhub-ionic\src\pages\stuff-change-pass\stuff-change-pass.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* MenuController */], __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_2__angular_http__["d" /* Jsonp */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* ModalController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
     ], StuffChangePassPage);
@@ -237,7 +237,7 @@ var StuffEditPage = /** @class */ (function () {
     };
     StuffEditPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-stuff-edit',template:/*ion-inline-start:"/home/wis/sushil/cyberHubApp/cyberhub-ionic/src/pages/stuff-edit/stuff-edit.html"*/'<!--\n  Generated template for the StuffEditPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Edit Profile</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <h5 class="title" text-center text-uppercase margin-bottom></h5>\n\n    <!-- <ion-list>\n        <ion-item>\n          <ion-label>Select College</ion-label>\n          <ion-select [(ngModel)]="college" name="college">\n            <ion-option value=""></ion-option>\n          </ion-select>\n        </ion-item>\n    </ion-list> -->\n\n    <ion-list>\n        <ion-item>\n          <ion-label floating>First Name</ion-label>\n          <ion-input type="text" name="stuffFName" [(ngModel)]="stuffFName"></ion-input>\n        </ion-item>      \n    </ion-list>\n\n    <ion-list>\n      <ion-item>\n        <ion-label floating>Last Name</ion-label>\n        <ion-input type="text" name="stuffLName" [(ngModel)]="stuffLName"></ion-input>\n      </ion-item>      \n  </ion-list>\n\n    <ion-list>\n      <ion-item>\n        <ion-label floating>Short Name</ion-label>\n        <ion-input type="text" name="stuffShortName" [(ngModel)]="stuffShortName"></ion-input>\n      </ion-item>      \n    </ion-list>\n\n    <ion-list>\n      <ion-item>\n        <ion-label floating>Qualification</ion-label>\n        <ion-input type="text" name="stuffQualification" [(ngModel)]="stuffQualification"></ion-input>\n      </ion-item>      \n    </ion-list>\n\n    <button ion-button block outline color="blue" class="" (click)=\'stuffProfileEditSubmit()\'>Update</button>\n</ion-content>\n'/*ion-inline-end:"/home/wis/sushil/cyberHubApp/cyberhub-ionic/src/pages/stuff-edit/stuff-edit.html"*/,
+            selector: 'page-stuff-edit',template:/*ion-inline-start:"E:\ionic\cyberHub\cyberhub-ionic\src\pages\stuff-edit\stuff-edit.html"*/'<!--\n\n  Generated template for the StuffEditPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>Edit Profile</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n  <h5 class="title" text-center text-uppercase margin-bottom></h5>\n\n\n\n    <!-- <ion-list>\n\n        <ion-item>\n\n          <ion-label>Select College</ion-label>\n\n          <ion-select [(ngModel)]="college" name="college">\n\n            <ion-option value=""></ion-option>\n\n          </ion-select>\n\n        </ion-item>\n\n    </ion-list> -->\n\n\n\n    <ion-list>\n\n        <ion-item>\n\n          <ion-label floating>First Name</ion-label>\n\n          <ion-input type="text" name="stuffFName" [(ngModel)]="stuffFName"></ion-input>\n\n        </ion-item>      \n\n    </ion-list>\n\n\n\n    <ion-list>\n\n      <ion-item>\n\n        <ion-label floating>Last Name</ion-label>\n\n        <ion-input type="text" name="stuffLName" [(ngModel)]="stuffLName"></ion-input>\n\n      </ion-item>      \n\n  </ion-list>\n\n\n\n    <ion-list>\n\n      <ion-item>\n\n        <ion-label floating>Short Name</ion-label>\n\n        <ion-input type="text" name="stuffShortName" [(ngModel)]="stuffShortName"></ion-input>\n\n      </ion-item>      \n\n    </ion-list>\n\n\n\n    <ion-list>\n\n      <ion-item>\n\n        <ion-label floating>Qualification</ion-label>\n\n        <ion-input type="text" name="stuffQualification" [(ngModel)]="stuffQualification"></ion-input>\n\n      </ion-item>      \n\n    </ion-list>\n\n\n\n    <button ion-button block outline color="blue" class="" (click)=\'stuffProfileEditSubmit()\'>Update</button>\n\n</ion-content>\n\n'/*ion-inline-end:"E:\ionic\cyberHub\cyberhub-ionic\src\pages\stuff-edit\stuff-edit.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* MenuController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
     ], StuffEditPage);
@@ -361,7 +361,7 @@ var ChangepasswordPage = /** @class */ (function () {
     };
     ChangepasswordPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-changepassword',template:/*ion-inline-start:"/home/wis/sushil/cyberHubApp/cyberhub-ionic/src/pages/changepassword/changepassword.html"*/'<!--\n  Generated template for the ChangepasswordPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar color="blue">\n    <ion-title>Change Password</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content>\n\n<div class="enquiry-form">\n		 <h1 class="title" text-center text-uppercase margin-bottom>Change Your Password</h1>\n	 	<form>\n		<!-- or with standalone set to true -->\n		<ion-item class="select-css">\n		   <ion-input type="password" name="oldPassword" placeholder="Old Password" [(ngModel)]="oldPassword"></ion-input>\n		</ion-item>\n\n		<ion-item class="select-css">\n			<ion-input type="password" name="newPassword" placeholder="New Password" [(ngModel)]="newPassword"></ion-input>\n	 </ion-item>\n\n		<ion-item class="select-css">\n		   <ion-input type="password" name="confNewPassword" placeholder="Confirm New Password" [(ngModel)]="confNewPassword"></ion-input>\n		</ion-item>\n		\n		<button ion-button type="submit" block outline color="blue" class="mt-10" (click)="onChangePassSubmit()">Submit</button>\n	</form>\n</div>\n\n</ion-content>\n'/*ion-inline-end:"/home/wis/sushil/cyberHubApp/cyberhub-ionic/src/pages/changepassword/changepassword.html"*/,
+            selector: 'page-changepassword',template:/*ion-inline-start:"E:\ionic\cyberHub\cyberhub-ionic\src\pages\changepassword\changepassword.html"*/'<!--\n\n  Generated template for the ChangepasswordPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar color="blue">\n\n    <ion-title>Change Password</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content>\n\n\n\n<div class="enquiry-form">\n\n		 <h1 class="title" text-center text-uppercase margin-bottom>Change Your Password</h1>\n\n	 	<form>\n\n		<!-- or with standalone set to true -->\n\n		<ion-item class="select-css">\n\n		   <ion-input type="password" name="oldPassword" placeholder="Old Password" [(ngModel)]="oldPassword"></ion-input>\n\n		</ion-item>\n\n\n\n		<ion-item class="select-css">\n\n			<ion-input type="password" name="newPassword" placeholder="New Password" [(ngModel)]="newPassword"></ion-input>\n\n	 </ion-item>\n\n\n\n		<ion-item class="select-css">\n\n		   <ion-input type="password" name="confNewPassword" placeholder="Confirm New Password" [(ngModel)]="confNewPassword"></ion-input>\n\n		</ion-item>\n\n		\n\n		<button ion-button type="submit" block outline color="blue" class="mt-10" (click)="onChangePassSubmit()">Submit</button>\n\n	</form>\n\n</div>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"E:\ionic\cyberHub\cyberhub-ionic\src\pages\changepassword\changepassword.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* MenuController */], __WEBPACK_IMPORTED_MODULE_3__angular_http__["b" /* Http */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_3__angular_http__["d" /* Jsonp */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* ModalController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
     ], ChangepasswordPage);
@@ -408,42 +408,42 @@ var TestPage = /** @class */ (function () {
         this.alertCtrl = alertCtrl;
         this.loadingController = loadingController;
         this.joinned = false;
-        this.newUser = { nickname: '', room: '' };
-        this.msgData = { room: '', nickname: '', message: '' };
-        this.socket = __WEBPACK_IMPORTED_MODULE_2_socket_io_client__('http://localhost:3000');
+        this.newUser = { nickname: "", room: "" };
+        this.msgData = { room: "", nickname: "", message: "" };
+        this.socket = __WEBPACK_IMPORTED_MODULE_2_socket_io_client__("http://18.191.46.158:3000/");
         this.initLoader();
     }
     TestPage.prototype.ngOnInit = function () {
         var _this = this;
         this.presentLoading(true);
         this.getRoomDataFromLocal();
-        this.socket.on('connect', function () {
-            _this.socket.emit('join', _this.localRoomData, function (err) {
+        this.socket.on("connect", function () {
+            _this.socket.emit("join", _this.localRoomData, function (err) {
                 if (err) {
                     console.log(err);
                 }
                 else {
-                    console.log('No error');
+                    console.log("No error");
                 }
             });
         });
-        this.socket.on('updateUserList', function (users) {
+        this.socket.on("updateUserList", function (users) {
             console.log(users);
         });
-        this.socket.on('attedStatus', function (status) {
-            console.log('Status : ', status);
+        this.socket.on("attedStatus", function (status) {
+            console.log("Status : ", status);
             if (status) {
                 _this.presentLoading(false);
-                _this.showAlert('Attendence Successful.');
-                _this.socket.emit('forceDisconnect');
+                _this.showAlert("Attendence Successful.");
+                _this.socket.emit("forceDisconnect");
                 _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_3__student_owndetails_student_owndetails__["a" /* StudentOwndetailsPage */]);
             }
             else {
-                _this.showAlert('Attendence Not Successful.');
+                _this.showAlert("Attendence Not Successful.");
             }
         });
-        this.socket.on('disconnect', function () {
-            console.log('Disconnected from server');
+        this.socket.on("disconnect", function () {
+            console.log("Disconnected from server");
         });
         // setTimeout(()=>{
         //   this.presentLoading(false);
@@ -452,22 +452,22 @@ var TestPage = /** @class */ (function () {
     };
     TestPage.prototype.ionViewDidLoad = function () {
         // this.presentLoading(true);
-        console.log('ionViewDidLoad TestPage');
+        console.log("ionViewDidLoad TestPage");
     };
     TestPage.prototype.getRoomDataFromLocal = function () {
-        var data = localStorage.getItem('roomData');
+        var data = localStorage.getItem("roomData");
         this.localRoomData = JSON.parse(data);
-        // console.log('local data : ', this.localUserData); 
+        // console.log('local data : ', this.localUserData);
         // this.room = {
         //   room: JSON.parse(localStorage.getItem('attedCode')),
         //   name: this.localUserData.master_id
-        // }   
+        // }
     };
     TestPage.prototype.showAlert = function (msg) {
         var alert = this.alertCtrl.create({
-            title: 'Alert!',
+            title: "Alert!",
             subTitle: msg,
-            buttons: ['OK']
+            buttons: ["OK"]
         });
         alert.present();
     };
@@ -484,15 +484,18 @@ var TestPage = /** @class */ (function () {
     };
     TestPage.prototype.initLoader = function () {
         this.loading = this.loadingController.create({
-            spinner: 'hide',
-            content: '<img class="loader-class" src="assets/icon/tail-spin.svg"> <p>Loading please wait...</p>',
+            spinner: "hide",
+            content: '<img class="loader-class" src="assets/icon/tail-spin.svg"> <p>Loading please wait...</p>'
         });
     };
     TestPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-test',template:/*ion-inline-start:"/home/wis/sushil/cyberHubApp/cyberhub-ionic/src/pages/test/test.html"*/'<!--\n  Generated template for the TestPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Attendence</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n    <h4 class="title" text-center text-uppercase margin-bottom>Please wait...</h4>\n</ion-content>\n'/*ion-inline-end:"/home/wis/sushil/cyberHubApp/cyberhub-ionic/src/pages/test/test.html"*/,
+            selector: "page-test",template:/*ion-inline-start:"E:\ionic\cyberHub\cyberhub-ionic\src\pages\test\test.html"*/'<!--\n\n  Generated template for the TestPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>Attendence</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n    <h4 class="title" text-center text-uppercase margin-bottom>Please wait...</h4>\n\n</ion-content>\n\n'/*ion-inline-end:"E:\ionic\cyberHub\cyberhub-ionic\src\pages\test\test.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */]])
     ], TestPage);
     return TestPage;
 }());
@@ -508,7 +511,11 @@ var TestPage = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SchoolListingPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__school_details_school_details__ = __webpack_require__(53);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__school_details_school_details__ = __webpack_require__(53);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__apiUrl__ = __webpack_require__(9);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -521,6 +528,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+
+
 /**
  * Generated class for the SchoolListingPage page.
  *
@@ -528,21 +538,66 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Ionic pages and navigation.
  */
 var SchoolListingPage = /** @class */ (function () {
-    function SchoolListingPage(navCtrl, navParams) {
+    function SchoolListingPage(navCtrl, navParams, http, toastCtrl, loadingController) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
+        this.http = http;
+        this.toastCtrl = toastCtrl;
+        this.loadingController = loadingController;
     }
     SchoolListingPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad SchoolListingPage');
+        this.initLoader();
+        var data = this.navParams.get("data");
+        // console.log(data);
+        this.getOrganization(data);
+        console.log("ionViewDidLoad SchoolListingPage");
     };
-    SchoolListingPage.prototype.goToListingDetails = function () {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__school_details_school_details__["a" /* SchoolDetailsPage */]);
+    SchoolListingPage.prototype.goToListingDetails = function (id) {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__school_details_school_details__["a" /* SchoolDetailsPage */], { id: id });
+    };
+    SchoolListingPage.prototype.getOrganization = function (data) {
+        var _this = this;
+        this.presentLoading(true);
+        var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Headers */]();
+        headers.append("Content-Type", "application/json");
+        var options = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["f" /* RequestOptions */]({ headers: headers });
+        this.http
+            .post(__WEBPACK_IMPORTED_MODULE_5__apiUrl__["a" /* apiUrl */].url + "org/search", data, options)
+            .map(function (res) { return res.json(); })
+            .subscribe(function (data) {
+            if (data.data) {
+                _this.presentLoading(false);
+                _this.orgList = data.data;
+                console.log(_this.orgList);
+            }
+        });
+    };
+    SchoolListingPage.prototype.initLoader = function () {
+        this.loading = this.loadingController.create({
+            spinner: "hide",
+            content: '<img class="loader-class" src="assets/icon/tail-spin.svg"> <p>Loading please wait...</p>'
+        });
+    };
+    SchoolListingPage.prototype.presentLoading = function (load) {
+        var _this = this;
+        if (load) {
+            return this.loading.present();
+        }
+        else {
+            setTimeout(function () {
+                return _this.loading.dismiss();
+            }, 500);
+        }
     };
     SchoolListingPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-school-listing',template:/*ion-inline-start:"/home/wis/sushil/cyberHubApp/cyberhub-ionic/src/pages/school-listing/school-listing.html"*/'<!--\n  Generated template for the SchoolListingPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar color="blue">\n    <ion-title>List of School</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n<ion-list>\n  <ion-item (click)=goToListingDetails()>\n    <ion-thumbnail item-start>\n      <img src="assets/imgs/1-512.png">\n    </ion-thumbnail>\n    <h2>My School Name</h2>\n    <p>Hayao Miyazaki • 1992</p>\n    <button ion-button clear item-end>View</button>\n  </ion-item>\n\n<ion-item (click)=goToListingDetails()>\n    <ion-thumbnail item-start>\n      <img src="assets/imgs/1-512.png">\n    </ion-thumbnail>\n    <h2>My School Name</h2>\n    <p>Hayao Miyazaki • 1988</p>\n    <button ion-button clear item-end>View</button>\n  </ion-item>\n\n  <ion-item (click)=goToListingDetails()>\n    <ion-thumbnail item-start>\n      <img src="assets/imgs/1-512.png">\n    </ion-thumbnail>\n    <h2>My School Name</h2>\n    <p>Hayao Miyazaki • 1990</p>\n    <button ion-button clear item-end>View</button>\n  </ion-item>\n\n  <ion-item (click)=goToListingDetails()>\n    <ion-thumbnail item-start>\n      <img src="assets/imgs/1-512.png">\n    </ion-thumbnail>\n    <h2>My School Name</h2>\n    <p>Hayao Miyazaki • 1978</p>\n    <button ion-button clear item-end>View</button>\n  </ion-item>\n\n\n  <ion-item (click)=goToListingDetails()>\n    <ion-thumbnail item-start>\n      <img src="assets/imgs/1-512.png">\n    </ion-thumbnail>\n    <h2>My School Name</h2>\n    <p>Hayao Miyazaki • 1999</p>\n    <button ion-button clear item-end>View</button>\n  </ion-item>\n\n\n   <ion-item (click)=goToListingDetails()>\n    <ion-thumbnail item-start>\n      <img src="assets/imgs/1-512.png">\n    </ion-thumbnail>\n    <h2>My School Name</h2>\n    <p>Hayao Miyazaki • 2000</p>\n    <button ion-button clear item-end>View</button>\n  </ion-item>\n\n   <ion-item (click)=goToListingDetails()>\n    <ion-thumbnail item-start>\n      <img src="assets/imgs/1-512.png">\n    </ion-thumbnail>\n    <h2>My School Name</h2>\n    <p>Hayao Miyazaki • 1992</p>\n    <button ion-button clear item-end>View</button>\n  </ion-item>\n</ion-list>\n\n\n</ion-content>\n'/*ion-inline-end:"/home/wis/sushil/cyberHubApp/cyberhub-ionic/src/pages/school-listing/school-listing.html"*/,
+            selector: "page-school-listing",template:/*ion-inline-start:"E:\ionic\cyberHub\cyberhub-ionic\src\pages\school-listing\school-listing.html"*/'<!--\n\n  Generated template for the SchoolListingPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar color="blue">\n\n    <ion-title>List of School</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n\n\n<ion-list>\n\n  <ion-item *ngFor="let item of orgList" (click)=goToListingDetails(item.id)>\n\n    <ion-thumbnail item-start>\n\n      <img src="assets/imgs/1-512.png">\n\n    </ion-thumbnail>\n\n    <h2>{{item.org_name}}</h2>\n\n    <p>{{item.org_city}}, {{item.jela}} • {{item.estd}}</p>\n\n    <button ion-button clear item-end>View</button>\n\n  </ion-item>\n\n  <!-- <ion-item >\n\n    <ion-thumbnail item-start>\n\n      <img src="assets/imgs/1-512.png">\n\n    </ion-thumbnail>\n\n    <h2>aaa</h2>\n\n    <p>aaa, vvv • 1234</p>\n\n    <button ion-button clear item-end>View</button>\n\n  </ion-item> -->\n\n  \n\n</ion-list>\n\n\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"E:\ionic\cyberHub\cyberhub-ionic\src\pages\school-listing\school-listing.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ToastController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */]])
     ], SchoolListingPage);
     return SchoolListingPage;
 }());
@@ -559,7 +614,7 @@ var SchoolListingPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__ = __webpack_require__(40);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_document_viewer__ = __webpack_require__(66);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_file__ = __webpack_require__(343);
@@ -568,7 +623,7 @@ var SchoolListingPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__library_list_library_list__ = __webpack_require__(77);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__live_stream_live_stream__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__apiUrl__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__student_notice_board_student_notice_board__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__student_notice_board_student_notice_board__ = __webpack_require__(41);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -698,7 +753,7 @@ var PdfDownloadPage = /** @class */ (function () {
     };
     PdfDownloadPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-pdf-download',template:/*ion-inline-start:"/home/wis/sushil/cyberHubApp/cyberhub-ionic/src/pages/pdf-download/pdf-download.html"*/'<!--\n  Generated template for the PdfDownloadPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar color="blue">\n    <ion-title>Download PDF</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content>\n\n  <!-- <ion-list>\n\n    <ion-item *ngFor="let list of noticeList">\n      <ion-thumbnail item-start>\n        <img src="assets/imgs/download-img.png">\n      </ion-thumbnail>\n      <h2>{{list?.title}}</h2>\n      <p>{{list?.subject}}</p>\n      <button ion-button clear item-end (click)="downloadAndOpenPdf(list?.file_url)"><i class="fas fa-download fa-2x"></i></button>\n    </ion-item>\n  </ion-list> -->\n  <!-- (click)="presentProfileModal(notice.id)" -->\n    <ion-list *ngFor="let notice of noticeList">\n      <ion-item *ngIf="notice.notice">\n        <ion-thumbnail item-start (click)="presentProfileModal(notice.id)">\n          <img src="assets/imgs/download-img.png">\n        </ion-thumbnail>\n        <h2>{{notice?.notice?.subject}}</h2>\n        <p>{{notice?.notice?.text}}</p>\n        <p>{{notice?.noticetype?.type_name}}</p>\n        <button ion-button clear item-end (click)="showPdf(notice?.notice?.file_url)">\n          <i class="fas fa-download fa-2x"></i>\n        </button>\n      </ion-item>  \n    </ion-list>\n\n    <ion-list *ngIf="!showList">\n      <ion-item text-center>\n        <p>No Data Found</p>\n      </ion-item>  \n    </ion-list>\n</ion-content>\n\n\n<ion-footer class="fixed">\n  <ion-toolbar color="primary">\n  <ion-grid text-center >\n    <ion-row>\n      <div col-4 (click)=goToHome()>\n        <i text-center class="fas fa-home fa-inverse fa-lg"></i>\n        <p class="footer-p">Home</p>\n      </div>\n      <div col-4 (click)=gotoLiveStream()>\n        <i text-center class="fas fa-video fa-inverse fa-lg"></i>\n        <p class="footer-p">Live Streaming</p>\n      </div>\n      <div col-4>\n        <i text-center class="fas fa-align-justify fa-inverse fa-lg"></i>\n        <p  class="footer-p" (click)=goToLibrary()>Library</p>\n      </div>\n    </ion-row>\n  </ion-grid>\n  </ion-toolbar>\n</ion-footer>'/*ion-inline-end:"/home/wis/sushil/cyberHubApp/cyberhub-ionic/src/pages/pdf-download/pdf-download.html"*/,
+            selector: 'page-pdf-download',template:/*ion-inline-start:"E:\ionic\cyberHub\cyberhub-ionic\src\pages\pdf-download\pdf-download.html"*/'<!--\n\n  Generated template for the PdfDownloadPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar color="blue">\n\n    <ion-title>Download PDF</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content>\n\n\n\n  <!-- <ion-list>\n\n\n\n    <ion-item *ngFor="let list of noticeList">\n\n      <ion-thumbnail item-start>\n\n        <img src="assets/imgs/download-img.png">\n\n      </ion-thumbnail>\n\n      <h2>{{list?.title}}</h2>\n\n      <p>{{list?.subject}}</p>\n\n      <button ion-button clear item-end (click)="downloadAndOpenPdf(list?.file_url)"><i class="fas fa-download fa-2x"></i></button>\n\n    </ion-item>\n\n  </ion-list> -->\n\n  <!-- (click)="presentProfileModal(notice.id)" -->\n\n    <ion-list *ngFor="let notice of noticeList">\n\n      <ion-item *ngIf="notice.notice">\n\n        <ion-thumbnail item-start (click)="presentProfileModal(notice.id)">\n\n          <img src="assets/imgs/download-img.png">\n\n        </ion-thumbnail>\n\n        <h2>{{notice?.notice?.subject}}</h2>\n\n        <p>{{notice?.notice?.text}}</p>\n\n        <p>{{notice?.noticetype?.type_name}}</p>\n\n        <button ion-button clear item-end (click)="showPdf(notice?.notice?.file_url)">\n\n          <i class="fas fa-download fa-2x"></i>\n\n        </button>\n\n      </ion-item>  \n\n    </ion-list>\n\n\n\n    <ion-list *ngIf="!showList">\n\n      <ion-item text-center>\n\n        <p>No Data Found</p>\n\n      </ion-item>  \n\n    </ion-list>\n\n</ion-content>\n\n\n\n\n\n<ion-footer class="fixed">\n\n  <ion-toolbar color="primary">\n\n  <ion-grid text-center >\n\n    <ion-row>\n\n      <div col-4 (click)=goToHome()>\n\n        <i text-center class="fas fa-home fa-inverse fa-lg"></i>\n\n        <p class="footer-p">Home</p>\n\n      </div>\n\n      <div col-4 (click)=gotoLiveStream()>\n\n        <i text-center class="fas fa-video fa-inverse fa-lg"></i>\n\n        <p class="footer-p">Live Streaming</p>\n\n      </div>\n\n      <div col-4>\n\n        <i text-center class="fas fa-align-justify fa-inverse fa-lg"></i>\n\n        <p  class="footer-p" (click)=goToLibrary()>Library</p>\n\n      </div>\n\n    </ion-row>\n\n  </ion-grid>\n\n  </ion-toolbar>\n\n</ion-footer>'/*ion-inline-end:"E:\ionic\cyberHub\cyberhub-ionic\src\pages\pdf-download\pdf-download.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
             __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */],
@@ -707,7 +762,7 @@ var PdfDownloadPage = /** @class */ (function () {
             __WEBPACK_IMPORTED_MODULE_4__ionic_native_document_viewer__["a" /* DocumentViewer */],
             __WEBPACK_IMPORTED_MODULE_6__ionic_native_file_transfer__["a" /* FileTransfer */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Platform */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* ModalController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ViewController */]])
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* ModalController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* ViewController */]])
     ], PdfDownloadPage);
     return PdfDownloadPage;
 }());
@@ -724,7 +779,7 @@ var PdfDownloadPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__ = __webpack_require__(40);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__apiUrl__ = __webpack_require__(9);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -982,7 +1037,7 @@ var SchoolcalenderPage = /** @class */ (function () {
     };
     SchoolcalenderPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-schoolcalender',template:/*ion-inline-start:"/home/wis/sushil/cyberHubApp/cyberhub-ionic/src/pages/schoolcalender/schoolcalender.html"*/'<!--\n  Generated template for the SchoolcalenderPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-navbar color="primary">\n    <ion-title>{{viewTitle}}</ion-title>\n\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content>\n  <ion-buttons end>\n    <button ion-button [disabled]="isToday" (click)="today()">Today</button>\n  </ion-buttons>\n  \n  <br>\n\n  <calendar [eventSource]="eventSource" [calendarMode]="calendar.mode" [currentDate]="calendar.currentDate" (onCurrentDateChanged)="onCurrentDateChanged($event)"\n    (onRangeChanged)="reloadSource(startTime, endTime)" (onEventSelected)="onEventSelected($event)" (onTitleChanged)="onViewTitleChanged($event)"\n    (onTimeSelected)="onTimeSelected($event)" step="30">\n  </calendar>\n\n</ion-content>\n'/*ion-inline-end:"/home/wis/sushil/cyberHubApp/cyberhub-ionic/src/pages/schoolcalender/schoolcalender.html"*/,
+            selector: 'page-schoolcalender',template:/*ion-inline-start:"E:\ionic\cyberHub\cyberhub-ionic\src\pages\schoolcalender\schoolcalender.html"*/'<!--\n\n  Generated template for the SchoolcalenderPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n  <ion-navbar color="primary">\n\n    <ion-title>{{viewTitle}}</ion-title>\n\n\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n\n\n<ion-content>\n\n  <ion-buttons end>\n\n    <button ion-button [disabled]="isToday" (click)="today()">Today</button>\n\n  </ion-buttons>\n\n  \n\n  <br>\n\n\n\n  <calendar [eventSource]="eventSource" [calendarMode]="calendar.mode" [currentDate]="calendar.currentDate" (onCurrentDateChanged)="onCurrentDateChanged($event)"\n\n    (onRangeChanged)="reloadSource(startTime, endTime)" (onEventSelected)="onEventSelected($event)" (onTitleChanged)="onViewTitleChanged($event)"\n\n    (onTimeSelected)="onTimeSelected($event)" step="30">\n\n  </calendar>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"E:\ionic\cyberHub\cyberhub-ionic\src\pages\schoolcalender\schoolcalender.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */]])
@@ -1069,9 +1124,9 @@ var AttendanceListPage = /** @class */ (function () {
         this.http = http;
         this.alertCtrl = alertCtrl;
         this.joinned = false;
-        this.newUser = { nickname: '', room: '' };
-        this.msgData = { room: '', nickname: '', message: '' };
-        this.socket = __WEBPACK_IMPORTED_MODULE_4_socket_io_client__('http://localhost:3000');
+        this.newUser = { nickname: "", room: "" };
+        this.msgData = { room: "", nickname: "", message: "" };
+        this.socket = __WEBPACK_IMPORTED_MODULE_4_socket_io_client__("http://18.191.46.158:3000/");
         this.studentList = [];
         this.attenStudentList = [];
         this.test = false;
@@ -1084,8 +1139,8 @@ var AttendanceListPage = /** @class */ (function () {
         //   name: this.localUserData.master_id
         // }
         // this.getStudentList();
-        this.socket.on('connect', function () {
-            _this.socket.emit('join', _this.room, function (err) {
+        this.socket.on("connect", function () {
+            _this.socket.emit("join", _this.room, function (err) {
                 if (err) {
                     // console.log(err);
                 }
@@ -1094,7 +1149,7 @@ var AttendanceListPage = /** @class */ (function () {
                 }
             });
         });
-        this.socket.on('updateUserList', function (users) {
+        this.socket.on("updateUserList", function (users) {
             // console.log(users);
             _this.studentList = users;
             _this.studentList.forEach(function (ele) {
@@ -1140,11 +1195,13 @@ var AttendanceListPage = /** @class */ (function () {
                         header.set("Content-Type", "application/json");
                         if (this.getUserDataFromLocal) {
                             data = {
-                                dept_id: JSON.parse(localStorage.getItem('department')),
+                                dept_id: JSON.parse(localStorage.getItem("department")),
                                 org_id: this.localUserData.org_code
                             };
                             this.http
-                                .post(__WEBPACK_IMPORTED_MODULE_3__apiUrl__["a" /* apiUrl */].url + "student/classstudentlist", data, { headers: header })
+                                .post(__WEBPACK_IMPORTED_MODULE_3__apiUrl__["a" /* apiUrl */].url + "student/classstudentlist", data, {
+                                headers: header
+                            })
                                 .map(function (res) { return res.json(); })
                                 .subscribe(function (data) { return __awaiter(_this, void 0, void 0, function () {
                                 var _a;
@@ -1174,12 +1231,12 @@ var AttendanceListPage = /** @class */ (function () {
         });
     };
     AttendanceListPage.prototype.getUserDataFromLocal = function () {
-        var data = localStorage.getItem('userData');
+        var data = localStorage.getItem("userData");
         this.localUserData = JSON.parse(data);
-        // this.localUserData = 
-        // console.log('local data : ', this.localUserData); 
+        // this.localUserData =
+        // console.log('local data : ', this.localUserData);
         this.room = {
-            room: JSON.parse(localStorage.getItem('attedCode')),
+            room: JSON.parse(localStorage.getItem("attedCode")),
             name: this.localUserData.master_id
         };
     };
@@ -1197,7 +1254,9 @@ var AttendanceListPage = /** @class */ (function () {
         var header = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Headers */]();
         header.set("Content-Type", "application/json");
         this.http
-            .post(__WEBPACK_IMPORTED_MODULE_3__apiUrl__["a" /* apiUrl */].node_url + "attendance/addStudent", data, { headers: header })
+            .post(__WEBPACK_IMPORTED_MODULE_3__apiUrl__["a" /* apiUrl */].node_url + "attendance/addStudent", data, {
+            headers: header
+        })
             .map(function (res) { return res.json(); })
             .subscribe(function (data) { return __awaiter(_this, void 0, void 0, function () {
             return __generator(this, function (_a) {
@@ -1217,10 +1276,12 @@ var AttendanceListPage = /** @class */ (function () {
         var header = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Headers */]();
         header.set("Content-Type", "application/json");
         var data = {
-            id: id,
+            id: id
         };
         this.http
-            .post(__WEBPACK_IMPORTED_MODULE_3__apiUrl__["a" /* apiUrl */].node_url + "attendance/deactivateAtted", data, { headers: header })
+            .post(__WEBPACK_IMPORTED_MODULE_3__apiUrl__["a" /* apiUrl */].node_url + "attendance/deactivateAtted", data, {
+            headers: header
+        })
             .map(function (res) { return res.json(); })
             .subscribe(function (data) { return __awaiter(_this, void 0, void 0, function () {
             return __generator(this, function (_a) {
@@ -1236,7 +1297,7 @@ var AttendanceListPage = /** @class */ (function () {
         }); });
     };
     AttendanceListPage.prototype.checkboxChange = function (e, id) {
-        // console.log('checked value : ', e.value, ' and ID : ', id);    
+        // console.log('checked value : ', e.value, ' and ID : ', id);
         if (e.value) {
             var foundStd = this.attenStudentList.filter(function (std) {
                 return std.id == id;
@@ -1273,24 +1334,26 @@ var AttendanceListPage = /** @class */ (function () {
         var header = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Headers */]();
         header.set("Content-Type", "application/json");
         var data = {
-            id: JSON.parse(localStorage.getItem('atted_id')),
-            std_list: finalStdIdList,
+            id: JSON.parse(localStorage.getItem("atted_id")),
+            std_list: finalStdIdList
         };
         this.http
-            .post(__WEBPACK_IMPORTED_MODULE_3__apiUrl__["a" /* apiUrl */].node_url + "attendance/addStdListOnPeriod", data, { headers: header })
+            .post(__WEBPACK_IMPORTED_MODULE_3__apiUrl__["a" /* apiUrl */].node_url + "attendance/addStdListOnPeriod", data, {
+            headers: header
+        })
             .map(function (res) { return res.json(); })
             .subscribe(function (data) { return __awaiter(_this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         if (!data.success) return [3 /*break*/, 4];
-                        return [4 /*yield*/, localStorage.removeItem('atted_id')];
+                        return [4 /*yield*/, localStorage.removeItem("atted_id")];
                     case 1:
                         _a.sent();
-                        return [4 /*yield*/, localStorage.removeItem('attedCode')];
+                        return [4 /*yield*/, localStorage.removeItem("attedCode")];
                     case 2:
                         _a.sent();
-                        return [4 /*yield*/, localStorage.removeItem('department')];
+                        return [4 /*yield*/, localStorage.removeItem("department")];
                     case 3:
                         _a.sent();
                         this.showAlert(data.msg);
@@ -1306,17 +1369,20 @@ var AttendanceListPage = /** @class */ (function () {
     };
     AttendanceListPage.prototype.showAlert = function (msg) {
         var alert = this.alertCtrl.create({
-            title: 'Alert!',
+            title: "Alert!",
             subTitle: msg,
-            buttons: ['OK']
+            buttons: ["OK"]
         });
         alert.present();
     };
     AttendanceListPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-attendance-list',template:/*ion-inline-start:"/home/wis/sushil/cyberHubApp/cyberhub-ionic/src/pages/attendance-list/attendance-list.html"*/'<!--\n  Generated template for the AttendanceListPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar color="blue">\n    <ion-title>Attendance List</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content >\n	<ion-list>\n\n	  <ion-item *ngFor="let student of attenStudentList">\n	    <ion-label>{{student.name}}</ion-label>\n	    <ion-checkbox checked="{{student.isChecked}}" (ionChange)="checkboxChange($event, student.id)"></ion-checkbox>\n		</ion-item>\n		\n	</ion-list>\n	<div class="padding">\n		<button ion-button type="submit" block outline color="blue" class="mt-10" (click)="onSubmitStdAttendence()">Submit</button>\n	</div>\n</ion-content>\n'/*ion-inline-end:"/home/wis/sushil/cyberHubApp/cyberhub-ionic/src/pages/attendance-list/attendance-list.html"*/,
+            selector: "page-attendance-list",template:/*ion-inline-start:"E:\ionic\cyberHub\cyberhub-ionic\src\pages\attendance-list\attendance-list.html"*/'<!--\n\n  Generated template for the AttendanceListPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar color="blue">\n\n    <ion-title>Attendance List</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content >\n\n	<ion-list>\n\n\n\n	  <ion-item *ngFor="let student of attenStudentList">\n\n	    <ion-label>{{student.name}}</ion-label>\n\n	    <ion-checkbox checked="{{student.isChecked}}" (ionChange)="checkboxChange($event, student.id)"></ion-checkbox>\n\n		</ion-item>\n\n		\n\n	</ion-list>\n\n	<div class="padding">\n\n		<button ion-button type="submit" block outline color="blue" class="mt-10" (click)="onSubmitStdAttendence()">Submit</button>\n\n	</div>\n\n</ion-content>\n\n'/*ion-inline-end:"E:\ionic\cyberHub\cyberhub-ionic\src\pages\attendance-list\attendance-list.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
     ], AttendanceListPage);
     return AttendanceListPage;
 }());
@@ -1461,7 +1527,7 @@ var GetAttendancePage = /** @class */ (function () {
         this.getUserDataFromLocal();
         this.getShiftLists();
         this.getClassList();
-        this.getPeriod();
+        // this.getPeriod();
         this.showTeacherForm = true;
     };
     // ionViewDidLoad() {
@@ -1509,6 +1575,7 @@ var GetAttendancePage = /** @class */ (function () {
         this.filteredArrayForClassList = this.orgClassSectionList.filter(function (ele) {
             return ele.org_shift_id == e;
         });
+        this.getPeriod();
         // console.log(this.filteredArrayForClassList);
         this.createSortArray(this.filteredArrayForClassList);
         // }
@@ -1608,9 +1675,7 @@ var GetAttendancePage = /** @class */ (function () {
         var _this = this;
         var header = new __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* Headers */]();
         header.set("Content-Type", "application/json");
-        var data = {
-            org_id: this.localUserData.org_code
-        };
+        var data = { org_id: this.localUserData.org_code, shift_id: this.shiftID };
         // this.checkshift = [];
         this.http
             .post(__WEBPACK_IMPORTED_MODULE_4__apiUrl__["a" /* apiUrl */].url + "routine/all", data, { headers: header })
@@ -1682,7 +1747,7 @@ var GetAttendancePage = /** @class */ (function () {
     };
     GetAttendancePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-get-attendance',template:/*ion-inline-start:"/home/wis/sushil/cyberHubApp/cyberhub-ionic/src/pages/get-attendance/get-attendance.html"*/'<!--\n  Generated template for the GetAttendancePage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar color="blue">\n    <ion-title>Attendance</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content *ngIf="showTeacherForm" class="item-center" padding>\n\n		<h4 class="title" text-center text-uppercase margin-bottom>Select Period</h4>\n\n		<ion-list>\n				<ion-item>\n					<ion-label>Shift</ion-label>\n					<ion-select [(ngModel)]="shift" (ionChange)="onChooseShift($event)">\n						<ng-container *ngFor="let shift of orgShiftLists">\n							<ion-option value="{{shift.orgshift[0]?.id}}" *ngIf="shift.orgshift[0]?.id">{{shift.name}}</ion-option>\n						</ng-container>\n					</ion-select>\n				</ion-item>\n		</ion-list>\n\n		<ion-list>\n				<ion-item>\n					<ion-label>Stream</ion-label>\n					<ion-select [(ngModel)]="stream" (ionChange)="onChooseClassStream($event)">\n						<ion-option value="{{classStream.class_id}}" *ngFor="let classStream of sortArray">{{classStream.class_name}}</ion-option>\n					</ion-select>\n				</ion-item>\n		</ion-list>\n\n		<ion-list>\n				<ion-item>\n					<ion-label>Department</ion-label>\n					<ion-select [(ngModel)]="department">\n						<ion-option value="{{sec.classSectionIndexId}}" *ngFor="let sec of filteredArrayForSectionList">{{sec.section_name}}</ion-option>\n					</ion-select>\n				</ion-item>\n		</ion-list>		\n\n		<ion-list>\n				<ion-item>\n					<ion-label>Period</ion-label>\n					<ion-select [(ngModel)]="period">\n						<ion-option *ngFor="let period of periodList" value="{{period.id}}">{{period.priod_name}} ({{period.from_time}} {{period.to_time}})</ion-option>\n					</ion-select>\n				</ion-item>\n		</ion-list>\n\n		<button ion-button block outline color="blue" class="mt-10" (click)="onPeriodSubmit()">Submit</button>\n\n</ion-content>\n\n\n\n\n\n\n\n\n<ion-content *ngIf="!showTeacherForm" class="item-center" padding>\n\n		<h3 class="title" text-center text-uppercase margin-bottom style="margin-top: 7rem;">Your Attendance Code</h3>\n		<h4 text-center margin-bottom>{{genAttCode}}</h4>\n		\n		<button ion-button block outline color="blue" class="mt-10" (click)="onStartAttendence()">Start</button>\n\n</ion-content>\n'/*ion-inline-end:"/home/wis/sushil/cyberHubApp/cyberhub-ionic/src/pages/get-attendance/get-attendance.html"*/,
+            selector: 'page-get-attendance',template:/*ion-inline-start:"E:\ionic\cyberHub\cyberhub-ionic\src\pages\get-attendance\get-attendance.html"*/'<!--\n\n  Generated template for the GetAttendancePage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar color="blue">\n\n    <ion-title>Attendance</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content *ngIf="showTeacherForm" class="item-center" padding>\n\n\n\n		<h4 class="title" text-center text-uppercase margin-bottom>Select Period</h4>\n\n\n\n		<ion-list>\n\n				<ion-item>\n\n					<ion-label>Shift</ion-label>\n\n					<ion-select [(ngModel)]="shift" (ionChange)="onChooseShift($event)">\n\n						<ng-container *ngFor="let shift of orgShiftLists">\n\n							<ion-option value="{{shift.orgshift[0]?.id}}" *ngIf="shift.orgshift[0]?.id">{{shift.name}}</ion-option>\n\n						</ng-container>\n\n					</ion-select>\n\n				</ion-item>\n\n		</ion-list>\n\n\n\n		<ion-list>\n\n				<ion-item>\n\n					<ion-label>Stream</ion-label>\n\n					<ion-select [(ngModel)]="stream" (ionChange)="onChooseClassStream($event)">\n\n						<ion-option value="{{classStream.class_id}}" *ngFor="let classStream of sortArray">{{classStream.class_name}}</ion-option>\n\n					</ion-select>\n\n				</ion-item>\n\n		</ion-list>\n\n\n\n		<ion-list>\n\n				<ion-item>\n\n					<ion-label>Department</ion-label>\n\n					<ion-select [(ngModel)]="department">\n\n						<ion-option value="{{sec.classSectionIndexId}}" *ngFor="let sec of filteredArrayForSectionList">{{sec.section_name}}</ion-option>\n\n					</ion-select>\n\n				</ion-item>\n\n		</ion-list>		\n\n\n\n		<ion-list>\n\n				<ion-item>\n\n					<ion-label>Period</ion-label>\n\n					<ion-select [(ngModel)]="period">\n\n						<ion-option *ngFor="let period of periodList" value="{{period.id}}">{{period.priod_name}} ({{period.from_time}} {{period.to_time}})</ion-option>\n\n					</ion-select>\n\n				</ion-item>\n\n		</ion-list>\n\n\n\n		<button ion-button block outline color="blue" class="mt-10" (click)="onPeriodSubmit()">Submit</button>\n\n\n\n</ion-content>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<ion-content *ngIf="!showTeacherForm" class="item-center" padding>\n\n\n\n		<h3 class="title" text-center text-uppercase margin-bottom style="margin-top: 7rem;">Your Attendance Code</h3>\n\n		<h4 text-center margin-bottom>{{genAttCode}}</h4>\n\n		\n\n		<button ion-button block outline color="blue" class="mt-10" (click)="onStartAttendence()">Start</button>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"E:\ionic\cyberHub\cyberhub-ionic\src\pages\get-attendance\get-attendance.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* MenuController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_3__angular_http__["b" /* Http */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
     ], GetAttendancePage);
@@ -1731,7 +1796,7 @@ var StaffComplainPage = /** @class */ (function () {
     };
     StaffComplainPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-staff-complain',template:/*ion-inline-start:"/home/wis/sushil/cyberHubApp/cyberhub-ionic/src/pages/staff-complain/staff-complain.html"*/'<!--\n  Generated template for the StaffComplainPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar color="blue">\n    <ion-title>Staff Complain</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n	<div class="enquiry-form">\n		 <h3 class="title" text-center text-uppercase margin-bottom>Enter Your Complain</h3>\n	 	<form>\n			<ion-list style="background-color: none;">\n			  <ion-item>\n			  	<ion-label> <ion-icon ios="ios-text" md="md-text"></ion-icon></ion-label>\n			     <ion-textarea  name="" placeholder="Type Your Complain"></ion-textarea>\n			  </ion-item>\n			   <ion-note text-right float-right>You Have 3/3 Complain</ion-note>\n				<button ion-button block outline color="blue" class="mt-10" (click)=goHide()>Submit</button>\n				<p class="text-blue" *ngIf="isShown">Your Complain has been Submited to the Principal</p>\n			</ion-list>\n		</form>\n	</div>\n\n</ion-content>'/*ion-inline-end:"/home/wis/sushil/cyberHubApp/cyberhub-ionic/src/pages/staff-complain/staff-complain.html"*/,
+            selector: 'page-staff-complain',template:/*ion-inline-start:"E:\ionic\cyberHub\cyberhub-ionic\src\pages\staff-complain\staff-complain.html"*/'<!--\n\n  Generated template for the StaffComplainPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar color="blue">\n\n    <ion-title>Staff Complain</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n\n\n	<div class="enquiry-form">\n\n		 <h3 class="title" text-center text-uppercase margin-bottom>Enter Your Complain</h3>\n\n	 	<form>\n\n			<ion-list style="background-color: none;">\n\n			  <ion-item>\n\n			  	<ion-label> <ion-icon ios="ios-text" md="md-text"></ion-icon></ion-label>\n\n			     <ion-textarea  name="" placeholder="Type Your Complain"></ion-textarea>\n\n			  </ion-item>\n\n			   <ion-note text-right float-right>You Have 3/3 Complain</ion-note>\n\n				<button ion-button block outline color="blue" class="mt-10" (click)=goHide()>Submit</button>\n\n				<p class="text-blue" *ngIf="isShown">Your Complain has been Submited to the Principal</p>\n\n			</ion-list>\n\n		</form>\n\n	</div>\n\n\n\n</ion-content>'/*ion-inline-end:"E:\ionic\cyberHub\cyberhub-ionic\src\pages\staff-complain\staff-complain.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */]])
     ], StaffComplainPage);
@@ -1776,7 +1841,7 @@ var PrincipalExamviewPage = /** @class */ (function () {
     };
     PrincipalExamviewPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-principal-examview',template:/*ion-inline-start:"/home/wis/sushil/cyberHubApp/cyberhub-ionic/src/pages/principal-examview/principal-examview.html"*/'<!--\n  Generated template for the PrincipalExamviewPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar color="blue">\n    <ion-title>Exam Schedule</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content>\n\n<ion-card>\n<ion-grid>\n  <ion-row>\n    <ion-col col-12 text-uppercase text-center>\n    	<h2 ><strong>Bengali Honours</strong></h2>\n	</ion-col>\n  </ion-row>\n  <ion-row class="border">\n    <ion-col col-4 >\n    	<p><strong>Time</strong>:</p>\n    	<p>12PM-2PM</p>\n    </ion-col>\n    <ion-col col-4>\n    	<p><strong>Room No</strong>:</p>\n    	<p>12C</p>\n    </ion-col>\n    <ion-col col-4>\n    	<p><strong>Floor</strong>:</p>\n    	<p>2ND</p>\n    </ion-col>\n    <ion-col col-12>\n    	<p><strong>Invigilator Name</strong>: Loriem Iosum</p>\n    </ion-col>\n  </ion-row>\n</ion-grid>  \n</ion-card>\n\n\n<ion-card>\n<ion-grid>\n  <ion-row>\n    <ion-col col-12 text-uppercase text-center>\n    	<h2 ><strong>Philosophy Honours</strong></h2>\n	</ion-col>\n  </ion-row>\n  <ion-row class="border">\n    <ion-col col-4 >\n    	<p><strong>Time</strong>:</p>\n    	<p>2PM-4PM</p>\n    </ion-col>\n    <ion-col col-4>\n    	<p><strong>Room No</strong>:</p>\n    	<p>10</p>\n    </ion-col>\n    <ion-col col-4>\n    	<p><strong>Floor</strong>:</p>\n    	<p>3ND</p>\n    </ion-col>\n    <ion-col col-12>\n    	<p><strong>Invigilator Name</strong>: Loriem Iosum, Loriem Iosum</p>\n    </ion-col>\n  </ion-row>\n</ion-grid>  \n</ion-card>\n\n<ion-card>\n<ion-grid>\n  <ion-row>\n    <ion-col col-12 text-uppercase text-center>\n    	<h2 ><strong>English Honours</strong></h2>\n	</ion-col>\n  </ion-row>\n  <ion-row class="border">\n    <ion-col col-4 >\n    	<p><strong>Time</strong>:</p>\n    	<p>4PM-6PM</p>\n    </ion-col>\n    <ion-col col-4>\n    	<p><strong>Room No</strong>:</p>\n    	<p>12B</p>\n    </ion-col>\n    <ion-col col-4>\n    	<p><strong>Floor</strong>:</p>\n    	<p>2ND</p>\n    </ion-col>\n    <ion-col col-12>\n    	<p><strong>Invigilator Name</strong>: Loriem Iosum</p>\n    </ion-col>\n  </ion-row>\n</ion-grid>  \n</ion-card>\n\n</ion-content>\n'/*ion-inline-end:"/home/wis/sushil/cyberHubApp/cyberhub-ionic/src/pages/principal-examview/principal-examview.html"*/,
+            selector: 'page-principal-examview',template:/*ion-inline-start:"E:\ionic\cyberHub\cyberhub-ionic\src\pages\principal-examview\principal-examview.html"*/'<!--\n\n  Generated template for the PrincipalExamviewPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar color="blue">\n\n    <ion-title>Exam Schedule</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content>\n\n\n\n<ion-card>\n\n<ion-grid>\n\n  <ion-row>\n\n    <ion-col col-12 text-uppercase text-center>\n\n    	<h2 ><strong>Bengali Honours</strong></h2>\n\n	</ion-col>\n\n  </ion-row>\n\n  <ion-row class="border">\n\n    <ion-col col-4 >\n\n    	<p><strong>Time</strong>:</p>\n\n    	<p>12PM-2PM</p>\n\n    </ion-col>\n\n    <ion-col col-4>\n\n    	<p><strong>Room No</strong>:</p>\n\n    	<p>12C</p>\n\n    </ion-col>\n\n    <ion-col col-4>\n\n    	<p><strong>Floor</strong>:</p>\n\n    	<p>2ND</p>\n\n    </ion-col>\n\n    <ion-col col-12>\n\n    	<p><strong>Invigilator Name</strong>: Loriem Iosum</p>\n\n    </ion-col>\n\n  </ion-row>\n\n</ion-grid>  \n\n</ion-card>\n\n\n\n\n\n<ion-card>\n\n<ion-grid>\n\n  <ion-row>\n\n    <ion-col col-12 text-uppercase text-center>\n\n    	<h2 ><strong>Philosophy Honours</strong></h2>\n\n	</ion-col>\n\n  </ion-row>\n\n  <ion-row class="border">\n\n    <ion-col col-4 >\n\n    	<p><strong>Time</strong>:</p>\n\n    	<p>2PM-4PM</p>\n\n    </ion-col>\n\n    <ion-col col-4>\n\n    	<p><strong>Room No</strong>:</p>\n\n    	<p>10</p>\n\n    </ion-col>\n\n    <ion-col col-4>\n\n    	<p><strong>Floor</strong>:</p>\n\n    	<p>3ND</p>\n\n    </ion-col>\n\n    <ion-col col-12>\n\n    	<p><strong>Invigilator Name</strong>: Loriem Iosum, Loriem Iosum</p>\n\n    </ion-col>\n\n  </ion-row>\n\n</ion-grid>  \n\n</ion-card>\n\n\n\n<ion-card>\n\n<ion-grid>\n\n  <ion-row>\n\n    <ion-col col-12 text-uppercase text-center>\n\n    	<h2 ><strong>English Honours</strong></h2>\n\n	</ion-col>\n\n  </ion-row>\n\n  <ion-row class="border">\n\n    <ion-col col-4 >\n\n    	<p><strong>Time</strong>:</p>\n\n    	<p>4PM-6PM</p>\n\n    </ion-col>\n\n    <ion-col col-4>\n\n    	<p><strong>Room No</strong>:</p>\n\n    	<p>12B</p>\n\n    </ion-col>\n\n    <ion-col col-4>\n\n    	<p><strong>Floor</strong>:</p>\n\n    	<p>2ND</p>\n\n    </ion-col>\n\n    <ion-col col-12>\n\n    	<p><strong>Invigilator Name</strong>: Loriem Iosum</p>\n\n    </ion-col>\n\n  </ion-row>\n\n</ion-grid>  \n\n</ion-card>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"E:\ionic\cyberHub\cyberhub-ionic\src\pages\principal-examview\principal-examview.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */]])
     ], PrincipalExamviewPage);
@@ -1826,7 +1891,7 @@ var PrincipalComplaindeskPage = /** @class */ (function () {
     };
     PrincipalComplaindeskPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-principal-complaindesk',template:/*ion-inline-start:"/home/wis/sushil/cyberHubApp/cyberhub-ionic/src/pages/principal-complaindesk/principal-complaindesk.html"*/'<!--\n  Generated template for the PrincipalComplaindeskPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-navbar color="blue">\n    <ion-title>Complain Desk</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content>\n	\n	<ion-card>\n	  <ion-card-content>\n	    <p>The most popular industrial group ever, and largely responsible for bringing the music to a mass audience.</p>\n	  </ion-card-content>\n	  <ion-row no-padding>\n      <ion-col text-left>\n        <button ion-button clear small color="blue" icon-start>\n          Ram Kumar\n        </button>\n      </ion-col>\n      <ion-col text-right>\n        <button ion-button clear small color="blue" icon-start (click)=gotoCompalinReply()>\n          <ion-icon name=\'share-alt\'></ion-icon>\n          Reply\n        </button>\n      </ion-col>\n    </ion-row>\n	</ion-card>\n\n	<ion-card>\n	  <ion-card-content>\n	    <p>The most popular industrial group ever, and largely responsible for bringing the music to a mass audience.</p>\n	  </ion-card-content>\n	  <ion-row no-padding>\n	  	<ion-col text-left>\n        <button ion-button clear small color="blue" icon-start>\n          Ram Kumar\n        </button>\n      </ion-col>\n      <ion-col text-right>\n        <button ion-button clear small color="blue" icon-start (click)=gotoCompalinReply()>\n          <ion-icon name=\'share-alt\'></ion-icon>\n          Reply\n        </button>\n      </ion-col>\n    </ion-row>\n	</ion-card>\n\n	<ion-card>\n	  <ion-card-content>\n	    <p>The most popular industrial group ever, and largely responsible for bringing the music to a mass audience.</p>\n	  </ion-card-content>\n	  <ion-row no-padding>\n	  	<ion-col text-left>\n        <button ion-button clear small color="blue" icon-start>\n          Ram Kumar\n        </button>\n      </ion-col>\n      <ion-col text-right>\n        <button ion-button clear small color="blue" icon-start (click)=gotoCompalinReply()>\n          <ion-icon name=\'share-alt\'></ion-icon>\n          Reply\n        </button>\n      </ion-col>\n    </ion-row>\n	</ion-card>\n\n\n	<ion-card>\n	  <ion-card-content>\n	    <p>The most popular industrial group ever, and largely responsible for bringing the music to a mass audience.</p>\n	  </ion-card-content>\n	  <ion-row no-padding>\n	  	<ion-col text-left>\n        <button ion-button clear small color="blue" icon-start>\n          Ram Kumar\n        </button>\n      </ion-col>\n      <ion-col text-right>\n        <button ion-button clear small color="blue" icon-start (click)=gotoCompalinReply()>\n          <ion-icon name=\'share-alt\'></ion-icon>\n          Reply\n        </button>\n      </ion-col>\n    </ion-row>\n	</ion-card>\n\n\n</ion-content>\n'/*ion-inline-end:"/home/wis/sushil/cyberHubApp/cyberhub-ionic/src/pages/principal-complaindesk/principal-complaindesk.html"*/,
+            selector: 'page-principal-complaindesk',template:/*ion-inline-start:"E:\ionic\cyberHub\cyberhub-ionic\src\pages\principal-complaindesk\principal-complaindesk.html"*/'<!--\n\n  Generated template for the PrincipalComplaindeskPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n  <ion-navbar color="blue">\n\n    <ion-title>Complain Desk</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n\n\n<ion-content>\n\n	\n\n	<ion-card>\n\n	  <ion-card-content>\n\n	    <p>The most popular industrial group ever, and largely responsible for bringing the music to a mass audience.</p>\n\n	  </ion-card-content>\n\n	  <ion-row no-padding>\n\n      <ion-col text-left>\n\n        <button ion-button clear small color="blue" icon-start>\n\n          Ram Kumar\n\n        </button>\n\n      </ion-col>\n\n      <ion-col text-right>\n\n        <button ion-button clear small color="blue" icon-start (click)=gotoCompalinReply()>\n\n          <ion-icon name=\'share-alt\'></ion-icon>\n\n          Reply\n\n        </button>\n\n      </ion-col>\n\n    </ion-row>\n\n	</ion-card>\n\n\n\n	<ion-card>\n\n	  <ion-card-content>\n\n	    <p>The most popular industrial group ever, and largely responsible for bringing the music to a mass audience.</p>\n\n	  </ion-card-content>\n\n	  <ion-row no-padding>\n\n	  	<ion-col text-left>\n\n        <button ion-button clear small color="blue" icon-start>\n\n          Ram Kumar\n\n        </button>\n\n      </ion-col>\n\n      <ion-col text-right>\n\n        <button ion-button clear small color="blue" icon-start (click)=gotoCompalinReply()>\n\n          <ion-icon name=\'share-alt\'></ion-icon>\n\n          Reply\n\n        </button>\n\n      </ion-col>\n\n    </ion-row>\n\n	</ion-card>\n\n\n\n	<ion-card>\n\n	  <ion-card-content>\n\n	    <p>The most popular industrial group ever, and largely responsible for bringing the music to a mass audience.</p>\n\n	  </ion-card-content>\n\n	  <ion-row no-padding>\n\n	  	<ion-col text-left>\n\n        <button ion-button clear small color="blue" icon-start>\n\n          Ram Kumar\n\n        </button>\n\n      </ion-col>\n\n      <ion-col text-right>\n\n        <button ion-button clear small color="blue" icon-start (click)=gotoCompalinReply()>\n\n          <ion-icon name=\'share-alt\'></ion-icon>\n\n          Reply\n\n        </button>\n\n      </ion-col>\n\n    </ion-row>\n\n	</ion-card>\n\n\n\n\n\n	<ion-card>\n\n	  <ion-card-content>\n\n	    <p>The most popular industrial group ever, and largely responsible for bringing the music to a mass audience.</p>\n\n	  </ion-card-content>\n\n	  <ion-row no-padding>\n\n	  	<ion-col text-left>\n\n        <button ion-button clear small color="blue" icon-start>\n\n          Ram Kumar\n\n        </button>\n\n      </ion-col>\n\n      <ion-col text-right>\n\n        <button ion-button clear small color="blue" icon-start (click)=gotoCompalinReply()>\n\n          <ion-icon name=\'share-alt\'></ion-icon>\n\n          Reply\n\n        </button>\n\n      </ion-col>\n\n    </ion-row>\n\n	</ion-card>\n\n\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"E:\ionic\cyberHub\cyberhub-ionic\src\pages\principal-complaindesk\principal-complaindesk.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */]])
     ], PrincipalComplaindeskPage);
@@ -1871,7 +1936,7 @@ var ComplainReplyPage = /** @class */ (function () {
     };
     ComplainReplyPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-complain-reply',template:/*ion-inline-start:"/home/wis/sushil/cyberHubApp/cyberhub-ionic/src/pages/complain-reply/complain-reply.html"*/'<!--\n  Generated template for the ComplainReplyPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar color="blue">\n    <ion-title>Complain Reply</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n	<h1 text-center text-uppercase margin-bottom color="blue" class="">Type Your Reply</h1>\n	<ion-list>\n	  <ion-item>\n	    <ion-textarea type="text" placeholder="Type Here to Reply"></ion-textarea>\n	  </ion-item>\n	</ion-list>\n	 <button ion-button type="submit" block outline color="blue" class="mt-10">Submit Reply</button>\n</ion-content>\n'/*ion-inline-end:"/home/wis/sushil/cyberHubApp/cyberhub-ionic/src/pages/complain-reply/complain-reply.html"*/,
+            selector: 'page-complain-reply',template:/*ion-inline-start:"E:\ionic\cyberHub\cyberhub-ionic\src\pages\complain-reply\complain-reply.html"*/'<!--\n\n  Generated template for the ComplainReplyPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar color="blue">\n\n    <ion-title>Complain Reply</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n	<h1 text-center text-uppercase margin-bottom color="blue" class="">Type Your Reply</h1>\n\n	<ion-list>\n\n	  <ion-item>\n\n	    <ion-textarea type="text" placeholder="Type Here to Reply"></ion-textarea>\n\n	  </ion-item>\n\n	</ion-list>\n\n	 <button ion-button type="submit" block outline color="blue" class="mt-10">Submit Reply</button>\n\n</ion-content>\n\n'/*ion-inline-end:"E:\ionic\cyberHub\cyberhub-ionic\src\pages\complain-reply\complain-reply.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */]])
     ], ComplainReplyPage);
@@ -2118,7 +2183,7 @@ var StuffExamdutyPage = /** @class */ (function () {
     };
     StuffExamdutyPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-stuff-examduty',template:/*ion-inline-start:"/home/wis/sushil/cyberHubApp/cyberhub-ionic/src/pages/stuff-examduty/stuff-examduty.html"*/'<!--\n  Generated template for the StuffExamdutyPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar color="blue">\n    <ion-title>Exam Duty</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content no-padding>\n\n\n\n    <ion-list>\n        <ion-item *ngFor="let routine of routineList" (click)="toggleDetails(routine)"><ion-icon color="primary" item-right [name]="routine?.icon"></ion-icon>\n          Day {{routine?.day}}\n          <!-- <table *ngIf="routine.showDetails">{{routine}}</table> -->\n    \n          <ion-list *ngIf="routine?.showDetails">\n            <ion-item *ngFor="let r of routine.priods">\n              <!-- <p>Priod : {{r?.priod_name}} Priod</p>\n              <p *ngIf="r?.rutinedetails[0]">CC Name : {{r?.rutinedetails[0]?.cc_name}}</p>\n              <p *ngIf="!r?.rutinedetails[0]">CC Name : No Priod</p>\n              <p *ngIf="r?.rutinedetails[0]">Time : {{r?.from_time}} to {{r?.to_time}}</p>\n              <p *ngIf="!r?.rutinedetails[0]">Time : NA</p>\n              <p *ngIf="r?.rutinedetails[0]">Teacher : {{r?.rutinedetails[0]?.teacher?.name}} ({{r?.rutinedetails[0]?.teacher?.short_name}})</p>\n              <p *ngIf="!r?.rutinedetails[0]">Teacher : NA</p> -->\n\n              <ion-card>\n                  <ion-grid>\n                    <ion-row>\n                      <ion-col col-md-12 text-uppercase text-center>\n                        <h2 ><strong>{{r?.sub}}</strong></h2>\n                    </ion-col>\n                    </ion-row>\n                    <ion-row class="border">\n                      <ion-col col-md-4 >\n                        <p><strong>Time</strong>:</p>\n                        <p>{{r?.from_time}} - {{r?.to_time}}</p>\n                      </ion-col>\n                      <ion-col col-md-4>\n                        <p><strong>Room No</strong>:</p>\n                        <p>{{r?.room}}</p>\n                      </ion-col>\n                      <ion-col col-md-4>\n                        <p><strong>Floor</strong>:</p>\n                        <p>{{r?.floor}}</p>\n                      </ion-col>\n                    </ion-row>\n                  </ion-grid>  \n              </ion-card>\n            </ion-item>\n\n            \n          </ion-list>\n        \n        </ion-item>\n\n\n\n        <!-- <ion-item>\n          <ion-list>\n            <p></p>\n          </ion-list>\n        </ion-item> -->\n    </ion-list>\n\n\n\n\n<!-- <ion-card>\n<ion-grid>\n  <ion-row>\n    <ion-col col-md-12 text-uppercase text-center>\n    	<h2 ><strong>Bengali Honours</strong></h2>\n	</ion-col>\n  </ion-row>\n  <ion-row class="border">\n    <ion-col col-md-4 >\n    	<p><strong>Time</strong>:</p>\n    	<p>12PM-2PM</p>\n    </ion-col>\n    <ion-col col-md-4>\n    	<p><strong>Room No</strong>:</p>\n    	<p>12C</p>\n    </ion-col>\n    <ion-col col-md-4>\n    	<p><strong>Floor</strong>:</p>\n    	<p>2ND</p>\n    </ion-col>\n  </ion-row>\n</ion-grid>  \n</ion-card>\n\n\n<ion-card>\n<ion-grid>\n  <ion-row>\n    <ion-col col-md-12 text-uppercase text-center>\n    	<h2 ><strong>Philosophy Honours</strong></h2>\n	</ion-col>\n  </ion-row>\n  <ion-row class="border">\n    <ion-col col-md-4 >\n    	<p><strong>Time</strong>:</p>\n    	<p>2PM-4PM</p>\n    </ion-col>\n    <ion-col col-md-4>\n    	<p><strong>Room No</strong>:</p>\n    	<p>10</p>\n    </ion-col>\n    <ion-col col-md-4>\n    	<p><strong>Floor</strong>:</p>\n    	<p>3ND</p>\n    </ion-col>\n  </ion-row>\n</ion-grid>  \n</ion-card>\n\n<ion-card>\n<ion-grid>\n  <ion-row>\n    <ion-col col-md-12 text-uppercase text-center>\n    	<h2 ><strong>English Honours</strong></h2>\n	</ion-col>\n  </ion-row>\n  <ion-row class="border">\n    <ion-col col-md-4>\n    	<p><strong>Time</strong>:</p>\n    	<p>4PM-6PM</p>\n    </ion-col>\n    <ion-col col-md-4>\n    	<p><strong>Room No</strong>:</p>\n    	<p>12B</p>\n    </ion-col>\n    <ion-col col-md-4>\n    	<p><strong>Floor</strong>:</p>\n    	<p>2ND</p>\n    </ion-col>\n  </ion-row>\n</ion-grid>  \n</ion-card> -->\n</ion-content>\n'/*ion-inline-end:"/home/wis/sushil/cyberHubApp/cyberhub-ionic/src/pages/stuff-examduty/stuff-examduty.html"*/,
+            selector: 'page-stuff-examduty',template:/*ion-inline-start:"E:\ionic\cyberHub\cyberhub-ionic\src\pages\stuff-examduty\stuff-examduty.html"*/'<!--\n\n  Generated template for the StuffExamdutyPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar color="blue">\n\n    <ion-title>Exam Duty</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content no-padding>\n\n\n\n\n\n\n\n    <ion-list>\n\n        <ion-item *ngFor="let routine of routineList" (click)="toggleDetails(routine)"><ion-icon color="primary" item-right [name]="routine?.icon"></ion-icon>\n\n          Day {{routine?.day}}\n\n          <!-- <table *ngIf="routine.showDetails">{{routine}}</table> -->\n\n    \n\n          <ion-list *ngIf="routine?.showDetails">\n\n            <ion-item *ngFor="let r of routine.priods">\n\n              <!-- <p>Priod : {{r?.priod_name}} Priod</p>\n\n              <p *ngIf="r?.rutinedetails[0]">CC Name : {{r?.rutinedetails[0]?.cc_name}}</p>\n\n              <p *ngIf="!r?.rutinedetails[0]">CC Name : No Priod</p>\n\n              <p *ngIf="r?.rutinedetails[0]">Time : {{r?.from_time}} to {{r?.to_time}}</p>\n\n              <p *ngIf="!r?.rutinedetails[0]">Time : NA</p>\n\n              <p *ngIf="r?.rutinedetails[0]">Teacher : {{r?.rutinedetails[0]?.teacher?.name}} ({{r?.rutinedetails[0]?.teacher?.short_name}})</p>\n\n              <p *ngIf="!r?.rutinedetails[0]">Teacher : NA</p> -->\n\n\n\n              <ion-card>\n\n                  <ion-grid>\n\n                    <ion-row>\n\n                      <ion-col col-md-12 text-uppercase text-center>\n\n                        <h2 ><strong>{{r?.sub}}</strong></h2>\n\n                    </ion-col>\n\n                    </ion-row>\n\n                    <ion-row class="border">\n\n                      <ion-col col-md-4 >\n\n                        <p><strong>Time</strong>:</p>\n\n                        <p>{{r?.from_time}} - {{r?.to_time}}</p>\n\n                      </ion-col>\n\n                      <ion-col col-md-4>\n\n                        <p><strong>Room No</strong>:</p>\n\n                        <p>{{r?.room}}</p>\n\n                      </ion-col>\n\n                      <ion-col col-md-4>\n\n                        <p><strong>Floor</strong>:</p>\n\n                        <p>{{r?.floor}}</p>\n\n                      </ion-col>\n\n                    </ion-row>\n\n                  </ion-grid>  \n\n              </ion-card>\n\n            </ion-item>\n\n\n\n            \n\n          </ion-list>\n\n        \n\n        </ion-item>\n\n\n\n\n\n\n\n        <!-- <ion-item>\n\n          <ion-list>\n\n            <p></p>\n\n          </ion-list>\n\n        </ion-item> -->\n\n    </ion-list>\n\n\n\n\n\n\n\n\n\n<!-- <ion-card>\n\n<ion-grid>\n\n  <ion-row>\n\n    <ion-col col-md-12 text-uppercase text-center>\n\n    	<h2 ><strong>Bengali Honours</strong></h2>\n\n	</ion-col>\n\n  </ion-row>\n\n  <ion-row class="border">\n\n    <ion-col col-md-4 >\n\n    	<p><strong>Time</strong>:</p>\n\n    	<p>12PM-2PM</p>\n\n    </ion-col>\n\n    <ion-col col-md-4>\n\n    	<p><strong>Room No</strong>:</p>\n\n    	<p>12C</p>\n\n    </ion-col>\n\n    <ion-col col-md-4>\n\n    	<p><strong>Floor</strong>:</p>\n\n    	<p>2ND</p>\n\n    </ion-col>\n\n  </ion-row>\n\n</ion-grid>  \n\n</ion-card>\n\n\n\n\n\n<ion-card>\n\n<ion-grid>\n\n  <ion-row>\n\n    <ion-col col-md-12 text-uppercase text-center>\n\n    	<h2 ><strong>Philosophy Honours</strong></h2>\n\n	</ion-col>\n\n  </ion-row>\n\n  <ion-row class="border">\n\n    <ion-col col-md-4 >\n\n    	<p><strong>Time</strong>:</p>\n\n    	<p>2PM-4PM</p>\n\n    </ion-col>\n\n    <ion-col col-md-4>\n\n    	<p><strong>Room No</strong>:</p>\n\n    	<p>10</p>\n\n    </ion-col>\n\n    <ion-col col-md-4>\n\n    	<p><strong>Floor</strong>:</p>\n\n    	<p>3ND</p>\n\n    </ion-col>\n\n  </ion-row>\n\n</ion-grid>  \n\n</ion-card>\n\n\n\n<ion-card>\n\n<ion-grid>\n\n  <ion-row>\n\n    <ion-col col-md-12 text-uppercase text-center>\n\n    	<h2 ><strong>English Honours</strong></h2>\n\n	</ion-col>\n\n  </ion-row>\n\n  <ion-row class="border">\n\n    <ion-col col-md-4>\n\n    	<p><strong>Time</strong>:</p>\n\n    	<p>4PM-6PM</p>\n\n    </ion-col>\n\n    <ion-col col-md-4>\n\n    	<p><strong>Room No</strong>:</p>\n\n    	<p>12B</p>\n\n    </ion-col>\n\n    <ion-col col-md-4>\n\n    	<p><strong>Floor</strong>:</p>\n\n    	<p>2ND</p>\n\n    </ion-col>\n\n  </ion-row>\n\n</ion-grid>  \n\n</ion-card> -->\n\n</ion-content>\n\n'/*ion-inline-end:"E:\ionic\cyberHub\cyberhub-ionic\src\pages\stuff-examduty\stuff-examduty.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* MenuController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */]])
     ], StuffExamdutyPage);
@@ -2206,7 +2271,7 @@ var LiveStreamPage = /** @class */ (function () {
     };
     LiveStreamPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-live-stream',template:/*ion-inline-start:"/home/wis/sushil/cyberHubApp/cyberhub-ionic/src/pages/live-stream/live-stream.html"*/'<!--\n  Generated template for the LiveStreamPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<!-- <ion-header>\n\n  <ion-navbar>\n    <ion-title>Live Stream</ion-title>\n  </ion-navbar>\n\n</ion-header> -->\n\n\n<ion-content>\n<ion-spinner name="bubbles" ></ion-spinner>\n\n</ion-content>\n'/*ion-inline-end:"/home/wis/sushil/cyberHubApp/cyberhub-ionic/src/pages/live-stream/live-stream.html"*/,
+            selector: 'page-live-stream',template:/*ion-inline-start:"E:\ionic\cyberHub\cyberhub-ionic\src\pages\live-stream\live-stream.html"*/'<!--\n\n  Generated template for the LiveStreamPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<!-- <ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>Live Stream</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header> -->\n\n\n\n\n\n<ion-content>\n\n<ion-spinner name="bubbles" ></ion-spinner>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"E:\ionic\cyberHub\cyberhub-ionic\src\pages\live-stream\live-stream.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_streaming_media__["a" /* StreamingMedia */], __WEBPACK_IMPORTED_MODULE_3__angular_http__["b" /* Http */]])
     ], LiveStreamPage);
@@ -2256,7 +2321,7 @@ var ParentsChildTabsPage = /** @class */ (function () {
     };
     ParentsChildTabsPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-parents-child-tabs',template:/*ion-inline-start:"/home/wis/sushil/cyberHubApp/cyberhub-ionic/src/pages/parents-child-tabs/parents-child-tabs.html"*/'<!--\n  Generated template for the ParentsChildTabsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n\n\n<ion-content>\n\n<ion-tabs id="tabs" color="blue">\n  <ion-tab [root]="tab1Root" tabTitle="Child 1" tabIcon="contact" tabsHideOnSubPages="true"></ion-tab>\n  <ion-tab [root]="tab2Root" tabTitle="Child 2" tabIcon="contacts" tabsHideOnSubPages="true"></ion-tab>\n  <ion-tab [root]="tab3Root" tabTitle="Child 3" tabIcon="people" tabsHideOnSubPages="true"></ion-tab>\n</ion-tabs>\n\n</ion-content>\n'/*ion-inline-end:"/home/wis/sushil/cyberHubApp/cyberhub-ionic/src/pages/parents-child-tabs/parents-child-tabs.html"*/,
+            selector: 'page-parents-child-tabs',template:/*ion-inline-start:"E:\ionic\cyberHub\cyberhub-ionic\src\pages\parents-child-tabs\parents-child-tabs.html"*/'<!--\n\n  Generated template for the ParentsChildTabsPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n\n\n\n\n<ion-content>\n\n\n\n<ion-tabs id="tabs" color="blue">\n\n  <ion-tab [root]="tab1Root" tabTitle="Child 1" tabIcon="contact" tabsHideOnSubPages="true"></ion-tab>\n\n  <ion-tab [root]="tab2Root" tabTitle="Child 2" tabIcon="contacts" tabsHideOnSubPages="true"></ion-tab>\n\n  <ion-tab [root]="tab3Root" tabTitle="Child 3" tabIcon="people" tabsHideOnSubPages="true"></ion-tab>\n\n</ion-tabs>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"E:\ionic\cyberHub\cyberhub-ionic\src\pages\parents-child-tabs\parents-child-tabs.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */]])
     ], ParentsChildTabsPage);
@@ -2312,7 +2377,7 @@ var ParentsLoginPage = /** @class */ (function () {
     };
     ParentsLoginPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-parents-login',template:/*ion-inline-start:"/home/wis/sushil/cyberHubApp/cyberhub-ionic/src/pages/parents-login/parents-login.html"*/'<!--\n  Generated template for the ParentsLoginPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<!-- <ion-header>\n  <ion-navbar color="blue">\n    <ion-title>Parents Login</ion-title>\n  </ion-navbar>\n</ion-header> -->\n\n\n\n<ion-content class="item-center" padding color="light">\n	<img src="assets/imgs/logo.jpg" class="img-width"/>\n	<!-- <h1 class="heading" text-center text-uppercase>CyberHub</h1> -->\n	<img src="assets/imgs/bk.png" class="img-width" />\n	<div class="enquiry-form">\n		 <h3 class="title" text-center text-uppercase margin-bottom>Enter Your Email</h3>\n	 	<form>\n			<ion-list>\n				  <ion-item>\n				  	<ion-label> <ion-icon ios="ios-mail" md="md-mail"></ion-icon></ion-label>\n				    <ion-input type="text" placeholder="Email" no-margin></ion-input>\n				  </ion-item>\n			<ion-item *ngIf="isShown" margin-top>\n			    <ion-input type="text" placeholder="Enter One Time Password" no-margin></ion-input>\n			  </ion-item>\n			</ion-list>\n			<button ion-button block outline color="blue" class="mt-10" *ngIf="isHide" (click)=goToListing()>Submit</button>\n			<button ion-button block outline color="blue" class="mt-10" *ngIf="isShown" (click)=goToChildDetails()>Next</button>\n		</form>\n	</div>\n</ion-content>\n'/*ion-inline-end:"/home/wis/sushil/cyberHubApp/cyberhub-ionic/src/pages/parents-login/parents-login.html"*/,
+            selector: 'page-parents-login',template:/*ion-inline-start:"E:\ionic\cyberHub\cyberhub-ionic\src\pages\parents-login\parents-login.html"*/'<!--\n\n  Generated template for the ParentsLoginPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<!-- <ion-header>\n\n  <ion-navbar color="blue">\n\n    <ion-title>Parents Login</ion-title>\n\n  </ion-navbar>\n\n</ion-header> -->\n\n\n\n\n\n\n\n<ion-content class="item-center" padding color="light">\n\n	<img src="assets/imgs/logo.jpg" class="img-width"/>\n\n	<!-- <h1 class="heading" text-center text-uppercase>CyberHub</h1> -->\n\n	<img src="assets/imgs/bk.png" class="img-width" />\n\n	<div class="enquiry-form">\n\n		 <h3 class="title" text-center text-uppercase margin-bottom>Enter Your Email</h3>\n\n	 	<form>\n\n			<ion-list>\n\n				  <ion-item>\n\n				  	<ion-label> <ion-icon ios="ios-mail" md="md-mail"></ion-icon></ion-label>\n\n				    <ion-input type="text" placeholder="Email" no-margin></ion-input>\n\n				  </ion-item>\n\n			<ion-item *ngIf="isShown" margin-top>\n\n			    <ion-input type="text" placeholder="Enter One Time Password" no-margin></ion-input>\n\n			  </ion-item>\n\n			</ion-list>\n\n			<button ion-button block outline color="blue" class="mt-10" *ngIf="isHide" (click)=goToListing()>Submit</button>\n\n			<button ion-button block outline color="blue" class="mt-10" *ngIf="isShown" (click)=goToChildDetails()>Next</button>\n\n		</form>\n\n	</div>\n\n</ion-content>\n\n'/*ion-inline-end:"E:\ionic\cyberHub\cyberhub-ionic\src\pages\parents-login\parents-login.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */]])
     ], ParentsLoginPage);
@@ -2430,7 +2495,7 @@ var StaffLoginPage = /** @class */ (function () {
     };
     StaffLoginPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-staff-login',template:/*ion-inline-start:"/home/wis/sushil/cyberHubApp/cyberhub-ionic/src/pages/staff-login/staff-login.html"*/'<!--\n  Generated template for the StaffLoginPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<!-- <ion-header>\n\n  <ion-navbar color="blue">\n    <ion-title>Staff Login</ion-title>\n  </ion-navbar>\n\n</ion-header> -->\n\n\n<ion-content>\n\n<img src="assets/imgs/logo.jpg" class="img-width"/>\n	<!-- <h1 class="heading" text-center text-uppercase>CyberHub</h1> -->\n	<img src="assets/imgs/bk.png" class="img-width" />\n	<div class="enquiry-form">\n		 <h3 class="title" text-center text-uppercase margin-bottom>Enter Details</h3>\n	 	<form>\n			<ion-list style="background-color: none;">\n\n			  <ion-item>\n			  	<ion-label> <ion-icon ios="ios-mail" md="md-mail"></ion-icon></ion-label>\n			    <ion-input type="text" placeholder="Username" name="regID" no-margin [(ngModel)]="regID"></ion-input>\n				</ion-item>\n				\n			  <ion-item>\n			  	<ion-label> <ion-icon ios="ios-disc" md="md-disc"></ion-icon></ion-label>\n			    <ion-input type="password" placeholder="Password" name="pass" no-margin [(ngModel)]="pass"></ion-input>\n				</ion-item>\n				\n				<button ion-button block outline color="blue" class="mt-10" (click)=onStuffLoginSubmit()>Submit</button>\n\n			</ion-list>\n		</form>\n	</div>\n\n</ion-content>\n\n'/*ion-inline-end:"/home/wis/sushil/cyberHubApp/cyberhub-ionic/src/pages/staff-login/staff-login.html"*/,
+            selector: 'page-staff-login',template:/*ion-inline-start:"E:\ionic\cyberHub\cyberhub-ionic\src\pages\staff-login\staff-login.html"*/'<!--\n\n  Generated template for the StaffLoginPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<!-- <ion-header>\n\n\n\n  <ion-navbar color="blue">\n\n    <ion-title>Staff Login</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header> -->\n\n\n\n\n\n<ion-content>\n\n\n\n<img src="assets/imgs/logo.jpg" class="img-width"/>\n\n	<!-- <h1 class="heading" text-center text-uppercase>CyberHub</h1> -->\n\n	<img src="assets/imgs/bk.png" class="img-width" />\n\n	<div class="enquiry-form">\n\n		 <h3 class="title" text-center text-uppercase margin-bottom>Enter Details</h3>\n\n	 	<form>\n\n			<ion-list style="background-color: none;">\n\n\n\n			  <ion-item>\n\n			  	<ion-label> <ion-icon ios="ios-mail" md="md-mail"></ion-icon></ion-label>\n\n			    <ion-input type="text" placeholder="Username" name="regID" no-margin [(ngModel)]="regID"></ion-input>\n\n				</ion-item>\n\n				\n\n			  <ion-item>\n\n			  	<ion-label> <ion-icon ios="ios-disc" md="md-disc"></ion-icon></ion-label>\n\n			    <ion-input type="password" placeholder="Password" name="pass" no-margin [(ngModel)]="pass"></ion-input>\n\n				</ion-item>\n\n				\n\n				<button ion-button block outline color="blue" class="mt-10" (click)=onStuffLoginSubmit()>Submit</button>\n\n\n\n			</ion-list>\n\n		</form>\n\n	</div>\n\n\n\n</ion-content>\n\n\n\n'/*ion-inline-end:"E:\ionic\cyberHub\cyberhub-ionic\src\pages\staff-login\staff-login.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */], __WEBPACK_IMPORTED_MODULE_3__angular_http__["b" /* Http */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */]])
     ], StaffLoginPage);
@@ -2549,7 +2614,7 @@ var StdRegPage = /** @class */ (function () {
     };
     StdRegPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-std-reg',template:/*ion-inline-start:"/home/wis/sushil/cyberHubApp/cyberhub-ionic/src/pages/std-reg/std-reg.html"*/'<!--\n  Generated template for the StdRegPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n\n<ion-header>\n  <ion-navbar color="blue">\n    <button ion-button menuToggle color="light">\n      <ion-icon name="menu"></ion-icon>\n    </button>	\n    <ion-title>Student Registration</ion-title>\n    <!-- <ion-buttons end>\n      <button class="bell-icon" (click)=goToPersonalNotice()> \n        <i class="fas fa-bell fa-inverse fa-lg"></i> \n      </button>\n    </ion-buttons> -->\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding>\n    <h5 class="title" text-center text-uppercase margin-bottom>Student Registration</h5>\n\n    <ion-list>\n        <ion-item>\n          <ion-label>Select College</ion-label>\n          <ion-select [(ngModel)]="college" name="college">\n            <ion-option *ngFor="let college of collegeList" value="{{college.id}}">{{college.org_name | uppercase}}</ion-option>\n          </ion-select>\n        </ion-item>\n    </ion-list>\n\n    <ion-list>\n        <ion-item>\n          <ion-label fixed>Phone No</ion-label>\n          <ion-input type="number" name="regNo" [(ngModel)]="mobileNo"></ion-input>\n        </ion-item>      \n    </ion-list>\n\n    <button ion-button block outline color="blue" class="" (click)=\'registrationSubmit()\'>Submit</button>\n</ion-content>\n'/*ion-inline-end:"/home/wis/sushil/cyberHubApp/cyberhub-ionic/src/pages/std-reg/std-reg.html"*/,
+            selector: 'page-std-reg',template:/*ion-inline-start:"E:\ionic\cyberHub\cyberhub-ionic\src\pages\std-reg\std-reg.html"*/'<!--\n\n  Generated template for the StdRegPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n\n\n<ion-header>\n\n  <ion-navbar color="blue">\n\n    <button ion-button menuToggle color="light">\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>	\n\n    <ion-title>Student Registration</ion-title>\n\n    <!-- <ion-buttons end>\n\n      <button class="bell-icon" (click)=goToPersonalNotice()> \n\n        <i class="fas fa-bell fa-inverse fa-lg"></i> \n\n      </button>\n\n    </ion-buttons> -->\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n    <h5 class="title" text-center text-uppercase margin-bottom>Student Registration</h5>\n\n\n\n    <ion-list>\n\n        <ion-item>\n\n          <ion-label>Select College</ion-label>\n\n          <ion-select [(ngModel)]="college" name="college">\n\n            <ion-option *ngFor="let college of collegeList" value="{{college.id}}">{{college.org_name | uppercase}}</ion-option>\n\n          </ion-select>\n\n        </ion-item>\n\n    </ion-list>\n\n\n\n    <ion-list>\n\n        <ion-item>\n\n          <ion-label fixed>Phone No</ion-label>\n\n          <ion-input type="number" name="regNo" [(ngModel)]="mobileNo"></ion-input>\n\n        </ion-item>      \n\n    </ion-list>\n\n\n\n    <button ion-button block outline color="blue" class="" (click)=\'registrationSubmit()\'>Submit</button>\n\n</ion-content>\n\n'/*ion-inline-end:"E:\ionic\cyberHub\cyberhub-ionic\src\pages\std-reg\std-reg.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* MenuController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
     ], StdRegPage);
@@ -2569,7 +2634,7 @@ var StdRegPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__students_tabs_students_tabs__ = __webpack_require__(78);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__ = __webpack_require__(40);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__apiUrl__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__std_reg_std_reg__ = __webpack_require__(153);
@@ -2687,7 +2752,7 @@ var StudentLoginPage = /** @class */ (function () {
     };
     StudentLoginPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-student-login',template:/*ion-inline-start:"/home/wis/sushil/cyberHubApp/cyberhub-ionic/src/pages/student-login/student-login.html"*/'<!--\n  Generated template for the StudentLoginPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n\n<ion-content class="item-center" padding color="secondary">\n	\n	<img src="assets/imgs/logo.jpg" class="img-width"/>\n	<img src="assets/imgs/bk.png" class="img-width"/>\n\n\n	<div class="enquiry-form">\n		 <h3 class="title" text-center text-uppercase margin-bottom>Enter Regitration Id</h3>\n	 	<form>\n			<ion-list style="background-color: none;">\n			  <ion-item>\n			  	<ion-label> <ion-icon ios="ios-mail" md="md-mail"></ion-icon></ion-label>\n			    <ion-input type="text" autofocus name="student_register" placeholder="Register Id" no-margin [(ngModel)]="student_register"></ion-input>\n				</ion-item>\n				\n				<ion-item>\n			  	<ion-label> <ion-icon ios="ios-mail" md="md-mail"></ion-icon></ion-label>\n			    <ion-input type="password" autofocus name="student_password" placeholder="Password" no-margin [(ngModel)]="student_password"></ion-input>\n			  </ion-item>\n			\n			<button ion-button block outline color="blue" class="mt-10" *ngIf="isHide" (click)=loginSubmit()>Submit</button>\n			<button ion-button block outline color="blue" class="" (click)=\'goToRegister()\'>Registration</button>\n\n			<button block ion-button outline text-left color="blue" *ngIf="isShown">Register_Id: {{student_register}} </button>\n			<button block ion-button outline text-left color="blue" *ngIf="isShown">Phone: {{phone}}</button>\n\n				<ion-item *ngIf="isShown" margin-top >\n			    <ion-input type="number" name="otp_pass" maxlengtgh=4 [(ngModel)]="otp_pass" placeholder="Enter One Time Password" no-margin></ion-input>\n				</ion-item>\n				<p *ngIf="isShown">Not getting any message? <a href="#" (click)="resendMessage()">Resend</a> </p>\n			</ion-list>\n			<button ion-button block color="blue" class="mt-10" *ngIf="isShown" (click)=goToOwnDetails()>Next</button>\n		</form>\n	</div>\n</ion-content>\n\n'/*ion-inline-end:"/home/wis/sushil/cyberHubApp/cyberhub-ionic/src/pages/student-login/student-login.html"*/,
+            selector: 'page-student-login',template:/*ion-inline-start:"E:\ionic\cyberHub\cyberhub-ionic\src\pages\student-login\student-login.html"*/'<!--\n\n  Generated template for the StudentLoginPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n\n\n<ion-content class="item-center" padding color="secondary">\n\n	\n\n	<img src="assets/imgs/logo.jpg" class="img-width"/>\n\n	<img src="assets/imgs/bk.png" class="img-width"/>\n\n\n\n\n\n	<div class="enquiry-form">\n\n		 <h3 class="title" text-center text-uppercase margin-bottom>Enter Regitration Id</h3>\n\n	 	<form>\n\n			<ion-list style="background-color: none;">\n\n			  <ion-item>\n\n			  	<ion-label> <ion-icon ios="ios-mail" md="md-mail"></ion-icon></ion-label>\n\n			    <ion-input type="text" autofocus name="student_register" placeholder="Register Id" no-margin [(ngModel)]="student_register"></ion-input>\n\n				</ion-item>\n\n				\n\n				<ion-item>\n\n			  	<ion-label> <ion-icon ios="ios-mail" md="md-mail"></ion-icon></ion-label>\n\n			    <ion-input type="password" autofocus name="student_password" placeholder="Password" no-margin [(ngModel)]="student_password"></ion-input>\n\n			  </ion-item>\n\n			\n\n			<button ion-button block outline color="blue" class="mt-10" *ngIf="isHide" (click)=loginSubmit()>Submit</button>\n\n			<button ion-button block outline color="blue" class="" (click)=\'goToRegister()\'>Registration</button>\n\n\n\n			<button block ion-button outline text-left color="blue" *ngIf="isShown">Register_Id: {{student_register}} </button>\n\n			<button block ion-button outline text-left color="blue" *ngIf="isShown">Phone: {{phone}}</button>\n\n\n\n				<ion-item *ngIf="isShown" margin-top >\n\n			    <ion-input type="number" name="otp_pass" maxlengtgh=4 [(ngModel)]="otp_pass" placeholder="Enter One Time Password" no-margin></ion-input>\n\n				</ion-item>\n\n				<p *ngIf="isShown">Not getting any message? <a href="#" (click)="resendMessage()">Resend</a> </p>\n\n			</ion-list>\n\n			<button ion-button block color="blue" class="mt-10" *ngIf="isShown" (click)=goToOwnDetails()>Next</button>\n\n		</form>\n\n	</div>\n\n</ion-content>\n\n\n\n'/*ion-inline-end:"E:\ionic\cyberHub\cyberhub-ionic\src\pages\student-login\student-login.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
             __WEBPACK_IMPORTED_MODULE_3__angular_http__["b" /* Http */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_3__angular_http__["d" /* Jsonp */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
@@ -2968,7 +3033,7 @@ var RoutinePage = /** @class */ (function () {
     };
     RoutinePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-routine',template:/*ion-inline-start:"/home/wis/sushil/cyberHubApp/cyberhub-ionic/src/pages/routine/routine.html"*/'<!--\n  Generated template for the RoutinePage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar color="blue">\n    <ion-title>Routine</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content>\n\n	<ion-list>\n    <ion-item padding *ngFor="let routine of routineList" (click)="toggleDetails(routine)"><ion-icon color="primary" item-right [name]="routine?.icon"></ion-icon>\n      Day {{routine?.day}}\n      <!-- <table *ngIf="routine.showDetails">{{routine}}</table> -->\n\n      <ion-list *ngIf="routine?.showDetails">\n				<ion-item *ngFor="let r of routine.priods">\n          <p>Priod : {{r?.priod_name}} Priod</p>\n          <p *ngIf="r?.rutinedetails[0]">CC Name : {{r?.rutinedetails[0]?.cc_name}}</p>\n          <p *ngIf="!r?.rutinedetails[0]">CC Name : No Priod</p>\n          <p *ngIf="r?.rutinedetails[0]">Time : {{r?.from_time}} to {{r?.to_time}}</p>\n          <p *ngIf="!r?.rutinedetails[0]">Time : NA</p>\n          <p *ngIf="r?.rutinedetails[0]">Teacher : {{r?.rutinedetails[0]?.teacher?.name}} ({{r?.rutinedetails[0]?.teacher?.short_name}})</p>\n          <p *ngIf="!r?.rutinedetails[0]">Teacher : NA</p>\n				</ion-item>\n      </ion-list>\n    \n    </ion-item>\n  </ion-list>\n\n</ion-content>\n\n'/*ion-inline-end:"/home/wis/sushil/cyberHubApp/cyberhub-ionic/src/pages/routine/routine.html"*/,
+            selector: 'page-routine',template:/*ion-inline-start:"E:\ionic\cyberHub\cyberhub-ionic\src\pages\routine\routine.html"*/'<!--\n\n  Generated template for the RoutinePage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar color="blue">\n\n    <ion-title>Routine</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content>\n\n\n\n	<ion-list>\n\n    <ion-item padding *ngFor="let routine of routineList" (click)="toggleDetails(routine)"><ion-icon color="primary" item-right [name]="routine?.icon"></ion-icon>\n\n      Day {{routine?.day}}\n\n      <!-- <table *ngIf="routine.showDetails">{{routine}}</table> -->\n\n\n\n      <ion-list *ngIf="routine?.showDetails">\n\n				<ion-item *ngFor="let r of routine.priods">\n\n          <p>Priod : {{r?.priod_name}} Priod</p>\n\n          <p *ngIf="r?.rutinedetails[0]">CC Name : {{r?.rutinedetails[0]?.cc_name}}</p>\n\n          <p *ngIf="!r?.rutinedetails[0]">CC Name : No Priod</p>\n\n          <p *ngIf="r?.rutinedetails[0]">Time : {{r?.from_time}} to {{r?.to_time}}</p>\n\n          <p *ngIf="!r?.rutinedetails[0]">Time : NA</p>\n\n          <p *ngIf="r?.rutinedetails[0]">Teacher : {{r?.rutinedetails[0]?.teacher?.name}} ({{r?.rutinedetails[0]?.teacher?.short_name}})</p>\n\n          <p *ngIf="!r?.rutinedetails[0]">Teacher : NA</p>\n\n				</ion-item>\n\n      </ion-list>\n\n    \n\n    </ion-item>\n\n  </ion-list>\n\n\n\n</ion-content>\n\n\n\n'/*ion-inline-end:"E:\ionic\cyberHub\cyberhub-ionic\src\pages\routine\routine.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* MenuController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_5__angular_http__["b" /* Http */]])
     ], RoutinePage);
@@ -3072,51 +3137,51 @@ var map = {
 		12
 	],
 	"../pages/staff-info/staff-info.module": [
-		545,
+		534,
 		11
 	],
 	"../pages/staff-login/staff-login.module": [
-		534,
+		535,
 		10
 	],
 	"../pages/std-reg/std-reg.module": [
-		535,
+		536,
 		9
 	],
 	"../pages/student-library-list/student-library-list.module": [
-		536,
+		537,
 		8
 	],
 	"../pages/student-login/student-login.module": [
-		537,
+		538,
 		7
 	],
 	"../pages/student-notice-board/student-notice-board.module": [
-		538,
+		539,
 		6
 	],
 	"../pages/student-owndetails/student-owndetails.module": [
-		539,
+		540,
 		5
 	],
 	"../pages/students-tabs/students-tabs.module": [
-		540,
+		541,
 		4
 	],
 	"../pages/stuff-change-pass/stuff-change-pass.module": [
-		541,
+		542,
 		3
 	],
 	"../pages/stuff-edit/stuff-edit.module": [
-		542,
+		543,
 		2
 	],
 	"../pages/stuff-examduty/stuff-examduty.module": [
-		543,
+		544,
 		1
 	],
 	"../pages/test/test.module": [
-		544,
+		545,
 		0
 	]
 };
@@ -3220,18 +3285,18 @@ var AttendancePage = /** @class */ (function () {
         this.alertCtrl = alertCtrl;
         // roomName: any;
         this.joinned = false;
-        this.newUser = { nickname: '', room: '' };
-        this.msgData = { room: '', nickname: '', message: '' };
-        this.socket = __WEBPACK_IMPORTED_MODULE_7_socket_io_client__('http://localhost:3000');
+        this.newUser = { nickname: "", room: "" };
+        this.msgData = { room: "", nickname: "", message: "" };
+        this.socket = __WEBPACK_IMPORTED_MODULE_7_socket_io_client__("http://18.191.46.158:3000/");
         this.menuCtrl.enable(false);
     }
     AttendancePage.prototype.ngOnInit = function () {
         this.getUserDataFromLocal();
-        // this.getShiftLists();
+        this.getShiftLists();
         // this.getClassList();
-        this.getPeriod();
+        // this.getPeriod();
         this.showPeriodForm = true;
-        this.socket.on('updateUserList', function (users) {
+        this.socket.on("updateUserList", function (users) {
             console.log(users);
         });
     };
@@ -3248,9 +3313,9 @@ var AttendancePage = /** @class */ (function () {
         this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__routine_routine__["a" /* RoutinePage */]);
     };
     AttendancePage.prototype.onSubmitStudentAttPin = function () {
-        // console.log('pin entered.'); 
+        // console.log('pin entered.');
         if (this.attendenceCode == this.attPin) {
-            // console.log('correct pin.'); 
+            // console.log('correct pin.');
             this.room = {
                 room: this.attPin,
                 name: this.localUserData.master_id
@@ -3264,7 +3329,7 @@ var AttendancePage = /** @class */ (function () {
             //     }
             //   });
             // });
-            localStorage.setItem('roomData', JSON.stringify(this.room));
+            localStorage.setItem("roomData", JSON.stringify(this.room));
             // this.socket.on('updateUserList', function (users) {
             //   console.log(users);
             //   // var ol = jQuery('<ol></ol>');
@@ -3279,12 +3344,30 @@ var AttendancePage = /** @class */ (function () {
             this.showAlert("Invalid Code.");
         }
     };
-    AttendancePage.prototype.getPeriod = function () {
+    AttendancePage.prototype.getShiftLists = function () {
         var _this = this;
         var header = new __WEBPACK_IMPORTED_MODULE_6__angular_http__["a" /* Headers */]();
         header.set("Content-Type", "application/json");
         var data = {
             org_id: this.localUserData.org_code
+        };
+        // this.checkshift = [];
+        this.http
+            .post(__WEBPACK_IMPORTED_MODULE_5__apiUrl__["a" /* apiUrl */].url + "shift/orgshiftlist", data, { headers: header })
+            .map(function (res) { return res.json(); })
+            .subscribe(function (data) {
+            // console.log("Org shift list ", data.data);
+            _this.orgShiftLists = data.data;
+        });
+    };
+    AttendancePage.prototype.getPeriod = function (e) {
+        var _this = this;
+        console.log(e);
+        var header = new __WEBPACK_IMPORTED_MODULE_6__angular_http__["a" /* Headers */]();
+        header.set("Content-Type", "application/json");
+        var data = {
+            org_id: this.localUserData.org_code,
+            shift_id: e
         };
         // this.checkshift = [];
         this.http
@@ -3296,9 +3379,9 @@ var AttendancePage = /** @class */ (function () {
         });
     };
     AttendancePage.prototype.getUserDataFromLocal = function () {
-        var data = localStorage.getItem('userData');
+        var data = localStorage.getItem("userData");
         this.localUserData = JSON.parse(data);
-        // console.log('local data : ', this.localUserData);    
+        // console.log('local data : ', this.localUserData);
     };
     AttendancePage.prototype.onPeriodSubmit = function () {
         // let todayDate = new Date().toLocaleString().substring(0,9).toString();
@@ -3308,13 +3391,15 @@ var AttendancePage = /** @class */ (function () {
             period_id: this.period,
             org_id: this.localUserData.org_code,
             master_id: this.localUserData.master_id,
-            date: this.makeDateString(new Date()),
+            date: this.makeDateString(new Date())
         };
         // console.log("data : ", data);
         var header = new __WEBPACK_IMPORTED_MODULE_6__angular_http__["a" /* Headers */]();
         header.set("Content-Type", "application/json");
         this.http
-            .post(__WEBPACK_IMPORTED_MODULE_5__apiUrl__["a" /* apiUrl */].node_url + "attendance/getAttedData", data, { headers: header })
+            .post(__WEBPACK_IMPORTED_MODULE_5__apiUrl__["a" /* apiUrl */].node_url + "attendance/getAttedData", data, {
+            headers: header
+        })
             .map(function (res) { return res.json(); })
             .subscribe(function (data) { return __awaiter(_this, void 0, void 0, function () {
             return __generator(this, function (_a) {
@@ -3343,21 +3428,26 @@ var AttendancePage = /** @class */ (function () {
         var year = date.getFullYear();
         var month = date.getMonth() + 1;
         var day = date.getDate();
-        return day + '/' + month + '/' + year;
+        return day + "/" + month + "/" + year;
     };
     AttendancePage.prototype.showAlert = function (msg) {
         var alert = this.alertCtrl.create({
-            title: 'Alert!',
+            title: "Alert!",
             subTitle: msg,
-            buttons: ['OK']
+            buttons: ["OK"]
         });
         alert.present();
     };
     AttendancePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-attendance',template:/*ion-inline-start:"/home/wis/sushil/cyberHubApp/cyberhub-ionic/src/pages/attendance/attendance.html"*/'\n<ion-header>\n  <ion-navbar color="blue">\n    <ion-title>Attendance</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n\n\n\n<ion-content *ngIf="showPeriodForm" class="item-center" padding>\n	<h4 class="title" text-center text-uppercase margin-bottom>Select Period</h4>\n	<!-- <ion-list>\n			<ion-item>\n				<ion-label>Shift</ion-label>\n				<ion-select [(ngModel)]="shift" (ionChange)="onChooseShift($event)">\n					<ng-container *ngFor="let shift of orgShiftLists">\n						<ion-option value="{{shift.orgshift[0]?.id}}" *ngIf="shift.orgshift[0]?.id">{{shift.name}}</ion-option>\n					</ng-container>\n				</ion-select>\n			</ion-item>\n	</ion-list>\n\n	<ion-list>\n			<ion-item>\n				<ion-label>Stream</ion-label>\n				<ion-select [(ngModel)]="stream" (ionChange)="onChooseClassStream($event)">\n					<ion-option value="{{classStream.class_id}}" *ngFor="let classStream of sortArray">{{classStream.class_name}}</ion-option>\n				</ion-select>\n			</ion-item>\n	</ion-list>\n\n	<ion-list>\n			<ion-item>\n				<ion-label>Department</ion-label>\n				<ion-select [(ngModel)]="department">\n					<ion-option value="{{sec.sec_id}}" *ngFor="let sec of filteredArrayForSectionList">{{sec.section_name}}</ion-option>\n				</ion-select>\n			</ion-item>\n	</ion-list>		 -->\n\n	<ion-list>\n			<ion-item>\n				<ion-label>Period</ion-label>\n				<ion-select [(ngModel)]="period">\n					<ion-option *ngFor="let period of periodList" value="{{period.id}}">{{period.priod_name}} ({{period.from_time}} {{period.to_time}})</ion-option>\n				</ion-select>\n			</ion-item>\n	</ion-list>\n\n	<button ion-button block outline color="blue" class="mt-10" (click)="onPeriodSubmit()">Submit</button>\n</ion-content>\n\n\n\n\n\n<ion-content class="item-center" *ngIf="!showPeriodForm" padding>\n	<div class="enquiry-form">\n		<h1 class="title" text-center text-uppercase margin-bottom>Enter Attendance Pin</h1>\n	 	<form>\n		  <ion-item class="select-css">\n		    <ion-input type="text" name="attPin" placeholder="Enter Pin" [(ngModel)]="attPin"></ion-input>\n			</ion-item>\n		 <button ion-button type="submit" block outline color="blue" class="mt-10" (click)="onSubmitStudentAttPin()">Submit</button>\n		</form>\n	</div>\n</ion-content>\n\n\n\n\n\n'/*ion-inline-end:"/home/wis/sushil/cyberHubApp/cyberhub-ionic/src/pages/attendance/attendance.html"*/,
+            selector: "page-attendance",template:/*ion-inline-start:"E:\ionic\cyberHub\cyberhub-ionic\src\pages\attendance\attendance.html"*/'\n\n<ion-header>\n\n  <ion-navbar color="blue">\n\n    <ion-title>Attendance</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n\n\n\n\n\n\n\n\n<ion-content *ngIf="showPeriodForm" class="item-center" padding>\n\n	<h4 class="title" text-center text-uppercase margin-bottom>Select Period</h4>\n\n	 <ion-list>\n\n			<ion-item>\n\n				<ion-label>Shift</ion-label>\n\n				<ion-select [(ngModel)]="shift" (ionChange)="getPeriod($event)">\n\n					<ng-container *ngFor="let shift of orgShiftLists">\n\n						<ion-option value="{{shift.orgshift[0]?.id}}" *ngIf="shift.orgshift[0]?.id">{{shift.name}}</ion-option>\n\n					</ng-container>\n\n				</ion-select>\n\n			</ion-item>\n\n	</ion-list>\n\n\n\n	<!--<ion-list>\n\n			<ion-item>\n\n				<ion-label>Stream</ion-label>\n\n				<ion-select [(ngModel)]="stream" (ionChange)="onChooseClassStream($event)">\n\n					<ion-option value="{{classStream.class_id}}" *ngFor="let classStream of sortArray">{{classStream.class_name}}</ion-option>\n\n				</ion-select>\n\n			</ion-item>\n\n	</ion-list>\n\n\n\n	<ion-list>\n\n			<ion-item>\n\n				<ion-label>Department</ion-label>\n\n				<ion-select [(ngModel)]="department">\n\n					<ion-option value="{{sec.sec_id}}" *ngFor="let sec of filteredArrayForSectionList">{{sec.section_name}}</ion-option>\n\n				</ion-select>\n\n			</ion-item>\n\n	</ion-list>		 -->\n\n\n\n	<ion-list>\n\n			<ion-item>\n\n				<ion-label>Period</ion-label>\n\n				<ion-select [(ngModel)]="period">\n\n					<ion-option *ngFor="let period of periodList" value="{{period.id}}">{{period.priod_name}} ({{period.from_time}} {{period.to_time}})</ion-option>\n\n				</ion-select>\n\n			</ion-item>\n\n	</ion-list>\n\n\n\n	<button ion-button block outline color="blue" class="mt-10" (click)="onPeriodSubmit()">Submit</button>\n\n</ion-content>\n\n\n\n\n\n\n\n\n\n\n\n<ion-content class="item-center" *ngIf="!showPeriodForm" padding>\n\n	<div class="enquiry-form">\n\n		<h1 class="title" text-center text-uppercase margin-bottom>Enter Attendance Pin</h1>\n\n	 	<form>\n\n		  <ion-item class="select-css">\n\n		    <ion-input type="text" name="attPin" placeholder="Enter Pin" [(ngModel)]="attPin"></ion-input>\n\n			</ion-item>\n\n		 <button ion-button type="submit" block outline color="blue" class="mt-10" (click)="onSubmitStudentAttPin()">Submit</button>\n\n		</form>\n\n	</div>\n\n</ion-content>\n\n\n\n\n\n\n\n\n\n\n\n'/*ion-inline-end:"E:\ionic\cyberHub\cyberhub-ionic\src\pages\attendance\attendance.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* MenuController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_6__angular_http__["b" /* Http */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* MenuController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */],
+            __WEBPACK_IMPORTED_MODULE_6__angular_http__["b" /* Http */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
     ], AttendancePage);
     return AttendancePage;
 }());
@@ -3374,8 +3464,8 @@ var AttendancePage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__student_library_list_student_library_list__ = __webpack_require__(41);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__student_notice_board_student_notice_board__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__student_library_list_student_library_list__ = __webpack_require__(42);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__student_notice_board_student_notice_board__ = __webpack_require__(41);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__personal_notice_personal_notice__ = __webpack_require__(50);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__live_stream_live_stream__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__attendance_attendance__ = __webpack_require__(21);
@@ -3589,12 +3679,11 @@ var StudentOwndetailsPage = /** @class */ (function () {
     };
     StudentOwndetailsPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-student-owndetails',template:/*ion-inline-start:"/home/wis/sushil/cyberHubApp/cyberhub-ionic/src/pages/student-owndetails/student-owndetails.html"*/'<!--\n  Generated template for the StudentOwndetailsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n\n<ion-header>\n  <ion-navbar color="blue">\n    <button ion-button menuToggle color="light">\n      <ion-icon name="menu"></ion-icon>\n    </button>	\n    <ion-title>College Details</ion-title>\n    <ion-buttons end>\n      <button class="bell-icon" (click)=goToPersonalNotice()> <i class="fas fa-bell fa-inverse fa-lg"></i> </button>\n      <ion-badge>{{personalNoticeCount}}</ion-badge>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content>\n<ion-card>\n  <img [src]="orgDetails?.org_img"/>\n  <ion-card-content>\n    <ion-card-title>\n      {{orgDetails?.org_name}}\n    </ion-card-title>\n      <div float-right >\n        <p [ngStyle]="{\'font-size\': \'24px\'}">\n          <ion-icon name="cloud"></ion-icon>\n        17 °C</p>\n      </div>\n      <!-- <p ><strong>Email</strong>: demo@gmail.com</p>\n      <p><strong>Mobile</strong>: 1234567890</p> -->\n      <div [innerHtml]="orgDetails?.org_text"></div>\n      <p><strong>About</strong> : </p>\n      <div [innerHtml]="orgDetails?.org_about" class="mt-4"></div>\n  </ion-card-content>\n  \n</ion-card>\n\n\n<ion-grid>\n  <ion-row>\n    <ion-col col-md-4 class="icon-center" (click)=goToLibrary()>\n      <img src="assets/imgs/icon.png"/>\n      <p>Library</p>\n    </ion-col>\n    <ion-col col-md-4 class="icon-center" (click)=goToAllPdf()>\n      <img src="assets/imgs/icon2.png"/>\n      <p>Notice Board</p>\n    </ion-col>\n    <ion-col col-md-4 class="icon-center" (click)=goToPersonalNotice()>\n      <img src="assets/imgs/icon6.png"/>\n      <p>Personal Notice</p>\n    </ion-col>\n  </ion-row>\n  <ion-row>\n    <ion-col col-md-4 class="icon-center" (click)=goToAttendance()>\n      <img src="assets/imgs/icon3.png"/>\n      <p>Attendance</p>\n    </ion-col>\n    <ion-col col-md-4 class="icon-center" (click)=goToRoutine()>\n      <img src="assets/imgs/icon4.png"/>\n      <p>Routine</p>\n    </ion-col>\n    <ion-col col-md-4 class="icon-center" (click)=goToAccount()>\n      <img src="assets/imgs/icon5.png"/>\n      <p>Account</p>\n    </ion-col>\n  </ion-row>\n</ion-grid>\n</ion-content>\n\n\n<!-- <ion-footer class="fixed">\n  <ion-toolbar color="primary">  \n  <ion-grid text-center >\n    <ion-row>\n      <div col-3>\n        <img src="assets/imgs/white-icon5.png">\n        <p class="footer-p">Home</p>\n      </div>\n      <div col-3 (click)=gotoLiveStream()>\n        <img src="assets/imgs/white-icon1.png">\n        <p class="footer-p">Live Streaming</p>\n      </div>\n      <div col-3 (click)=goToAttendance()>\n        <img src="assets/imgs/white-icon2.png">\n        <p  class="footer-p">Attendance</p>\n      </div>\n      <div col-3 (click)=goToRoutine()>\n        <img src="assets/imgs/white-icon3.png">\n        <p  class="footer-p">Routine</p>\n      </div>\n    </ion-row>\n  </ion-grid>\n  </ion-toolbar>\n</ion-footer> -->'/*ion-inline-end:"/home/wis/sushil/cyberHubApp/cyberhub-ionic/src/pages/student-owndetails/student-owndetails.html"*/,
+            selector: 'page-student-owndetails',template:/*ion-inline-start:"E:\ionic\cyberHub\cyberhub-ionic\src\pages\student-owndetails\student-owndetails.html"*/'<!--\n\n  Generated template for the StudentOwndetailsPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n\n\n<ion-header>\n\n  <ion-navbar color="blue">\n\n    <!-- <button ion-button menuToggle color="light">\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>	 -->\n\n    <ion-title>College Details</ion-title>\n\n    <ion-buttons end>\n\n      <button class="bell-icon" (click)=goToPersonalNotice()> <i class="fas fa-bell fa-inverse fa-lg"></i> </button>\n\n      <ion-badge>{{personalNoticeCount}}</ion-badge>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n\n\n<ion-content>\n\n  <!-- <button ion-button menuToggle>Toggle Menu</button> -->\n\n\n\n<ion-card>\n\n  <img [src]="orgDetails?.org_img"/>\n\n  <ion-card-content>\n\n    <ion-card-title>\n\n      {{orgDetails?.org_name}}\n\n    </ion-card-title>\n\n      <div float-right >\n\n        <p [ngStyle]="{\'font-size\': \'24px\'}">\n\n          <ion-icon name="cloud"></ion-icon>\n\n        17 °C</p>\n\n      </div>\n\n      <!-- <p ><strong>Email</strong>: demo@gmail.com</p>\n\n      <p><strong>Mobile</strong>: 1234567890</p> -->\n\n      <div [innerHtml]="orgDetails?.org_text"></div>\n\n      <p><strong>About</strong> : </p>\n\n      <div [innerHtml]="orgDetails?.org_about" class="mt-4"></div>\n\n  </ion-card-content>\n\n  \n\n</ion-card>\n\n\n\n\n\n<ion-grid>\n\n  <ion-row>\n\n    <ion-col col-md-4 class="icon-center" (click)=goToLibrary()>\n\n      <img src="assets/imgs/icon.png"/>\n\n      <p>Library</p>\n\n    </ion-col>\n\n    <ion-col col-md-4 class="icon-center" (click)=goToAllPdf()>\n\n      <img src="assets/imgs/icon2.png"/>\n\n      <p>Notice Board</p>\n\n    </ion-col>\n\n    <ion-col col-md-4 class="icon-center" (click)=goToPersonalNotice()>\n\n      <img src="assets/imgs/icon6.png"/>\n\n      <p>Personal Notice</p>\n\n    </ion-col>\n\n  </ion-row>\n\n  <ion-row>\n\n    <ion-col col-md-4 class="icon-center" (click)=goToAttendance()>\n\n      <img src="assets/imgs/icon3.png"/>\n\n      <p>Attendance</p>\n\n    </ion-col>\n\n    <ion-col col-md-4 class="icon-center" (click)=goToRoutine()>\n\n      <img src="assets/imgs/icon4.png"/>\n\n      <p>Routine</p>\n\n    </ion-col>\n\n    <ion-col col-md-4 class="icon-center" (click)=goToAccount()>\n\n      <img src="assets/imgs/icon5.png"/>\n\n      <p>Account</p>\n\n    </ion-col>\n\n  </ion-row>\n\n</ion-grid>\n\n</ion-content>\n\n\n\n\n\n<!-- <ion-footer class="fixed">\n\n  <ion-toolbar color="primary">  \n\n  <ion-grid text-center >\n\n    <ion-row>\n\n      <div col-3>\n\n        <img src="assets/imgs/white-icon5.png">\n\n        <p class="footer-p">Home</p>\n\n      </div>\n\n      <div col-3 (click)=gotoLiveStream()>\n\n        <img src="assets/imgs/white-icon1.png">\n\n        <p class="footer-p">Live Streaming</p>\n\n      </div>\n\n      <div col-3 (click)=goToAttendance()>\n\n        <img src="assets/imgs/white-icon2.png">\n\n        <p  class="footer-p">Attendance</p>\n\n      </div>\n\n      <div col-3 (click)=goToRoutine()>\n\n        <img src="assets/imgs/white-icon3.png">\n\n        <p  class="footer-p">Routine</p>\n\n      </div>\n\n    </ion-row>\n\n  </ion-grid>\n\n  </ion-toolbar>\n\n</ion-footer> -->'/*ion-inline-end:"E:\ionic\cyberHub\cyberhub-ionic\src\pages\student-owndetails\student-owndetails.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* MenuController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* MenuController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */]) === "function" && _e || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* MenuController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */]])
     ], StudentOwndetailsPage);
     return StudentOwndetailsPage;
-    var _a, _b, _c, _d, _e;
 }());
 
 //# sourceMappingURL=student-owndetails.js.map
@@ -3669,7 +3758,7 @@ var HomePage = /** @class */ (function () {
     ], HomePage.prototype, "myElem", void 0);
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-home',template:/*ion-inline-start:"/home/wis/sushil/cyberHubApp/cyberhub-ionic/src/pages/home/home.html"*/'<!-- <ion-header>\n  <ion-navbar color="blue">\n    <ion-title>Home</ion-title>\n  </ion-navbar>\n</ion-header> -->\n\n<div id="custom-overlay" [style.display]="splash ? \'flex\' : \'none\'">\n  <div class="flb">\n    <img class="img-screen" src="assets/imgs/logo.png">\n  </div>\n</div>\n\n<ion-content class="item-center">\n  <ion-grid style="margin-top: 5em;">\n    <ion-row #myElement>\n\n      <ion-row col-6>\n        <ion-card color="blue" class="blue-gradient" [ripple] (click)="goToGuest()">\n          <ion-card-header text-center class="padd-bottom"><i class="fas fa-user-circle fa-3x"></i></ion-card-header>\n          <ion-card-content>\n            <ion-card-title text-uppercase text-center>\n              Guest\n            </ion-card-title>\n          </ion-card-content>\n        </ion-card>\n      </ion-row>\n\n      <ion-row col-6>\n        <ion-card color="blue" class="blue-gradient" (click)=goToStudent()>\n          <ion-card-header text-center class="padd-bottom"><i class="fas fa-user fa-3x"></i></ion-card-header>\n          <ion-card-content>\n            <ion-card-title text-uppercase text-center>\n              Student\n            </ion-card-title>\n          </ion-card-content>\n        </ion-card>\n      </ion-row>\n\n      <ion-row col-6>\n        <ion-card color="blue" class="blue-gradient" (click)=goToStaff()>\n          <ion-card-header text-center class="padd-bottom"><i class="fas fa-briefcase fa-3x"></i></ion-card-header>\n          <ion-card-content>\n            <ion-card-title text-uppercase text-center>\n              Staff\n            </ion-card-title>\n          </ion-card-content>\n        </ion-card>\n      </ion-row>\n\n      <ion-row col-6>\n        <ion-card color="blue" class="blue-gradient" (click)=goToParents()>\n          <ion-card-header text-center class="padd-bottom"><i class="fas fa-users fa-3x"></i></ion-card-header>\n          <ion-card-content>\n            <ion-card-title text-uppercase text-center>\n              Parents\n            </ion-card-title>\n          </ion-card-content>\n        </ion-card>\n      </ion-row>\n    </ion-row>\n  </ion-grid>\n</ion-content>\n'/*ion-inline-end:"/home/wis/sushil/cyberHubApp/cyberhub-ionic/src/pages/home/home.html"*/
+            selector: 'page-home',template:/*ion-inline-start:"E:\ionic\cyberHub\cyberhub-ionic\src\pages\home\home.html"*/'<!-- <ion-header>\n\n  <ion-navbar color="blue">\n\n    <ion-title>Home</ion-title>\n\n  </ion-navbar>\n\n</ion-header> -->\n\n\n\n<div id="custom-overlay" [style.display]="splash ? \'flex\' : \'none\'">\n\n  <div class="flb">\n\n    <img class="img-screen" src="assets/imgs/logo.png">\n\n  </div>\n\n</div>\n\n\n\n<ion-content class="item-center">\n\n  <ion-grid style="margin-top: 5em;">\n\n    <ion-row #myElement>\n\n\n\n      <ion-row col-6>\n\n        <ion-card color="blue" class="blue-gradient" [ripple] (click)="goToGuest()">\n\n          <ion-card-header text-center class="padd-bottom"><i class="fas fa-user-circle fa-3x"></i></ion-card-header>\n\n          <ion-card-content>\n\n            <ion-card-title text-uppercase text-center>\n\n              Guest\n\n            </ion-card-title>\n\n          </ion-card-content>\n\n        </ion-card>\n\n      </ion-row>\n\n\n\n      <ion-row col-6>\n\n        <ion-card color="blue" class="blue-gradient" (click)=goToStudent()>\n\n          <ion-card-header text-center class="padd-bottom"><i class="fas fa-user fa-3x"></i></ion-card-header>\n\n          <ion-card-content>\n\n            <ion-card-title text-uppercase text-center>\n\n              Student\n\n            </ion-card-title>\n\n          </ion-card-content>\n\n        </ion-card>\n\n      </ion-row>\n\n\n\n      <ion-row col-6>\n\n        <ion-card color="blue" class="blue-gradient" (click)=goToStaff()>\n\n          <ion-card-header text-center class="padd-bottom"><i class="fas fa-briefcase fa-3x"></i></ion-card-header>\n\n          <ion-card-content>\n\n            <ion-card-title text-uppercase text-center>\n\n              Staff\n\n            </ion-card-title>\n\n          </ion-card-content>\n\n        </ion-card>\n\n      </ion-row>\n\n\n\n      <ion-row col-6>\n\n        <ion-card color="blue" class="blue-gradient" (click)=goToParents()>\n\n          <ion-card-header text-center class="padd-bottom"><i class="fas fa-users fa-3x"></i></ion-card-header>\n\n          <ion-card-content>\n\n            <ion-card-title text-uppercase text-center>\n\n              Parents\n\n            </ion-card-title>\n\n          </ion-card-content>\n\n        </ion-card>\n\n      </ion-row>\n\n    </ion-row>\n\n  </ion-grid>\n\n</ion-content>\n\n'/*ion-inline-end:"E:\ionic\cyberHub\cyberhub-ionic\src\pages\home\home.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* MenuController */],
@@ -3696,7 +3785,7 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 
 /***/ }),
 
-/***/ 40:
+/***/ 41:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3923,9 +4012,9 @@ var StudentNoticeBoardPage = /** @class */ (function () {
     };
     StudentNoticeBoardPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-student-notice-board',template:/*ion-inline-start:"/home/wis/sushil/cyberHubApp/cyberhub-ionic/src/pages/student-notice-board/student-notice-board.html"*/'<!--\n  Generated template for the StudentNoticeBoardPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar color="blue">\n    <ion-title>Notice Board</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content>  \n  <ion-list>\n    <ion-item *ngFor="let notice of allNotice">\n      <ion-thumbnail item-start (click)="presentProfileModal(notice.id)">\n        <img src="assets/imgs/download-img.png">\n      </ion-thumbnail>\n      <h2>{{notice?.notice?.subject}}</h2>\n      <p>{{notice?.notice?.text}}</p>\n      <p>{{notice?.noticetype?.type_name}}</p>\n      <button ion-button clear item-end (click)="showPdf(notice?.notice?.file_url)">\n        <i class="fas fa-download fa-2x"></i>\n      </button>\n    </ion-item>\n  </ion-list>\n\n\n  <ion-infinite-scroll (ionInfinite)="doInfinite($event)" *ngIf="page < totalPage">\n      <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more..."></ion-infinite-scroll-content>\n  </ion-infinite-scroll>\n</ion-content>\n\n\n<ion-footer class="fixed">\n  <ion-toolbar color="primary">  \n  <ion-grid text-center >\n    <ion-row>\n      <div col-3 (click)=goToHome()>\n        <img src="assets/imgs/white-icon5.png">\n       <!--  <i text-center class="fas fa-video fa-inverse fa-lg"></i> -->\n        <p class="footer-p">Home</p>\n      </div>\n      <div col-3 (click)=gotoLiveStream()>\n        <img src="assets/imgs/white-icon1.png">\n       <!--  <i text-center class="fas fa-video fa-inverse fa-lg"></i> -->\n        <p class="footer-p">Live Streaming</p>\n      </div>\n      <div col-3 (click)=goToAttendance()>\n        <img src="assets/imgs/white-icon2.png">\n        <!-- <i text-center class="fas fa-boxes fa-inverse fa-lg"></i> -->\n        <p  class="footer-p">Attendance</p>\n      </div>\n      <div col-3 (click)=goToRoutine()>\n        <img src="assets/imgs/white-icon3.png">\n      	<!-- <i class="fas fa-box fa-inverse fa-lg"></i> -->\n        <p  class="footer-p">Routine</p>\n      </div>\n    </ion-row>\n  </ion-grid>\n  </ion-toolbar>\n</ion-footer>'/*ion-inline-end:"/home/wis/sushil/cyberHubApp/cyberhub-ionic/src/pages/student-notice-board/student-notice-board.html"*/,
+            selector: 'page-student-notice-board',template:/*ion-inline-start:"E:\ionic\cyberHub\cyberhub-ionic\src\pages\student-notice-board\student-notice-board.html"*/'<!--\n\n  Generated template for the StudentNoticeBoardPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar color="blue">\n\n    <ion-title>Notice Board</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content>  \n\n  <ion-list>\n\n    <ion-item *ngFor="let notice of allNotice">\n\n      <ion-thumbnail item-start (click)="presentProfileModal(notice.id)">\n\n        <img src="assets/imgs/download-img.png">\n\n      </ion-thumbnail>\n\n      <h2>{{notice?.notice?.subject}}</h2>\n\n      <p>{{notice?.notice?.text}}</p>\n\n      <p>{{notice?.noticetype?.type_name}}</p>\n\n      <button ion-button clear item-end (click)="showPdf(notice?.notice?.file_url)">\n\n        <i class="fas fa-download fa-2x"></i>\n\n      </button>\n\n    </ion-item>\n\n  </ion-list>\n\n\n\n\n\n  <ion-infinite-scroll (ionInfinite)="doInfinite($event)" *ngIf="page < totalPage">\n\n      <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more..."></ion-infinite-scroll-content>\n\n  </ion-infinite-scroll>\n\n</ion-content>\n\n\n\n\n\n<ion-footer class="fixed">\n\n  <ion-toolbar color="primary">  \n\n  <ion-grid text-center >\n\n    <ion-row>\n\n      <div col-3 (click)=goToHome()>\n\n        <img src="assets/imgs/white-icon5.png">\n\n       <!--  <i text-center class="fas fa-video fa-inverse fa-lg"></i> -->\n\n        <p class="footer-p">Home</p>\n\n      </div>\n\n      <div col-3 (click)=gotoLiveStream()>\n\n        <img src="assets/imgs/white-icon1.png">\n\n       <!--  <i text-center class="fas fa-video fa-inverse fa-lg"></i> -->\n\n        <p class="footer-p">Live Streaming</p>\n\n      </div>\n\n      <div col-3 (click)=goToAttendance()>\n\n        <img src="assets/imgs/white-icon2.png">\n\n        <!-- <i text-center class="fas fa-boxes fa-inverse fa-lg"></i> -->\n\n        <p  class="footer-p">Attendance</p>\n\n      </div>\n\n      <div col-3 (click)=goToRoutine()>\n\n        <img src="assets/imgs/white-icon3.png">\n\n      	<!-- <i class="fas fa-box fa-inverse fa-lg"></i> -->\n\n        <p  class="footer-p">Routine</p>\n\n      </div>\n\n    </ion-row>\n\n  </ion-grid>\n\n  </ion-toolbar>\n\n</ion-footer>'/*ion-inline-end:"E:\ionic\cyberHub\cyberhub-ionic\src\pages\student-notice-board\student-notice-board.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_6__angular_http__["b" /* Http */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* MenuController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* ModalController */], __WEBPACK_IMPORTED_MODULE_6__angular_http__["d" /* Jsonp */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ViewController */], __WEBPACK_IMPORTED_MODULE_8__ionic_native_document_viewer__["a" /* DocumentViewer */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_6__angular_http__["b" /* Http */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* MenuController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* ModalController */], __WEBPACK_IMPORTED_MODULE_6__angular_http__["d" /* Jsonp */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* ViewController */], __WEBPACK_IMPORTED_MODULE_8__ionic_native_document_viewer__["a" /* DocumentViewer */]])
     ], StudentNoticeBoardPage);
     return StudentNoticeBoardPage;
 }());
@@ -3946,9 +4035,9 @@ var NoticeModalPage = /** @class */ (function () {
         this.viewCtrl.dismiss();
     };
     NoticeModalPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({template:/*ion-inline-start:"/home/wis/sushil/cyberHubApp/cyberhub-ionic/src/pages/student-notice-board/notice-modal.html"*/'<ion-header>\n        <ion-toolbar>\n          <ion-title>\n              Notice Details\n          </ion-title>\n          <ion-buttons start>\n            <button ion-button (click)="dismiss()">\n              <span ion-text color="primary" showWhen="ios">Cancel</span>\n              <ion-icon name="md-close" showWhen="android, windows"></ion-icon>\n            </button>\n          </ion-buttons>\n        </ion-toolbar>\n</ion-header>\n\n\n<ion-content>        \n  <ion-card>       \n    \n    <h4 text-center style="font-size: 18px;"><strong>{{notice?.notice?.subject}}</strong></h4>\n    \n    <ion-card-content>\n      <p><strong>Title</strong> : {{notice?.notice?.title}}</p>\n      <p><strong>Details</strong> : {{notice?.notice?.text}}</p>\n      <p><strong>Notice Type</strong> : {{notice?.noticetype?.type_name}}</p>\n    </ion-card-content>\n  </ion-card>\n</ion-content>'/*ion-inline-end:"/home/wis/sushil/cyberHubApp/cyberhub-ionic/src/pages/student-notice-board/notice-modal.html"*/
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({template:/*ion-inline-start:"E:\ionic\cyberHub\cyberhub-ionic\src\pages\student-notice-board\notice-modal.html"*/'<ion-header>\n\n        <ion-toolbar>\n\n          <ion-title>\n\n              Notice Details\n\n          </ion-title>\n\n          <ion-buttons start>\n\n            <button ion-button (click)="dismiss()">\n\n              <span ion-text color="primary" showWhen="ios">Cancel</span>\n\n              <ion-icon name="md-close" showWhen="android, windows"></ion-icon>\n\n            </button>\n\n          </ion-buttons>\n\n        </ion-toolbar>\n\n</ion-header>\n\n\n\n\n\n<ion-content>        \n\n  <ion-card>       \n\n    \n\n    <h4 text-center style="font-size: 18px;"><strong>{{notice?.notice?.subject}}</strong></h4>\n\n    \n\n    <ion-card-content>\n\n      <p><strong>Title</strong> : {{notice?.notice?.title}}</p>\n\n      <p><strong>Details</strong> : {{notice?.notice?.text}}</p>\n\n      <p><strong>Notice Type</strong> : {{notice?.noticetype?.type_name}}</p>\n\n    </ion-card-content>\n\n  </ion-card>\n\n</ion-content>'/*ion-inline-end:"E:\ionic\cyberHub\cyberhub-ionic\src\pages\student-notice-board\notice-modal.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Platform */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ViewController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* MenuController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Platform */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* ViewController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* MenuController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */]])
     ], NoticeModalPage);
     return NoticeModalPage;
 }());
@@ -3957,7 +4046,291 @@ var NoticeModalPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 41:
+/***/ 412:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(37);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_css_animator__ = __webpack_require__(385);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_css_animator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_css_animator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_http__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_ionic2_calendar__ = __webpack_require__(488);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_file__ = __webpack_require__(343);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_file_transfer__ = __webpack_require__(344);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_document_viewer__ = __webpack_require__(66);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_native_native_page_transitions__ = __webpack_require__(345);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__app_component__ = __webpack_require__(499);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_home_home__ = __webpack_require__(390);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_list_list__ = __webpack_require__(500);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_guest_enquiry_guest_enquiry__ = __webpack_require__(52);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_school_listing_school_listing__ = __webpack_require__(140);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_school_details_school_details__ = __webpack_require__(53);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_expandable_header_expandable_header__ = __webpack_require__(501);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_pdf_download_pdf_download__ = __webpack_require__(141);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_student_login_student_login__ = __webpack_require__(154);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_library_list_library_list__ = __webpack_require__(77);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pages_student_owndetails_student_owndetails__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__pages_personal_notice_personal_notice__ = __webpack_require__(50);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__pages_live_stream_live_stream__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__pages_attendance_attendance__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__pages_routine_routine__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__pages_parents_login_parents_login__ = __webpack_require__(151);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__pages_parents_student_view_parents_student_view__ = __webpack_require__(76);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__pages_parents_child_tabs_parents_child_tabs__ = __webpack_require__(150);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__pages_student_library_list_student_library_list__ = __webpack_require__(42);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__pages_student_notice_board_student_notice_board__ = __webpack_require__(41);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__pages_account_account__ = __webpack_require__(75);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__pages_changepassword_changepassword__ = __webpack_require__(137);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__pages_parents_account_parents_account__ = __webpack_require__(51);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__pages_staff_login_staff_login__ = __webpack_require__(152);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__pages_staff_info_staff_info__ = __webpack_require__(60);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__pages_staff_complain_staff_complain__ = __webpack_require__(145);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__pages_get_attendance_get_attendance__ = __webpack_require__(144);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__pages_attendance_list_attendance_list__ = __webpack_require__(143);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__pages_principal_examview_principal_examview__ = __webpack_require__(146);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_39__pages_principal_complaindesk_principal_complaindesk__ = __webpack_require__(147);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_40__pages_complain_reply_complain_reply__ = __webpack_require__(148);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_41__pages_stuff_examduty_stuff_examduty__ = __webpack_require__(149);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_42__pages_schoolcalender_schoolcalender__ = __webpack_require__(142);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_43__pages_students_tabs_students_tabs__ = __webpack_require__(78);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_44__pages_stuff_change_pass_stuff_change_pass__ = __webpack_require__(135);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_45_ng2_ripple_directive__ = __webpack_require__(502);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_45_ng2_ripple_directive___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_45_ng2_ripple_directive__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_46__ionic_native_camera__ = __webpack_require__(504);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_47__ionic_native_streaming_media__ = __webpack_require__(138);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_48__ionic_native_status_bar__ = __webpack_require__(388);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_49__ionic_native_splash_screen__ = __webpack_require__(389);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_50__providers_chat_serv_chat_serv__ = __webpack_require__(505);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_51__pages_test_test__ = __webpack_require__(139);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_52__pages_std_reg_std_reg__ = __webpack_require__(153);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_53__pages_stuff_edit_stuff_edit__ = __webpack_require__(136);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import { StaffInfoPage } from '../pages/staff-info/staff-info';
+
+
+// import { AccountPage, ModalPage } from '../pages/account/account';
+// import { StudentNoticeBoardPage, NoticeModalPage } from './student-notice-board';
+
+
+
+
+
+
+
+
+
+
+var AppModule = /** @class */ (function () {
+    function AppModule() {
+    }
+    AppModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["NgModule"])({
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_10__app_component__["a" /* MyApp */],
+                __WEBPACK_IMPORTED_MODULE_11__pages_home_home__["a" /* HomePage */],
+                __WEBPACK_IMPORTED_MODULE_12__pages_list_list__["a" /* ListPage */],
+                __WEBPACK_IMPORTED_MODULE_13__pages_guest_enquiry_guest_enquiry__["a" /* GuestEnquiryPage */],
+                __WEBPACK_IMPORTED_MODULE_14__pages_school_listing_school_listing__["a" /* SchoolListingPage */],
+                __WEBPACK_IMPORTED_MODULE_15__pages_school_details_school_details__["a" /* SchoolDetailsPage */],
+                __WEBPACK_IMPORTED_MODULE_16__components_expandable_header_expandable_header__["a" /* ExpandableHeaderComponent */],
+                __WEBPACK_IMPORTED_MODULE_17__pages_pdf_download_pdf_download__["a" /* PdfDownloadPage */],
+                __WEBPACK_IMPORTED_MODULE_18__pages_student_login_student_login__["a" /* StudentLoginPage */],
+                __WEBPACK_IMPORTED_MODULE_19__pages_library_list_library_list__["a" /* LibraryListPage */],
+                __WEBPACK_IMPORTED_MODULE_20__pages_student_owndetails_student_owndetails__["a" /* StudentOwndetailsPage */],
+                __WEBPACK_IMPORTED_MODULE_21__pages_personal_notice_personal_notice__["a" /* PersonalNoticePage */],
+                __WEBPACK_IMPORTED_MODULE_22__pages_live_stream_live_stream__["a" /* LiveStreamPage */],
+                __WEBPACK_IMPORTED_MODULE_23__pages_attendance_attendance__["a" /* AttendancePage */],
+                __WEBPACK_IMPORTED_MODULE_24__pages_routine_routine__["a" /* RoutinePage */],
+                __WEBPACK_IMPORTED_MODULE_25__pages_parents_login_parents_login__["a" /* ParentsLoginPage */],
+                __WEBPACK_IMPORTED_MODULE_26__pages_parents_student_view_parents_student_view__["a" /* ParentsStudentViewPage */],
+                __WEBPACK_IMPORTED_MODULE_27__pages_parents_child_tabs_parents_child_tabs__["a" /* ParentsChildTabsPage */],
+                __WEBPACK_IMPORTED_MODULE_28__pages_student_library_list_student_library_list__["b" /* StudentLibraryListPage */],
+                __WEBPACK_IMPORTED_MODULE_29__pages_student_notice_board_student_notice_board__["b" /* StudentNoticeBoardPage */],
+                __WEBPACK_IMPORTED_MODULE_30__pages_account_account__["a" /* AccountPage */],
+                __WEBPACK_IMPORTED_MODULE_30__pages_account_account__["b" /* ModalPage */],
+                __WEBPACK_IMPORTED_MODULE_31__pages_changepassword_changepassword__["a" /* ChangepasswordPage */],
+                __WEBPACK_IMPORTED_MODULE_32__pages_parents_account_parents_account__["a" /* ParentsAccountPage */],
+                __WEBPACK_IMPORTED_MODULE_33__pages_staff_login_staff_login__["a" /* StaffLoginPage */],
+                __WEBPACK_IMPORTED_MODULE_34__pages_staff_info_staff_info__["a" /* StaffInfoPage */],
+                __WEBPACK_IMPORTED_MODULE_35__pages_staff_complain_staff_complain__["a" /* StaffComplainPage */],
+                __WEBPACK_IMPORTED_MODULE_36__pages_get_attendance_get_attendance__["a" /* GetAttendancePage */],
+                __WEBPACK_IMPORTED_MODULE_37__pages_attendance_list_attendance_list__["a" /* AttendanceListPage */],
+                __WEBPACK_IMPORTED_MODULE_38__pages_principal_examview_principal_examview__["a" /* PrincipalExamviewPage */],
+                __WEBPACK_IMPORTED_MODULE_39__pages_principal_complaindesk_principal_complaindesk__["a" /* PrincipalComplaindeskPage */],
+                __WEBPACK_IMPORTED_MODULE_40__pages_complain_reply_complain_reply__["a" /* ComplainReplyPage */],
+                __WEBPACK_IMPORTED_MODULE_41__pages_stuff_examduty_stuff_examduty__["a" /* StuffExamdutyPage */],
+                __WEBPACK_IMPORTED_MODULE_45_ng2_ripple_directive__["RippleDirective"],
+                __WEBPACK_IMPORTED_MODULE_3_css_animator__["AnimatesDirective"],
+                __WEBPACK_IMPORTED_MODULE_42__pages_schoolcalender_schoolcalender__["a" /* SchoolcalenderPage */],
+                __WEBPACK_IMPORTED_MODULE_43__pages_students_tabs_students_tabs__["a" /* StudentsTabsPage */],
+                __WEBPACK_IMPORTED_MODULE_51__pages_test_test__["a" /* TestPage */],
+                __WEBPACK_IMPORTED_MODULE_52__pages_std_reg_std_reg__["a" /* StdRegPage */],
+                __WEBPACK_IMPORTED_MODULE_28__pages_student_library_list_student_library_list__["a" /* ProfilePage */],
+                __WEBPACK_IMPORTED_MODULE_29__pages_student_notice_board_student_notice_board__["a" /* NoticeModalPage */],
+                __WEBPACK_IMPORTED_MODULE_44__pages_stuff_change_pass_stuff_change_pass__["a" /* StuffChangePassPage */],
+                __WEBPACK_IMPORTED_MODULE_53__pages_stuff_edit_stuff_edit__["a" /* StuffEditPage */]
+            ],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
+                __WEBPACK_IMPORTED_MODULE_4__angular_http__["c" /* HttpModule */],
+                __WEBPACK_IMPORTED_MODULE_4__angular_http__["e" /* JsonpModule */],
+                __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["d" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_10__app_component__["a" /* MyApp */], {}, {
+                    links: [
+                        { loadChildren: '../pages/account/account.module#AccountPageModule', name: 'AccountPage', segment: 'account', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/attendance-list/attendance-list.module#AttendanceListPageModule', name: 'AttendanceListPage', segment: 'attendance-list', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/attendance/attendance.module#AttendancePageModule', name: 'AttendancePage', segment: 'attendance', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/changepassword/changepassword.module#ChangepasswordPageModule', name: 'ChangepasswordPage', segment: 'changepassword', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/complain-reply/complain-reply.module#ComplainReplyPageModule', name: 'ComplainReplyPage', segment: 'complain-reply', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/get-attendance/get-attendance.module#GetAttendancePageModule', name: 'GetAttendancePage', segment: 'get-attendance', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/guest-enquiry/guest-enquiry.module#GuestEnquiryPageModule', name: 'GuestEnquiryPage', segment: 'guest-enquiry', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/library-list/library-list.module#LibraryListPageModule', name: 'LibraryListPage', segment: 'library-list', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/live-stream/live-stream.module#LiveStreamPageModule', name: 'LiveStreamPage', segment: 'live-stream', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/parents-account/parents-account.module#ParentsAccountPageModule', name: 'ParentsAccountPage', segment: 'parents-account', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/parents-child-tabs/parents-child-tabs.module#ParentsChildTabsPageModule', name: 'ParentsChildTabsPage', segment: 'parents-child-tabs', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/parents-login/parents-login.module#ParentsLoginPageModule', name: 'ParentsLoginPage', segment: 'parents-login', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/parents-student-view/parents-student-view.module#ParentsStudentViewPageModule', name: 'ParentsStudentViewPage', segment: 'parents-student-view', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/pdf-download/pdf-download.module#PdfDownloadPageModule', name: 'PdfDownloadPage', segment: 'pdf-download', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/personal-notice/personal-notice.module#PersonalNoticePageModule', name: 'PersonalNoticePage', segment: 'personal-notice', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/principal-complaindesk/principal-complaindesk.module#PrincipalComplaindeskPageModule', name: 'PrincipalComplaindeskPage', segment: 'principal-complaindesk', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/principal-examview/principal-examview.module#PrincipalExamviewPageModule', name: 'PrincipalExamviewPage', segment: 'principal-examview', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/routine/routine.module#RoutinePageModule', name: 'RoutinePage', segment: 'routine', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/school-details/school-details.module#SchoolDetailsPageModule', name: 'SchoolDetailsPage', segment: 'school-details', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/school-listing/school-listing.module#SchoolListingPageModule', name: 'SchoolListingPage', segment: 'school-listing', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/schoolcalender/schoolcalender.module#SchoolcalenderPageModule', name: 'SchoolcalenderPage', segment: 'schoolcalender', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/staff-complain/staff-complain.module#StaffComplainPageModule', name: 'StaffComplainPage', segment: 'staff-complain', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/staff-info/staff-info.module#StaffInfoPageModule', name: 'StaffInfoPage', segment: 'staff-info', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/staff-login/staff-login.module#StaffLoginPageModule', name: 'StaffLoginPage', segment: 'staff-login', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/std-reg/std-reg.module#StdRegPageModule', name: 'StdRegPage', segment: 'std-reg', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/student-library-list/student-library-list.module#StudentLibraryListPageModule', name: 'StudentLibraryListPage', segment: 'student-library-list', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/student-login/student-login.module#StudentLoginPageModule', name: 'StudentLoginPage', segment: 'student-login', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/student-notice-board/student-notice-board.module#StudentNoticeBoardPageModule', name: 'StudentNoticeBoardPage', segment: 'student-notice-board', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/student-owndetails/student-owndetails.module#StudentOwndetailsPageModule', name: 'StudentOwndetailsPage', segment: 'student-owndetails', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/students-tabs/students-tabs.module#StudentsTabsPageModule', name: 'StudentsTabsPage', segment: 'students-tabs', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/stuff-change-pass/stuff-change-pass.module#StuffChangePassPageModule', name: 'StuffChangePassPage', segment: 'stuff-change-pass', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/stuff-edit/stuff-edit.module#StuffEditPageModule', name: 'StuffEditPage', segment: 'stuff-edit', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/stuff-examduty/stuff-examduty.module#StuffExamdutyPageModule', name: 'StuffExamdutyPage', segment: 'stuff-examduty', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/test/test.module#TestPageModule', name: 'TestPage', segment: 'test', priority: 'low', defaultHistory: [] }
+                    ]
+                }),
+                __WEBPACK_IMPORTED_MODULE_5_ionic2_calendar__["a" /* NgCalendarModule */],
+            ],
+            bootstrap: [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["b" /* IonicApp */]],
+            entryComponents: [
+                __WEBPACK_IMPORTED_MODULE_10__app_component__["a" /* MyApp */],
+                __WEBPACK_IMPORTED_MODULE_11__pages_home_home__["a" /* HomePage */],
+                __WEBPACK_IMPORTED_MODULE_12__pages_list_list__["a" /* ListPage */],
+                __WEBPACK_IMPORTED_MODULE_13__pages_guest_enquiry_guest_enquiry__["a" /* GuestEnquiryPage */],
+                __WEBPACK_IMPORTED_MODULE_14__pages_school_listing_school_listing__["a" /* SchoolListingPage */],
+                __WEBPACK_IMPORTED_MODULE_15__pages_school_details_school_details__["a" /* SchoolDetailsPage */],
+                __WEBPACK_IMPORTED_MODULE_17__pages_pdf_download_pdf_download__["a" /* PdfDownloadPage */],
+                __WEBPACK_IMPORTED_MODULE_18__pages_student_login_student_login__["a" /* StudentLoginPage */],
+                __WEBPACK_IMPORTED_MODULE_19__pages_library_list_library_list__["a" /* LibraryListPage */],
+                __WEBPACK_IMPORTED_MODULE_20__pages_student_owndetails_student_owndetails__["a" /* StudentOwndetailsPage */],
+                __WEBPACK_IMPORTED_MODULE_21__pages_personal_notice_personal_notice__["a" /* PersonalNoticePage */],
+                __WEBPACK_IMPORTED_MODULE_22__pages_live_stream_live_stream__["a" /* LiveStreamPage */],
+                __WEBPACK_IMPORTED_MODULE_23__pages_attendance_attendance__["a" /* AttendancePage */],
+                __WEBPACK_IMPORTED_MODULE_24__pages_routine_routine__["a" /* RoutinePage */],
+                __WEBPACK_IMPORTED_MODULE_25__pages_parents_login_parents_login__["a" /* ParentsLoginPage */],
+                __WEBPACK_IMPORTED_MODULE_26__pages_parents_student_view_parents_student_view__["a" /* ParentsStudentViewPage */],
+                __WEBPACK_IMPORTED_MODULE_27__pages_parents_child_tabs_parents_child_tabs__["a" /* ParentsChildTabsPage */],
+                __WEBPACK_IMPORTED_MODULE_28__pages_student_library_list_student_library_list__["b" /* StudentLibraryListPage */],
+                __WEBPACK_IMPORTED_MODULE_29__pages_student_notice_board_student_notice_board__["b" /* StudentNoticeBoardPage */],
+                __WEBPACK_IMPORTED_MODULE_30__pages_account_account__["a" /* AccountPage */],
+                __WEBPACK_IMPORTED_MODULE_30__pages_account_account__["b" /* ModalPage */],
+                __WEBPACK_IMPORTED_MODULE_31__pages_changepassword_changepassword__["a" /* ChangepasswordPage */],
+                __WEBPACK_IMPORTED_MODULE_32__pages_parents_account_parents_account__["a" /* ParentsAccountPage */],
+                __WEBPACK_IMPORTED_MODULE_33__pages_staff_login_staff_login__["a" /* StaffLoginPage */],
+                __WEBPACK_IMPORTED_MODULE_34__pages_staff_info_staff_info__["a" /* StaffInfoPage */],
+                __WEBPACK_IMPORTED_MODULE_35__pages_staff_complain_staff_complain__["a" /* StaffComplainPage */],
+                __WEBPACK_IMPORTED_MODULE_36__pages_get_attendance_get_attendance__["a" /* GetAttendancePage */],
+                __WEBPACK_IMPORTED_MODULE_37__pages_attendance_list_attendance_list__["a" /* AttendanceListPage */],
+                __WEBPACK_IMPORTED_MODULE_38__pages_principal_examview_principal_examview__["a" /* PrincipalExamviewPage */],
+                __WEBPACK_IMPORTED_MODULE_39__pages_principal_complaindesk_principal_complaindesk__["a" /* PrincipalComplaindeskPage */],
+                __WEBPACK_IMPORTED_MODULE_40__pages_complain_reply_complain_reply__["a" /* ComplainReplyPage */],
+                __WEBPACK_IMPORTED_MODULE_41__pages_stuff_examduty_stuff_examduty__["a" /* StuffExamdutyPage */],
+                __WEBPACK_IMPORTED_MODULE_42__pages_schoolcalender_schoolcalender__["a" /* SchoolcalenderPage */],
+                __WEBPACK_IMPORTED_MODULE_43__pages_students_tabs_students_tabs__["a" /* StudentsTabsPage */],
+                __WEBPACK_IMPORTED_MODULE_51__pages_test_test__["a" /* TestPage */],
+                __WEBPACK_IMPORTED_MODULE_52__pages_std_reg_std_reg__["a" /* StdRegPage */],
+                __WEBPACK_IMPORTED_MODULE_28__pages_student_library_list_student_library_list__["a" /* ProfilePage */],
+                __WEBPACK_IMPORTED_MODULE_29__pages_student_notice_board_student_notice_board__["a" /* NoticeModalPage */],
+                __WEBPACK_IMPORTED_MODULE_44__pages_stuff_change_pass_stuff_change_pass__["a" /* StuffChangePassPage */],
+                __WEBPACK_IMPORTED_MODULE_53__pages_stuff_edit_stuff_edit__["a" /* StuffEditPage */]
+            ],
+            providers: [
+                __WEBPACK_IMPORTED_MODULE_48__ionic_native_status_bar__["a" /* StatusBar */],
+                __WEBPACK_IMPORTED_MODULE_49__ionic_native_splash_screen__["a" /* SplashScreen */],
+                { provide: __WEBPACK_IMPORTED_MODULE_1__angular_core__["ErrorHandler"], useClass: __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["c" /* IonicErrorHandler */] },
+                __WEBPACK_IMPORTED_MODULE_3_css_animator__["AnimationService"],
+                __WEBPACK_IMPORTED_MODULE_6__ionic_native_file__["a" /* File */],
+                __WEBPACK_IMPORTED_MODULE_8__ionic_native_document_viewer__["a" /* DocumentViewer */],
+                __WEBPACK_IMPORTED_MODULE_7__ionic_native_file_transfer__["a" /* FileTransfer */],
+                __WEBPACK_IMPORTED_MODULE_9__ionic_native_native_page_transitions__["a" /* NativePageTransitions */],
+                __WEBPACK_IMPORTED_MODULE_50__providers_chat_serv_chat_serv__["a" /* ChatServProvider */],
+                __WEBPACK_IMPORTED_MODULE_46__ionic_native_camera__["a" /* Camera */],
+                __WEBPACK_IMPORTED_MODULE_47__ionic_native_streaming_media__["a" /* StreamingMedia */]
+            ]
+        })
+    ], AppModule);
+    return AppModule;
+}());
+
+//# sourceMappingURL=app.module.js.map
+
+/***/ }),
+
+/***/ 42:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4223,9 +4596,9 @@ var StudentLibraryListPage = /** @class */ (function () {
     };
     StudentLibraryListPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-student-library-list',template:/*ion-inline-start:"/home/wis/sushil/cyberHubApp/cyberhub-ionic/src/pages/student-library-list/student-library-list.html"*/'<!--\n  Generated template for the StudentLibraryListPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-navbar color="blue">\n    <ion-title>List of Books</ion-title>\n      <ion-buttons end class="search-icon"> <i class="fas fa-search fa-lg"></i> </ion-buttons>\n  </ion-navbar>\n   <ion-toolbar>\n    <ion-searchbar (keyup)="onChangeSearch($event)"></ion-searchbar>\n  </ion-toolbar>\n</ion-header>\n\n\n<ion-content>\n\n    <ion-list>\n        <ion-item *ngIf="showNotFound" text-center>\n          <p>Not Found Any Book</p>\n        </ion-item>\n    </ion-list>\n\n    <ion-list>\n      <ion-item *ngFor="let book of allBookList" (click)="presentProfileModal(book.id)">\n        <ion-thumbnail item-start>\n          <img src="assets/imgs/book.png">\n        </ion-thumbnail>\n        <h2 *ngIf="book.book_name"><strong>{{book.book_name}}</strong></h2>\n        <p><strong>Author Name</strong>: {{book.author}}</p>\n        <small><strong>Number of Copies</strong>: {{book.no_copy}}</small>\n      </ion-item>\n    </ion-list>\n\n    <ion-infinite-scroll (ionInfinite)="doInfinite($event)" *ngIf="page < totalPage">\n      <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more..."></ion-infinite-scroll-content>\n    </ion-infinite-scroll>\n<!-- *ngIf="page < totalPage" *ngIf="book.book_name"-->\n\n</ion-content>\n\n\n\n<ion-footer class="fixed">\n  <ion-toolbar color="primary">  \n  <ion-grid text-center >\n    <ion-row>\n      <div col-3 (click)=goToHome()>\n        <img src="assets/imgs/white-icon5.png">\n       <!--  <i text-center class="fas fa-video fa-inverse fa-lg"></i> -->\n        <p class="footer-p">Home</p>\n      </div>\n      <div col-3 (click)=gotoLiveStream()>\n        <img src="assets/imgs/white-icon1.png">\n       <!--  <i text-center class="fas fa-video fa-inverse fa-lg"></i> -->\n        <p class="footer-p">Live Streaming</p>\n      </div>\n      <div col-3 (click)=goToAttendance()>\n        <img src="assets/imgs/white-icon2.png">\n        <!-- <i text-center class="fas fa-boxes fa-inverse fa-lg"></i> -->\n        <p  class="footer-p">Attendance</p>\n      </div>\n      <div col-3 (click)=goToRoutine()>\n        <img src="assets/imgs/white-icon3.png">\n      	<!-- <i class="fas fa-box fa-inverse fa-lg"></i> -->\n        <p  class="footer-p">Routine</p>\n      </div>\n    </ion-row>\n  </ion-grid>\n  </ion-toolbar>\n</ion-footer>'/*ion-inline-end:"/home/wis/sushil/cyberHubApp/cyberhub-ionic/src/pages/student-library-list/student-library-list.html"*/,
+            selector: 'page-student-library-list',template:/*ion-inline-start:"E:\ionic\cyberHub\cyberhub-ionic\src\pages\student-library-list\student-library-list.html"*/'<!--\n\n  Generated template for the StudentLibraryListPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n  <ion-navbar color="blue">\n\n    <ion-title>List of Books</ion-title>\n\n      <ion-buttons end class="search-icon"> <i class="fas fa-search fa-lg"></i> </ion-buttons>\n\n  </ion-navbar>\n\n   <ion-toolbar>\n\n    <ion-searchbar (keyup)="onChangeSearch($event)"></ion-searchbar>\n\n  </ion-toolbar>\n\n</ion-header>\n\n\n\n\n\n<ion-content>\n\n\n\n    <ion-list>\n\n        <ion-item *ngIf="showNotFound" text-center>\n\n          <p>Not Found Any Book</p>\n\n        </ion-item>\n\n    </ion-list>\n\n\n\n    <ion-list>\n\n      <ion-item *ngFor="let book of allBookList" (click)="presentProfileModal(book.id)">\n\n        <ion-thumbnail item-start>\n\n          <img src="assets/imgs/book.png">\n\n        </ion-thumbnail>\n\n        <h2 *ngIf="book.book_name"><strong>{{book.book_name}}</strong></h2>\n\n        <p><strong>Author Name</strong>: {{book.author}}</p>\n\n        <small><strong>Number of Copies</strong>: {{book.no_copy}}</small>\n\n      </ion-item>\n\n    </ion-list>\n\n\n\n    <ion-infinite-scroll (ionInfinite)="doInfinite($event)" *ngIf="page < totalPage">\n\n      <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more..."></ion-infinite-scroll-content>\n\n    </ion-infinite-scroll>\n\n<!-- *ngIf="page < totalPage" *ngIf="book.book_name"-->\n\n\n\n</ion-content>\n\n\n\n\n\n\n\n<ion-footer class="fixed">\n\n  <ion-toolbar color="primary">  \n\n  <ion-grid text-center >\n\n    <ion-row>\n\n      <div col-3 (click)=goToHome()>\n\n        <img src="assets/imgs/white-icon5.png">\n\n       <!--  <i text-center class="fas fa-video fa-inverse fa-lg"></i> -->\n\n        <p class="footer-p">Home</p>\n\n      </div>\n\n      <div col-3 (click)=gotoLiveStream()>\n\n        <img src="assets/imgs/white-icon1.png">\n\n       <!--  <i text-center class="fas fa-video fa-inverse fa-lg"></i> -->\n\n        <p class="footer-p">Live Streaming</p>\n\n      </div>\n\n      <div col-3 (click)=goToAttendance()>\n\n        <img src="assets/imgs/white-icon2.png">\n\n        <!-- <i text-center class="fas fa-boxes fa-inverse fa-lg"></i> -->\n\n        <p  class="footer-p">Attendance</p>\n\n      </div>\n\n      <div col-3 (click)=goToRoutine()>\n\n        <img src="assets/imgs/white-icon3.png">\n\n      	<!-- <i class="fas fa-box fa-inverse fa-lg"></i> -->\n\n        <p  class="footer-p">Routine</p>\n\n      </div>\n\n    </ion-row>\n\n  </ion-grid>\n\n  </ion-toolbar>\n\n</ion-footer>'/*ion-inline-end:"E:\ionic\cyberHub\cyberhub-ionic\src\pages\student-library-list\student-library-list.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* MenuController */], __WEBPACK_IMPORTED_MODULE_6__angular_http__["b" /* Http */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* ModalController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ViewController */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* MenuController */], __WEBPACK_IMPORTED_MODULE_6__angular_http__["b" /* Http */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* ModalController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* ViewController */]])
     ], StudentLibraryListPage);
     return StudentLibraryListPage;
 }());
@@ -4246,298 +4619,14 @@ var ProfilePage = /** @class */ (function () {
         this.viewCtrl.dismiss();
     };
     ProfilePage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({template:/*ion-inline-start:"/home/wis/sushil/cyberHubApp/cyberhub-ionic/src/pages/student-library-list/book-modal.html"*/'<!-- <ion-header>\n        <ion-toolbar>\n          <ion-title>\n            Book Details\n          </ion-title>\n          <ion-buttons start>\n            <button ion-button (click)="dismiss()">\n              <span ion-text color="primary" showWhen="ios">Cancel</span>\n              <ion-icon name="md-close" showWhen="android, windows"></ion-icon>\n            </button>\n          </ion-buttons>\n        </ion-toolbar>\n      </ion-header> -->\n\n\n      <ion-header>\n            <ion-toolbar>\n              <ion-title>\n                  Book Details\n              </ion-title>\n              <ion-buttons start>\n                <button ion-button (click)="dismiss()">\n                  <span ion-text color="primary" showWhen="ios">Cancel</span>\n                  <ion-icon name="md-close" showWhen="android, windows"></ion-icon>\n                </button>\n              </ion-buttons>\n            </ion-toolbar>\n    </ion-header>\n\n\n<ion-content>        \n    <ion-card>       \n        \n        <h4 text-center style="font-size: 18px;"><strong>{{book?.book_name}}</strong></h4>\n        \n        <ion-card-content>\n          <p><strong>Author</strong> : {{book?.author}}</p>\n          <p><strong>Edition</strong> : {{book?.edition}}</p>\n          <p><strong>ISBN</strong> : {{book?.isbn_code}}</p>\n          <p><strong>Publisher</strong> : {{book?.publisher_name}}</p>\n          <p><strong>No of Copy</strong> : {{book?.no_copy}}</p>\n        </ion-card-content>\n      </ion-card>\n</ion-content>\n\n'/*ion-inline-end:"/home/wis/sushil/cyberHubApp/cyberhub-ionic/src/pages/student-library-list/book-modal.html"*/
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({template:/*ion-inline-start:"E:\ionic\cyberHub\cyberhub-ionic\src\pages\student-library-list\book-modal.html"*/'<!-- <ion-header>\n\n        <ion-toolbar>\n\n          <ion-title>\n\n            Book Details\n\n          </ion-title>\n\n          <ion-buttons start>\n\n            <button ion-button (click)="dismiss()">\n\n              <span ion-text color="primary" showWhen="ios">Cancel</span>\n\n              <ion-icon name="md-close" showWhen="android, windows"></ion-icon>\n\n            </button>\n\n          </ion-buttons>\n\n        </ion-toolbar>\n\n      </ion-header> -->\n\n\n\n\n\n      <ion-header>\n\n            <ion-toolbar>\n\n              <ion-title>\n\n                  Book Details\n\n              </ion-title>\n\n              <ion-buttons start>\n\n                <button ion-button (click)="dismiss()">\n\n                  <span ion-text color="primary" showWhen="ios">Cancel</span>\n\n                  <ion-icon name="md-close" showWhen="android, windows"></ion-icon>\n\n                </button>\n\n              </ion-buttons>\n\n            </ion-toolbar>\n\n    </ion-header>\n\n\n\n\n\n<ion-content>        \n\n    <ion-card>       \n\n        \n\n        <h4 text-center style="font-size: 18px;"><strong>{{book?.book_name}}</strong></h4>\n\n        \n\n        <ion-card-content>\n\n          <p><strong>Author</strong> : {{book?.author}}</p>\n\n          <p><strong>Edition</strong> : {{book?.edition}}</p>\n\n          <p><strong>ISBN</strong> : {{book?.isbn_code}}</p>\n\n          <p><strong>Publisher</strong> : {{book?.publisher_name}}</p>\n\n          <p><strong>No of Copy</strong> : {{book?.no_copy}}</p>\n\n        </ion-card-content>\n\n      </ion-card>\n\n</ion-content>\n\n\n\n'/*ion-inline-end:"E:\ionic\cyberHub\cyberhub-ionic\src\pages\student-library-list\book-modal.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Platform */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ViewController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* MenuController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Platform */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* ViewController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* MenuController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */]])
     ], ProfilePage);
     return ProfilePage;
 }());
 
 //# sourceMappingURL=student-library-list.js.map
-
-/***/ }),
-
-/***/ 412:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(37);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_css_animator__ = __webpack_require__(385);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_css_animator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_css_animator__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_http__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_ionic2_calendar__ = __webpack_require__(488);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_file__ = __webpack_require__(343);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_file_transfer__ = __webpack_require__(344);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_document_viewer__ = __webpack_require__(66);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_native_native_page_transitions__ = __webpack_require__(345);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__app_component__ = __webpack_require__(499);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_home_home__ = __webpack_require__(390);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_list_list__ = __webpack_require__(500);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_guest_enquiry_guest_enquiry__ = __webpack_require__(52);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_school_listing_school_listing__ = __webpack_require__(140);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_school_details_school_details__ = __webpack_require__(53);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_expandable_header_expandable_header__ = __webpack_require__(501);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_pdf_download_pdf_download__ = __webpack_require__(141);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_student_login_student_login__ = __webpack_require__(154);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_library_list_library_list__ = __webpack_require__(77);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pages_student_owndetails_student_owndetails__ = __webpack_require__(28);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__pages_personal_notice_personal_notice__ = __webpack_require__(50);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__pages_live_stream_live_stream__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__pages_attendance_attendance__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__pages_routine_routine__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__pages_parents_login_parents_login__ = __webpack_require__(151);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__pages_parents_student_view_parents_student_view__ = __webpack_require__(76);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__pages_parents_child_tabs_parents_child_tabs__ = __webpack_require__(150);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__pages_student_library_list_student_library_list__ = __webpack_require__(41);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__pages_student_notice_board_student_notice_board__ = __webpack_require__(40);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__pages_account_account__ = __webpack_require__(75);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__pages_changepassword_changepassword__ = __webpack_require__(137);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__pages_parents_account_parents_account__ = __webpack_require__(51);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__pages_staff_login_staff_login__ = __webpack_require__(152);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__pages_staff_info_staff_info__ = __webpack_require__(60);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__pages_staff_complain_staff_complain__ = __webpack_require__(145);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__pages_get_attendance_get_attendance__ = __webpack_require__(144);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__pages_attendance_list_attendance_list__ = __webpack_require__(143);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__pages_principal_examview_principal_examview__ = __webpack_require__(146);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_39__pages_principal_complaindesk_principal_complaindesk__ = __webpack_require__(147);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_40__pages_complain_reply_complain_reply__ = __webpack_require__(148);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_41__pages_stuff_examduty_stuff_examduty__ = __webpack_require__(149);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_42__pages_schoolcalender_schoolcalender__ = __webpack_require__(142);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_43__pages_students_tabs_students_tabs__ = __webpack_require__(78);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_44__pages_stuff_change_pass_stuff_change_pass__ = __webpack_require__(135);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_45_ng2_ripple_directive__ = __webpack_require__(502);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_45_ng2_ripple_directive___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_45_ng2_ripple_directive__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_46__ionic_native_camera__ = __webpack_require__(504);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_47__ionic_native_streaming_media__ = __webpack_require__(138);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_48__ionic_native_status_bar__ = __webpack_require__(388);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_49__ionic_native_splash_screen__ = __webpack_require__(389);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_50__providers_chat_serv_chat_serv__ = __webpack_require__(505);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_51__pages_test_test__ = __webpack_require__(139);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_52__pages_std_reg_std_reg__ = __webpack_require__(153);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_53__pages_stuff_edit_stuff_edit__ = __webpack_require__(136);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// import { StaffInfoPage } from '../pages/staff-info/staff-info';
-
-
-// import { AccountPage, ModalPage } from '../pages/account/account';
-// import { StudentNoticeBoardPage, NoticeModalPage } from './student-notice-board';
-
-
-
-
-
-
-
-
-
-
-var AppModule = /** @class */ (function () {
-    function AppModule() {
-    }
-    AppModule = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["NgModule"])({
-            declarations: [
-                __WEBPACK_IMPORTED_MODULE_10__app_component__["a" /* MyApp */],
-                __WEBPACK_IMPORTED_MODULE_11__pages_home_home__["a" /* HomePage */],
-                __WEBPACK_IMPORTED_MODULE_12__pages_list_list__["a" /* ListPage */],
-                __WEBPACK_IMPORTED_MODULE_13__pages_guest_enquiry_guest_enquiry__["a" /* GuestEnquiryPage */],
-                __WEBPACK_IMPORTED_MODULE_14__pages_school_listing_school_listing__["a" /* SchoolListingPage */],
-                __WEBPACK_IMPORTED_MODULE_15__pages_school_details_school_details__["a" /* SchoolDetailsPage */],
-                __WEBPACK_IMPORTED_MODULE_16__components_expandable_header_expandable_header__["a" /* ExpandableHeaderComponent */],
-                __WEBPACK_IMPORTED_MODULE_17__pages_pdf_download_pdf_download__["a" /* PdfDownloadPage */],
-                __WEBPACK_IMPORTED_MODULE_18__pages_student_login_student_login__["a" /* StudentLoginPage */],
-                __WEBPACK_IMPORTED_MODULE_19__pages_library_list_library_list__["a" /* LibraryListPage */],
-                __WEBPACK_IMPORTED_MODULE_20__pages_student_owndetails_student_owndetails__["a" /* StudentOwndetailsPage */],
-                __WEBPACK_IMPORTED_MODULE_21__pages_personal_notice_personal_notice__["a" /* PersonalNoticePage */],
-                __WEBPACK_IMPORTED_MODULE_22__pages_live_stream_live_stream__["a" /* LiveStreamPage */],
-                __WEBPACK_IMPORTED_MODULE_23__pages_attendance_attendance__["a" /* AttendancePage */],
-                __WEBPACK_IMPORTED_MODULE_24__pages_routine_routine__["a" /* RoutinePage */],
-                __WEBPACK_IMPORTED_MODULE_25__pages_parents_login_parents_login__["a" /* ParentsLoginPage */],
-                __WEBPACK_IMPORTED_MODULE_26__pages_parents_student_view_parents_student_view__["a" /* ParentsStudentViewPage */],
-                __WEBPACK_IMPORTED_MODULE_27__pages_parents_child_tabs_parents_child_tabs__["a" /* ParentsChildTabsPage */],
-                __WEBPACK_IMPORTED_MODULE_28__pages_student_library_list_student_library_list__["b" /* StudentLibraryListPage */],
-                __WEBPACK_IMPORTED_MODULE_29__pages_student_notice_board_student_notice_board__["b" /* StudentNoticeBoardPage */],
-                __WEBPACK_IMPORTED_MODULE_30__pages_account_account__["a" /* AccountPage */],
-                __WEBPACK_IMPORTED_MODULE_30__pages_account_account__["b" /* ModalPage */],
-                __WEBPACK_IMPORTED_MODULE_31__pages_changepassword_changepassword__["a" /* ChangepasswordPage */],
-                __WEBPACK_IMPORTED_MODULE_32__pages_parents_account_parents_account__["a" /* ParentsAccountPage */],
-                __WEBPACK_IMPORTED_MODULE_33__pages_staff_login_staff_login__["a" /* StaffLoginPage */],
-                __WEBPACK_IMPORTED_MODULE_34__pages_staff_info_staff_info__["a" /* StaffInfoPage */],
-                __WEBPACK_IMPORTED_MODULE_35__pages_staff_complain_staff_complain__["a" /* StaffComplainPage */],
-                __WEBPACK_IMPORTED_MODULE_36__pages_get_attendance_get_attendance__["a" /* GetAttendancePage */],
-                __WEBPACK_IMPORTED_MODULE_37__pages_attendance_list_attendance_list__["a" /* AttendanceListPage */],
-                __WEBPACK_IMPORTED_MODULE_38__pages_principal_examview_principal_examview__["a" /* PrincipalExamviewPage */],
-                __WEBPACK_IMPORTED_MODULE_39__pages_principal_complaindesk_principal_complaindesk__["a" /* PrincipalComplaindeskPage */],
-                __WEBPACK_IMPORTED_MODULE_40__pages_complain_reply_complain_reply__["a" /* ComplainReplyPage */],
-                __WEBPACK_IMPORTED_MODULE_41__pages_stuff_examduty_stuff_examduty__["a" /* StuffExamdutyPage */],
-                __WEBPACK_IMPORTED_MODULE_45_ng2_ripple_directive__["RippleDirective"],
-                __WEBPACK_IMPORTED_MODULE_3_css_animator__["AnimatesDirective"],
-                __WEBPACK_IMPORTED_MODULE_42__pages_schoolcalender_schoolcalender__["a" /* SchoolcalenderPage */],
-                __WEBPACK_IMPORTED_MODULE_43__pages_students_tabs_students_tabs__["a" /* StudentsTabsPage */],
-                __WEBPACK_IMPORTED_MODULE_51__pages_test_test__["a" /* TestPage */],
-                __WEBPACK_IMPORTED_MODULE_52__pages_std_reg_std_reg__["a" /* StdRegPage */],
-                __WEBPACK_IMPORTED_MODULE_28__pages_student_library_list_student_library_list__["a" /* ProfilePage */],
-                __WEBPACK_IMPORTED_MODULE_29__pages_student_notice_board_student_notice_board__["a" /* NoticeModalPage */],
-                __WEBPACK_IMPORTED_MODULE_44__pages_stuff_change_pass_stuff_change_pass__["a" /* StuffChangePassPage */],
-                __WEBPACK_IMPORTED_MODULE_53__pages_stuff_edit_stuff_edit__["a" /* StuffEditPage */]
-            ],
-            imports: [
-                __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
-                __WEBPACK_IMPORTED_MODULE_4__angular_http__["c" /* HttpModule */],
-                __WEBPACK_IMPORTED_MODULE_4__angular_http__["e" /* JsonpModule */],
-                __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["d" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_10__app_component__["a" /* MyApp */], {}, {
-                    links: [
-                        { loadChildren: '../pages/account/account.module#AccountPageModule', name: 'AccountPage', segment: 'account', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/attendance-list/attendance-list.module#AttendanceListPageModule', name: 'AttendanceListPage', segment: 'attendance-list', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/attendance/attendance.module#AttendancePageModule', name: 'AttendancePage', segment: 'attendance', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/changepassword/changepassword.module#ChangepasswordPageModule', name: 'ChangepasswordPage', segment: 'changepassword', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/complain-reply/complain-reply.module#ComplainReplyPageModule', name: 'ComplainReplyPage', segment: 'complain-reply', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/get-attendance/get-attendance.module#GetAttendancePageModule', name: 'GetAttendancePage', segment: 'get-attendance', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/guest-enquiry/guest-enquiry.module#GuestEnquiryPageModule', name: 'GuestEnquiryPage', segment: 'guest-enquiry', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/library-list/library-list.module#LibraryListPageModule', name: 'LibraryListPage', segment: 'library-list', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/live-stream/live-stream.module#LiveStreamPageModule', name: 'LiveStreamPage', segment: 'live-stream', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/parents-account/parents-account.module#ParentsAccountPageModule', name: 'ParentsAccountPage', segment: 'parents-account', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/parents-child-tabs/parents-child-tabs.module#ParentsChildTabsPageModule', name: 'ParentsChildTabsPage', segment: 'parents-child-tabs', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/parents-login/parents-login.module#ParentsLoginPageModule', name: 'ParentsLoginPage', segment: 'parents-login', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/parents-student-view/parents-student-view.module#ParentsStudentViewPageModule', name: 'ParentsStudentViewPage', segment: 'parents-student-view', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/pdf-download/pdf-download.module#PdfDownloadPageModule', name: 'PdfDownloadPage', segment: 'pdf-download', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/personal-notice/personal-notice.module#PersonalNoticePageModule', name: 'PersonalNoticePage', segment: 'personal-notice', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/principal-complaindesk/principal-complaindesk.module#PrincipalComplaindeskPageModule', name: 'PrincipalComplaindeskPage', segment: 'principal-complaindesk', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/principal-examview/principal-examview.module#PrincipalExamviewPageModule', name: 'PrincipalExamviewPage', segment: 'principal-examview', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/routine/routine.module#RoutinePageModule', name: 'RoutinePage', segment: 'routine', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/school-details/school-details.module#SchoolDetailsPageModule', name: 'SchoolDetailsPage', segment: 'school-details', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/school-listing/school-listing.module#SchoolListingPageModule', name: 'SchoolListingPage', segment: 'school-listing', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/schoolcalender/schoolcalender.module#SchoolcalenderPageModule', name: 'SchoolcalenderPage', segment: 'schoolcalender', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/staff-complain/staff-complain.module#StaffComplainPageModule', name: 'StaffComplainPage', segment: 'staff-complain', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/staff-login/staff-login.module#StaffLoginPageModule', name: 'StaffLoginPage', segment: 'staff-login', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/std-reg/std-reg.module#StdRegPageModule', name: 'StdRegPage', segment: 'std-reg', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/student-library-list/student-library-list.module#StudentLibraryListPageModule', name: 'StudentLibraryListPage', segment: 'student-library-list', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/student-login/student-login.module#StudentLoginPageModule', name: 'StudentLoginPage', segment: 'student-login', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/student-notice-board/student-notice-board.module#StudentNoticeBoardPageModule', name: 'StudentNoticeBoardPage', segment: 'student-notice-board', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/student-owndetails/student-owndetails.module#StudentOwndetailsPageModule', name: 'StudentOwndetailsPage', segment: 'student-owndetails', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/students-tabs/students-tabs.module#StudentsTabsPageModule', name: 'StudentsTabsPage', segment: 'students-tabs', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/stuff-change-pass/stuff-change-pass.module#StuffChangePassPageModule', name: 'StuffChangePassPage', segment: 'stuff-change-pass', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/stuff-edit/stuff-edit.module#StuffEditPageModule', name: 'StuffEditPage', segment: 'stuff-edit', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/stuff-examduty/stuff-examduty.module#StuffExamdutyPageModule', name: 'StuffExamdutyPage', segment: 'stuff-examduty', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/test/test.module#TestPageModule', name: 'TestPage', segment: 'test', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/staff-info/staff-info.module#StaffInfoPageModule', name: 'StaffInfoPage', segment: 'staff-info', priority: 'low', defaultHistory: [] }
-                    ]
-                }),
-                __WEBPACK_IMPORTED_MODULE_5_ionic2_calendar__["a" /* NgCalendarModule */],
-            ],
-            bootstrap: [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["b" /* IonicApp */]],
-            entryComponents: [
-                __WEBPACK_IMPORTED_MODULE_10__app_component__["a" /* MyApp */],
-                __WEBPACK_IMPORTED_MODULE_11__pages_home_home__["a" /* HomePage */],
-                __WEBPACK_IMPORTED_MODULE_12__pages_list_list__["a" /* ListPage */],
-                __WEBPACK_IMPORTED_MODULE_13__pages_guest_enquiry_guest_enquiry__["a" /* GuestEnquiryPage */],
-                __WEBPACK_IMPORTED_MODULE_14__pages_school_listing_school_listing__["a" /* SchoolListingPage */],
-                __WEBPACK_IMPORTED_MODULE_15__pages_school_details_school_details__["a" /* SchoolDetailsPage */],
-                __WEBPACK_IMPORTED_MODULE_17__pages_pdf_download_pdf_download__["a" /* PdfDownloadPage */],
-                __WEBPACK_IMPORTED_MODULE_18__pages_student_login_student_login__["a" /* StudentLoginPage */],
-                __WEBPACK_IMPORTED_MODULE_19__pages_library_list_library_list__["a" /* LibraryListPage */],
-                __WEBPACK_IMPORTED_MODULE_20__pages_student_owndetails_student_owndetails__["a" /* StudentOwndetailsPage */],
-                __WEBPACK_IMPORTED_MODULE_21__pages_personal_notice_personal_notice__["a" /* PersonalNoticePage */],
-                __WEBPACK_IMPORTED_MODULE_22__pages_live_stream_live_stream__["a" /* LiveStreamPage */],
-                __WEBPACK_IMPORTED_MODULE_23__pages_attendance_attendance__["a" /* AttendancePage */],
-                __WEBPACK_IMPORTED_MODULE_24__pages_routine_routine__["a" /* RoutinePage */],
-                __WEBPACK_IMPORTED_MODULE_25__pages_parents_login_parents_login__["a" /* ParentsLoginPage */],
-                __WEBPACK_IMPORTED_MODULE_26__pages_parents_student_view_parents_student_view__["a" /* ParentsStudentViewPage */],
-                __WEBPACK_IMPORTED_MODULE_27__pages_parents_child_tabs_parents_child_tabs__["a" /* ParentsChildTabsPage */],
-                __WEBPACK_IMPORTED_MODULE_28__pages_student_library_list_student_library_list__["b" /* StudentLibraryListPage */],
-                __WEBPACK_IMPORTED_MODULE_29__pages_student_notice_board_student_notice_board__["b" /* StudentNoticeBoardPage */],
-                __WEBPACK_IMPORTED_MODULE_30__pages_account_account__["a" /* AccountPage */],
-                __WEBPACK_IMPORTED_MODULE_30__pages_account_account__["b" /* ModalPage */],
-                __WEBPACK_IMPORTED_MODULE_31__pages_changepassword_changepassword__["a" /* ChangepasswordPage */],
-                __WEBPACK_IMPORTED_MODULE_32__pages_parents_account_parents_account__["a" /* ParentsAccountPage */],
-                __WEBPACK_IMPORTED_MODULE_33__pages_staff_login_staff_login__["a" /* StaffLoginPage */],
-                __WEBPACK_IMPORTED_MODULE_34__pages_staff_info_staff_info__["a" /* StaffInfoPage */],
-                __WEBPACK_IMPORTED_MODULE_35__pages_staff_complain_staff_complain__["a" /* StaffComplainPage */],
-                __WEBPACK_IMPORTED_MODULE_36__pages_get_attendance_get_attendance__["a" /* GetAttendancePage */],
-                __WEBPACK_IMPORTED_MODULE_37__pages_attendance_list_attendance_list__["a" /* AttendanceListPage */],
-                __WEBPACK_IMPORTED_MODULE_38__pages_principal_examview_principal_examview__["a" /* PrincipalExamviewPage */],
-                __WEBPACK_IMPORTED_MODULE_39__pages_principal_complaindesk_principal_complaindesk__["a" /* PrincipalComplaindeskPage */],
-                __WEBPACK_IMPORTED_MODULE_40__pages_complain_reply_complain_reply__["a" /* ComplainReplyPage */],
-                __WEBPACK_IMPORTED_MODULE_41__pages_stuff_examduty_stuff_examduty__["a" /* StuffExamdutyPage */],
-                __WEBPACK_IMPORTED_MODULE_42__pages_schoolcalender_schoolcalender__["a" /* SchoolcalenderPage */],
-                __WEBPACK_IMPORTED_MODULE_43__pages_students_tabs_students_tabs__["a" /* StudentsTabsPage */],
-                __WEBPACK_IMPORTED_MODULE_51__pages_test_test__["a" /* TestPage */],
-                __WEBPACK_IMPORTED_MODULE_52__pages_std_reg_std_reg__["a" /* StdRegPage */],
-                __WEBPACK_IMPORTED_MODULE_28__pages_student_library_list_student_library_list__["a" /* ProfilePage */],
-                __WEBPACK_IMPORTED_MODULE_29__pages_student_notice_board_student_notice_board__["a" /* NoticeModalPage */],
-                __WEBPACK_IMPORTED_MODULE_44__pages_stuff_change_pass_stuff_change_pass__["a" /* StuffChangePassPage */],
-                __WEBPACK_IMPORTED_MODULE_53__pages_stuff_edit_stuff_edit__["a" /* StuffEditPage */]
-            ],
-            providers: [
-                __WEBPACK_IMPORTED_MODULE_48__ionic_native_status_bar__["a" /* StatusBar */],
-                __WEBPACK_IMPORTED_MODULE_49__ionic_native_splash_screen__["a" /* SplashScreen */],
-                { provide: __WEBPACK_IMPORTED_MODULE_1__angular_core__["ErrorHandler"], useClass: __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["c" /* IonicErrorHandler */] },
-                __WEBPACK_IMPORTED_MODULE_3_css_animator__["AnimationService"],
-                __WEBPACK_IMPORTED_MODULE_6__ionic_native_file__["a" /* File */],
-                __WEBPACK_IMPORTED_MODULE_8__ionic_native_document_viewer__["a" /* DocumentViewer */],
-                __WEBPACK_IMPORTED_MODULE_7__ionic_native_file_transfer__["a" /* FileTransfer */],
-                __WEBPACK_IMPORTED_MODULE_9__ionic_native_native_page_transitions__["a" /* NativePageTransitions */],
-                __WEBPACK_IMPORTED_MODULE_50__providers_chat_serv_chat_serv__["a" /* ChatServProvider */],
-                __WEBPACK_IMPORTED_MODULE_46__ionic_native_camera__["a" /* Camera */],
-                __WEBPACK_IMPORTED_MODULE_47__ionic_native_streaming_media__["a" /* StreamingMedia */]
-            ]
-        })
-    ], AppModule);
-    return AppModule;
-}());
-
-//# sourceMappingURL=app.module.js.map
 
 /***/ }),
 
@@ -4925,7 +5014,7 @@ var MyApp = /** @class */ (function () {
         __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Nav */])
     ], MyApp.prototype, "nav", void 0);
     MyApp = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({template:/*ion-inline-start:"/home/wis/sushil/cyberHubApp/cyberhub-ionic/src/app/app.html"*/'<ion-menu [content]="content">\n  <ion-header no-padding no-margin>\n    <ion-toolbar no-padding no-margin class="toolbar-nopadding">\n      <ion-title no-padding no-margin >\n        <img src="assets/imgs/student-icon.png"/>\n        <p color="light" style="color:#fff;">User Name</p>\n      </ion-title>\n    </ion-toolbar>\n  </ion-header>\n\n  <ion-content class="content-margin">\n    <ion-list>\n      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)" color="light">\n        {{p.title}}\n      </button>\n    </ion-list>\n  </ion-content>\n  \n</ion-menu>\n\n<!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n<ion-nav [root]="rootPage" #content swipeBackEnabled="false" ></ion-nav>'/*ion-inline-end:"/home/wis/sushil/cyberHubApp/cyberhub-ionic/src/app/app.html"*/
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({template:/*ion-inline-start:"E:\ionic\cyberHub\cyberhub-ionic\src\app\app.html"*/'<ion-menu [content]="content">\n\n  <ion-header no-padding no-margin>\n\n    <ion-toolbar no-padding no-margin class="toolbar-nopadding">\n\n      <ion-title no-padding no-margin >\n\n        <img src="assets/imgs/student-icon.png"/>\n\n        <p color="light" style="color:#fff;">User Name</p>\n\n      </ion-title>\n\n    </ion-toolbar>\n\n  </ion-header>\n\n\n\n  <ion-content class="content-margin">\n\n    <ion-list>\n\n      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)" color="light">\n\n        {{p.title}}\n\n      </button>\n\n    </ion-list>\n\n  </ion-content>\n\n  \n\n</ion-menu>\n\n\n\n<!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n\n<ion-nav [root]="rootPage" #content swipeBackEnabled="false" ></ion-nav>'/*ion-inline-end:"E:\ionic\cyberHub\cyberhub-ionic\src\app\app.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* MenuController */]])
     ], MyApp);
@@ -4950,7 +5039,7 @@ var MyApp = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_http__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__apiUrl__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_document_viewer__ = __webpack_require__(66);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__student_notice_board_student_notice_board__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__student_notice_board_student_notice_board__ = __webpack_require__(41);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_moment__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10_moment__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -5173,9 +5262,9 @@ var PersonalNoticePage = /** @class */ (function () {
     };
     PersonalNoticePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-personal-notice',template:/*ion-inline-start:"/home/wis/sushil/cyberHubApp/cyberhub-ionic/src/pages/personal-notice/personal-notice.html"*/'<!--\n  Generated template for the PersonalNoticePage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-navbar color="blue">\n  	<button ion-button menuToggle color="light">\n     <ion-icon name="menu"></ion-icon>\n   </button>\n    <ion-title>Personal Notice</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n\n\n\n<ion-content>\n  <ion-card color="light" [ripple] *ngFor="let personalNotice of allPersonalNotice" (click)="presentProfileModal(personalNotice.id)">\n    <ion-card-header>\n      <strong>{{personalNotice.notice.subject}}</strong>\n    </ion-card-header>\n    <ion-card-content>\n      <p>{{personalNotice.notice.text}}</p>\n      <ion-note text-right float-right>{{personalNotice?.timeDifference}}</ion-note>\n    </ion-card-content>\n  </ion-card>\n\n  <ion-card text-center *ngIf="showNothingMsg">\n    <p>Nothing To Show</p>\n  </ion-card>\n</ion-content>\n\n\n\n\n\n<ion-footer class="fixed">\n  <ion-toolbar color="primary">\n  <ion-grid text-center >\n    <ion-row>\n      <div col-3 (click)=goToHome()>\n        <img src="assets/imgs/white-icon5.png">\n       <!--  <i text-center class="fas fa-video fa-inverse fa-lg"></i> -->\n        <p class="footer-p">Home</p>\n      </div>\n      <div col-3 (click)=gotoLiveStream()>\n        <img src="assets/imgs/white-icon1.png">\n       <!--  <i text-center class="fas fa-video fa-inverse fa-lg"></i> -->\n        <p class="footer-p">Live Streaming</p>\n      </div>\n      <div col-3 (click)=goToAttendance()>\n        <img src="assets/imgs/white-icon2.png">\n        <!-- <i text-center class="fas fa-boxes fa-inverse fa-lg"></i> -->\n        <p  class="footer-p">Attendance</p>\n      </div>\n      <div col-3 (click)=goToRoutine()>\n        <img src="assets/imgs/white-icon3.png">\n        <!-- <i class="fas fa-box fa-inverse fa-lg"></i> -->\n        <p  class="footer-p">Routine</p>\n      </div>\n    </ion-row>\n  </ion-grid>\n  </ion-toolbar>\n</ion-footer>\n\n<!-- <ion-footer class="fixed">\n  <ion-toolbar color="primary">\n  <ion-grid text-center >\n    <ion-row>\n      <div col-4 (click)=gotoLiveStream()>\n        <i text-center class="fas fa-video fa-inverse fa-lg"></i>\n        <p class="footer-p">Live Streaming</p>\n      </div>\n      <div col-4 (click)=goToAttendance()>\n        <i text-center class="fas fa-boxes fa-inverse fa-lg"></i>\n        <p  class="footer-p">Attendance</p>\n      </div>\n      <div col-4 (click)=goToRoutine()>\n        <i class="fas fa-box fa-inverse fa-lg"></i>\n        <p  class="footer-p">Routine</p>\n      </div>\n    </ion-row>\n  </ion-grid>\n  </ion-toolbar>\n</ion-footer> -->'/*ion-inline-end:"/home/wis/sushil/cyberHubApp/cyberhub-ionic/src/pages/personal-notice/personal-notice.html"*/,
+            selector: 'page-personal-notice',template:/*ion-inline-start:"E:\ionic\cyberHub\cyberhub-ionic\src\pages\personal-notice\personal-notice.html"*/'<!--\n\n  Generated template for the PersonalNoticePage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n  <ion-navbar color="blue">\n\n  	<button ion-button menuToggle color="light">\n\n     <ion-icon name="menu"></ion-icon>\n\n   </button>\n\n    <ion-title>Personal Notice</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n\n\n\n\n\n\n\n\n<ion-content>\n\n  <ion-card color="light" [ripple] *ngFor="let personalNotice of allPersonalNotice" (click)="presentProfileModal(personalNotice.id)">\n\n    <ion-card-header>\n\n      <strong>{{personalNotice.notice.subject}}</strong>\n\n    </ion-card-header>\n\n    <ion-card-content>\n\n      <p>{{personalNotice.notice.text}}</p>\n\n      <ion-note text-right float-right>{{personalNotice?.timeDifference}}</ion-note>\n\n    </ion-card-content>\n\n  </ion-card>\n\n\n\n  <ion-card text-center *ngIf="showNothingMsg">\n\n    <p>Nothing To Show</p>\n\n  </ion-card>\n\n</ion-content>\n\n\n\n\n\n\n\n\n\n\n\n<ion-footer class="fixed">\n\n  <ion-toolbar color="primary">\n\n  <ion-grid text-center >\n\n    <ion-row>\n\n      <div col-3 (click)=goToHome()>\n\n        <img src="assets/imgs/white-icon5.png">\n\n       <!--  <i text-center class="fas fa-video fa-inverse fa-lg"></i> -->\n\n        <p class="footer-p">Home</p>\n\n      </div>\n\n      <div col-3 (click)=gotoLiveStream()>\n\n        <img src="assets/imgs/white-icon1.png">\n\n       <!--  <i text-center class="fas fa-video fa-inverse fa-lg"></i> -->\n\n        <p class="footer-p">Live Streaming</p>\n\n      </div>\n\n      <div col-3 (click)=goToAttendance()>\n\n        <img src="assets/imgs/white-icon2.png">\n\n        <!-- <i text-center class="fas fa-boxes fa-inverse fa-lg"></i> -->\n\n        <p  class="footer-p">Attendance</p>\n\n      </div>\n\n      <div col-3 (click)=goToRoutine()>\n\n        <img src="assets/imgs/white-icon3.png">\n\n        <!-- <i class="fas fa-box fa-inverse fa-lg"></i> -->\n\n        <p  class="footer-p">Routine</p>\n\n      </div>\n\n    </ion-row>\n\n  </ion-grid>\n\n  </ion-toolbar>\n\n</ion-footer>\n\n\n\n<!-- <ion-footer class="fixed">\n\n  <ion-toolbar color="primary">\n\n  <ion-grid text-center >\n\n    <ion-row>\n\n      <div col-4 (click)=gotoLiveStream()>\n\n        <i text-center class="fas fa-video fa-inverse fa-lg"></i>\n\n        <p class="footer-p">Live Streaming</p>\n\n      </div>\n\n      <div col-4 (click)=goToAttendance()>\n\n        <i text-center class="fas fa-boxes fa-inverse fa-lg"></i>\n\n        <p  class="footer-p">Attendance</p>\n\n      </div>\n\n      <div col-4 (click)=goToRoutine()>\n\n        <i class="fas fa-box fa-inverse fa-lg"></i>\n\n        <p  class="footer-p">Routine</p>\n\n      </div>\n\n    </ion-row>\n\n  </ion-grid>\n\n  </ion-toolbar>\n\n</ion-footer> -->'/*ion-inline-end:"E:\ionic\cyberHub\cyberhub-ionic\src\pages\personal-notice\personal-notice.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ViewController */], __WEBPACK_IMPORTED_MODULE_8__ionic_native_document_viewer__["a" /* DocumentViewer */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* MenuController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* ModalController */], __WEBPACK_IMPORTED_MODULE_6__angular_http__["b" /* Http */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* ViewController */], __WEBPACK_IMPORTED_MODULE_8__ionic_native_document_viewer__["a" /* DocumentViewer */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* MenuController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* ModalController */], __WEBPACK_IMPORTED_MODULE_6__angular_http__["b" /* Http */]])
     ], PersonalNoticePage);
     return PersonalNoticePage;
 }());
@@ -5229,7 +5318,7 @@ var ListPage = /** @class */ (function () {
     };
     ListPage = ListPage_1 = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-list',template:/*ion-inline-start:"/home/wis/sushil/cyberHubApp/cyberhub-ionic/src/pages/list/list.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>List</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-list>\n    <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">\n      <ion-icon [name]="item.icon" item-start></ion-icon>\n      {{item.title}}\n      <div class="item-note" item-end>\n        {{item.note}}\n      </div>\n    </button>\n  </ion-list>\n  <div *ngIf="selectedItem" padding>\n    You navigated here from <b>{{selectedItem.title}}</b>\n  </div>\n</ion-content>\n'/*ion-inline-end:"/home/wis/sushil/cyberHubApp/cyberhub-ionic/src/pages/list/list.html"*/
+            selector: 'page-list',template:/*ion-inline-start:"E:\ionic\cyberHub\cyberhub-ionic\src\pages\list\list.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>List</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <ion-list>\n\n    <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">\n\n      <ion-icon [name]="item.icon" item-start></ion-icon>\n\n      {{item.title}}\n\n      <div class="item-note" item-end>\n\n        {{item.note}}\n\n      </div>\n\n    </button>\n\n  </ion-list>\n\n  <div *ngIf="selectedItem" padding>\n\n    You navigated here from <b>{{selectedItem.title}}</b>\n\n  </div>\n\n</ion-content>\n\n'/*ion-inline-end:"E:\ionic\cyberHub\cyberhub-ionic\src\pages\list\list.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */]])
     ], ListPage);
@@ -5307,7 +5396,7 @@ var ExpandableHeaderComponent = /** @class */ (function () {
     ], ExpandableHeaderComponent.prototype, "headerHeight", void 0);
     ExpandableHeaderComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'expandable-header',template:/*ion-inline-start:"/home/wis/sushil/cyberHubApp/cyberhub-ionic/src/components/expandable-header/expandable-header.html"*/'<!-- Generated template for the ExpandableHeaderComponent component -->\n\n  <ng-content></ng-content>\n\n'/*ion-inline-end:"/home/wis/sushil/cyberHubApp/cyberhub-ionic/src/components/expandable-header/expandable-header.html"*/
+            selector: 'expandable-header',template:/*ion-inline-start:"E:\ionic\cyberHub\cyberhub-ionic\src\components\expandable-header\expandable-header.html"*/'<!-- Generated template for the ExpandableHeaderComponent component -->\n\n\n\n  <ng-content></ng-content>\n\n\n\n'/*ion-inline-end:"E:\ionic\cyberHub\cyberhub-ionic\src\components\expandable-header\expandable-header.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"], __WEBPACK_IMPORTED_MODULE_0__angular_core__["Renderer"]])
     ], ExpandableHeaderComponent);
@@ -5470,7 +5559,7 @@ var ParentsAccountPage = /** @class */ (function () {
     };
     ParentsAccountPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-parents-account',template:/*ion-inline-start:"/home/wis/sushil/cyberHubApp/cyberhub-ionic/src/pages/parents-account/parents-account.html"*/'<!--\n  Generated template for the ParentsAccountPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-navbar color="blue">\n    <ion-title>Account</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content>\n  <div class="back-ground">\n      <img src="assets/imgs/student-icon.png"/>\n      <h5 text-center text-uppercase color="light">{{teacherDetails?.name}}</h5>\n      <p text-center text-uppercase>Register Id: {{teacherDetails?.user_name}}</p>\n  </div>\n\n  <ion-card>\n  <ion-card-content>\n      <p><strong>Email</strong>: {{teacherDetails?.email}}</p>\n      <p><strong>Aadhar</strong>: {{teacherDetails?.adhar_no}}</p>\n      <p><strong>Mobile</strong>: 1234567890</p>\n      <p><strong>Gender</strong>: {{teacherDetails?.gender}}</p>\n      <p><strong>qualification</strong>: {{teacherDetails?.qualification}}</p>\n      <p><strong>Short Name</strong>: {{teacherDetails?.short_name}}</p>\n      <br/>\n      <button ion-button type="submit" block outline color="blue" class="mt-10" (click)=goToPassword()>Change Password</button>\n      <button ion-button type="submit" block outline color="blue" class="mt-10" (click)=goToEditProfile()>Edit Profile</button>\n  </ion-card-content>\n</ion-card>\n\n</ion-content>\n\n<ion-footer class="fixed">\n  <ion-toolbar color="primary">  \n  <ion-grid text-center >\n    <ion-row>\n      <div col-3 (click)=gotoHome()>\n        <img src="assets/imgs/white-icon5.png">\n       <!--  <i text-center class="fas fa-video fa-inverse fa-lg"></i> -->\n        <p class="footer-p">Home</p>\n      </div>\n      <div col-3 (click)=gotoLiveStream()>\n        <img src="assets/imgs/white-icon1.png">\n       <!--  <i text-center class="fas fa-video fa-inverse fa-lg"></i> -->\n        <p class="footer-p">Live Streaming</p>\n      </div>\n      <div col-3 (click)=goToAttendance()>\n        <img src="assets/imgs/white-icon2.png">\n        <!-- <i text-center class="fas fa-boxes fa-inverse fa-lg"></i> -->\n        <p  class="footer-p">Attendance</p>\n      </div>\n      <div col-3 (click)=goToRoutine()>\n        <img src="assets/imgs/white-icon3.png">\n        <!-- <i class="fas fa-box fa-inverse fa-lg"></i> -->\n        <p  class="footer-p">Routine</p>\n      </div>\n    </ion-row>\n  </ion-grid>\n  </ion-toolbar>\n</ion-footer>\n'/*ion-inline-end:"/home/wis/sushil/cyberHubApp/cyberhub-ionic/src/pages/parents-account/parents-account.html"*/,
+            selector: 'page-parents-account',template:/*ion-inline-start:"E:\ionic\cyberHub\cyberhub-ionic\src\pages\parents-account\parents-account.html"*/'<!--\n\n  Generated template for the ParentsAccountPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n  <ion-navbar color="blue">\n\n    <ion-title>Account</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n\n\n<ion-content>\n\n  <div class="back-ground">\n\n      <img src="assets/imgs/student-icon.png"/>\n\n      <h5 text-center text-uppercase color="light">{{teacherDetails?.name}}</h5>\n\n      <p text-center text-uppercase>Register Id: {{teacherDetails?.user_name}}</p>\n\n  </div>\n\n\n\n  <ion-card>\n\n  <ion-card-content>\n\n      <p><strong>Email</strong>: {{teacherDetails?.email}}</p>\n\n      <p><strong>Aadhar</strong>: {{teacherDetails?.adhar_no}}</p>\n\n      <p><strong>Mobile</strong>: 1234567890</p>\n\n      <p><strong>Gender</strong>: {{teacherDetails?.gender}}</p>\n\n      <p><strong>qualification</strong>: {{teacherDetails?.qualification}}</p>\n\n      <p><strong>Short Name</strong>: {{teacherDetails?.short_name}}</p>\n\n      <br/>\n\n      <button ion-button type="submit" block outline color="blue" class="mt-10" (click)=goToPassword()>Change Password</button>\n\n      <button ion-button type="submit" block outline color="blue" class="mt-10" (click)=goToEditProfile()>Edit Profile</button>\n\n  </ion-card-content>\n\n</ion-card>\n\n\n\n</ion-content>\n\n\n\n<ion-footer class="fixed">\n\n  <ion-toolbar color="primary">  \n\n  <ion-grid text-center >\n\n    <ion-row>\n\n      <div col-3 (click)=gotoHome()>\n\n        <img src="assets/imgs/white-icon5.png">\n\n       <!--  <i text-center class="fas fa-video fa-inverse fa-lg"></i> -->\n\n        <p class="footer-p">Home</p>\n\n      </div>\n\n      <div col-3 (click)=gotoLiveStream()>\n\n        <img src="assets/imgs/white-icon1.png">\n\n       <!--  <i text-center class="fas fa-video fa-inverse fa-lg"></i> -->\n\n        <p class="footer-p">Live Streaming</p>\n\n      </div>\n\n      <div col-3 (click)=goToAttendance()>\n\n        <img src="assets/imgs/white-icon2.png">\n\n        <!-- <i text-center class="fas fa-boxes fa-inverse fa-lg"></i> -->\n\n        <p  class="footer-p">Attendance</p>\n\n      </div>\n\n      <div col-3 (click)=goToRoutine()>\n\n        <img src="assets/imgs/white-icon3.png">\n\n        <!-- <i class="fas fa-box fa-inverse fa-lg"></i> -->\n\n        <p  class="footer-p">Routine</p>\n\n      </div>\n\n    </ion-row>\n\n  </ion-grid>\n\n  </ion-toolbar>\n\n</ion-footer>\n\n'/*ion-inline-end:"E:\ionic\cyberHub\cyberhub-ionic\src\pages\parents-account\parents-account.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* MenuController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */]])
     ], ParentsAccountPage);
@@ -5489,7 +5578,7 @@ var ParentsAccountPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__ = __webpack_require__(40);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__school_listing_school_listing__ = __webpack_require__(140);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__school_details_school_details__ = __webpack_require__(53);
@@ -5517,12 +5606,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Ionic pages and navigation.
  */
 var GuestEnquiryPage = /** @class */ (function () {
-    function GuestEnquiryPage(navCtrl, navParams, http) {
+    function GuestEnquiryPage(navCtrl, navParams, http, toastCtrl) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.http = http;
+        this.toastCtrl = toastCtrl;
         this.isSearchbarOpened = false;
-        this.searchQuery = '';
+        this.searchQuery = "";
         this.items = [];
         this.list = [];
         this.idList = [];
@@ -5530,14 +5620,16 @@ var GuestEnquiryPage = /** @class */ (function () {
     }
     GuestEnquiryPage.prototype.getData = function () {
         var _this = this;
-        this.http.get(__WEBPACK_IMPORTED_MODULE_6__apiUrl__["a" /* apiUrl */].url + "org/alllist").
-            map(function (res) { return res.json(); }).subscribe(function (data) {
+        this.http
+            .get(__WEBPACK_IMPORTED_MODULE_6__apiUrl__["a" /* apiUrl */].url + "org/alllist")
+            .map(function (res) { return res.json(); })
+            .subscribe(function (data) {
             _this.allSchoolsList = data;
-            console.log('student list : ', _this.allSchoolsList);
+            console.log("student list : ", _this.allSchoolsList);
             data.data.forEach(function (ele) {
                 var obj = {
-                    'id': ele.id,
-                    'name': ele.org_name
+                    id: ele.id,
+                    name: ele.org_name
                 };
                 _this.list.push(obj);
             });
@@ -5556,37 +5648,58 @@ var GuestEnquiryPage = /** @class */ (function () {
     GuestEnquiryPage.prototype.schoolsDetails = function (id) {
         this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_5__school_details_school_details__["a" /* SchoolDetailsPage */], {
             id: id
-        }, { animation: 'transition', duration: 1000, direction: 'forward' });
+        }, { animation: "transition", duration: 1000, direction: "forward" });
     };
     GuestEnquiryPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad GuestEnquiryPage');
+        console.log("ionViewDidLoad GuestEnquiryPage");
     };
     GuestEnquiryPage.prototype.goToListing = function () {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__school_listing_school_listing__["a" /* SchoolListingPage */]);
+        if (this.country == null && this.state == null) {
+            this.presentToast("State and Country Can't be Blank");
+        }
+        else {
+            var data = {
+                country: this.country,
+                state: this.state,
+                jela: this.jela
+            };
+            this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__school_listing_school_listing__["a" /* SchoolListingPage */], { data: data });
+        }
     };
     GuestEnquiryPage.prototype.getItems = function (ev) {
         // Reset items back to all of the items
-        // console.log('value : ', ev.target.value);    
+        // console.log('value : ', ev.target.value);
         this.initializeItems();
         // set val to the value of the searchbar
         var val = ev.target.value;
-        // console.log(this.items);    
+        // console.log(this.items);
         // if the value is an empty string don't filter the items
-        if (val && val.trim() != '') {
+        if (val && val.trim() != "") {
             this.items = this.items.filter(function (item) {
-                return (item.name.toLowerCase().indexOf(val.toLowerCase()) > -1);
+                return item.name.toLowerCase().indexOf(val.toLowerCase()) > -1;
             });
         }
     };
+    GuestEnquiryPage.prototype.presentToast = function (msg) {
+        var toast = this.toastCtrl.create({
+            message: msg,
+            duration: 3000,
+            position: 'top'
+        });
+        toast.present();
+    };
     __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('search'),
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])("search"),
         __metadata("design:type", Object)
     ], GuestEnquiryPage.prototype, "searchbox", void 0);
     GuestEnquiryPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-guest-enquiry',template:/*ion-inline-start:"/home/wis/sushil/cyberHubApp/cyberhub-ionic/src/pages/guest-enquiry/guest-enquiry.html"*/'<!--\n  Generated template for the GuestEnquiryPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n	<ion-navbar color="blue" [hideBackButton]="isSearchbarOpened ? \'true\' : \'false\'">\n    	<ion-title *ngIf="isSearchbarOpened==false">Submit Enquiry</ion-title>\n			<ion-buttons end *ngIf="isSearchbarOpened==false" (click)="onSearchButtonClick()">\n				<button ion-button icon-only>\n					<ion-icon name="search" color="light"></ion-icon>\n				</button>\n			</ion-buttons>\n			<ion-searchbar #search (ionInput)="getItems($event)" *ngIf="isSearchbarOpened" showCancelButton="true" (ionCancel)="isSearchbarOpened=false"></ion-searchbar>\n		</ion-navbar>\n		<div class="search-result" [ngStyle]="{\'display\':isSearchbarOpened ? \'block\' : \'none\' }">\n			<ion-list>\n			<ion-item *ngFor="let item of items" (click)="schoolsDetails(item.id)">\n				{{ item.name }}\n			</ion-item>\n		</ion-list>\n		</div>\n\n  	<!-- <ion-toolbar>\n    	<ion-searchbar></ion-searchbar>\n  	</ion-toolbar> -->\n</ion-header>\n\n\n<ion-content class="item-center" padding color="light">\n	<img src="assets/imgs/logo.jpg" class="img-width"/>\n	<!-- <h1 class="heading" text-center text-uppercase>CyberHub</h1> -->\n	<img src="assets/imgs/bk.png" class="img-width" />\n	<div class="enquiry-form">\n		 <h1 text-center text-uppercase margin-bottom color="blue">Find Your Organization</h1>\n	 <form>\n\n	 	<ion-item class="select-css">\n		  <ion-label>Country</ion-label>\n		  <ion-select>\n		    <ion-option>India</ion-option>\n		    <ion-option>Australia</ion-option>\n		    <ion-option>USA</ion-option>\n		    <ion-option>Brazil</ion-option>\n		    <ion-option>Canada</ion-option>\n		    <ion-option>France</ion-option>\n		  </ion-select>\n		</ion-item>\n\n\n	 	<ion-item class="select-css">\n	 		<ion-label>State</ion-label>\n		  <ion-select>\n		    <ion-option>West Bangal</ion-option>\n		    <ion-option>Orissa</ion-option>\n		    <ion-option>Jharkhand</ion-option>\n		    <ion-option>Uttar Pradesh</ion-option>\n		    <ion-option>Panjab</ion-option>\n		    <ion-option>Maharashtra</ion-option>\n		  </ion-select>\n		</ion-item>\n\n		<ion-item class="select-css">\n			<ion-label>City</ion-label>\n\n		  <ion-select>\n		    <ion-option>Kolkata</ion-option>\n		    <ion-option>Delhi</ion-option>\n		    <ion-option>Mumbai</ion-option>\n		    <ion-option>Lucknow</ion-option>\n		    <ion-option>Chennai</ion-option>\n		    <ion-option>Bangalore</ion-option>\n		  </ion-select>\n		</ion-item>\n		<!-- or with standalone set to true -->\n\n		 <button ion-button type="submit" block outline color="blue" class="mt-10" (click)=goToListing()>Submit Enquiry</button>\n	</form>\n</div>\n</ion-content>\n'/*ion-inline-end:"/home/wis/sushil/cyberHubApp/cyberhub-ionic/src/pages/guest-enquiry/guest-enquiry.html"*/,
+            selector: "page-guest-enquiry",template:/*ion-inline-start:"E:\ionic\cyberHub\cyberhub-ionic\src\pages\guest-enquiry\guest-enquiry.html"*/'<!--\n\n  Generated template for the GuestEnquiryPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n	<ion-navbar color="blue" [hideBackButton]="isSearchbarOpened ? \'true\' : \'false\'">\n\n    	<ion-title *ngIf="isSearchbarOpened==false">Submit Enquiry</ion-title>\n\n			<ion-buttons end *ngIf="isSearchbarOpened==false" (click)="onSearchButtonClick()">\n\n				<button ion-button icon-only>\n\n					<ion-icon name="search" color="light"></ion-icon>\n\n				</button>\n\n			</ion-buttons>\n\n			<ion-searchbar #search (ionInput)="getItems($event)" *ngIf="isSearchbarOpened" showCancelButton="true" (ionCancel)="isSearchbarOpened=false"></ion-searchbar>\n\n		</ion-navbar>\n\n		<div class="search-result" [ngStyle]="{\'display\':isSearchbarOpened ? \'block\' : \'none\' }">\n\n			<ion-list>\n\n			<ion-item *ngFor="let item of items" (click)="schoolsDetails(item.id)">\n\n				{{ item.name }}\n\n			</ion-item>\n\n		</ion-list>\n\n		</div>\n\n\n\n  	<!-- <ion-toolbar>\n\n    	<ion-searchbar></ion-searchbar>\n\n  	</ion-toolbar> -->\n\n</ion-header>\n\n\n\n\n\n<ion-content class="item-center" padding color="light">\n\n	<img src="assets/imgs/logo.jpg" class="img-width"/>\n\n	<!-- <h1 class="heading" text-center text-uppercase>CyberHub</h1> -->\n\n	<img src="assets/imgs/bk.png" class="img-width" />\n\n	<div class="enquiry-form">\n\n		 <h1 text-center text-uppercase margin-bottom color="blue">Find Your Organization</h1>\n\n	 <form>\n\n\n\n	 	<ion-item class="select-css">\n\n		  <ion-label>Country</ion-label>\n\n		  <ion-select [(ngModel)]="country" name="country">\n\n		    <ion-option value="101">India</ion-option>\n\n		    \n\n		  </ion-select>\n\n		</ion-item>\n\n\n\n\n\n	 	<ion-item class="select-css">\n\n	 		<ion-label>State</ion-label>\n\n		  <ion-select [(ngModel)]="state" name="state">\n\n		    <ion-option value="41">West Bangal</ion-option>\n\n		    \n\n		  </ion-select>\n\n		</ion-item>\n\n		<ion-item>\n\n			<ion-label color="primary" fixed>Jela</ion-label>\n\n			<ion-input type="text" placeholder="Enter jela" name="jela" [(ngModel)]="jela"></ion-input>\n\n		</ion-item>\n\n		<!-- <ion-item class="select-css">\n\n			<ion-label>City</ion-label>\n\n\n\n		  <ion-select>\n\n		    <ion-option>Kolkata</ion-option>\n\n		    <ion-option>Delhi</ion-option>\n\n		    <ion-option>Mumbai</ion-option>\n\n		    <ion-option>Lucknow</ion-option>\n\n		    <ion-option>Chennai</ion-option>\n\n		    <ion-option>Bangalore</ion-option>\n\n		  </ion-select>\n\n		</ion-item> -->\n\n		<!-- or with standalone set to true -->\n\n\n\n		 <button ion-button type="submit" block outline color="blue" margin-top (click)=goToListing()>Submit Enquiry</button>\n\n	</form>\n\n</div>\n\n</ion-content>\n\n'/*ion-inline-end:"E:\ionic\cyberHub\cyberhub-ionic\src\pages\guest-enquiry\guest-enquiry.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ToastController */]])
     ], GuestEnquiryPage);
     return GuestEnquiryPage;
 }());
@@ -5603,7 +5716,7 @@ var GuestEnquiryPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__ = __webpack_require__(40);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pdf_download_pdf_download__ = __webpack_require__(141);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__library_list_library_list__ = __webpack_require__(77);
@@ -5688,7 +5801,7 @@ var SchoolDetailsPage = /** @class */ (function () {
     };
     SchoolDetailsPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-school-details',template:/*ion-inline-start:"/home/wis/sushil/cyberHubApp/cyberhub-ionic/src/pages/school-details/school-details.html"*/'<!--\n  Generated template for the SchoolDetailsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-navbar color="blue">\n     <!--  <expandable-header [scrollArea]="mycontent" headerHeight="125">\n        <img src="assets/imgs/SCHOOLS-Banner-Images.jpg"/>\n      </expandable-header> -->\n      <ion-title>School Details</ion-title>\n    </ion-navbar>\n</ion-header>\n\n\n<ion-content fullscreen="" #mycontent="">\n\n<!-- <ion-card>\n  <img src="assets/imgs/SCHOOLS-Banner-Images.jpg"/>\n  <ion-card-content>\n    <ion-card-title>\n\n      {{ schoolDetails && schoolDetails[0]?.school_name }}\n      </ion-card-title>\n      <p><strong>Address</strong>: {{schoolDetails.org_address}}</p>\n      <p><strong>Email</strong>: {{schoolDetails.org_address}}</p>\n      <p><strong>Mobile</strong>: {{schoolDetails.org_address}}</p>\n\n      <p>The most popular industrial group ever, and largely responsible for bringing the music to a mass audience. The most popular industrial group ever, and largely responsible for bringing the music to a mass audience.\n        The most popular industrial group ever, and largely responsible for bringing the music to a mass audience.\n        The most popular industrial group ever, and largely responsible for bringing the music to a mass audience.\n        The most popular industrial group ever, and largely responsible for bringing the music to a mass audience.\n      </p>\n  </ion-card-content>\n</ion-card> -->\n\n\n<ion-card>\n    <img [src]="schoolDetails?.org_img"/>\n    <ion-card-content>\n      <ion-card-title>\n        {{schoolDetails?.org_name}}\n      </ion-card-title>\n        <div float-right >\n          <p [ngStyle]="{\'font-size\': \'24px\'}">\n            <ion-icon name="cloud"></ion-icon>\n          17 °C</p>\n        </div>\n        <!-- <p ><strong>Email</strong>: demo@gmail.com</p>\n        <p><strong>Mobile</strong>: 1234567890</p> -->\n        <div [innerHtml]="schoolDetails?.org_text"></div>\n        <p><strong>About</strong> : </p>\n        <div [innerHtml]="schoolDetails?.org_about" class="mt-4"></div>\n    </ion-card-content>\n    \n  </ion-card>\n\n\n<ion-grid>\n  <ion-row>\n    <ion-col col-md-4 class="icon-center" (click)=gotoLiveStream()>\n      <img src="assets/imgs/icon6.png"/>\n      <p>Live Streaming</p>\n    </ion-col>\n    <ion-col col-md-4 class="icon-center" (click)=goToAllPdf()>\n      <img src="assets/imgs/icon2.png"/>\n      <p>Notice Board</p>\n    </ion-col>\n    <ion-col col-md-4 class="icon-center" (click)=goToLibrary()>\n      <img src="assets/imgs/icon.png"/>\n      <p>Library</p>\n    </ion-col>\n  </ion-row>\n</ion-grid>\n\n<!-- <ion-grid text-center>\n  <button ion-button color="blue" (click)=goToAllPdf()>NOTICE BOARD</button>\n  <button ion-button color="blue" (click)=goToLibrary()>LIBRARY MANAGEMENT</button>\n</ion-grid> -->\n\n</ion-content>\n\n<ion-footer class="fixed">\n  <ion-toolbar color="primary">\n  <ion-grid text-center >\n    <ion-row>\n      <div col-3>\n        <i text-center class="fas fa-home fa-inverse fa-lg"></i>\n        <p class="footer-p">Home</p>\n      </div>\n      <div col-3 (click)=gotoLiveStream()>\n        <i text-center class="fas fa-video fa-inverse fa-lg"></i>\n        <p class="footer-p">Live Streaming</p>\n      </div>\n      <div col-3 (click)=goToLibrary()>\n        <i text-center class="fas fa-align-justify fa-inverse fa-lg"></i>\n        <p  class="footer-p">Library</p>\n      </div>\n      <div col-3 (click)=goToCalender()>\n        <i text-center class="far fa-calendar-alt fa-inverse fa-lg"></i>\n        <p  class="footer-p">Calender</p>\n      </div>\n    </ion-row>\n  </ion-grid>\n  </ion-toolbar>\n</ion-footer>'/*ion-inline-end:"/home/wis/sushil/cyberHubApp/cyberhub-ionic/src/pages/school-details/school-details.html"*/,
+            selector: 'page-school-details',template:/*ion-inline-start:"E:\ionic\cyberHub\cyberhub-ionic\src\pages\school-details\school-details.html"*/'<!--\n\n  Generated template for the SchoolDetailsPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n  <ion-navbar color="blue">\n\n     <!--  <expandable-header [scrollArea]="mycontent" headerHeight="125">\n\n        <img src="assets/imgs/SCHOOLS-Banner-Images.jpg"/>\n\n      </expandable-header> -->\n\n      <ion-title>School Details</ion-title>\n\n    </ion-navbar>\n\n</ion-header>\n\n\n\n\n\n<ion-content fullscreen="" #mycontent="">\n\n\n\n<!-- <ion-card>\n\n  <img src="assets/imgs/SCHOOLS-Banner-Images.jpg"/>\n\n  <ion-card-content>\n\n    <ion-card-title>\n\n\n\n      {{ schoolDetails && schoolDetails[0]?.school_name }}\n\n      </ion-card-title>\n\n      <p><strong>Address</strong>: {{schoolDetails.org_address}}</p>\n\n      <p><strong>Email</strong>: {{schoolDetails.org_address}}</p>\n\n      <p><strong>Mobile</strong>: {{schoolDetails.org_address}}</p>\n\n\n\n      <p>The most popular industrial group ever, and largely responsible for bringing the music to a mass audience. The most popular industrial group ever, and largely responsible for bringing the music to a mass audience.\n\n        The most popular industrial group ever, and largely responsible for bringing the music to a mass audience.\n\n        The most popular industrial group ever, and largely responsible for bringing the music to a mass audience.\n\n        The most popular industrial group ever, and largely responsible for bringing the music to a mass audience.\n\n      </p>\n\n  </ion-card-content>\n\n</ion-card> -->\n\n\n\n\n\n<ion-card>\n\n    <img [src]="schoolDetails?.org_img"/>\n\n    <ion-card-content>\n\n      <ion-card-title>\n\n        {{schoolDetails?.org_name}}\n\n      </ion-card-title>\n\n        <div float-right >\n\n          <p [ngStyle]="{\'font-size\': \'24px\'}">\n\n            <ion-icon name="cloud"></ion-icon>\n\n          17 °C</p>\n\n        </div>\n\n        <!-- <p ><strong>Email</strong>: demo@gmail.com</p>\n\n        <p><strong>Mobile</strong>: 1234567890</p> -->\n\n        <div [innerHtml]="schoolDetails?.org_text"></div>\n\n        <p><strong>About</strong> : </p>\n\n        <div [innerHtml]="schoolDetails?.org_about" class="mt-4"></div>\n\n    </ion-card-content>\n\n    \n\n  </ion-card>\n\n\n\n\n\n<ion-grid>\n\n  <ion-row>\n\n    <ion-col col-md-4 class="icon-center" (click)=gotoLiveStream()>\n\n      <img src="assets/imgs/icon6.png"/>\n\n      <p>Live Streaming</p>\n\n    </ion-col>\n\n    <ion-col col-md-4 class="icon-center" (click)=goToAllPdf()>\n\n      <img src="assets/imgs/icon2.png"/>\n\n      <p>Notice Board</p>\n\n    </ion-col>\n\n    <ion-col col-md-4 class="icon-center" (click)=goToLibrary()>\n\n      <img src="assets/imgs/icon.png"/>\n\n      <p>Library</p>\n\n    </ion-col>\n\n  </ion-row>\n\n</ion-grid>\n\n\n\n<!-- <ion-grid text-center>\n\n  <button ion-button color="blue" (click)=goToAllPdf()>NOTICE BOARD</button>\n\n  <button ion-button color="blue" (click)=goToLibrary()>LIBRARY MANAGEMENT</button>\n\n</ion-grid> -->\n\n\n\n</ion-content>\n\n\n\n<ion-footer class="fixed">\n\n  <ion-toolbar color="primary">\n\n  <ion-grid text-center >\n\n    <ion-row>\n\n      <div col-3>\n\n        <i text-center class="fas fa-home fa-inverse fa-lg"></i>\n\n        <p class="footer-p">Home</p>\n\n      </div>\n\n      <div col-3 (click)=gotoLiveStream()>\n\n        <i text-center class="fas fa-video fa-inverse fa-lg"></i>\n\n        <p class="footer-p">Live Streaming</p>\n\n      </div>\n\n      <div col-3 (click)=goToLibrary()>\n\n        <i text-center class="fas fa-align-justify fa-inverse fa-lg"></i>\n\n        <p  class="footer-p">Library</p>\n\n      </div>\n\n      <div col-3 (click)=goToCalender()>\n\n        <i text-center class="far fa-calendar-alt fa-inverse fa-lg"></i>\n\n        <p  class="footer-p">Calender</p>\n\n      </div>\n\n    </ion-row>\n\n  </ion-grid>\n\n  </ion-toolbar>\n\n</ion-footer>'/*ion-inline-end:"E:\ionic\cyberHub\cyberhub-ionic\src\pages\school-details\school-details.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
             __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* MenuController */]])
@@ -5709,8 +5822,8 @@ var SchoolDetailsPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__apiUrl__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__student_library_list_student_library_list__ = __webpack_require__(41);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__student_notice_board_student_notice_board__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__student_library_list_student_library_list__ = __webpack_require__(42);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__student_notice_board_student_notice_board__ = __webpack_require__(41);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__personal_notice_personal_notice__ = __webpack_require__(50);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__get_attendance_get_attendance__ = __webpack_require__(144);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__live_stream_live_stream__ = __webpack_require__(15);
@@ -5842,7 +5955,7 @@ var StaffInfoPage = /** @class */ (function () {
     };
     StaffInfoPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-staff-info',template:/*ion-inline-start:"/home/wis/sushil/cyberHubApp/cyberhub-ionic/src/pages/staff-info/staff-info.html"*/'<!--\n  Generated template for the StaffInfoPage page.\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-navbar color="blue">\n    <button ion-button menuToggle color="light">\n     <ion-icon name="menu"></ion-icon>\n   </button>\n    <ion-title>General Information</ion-title>\n    <ion-buttons end><button class="bell-icon" (click)=goToPersonalNotice()> <i class="fas fa-bell fa-inverse fa-lg"></i> </button></ion-buttons>\n  </ion-navbar>\n</ion-header>\n\n<ion-content >\n  <!-- <div class="back-ground">\n      <img src="assets/imgs/stuff_icon.png"/>\n      <h5 text-center text-uppercase>College Name</h5>\n  </div> -->\n\n\n  <ion-card>\n    <img src="{{orgDetails?.org_img}}"/>\n    <ion-card-content>\n      <ion-card-title>\n        {{orgDetails?.org_name}}\n        </ion-card-title>\n        <div [innerHtml]="orgDetails?.org_text"></div>\n        <p><strong>About</strong> : </p>\n        <div [innerHtml]="orgDetails?.org_about" class="mt-4"></div>\n        \n        <!-- <p (click)=goToPrincipal()>PRINCIPAL</p> <p (click)=goToComplainDesk()>PRINCIPAL COMPLAIN DESK</p> -->\n        <!-- <p (click)=goToStuffDuty()>Stuff Duty</p> -->\n    </ion-card-content>\n  </ion-card>\n\n  <ion-grid>\n    <ion-row>\n      <ion-col col-md-3 class="icon-center" (click)=goToLibrary()>\n        <img src="assets/imgs/icon.png"/>\n        <p>Library</p>\n      </ion-col>\n      <ion-col col-md-3 class="icon-center" (click)=goToAllPdf()>\n        <img src="assets/imgs/icon2.png"/>\n        <p>Notice Board</p>\n      </ion-col>\n      <ion-col col-md-3 class="icon-center" (click)=goToPersonalNotice()>\n        <img src="assets/imgs/icon6.png"/>\n        <p>Personal Notice</p>\n      </ion-col>\n      <ion-col col-md-3 class="icon-center" (click)=goToAccount()>\n        <img src="assets/imgs/icon5.png"/>\n        <p>Account</p>\n      </ion-col>\n    </ion-row>\n    <ion-row>\n      <ion-col col-md-3 class="icon-center" (click)=goToAttendance()>\n        <img src="assets/imgs/icon3.png"/>\n        <p>Attendance</p>\n      </ion-col>\n      <ion-col col-md-3 class="icon-center" (click)=goToStuffDuty()>\n        <img src="assets/imgs/calendar1.png"/>\n        <p>Stuff Duty</p>\n      </ion-col>\n      <ion-col col-md-3 class="icon-center" (click)=gotoLiveStream()>\n        <img src="assets/imgs/icon1.png"/>\n        <p>Live Stream</p>\n      </ion-col>\n      <ion-col col-md-3 class="icon-center" (click)=goToComplain()>\n        <img src="assets/imgs/icon7.png"/>\n        <p>Complain</p>\n      </ion-col>\n    </ion-row>\n\n    <ion-row>\n      <ion-col col-md-3 class="" (click)=goToGuest()>\n        <img src="assets/imgs/guest.png"/>\n        <p>Guest</p>\n      </ion-col>\n    </ion-row>\n    \n  </ion-grid>\n</ion-content>'/*ion-inline-end:"/home/wis/sushil/cyberHubApp/cyberhub-ionic/src/pages/staff-info/staff-info.html"*/,
+            selector: 'page-staff-info',template:/*ion-inline-start:"E:\ionic\cyberHub\cyberhub-ionic\src\pages\staff-info\staff-info.html"*/'<!--\n\n  Generated template for the StaffInfoPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n  <ion-navbar color="blue">\n\n    <button ion-button menuToggle color="light">\n\n     <ion-icon name="menu"></ion-icon>\n\n   </button>\n\n    <ion-title>General Information</ion-title>\n\n    <ion-buttons end><button class="bell-icon" (click)=goToPersonalNotice()> <i class="fas fa-bell fa-inverse fa-lg"></i> </button></ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content >\n\n  <!-- <div class="back-ground">\n\n      <img src="assets/imgs/stuff_icon.png"/>\n\n      <h5 text-center text-uppercase>College Name</h5>\n\n  </div> -->\n\n\n\n\n\n  <ion-card>\n\n    <img src="{{orgDetails?.org_img}}"/>\n\n    <ion-card-content>\n\n      <ion-card-title>\n\n        {{orgDetails?.org_name}}\n\n        </ion-card-title>\n\n        <div [innerHtml]="orgDetails?.org_text"></div>\n\n        <p><strong>About</strong> : </p>\n\n        <div [innerHtml]="orgDetails?.org_about" class="mt-4"></div>\n\n        \n\n        <!-- <p (click)=goToPrincipal()>PRINCIPAL</p> <p (click)=goToComplainDesk()>PRINCIPAL COMPLAIN DESK</p> -->\n\n        <!-- <p (click)=goToStuffDuty()>Stuff Duty</p> -->\n\n    </ion-card-content>\n\n  </ion-card>\n\n\n\n  <ion-grid>\n\n    <ion-row>\n\n      <ion-col col-md-3 class="icon-center" (click)=goToLibrary()>\n\n        <img src="assets/imgs/icon.png"/>\n\n        <p>Library</p>\n\n      </ion-col>\n\n      <ion-col col-md-3 class="icon-center" (click)=goToAllPdf()>\n\n        <img src="assets/imgs/icon2.png"/>\n\n        <p>Notice Board</p>\n\n      </ion-col>\n\n      <ion-col col-md-3 class="icon-center" (click)=goToPersonalNotice()>\n\n        <img src="assets/imgs/icon6.png"/>\n\n        <p>Personal Notice</p>\n\n      </ion-col>\n\n      <ion-col col-md-3 class="icon-center" (click)=goToAccount()>\n\n        <img src="assets/imgs/icon5.png"/>\n\n        <p>Account</p>\n\n      </ion-col>\n\n    </ion-row>\n\n    <ion-row>\n\n      <ion-col col-md-3 class="icon-center" (click)=goToAttendance()>\n\n        <img src="assets/imgs/icon3.png"/>\n\n        <p>Attendance</p>\n\n      </ion-col>\n\n      <ion-col col-md-3 class="icon-center" (click)=goToStuffDuty()>\n\n        <img src="assets/imgs/calendar1.png"/>\n\n        <p>Stuff Duty</p>\n\n      </ion-col>\n\n      <ion-col col-md-3 class="icon-center" (click)=gotoLiveStream()>\n\n        <img src="assets/imgs/icon1.png"/>\n\n        <p>Live Stream</p>\n\n      </ion-col>\n\n      <ion-col col-md-3 class="icon-center" (click)=goToComplain()>\n\n        <img src="assets/imgs/icon7.png"/>\n\n        <p>Complain</p>\n\n      </ion-col>\n\n    </ion-row>\n\n\n\n    <ion-row>\n\n      <ion-col col-md-3 class="" (click)=goToGuest()>\n\n        <img src="assets/imgs/guest.png"/>\n\n        <p>Guest</p>\n\n      </ion-col>\n\n    </ion-row>\n\n    \n\n  </ion-grid>\n\n</ion-content>'/*ion-inline-end:"E:\ionic\cyberHub\cyberhub-ionic\src\pages\staff-info\staff-info.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* MenuController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */]])
     ], StaffInfoPage);
@@ -5980,7 +6093,7 @@ var AccountPage = /** @class */ (function () {
     };
     AccountPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-account',template:/*ion-inline-start:"/home/wis/sushil/cyberHubApp/cyberhub-ionic/src/pages/account/account.html"*/'<!--\n  Generated template for the AccountPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-navbar color="blue">\n    <button ion-button menuToggle color="light">\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Account</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content>\n  <div class="back-ground">\n      <img src="assets/imgs/student-icon.png"/>\n      <h5 text-center text-uppercase color="light">{{studentDetails?.f_name}} {{studentDetails?.l_name}}</h5>\n      <p text-center text-uppercase no-padding no-margin>{{studentDetails?.user_name}}</p>\n      <p text-center text-uppercase no-padding no-margin>{{studentDetails?.nameclass.class.class_name}} {{studentDetails?.nameclass.section.sec_name}}</p>\n      <p text-center>\n        <button class="btnStyle" ion-button color="dark" outline (click)="openModal()" *ngIf="!studentDetails?.nameclass.class.class_name">Select Department</button>\n      </p>\n  </div>\n\n  <ion-card>\n    <ion-card-content>\n        <p><strong>Email</strong>: {{studentDetails?.email}}</p>\n        <p><strong>Mobile</strong>: {{localUserData?.mobile_no}}</p>\n        <p><strong>Adhaar</strong>: {{studentDetails?.adhar_no}}</p>\n        <p><strong>Caste</strong>: {{studentDetails?.cast_category}}</p>\n        <p><strong>DOB</strong>: {{studentDetails?.dob}}</p>\n        <p><strong>Gender</strong>: {{studentDetails?.gender}}</p>\n        <p><strong>Roll No</strong>: {{studentDetails?.roll_no}}</p>\n        <p><strong>Registration No</strong>: {{studentDetails?.registration_no}}</p>\n        <button ion-button type="submit" block outline color="blue" class="mt-10" (click)=goToPassword()>Change Password</button>\n    </ion-card-content>\n  </ion-card>\n</ion-content>\n\n\n\n\n<ion-footer class="fixed">\n  <ion-toolbar color="primary">  \n    <ion-grid text-center >\n      <ion-row>\n        <div col-3 (click)=gotoHome()>\n          <img src="assets/imgs/white-icon5.png">\n        <!--  <i text-center class="fas fa-video fa-inverse fa-lg"></i> -->\n          <p class="footer-p">Home</p>\n        </div>\n        <div col-3 (click)=gotoLiveStream()>\n          <img src="assets/imgs/white-icon1.png">\n        <!--  <i text-center class="fas fa-video fa-inverse fa-lg"></i> -->\n          <p class="footer-p">Live Streaming</p>\n        </div>\n        <div col-3 (click)=goToAttendance()>\n          <img src="assets/imgs/white-icon2.png">\n          <!-- <i text-center class="fas fa-boxes fa-inverse fa-lg"></i> -->\n          <p  class="footer-p">Attendance</p>\n        </div>\n        <div col-3 (click)=goToRoutine()>\n          <img src="assets/imgs/white-icon3.png">\n          <!-- <i class="fas fa-box fa-inverse fa-lg"></i> -->\n          <p  class="footer-p">Routine</p>\n        </div>\n      </ion-row>\n    </ion-grid>\n  </ion-toolbar>\n</ion-footer>'/*ion-inline-end:"/home/wis/sushil/cyberHubApp/cyberhub-ionic/src/pages/account/account.html"*/,
+            selector: 'page-account',template:/*ion-inline-start:"E:\ionic\cyberHub\cyberhub-ionic\src\pages\account\account.html"*/'<!--\n\n  Generated template for the AccountPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n  <ion-navbar color="blue">\n\n    <button ion-button menuToggle color="light">\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>Account</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n\n\n<ion-content>\n\n  <div class="back-ground">\n\n      <img src="assets/imgs/student-icon.png"/>\n\n      <h5 text-center text-uppercase color="light">{{studentDetails?.f_name}} {{studentDetails?.l_name}}</h5>\n\n      <p text-center text-uppercase no-padding no-margin>{{studentDetails?.user_name}}</p>\n\n      <p text-center text-uppercase no-padding no-margin>{{studentDetails?.nameclass.class.class_name}} {{studentDetails?.nameclass.section.sec_name}}</p>\n\n      <p text-center>\n\n        <button class="btnStyle" ion-button color="dark" outline (click)="openModal()" *ngIf="!studentDetails?.nameclass.class.class_name">Select Department</button>\n\n      </p>\n\n  </div>\n\n\n\n  <ion-card>\n\n    <ion-card-content>\n\n        <p><strong>Email</strong>: {{studentDetails?.email}}</p>\n\n        <p><strong>Mobile</strong>: {{localUserData?.mobile_no}}</p>\n\n        <p><strong>Adhaar</strong>: {{studentDetails?.adhar_no}}</p>\n\n        <p><strong>Caste</strong>: {{studentDetails?.cast_category}}</p>\n\n        <p><strong>DOB</strong>: {{studentDetails?.dob}}</p>\n\n        <p><strong>Gender</strong>: {{studentDetails?.gender}}</p>\n\n        <p><strong>Roll No</strong>: {{studentDetails?.roll_no}}</p>\n\n        <p><strong>Registration No</strong>: {{studentDetails?.registration_no}}</p>\n\n        <button ion-button type="submit" block outline color="blue" class="mt-10" (click)=goToPassword()>Change Password</button>\n\n    </ion-card-content>\n\n  </ion-card>\n\n</ion-content>\n\n\n\n\n\n\n\n\n\n<ion-footer class="fixed">\n\n  <ion-toolbar color="primary">  \n\n    <ion-grid text-center >\n\n      <ion-row>\n\n        <div col-3 (click)=gotoHome()>\n\n          <img src="assets/imgs/white-icon5.png">\n\n        <!--  <i text-center class="fas fa-video fa-inverse fa-lg"></i> -->\n\n          <p class="footer-p">Home</p>\n\n        </div>\n\n        <div col-3 (click)=gotoLiveStream()>\n\n          <img src="assets/imgs/white-icon1.png">\n\n        <!--  <i text-center class="fas fa-video fa-inverse fa-lg"></i> -->\n\n          <p class="footer-p">Live Streaming</p>\n\n        </div>\n\n        <div col-3 (click)=goToAttendance()>\n\n          <img src="assets/imgs/white-icon2.png">\n\n          <!-- <i text-center class="fas fa-boxes fa-inverse fa-lg"></i> -->\n\n          <p  class="footer-p">Attendance</p>\n\n        </div>\n\n        <div col-3 (click)=goToRoutine()>\n\n          <img src="assets/imgs/white-icon3.png">\n\n          <!-- <i class="fas fa-box fa-inverse fa-lg"></i> -->\n\n          <p  class="footer-p">Routine</p>\n\n        </div>\n\n      </ion-row>\n\n    </ion-grid>\n\n  </ion-toolbar>\n\n</ion-footer>'/*ion-inline-end:"E:\ionic\cyberHub\cyberhub-ionic\src\pages\account\account.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* MenuController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */], __WEBPACK_IMPORTED_MODULE_7__angular_http__["b" /* Http */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_7__angular_http__["d" /* Jsonp */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* ModalController */]])
     ], AccountPage);
@@ -6176,11 +6289,11 @@ var ModalPage = /** @class */ (function () {
         // console.log('class section : ', this.sortArray);    
     };
     ModalPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({template:/*ion-inline-start:"/home/wis/sushil/cyberHubApp/cyberhub-ionic/src/pages/account/modal.html"*/'<ion-header>\n        <ion-toolbar>\n          <ion-title>Add Department</ion-title>\n          <ion-buttons start>\n            <button ion-button (click)="dismiss()">\n              <span ion-text color="primary" showWhen="ios">Cancel</span>\n              <ion-icon name="md-close" showWhen="android, windows"></ion-icon>\n            </button>\n          </ion-buttons>\n        </ion-toolbar>\n</ion-header>\n\n\n<ion-content>\n    <ion-list>\n      <ion-item>\n        <ion-label>Shift</ion-label>\n        <ion-select [(ngModel)]="shift" (ionChange)="onChooseShift($event)">\n          <ng-container *ngFor="let shift of orgShiftLists">\n            <ion-option value="{{shift?.orgshift[0]?.id}}" *ngIf="shift?.orgshift[0]?.id">{{shift?.name}}</ion-option>\n          </ng-container>\n        </ion-select>\n      </ion-item>\n    </ion-list>\n\n    <ion-list>\n      <ion-item>\n        <ion-label>Class/Stream</ion-label>\n        <ion-select [(ngModel)]="classStream" (ionChange)="onChooseClassStream($event)">\n          <ion-option *ngFor="let class of sortArray" value="{{class?.class_id}}">{{class?.class_name}}</ion-option>\n        </ion-select>\n      </ion-item>\n    </ion-list>\n\n    <ion-list>\n      <ion-item>\n        <ion-label>Section</ion-label>\n        <ion-select [(ngModel)]="section" (ionChange)="onChooseSection($event)">\n          <ion-option *ngFor="let section of filteredArrayForSectionList" value="{{section?.classSectionIndexId}}">{{section?.section_name}}</ion-option>\n        </ion-select>\n      </ion-item>\n    </ion-list>\n\n    <button ion-button type="submit" block outline color="blue" class="mt-10" (click)="submitDepartment()">Submit</button>\n</ion-content>\n\n\n\n<!-- filteredArrayForSectionList -->\n'/*ion-inline-end:"/home/wis/sushil/cyberHubApp/cyberhub-ionic/src/pages/account/modal.html"*/
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({template:/*ion-inline-start:"E:\ionic\cyberHub\cyberhub-ionic\src\pages\account\modal.html"*/'<ion-header>\n\n        <ion-toolbar>\n\n          <ion-title>Add Department</ion-title>\n\n          <ion-buttons start>\n\n            <button ion-button (click)="dismiss()">\n\n              <span ion-text color="primary" showWhen="ios">Cancel</span>\n\n              <ion-icon name="md-close" showWhen="android, windows"></ion-icon>\n\n            </button>\n\n          </ion-buttons>\n\n        </ion-toolbar>\n\n</ion-header>\n\n\n\n\n\n<ion-content>\n\n    <ion-list>\n\n      <ion-item>\n\n        <ion-label>Shift</ion-label>\n\n        <ion-select [(ngModel)]="shift" (ionChange)="onChooseShift($event)">\n\n          <ng-container *ngFor="let shift of orgShiftLists">\n\n            <ion-option value="{{shift?.orgshift[0]?.id}}" *ngIf="shift?.orgshift[0]?.id">{{shift?.name}}</ion-option>\n\n          </ng-container>\n\n        </ion-select>\n\n      </ion-item>\n\n    </ion-list>\n\n\n\n    <ion-list>\n\n      <ion-item>\n\n        <ion-label>Class/Stream</ion-label>\n\n        <ion-select [(ngModel)]="classStream" (ionChange)="onChooseClassStream($event)">\n\n          <ion-option *ngFor="let class of sortArray" value="{{class?.class_id}}">{{class?.class_name}}</ion-option>\n\n        </ion-select>\n\n      </ion-item>\n\n    </ion-list>\n\n\n\n    <ion-list>\n\n      <ion-item>\n\n        <ion-label>Section</ion-label>\n\n        <ion-select [(ngModel)]="section" (ionChange)="onChooseSection($event)">\n\n          <ion-option *ngFor="let section of filteredArrayForSectionList" value="{{section?.classSectionIndexId}}">{{section?.section_name}}</ion-option>\n\n        </ion-select>\n\n      </ion-item>\n\n    </ion-list>\n\n\n\n    <button ion-button type="submit" block outline color="blue" class="mt-10" (click)="submitDepartment()">Submit</button>\n\n</ion-content>\n\n\n\n\n\n\n\n<!-- filteredArrayForSectionList -->\n\n'/*ion-inline-end:"E:\ionic\cyberHub\cyberhub-ionic\src\pages\account\modal.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Platform */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ViewController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* ViewController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* MenuController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
@@ -6203,8 +6316,8 @@ var ModalPage = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ParentsStudentViewPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__student_notice_board_student_notice_board__ = __webpack_require__(40);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__student_library_list_student_library_list__ = __webpack_require__(41);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__student_notice_board_student_notice_board__ = __webpack_require__(41);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__student_library_list_student_library_list__ = __webpack_require__(42);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__routine_routine__ = __webpack_require__(20);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__personal_notice_personal_notice__ = __webpack_require__(50);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__live_stream_live_stream__ = __webpack_require__(15);
@@ -6272,7 +6385,7 @@ var ParentsStudentViewPage = /** @class */ (function () {
     };
     ParentsStudentViewPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-parents-student-view',template:/*ion-inline-start:"/home/wis/sushil/cyberHubApp/cyberhub-ionic/src/pages/parents-student-view/parents-student-view.html"*/'<!--\n  Generated template for the ParentsStudentViewPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-navbar color="blue">\n  	<button ion-button menuToggle color="light">\n     <ion-icon name="menu"></ion-icon>\n   </button>\n    <ion-title>Student\'s Details</ion-title>\n    <ion-buttons end><button class="bell-icon" (click)=goToPersonalNotice()> <i class="fas fa-bell fa-inverse fa-lg"></i> </button></ion-buttons>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content>\n<ion-card>\n  <img src="assets/imgs/SCHOOLS-Banner-Images.jpg"/>\n  <ion-card-content>\n    <ion-card-title>\n      My College Name\n      </ion-card-title>\n      <p><strong>Email</strong>: demo@gmail.com</p>\n      <p><strong>Mobile</strong>: 1234567890</p>\n      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.\n      </p>\n  </ion-card-content>\n</ion-card>\n\n\n<ion-grid>\n  <ion-row>\n    <ion-col col-md-4 class="icon-center" (click)=goToLibrary()>\n      <img src="assets/imgs/icon.png"/>\n      <p>Library</p>\n    </ion-col>\n    <ion-col col-md-4 class="icon-center" (click)=goToAllPdf()>\n      <img src="assets/imgs/icon2.png"/>\n      <p>Notice Board</p>\n    </ion-col>\n    <ion-col col-md-4 class="icon-center" (click)=goToPersonalNotice()>\n      <img src="assets/imgs/icon6.png"/>\n      <p>Personal Notice</p>\n    </ion-col>\n  </ion-row>\n  <ion-row>\n    <ion-col col-md-4 class="icon-center" (click)=goToGuest()>\n      <img src="assets/imgs/guest.png"/>\n      <p>Guest</p>\n    </ion-col>\n    <ion-col col-md-4 class="icon-center" (click)=goToRoutine()>\n      <img src="assets/imgs/icon4.png"/>\n      <p>Routine</p>\n    </ion-col>\n    <ion-col col-md-4 class="icon-center" (click)=goToAccount()>\n      <img src="assets/imgs/icon5.png"/>\n      <p>Account</p>\n    </ion-col>\n  </ion-row>\n</ion-grid>\n\n<!-- <ion-grid>\n  <ion-row>\n    <ion-col style="margin-bottom: 0px; padding-bottom: 0px;">\n      	 <button block ion-button color="blue"  (click)=goToAllPdf()>NOTICE BOARD</button>\n    </ion-col>\n    <ion-col style="margin-bottom: 0px; padding-bottom: 0px;">\n      <button block ion-button color="blue" (click)=goToLibrary()>LIBRARY</button>\n    </ion-col>\n  </ion-row>\n</ion-grid> -->\n\n\n\n</ion-content>\n\n\n'/*ion-inline-end:"/home/wis/sushil/cyberHubApp/cyberhub-ionic/src/pages/parents-student-view/parents-student-view.html"*/,
+            selector: 'page-parents-student-view',template:/*ion-inline-start:"E:\ionic\cyberHub\cyberhub-ionic\src\pages\parents-student-view\parents-student-view.html"*/'<!--\n\n  Generated template for the ParentsStudentViewPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n  <ion-navbar color="blue">\n\n  	<button ion-button menuToggle color="light">\n\n     <ion-icon name="menu"></ion-icon>\n\n   </button>\n\n    <ion-title>Student\'s Details</ion-title>\n\n    <ion-buttons end><button class="bell-icon" (click)=goToPersonalNotice()> <i class="fas fa-bell fa-inverse fa-lg"></i> </button></ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n\n\n<ion-content>\n\n<ion-card>\n\n  <img src="assets/imgs/SCHOOLS-Banner-Images.jpg"/>\n\n  <ion-card-content>\n\n    <ion-card-title>\n\n      My College Name\n\n      </ion-card-title>\n\n      <p><strong>Email</strong>: demo@gmail.com</p>\n\n      <p><strong>Mobile</strong>: 1234567890</p>\n\n      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.\n\n      </p>\n\n  </ion-card-content>\n\n</ion-card>\n\n\n\n\n\n<ion-grid>\n\n  <ion-row>\n\n    <ion-col col-md-4 class="icon-center" (click)=goToLibrary()>\n\n      <img src="assets/imgs/icon.png"/>\n\n      <p>Library</p>\n\n    </ion-col>\n\n    <ion-col col-md-4 class="icon-center" (click)=goToAllPdf()>\n\n      <img src="assets/imgs/icon2.png"/>\n\n      <p>Notice Board</p>\n\n    </ion-col>\n\n    <ion-col col-md-4 class="icon-center" (click)=goToPersonalNotice()>\n\n      <img src="assets/imgs/icon6.png"/>\n\n      <p>Personal Notice</p>\n\n    </ion-col>\n\n  </ion-row>\n\n  <ion-row>\n\n    <ion-col col-md-4 class="icon-center" (click)=goToGuest()>\n\n      <img src="assets/imgs/guest.png"/>\n\n      <p>Guest</p>\n\n    </ion-col>\n\n    <ion-col col-md-4 class="icon-center" (click)=goToRoutine()>\n\n      <img src="assets/imgs/icon4.png"/>\n\n      <p>Routine</p>\n\n    </ion-col>\n\n    <ion-col col-md-4 class="icon-center" (click)=goToAccount()>\n\n      <img src="assets/imgs/icon5.png"/>\n\n      <p>Account</p>\n\n    </ion-col>\n\n  </ion-row>\n\n</ion-grid>\n\n\n\n<!-- <ion-grid>\n\n  <ion-row>\n\n    <ion-col style="margin-bottom: 0px; padding-bottom: 0px;">\n\n      	 <button block ion-button color="blue"  (click)=goToAllPdf()>NOTICE BOARD</button>\n\n    </ion-col>\n\n    <ion-col style="margin-bottom: 0px; padding-bottom: 0px;">\n\n      <button block ion-button color="blue" (click)=goToLibrary()>LIBRARY</button>\n\n    </ion-col>\n\n  </ion-row>\n\n</ion-grid> -->\n\n\n\n\n\n\n\n</ion-content>\n\n\n\n\n\n'/*ion-inline-end:"E:\ionic\cyberHub\cyberhub-ionic\src\pages\parents-student-view\parents-student-view.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* MenuController */]])
     ], ParentsStudentViewPage);
@@ -6294,7 +6407,7 @@ var ParentsStudentViewPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__live_stream_live_stream__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__apiUrl__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__student_library_list_student_library_list__ = __webpack_require__(41);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__student_library_list_student_library_list__ = __webpack_require__(42);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -6480,9 +6593,9 @@ var LibraryListPage = /** @class */ (function () {
     };
     LibraryListPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-library-list',template:/*ion-inline-start:"/home/wis/sushil/cyberHubApp/cyberhub-ionic/src/pages/library-list/library-list.html"*/'<!--\n  Generated template for the LibraryListPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-navbar color="blue">\n    <ion-title>List of Books</ion-title>\n      <ion-buttons end class="search-icon"> <i class="fas fa-search fa-lg"></i> </ion-buttons>\n  </ion-navbar>\n   <ion-toolbar>\n    <ion-searchbar></ion-searchbar>\n  </ion-toolbar>\n</ion-header>\n\n\n<ion-content>\n  \n  <ion-list>\n      <!-- <ion-item >\n        <ion-thumbnail item-start>\n          <img src="assets/imgs/book.png">\n        </ion-thumbnail>\n        <h2><strong>Book Name</strong>: The Federalist Papers</h2>\n        <p><strong>Author Name</strong>: Serial installment</p>\n        <small><strong>Number of Copies</strong>: 10</small>\n      </ion-item> -->\n      <ion-item *ngFor="let book of allBookList" (click)="presentProfileModal(book.id)">\n        <ion-thumbnail item-start>\n          <img src="assets/imgs/book.png">\n        </ion-thumbnail>\n        <h2 *ngIf="book.book_name"><strong>{{book.book_name}}</strong></h2>\n        <p><strong>Author Name</strong>: {{book.author}}</p>\n        <small><strong>Number of Copies</strong>: {{book.no_copy}}</small>\n      </ion-item>\n    </ion-list>\n\n\n    <ion-infinite-scroll (ionInfinite)="doInfinite($event)" *ngIf="page < totalPage">\n      <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more..."></ion-infinite-scroll-content>\n    </ion-infinite-scroll>\n</ion-content>\n\n\n\n<ion-footer class="fixed">\n  <ion-toolbar color="primary">  \n  <ion-grid text-center >\n    <ion-row>\n      <div col-4 (click)=goToHome()>\n        <i text-center class="fas fa-home fa-inverse fa-lg"></i>\n        <p class="footer-p">Home</p>\n      </div>\n      <div col-4 (click)=gotoLiveStream()>\n        <i text-center class="fas fa-video fa-inverse fa-lg"></i>\n        <p class="footer-p">Live Streaming</p>\n      </div>\n      <div col-4>\n        <i text-center class="fas fa-align-justify fa-inverse fa-lg"></i>\n        <p  class="footer-p">Library</p>\n      </div>\n    </ion-row>\n  </ion-grid>\n  </ion-toolbar>\n</ion-footer>'/*ion-inline-end:"/home/wis/sushil/cyberHubApp/cyberhub-ionic/src/pages/library-list/library-list.html"*/,
+            selector: 'page-library-list',template:/*ion-inline-start:"E:\ionic\cyberHub\cyberhub-ionic\src\pages\library-list\library-list.html"*/'<!--\n\n  Generated template for the LibraryListPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n  <ion-navbar color="blue">\n\n    <ion-title>List of Books</ion-title>\n\n      <ion-buttons end class="search-icon"> <i class="fas fa-search fa-lg"></i> </ion-buttons>\n\n  </ion-navbar>\n\n   <ion-toolbar>\n\n    <ion-searchbar></ion-searchbar>\n\n  </ion-toolbar>\n\n</ion-header>\n\n\n\n\n\n<ion-content>\n\n  \n\n  <ion-list>\n\n      <!-- <ion-item >\n\n        <ion-thumbnail item-start>\n\n          <img src="assets/imgs/book.png">\n\n        </ion-thumbnail>\n\n        <h2><strong>Book Name</strong>: The Federalist Papers</h2>\n\n        <p><strong>Author Name</strong>: Serial installment</p>\n\n        <small><strong>Number of Copies</strong>: 10</small>\n\n      </ion-item> -->\n\n      <ion-item *ngFor="let book of allBookList" (click)="presentProfileModal(book.id)">\n\n        <ion-thumbnail item-start>\n\n          <img src="assets/imgs/book.png">\n\n        </ion-thumbnail>\n\n        <h2 *ngIf="book.book_name"><strong>{{book.book_name}}</strong></h2>\n\n        <p><strong>Author Name</strong>: {{book.author}}</p>\n\n        <small><strong>Number of Copies</strong>: {{book.no_copy}}</small>\n\n      </ion-item>\n\n    </ion-list>\n\n\n\n\n\n    <ion-infinite-scroll (ionInfinite)="doInfinite($event)" *ngIf="page < totalPage">\n\n      <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more..."></ion-infinite-scroll-content>\n\n    </ion-infinite-scroll>\n\n</ion-content>\n\n\n\n\n\n\n\n<ion-footer class="fixed">\n\n  <ion-toolbar color="primary">  \n\n  <ion-grid text-center >\n\n    <ion-row>\n\n      <div col-4 (click)=goToHome()>\n\n        <i text-center class="fas fa-home fa-inverse fa-lg"></i>\n\n        <p class="footer-p">Home</p>\n\n      </div>\n\n      <div col-4 (click)=gotoLiveStream()>\n\n        <i text-center class="fas fa-video fa-inverse fa-lg"></i>\n\n        <p class="footer-p">Live Streaming</p>\n\n      </div>\n\n      <div col-4>\n\n        <i text-center class="fas fa-align-justify fa-inverse fa-lg"></i>\n\n        <p  class="footer-p">Library</p>\n\n      </div>\n\n    </ion-row>\n\n  </ion-grid>\n\n  </ion-toolbar>\n\n</ion-footer>'/*ion-inline-end:"E:\ionic\cyberHub\cyberhub-ionic\src\pages\library-list\library-list.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* MenuController */], __WEBPACK_IMPORTED_MODULE_3__angular_http__["b" /* Http */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* ModalController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ViewController */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* MenuController */], __WEBPACK_IMPORTED_MODULE_3__angular_http__["b" /* Http */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* ModalController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* ViewController */]])
     ], LibraryListPage);
     return LibraryListPage;
 }());
@@ -6504,7 +6617,7 @@ var LibraryListPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__attendance_attendance__ = __webpack_require__(21);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__routine_routine__ = __webpack_require__(20);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__angular_http__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_rxjs_add_operator_map__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_rxjs_add_operator_map__ = __webpack_require__(40);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_rxjs_add_operator_map__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__apiUrl__ = __webpack_require__(9);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -6627,7 +6740,7 @@ var StudentsTabsPage = /** @class */ (function () {
     };
     StudentsTabsPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-students-tabs',template:/*ion-inline-start:"/home/wis/sushil/cyberHubApp/cyberhub-ionic/src/pages/students-tabs/students-tabs.html"*/'<ion-content>\n\n  <ion-tabs id="tabs" color="blue">\n    <ion-tab [root]="tab1Root" tabTitle="Home" tabIcon="home" tabsHideOnSubPages="true" (swipe)="transition($event)"></ion-tab>\n    <ion-tab [root]="tab2Root" tabTitle="Live" tabIcon="videocam" tabsHideOnSubPages="true" (swipe)="transition($event)"></ion-tab>\n    <ion-tab [root]="tab3Root" tabTitle="Attendance" tabIcon="done-all" tabsHideOnSubPages="true" (ionChange)="transition($event)"></ion-tab>\n    <ion-tab [root]="tab4Root" tabTitle="Routine" tabIcon="list" tabsHideOnSubPages="true" (ionChange)="transition($event)"></ion-tab>\n  </ion-tabs>\n\n</ion-content>\n'/*ion-inline-end:"/home/wis/sushil/cyberHubApp/cyberhub-ionic/src/pages/students-tabs/students-tabs.html"*/,
+            selector: 'page-students-tabs',template:/*ion-inline-start:"E:\ionic\cyberHub\cyberhub-ionic\src\pages\students-tabs\students-tabs.html"*/'<ion-content>\n\n\n\n  <ion-tabs id="tabs" color="blue">\n\n    <ion-tab [root]="tab1Root" tabTitle="Home" tabIcon="home" tabsHideOnSubPages="true" (swipe)="transition($event)"></ion-tab>\n\n    <ion-tab [root]="tab2Root" tabTitle="Live" tabIcon="videocam" tabsHideOnSubPages="true" (swipe)="transition($event)"></ion-tab>\n\n    <ion-tab [root]="tab3Root" tabTitle="Attendance" tabIcon="done-all" tabsHideOnSubPages="true" (ionChange)="transition($event)"></ion-tab>\n\n    <ion-tab [root]="tab4Root" tabTitle="Routine" tabIcon="list" tabsHideOnSubPages="true" (ionChange)="transition($event)"></ion-tab>\n\n  </ion-tabs>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"E:\ionic\cyberHub\cyberhub-ionic\src\pages\students-tabs\students-tabs.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
             __WEBPACK_IMPORTED_MODULE_2__ionic_native_native_page_transitions__["a" /* NativePageTransitions */], __WEBPACK_IMPORTED_MODULE_7__angular_http__["b" /* Http */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_7__angular_http__["d" /* Jsonp */]])
@@ -6646,9 +6759,9 @@ var StudentsTabsPage = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return apiUrl; });
 var apiUrl = {
     url: 'http://softechs.co.in/school_hub/',
-    node_url: 'http://localhost:3000/',
+    // node_url : 'http://localhost:3000/',
     // node_url: "https://still-shore-43294.herokuapp.com/",
-    node_url_live: '',
+    node_url: 'http://18.191.46.158:3000/',
 };
 //# sourceMappingURL=apiUrl.js.map
 
