@@ -5,20 +5,20 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
   <ion-navbar color="blue">
     <ion-title>Complain Reply</ion-title>
   </ion-navbar>
-
 </ion-header>
 
 
 <ion-content padding>
 	<h1 text-center text-uppercase margin-bottom color="blue" class="">Type Your Reply</h1>
+
 	<ion-list>
 	  <ion-item>
-	    <ion-textarea type="text" placeholder="Type Here to Reply"></ion-textarea>
+	    <ion-textarea [(ngModel)]="complainMsg" type="text" placeholder="Type Here to Reply" (keyup)=onChangeTextValue()></ion-textarea>
 	  </ion-item>
 	</ion-list>
-	 <button ion-button type="submit" block outline color="blue" class="mt-10">Submit Reply</button>
+
+	<button ion-button type="submit" block outline color="blue" class="mt-10" [disabled]="btnDisabled" (click)=sendReply()>Submit Reply</button>
 </ion-content>

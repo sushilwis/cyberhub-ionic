@@ -15,6 +15,7 @@ import { GuestEnquiryPage } from '../guest-enquiry/guest-enquiry';
 import { PrincipalExamviewPage } from '../principal-examview/principal-examview';
 import{ PrincipalComplaindeskPage } from '../principal-complaindesk/principal-complaindesk';
 import { StuffExamdutyPage } from '../stuff-examduty/stuff-examduty';
+import { HomePage } from '../home/home';
 /**
  * Generated class for the StaffInfoPage page.
  *
@@ -42,6 +43,7 @@ export class StaffInfoPage {
   ngOnInit(){
     this.getUserDataFromLocal();
     this.getUserData();
+    console.log('Stuff info page...');    
   }
 
 
@@ -49,6 +51,9 @@ export class StaffInfoPage {
   ionViewDidLoad() {
     // console.log('ionViewDidLoad StaffInfoPage');
   }
+
+
+
   goToAllPdf(){
 		this.navCtrl.push(StudentNoticeBoardPage);
 	}
@@ -64,7 +69,7 @@ export class StaffInfoPage {
   goToAttendance(){
     this.navCtrl.push(GetAttendancePage);
   }
- goToComplain(){
+  goToComplain(){
     this.navCtrl.push(StaffComplainPage);
   }
   goToAccount(){
@@ -102,7 +107,8 @@ export class StaffInfoPage {
 				if (data.data) {
           this.presentLoading(false);
           this.orgDetails = data.data[0];					
-				}
+        }
+        
 			});
   }
 
@@ -142,5 +148,14 @@ export class StaffInfoPage {
     let data = localStorage.getItem('userData');
     this.localUserData = JSON.parse(data);
     // console.log('local data : ', this.localUserData);    
+  }
+
+
+
+
+
+  goToLogout() {
+    localStorage.clear();
+    this.navCtrl.setRoot(HomePage);
   }
 }

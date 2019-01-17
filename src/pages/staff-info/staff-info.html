@@ -14,11 +14,6 @@
 </ion-header>
 
 <ion-content >
-  <!-- <div class="back-ground">
-      <img src="assets/imgs/stuff_icon.png"/>
-      <h5 text-center text-uppercase>College Name</h5>
-  </div> -->
-
 
   <ion-card>
     <img src="{{orgDetails?.org_img}}"/>
@@ -27,15 +22,19 @@
         {{orgDetails?.org_name}}
         </ion-card-title>
         <div [innerHtml]="orgDetails?.org_text"></div>
-        <p><strong>About</strong> : </p>
-        <div [innerHtml]="orgDetails?.org_about" class="mt-4"></div>
-        
-        <!-- <p (click)=goToPrincipal()>PRINCIPAL</p> <p (click)=goToComplainDesk()>PRINCIPAL COMPLAIN DESK</p> -->
-        <!-- <p (click)=goToStuffDuty()>Stuff Duty</p> -->
+        <!-- <p><strong>About</strong> : </p>
+        <div [innerHtml]="orgDetails?.org_about" class="mt-4"></div> -->        
+        <!-- <p (click)=goToPrincipal()>PRINCIPAL</p>  -->
+        <button ion-button block outline color="blue" class="mt-10" (click)=goToPrincipal()>PRINCIPAL</button>
+        <!-- <p (click)=goToComplainDesk()>COMPLAIN DESK</p> -->
+        <button ion-button block outline color="blue" class="mt-10" (click)=goToComplainDesk()>COMPLAIN DESK</button>
+        <!-- <p (click)=goToStuffDuty()>STUFF DUTY</p> -->
+        <button ion-button block outline color="blue" class="mt-10" (click)=goToStuffDuty()>STUFF DUTY</button>
     </ion-card-content>
   </ion-card>
 
   <ion-grid>
+
     <ion-row>
       <ion-col col-md-3 class="icon-center" (click)=goToLibrary()>
         <img src="assets/imgs/icon.png"/>
@@ -54,6 +53,7 @@
         <p>Account</p>
       </ion-col>
     </ion-row>
+
     <ion-row>
       <ion-col col-md-3 class="icon-center" (click)=goToAttendance()>
         <img src="assets/imgs/icon3.png"/>
@@ -74,11 +74,58 @@
     </ion-row>
 
     <ion-row>
-      <ion-col col-md-3 class="" (click)=goToGuest()>
+      <ion-col col-md-4 class="icon-center" (click)=goToGuest()>
         <img src="assets/imgs/guest.png"/>
         <p>Guest</p>
+      </ion-col>
+
+      <ion-col col-md-4 class="icon-center" (click)=goToLogout()>
+        <img src="assets/imgs/icon7.png"/>
+        <p>Logout</p>
+      </ion-col>
+
+      <ion-col col-md-4 class="">
+        <img src=""/>
+        <p></p>
+      </ion-col>
+
+      <ion-col col-md-4 class="">
+        <img src=""/>
+        <p></p>
       </ion-col>
     </ion-row>
     
   </ion-grid>
 </ion-content>
+
+
+
+
+<ion-footer class="fixed">
+    <ion-toolbar color="primary">  
+    <ion-grid text-center >
+      <ion-row>
+        <div col-3 (click)=goToHome()>
+          <img src="assets/imgs/white-icon5.png">
+         <!--  <i text-center class="fas fa-video fa-inverse fa-lg"></i> -->
+          <p class="footer-p">Home</p>
+        </div>
+        <div col-3 (click)=gotoLiveStream()>
+          <img src="assets/imgs/white-icon1.png">
+         <!--  <i text-center class="fas fa-video fa-inverse fa-lg"></i> -->
+          <p class="footer-p">Streaming</p>
+        </div>
+        <div col-3 (click)=goToAttendance()>
+          <img src="assets/imgs/white-icon2.png">
+          <!-- <i text-center class="fas fa-boxes fa-inverse fa-lg"></i> -->
+          <p  class="footer-p">Attendance</p>
+        </div>
+        <div col-3 (click)=goToRoutine()>
+          <img src="assets/imgs/white-icon3.png">
+          <!-- <i class="fas fa-box fa-inverse fa-lg"></i> -->
+          <p  class="footer-p">Routine</p>
+        </div>
+      </ion-row>
+    </ion-grid>
+    </ion-toolbar>
+</ion-footer>

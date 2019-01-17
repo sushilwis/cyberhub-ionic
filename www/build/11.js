@@ -1,14 +1,14 @@
 webpackJsonp([11],{
 
-/***/ 534:
+/***/ 532:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StaffInfoPageModule", function() { return StaffInfoPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StaffLoginPageModule", function() { return StaffLoginPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__staff_info__ = __webpack_require__(60);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__staff_login__ = __webpack_require__(147);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,23 +18,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var StaffInfoPageModule = /** @class */ (function () {
-    function StaffInfoPageModule() {
+var StaffLoginPageModule = /** @class */ (function () {
+    function StaffLoginPageModule() {
     }
-    StaffInfoPageModule = __decorate([
+    StaffLoginPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__staff_info__["a" /* StaffInfoPage */],
+                __WEBPACK_IMPORTED_MODULE_2__staff_login__["a" /* StaffLoginPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__staff_info__["a" /* StaffInfoPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__staff_login__["a" /* StaffLoginPage */]),
             ],
         })
-    ], StaffInfoPageModule);
-    return StaffInfoPageModule;
+    ], StaffLoginPageModule);
+    return StaffLoginPageModule;
 }());
 
-//# sourceMappingURL=staff-info.module.js.map
+//# sourceMappingURL=staff-login.module.js.map
 
 /***/ })
 

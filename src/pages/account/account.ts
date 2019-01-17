@@ -31,10 +31,8 @@ export class AccountPage implements OnInit {
   
 
   constructor(public menuCtrl: MenuController, public navCtrl: NavController, public navParams: NavParams, private http: Http, public loadingController: LoadingController, public jsonp: Jsonp, public modalCtrl: ModalController) {
-
     this.menuCtrl.enable(false);
     this.initLoader();
-
   }
 
 
@@ -51,7 +49,7 @@ export class AccountPage implements OnInit {
 
 
   ionViewDidLoad() {
-    // console.log('ionViewDidLoad AccountPage');
+    console.log('ionViewDidLoad AccountPage');
   }
 
   goToPassword(){
@@ -94,10 +92,42 @@ export class AccountPage implements OnInit {
 		}
 
 		this.http.post(`${apiUrl.url}student/studentdetail`, data, options).
-			map(res => res.json()).subscribe(data => {				
+			map(res => res.json()).subscribe(data => {
+        console.log('student detail data : ', data);				
 				if (data.data[0]) {
           this.presentLoading(false);
           this.studentDetails = data.data[0];
+
+          if(data.data[0].nameclass){
+            this.showSelectDepartmentBtn = false;
+          }else{
+            this.showSelectDepartmentBtn = true;
+          }
+				}
+			});
+  }
+
+
+
+
+
+  getStudentSubjectDetails() {
+    this.presentLoading(true);
+
+		var headers = new Headers();
+		headers.append('Content-Type', 'application/json');
+		let options = new RequestOptions({headers: headers});
+
+		let data = {
+		  'master_id': this.localUserData.master_id
+		}
+
+		this.http.post(`${apiUrl.url}student/studentdetail`, data, options).
+			map(res => res.json()).subscribe(data => {
+        console.log('student subject data : ', data);				
+				if (data.data[0]) {
+          this.presentLoading(false);
+          // this.studentDetails = data.data[0];
 
           if(data.data[0].nameclass){
             this.showSelectDepartmentBtn = false;
@@ -141,9 +171,6 @@ export class AccountPage implements OnInit {
     let modal = this.modalCtrl.create(ModalPage);
     modal.present();
   }
-
-
-
 
 
 }

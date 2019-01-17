@@ -11,6 +11,8 @@ import { AttendancePage } from '../attendance/attendance';
 import { RoutinePage } from '../routine/routine';
 import { AccountPage } from '../account/account';
 import { apiUrl } from '../../apiUrl';
+import { HomePage } from '../home/home';
+import { StaffComplainPage } from '../staff-complain/staff-complain';
 
 /**
  * Generated class for the StudentOwndetailsPage page.
@@ -48,13 +50,9 @@ export class StudentOwndetailsPage implements OnInit {
 
 
 
-
   ionViewDidLoad() {
     console.log('ionViewDidLoad StudentOwndetailsPage');
   }
-
-
-
 
 
 
@@ -79,6 +77,9 @@ export class StudentOwndetailsPage implements OnInit {
   goToAccount(){
     this.navCtrl.push(AccountPage);
   }
+  goToComplain(){
+    this.navCtrl.push(StaffComplainPage);
+  }
 
 
 
@@ -96,17 +97,14 @@ export class StudentOwndetailsPage implements OnInit {
       // 'master_id': this.localUserData.master_id
     }
     
-    // console.log('send data : ', data);
-    
 		this.http.post(`${apiUrl.url}org/getdetail`, data, options).
 			map(res => res.json()).subscribe(data => {				
-				// console.log(data)
 
 				if (data.data) {
           this.presentLoading(false);
-          // console.log('receive data : ', data.data[0]);
           this.orgDetails = data.data[0];					
-				}
+        }
+        
 			});
   }
 
@@ -121,9 +119,9 @@ export class StudentOwndetailsPage implements OnInit {
 		header.append('Content-Type', 'application/json');
 		let options = new RequestOptions({headers: header});
     
-		this.http.get(`https://api.openweathermap.org/data/2.5/weather?zip=700124,in`, options).
+		this.http.get(`https://api.openweathermap.org/data/2.5/forecast/daily?zip=94040,us`, options).
 			map(res => res.json()).subscribe(data => {				
-				console.log(data);
+				console.log('api data : ', data);
 			});
   }
 
@@ -161,15 +159,14 @@ export class StudentOwndetailsPage implements OnInit {
 
   getUserDataFromLocal() {
     let data = localStorage.getItem('userData');
-    this.localUserData = JSON.parse(data);
-    // console.log('local data : ', this.localUserData);    
+    this.localUserData = JSON.parse(data);    
   }
 
 
 
 
 
-  async getNoticeList(){
+  async getNoticeList() {
     // this.presentLoading(true);
     await this.getUserDataFromLocal();
 
@@ -193,7 +190,7 @@ export class StudentOwndetailsPage implements OnInit {
                 return item.notiece_type_id == 3; 
               });              
               this.personalNoticeCount = this.allPersonalNotice.length;
-              console.log('personal notice count : ', this.personalNoticeCount);
+              // console.log('personal notice count : ', this.personalNoticeCount);
               // this.presentLoading(false);             
             }else{
               // this.presentLoading(false);
@@ -204,5 +201,17 @@ export class StudentOwndetailsPage implements OnInit {
 
 
 
+
+
+  goToLogout() {
+    localStorage.clear();
+    this.navCtrl.setRoot(HomePage);
+  }
+
+
+
+
+
+  
   
 }

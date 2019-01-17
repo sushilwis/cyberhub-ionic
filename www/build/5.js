@@ -1,14 +1,14 @@
 webpackJsonp([5],{
 
-/***/ 540:
+/***/ 539:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StudentOwndetailsPageModule", function() { return StudentOwndetailsPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StudentsTabsPageModule", function() { return StudentsTabsPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__student_owndetails__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__students_tabs__ = __webpack_require__(78);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,23 +18,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var StudentOwndetailsPageModule = /** @class */ (function () {
-    function StudentOwndetailsPageModule() {
+var StudentsTabsPageModule = /** @class */ (function () {
+    function StudentsTabsPageModule() {
     }
-    StudentOwndetailsPageModule = __decorate([
+    StudentsTabsPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__student_owndetails__["a" /* StudentOwndetailsPage */],
+                __WEBPACK_IMPORTED_MODULE_2__students_tabs__["a" /* StudentsTabsPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__student_owndetails__["a" /* StudentOwndetailsPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__students_tabs__["a" /* StudentsTabsPage */]),
             ],
         })
-    ], StudentOwndetailsPageModule);
-    return StudentOwndetailsPageModule;
+    ], StudentsTabsPageModule);
+    return StudentsTabsPageModule;
 }());
 
-//# sourceMappingURL=student-owndetails.module.js.map
+//# sourceMappingURL=students-tabs.module.js.map
 
 /***/ })
 

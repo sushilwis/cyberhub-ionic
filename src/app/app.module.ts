@@ -50,7 +50,7 @@ import { StudentsTabsPage } from '../pages/students-tabs/students-tabs';
 import { StuffChangePassPage } from '../pages/stuff-change-pass/stuff-change-pass';
 
 import { RippleDirective } from 'ng2-ripple-directive';
-import { Camera } from '@ionic-native/camera';
+// import { Camera } from '@ionic-native/camera';
 // import { StreamingMedia } from '@ionic-native/streaming-media';
 
 
@@ -169,8 +169,8 @@ import { StuffEditPage } from '../pages/stuff-edit/stuff-edit';
     FileTransfer,
     NativePageTransitions,
     ChatServProvider,
-    Camera,
-    StreamingMedia
+    // Camera,
+    // StreamingMedia
   ]
 })
 export class AppModule {}

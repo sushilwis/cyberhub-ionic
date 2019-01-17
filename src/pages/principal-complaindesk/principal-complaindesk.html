@@ -13,18 +13,18 @@
 
 <ion-content>
 	
-	<ion-card>
+	<ion-card *ngFor="let complain of allComplains">
 	  <ion-card-content>
-	    <p>The most popular industrial group ever, and largely responsible for bringing the music to a mass audience.</p>
+	    <p>{{complain.message}}</p>
 	  </ion-card-content>
 	  <ion-row no-padding>
       <ion-col text-left>
         <button ion-button clear small color="blue" icon-start>
-          Ram Kumar
+            {{complain.student_id.name}}
         </button>
       </ion-col>
       <ion-col text-right>
-        <button ion-button clear small color="blue" icon-start (click)=gotoCompalinReply()>
+        <button ion-button clear small color="blue" icon-start (click)=gotoCompalinReply(complain.from_id)>
           <ion-icon name='share-alt'></ion-icon>
           Reply
         </button>
@@ -32,7 +32,7 @@
     </ion-row>
 	</ion-card>
 
-	<ion-card>
+	<!-- <ion-card>
 	  <ion-card-content>
 	    <p>The most popular industrial group ever, and largely responsible for bringing the music to a mass audience.</p>
 	  </ion-card-content>
@@ -49,9 +49,9 @@
         </button>
       </ion-col>
     </ion-row>
-	</ion-card>
+	</ion-card> -->
 
-	<ion-card>
+	<!-- <ion-card>
 	  <ion-card-content>
 	    <p>The most popular industrial group ever, and largely responsible for bringing the music to a mass audience.</p>
 	  </ion-card-content>
@@ -68,10 +68,10 @@
         </button>
       </ion-col>
     </ion-row>
-	</ion-card>
+	</ion-card> -->
 
 
-	<ion-card>
+	<!-- <ion-card>
 	  <ion-card-content>
 	    <p>The most popular industrial group ever, and largely responsible for bringing the music to a mass audience.</p>
 	  </ion-card-content>
@@ -88,7 +88,7 @@
         </button>
       </ion-col>
     </ion-row>
-	</ion-card>
+	</ion-card> -->
 
 
 </ion-content>

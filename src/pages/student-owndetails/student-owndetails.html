@@ -36,14 +36,14 @@
       <!-- <p ><strong>Email</strong>: demo@gmail.com</p>
       <p><strong>Mobile</strong>: 1234567890</p> -->
       <div [innerHtml]="orgDetails?.org_text"></div>
-      <p><strong>About</strong> : </p>
-      <div [innerHtml]="orgDetails?.org_about" class="mt-4"></div>
-  </ion-card-content>
-  
+      <!-- <p><strong>About</strong> : </p>
+      <div [innerHtml]="orgDetails?.org_about" class="mt-4"></div> -->
+  </ion-card-content>  
 </ion-card>
 
 
 <ion-grid>
+
   <ion-row>
     <ion-col col-md-4 class="icon-center" (click)=goToLibrary()>
       <img src="assets/imgs/icon.png"/>
@@ -58,6 +58,7 @@
       <p>Personal Notice</p>
     </ion-col>
   </ion-row>
+
   <ion-row>
     <ion-col col-md-4 class="icon-center" (click)=goToAttendance()>
       <img src="assets/imgs/icon3.png"/>
@@ -72,6 +73,24 @@
       <p>Account</p>
     </ion-col>
   </ion-row>
+
+  <ion-row>
+    <ion-col col-md-4 class="icon-center" (click)=goToComplain()>
+      <img src="assets/imgs/icon7.png"/>
+      <p>Complain</p>
+    </ion-col>
+
+    <ion-col col-md-4 class="icon-center" (click)=goToLogout()>
+      <img src="assets/imgs/icon7.png"/>
+      <p>Logout</p>
+    </ion-col>
+    
+    <ion-col col-md-4 class="">
+      <img src=""/>
+      <p></p>
+    </ion-col>
+  </ion-row>
+
 </ion-grid>
 </ion-content>
 

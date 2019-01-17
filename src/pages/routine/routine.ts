@@ -5,6 +5,7 @@ import { AttendancePage } from '../attendance/attendance';
 import { StudentOwndetailsPage } from '../student-owndetails/student-owndetails';
 import { Http, RequestOptions, Headers, Jsonp } from '@angular/http';
 import { apiUrl } from '../../apiUrl';
+import { SchoolDetailsPage } from '../school-details/school-details';
 /**
  * Generated class for the RoutinePage page.
  *
@@ -43,6 +44,22 @@ export class RoutinePage implements OnInit {
   ngOnInit() {
     this.getStudentRoutine();
   }
+
+
+  goToHome(){
+		this.navCtrl.setRoot(StudentOwndetailsPage);
+	}
+  
+  // gotoLiveStream(){
+  //   this.navCtrl.push(LiveStreamPage);
+  // }
+  // goToAttendance(){
+  //   this.navCtrl.push(AttendancePage);
+  // }
+  
+  goToRoutine(){
+    this.navCtrl.push(RoutinePage);
+  }  
 
 
 

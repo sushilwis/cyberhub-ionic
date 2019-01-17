@@ -22,6 +22,7 @@
       <h2>{{notice?.notice?.subject}}</h2>
       <p>{{notice?.notice?.text}}</p>
       <p>{{notice?.noticetype?.type_name}}</p>
+      <p style="font-size: 10px;">{{notice?.created_at}}</p>
       <button ion-button clear item-end (click)="showPdf(notice?.notice?.file_url)">
         <i class="fas fa-download fa-2x"></i>
       </button>

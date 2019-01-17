@@ -20,10 +20,11 @@
 <ion-content>
   <ion-card color="light" [ripple] *ngFor="let personalNotice of allPersonalNotice" (click)="presentProfileModal(personalNotice.id)">
     <ion-card-header>
-      <strong>{{personalNotice.notice.subject}}</strong>
+      <strong>{{personalNotice?.notice?.subject}}</strong>
     </ion-card-header>
+    
     <ion-card-content>
-      <p>{{personalNotice.notice.text}}</p>
+      <p>{{personalNotice?.notice?.text}}</p>
       <ion-note text-right float-right>{{personalNotice?.timeDifference}}</ion-note>
     </ion-card-content>
   </ion-card>

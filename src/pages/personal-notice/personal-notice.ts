@@ -86,6 +86,8 @@ export class PersonalNoticePage implements OnInit, AfterViewInit {
         .map(res => res.json())
         .subscribe(
           async data => {
+            console.log('personal notice data : ', data);
+
             if(data.data.length > 1){
 
               this.allNotice = await data.data;

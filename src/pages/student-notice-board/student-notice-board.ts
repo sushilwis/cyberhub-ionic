@@ -83,6 +83,7 @@ export class StudentNoticeBoardPage implements OnInit {
         .map(res => res.json())
         .subscribe(
           async data => {
+            // console.log('Receive notice data : ', data.data);
             if(data.data.length > 1) {
               // console.log('Receive data : ', data.data); 
               this.allNotice = await data.data;
@@ -107,8 +108,6 @@ export class StudentNoticeBoardPage implements OnInit {
   doInfinite(infiniteScroll) {
     this.page = this.page+1;
     console.log('Begin async operation');
-
-    // this.getNoticeList(infiniteScroll);
 
     if (this.page === this.totalPage) {
       infiniteScroll.enable(false);
