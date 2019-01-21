@@ -4,8 +4,8 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { AnimationService, AnimatesDirective } from 'css-animator';
 import { HttpModule, JsonpModule, Jsonp, Response } from '@angular/http';
 import { NgCalendarModule } from 'ionic2-calendar';
-import { File } from '@ionic-native/file';
-import { FileTransfer } from '@ionic-native/file-transfer';
+// import { File } from '@ionic-native/file';
+// import { FileTransfer } from '@ionic-native/file-transfer';
 import { DocumentViewer } from '@ionic-native/document-viewer';
 import { NativePageTransitions } from '@ionic-native/native-page-transitions';
 
@@ -62,6 +62,12 @@ import { StdRegPage } from '../pages/std-reg/std-reg';
 import { StuffEditPage } from '../pages/stuff-edit/stuff-edit';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+
+import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
+import { File } from '@ionic-native/file';
+import { Camera } from '@ionic-native/camera';
+
+
 
 
 
@@ -162,6 +168,7 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
     StuffChangePassPage,
     StuffEditPage
   ],
+  
   providers: [
     StatusBar,
     SplashScreen,
@@ -172,6 +179,11 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
     FileTransfer,
     NativePageTransitions,
     ChatServProvider,
+    FileTransfer,
+    // FileUploadOptions,
+    FileTransferObject,
+    File,
+    Camera,
     // Camera,
     // StreamingMedia
   ]
