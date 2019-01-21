@@ -60,6 +60,8 @@ import { ChatServProvider } from '../providers/chat-serv/chat-serv';
 import { TestPage } from '../pages/test/test';
 import { StdRegPage } from '../pages/std-reg/std-reg';
 import { StuffEditPage } from '../pages/stuff-edit/stuff-edit';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 
 
@@ -115,6 +117,7 @@ import { StuffEditPage } from '../pages/stuff-edit/stuff-edit';
     JsonpModule,
     IonicModule.forRoot(MyApp),
     NgCalendarModule,
+    PdfViewerModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -174,3 +177,5 @@ import { StuffEditPage } from '../pages/stuff-edit/stuff-edit';
   ]
 })
 export class AppModule {}
+
+platformBrowserDynamic().bootstrapModule(AppModule);

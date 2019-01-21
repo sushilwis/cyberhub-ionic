@@ -7,14 +7,8 @@ import { RoutinePage } from '../routine/routine';
 import { RequestOptions, Headers, Http, Jsonp } from '@angular/http';
 import { apiUrl } from '../../apiUrl';
 import { ModalController, Platform, ViewController } from 'ionic-angular';
-import { DocumentViewer } from '@ionic-native/document-viewer';
+import { DocumentViewer, DocumentViewerOptions } from '@ionic-native/document-viewer';
 
-/**
- * Generated class for the StudentNoticeBoardPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -29,6 +23,7 @@ export class StudentNoticeBoardPage implements OnInit {
   perPage: any = 4;
   totalData: any = 0;
   totalPage: any = 0;
+  pdfSrc: any;
 
   constructor(public navCtrl: NavController, private http: Http, public navParams: NavParams, public menuCtrl: MenuController, public loadingController: LoadingController, public modalCtrl: ModalController, public jsonp: Jsonp, public viewCtrl: ViewController, public document: DocumentViewer) {
     this.menuCtrl.enable(false);
@@ -85,7 +80,7 @@ export class StudentNoticeBoardPage implements OnInit {
           async data => {
             // console.log('Receive notice data : ', data.data);
             if(data.data.length > 1) {
-              // console.log('Receive data : ', data.data); 
+              console.log('Receive data : ', data.data); 
               this.allNotice = await data.data;
               this.totalData = await data.data.length;
               this.totalPage = await Math.floor(this.totalData/5);            
@@ -94,10 +89,6 @@ export class StudentNoticeBoardPage implements OnInit {
               this.presentLoading(false);
             }          
       });
-
-      // if(infiniteScroll) {
-      //   infiniteScroll.complete();
-      // }
   }
 
 
@@ -191,8 +182,10 @@ export class StudentNoticeBoardPage implements OnInit {
 
 
 
-  showPdf(url: string) {    
-    this.document.viewDocument(url, 'application/pdf', {});
+  showPdf(url: string) { 
+    alert(`${apiUrl.url}public/uploads/Notices/${url}`); 
+    this.pdfSrc = `${apiUrl.url}public/uploads/Notices/${url}`;      
+    this.document.viewDocument(`${apiUrl.url}public/uploads/Notices/${url}`, 'application/pdf', {});
   }
 
 
