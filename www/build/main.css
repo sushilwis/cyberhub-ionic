@@ -28060,7 +28060,21 @@ page-account .toolbar-md, page-account .toolbar-ios {
 page-account .back-ground {
   background: url(../assets/imgs/blue-bk.jpg);
   width: 100%;
-  padding: 20px 0;
+  padding: 8px 0;
+}
+
+page-account .profile-image {
+  border-radius: 50%;
+  border: 2px solid #fff;
+  padding: 3px;
+  width: 140px !important;
+  height: 140px !important;
+}
+
+page-account .camera-icon {
+  position: fixed;
+  top: 20%;
+  left: 59%;
 }
 
 page-account .back-ground img {

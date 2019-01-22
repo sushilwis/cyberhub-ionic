@@ -1,6 +1,6 @@
 webpackJsonp([5],{
 
-/***/ 552:
+/***/ 553:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -27,7 +27,7 @@ var StuffChangePassPageModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_2__stuff_change_pass__["a" /* StuffChangePassPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__stuff_change_pass__["a" /* StuffChangePassPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__stuff_change_pass__["a" /* StuffChangePassPage */]),
             ],
         })
     ], StuffChangePassPageModule);

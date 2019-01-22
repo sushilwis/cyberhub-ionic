@@ -7,16 +7,17 @@ import { ParentsStudentViewPage } from '../parents-student-view/parents-student-
 import { AttendancePage } from '../attendance/attendance';
 import { Http, RequestOptions, Headers, Jsonp } from '@angular/http';
 import { apiUrl } from '../../apiUrl';
-import { ModalController, Platform, ViewController } from 'ionic-angular';
-import { NavController, LoadingController, ToastController } from 'ionic-angular';
+import { ModalController, ViewController } from 'ionic-angular';
+// import { NavController, LoadingController, ToastController } from 'ionic-angular';
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
 import { Camera, CameraOptions } from '@ionic-native/camera';
-/**
- * Generated class for the AccountPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { NavController, ActionSheetController, ToastController, Platform, LoadingController, Loading } from 'ionic-angular';
+import { FilePath } from '@ionic-native/file-path';
+import { File } from '@ionic-native/file';
+import { Transfer, TransferObject } from '@ionic-native/transfer';
+
+
+declare var cordova: any;
 
 @IonicPage()
 @Component({
@@ -24,19 +25,22 @@ import { Camera, CameraOptions } from '@ionic-native/camera';
   templateUrl: 'account.html',
 })
 
-export class AccountPage implements OnInit {
+export default class AccountPage implements OnInit {
 
   localUserData: any;
-  loading: any;
+  // loading: any;
   studentDetails: any;
   showSelectDepartmentBtn: boolean;
   sortArray: any;
 
   imageURI:any;
   imageFileName:any = "assets/imgs/student-icon.png";
+  profile_image: string;
+  lastImage: string = null;
+  loading: Loading;
   
 
-  constructor(public menuCtrl: MenuController, public navCtrl: NavController, public navParams: NavParams, private http: Http, public loadingController: LoadingController, public jsonp: Jsonp, public modalCtrl: ModalController, private transfer: FileTransfer, private camera: Camera, public loadingCtrl: LoadingController, public toastCtrl: ToastController) {
+  constructor(public menuCtrl: MenuController, public navCtrl: NavController, public navParams: NavParams, private http: Http, public loadingController: LoadingController, public jsonp: Jsonp, public modalCtrl: ModalController, private camera: Camera, public loadingCtrl: LoadingController, public toastCtrl: ToastController, public actionSheetCtrl: ActionSheetController, public platform: Platform, private file: File, private filePath: FilePath, private transfer: Transfer) {
     this.menuCtrl.enable(false);
     this.initLoader();
   }
@@ -48,7 +52,6 @@ export class AccountPage implements OnInit {
     this.getUserDataFromLocal();
     this.getStudentDetails();
     this.showSelectDepartmentBtn = false;
-    // this.getShiftLists();
   }
 
 
@@ -80,7 +83,12 @@ export class AccountPage implements OnInit {
   getUserDataFromLocal() {
     let data = localStorage.getItem('userData');
     this.localUserData = JSON.parse(data);
-    // console.log('local data : ', this.localUserData);    
+    if(this.localUserData.profile_image){
+      this.profile_image = `${apiUrl.url}public/uploads/profile_pic/${this.localUserData.profile_image}`
+
+    }else{
+      this.profile_image = `assets/imgs/student-icon.png`
+    }   
   }
 
 
@@ -183,42 +191,47 @@ export class AccountPage implements OnInit {
 
   getImage() {
     const options: CameraOptions = {
-      quality: 50,
+      quality: 30,
       allowEdit: false,
       destinationType: this.camera.DestinationType.FILE_URI,
+      correctOrientation:true
     }
   
     this.camera.getPicture(options).then((imageData) => {
-
+      
       this.imageURI = imageData;
-      alert(imageData);
       this.imageFileName = imageData;
+      const fileTransfer: any = this.transfer.create();
 
-      // var headers = new Headers();
-      // headers.append("Content-Type", "multipart/form-data");
-      // let options = new RequestOptions({headers: headers});
+      let options: FileUploadOptions = {
+        fileKey: 'file',
+        fileName: 'ionicfile.jpg',
+        chunkedMode: false,
+        mimeType: "image/jpeg",
+        headers: {},
+        params: {
+          id: this.localUserData.id
+        },
+      }
+      // this.presentLoading(true);
 
-      // let formData = new FormData();
-      // formData.append('file', this.imageURI);
-      // formData.append('id', this.localUserData.id);
-
-      // alert(JSON.stringify(formData));  
-
-      // this.http.post(`${apiUrl.url}user/addprofileimage`, formData, options).
-			// map(res => res.text()).subscribe(data => {
-      //   alert(data);
-      //   // console.log('student subject data : ', data);				
-			// 	// if (data.data[0]) {
-      //     // this.presentLoading(false);
-      //     // this.studentDetails = data.data[0];
-
-      //     // if(data.data[0].nameclass){
-      //     //   this.showSelectDepartmentBtn = false;
-      //     // }else{
-      //     //   this.showSelectDepartmentBtn = true;
-      //     // }
-			// 	// }
-      // });      
+      fileTransfer.upload(this.imageURI, `${apiUrl.url}user/addprofileimage`, options)
+        .then((data) => {
+          if(data){
+            // alert(JSON.stringify(data.response));
+            let parseData = JSON.parse(data.response);
+            // this.presentLoading(false);
+            this.imageFileName = `${apiUrl.url}public/uploads/profile_pic/${parseData.data.profile_image}`;
+            //alert(this.imageFileName);
+            localStorage.removeItem('userData');
+            localStorage.setItem('userData', JSON.stringify(parseData.data));
+            this.getUserDataFromLocal();
+            this.presentToast("Image uploaded successfully");
+          }
+      }, (err) => {
+        console.log(err);
+        alert(JSON.stringify(err));
+      });     
     }, (err) => {
       console.log(err);
       this.presentToast(err);
@@ -228,61 +241,39 @@ export class AccountPage implements OnInit {
 
 
 
-
-
-  uploadFile() {
-
-    let loader = this.loadingCtrl.create({
-      content: "Uploading..."
-    });
-
-    loader.present();
-    const fileTransfer: FileTransferObject = this.transfer.create();
-  
-    let options: FileUploadOptions = {
-      fileKey: 'file',
-      fileName: 'file.jpg',
-      chunkedMode: false,
-      httpMethod: 'post',
-      mimeType: "image/jpeg",
-      headers: {}
-    }
-  
-    fileTransfer.upload(this.imageURI, `${apiUrl.url}user/addprofileimage`, options)
-      .then((data) => {
-      alert(JSON.stringify(data));
-      // this.imageFileName = "http://192.168.0.7:8080/static/images/ionicfile.jpg".
-      loader.dismiss();
-      this.presentToast("Image uploaded successfully");
-    }, (err) => {
-      console.log(err);
-      loader.dismiss();
-      this.presentToast(err);
-    });
-  }
-
-
-
-
-
-
-  presentToast(msg) {
+   
+  private presentToast(text) {
     let toast = this.toastCtrl.create({
-      message: msg,
+      message: text,
       duration: 3000,
-      position: 'bottom'
+      position: 'top'
     });
-  
-    toast.onDidDismiss(() => {
-      console.log('Dismissed toast');
-    });
-  
     toast.present();
   }
+
+
+
+
+
+  // presentToast(msg) {
+  //   let toast = this.toastCtrl.create({
+  //     message: msg,
+  //     duration: 3000,
+  //     position: 'bottom'
+  //   });
   
-
-
+  //   toast.onDidDismiss(() => {
+  //     console.log('Dismissed toast');
+  //   });
+  
+  //   toast.present();
+  // }
 }
+
+
+
+
+
 
 
 

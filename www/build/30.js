@@ -1,6 +1,6 @@
 webpackJsonp([30],{
 
-/***/ 528:
+/***/ 530:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -27,7 +27,7 @@ var ComplainReplyPageModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_2__complain_reply__["a" /* ComplainReplyPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__complain_reply__["a" /* ComplainReplyPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__complain_reply__["a" /* ComplainReplyPage */]),
             ],
         })
     ], ComplainReplyPageModule);

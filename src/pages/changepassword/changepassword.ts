@@ -3,7 +3,7 @@ import { IonicPage, NavController, NavParams, MenuController, LoadingController,
 import { apiUrl } from '../../apiUrl';
 import { ModalController, Platform, ViewController } from 'ionic-angular';
 import { Http, RequestOptions, Headers, Jsonp } from '@angular/http';
-import { AccountPage } from '../account/account';
+import AccountPage from '../account/account';
 
 /**
  * Generated class for the ChangepasswordPage page.

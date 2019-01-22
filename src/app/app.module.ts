@@ -30,7 +30,7 @@ import { ParentsChildTabsPage } from '../pages/parents-child-tabs/parents-child-
 import { StudentLibraryListPage } from '../pages/student-library-list/student-library-list';
 import { ProfilePage } from '../pages/student-library-list/student-library-list';
 import { StudentNoticeBoardPage, NoticeModalPage } from '../pages/student-notice-board/student-notice-board';
-import { AccountPage, ModalPage } from '../pages/account/account';
+import AccountPage, { ModalPage } from '../pages/account/account';
 import { ChangepasswordPage } from '../pages/changepassword/changepassword';
 import { ParentsAccountPage } from '../pages/parents-account/parents-account';
 import { StaffLoginPage } from '../pages/staff-login/staff-login';
@@ -66,6 +66,8 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
 import { File } from '@ionic-native/file';
 import { Camera } from '@ionic-native/camera';
+import { FilePath } from '@ionic-native/file-path';
+import { Transfer, TransferObject } from '@ionic-native/transfer';
 
 
 
@@ -184,6 +186,8 @@ import { Camera } from '@ionic-native/camera';
     FileTransferObject,
     File,
     Camera,
+    FilePath,
+    Transfer
     // Camera,
     // StreamingMedia
   ]

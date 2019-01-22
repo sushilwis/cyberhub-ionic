@@ -1,6 +1,6 @@
 webpackJsonp([26],{
 
-/***/ 533:
+/***/ 536:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -33,7 +33,7 @@ var ParentsAccountPageModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_4__stuff_edit_stuff_edit__["a" /* StuffEditPage */]
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__parents_account__["a" /* ParentsAccountPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__parents_account__["a" /* ParentsAccountPage */]),
             ],
             entryComponents: [
                 __WEBPACK_IMPORTED_MODULE_3__stuff_change_pass_stuff_change_pass__["a" /* StuffChangePassPage */],

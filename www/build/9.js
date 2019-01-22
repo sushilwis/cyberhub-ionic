@@ -1,6 +1,6 @@
 webpackJsonp([9],{
 
-/***/ 548:
+/***/ 549:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -27,7 +27,7 @@ var StudentLoginPageModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_2__student_login__["a" /* StudentLoginPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__student_login__["a" /* StudentLoginPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__student_login__["a" /* StudentLoginPage */]),
             ],
         })
     ], StudentLoginPageModule);

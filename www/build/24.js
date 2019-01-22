@@ -27,7 +27,7 @@ var ParentsLoginPageModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_2__parents_login__["a" /* ParentsLoginPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__parents_login__["a" /* ParentsLoginPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__parents_login__["a" /* ParentsLoginPage */]),
             ],
         })
     ], ParentsLoginPageModule);

@@ -1,6 +1,6 @@
 webpackJsonp([34],{
 
-/***/ 524:
+/***/ 526:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -26,14 +26,14 @@ var AccountPageModule = /** @class */ (function () {
     AccountPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__account__["a" /* AccountPage */],
-                __WEBPACK_IMPORTED_MODULE_2__account__["b" /* ModalPage */]
+                __WEBPACK_IMPORTED_MODULE_2__account__["b" /* default */],
+                __WEBPACK_IMPORTED_MODULE_2__account__["a" /* ModalPage */]
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__account__["a" /* AccountPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__account__["b" /* default */]),
             ],
             entryComponents: [
-                __WEBPACK_IMPORTED_MODULE_2__account__["b" /* ModalPage */]
+                __WEBPACK_IMPORTED_MODULE_2__account__["a" /* ModalPage */]
             ],
             providers: [
                 __WEBPACK_IMPORTED_MODULE_3__ionic_native_camera__["a" /* Camera */]

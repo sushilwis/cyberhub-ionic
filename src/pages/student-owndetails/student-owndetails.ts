@@ -9,7 +9,7 @@ import { PersonalNoticePage } from '../personal-notice/personal-notice';
 import { LiveStreamPage } from '../live-stream/live-stream';
 import { AttendancePage } from '../attendance/attendance';
 import { RoutinePage } from '../routine/routine';
-import { AccountPage } from '../account/account';
+import AccountPage from '../account/account';
 import { apiUrl } from '../../apiUrl';
 import { HomePage } from '../home/home';
 import { StaffComplainPage } from '../staff-complain/staff-complain';
