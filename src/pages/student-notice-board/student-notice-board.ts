@@ -183,10 +183,30 @@ export class StudentNoticeBoardPage implements OnInit {
 
 
   showPdf(url: string) { 
-    alert(`${apiUrl.url}public/uploads/Notices/${url}`); 
-    this.pdfSrc = `${apiUrl.url}public/uploads/Notices/${url}`;      
-    this.document.viewDocument(`${apiUrl.url}public/uploads/Notices/${url}`, 'application/pdf', {});
+    alert(`show pdf called...`); 
+    // this.pdfSrc = `${apiUrl.url}public/uploads/Notices/${url}`; 
+    let pdfUrl = "http://softechs.co.in/school_hub/public/uploads/Notices/1542270180-2.pdf";    
+    // this.document.viewDocument(`${apiUrl.url}public/uploads/Notices/${url}`, 'application/pdf', {});
+    var options: DocumentViewerOptions = {
+      title: 'My PDF',
+      documentView:{closeLabel:''},
+      navigationView:{closeLabel:''},
+      email:{enabled:true},
+      print:{enabled:true},
+      openWith:{enabled:true},
+      bookmarks:{enabled:false},
+      search:{enabled:false},
+      autoClose:{onPause:false}
+    }
+
+    var optionsArray: any = [];
+    optionsArray.push(options);
+
+    this.document.viewDocument(pdfUrl, 'application/pdf', optionsArray);
   }
+
+
+  // http://softechs.co.in/school_hub/public/uploads/Notices/${url}
 
 
 
