@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-navbar color="blue">
+    <ion-title>Notice Board</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>  
+  <ion-list>
+    <ion-item *ngFor="let notice of allNotice">
+      <ion-thumbnail item-start (click)="presentProfileModal(notice.id)">
+        <img src="assets/imgs/download-img.png">
+      </ion-thumbnail>
+      <h2>{{notice?.notice?.subject}}</h2>
+      <p>{{notice?.notice?.text}}</p>
+      <p>{{notice?.noticetype?.type_name}}</p>
+      <p style="font-size: 10px;">{{notice?.created_at}}</p>
+
+      <button ion-button clear item-end (click)="showPdf(http://softechs.co.in/school_hub/public/uploads/Notices/1545809130-2.pdf)">
+        <i class="fas fa-download fa-2x"></i>
+      </button>
+      
+    </ion-item>
+  </ion-list>
+
+  <!-- <ion-infinite-scroll (ionInfinite)="doInfinite($event)" *ngIf="page < totalPage">
+      <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more..."></ion-infinite-scroll-content>
+  </ion-infinite-scroll> -->
+  <!-- <pdf-viewer *ngIf="pdfSrc" [src]="pdfSrc" [render-text]="true" style="display: block;"></pdf-viewer> -->
+</ion-content>
+
+<!-- <pdf-viewer [src]="pdfSrc" [render-text]="true" style="display: block;"></pdf-viewer> -->
+
+
+<ion-footer class="fixed">
+  <ion-toolbar color="primary">  
+  <ion-grid text-center >
+    <ion-row>
+      <div col-3 (click)=goToHome()>
+        <img src="assets/imgs/white-icon5.png">
+       <!--  <i text-center class="fas fa-video fa-inverse fa-lg"></i> -->
+        <p class="footer-p">Home</p>
+      </div>
+      <div col-3 (click)=gotoLiveStream()>
+        <img src="assets/imgs/white-icon1.png">
+       <!--  <i text-center class="fas fa-video fa-inverse fa-lg"></i> -->
+        <p class="footer-p">Live Streaming</p>
+      </div>
+      <div col-3 (click)=goToAttendance()>
+        <img src="assets/imgs/white-icon2.png">
+        <!-- <i text-center class="fas fa-boxes fa-inverse fa-lg"></i> -->
+        <p  class="footer-p">Attendance</p>
+      </div>
+      <div col-3 (click)=goToRoutine()>
+        <img src="assets/imgs/white-icon3.png">
+      	<!-- <i class="fas fa-box fa-inverse fa-lg"></i> -->
+        <p  class="footer-p">Routine</p>
+      </div>
+    </ion-row>
+  </ion-grid>
+  </ion-toolbar>
+</ion-footer>

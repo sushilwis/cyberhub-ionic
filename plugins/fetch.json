@@ -90,7 +90,15 @@
   "cordova-plugin-filepath": {
     "source": {
       "type": "registry",
-      "id": "cordova-plugin-filepath"
+      "id": "cordova-plugin-filepath@1.5.1"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-file-opener2": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-file-opener2@2.1.4"
     },
     "is_top_level": true,
     "variables": {}
