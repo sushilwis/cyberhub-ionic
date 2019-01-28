@@ -47060,7 +47060,7 @@ exports.MessageHandler = MessageHandler;
 /******/ ]);
 });
 //# sourceMappingURL=pdf.worker.js.map
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(62).Buffer, __webpack_require__(29), __webpack_require__(151)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(63).Buffer, __webpack_require__(29), __webpack_require__(151)))
 
 /***/ })
 

@@ -9,12 +9,8 @@ import { LibraryListPage } from '../library-list/library-list';
 import { LiveStreamPage } from '../live-stream/live-stream';
 import { SchoolcalenderPage } from '../schoolcalender/schoolcalender';
 import { apiUrl } from '../../apiUrl'
-/**
- * Generated class for the SchoolDetailsPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { HomePage } from '../home/home';
+
 
 @IonicPage()
 @Component({
@@ -39,7 +35,7 @@ export class SchoolDetailsPage {
 
 
   ionViewDidLoad() {
-    // console.log('ionViewDidLoad SchoolDetailsPage');
+    console.log('ionViewDidLoad SchoolDetailsPage');
   }
 
 
@@ -64,11 +60,13 @@ export class SchoolDetailsPage {
       org_id: id,
     }
 
+    console.log('data : ', data);    
+
     this.http.post(`${apiUrl.url}org/getdetail`, data, {headers: header}).
       map(res => res.json()).subscribe(data => {
         // this.presentLoading(false);
         this.schoolDetails = data.data[0];
-        // console.log(this.schoolDetails);        
+        console.log(this.schoolDetails);        
       })
   }
 
@@ -88,34 +86,38 @@ export class SchoolDetailsPage {
 
 
 
-  gotoLiveStream(){
+  gotoLiveStream() {
     this.navCtrl.push(LiveStreamPage);
   }
 
-  goToLibrary(){
+  goToLibrary() {
     this.navCtrl.push(LibraryListPage,{ id: this.schoolId });
   }
   
-  goToCalender(){
+  goToCalender() {
     this.navCtrl.push(SchoolcalenderPage, {
       id: this.schoolId
     });
   }
 
+  goToHome() {
+    this.navCtrl.push(HomePage);
+  }
 
 
 
 
-  // presentLoading(load: boolean) {
-  //   if (load){
-  //     return this.loading.present();
-  //   }
-  //   else{
-  //     setTimeout(() => {
-  //       return this.loading.dismiss();
-  //     }, 500);
-  //   }
-  // }
+
+  presentLoading(load: boolean) {
+    if (load){
+      return this.loading.present();
+    }
+    else{
+      setTimeout(() => {
+        return this.loading.dismiss();
+      }, 500);
+    }
+  }
 
 
 

@@ -7,7 +7,7 @@ import { RoutinePage } from '../routine/routine';
 import { RequestOptions, Headers, Http, Jsonp } from '@angular/http';
 import { apiUrl } from '../../apiUrl';
 import { ModalController, Platform, ViewController } from 'ionic-angular';
-// import { FileOpener } from "@ionic-native/file-opener";
+import { FileOpener } from "@ionic-native/file-opener";
 
 
 @IonicPage()
@@ -34,7 +34,7 @@ export class StudentNoticeBoardPage implements OnInit {
     public modalCtrl: ModalController,
     public jsonp: Jsonp,
     public viewCtrl: ViewController,
-    // private fileOpener: FileOpener
+    private fileOpener: FileOpener
   ) {
     this.menuCtrl.enable(false);
     this.initLoader();
@@ -154,14 +154,14 @@ export class StudentNoticeBoardPage implements OnInit {
     this.viewCtrl.dismiss();
   }
 
-  // showPdf(url: string) {
-  //   alert(`${apiUrl.url}public/uploads/Notices/${url}`);
-  //   //let pdfurl = `${apiUrl.url}public/uploads/Notices/${url}`;
-  //   this.fileOpener
-  //     .open(url, "application/pdf")
-  //     .then(dta => alert(JSON.stringify(dta)))
-  //     .catch(e => alert(JSON.stringify(e)));
-  // }
+  showPdf(url: string) {
+    alert(`${apiUrl.url}public/uploads/Notices/${url}`);
+    //let pdfurl = `${apiUrl.url}public/uploads/Notices/${url}`;
+    this.fileOpener
+      .open(url, "application/pdf")
+      .then(dta => alert(JSON.stringify(dta)))
+      .catch(e => alert(JSON.stringify(e)));
+  }
 }
 
 
