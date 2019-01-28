@@ -1,0 +1,63 @@
+<!-- <ion-header>
+  <ion-navbar color="blue">
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header> -->
+
+<div id="custom-overlay" [style.display]="splash ? 'flex' : 'none'">
+  <div class="flb">
+    <img class="img-screen" src="assets/imgs/logo.png">
+  </div>
+</div>
+
+<ion-content class="item-center" style="background: #434244">
+  <img class="logo-school" src="assets/imgs/inunco.png">
+  <ion-grid style="margin-top: 5em;">
+    <ion-row #myElement>
+
+      <ion-row col-6>
+        <ion-card color="blue" class="blue-gradient" [ripple] (click)="goToGuest()">
+          <ion-card-header text-center class="padd-bottom"><i class="fas fa-user-circle fa-3x"></i></ion-card-header>
+          <ion-card-content>
+            <ion-card-title text-uppercase text-center>
+              Guest
+            </ion-card-title>
+          </ion-card-content>
+        </ion-card>
+      </ion-row>
+
+      <ion-row col-6>
+        <ion-card color="blue" class="blue-gradient" (click)=goToStudent()>
+          <ion-card-header text-center class="padd-bottom"><i class="fas fa-user fa-3x"></i></ion-card-header>
+          <ion-card-content>
+            <ion-card-title text-uppercase text-center>
+              Student
+            </ion-card-title>
+          </ion-card-content>
+        </ion-card>
+      </ion-row>
+
+      <ion-row col-6>
+        <ion-card color="blue" class="blue-gradient" (click)=goToStaff()>
+          <ion-card-header text-center class="padd-bottom"><i class="fas fa-briefcase fa-3x"></i></ion-card-header>
+          <ion-card-content>
+            <ion-card-title text-uppercase text-center>
+              Staff
+            </ion-card-title>
+          </ion-card-content>
+        </ion-card>
+      </ion-row>
+
+      <ion-row col-6>
+        <ion-card color="blue" class="blue-gradient" (click)=goToParents()>
+          <ion-card-header text-center class="padd-bottom"><i class="fas fa-users fa-3x"></i></ion-card-header>
+          <ion-card-content>
+            <ion-card-title text-uppercase text-center>
+              Parents
+            </ion-card-title>
+          </ion-card-content>
+        </ion-card>
+      </ion-row>
+    </ion-row>
+  </ion-grid>
+</ion-content>

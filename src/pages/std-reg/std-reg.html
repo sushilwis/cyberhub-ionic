@@ -24,12 +24,26 @@
     <h5 class="title" text-center text-uppercase margin-bottom>Student Registration</h5>
 
     <ion-list>
-        <ion-item>
-          <ion-label>Select College</ion-label>
-          <ion-select [(ngModel)]="college" name="college">
-            <ion-option *ngFor="let college of collegeList" value="{{college.id}}">{{college.org_name | uppercase}}</ion-option>
-          </ion-select>
-        </ion-item>
+      <ion-item>
+        <!-- <ion-navbar color="light" [hideBackButton]="isSearchbarOpened ? 'true' : 'false'"> -->
+          <!-- <ion-title *ngIf="isSearchbarOpened==false">Submit Enquiry</ion-title>
+          <ion-buttons end *ngIf="isSearchbarOpened==false" (click)="onSearchButtonClick()">
+            <button ion-button icon-only>
+              <ion-icon name="search" color="light"></ion-icon>
+            </button>
+          </ion-buttons> -->
+        <ion-label fixed>Institute</ion-label>
+        <ion-input #search type="text" (keyup)="getItems($event)" showCancelButton="true" (ionCancel)="isSearchbarOpened=false"></ion-input>
+        <!-- </ion-navbar> -->
+        
+        <div class="search-result" [ngStyle]="{'display':isSearchbarOpened ? 'block' : 'none' }">
+          <ion-list>
+            <ion-item *ngFor="let item of items" (click)="schoolsDetails(item.id)">
+              {{ item.name }}
+            </ion-item>
+          </ion-list>
+        </div>
+      </ion-item> 
     </ion-list>
 
     <ion-list>

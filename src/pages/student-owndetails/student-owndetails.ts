@@ -119,7 +119,8 @@ export class StudentOwndetailsPage implements OnInit {
 		header.append('Content-Type', 'application/json');
 		let options = new RequestOptions({headers: header});
     
-		this.http.get(`https://api.openweathermap.org/data/2.5/forecast/daily?zip=94040,us`, options).
+		this.http.get(`https://api.openweathermap.org/data/2.5/forecast/daily?zip=94040,us?appid=2335fe6c7bd175d5b8e46bc300783240
+    `, options).
 			map(res => res.json()).subscribe(data => {				
 				console.log('api data : ', data);
 			});

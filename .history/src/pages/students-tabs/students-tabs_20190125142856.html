@@ -1,0 +1,10 @@
+<ion-content>
+
+  <ion-tabs id="tabs" color="blue">
+    <ion-tab [root]="tab1Root" tabTitle="Home" tabIcon="home" tabsHideOnSubPages="true" (swipe)="transition($event)"></ion-tab>
+    <ion-tab [root]="tab2Root" tabTitle="Live" tabIcon="videocam" tabsHideOnSubPages="true" (swipe)="transition($event)"></ion-tab>
+    <ion-tab [root]="tab3Root" tabTitle="Profile" tabIcon="person" tabsHideOnSubPages="true" (ionChange)="transition($event)"></ion-tab>
+    <!-- <ion-tab [root]="tab4Root" tabTitle="Logout" tabIcon="log-out" tabsHideOnSubPages="true" (ionChange)="transition($event)"></ion-tab> -->
+  </ion-tabs>
+
+</ion-content>

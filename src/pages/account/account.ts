@@ -248,6 +248,7 @@ export default class AccountPage implements OnInit {
       duration: 3000,
       position: 'top'
     });
+    
     toast.present();
   }
 

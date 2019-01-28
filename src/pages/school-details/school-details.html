@@ -9,7 +9,7 @@
      <!--  <expandable-header [scrollArea]="mycontent" headerHeight="125">
         <img src="assets/imgs/SCHOOLS-Banner-Images.jpg"/>
       </expandable-header> -->
-      <ion-title>School Details</ion-title>
+      <ion-title>College Details</ion-title>
     </ion-navbar>
 </ion-header>
 
@@ -36,7 +36,7 @@
 </ion-card> -->
 
 
-<ion-card>
+  <!-- <ion-card>
     <img [src]="schoolDetails?.org_img"/>
     <ion-card-content>
       <ion-card-title>
@@ -47,32 +47,67 @@
             <ion-icon name="cloud"></ion-icon>
           17 °C</p>
         </div>
-        <!-- <p ><strong>Email</strong>: demo@gmail.com</p>
-        <p><strong>Mobile</strong>: 1234567890</p> -->
         <div [innerHtml]="schoolDetails?.org_text"></div>
         <p><strong>About</strong> : </p>
         <div [innerHtml]="schoolDetails?.org_about" class="mt-4"></div>
     </ion-card-content>
     
+  </ion-card> -->
+
+
+  <ion-card>
+    <img [src]="schoolDetails?.org_img"/>
+    <ion-card-content>
+        <ion-card-title>
+          {{schoolDetails?.org_name}}
+        </ion-card-title>
+        <p><strong>City</strong>: {{schoolDetails?.org_city}}</p>
+        <div float-right >
+          <p [ngStyle]="{'font-size': '24px'}">
+            <ion-icon name="cloud"></ion-icon>
+          17 °C</p>
+        </div>
+        <p ><strong>Email</strong>: {{schoolDetails?.email}}</p>
+        <p><strong>Mobile</strong>: {{schoolDetails?.phone_no}}</p>
+        <p><strong>Website</strong>: {{schoolDetails?.website}}</p>
+        <div [innerHtml]="schoolDetails?.org_text"></div>
+        <p><strong>About</strong> : </p>
+        <div [innerHtml]="schoolDetails?.org_about" class="mt-4"></div>
+    </ion-card-content>  
   </ion-card>
 
 
-<ion-grid>
-  <ion-row>
-    <ion-col col-md-4 class="icon-center" (click)=gotoLiveStream()>
-      <img src="assets/imgs/icon6.png"/>
-      <p>Live Streaming</p>
-    </ion-col>
-    <ion-col col-md-4 class="icon-center" (click)=goToAllPdf()>
-      <img src="assets/imgs/icon2.png"/>
-      <p>Notice Board</p>
-    </ion-col>
-    <ion-col col-md-4 class="icon-center" (click)=goToLibrary()>
-      <img src="assets/imgs/icon.png"/>
-      <p>Library</p>
-    </ion-col>
-  </ion-row>
-</ion-grid>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-md-4 class="icon-center" (click)=gotoLiveStream()>
+        <img src="assets/imgs/icon6.png"/>
+        <p>Live Streaming</p>
+      </ion-col>
+      <ion-col col-md-4 class="icon-center" (click)=goToAllPdf()>
+        <img src="assets/imgs/icon2.png"/>
+        <p>Notice Board</p>
+      </ion-col>
+      <ion-col col-md-4 class="icon-center" (click)=goToLibrary()>
+        <img src="assets/imgs/icon.png"/>
+        <p>Library</p>
+      </ion-col>
+    </ion-row>
+    
+    <ion-row>      
+      <ion-col col-md-4 class="icon-center" (click)=goToHome()>
+        <img src="assets/imgs/icon.png"/>
+        <p>Home</p>
+      </ion-col>
+      <ion-col col-md-4 class="icon-center">
+        <img src=""/>
+        <p></p>
+      </ion-col>
+      <ion-col col-md-4 class="icon-center">
+        <img src=""/>
+        <p></p>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
 <!-- <ion-grid text-center>
   <button ion-button color="blue" (click)=goToAllPdf()>NOTICE BOARD</button>
