@@ -11,7 +11,7 @@ import { RoutinePage } from '../pages/routine/routine';
 import { PersonalNoticePage } from '../pages/personal-notice/personal-notice';
 import { GuestEnquiryPage } from '../pages/guest-enquiry/guest-enquiry';
 import { StudentLoginPage } from '../pages/student-login/student-login';
-import { StudentsTabsPage } from '../pages/students-tabs/students-tabs';
+import StudentsTabsPage from '../pages/students-tabs/students-tabs';
 import { StaffInfoPage } from '../pages/staff-info/staff-info';
 
 

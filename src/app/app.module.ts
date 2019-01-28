@@ -44,7 +44,7 @@ import { ComplainReplyPage } from '../pages/complain-reply/complain-reply';
 import { StuffExamdutyPage } from '../pages/stuff-examduty/stuff-examduty';
 // import { StaffInfoPage } from '../pages/staff-info/staff-info';
 import { SchoolcalenderPage } from '../pages/schoolcalender/schoolcalender';
-import { StudentsTabsPage } from '../pages/students-tabs/students-tabs';
+import StudentsTabsPage from '../pages/students-tabs/students-tabs';
 // import { AccountPage, ModalPage } from '../pages/account/account';
 // import { StudentNoticeBoardPage, NoticeModalPage } from './student-notice-board';
 import { StuffChangePassPage } from '../pages/stuff-change-pass/stuff-change-pass';

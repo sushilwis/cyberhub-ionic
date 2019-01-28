@@ -1,12 +1,13 @@
 import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController, AlertController } from 'ionic-angular';
-import { StudentsTabsPage } from '../students-tabs/students-tabs';
+import StudentsTabsPage from '../students-tabs/students-tabs';
 
 import { Http, RequestOptions, Headers, Jsonp } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { apiUrl } from '../../apiUrl';
 import {messageVendor} from '../../vendors';
 import { StdRegPage } from '../std-reg/std-reg';
+import {HomePage} from '../home/home'
 // declare var $: any;
 // declare var jquery : any;
 
@@ -57,7 +58,9 @@ export class StudentLoginPage {
 	}
 
 
-
+	gotoHome(){
+		this.navCtrl.setRoot(HomePage);
+	}
 
   ionViewDidLoad() {	
     console.log('ionViewDidLoad StudentLoginPage');

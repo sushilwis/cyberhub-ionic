@@ -15,7 +15,7 @@ page-account {
 		padding:0px;
 	}
 	.back-ground{
-		background: url(../assets/imgs/blue-bk.jpg); 
+		background: black;
 		width: 100%;
 		padding: 8px 0;
 	}
@@ -40,6 +40,12 @@ page-account {
 		text-align: center;
 		flex-wrap: wrap;
 		margin: 0px auto;
+	}
+	p {
+		color: #eee;
+	}
+	h5 {
+		color: #eee;
 	}
 }
 

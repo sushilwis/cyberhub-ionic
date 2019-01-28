@@ -28058,7 +28058,7 @@ page-account .toolbar-md, page-account .toolbar-ios {
 }
 
 page-account .back-ground {
-  background: url(../assets/imgs/blue-bk.jpg);
+  background: black;
   width: 100%;
   padding: 8px 0;
 }
@@ -28097,6 +28097,14 @@ page-account .back-ground img {
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
   margin: 0px auto;
+}
+
+page-account p {
+  color: #eee;
+}
+
+page-account h5 {
+  color: #eee;
 }
 
 .btnStyle {
@@ -28414,6 +28422,11 @@ page-home .card-title-md {
 page-home .blue-gradient {
   background-color: #000;
   color: #fff !important;
+}
+
+page-home .logo-school {
+  display: block;
+  margin: 13px auto;
 }
 
 page-home #custom-overlay {

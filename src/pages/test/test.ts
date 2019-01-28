@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController, LoadingController } from 'ionic-angular';
 import * as io from "socket.io-client";
-import { StudentsTabsPage } from '../students-tabs/students-tabs';
+import StudentsTabsPage from '../students-tabs/students-tabs';
 import { StudentOwndetailsPage } from '../student-owndetails/student-owndetails';
 
 /**

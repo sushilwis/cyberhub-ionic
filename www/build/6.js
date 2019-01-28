@@ -1,6 +1,6 @@
 webpackJsonp([6],{
 
-/***/ 555:
+/***/ 556:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -24,10 +24,10 @@ var StudentsTabsPageModule = /** @class */ (function () {
     StudentsTabsPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__students_tabs__["a" /* StudentsTabsPage */],
+                __WEBPACK_IMPORTED_MODULE_2__students_tabs__["a" /* default */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__students_tabs__["a" /* StudentsTabsPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__students_tabs__["a" /* default */]),
             ],
         })
     ], StudentsTabsPageModule);
