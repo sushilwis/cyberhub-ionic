@@ -8,6 +8,12 @@
   <ion-navbar color="primary">
     <ion-title>{{viewTitle}}</ion-title>
 
+    <ion-buttons end (click)=goToHome() *ngIf="localUserData == null">
+        <button ion-button icon-only>
+          <ion-icon name="home" color="light"></ion-icon>
+        </button>
+    </ion-buttons>
+    
   </ion-navbar>
 </ion-header>
 

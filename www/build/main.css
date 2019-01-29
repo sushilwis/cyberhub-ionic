@@ -28376,7 +28376,6 @@ page-guest-enquiry .search-result {
   /* top: 56px; */
   background: rgba(255, 255, 255, 0.839);
   width: 100%;
-  height: 100vh;
   z-index: 99;
   border: 1px solid #ddd;
   overflow-y: scroll;
@@ -29279,6 +29278,19 @@ page-staff-login .title {
 
 page-staff-login .list-ios > .item-block:first-child {
   border-top: 0px solid #c8c7cc !important;
+}
+
+page-std-reg .search-result {
+  position: absolute;
+  left: 0;
+  /* top: 56px; */
+  background: rgba(255, 255, 255, 0.839);
+  width: 100%;
+  z-index: 99;
+  border: 1px solid #ddd;
+  overflow-y: scroll;
+  /* visibility: hidden; */
+  /* opacity: 0; */
 }
 
 page-student-library-list .fixed p {

@@ -30,6 +30,7 @@ export class LibraryListPage implements OnInit {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private menu:MenuController,  private http: Http, public alertCtrl: AlertController, public loadingController: LoadingController, public modalCtrl: ModalController, public viewCtrl: ViewController) {
     this.menu.enable(false);
+    this.getUserDataFromLocal();
     this.schoolId = navParams.get('id');
     this.initLoader();
 
@@ -164,6 +165,16 @@ export class LibraryListPage implements OnInit {
       console.log('Async operation has ended');
       infiniteScroll.complete();
     }, 500);
+  }
+
+
+
+
+
+  getUserDataFromLocal() {
+    let data = localStorage.getItem("userData");
+    this.localUserData = JSON.parse(data);
+    console.log('local data : ', this.localUserData);
   }
 
 

@@ -31,6 +31,7 @@ export class StdRegPage {
   searchQuery: string = "";
   items = [];
   allSchoolsList: any;
+  inputShowValue: any;
   list = [];
   idList = [];
   country: number;
@@ -142,16 +143,15 @@ export class StdRegPage {
 
 
 
-  onSearchButtonClick() {
-    this.isSearchbarOpened = true;
-    setTimeout(() => {
-      this.searchbox.setFocus();
-    }, 150);
-  }
-
-
   getItems(ev: any) {
     // Reset items back to all of the items
+    if(ev.target.value == ""){
+      this.isSearchbarOpened = false;
+      this.items = [];
+      return;
+    }
+
+    this.isSearchbarOpened = true;
     // console.log('value : ', ev.target.value);
     this.initializeItems();
 
@@ -164,8 +164,12 @@ export class StdRegPage {
       this.items = this.items.filter(item => {
         return item.name.toLowerCase().indexOf(val.toLowerCase()) > -1;
       });
+
+      console.log('items : ...', this.items);      
     }
   }
+
+
 
 
   goToListing() {
@@ -182,20 +186,23 @@ export class StdRegPage {
   }
 
 
+
+
   initializeItems() {
     this.items = this.list;
   }
 
 
-  schoolsDetails(id) {
-    this.navCtrl.push(
-      SchoolDetailsPage,
-      {
-        id: id
-      },
-      { animation: "transition", duration: 1000, direction: "forward" }
-    );
+
+
+  schoolsDetails(org) {
+    this.inputShowValue = org.name;
+    this.college = org.id;
+    
+    this.items = [];
   }
+
+
 
 
   getData() {
@@ -203,6 +210,7 @@ export class StdRegPage {
       .get(`${apiUrl.url}org/alllist`)
       .map(res => res.json())
       .subscribe(data => {
+        this.presentLoading(false);
         this.allSchoolsList = data;
         console.log("student list : ", this.allSchoolsList);
         data.data.forEach(ele => {
@@ -214,6 +222,18 @@ export class StdRegPage {
         });
       });
   }
+
+
+
+
+  onSearchButtonClick() {
+    this.isSearchbarOpened = true;
+    setTimeout(() => {
+      this.searchbox.setFocus();
+    }, 150);
+  }
+
+
 
 
   presentToast(msg:string) {

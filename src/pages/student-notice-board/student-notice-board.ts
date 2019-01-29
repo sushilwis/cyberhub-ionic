@@ -8,6 +8,7 @@ import { RequestOptions, Headers, Http, Jsonp } from '@angular/http';
 import { apiUrl } from '../../apiUrl';
 import { ModalController, Platform, ViewController } from 'ionic-angular';
 import { FileOpener } from "@ionic-native/file-opener";
+import { HomePage } from '../home/home';
 
 
 @IonicPage()
@@ -24,6 +25,7 @@ export class StudentNoticeBoardPage implements OnInit {
   totalData: any = 0;
   totalPage: any = 0;
   pdfSrc: any;
+  guestOrgId: any;
 
   constructor(
     public navCtrl: NavController,
@@ -36,6 +38,7 @@ export class StudentNoticeBoardPage implements OnInit {
     public viewCtrl: ViewController,
     private fileOpener: FileOpener
   ) {
+    this.getUserDataFromLocal();
     this.menuCtrl.enable(false);
     this.initLoader();
 
@@ -45,15 +48,23 @@ export class StudentNoticeBoardPage implements OnInit {
   }
 
   ngOnInit() {
-    this.getNoticeList();
+    this.guestOrgId = this.navParams.get('id');
+    // console.log('guest org id : ', this.guestOrgId);    
+    this.getNotice();
   }
 
   ionViewDidLoad() {
     console.log("StudentNoticeBoardPage");
   }
+
   goToHome() {
-    this.navCtrl.setRoot(StudentOwndetailsPage);
+    if(this.localUserData){
+      this.navCtrl.setRoot(StudentOwndetailsPage);
+    } else {
+      this.navCtrl.setRoot(HomePage);
+    }    
   }
+
   gotoLiveStream() {
     this.navCtrl.push(LiveStreamPage);
   }
@@ -64,9 +75,15 @@ export class StudentNoticeBoardPage implements OnInit {
     this.navCtrl.push(RoutinePage);
   }
 
-  async getNoticeList(infiniteScroll?) {
+
+
+
+
+
+  getNoticeList(infiniteScroll?) {
+
     this.presentLoading(true);
-    await this.getUserDataFromLocal();
+    // this.getUserDataFromLocal();
     let header = new Headers();
     header.set("Content-Type", "application/json");
 
@@ -94,6 +111,59 @@ export class StudentNoticeBoardPage implements OnInit {
       });
   }
 
+
+
+
+  getGuestNoticeList(infiniteScroll?) {
+
+    this.presentLoading(true);
+    // this.getUserDataFromLocal();
+    let header = new Headers();
+    header.set("Content-Type", "application/json");
+
+    let data = {
+      org_id: this.guestOrgId
+    };
+
+    // console.log('Data sent : ', data);
+    this.http
+      .post(`${apiUrl.url}notice/get-general`, data, { headers: header })
+      .map(res => res.json())
+      .subscribe(async data => {
+        console.log('Receive notice data for guest : ', data);
+        if (data.data.length > 1) {
+          console.log("Receive data : ", data.data);
+          this.allNotice = await data.data;
+          this.totalData = await data.data.length;
+          this.totalPage = await Math.floor(this.totalData / 5);
+          this.presentLoading(false);
+        } else {
+          this.presentLoading(false);
+        }
+      });
+  }
+
+
+
+
+
+
+  getNotice() {
+    if(this.localUserData != null){
+      this.getNoticeList();
+    }else{
+      this.getGuestNoticeList();
+    }
+  }
+
+
+
+
+
+
+
+
+
   doInfinite(infiniteScroll) {
     this.page = this.page + 1;
     console.log("Begin async operation");
@@ -115,7 +185,7 @@ export class StudentNoticeBoardPage implements OnInit {
   getUserDataFromLocal() {
     let data = localStorage.getItem("userData");
     this.localUserData = JSON.parse(data);
-    // console.log('local data : ', this.localUserData);
+    console.log('local data : ', this.localUserData);
   }
 
   initLoader() {

@@ -7,7 +7,12 @@
 <ion-header>
   <ion-navbar color="blue">
     <ion-title>List of Books</ion-title>
-      <ion-buttons end class="search-icon"> <i class="fas fa-search fa-lg"></i> </ion-buttons>
+      <!-- <ion-buttons end class="search-icon"> <i class="fas fa-search fa-lg"></i> </ion-buttons> -->
+      <ion-buttons end (click)=goToHome() *ngIf="localUserData == null">
+          <button ion-button icon-only>
+            <ion-icon name="home" color="light"></ion-icon>
+          </button>
+      </ion-buttons>
   </ion-navbar>
    <ion-toolbar>
     <ion-searchbar></ion-searchbar>
@@ -15,7 +20,7 @@
 </ion-header>
 
 
-<ion-content>
+<ion-content *ngIf="allBookList">
   
   <ion-list>
       <!-- <ion-item >
@@ -43,8 +48,15 @@
 </ion-content>
 
 
+<ion-content *ngIf="!allBookList">
+  <ion-item>
+      <p text-center><strong>Nothing Found</strong></p>
+  </ion-item>
+</ion-content>
 
-<ion-footer class="fixed">
+
+
+<ion-footer class="fixed" *ngIf="localUserData != null">
   <ion-toolbar color="primary">  
   <ion-grid text-center >
     <ion-row>

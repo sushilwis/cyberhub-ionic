@@ -6,6 +6,7 @@ import 'rxjs/add/operator/map';
 import { SchoolListingPage } from '../school-listing/school-listing';
 import { SchoolDetailsPage } from './../school-details/school-details';
 import { apiUrl } from '../../apiUrl';
+import { HomePage } from '../home/home';
 /**
  * Generated class for the GuestEnquiryPage page.
  *
@@ -39,6 +40,8 @@ export class GuestEnquiryPage {
     this.getData();
   }
 
+
+
   getData() {
     this.http
       .get(`${apiUrl.url}org/alllist`)
@@ -56,9 +59,13 @@ export class GuestEnquiryPage {
       });
   }
 
+
+
   initializeItems() {
     this.items = this.list;
   }
+
+
 
   onSearchButtonClick() {
     this.isSearchbarOpened = true;
@@ -66,6 +73,8 @@ export class GuestEnquiryPage {
       this.searchbox.setFocus();
     }, 150);
   }
+
+
 
   schoolsDetails(id) {
     this.navCtrl.push(
@@ -76,6 +85,8 @@ export class GuestEnquiryPage {
       { animation: "transition", duration: 1000, direction: "forward" }
     );
   }
+
+
 
   ionViewDidLoad() {
     console.log("ionViewDidLoad GuestEnquiryPage");
@@ -94,8 +105,27 @@ export class GuestEnquiryPage {
     }
   }
 
+
+
+
+  goToHome() {
+    console.log('go home...');    
+    this.navCtrl.push(HomePage);
+  }
+
+
+
+
+
   getItems(ev: any) {
     // Reset items back to all of the items
+    if(ev.target.value == ""){
+      this.isSearchbarOpened = false;
+      this.items = [];
+      return;
+    }
+
+    this.isSearchbarOpened = true;
     // console.log('value : ', ev.target.value);
     this.initializeItems();
 
@@ -108,8 +138,14 @@ export class GuestEnquiryPage {
       this.items = this.items.filter(item => {
         return item.name.toLowerCase().indexOf(val.toLowerCase()) > -1;
       });
+
+      console.log('items : ...', this.items);      
     }
   }
+
+
+
+
   presentToast(msg:string) {
     const toast = this.toastCtrl.create({
       message: msg,

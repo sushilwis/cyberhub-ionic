@@ -10,6 +10,7 @@ import { LiveStreamPage } from '../live-stream/live-stream';
 import { SchoolcalenderPage } from '../schoolcalender/schoolcalender';
 import { apiUrl } from '../../apiUrl'
 import { HomePage } from '../home/home';
+import { StudentNoticeBoardPage } from '../student-notice-board/student-notice-board';
 
 
 @IonicPage()
@@ -91,7 +92,7 @@ export class SchoolDetailsPage {
   }
 
   goToLibrary() {
-    this.navCtrl.push(LibraryListPage,{ id: this.schoolId });
+    this.navCtrl.push(LibraryListPage, { id: this.schoolId });
   }
   
   goToCalender() {
@@ -102,6 +103,11 @@ export class SchoolDetailsPage {
 
   goToHome() {
     this.navCtrl.push(HomePage);
+  }
+
+  goToNotice() {
+    console.log("org ID : ", this.schoolId);    
+    this.navCtrl.push(StudentNoticeBoardPage, { id: this.schoolId });
   }
 
 

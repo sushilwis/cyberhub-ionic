@@ -10,6 +10,11 @@
         <img src="assets/imgs/SCHOOLS-Banner-Images.jpg"/>
       </expandable-header> -->
       <ion-title>College Details</ion-title>
+      <ion-buttons end (click)=goToHome()>
+          <button ion-button icon-only>
+            <ion-icon name="home" color="light"></ion-icon>
+          </button>
+      </ion-buttons>
     </ion-navbar>
 </ion-header>
 
@@ -56,19 +61,23 @@
 
 
   <ion-card>
-    <img [src]="schoolDetails?.org_img"/>
+    <img [src]="schoolDetails?.org_logo"/>
     <ion-card-content>
         <ion-card-title>
           {{schoolDetails?.org_name}}
-        </ion-card-title>
+        </ion-card-title>        
+        <p><strong>Land Mark</strong>: {{schoolDetails?.landmark}}</p>
         <p><strong>City</strong>: {{schoolDetails?.org_city}}</p>
+        <p><strong>District</strong>: {{schoolDetails?.district?.name}}</p>
+        <p><strong>Country</strong>: {{schoolDetails?.country?.name}}</p>
+        
         <div float-right >
           <p [ngStyle]="{'font-size': '24px'}">
             <ion-icon name="cloud"></ion-icon>
           17 °C</p>
         </div>
         <p ><strong>Email</strong>: {{schoolDetails?.email}}</p>
-        <p><strong>Mobile</strong>: {{schoolDetails?.phone_no}}</p>
+        <p><strong>College Phone</strong>: {{schoolDetails?.phone_no}}</p>
         <p><strong>Website</strong>: {{schoolDetails?.website}}</p>
         <div [innerHtml]="schoolDetails?.org_text"></div>
         <p><strong>About</strong> : </p>
@@ -77,7 +86,7 @@
   </ion-card>
 
 
-  <ion-grid>
+  <!-- <ion-grid>
     <ion-row>
       <ion-col col-md-4 class="icon-center" (click)=gotoLiveStream()>
         <img src="assets/imgs/icon6.png"/>
@@ -94,9 +103,9 @@
     </ion-row>
     
     <ion-row>      
-      <ion-col col-md-4 class="icon-center" (click)=goToHome()>
-        <img src="assets/imgs/icon.png"/>
-        <p>Home</p>
+      <ion-col col-md-4 class="icon-center">
+        <img src=""/>
+        <p></p>
       </ion-col>
       <ion-col col-md-4 class="icon-center">
         <img src=""/>
@@ -107,7 +116,7 @@
         <p></p>
       </ion-col>
     </ion-row>
-  </ion-grid>
+  </ion-grid> -->
 
 <!-- <ion-grid text-center>
   <button ion-button color="blue" (click)=goToAllPdf()>NOTICE BOARD</button>
@@ -120,9 +129,9 @@
   <ion-toolbar color="primary">
   <ion-grid text-center >
     <ion-row>
-      <div col-3>
+      <div col-3 (click)=goToNotice()>
         <i text-center class="fas fa-home fa-inverse fa-lg"></i>
-        <p class="footer-p">Home</p>
+        <p class="footer-p">Notice</p>
       </div>
       <div col-3 (click)=gotoLiveStream()>
         <i text-center class="fas fa-video fa-inverse fa-lg"></i>

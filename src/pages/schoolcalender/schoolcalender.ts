@@ -4,6 +4,8 @@ import { AlertController } from 'ionic-angular';
 import { Http, RequestOptions, Headers, } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { apiUrl } from '../../apiUrl'
+import { StudentOwndetailsPage } from '../student-owndetails/student-owndetails';
+import { HomePage } from '../home/home';
 
 /**
  * Generated class for the SchoolcalenderPage page.
@@ -58,19 +60,29 @@ export class SchoolcalenderPage implements OnInit{
   filterEventList: any = [];
   start: any;
   end: any;
+  localUserData: any;
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     private alertCtrl: AlertController, private http: Http,) {
+      this.getUserDataFromLocal();
       this.schoolId =  this.navParams.get('id');
-    //this.getDetails(id);
-    // this.loadEvents();
   }
 
 
 
   ngOnInit(){
     // this.getEventList();
+  }
+
+
+
+  goToHome() {
+    if(this.localUserData){
+      this.navCtrl.setRoot(StudentOwndetailsPage);
+    } else {
+      this.navCtrl.setRoot(HomePage);
+    }    
   }
 
 
@@ -265,6 +277,17 @@ async getEventList() {
     // console.log(timeStamp);    
     let jsDate = new Date(timeStamp);       
     return jsDate;
+  }
+
+
+
+
+
+
+  getUserDataFromLocal() {
+    let data = localStorage.getItem("userData");
+    this.localUserData = JSON.parse(data);
+    // console.log('local data : ', this.localUserData);
   }
 
 
