@@ -7,6 +7,8 @@ import { SchoolListingPage } from '../school-listing/school-listing';
 import { SchoolDetailsPage } from './../school-details/school-details';
 import { apiUrl } from '../../apiUrl';
 import { HomePage } from '../home/home';
+import { StudentOwndetailsPage } from '../student-owndetails/student-owndetails';
+import { StaffInfoPage } from '../staff-info/staff-info';
 /**
  * Generated class for the GuestEnquiryPage page.
  *
@@ -31,12 +33,14 @@ export class GuestEnquiryPage {
   country: number;
   state: number;
   jela: string;
+  localUserData: any;
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
     private http: Http,
-    public toastCtrl: ToastController
+    public toastCtrl: ToastController,
   ) {
+    this.getUserDataFromLocal();
     this.getData();
   }
 
@@ -109,8 +113,25 @@ export class GuestEnquiryPage {
 
 
   goToHome() {
-    console.log('go home...');    
-    this.navCtrl.push(HomePage);
+    if(this.localUserData){      
+      if(this.localUserData.user_type_id == 1){
+        this.navCtrl.setRoot(StudentOwndetailsPage);
+      }else{
+        this.navCtrl.setRoot(StaffInfoPage);
+      }      
+    } else {
+      this.navCtrl.setRoot(HomePage);
+    }    
+  }
+
+
+
+
+
+  getUserDataFromLocal() {
+    let data = localStorage.getItem('userData');
+    this.localUserData = JSON.parse(data);
+    // console.log('local data : ', this.localUserData);      
   }
 
 

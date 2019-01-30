@@ -4,6 +4,7 @@ import { StaffInfoPage } from '../staff-info/staff-info';
 import { RequestOptions, Headers, Http } from '@angular/http';
 import { apiUrl } from '../../apiUrl';
 import { HomePage } from "../home/home";
+import { StuffRegistrationPage } from '../stuff-registration/stuff-registration';
 /**
  * Generated class for the StaffLoginPage page.
  *
@@ -51,9 +52,14 @@ export class StaffLoginPage implements OnInit {
     });
   }
 
+
   gotoHome() {
     this.navCtrl.setRoot(HomePage);
   }
+
+  goToRegister() {
+		this.navCtrl.push(StuffRegistrationPage);	
+	}
 
   onStuffLoginSubmit() {
     if (this.regID && this.pass) {

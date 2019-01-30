@@ -5,6 +5,9 @@ import { RequestOptions, Headers, Http } from '@angular/http';
 import { LiveStreamPage } from '../live-stream/live-stream';
 import { apiUrl } from '../../apiUrl';
 import { ProfilePage } from '../student-library-list/student-library-list';
+import { StudentOwndetailsPage } from '../student-owndetails/student-owndetails';
+import { StaffInfoPage } from '../staff-info/staff-info';
+import { HomePage } from '../home/home';
 /**
  * Generated class for the LibraryListPage page.
  *
@@ -48,8 +51,16 @@ export class LibraryListPage implements OnInit {
   }
 
   
-  goToHome(){
-		this.navCtrl.push(SchoolDetailsPage);
+  goToHome() {
+    if(this.localUserData){      
+      if(this.localUserData.user_type_id == 1){
+        this.navCtrl.setRoot(StudentOwndetailsPage);
+      }else{
+        this.navCtrl.setRoot(StaffInfoPage);
+      }      
+    } else {
+      this.navCtrl.setRoot(HomePage);
+    }    
   }
   
   

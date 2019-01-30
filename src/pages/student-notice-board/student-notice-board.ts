@@ -9,6 +9,7 @@ import { apiUrl } from '../../apiUrl';
 import { ModalController, Platform, ViewController } from 'ionic-angular';
 import { FileOpener } from "@ionic-native/file-opener";
 import { HomePage } from '../home/home';
+import { StaffInfoPage } from '../staff-info/staff-info';
 
 
 @IonicPage()
@@ -58,8 +59,12 @@ export class StudentNoticeBoardPage implements OnInit {
   }
 
   goToHome() {
-    if(this.localUserData){
-      this.navCtrl.setRoot(StudentOwndetailsPage);
+    if(this.localUserData){      
+      if(this.localUserData.user_type_id == 1){
+        this.navCtrl.setRoot(StudentOwndetailsPage);
+      }else{
+        this.navCtrl.setRoot(StaffInfoPage);
+      }      
     } else {
       this.navCtrl.setRoot(HomePage);
     }    

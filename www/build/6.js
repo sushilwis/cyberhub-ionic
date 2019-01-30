@@ -1,14 +1,14 @@
 webpackJsonp([6],{
 
-/***/ 554:
+/***/ 556:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StudentsTabsPageModule", function() { return StudentsTabsPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StuffChangePassPageModule", function() { return StuffChangePassPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__students_tabs__ = __webpack_require__(79);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__stuff_change_pass__ = __webpack_require__(139);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,23 +18,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var StudentsTabsPageModule = /** @class */ (function () {
-    function StudentsTabsPageModule() {
+var StuffChangePassPageModule = /** @class */ (function () {
+    function StuffChangePassPageModule() {
     }
-    StudentsTabsPageModule = __decorate([
+    StuffChangePassPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__students_tabs__["a" /* default */],
+                __WEBPACK_IMPORTED_MODULE_2__stuff_change_pass__["a" /* StuffChangePassPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__students_tabs__["a" /* default */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__stuff_change_pass__["a" /* StuffChangePassPage */]),
             ],
         })
-    ], StudentsTabsPageModule);
-    return StudentsTabsPageModule;
+    ], StuffChangePassPageModule);
+    return StuffChangePassPageModule;
 }());
 
-//# sourceMappingURL=students-tabs.module.js.map
+//# sourceMappingURL=stuff-change-pass.module.js.map
 
 /***/ })
 

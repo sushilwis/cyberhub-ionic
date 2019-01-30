@@ -70,6 +70,7 @@ import { Camera } from '@ionic-native/camera';
 import { FilePath } from '@ionic-native/file-path';
 import { FileOpener } from "@ionic-native/file-opener";
 import { Transfer, TransferObject } from '@ionic-native/transfer';
+import { StuffRegistrationPage } from '../pages/stuff-registration/stuff-registration';
 
 
 
@@ -119,7 +120,8 @@ import { Transfer, TransferObject } from '@ionic-native/transfer';
     ProfilePage,
     NoticeModalPage,
     StuffChangePassPage,
-    StuffEditPage
+    StuffEditPage,
+    StuffRegistrationPage
   ],
   imports: [
     BrowserModule,
@@ -170,7 +172,8 @@ import { Transfer, TransferObject } from '@ionic-native/transfer';
     ProfilePage,
     NoticeModalPage,
     StuffChangePassPage,
-    StuffEditPage
+    StuffEditPage,
+    StuffRegistrationPage
   ],
   
   providers: [

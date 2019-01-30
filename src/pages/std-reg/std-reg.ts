@@ -48,10 +48,14 @@ export class StdRegPage {
   ngOnInit(){
     this.getCollege();
   }
+  
+
+
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad StdRegPage');
   }
+
 
 
 

@@ -6,6 +6,7 @@ import 'rxjs/add/operator/map';
 import { apiUrl } from '../../apiUrl'
 import { StudentOwndetailsPage } from '../student-owndetails/student-owndetails';
 import { HomePage } from '../home/home';
+import { StaffInfoPage } from '../staff-info/staff-info';
 
 /**
  * Generated class for the SchoolcalenderPage page.
@@ -78,8 +79,12 @@ export class SchoolcalenderPage implements OnInit{
 
 
   goToHome() {
-    if(this.localUserData){
-      this.navCtrl.setRoot(StudentOwndetailsPage);
+    if(this.localUserData){      
+      if(this.localUserData.user_type_id == 1){
+        this.navCtrl.setRoot(StudentOwndetailsPage);
+      }else{
+        this.navCtrl.setRoot(StaffInfoPage);
+      }      
     } else {
       this.navCtrl.setRoot(HomePage);
     }    

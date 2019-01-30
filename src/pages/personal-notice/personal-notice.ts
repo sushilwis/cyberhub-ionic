@@ -134,7 +134,7 @@ export class PersonalNoticePage implements OnInit, AfterViewInit {
   getUserDataFromLocal() {
     let data = localStorage.getItem('userData');
     this.localUserData = JSON.parse(data);
-    console.log('local data : ', this.localUserData);      
+    // console.log('local data : ', this.localUserData);      
   }
 
 

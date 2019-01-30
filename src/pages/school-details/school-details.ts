@@ -11,6 +11,8 @@ import { SchoolcalenderPage } from '../schoolcalender/schoolcalender';
 import { apiUrl } from '../../apiUrl'
 import { HomePage } from '../home/home';
 import { StudentNoticeBoardPage } from '../student-notice-board/student-notice-board';
+import { StudentOwndetailsPage } from '../student-owndetails/student-owndetails';
+import { StaffInfoPage } from '../staff-info/staff-info';
 
 
 @IonicPage()
@@ -24,8 +26,10 @@ export class SchoolDetailsPage {
   loading: any;
   schoolDetails: any;
   schoolId: string;
+  localUserData: any;
   constructor(public navCtrl: NavController, public navParams: NavParams,
     private http: Http, public loadingController: LoadingController, private menuCtrl: MenuController) {
+    this.getUserDataFromLocal();
     this.schoolId = navParams.get('id');
     this.getDetails(this.schoolId);
     this.initLoader();
@@ -101,13 +105,36 @@ export class SchoolDetailsPage {
     });
   }
 
+
   goToHome() {
-    this.navCtrl.push(HomePage);
+    if(this.localUserData){      
+      if(this.localUserData.user_type_id == 1){
+        this.navCtrl.setRoot(StudentOwndetailsPage);
+      }else{
+        this.navCtrl.setRoot(StaffInfoPage);
+      }      
+    } else {
+      this.navCtrl.setRoot(HomePage);
+    }    
   }
+
+
+
+
 
   goToNotice() {
     console.log("org ID : ", this.schoolId);    
     this.navCtrl.push(StudentNoticeBoardPage, { id: this.schoolId });
+  }
+
+
+
+
+
+  getUserDataFromLocal() {
+    let data = localStorage.getItem('userData');
+    this.localUserData = JSON.parse(data);
+    // console.log('local data : ', this.localUserData);      
   }
 
 
