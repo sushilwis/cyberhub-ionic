@@ -1,6 +1,6 @@
 webpackJsonp([9],{
 
-/***/ 553:
+/***/ 554:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -28,7 +28,7 @@ var StudentNoticeBoardPageModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_2__student_notice_board__["a" /* NoticeModalPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__student_notice_board__["b" /* StudentNoticeBoardPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__student_notice_board__["b" /* StudentNoticeBoardPage */]),
             ],
             entryComponents: [
                 __WEBPACK_IMPORTED_MODULE_2__student_notice_board__["a" /* NoticeModalPage */],

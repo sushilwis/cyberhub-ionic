@@ -1,6 +1,6 @@
 webpackJsonp([14],{
 
-/***/ 562:
+/***/ 549:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -27,7 +27,7 @@ var StaffInfoPageModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_2__staff_info__["a" /* StaffInfoPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__staff_info__["a" /* StaffInfoPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__staff_info__["a" /* StaffInfoPage */]),
             ],
         })
     ], StaffInfoPageModule);

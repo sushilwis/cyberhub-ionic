@@ -1,6 +1,6 @@
 webpackJsonp([7],{
 
-/***/ 555:
+/***/ 556:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -27,7 +27,7 @@ var StudentsTabsPageModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_2__students_tabs__["a" /* default */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__students_tabs__["a" /* default */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__students_tabs__["a" /* default */]),
             ],
         })
     ], StudentsTabsPageModule);

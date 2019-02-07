@@ -1,6 +1,6 @@
 webpackJsonp([5],{
 
-/***/ 557:
+/***/ 558:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -27,7 +27,7 @@ var StuffEditPageModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_2__stuff_edit__["a" /* StuffEditPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__stuff_edit__["a" /* StuffEditPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__stuff_edit__["a" /* StuffEditPage */]),
             ],
             entryComponents: [
                 __WEBPACK_IMPORTED_MODULE_2__stuff_edit__["a" /* StuffEditPage */],

@@ -1,6 +1,6 @@
 webpackJsonp([26],{
 
-/***/ 538:
+/***/ 537:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -27,7 +27,7 @@ var ParentsChildTabsPageModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_2__parents_child_tabs__["a" /* ParentsChildTabsPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__parents_child_tabs__["a" /* ParentsChildTabsPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__parents_child_tabs__["a" /* ParentsChildTabsPage */]),
             ],
         })
     ], ParentsChildTabsPageModule);

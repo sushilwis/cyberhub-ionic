@@ -29,7 +29,7 @@ var LiveStreamPageModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_2__live_stream__["a" /* LiveStreamPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__live_stream__["a" /* LiveStreamPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__live_stream__["a" /* LiveStreamPage */]),
             ],
             providers: [__WEBPACK_IMPORTED_MODULE_3__ionic_native_streaming_media__["a" /* StreamingMedia */]]
         })

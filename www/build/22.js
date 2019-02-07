@@ -1,6 +1,6 @@
 webpackJsonp([22],{
 
-/***/ 542:
+/***/ 541:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -30,7 +30,7 @@ var PersonalNoticePageModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_3__student_notice_board_student_notice_board__["a" /* NoticeModalPage */]
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__personal_notice__["a" /* PersonalNoticePage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__personal_notice__["a" /* PersonalNoticePage */]),
             ],
             entryComponents: [
                 __WEBPACK_IMPORTED_MODULE_3__student_notice_board_student_notice_board__["a" /* NoticeModalPage */]

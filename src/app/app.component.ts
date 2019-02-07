@@ -13,6 +13,7 @@ import { GuestEnquiryPage } from '../pages/guest-enquiry/guest-enquiry';
 import { StudentLoginPage } from '../pages/student-login/student-login';
 import StudentsTabsPage from '../pages/students-tabs/students-tabs';
 import { StaffInfoPage } from '../pages/staff-info/staff-info';
+import { App } from 'ionic-angular';
 
 
 
@@ -24,9 +25,10 @@ export class MyApp {
 
   rootPage: any;
 
+
   pages: Array<{title: string, component: any}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public menuCtrl: MenuController) {
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public menuCtrl: MenuController, public app: App) {
 
     this.initializeApp();
 
@@ -62,7 +64,21 @@ export class MyApp {
       }
 
       this.statusBar.styleDefault();
-      // this.splashScreen.hide();
+      this.splashScreen.hide();
+
+      this.platform.registerBackButtonAction(() => {
+        // Catches the active view
+        let nav = this.app.getActiveNavs()[0];
+        let activeView = nav.getActive();                
+        // Checks if can go back before show up the alert
+        if(activeView.name === 'HomePage') {
+          this.platform.exitApp();
+        }else{
+          if (nav.canGoBack()){
+            nav.pop();
+          }
+        }
+      });
       // this.splashScreen.show();
     });
   }

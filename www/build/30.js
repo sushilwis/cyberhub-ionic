@@ -1,6 +1,6 @@
 webpackJsonp([30],{
 
-/***/ 533:
+/***/ 532:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -27,7 +27,7 @@ var GetAttendancePageModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_2__get_attendance__["a" /* GetAttendancePage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__get_attendance__["a" /* GetAttendancePage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__get_attendance__["a" /* GetAttendancePage */]),
             ],
         })
     ], GetAttendancePageModule);

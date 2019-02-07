@@ -1,6 +1,6 @@
 webpackJsonp([8],{
 
-/***/ 554:
+/***/ 555:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -27,7 +27,7 @@ var StudentOwndetailsPageModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_2__student_owndetails__["a" /* StudentOwndetailsPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__student_owndetails__["a" /* StudentOwndetailsPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__student_owndetails__["a" /* StudentOwndetailsPage */]),
             ],
         })
     ], StudentOwndetailsPageModule);

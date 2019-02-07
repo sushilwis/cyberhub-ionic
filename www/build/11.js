@@ -28,7 +28,7 @@ var StudentLibraryListPageModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_2__student_library_list__["a" /* ProfilePage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__student_library_list__["b" /* StudentLibraryListPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__student_library_list__["b" /* StudentLibraryListPage */]),
             ],
             entryComponents: [
                 __WEBPACK_IMPORTED_MODULE_2__student_library_list__["a" /* ProfilePage */],

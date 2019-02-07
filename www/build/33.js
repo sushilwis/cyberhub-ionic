@@ -27,7 +27,7 @@ var AttendancePageModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_2__attendance__["a" /* AttendancePage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__attendance__["a" /* AttendancePage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__attendance__["a" /* AttendancePage */]),
             ],
         })
     ], AttendancePageModule);
