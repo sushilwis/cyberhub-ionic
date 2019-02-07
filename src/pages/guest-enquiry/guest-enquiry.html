@@ -1,0 +1,79 @@
+<!--
+  Generated template for the GuestEnquiryPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+		<ion-navbar color="blue">
+			<ion-title>Submit Enquiry</ion-title>
+			
+			<ion-buttons end (click)=goToHome()>
+				<button ion-button icon-only>
+					<ion-icon name="home" color="light"></ion-icon>
+				</button>
+			</ion-buttons>
+			<!-- <ion-searchbar #search (ionInput)="getItems($event)" *ngIf="isSearchbarOpened" showCancelButton="true" (ionCancel)="isSearchbarOpened=false"></ion-searchbar> -->
+		</ion-navbar>
+		<!-- <div class="search-result" [ngStyle]="{'display':isSearchbarOpened ? 'block' : 'none' }">
+			<ion-list>
+			<ion-item *ngFor="let item of items" (click)="schoolsDetails(item.id)">
+				{{ item.name }}
+			</ion-item>
+		</ion-list>
+		</div> -->
+</ion-header>
+
+
+<ion-content class="item-center" padding color="light">
+	<img src="assets/imgs/inunco-dark.png" class="img-width"/>
+	<!-- <h1 class="heading" text-center text-uppercase>CyberHub</h1> -->
+	<!-- <img src="assets/imgs/bk.png" class="img-width" /> -->
+	<div class="enquiry-form">
+			<h1 text-center text-uppercase margin-bottom color="blue">Search Organization</h1>
+
+				<ion-input #search placeholder="Search" (keyup)="getItems($event)" (click)="onSearchButtonClick()"></ion-input>
+				<!-- <div class="search-result"> -->
+					<ion-list class="search-result" [ngStyle]="{'display':isSearchbarOpened ? 'block' : 'none' }">
+						<ion-item *ngFor="let item of items" (click)="schoolsDetails(item.id)">
+								{{ item.name }}
+						</ion-item>
+					</ion-list>
+				<!-- </div> -->
+
+		 <h1 text-center text-uppercase margin-bottom color="blue">Find Your Organization</h1>
+		 
+	 <form>
+	 	<ion-item class="select-css">
+		  <ion-label>Country</ion-label>
+		  <ion-select [(ngModel)]="country" name="country">
+		    <ion-option value="">India</ion-option>		    
+		  </ion-select>
+		</ion-item>
+
+	 	<ion-item class="select-css">
+	 		<ion-label>State</ion-label>
+		  <ion-select [(ngModel)]="state" name="state">
+		    <ion-option value="">West Bangal</ion-option>		    
+		  </ion-select>
+		</ion-item>
+
+		<ion-item>
+			<ion-label>District</ion-label>
+			<ion-select [(ngModel)]="dist" name="dist">
+		    <ion-option value="">West Bangal</ion-option>		    
+		  </ion-select>
+		</ion-item>
+
+		<ion-item>
+			<ion-label>City</ion-label>
+			<ion-select [(ngModel)]="city" name="city">
+		    <ion-option value="">West Bangal</ion-option>		    
+		  </ion-select>
+		</ion-item>
+
+		 <button ion-button type="submit" block outline color="blue" margin-top (click)=goToListing()>Submit Enquiry</button>
+		 <button ion-button type="submit" block outline color="blue" (click)=goToHome()>Back To Home</button>
+	</form>
+</div>
+</ion-content>
