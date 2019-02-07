@@ -80,6 +80,19 @@ page-home {
     ion-slide.swiper-slide {
         left: 25%;
     }
+    .logo-school {
+        display: block;
+        margin: 13px auto;
+        width: 46%;
+    }
+    .sub-line{
+        text-align: center;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    padding: 10px;
+    margin: 0 21px 10px;
+    color: #fff;
+    }
 
     @keyframes pulse {
         0% {
@@ -88,6 +101,7 @@ page-home {
         100% {
             opacity:1;
         }
+        
     }
 
     .img-screen {
