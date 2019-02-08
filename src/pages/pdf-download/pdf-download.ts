@@ -79,22 +79,22 @@ export class PdfDownloadPage {
 
 
 
-  downloadAndOpenPdf(url: string) {
-    console.log(url);
+  // downloadAndOpenPdf(url: string) {
+  //   console.log(url);
 
-    let path = null;
-    if (this.platform.is('ios')) {
-      path = this.file.documentsDirectory;
-    } else if (this.platform.is('android')) {
-      path = this.file.dataDirectory;
-    }
-    const transfer = this.transfer.create();
+  //   let path = null;
+  //   if (this.platform.is('ios')) {
+  //     path = this.file.documentsDirectory;
+  //   } else if (this.platform.is('android')) {
+  //     path = this.file.dataDirectory;
+  //   }
+  //   const transfer = this.transfer.create();
 
-    transfer.download(url, path + 'myfile.pdf').then(entry => {
-      let url = entry.toURL();
-      this.document.viewDocument(url, 'application/pdf', {});
-    });
-  }
+  //   transfer.download(url, path + 'myfile.pdf').then(entry => {
+  //     let url = entry.toURL();
+  //     this.document.viewDocument(url, 'application/pdf', {});
+  //   });
+  // }
 
 
 

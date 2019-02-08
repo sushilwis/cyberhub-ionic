@@ -1,14 +1,14 @@
 webpackJsonp([26],{
 
-/***/ 537:
+/***/ 525:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ParentsChildTabsPageModule", function() { return ParentsChildTabsPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ParentsLoginPageModule", function() { return ParentsLoginPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__parents_child_tabs__ = __webpack_require__(154);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__parents_login__ = __webpack_require__(152);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,23 +18,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var ParentsChildTabsPageModule = /** @class */ (function () {
-    function ParentsChildTabsPageModule() {
+var ParentsLoginPageModule = /** @class */ (function () {
+    function ParentsLoginPageModule() {
     }
-    ParentsChildTabsPageModule = __decorate([
+    ParentsLoginPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__parents_child_tabs__["a" /* ParentsChildTabsPage */],
+                __WEBPACK_IMPORTED_MODULE_2__parents_login__["a" /* ParentsLoginPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__parents_child_tabs__["a" /* ParentsChildTabsPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__parents_login__["a" /* ParentsLoginPage */]),
             ],
         })
-    ], ParentsChildTabsPageModule);
-    return ParentsChildTabsPageModule;
+    ], ParentsLoginPageModule);
+    return ParentsLoginPageModule;
 }());
 
-//# sourceMappingURL=parents-child-tabs.module.js.map
+//# sourceMappingURL=parents-login.module.js.map
 
 /***/ })
 

@@ -25,7 +25,6 @@ export class MyApp {
 
   rootPage: any;
 
-
   pages: Array<{title: string, component: any}>;
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public menuCtrl: MenuController, public app: App) {
@@ -65,20 +64,6 @@ export class MyApp {
 
       this.statusBar.styleDefault();
       this.splashScreen.hide();
-
-      this.platform.registerBackButtonAction(() => {
-        // Catches the active view
-        let nav = this.app.getActiveNavs()[0];
-        let activeView = nav.getActive();                
-        // Checks if can go back before show up the alert
-        if(activeView.name === 'HomePage') {
-          this.platform.exitApp();
-        }else{
-          if (nav.canGoBack()){
-            nav.pop();
-          }
-        }
-      });
       // this.splashScreen.show();
     });
   }

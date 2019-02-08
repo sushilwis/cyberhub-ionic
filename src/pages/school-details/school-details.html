@@ -61,28 +61,46 @@
 
 
   <ion-card>
-    <img [src]="schoolDetails?.org_logo"/>
+    
     <ion-card-content>
         <ion-card-title>
-          {{schoolDetails?.org_name}}
-        </ion-card-title>        
+          <img [src]="schoolDetails?.org_logo"/>
+          <p>{{schoolDetails?.org_name}}</p>
+        </ion-card-title>
+        <div class="info">        
         <p><strong>Land Mark</strong>: {{schoolDetails?.landmark}}</p>
         <p><strong>City</strong>: {{schoolDetails?.org_city}}</p>
+        <div float-right >
+            <p [ngStyle]="{'font-size': '24px'}">
+              <ion-icon name="cloud"></ion-icon><br>
+            17 °C</p>
+          </div>
         <p><strong>District</strong>: {{schoolDetails?.district?.name}}</p>
         <p><strong>Country</strong>: {{schoolDetails?.country?.name}}</p>
         
-        <div float-right >
-          <p [ngStyle]="{'font-size': '24px'}">
-            <ion-icon name="cloud"></ion-icon>
-          17 °C</p>
-        </div>
+        
         <p ><strong>Email</strong>: {{schoolDetails?.email}}</p>
         <p><strong>College Phone</strong>: {{schoolDetails?.phone_no}}</p>
-        <p><strong>Website</strong>: {{schoolDetails?.website}}</p>
+        <p><strong>Website</strong>: {{schoolDetails?.website}}</p></div>
+
+
         <div [innerHtml]="schoolDetails?.org_text"></div>
-        <p><strong>About</strong> : </p>
-        <div [innerHtml]="schoolDetails?.org_about" class="mt-4"></div>
-    </ion-card-content>  
+        <!-- <p><strong>About</strong> : </p>
+        <div [innerHtml]="schoolDetails?.org_about" class="mt-4"></div> -->
+        <ion-toolbar no-border-top *ngIf="schoolDetails?.is_registered == '1'">
+          <ion-segment [(ngModel)]="pet">
+            <ion-segment-button value="about">
+              About
+            </ion-segment-button>
+            <ion-segment-button value="affiliations">
+              Affiliations
+            </ion-segment-button>
+            <ion-segment-button value="facitity">
+              Facility
+            </ion-segment-button>
+          </ion-segment>
+        </ion-toolbar>
+      </ion-card-content>  
   </ion-card>
 
 
@@ -122,10 +140,23 @@
   <button ion-button color="blue" (click)=goToAllPdf()>NOTICE BOARD</button>
   <button ion-button color="blue" (click)=goToLibrary()>LIBRARY MANAGEMENT</button>
 </ion-grid> -->
-
+  <div [ngSwitch]="pet">
+    <ion-list *ngSwitchCase="'about'">
+      <div [innerHtml]="schoolDetails?.org_about"></div>
+    </ion-list>
+  
+    <ion-list *ngSwitchCase="'affiliations'">
+     
+  
+    </ion-list>
+  
+    <ion-list *ngSwitchCase="'facitity'">
+  
+    </ion-list>
+  </div>
 </ion-content>
 
-<ion-footer class="fixed" *ngIf="schoolDetails.is_registered == '1'">
+<ion-footer class="fixed" *ngIf="schoolDetails?.is_registered == '1'">
   <ion-toolbar color="primary">
   <ion-grid text-center >
     <ion-row>

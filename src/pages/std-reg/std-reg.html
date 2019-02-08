@@ -5,24 +5,32 @@
   Ionic pages and navigation.
 -->
 
-<ion-header>
+<!-- <ion-header>
   <ion-navbar color="blue">
     <button ion-button menuToggle color="light">
       <ion-icon name="menu"></ion-icon>
     </button>	
     <ion-title>Student Registration</ion-title>
-    <!-- <ion-buttons end>
+     <ion-buttons end>
       <button class="bell-icon" (click)=goToPersonalNotice()> 
         <i class="fas fa-bell fa-inverse fa-lg"></i> 
       </button>
-    </ion-buttons> -->
+    </ion-buttons>
   </ion-navbar>
-</ion-header>
+</ion-header> -->
 
 
 <ion-content padding>
-    <h5 class="title" text-center text-uppercase margin-bottom>Student Registration</h5>
+    <!-- <h5 class="title" text-center text-uppercase margin-bottom>Student Registration</h5> -->
+    <div text-center margin-top>
+        <h4>Welcome Student !</h4>
+    </div>
 
+
+    <p class="sub-line">
+			<span>Here you can register with your<br>organisation to get the most out<br>of this application.</span>
+		</p>
+		<p class="title" text-center text-capitalize margin-bottom>Please fill the following details</p>
     <!-- <ion-list>
       <ion-item> -->
         <!-- <ion-navbar color="light" [hideBackButton]="isSearchbarOpened ? 'true' : 'false'"> -->
@@ -32,21 +40,36 @@
               <ion-icon name="search" color="light"></ion-icon>
             </button>
           </ion-buttons> -->
-        <ion-input type="text" name="inputShowValue" placeholder="Search" [(ngModel)]="inputShowValue" (keyup)="getItems($event)" (click)="onSearchButtonClick()"></ion-input>
-          <ion-list class="search-result" [ngStyle]="{'display':isSearchbarOpened ? 'block' : 'none' }">
-            <ion-item *ngFor="let item of items" (click)="schoolsDetails(item)">
-              {{ item.name }}
-            </ion-item>
-          </ion-list>
+          
+        <ion-list>
+          <ion-item>  
+            <ion-label>Institute</ion-label>
+            <ion-input type="text" name="inputShowValue" [(ngModel)]="inputShowValue" (keyup)="getItems($event)" (click)="onSearchButtonClick()"></ion-input>
+          </ion-item>      
+        </ion-list>
+
+        <ion-list class="search-result" [ngStyle]="{'display':isSearchbarOpened ? 'block' : 'none' }">
+          <ion-item *ngFor="let item of items" (click)="schoolsDetails(item)">
+            {{ item.name }}
+          </ion-item>
+        </ion-list>
       <!-- </ion-item> 
     </ion-list> -->
 
     <ion-list>
         <ion-item>
-          <ion-label fixed>Phone No</ion-label>
+          <ion-label>Phone No</ion-label>
           <ion-input type="number" name="regNo" [(ngModel)]="mobileNo"></ion-input>
         </ion-item>      
     </ion-list>
 
-    <button ion-button block outline color="blue" class="" (click)='registrationSubmit()'>Submit</button>
+    <!-- <button ion-button block outline color="blue" class="" (click)='registrationSubmit()'>Submit</button> -->
+    <div text-center margin-top>
+        <button ion-button color="blue" class="btn-size" (click)='registrationSubmit()'>Submit</button>
+    </div>
+
+    
+    <div text-capitalize text-center margin-top>
+      <p (click)='goToLogin()'>already registered?<br> click here to login now.</p>
+    </div>
 </ion-content>

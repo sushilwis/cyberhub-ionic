@@ -26,22 +26,22 @@
 
 
 <ion-content class="item-center" padding color="light">
-	<img src="assets/imgs/inunco-dark.png" class="img-width"/>
+	<!-- <img src="assets/imgs/inunco-dark.png" class="img-width"/> -->
 	<!-- <h1 class="heading" text-center text-uppercase>CyberHub</h1> -->
 	<!-- <img src="assets/imgs/bk.png" class="img-width" /> -->
 	<div class="enquiry-form">
-			<h1 text-center text-uppercase margin-bottom color="blue">Search Organization</h1>
+			<!-- <h1 text-center text-uppercase margin-bottom color="blue">Search Organization</h1>
 
 				<ion-input #search placeholder="Search" (keyup)="getItems($event)" (click)="onSearchButtonClick()"></ion-input>
-				<!-- <div class="search-result"> -->
+				
 					<ion-list class="search-result" [ngStyle]="{'display':isSearchbarOpened ? 'block' : 'none' }">
 						<ion-item *ngFor="let item of items" (click)="schoolsDetails(item.id)">
 								{{ item.name }}
 						</ion-item>
-					</ion-list>
-				<!-- </div> -->
+					</ion-list> -->
+				
 
-		 <h1 text-center text-uppercase margin-bottom color="blue">Find Your Organization</h1>
+		<p text-center text-uppercase margin-bottom class="top-heading">Find Your Organisation</p>
 		 
 	 <form>
 	 	<ion-item class="select-css">
@@ -72,8 +72,14 @@
 		  </ion-select>
 		</ion-item>
 
-		 <button ion-button type="submit" block outline color="blue" margin-top (click)=goToListing()>Submit Enquiry</button>
-		 <button ion-button type="submit" block outline color="blue" (click)=goToHome()>Back To Home</button>
+		<ion-item text-center>
+		  <button ion-button margin-top type="submit" class="btn-size" color="blue" (click)=goToListing()>NEXT</button>
+		</ion-item>
+		 <!-- <button ion-button type="submit" block outline color="blue" (click)=goToHome()>Back To Home</button> -->
+
+		 <div text-capitalize text-center>
+			 <p (click)="goToSearchOrg()">Not Sure?<br> Search your organisation name instead.</p>
+		 </div>
 	</form>
 </div>
 </ion-content>

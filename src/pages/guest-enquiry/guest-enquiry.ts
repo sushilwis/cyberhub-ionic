@@ -1,5 +1,5 @@
 import { Component, Input, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController  } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController, Platform} from 'ionic-angular';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 
@@ -9,6 +9,7 @@ import { apiUrl } from '../../apiUrl';
 import { HomePage } from '../home/home';
 import { StudentOwndetailsPage } from '../student-owndetails/student-owndetails';
 import { StaffInfoPage } from '../staff-info/staff-info';
+import { SearchOrganisationPage } from '../search-organisation/search-organisation';
 /**
  * Generated class for the GuestEnquiryPage page.
  *
@@ -35,33 +36,40 @@ export class GuestEnquiryPage {
   jela: string;
   localUserData: any;
   constructor(
+    public platform: Platform,
     public navCtrl: NavController,
     public navParams: NavParams,
     private http: Http,
     public toastCtrl: ToastController,
   ) {
     this.getUserDataFromLocal();
-    this.getData();
+    // this.getData();
+    console.log(this.navCtrl.getViews())
+    this.platform.registerBackButtonAction(() => {
+      if (this.navCtrl.getViews().length > 1) {
+        this.navCtrl.pop();
+      }
+    })
   }
 
 
 
-  getData() {
-    this.http
-      .get(`${apiUrl.url}org/alllist`)
-      .map(res => res.json())
-      .subscribe(data => {
-        this.allSchoolsList = data;
-        console.log("student list : ", this.allSchoolsList);
-        data.data.forEach(ele => {
-          const obj = {
-            id: ele.id,
-            name: ele.org_name
-          };
-          this.list.push(obj);
-        });
-      });
-  }
+  // getData() {
+  //   this.http
+  //     .get(`${apiUrl.url}org/alllist`)
+  //     .map(res => res.json())
+  //     .subscribe(data => {
+  //       this.allSchoolsList = data;
+  //       console.log("student list : ", this.allSchoolsList);
+  //       data.data.forEach(ele => {
+  //         const obj = {
+  //           id: ele.id,
+  //           name: ele.org_name
+  //         };
+  //         this.list.push(obj);
+  //       });
+  //     });
+  // }
 
 
 
@@ -95,6 +103,14 @@ export class GuestEnquiryPage {
   ionViewDidLoad() {
     console.log("ionViewDidLoad GuestEnquiryPage");
   }
+  
+
+
+  goToSearchOrg(){
+    this.navCtrl.push(SearchOrganisationPage);    
+  }
+
+  
 
   goToListing() {
     if (this.country == null && this.state == null) {

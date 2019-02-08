@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IonicPage, NavController, NavParams,  MenuController, LoadingController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, MenuController, LoadingController, Platform} from 'ionic-angular';
 import { Http, RequestOptions, Headers, Jsonp } from '@angular/http';
 // import { PdfDownloadPage } from '../pdf-download/pdf-download';
 // import { LibraryListPage } from '../library-list/library-list';
@@ -36,9 +36,14 @@ export class StudentOwndetailsPage implements OnInit {
   allPersonalNotice: any;
   personalNoticeCount: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public menuCtrl: MenuController, public loadingController: LoadingController, private http: Http) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public menuCtrl: MenuController, public loadingController: LoadingController, private http: Http, public platform: Platform,) {
     this.menuCtrl.enable(true);
     this.initLoader();
+    this.platform.registerBackButtonAction(() => {
+      if (this.navCtrl.getViews().length > 1) {
+        this.navCtrl.pop();
+      }
+    });
   }
 
   ngOnInit(){

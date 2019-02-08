@@ -28340,7 +28340,7 @@ page-guest-enquiry .item-center {
   -ms-flex-direction: column;
   flex-direction: column;
   position: relative;
-  top: 50%;
+  top: 45%;
   -webkit-transform: translateY(-50%);
   transform: translateY(-50%);
 }
@@ -28353,7 +28353,7 @@ page-guest-enquiry .search-icon i {
 
 page-guest-enquiry .enquiry-form {
   /*background: linear-gradient(141deg, #23309e 0%, #1b7bc5 51%, #2635bf 75%);*/
-  width: 100%;
+  width: 95%;
   padding: 10px 20px;
 }
 
@@ -28367,7 +28367,7 @@ page-guest-enquiry .enquiry-form h1 {
 }
 
 page-guest-enquiry .mt-10 {
-  margin-top: 30px;
+  margin-top: 20px;
 }
 
 page-guest-enquiry .search-result {
@@ -28385,6 +28385,17 @@ page-guest-enquiry .search-result {
 
 page-guest-enquiry .item-md {
   background-color: rgba(255, 255, 255, 0.502);
+}
+
+page-guest-enquiry .top-heading {
+  text-decoration: underline;
+  font-size: 16px;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: bold;
+}
+
+page-guest-enquiry .btn-size {
+  padding: 15px 25px !important;
 }
 
 page-home {
@@ -28491,6 +28502,21 @@ page-home ion-slide.swiper-slide {
   left: 25%;
 }
 
+page-home .logo-school {
+  display: block;
+  margin: 13px auto;
+  width: 46%;
+}
+
+page-home .sub-line {
+  text-align: center;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  padding: 10px;
+  margin: 0 21px 10px;
+  color: #fff;
+}
+
 @-webkit-keyframes pulse {
   0% {
     opacity: 0;
@@ -28510,8 +28536,8 @@ page-home ion-slide.swiper-slide {
 }
 
 page-home .img-screen {
-  -webkit-animation: animation 3100ms linear both;
-  animation: animation 3100ms linear both;
+  -webkit-animation: animation 3000ms linear both;
+  animation: animation 3000ms linear both;
 }
 
 @-webkit-keyframes animation {
@@ -28988,6 +29014,53 @@ page-school-details .icon-center p {
   font-size: 12px;
 }
 
+page-school-details .card-title-md {
+  display: block;
+  font-size: 2.4rem;
+  line-height: 1.2;
+  color: #222;
+  margin: 2px 0;
+  padding: 8px 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  /* border: 2px solid #ddd; */
+}
+
+page-school-details ion-card img {
+  display: block;
+  width: 20%;
+  height: 62px;
+  margin-right: 10px;
+}
+
+page-school-details .card-title p {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 500;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+page-school-details ion-icon {
+  display: inline-block;
+  font-size: 2.2em;
+}
+
+page-school-details .card-content-md {
+  padding: 2px 16px;
+  font-size: 1.4rem;
+  line-height: 1.5;
+}
+
+page-school-details .info {
+  border: 1px solid #ddd;
+  padding: 5px;
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
+
 page-schoolcalender .table[_ngcontent-c1] > thead[_ngcontent-c1] > tr[_ngcontent-c1] > th[_ngcontent-c1] {
   vertical-align: bottom;
   border-bottom: 2px solid #ddd;
@@ -29004,6 +29077,19 @@ page-schoolcalender .monthview-selected[_ngcontent-c1] {
 
 page-schoolcalender .monthview-current[_ngcontent-c1] {
   background-color: #e1e1e1;
+}
+
+page-search-organisation .search-result {
+  position: absolute;
+  left: 0;
+  /* top: 56px; */
+  background: rgba(255, 255, 255, 0.839);
+  width: 100%;
+  z-index: 99;
+  border: 1px solid #ddd;
+  overflow-y: scroll;
+  /* visibility: hidden; */
+  /* opacity: 0; */
 }
 
 page-staff-complain .enquiry-form h3 {
@@ -29293,6 +29379,24 @@ page-std-reg .search-result {
   /* opacity: 0; */
 }
 
+page-std-reg .title {
+  font-size: 17px;
+  text-decoration: underline;
+}
+
+page-std-reg .sub-line {
+  text-align: center;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  padding: 10px;
+  margin: 0 21px 10px;
+  color: #535353;
+}
+
+page-std-reg .btn-size {
+  padding: 15px 25px !important;
+}
+
 page-student-library-list .fixed p {
   font-size: 8px !important;
 }
@@ -29346,7 +29450,7 @@ page-student-login .item-center {
 page-student-login .enquiry-form {
   /*background: linear-gradient(141deg, #23309e 0%, #1b7bc5 51%, #2635bf 75%);*/
   width: 100%;
-  padding: 30px 40px;
+  padding: 20px 30px;
 }
 
 page-student-login .enquiry-form h3 {
@@ -29368,7 +29472,7 @@ page-student-login .enquiry-form h3:after {
 }
 
 page-student-login .mt-10 {
-  margin-top: 30px;
+  margin-top: 20px;
 }
 
 page-student-login .item-md {
@@ -29404,11 +29508,25 @@ page-student-login .heading {
 }
 
 page-student-login .title {
-  font-size: 20px;
+  font-size: 17px;
+  text-decoration: underline;
 }
 
 page-student-login .list-ios > .item-block:first-child {
   border-top: 0px solid #c8c7cc !important;
+}
+
+page-student-login .sub-line {
+  text-align: center;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  padding: 10px;
+  margin: 0 21px 10px;
+  color: #535353;
+}
+
+page-student-login .btn-size {
+  padding: 15px 25px !important;
 }
 
 page-student-notice-board .fixed p {
@@ -29490,4 +29608,40 @@ page-stuff-examduty .fixed p {
 
 page-stuff-examduty .toolbar-md, page-stuff-examduty .toolbar-ios {
   padding: 0px;
+}
+
+page-welcome-guest .sub-line {
+  text-align: center;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  padding: 10px;
+  margin: 0 10px 10px;
+  color: #535353;
+}
+
+page-welcome-guest .text-1 {
+  text-decoration: underline;
+  font-size: 14px;
+  margin-top: 25px;
+}
+
+page-welcome-guest .text-2 {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 17px;
+  margin-top: 25px;
+  font-weight: bold;
+}
+
+page-welcome-guest .text-3 {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 17px;
+  margin-top: 25px;
+  font-weight: bold;
+}
+
+page-welcome-guest .sub-head {
+  margin-top: 5px;
+  padding-top: 5px;
+  margin-bottom: 5px;
+  padding-bottom: 5px;
 }

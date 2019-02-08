@@ -7,12 +7,18 @@
 
 <ion-content class="item-center" padding color="secondary">
 	
-	<img src="assets/imgs/inunco-dark.png" class="img-width"/>
+	<!-- <img src="assets/imgs/inunco-dark.png" class="img-width"/> -->
 	<!-- <img src="assets/imgs/bk.png" class="img-width"/> -->
+	<div text-center margin-top>
+		<h4>Welcome Student !</h4>
+	</div>
 
 
 	<div class="enquiry-form">
-		 <h3 class="title" text-center text-uppercase margin-bottom>Enter Regitration Id</h3>
+			<p class="sub-line">
+				<span>Here you can login to access all <br>the features your organisation <br>provides you with.</span>
+			</p>
+		 <p class="title" text-center text-capitalize margin-bottom>Login with your credentials</p>
 	 	<form>
 			<ion-list style="background-color: none;">
 			  <ion-item>
@@ -26,19 +32,33 @@
 			  </ion-item>
 			
 				<!-- <button ion-button block outline color="blue" class="mt-10" *ngIf="isHide" (click)=loginSubmit()>Submit</button> -->
-			<ion-grid>
-				<ion-row col-12>
-					<button ion-button block outline color="blue" class="mt-10" *ngIf="isHide" (click)=loginSubmit()>Submit</button>
-				</ion-row>
-				<ion-row>
+				<div text-center>
+						<button ion-button color="blue" class="btn-size mt-10" *ngIf="isHide" (click)=loginSubmit()>Submit</button>
+				</div>
+
+
+
+			<!-- <ion-grid> -->
+				<!-- <ion-row col-12 text-center>
+					<div>
+						<button ion-button color="blue" class="btn-size mt-10" *ngIf="isHide" (click)=loginSubmit()>Submit</button>
+					</div>
+				</ion-row> -->
+
+				<!-- <ion-row col-12> -->
+				<div text-capitalize text-center>
+					<p (click)='goToRegister()'>Not registered yet?<br> click here to get registered now.</p>
+				</div>
+				<!-- </ion-row>	 -->
+				<!-- <ion-row>
 					<ion-row col-6>
 						<button ion-button block outline color="blue" class="" (click)='goToRegister()'>Registration</button>
 					</ion-row>
 					<ion-row col-6>
 						<button ion-button block outline color="blue" class="" (click)='gotoHome()'>Back</button>
 					</ion-row>
-				</ion-row>
-			</ion-grid>
+				</ion-row> -->
+			<!-- </ion-grid> -->
 
 			<button block ion-button outline text-left color="blue" *ngIf="isShown">Register_Id: {{student_register}} </button>
 			<button block ion-button outline text-left color="blue" *ngIf="isShown">Phone: {{phone}}</button>
@@ -48,7 +68,10 @@
 				</ion-item>
 				<p *ngIf="isShown">Not getting any message? <a href="#" (click)="resendMessage()">Resend</a> </p>
 			</ion-list>
+
+
 			<button ion-button block color="blue" class="mt-10" *ngIf="isShown" (click)=goToOwnDetails()>Next</button>
+
 		</form>
 	</div>
 </ion-content>

@@ -29,6 +29,7 @@ export class StudentNoticeBoardPage implements OnInit {
   guestOrgId: any;
 
   constructor(
+    public platform: Platform,
     public navCtrl: NavController,
     private http: Http,
     public navParams: NavParams,
@@ -46,6 +47,13 @@ export class StudentNoticeBoardPage implements OnInit {
     for (let i = 0; i < 5; i++) {
       this.allNotice.push(this.allNotice.length);
     }
+
+    this.platform.registerBackButtonAction(() => {
+      if (this.navCtrl.getViews().length > 1) {
+        this.navCtrl.pop();
+      }
+    });
+    
   }
 
   ngOnInit() {

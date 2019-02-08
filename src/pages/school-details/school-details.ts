@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController, MenuController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController, MenuController, Platform } from 'ionic-angular';
 
 import { Http, RequestOptions, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
@@ -27,13 +27,21 @@ export class SchoolDetailsPage {
   schoolDetails: any;
   schoolId: string;
   localUserData: any;
+  pet;
+
   constructor(public navCtrl: NavController, public navParams: NavParams,
-    private http: Http, public loadingController: LoadingController, private menuCtrl: MenuController) {
+    private http: Http, public loadingController: LoadingController, private menuCtrl: MenuController, public platform: Platform) {
     this.getUserDataFromLocal();
     this.schoolId = navParams.get('id');
     this.getDetails(this.schoolId);
     this.initLoader();
     this.menuCtrl.enable(false);
+    this.pet = "about";
+    this.platform.registerBackButtonAction(() => {
+      if (this.navCtrl.getViews().length > 1) {
+        this.navCtrl.pop();
+      }
+    });
   }
 
 

@@ -58,6 +58,12 @@ export class StdRegPage {
 
 
 
+  goToLogin(){
+    this.navCtrl.push(StudentLoginPage);
+  }
+
+
+
 
   getCollege() {
     this.presentLoading(true);

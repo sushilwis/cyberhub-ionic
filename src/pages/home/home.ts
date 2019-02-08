@@ -1,10 +1,11 @@
 import { Component, ViewChild } from '@angular/core';
-import { NavController, MenuController } from 'ionic-angular';
+import { NavController, MenuController, Platform } from 'ionic-angular';
 import { GuestEnquiryPage } from '../guest-enquiry/guest-enquiry';
 import { StudentLoginPage } from '../student-login/student-login';
 import { ParentsLoginPage } from '../parents-login/parents-login';
 import { StaffLoginPage } from '../staff-login/staff-login';
 import { AnimationService, AnimationBuilder } from 'css-animator';
+import { WelcomeGuestPage } from '../welcome-guest/welcome-guest';
 
 @Component({
   selector: 'page-home',
@@ -15,6 +16,7 @@ export class HomePage {
   @ViewChild('myElement') myElem;
   private animator: AnimationBuilder;
 constructor(
+    public platform: Platform,
     public navCtrl: NavController,
     public menuCtrl: MenuController,
     animationService: AnimationService
@@ -22,6 +24,11 @@ constructor(
   {
     this.menuCtrl.enable(false);
     this.animator = animationService.builder();
+    this.platform.registerBackButtonAction(() => {
+      if (this.navCtrl.getViews().length > 1) {
+        this.navCtrl.pop();
+      }
+    });
   }
 
 
@@ -39,7 +46,7 @@ constructor(
 	// this.menuCtrl.enable(false);
 	// }
 	goToGuest(){
-		this.navCtrl.push(GuestEnquiryPage);
+		this.navCtrl.push(WelcomeGuestPage);
 	}
   goToStudent(){
     this.navCtrl.push(StudentLoginPage);

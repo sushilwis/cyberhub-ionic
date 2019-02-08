@@ -40,9 +40,14 @@ export default class AccountPage implements OnInit {
   loading: Loading;
   
 
-  constructor(public menuCtrl: MenuController, public navCtrl: NavController, public navParams: NavParams, private http: Http, public loadingController: LoadingController, public jsonp: Jsonp, public modalCtrl: ModalController, private camera: Camera, public loadingCtrl: LoadingController, public toastCtrl: ToastController, public actionSheetCtrl: ActionSheetController, public platform: Platform, private file: File, private filePath: FilePath, private transfer: Transfer) {
+  constructor(public menuCtrl: MenuController, public navCtrl: NavController, public navParams: NavParams, private http: Http, public loadingController: LoadingController, public jsonp: Jsonp, public modalCtrl: ModalController, private camera: Camera, public loadingCtrl: LoadingController, public toastCtrl: ToastController, public actionSheetCtrl: ActionSheetController, public platform: Platform, private transfer: Transfer) {
     this.menuCtrl.enable(false);
     this.initLoader();
+    this.platform.registerBackButtonAction(() => {
+      if (this.navCtrl.getViews().length > 1) {
+        this.navCtrl.pop();
+      }
+    });
   }
 
 

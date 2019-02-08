@@ -18,7 +18,7 @@
 
 
 <ion-content>
-  <ion-card color="light" [ripple] *ngFor="let personalNotice of allPersonalNotice" (click)="presentProfileModal(personalNotice.id)">
+  <ion-card color="light" *ngFor="let personalNotice of allPersonalNotice" (click)="presentProfileModal(personalNotice.id)">
     <ion-card-header>
       <strong>{{personalNotice?.notice?.subject}}</strong>
     </ion-card-header>

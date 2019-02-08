@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 // import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
-import { NativePageTransitions, NativeTransitionOptions } from '@ionic-native/native-page-transitions';
+// import { NativePageTransitions, NativeTransitionOptions } from '@ionic-native/native-page-transitions';
 
 import { StudentOwndetailsPage } from '../student-owndetails/student-owndetails';
 import { AttendancePage } from '../attendance/attendance';
@@ -36,7 +36,7 @@ export default class StudentsTabsPage implements OnInit {
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    private nativePageTransitions: NativePageTransitions,
+    // private nativePageTransitions: NativePageTransitions,
     private http: Http,
     public loadingController: LoadingController,
     public jsonp: Jsonp
@@ -61,24 +61,24 @@ export default class StudentsTabsPage implements OnInit {
     });
   }
 
-  public transition(e): void {
-    let options: NativeTransitionOptions = {
-      direction: this.getAnimationDirection(e.index),
-      duration: 250,
-      slowdownfactor: -1,
-      slidePixels: 0,
-      iosdelay: 20,
-      androiddelay: 0,
-      fixedPixelsTop: 0,
-      fixedPixelsBottom: 48
-    };
+  // public transition(e): void {
+  //   let options: NativeTransitionOptions = {
+  //     direction: this.getAnimationDirection(e.index),
+  //     duration: 250,
+  //     slowdownfactor: -1,
+  //     slidePixels: 0,
+  //     iosdelay: 20,
+  //     androiddelay: 0,
+  //     fixedPixelsTop: 0,
+  //     fixedPixelsBottom: 48
+  //   };
 
-    if (!this.loaded) {
-      this.loaded = true;
-      return;
-    }
-    this.nativePageTransitions.slide(options);
-  }
+  //   if (!this.loaded) {
+  //     this.loaded = true;
+  //     return;
+  //   }
+  //   this.nativePageTransitions.slide(options);
+  // }
 
   private getAnimationDirection(index): string {
     var currentIndex = this.tabIndex;

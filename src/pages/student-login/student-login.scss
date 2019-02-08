@@ -20,7 +20,7 @@
 		.enquiry-form{
 			/*background: linear-gradient(141deg, #23309e 0%, #1b7bc5 51%, #2635bf 75%);*/
 			width: 100%;
-			padding: 30px 40px;
+			padding: 20px 30px;
 		}
 		.enquiry-form h3{
 			// color: #00109f;
@@ -41,7 +41,7 @@
 
 		}
 		.mt-10{
-			margin-top: 30px;
+			margin-top: 20px;
 		}
 
 		.item-md{
@@ -73,9 +73,21 @@
 		    margin-bottom: 0px;
 		}
 		.title{
-			font-size: 20px;
+			font-size: 17px;
+			text-decoration: underline;
 		}
 		.list-ios > .item-block:first-child{
 			border-top: 0px solid #c8c7cc !important;
+		}
+		.sub-line{
+			text-align: center;
+			border-top: 1px solid #ddd;
+			border-bottom: 1px solid #ddd;
+			padding: 10px;
+			margin: 0 21px 10px;
+			color: rgb(83, 83, 83);
+		}
+		.btn-size {
+			padding: 15px 25px !important;
 		}
 	}

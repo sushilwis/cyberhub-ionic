@@ -1,0 +1,36 @@
+page-welcome-guest {
+    .sub-line{
+        text-align: center;
+        border-top: 1px solid #ddd;
+        border-bottom: 1px solid #ddd;
+        padding: 10px;
+        margin: 0 10px 10px;
+        color: rgb(83, 83, 83);
+    }
+
+    .text-1 {
+        text-decoration: underline;
+        font-size: 14px;
+        margin-top: 25px;
+    }
+
+    .text-2 {
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 17px;
+        margin-top: 25px;
+        font-weight: bold;
+    }
+
+    .text-3 {
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 17px;
+        margin-top: 25px;
+        font-weight: bold;
+    }
+    .sub-head{
+        margin-top: 5px; 
+        padding-top: 5px;
+        margin-bottom: 5px;
+        padding-bottom: 5px;
+    }
+}

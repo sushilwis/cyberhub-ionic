@@ -7,7 +7,7 @@ import { NgCalendarModule } from 'ionic2-calendar';
 // import { File } from '@ionic-native/file';
 // import { FileTransfer } from '@ionic-native/file-transfer';
 import { DocumentViewer } from '@ionic-native/document-viewer';
-import { NativePageTransitions } from '@ionic-native/native-page-transitions';
+// import { NativePageTransitions } from '@ionic-native/native-page-transitions';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -49,9 +49,8 @@ import StudentsTabsPage from '../pages/students-tabs/students-tabs';
 // import { StudentNoticeBoardPage, NoticeModalPage } from './student-notice-board';
 import { StuffChangePassPage } from '../pages/stuff-change-pass/stuff-change-pass';
 
-import { RippleDirective } from 'ng2-ripple-directive';
+// import { RippleDirective } from 'ng2-ripple-directive';
 
-// import { Camera } from '@ionic-native/camera';
 // import { StreamingMedia } from '@ionic-native/streaming-media';
 
 
@@ -61,7 +60,7 @@ import { ChatServProvider } from '../providers/chat-serv/chat-serv';
 import { TestPage } from '../pages/test/test';
 import { StdRegPage } from '../pages/std-reg/std-reg';
 import { StuffEditPage } from '../pages/stuff-edit/stuff-edit';
-import { PdfViewerModule } from 'ng2-pdf-viewer';
+// import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
@@ -71,6 +70,8 @@ import { FilePath } from '@ionic-native/file-path';
 import { FileOpener } from "@ionic-native/file-opener";
 import { Transfer, TransferObject } from '@ionic-native/transfer';
 import { StuffRegistrationPage } from '../pages/stuff-registration/stuff-registration';
+import { WelcomeGuestPage } from '../pages/welcome-guest/welcome-guest';
+import { SearchOrganisationPage } from '../pages/search-organisation/search-organisation';
 
 
 
@@ -111,7 +112,7 @@ import { StuffRegistrationPage } from '../pages/stuff-registration/stuff-registr
     PrincipalComplaindeskPage,
     ComplainReplyPage,
     StuffExamdutyPage,
-    RippleDirective,
+    // RippleDirective,
     AnimatesDirective,
     SchoolcalenderPage,
     StudentsTabsPage,
@@ -121,7 +122,9 @@ import { StuffRegistrationPage } from '../pages/stuff-registration/stuff-registr
     NoticeModalPage,
     StuffChangePassPage,
     StuffEditPage,
-    StuffRegistrationPage
+    StuffRegistrationPage,
+    WelcomeGuestPage,
+    SearchOrganisationPage,
   ],
   imports: [
     BrowserModule,
@@ -129,7 +132,7 @@ import { StuffRegistrationPage } from '../pages/stuff-registration/stuff-registr
     JsonpModule,
     IonicModule.forRoot(MyApp),
     NgCalendarModule,
-    PdfViewerModule,
+    // PdfViewerModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -173,7 +176,9 @@ import { StuffRegistrationPage } from '../pages/stuff-registration/stuff-registr
     NoticeModalPage,
     StuffChangePassPage,
     StuffEditPage,
-    StuffRegistrationPage
+    StuffRegistrationPage,
+    WelcomeGuestPage,
+    SearchOrganisationPage,
   ],
   
   providers: [
@@ -183,13 +188,10 @@ import { StuffRegistrationPage } from '../pages/stuff-registration/stuff-registr
     AnimationService,
     File,
     DocumentViewer,
-    FileTransfer,
-    NativePageTransitions,
     ChatServProvider,
     FileTransfer,
     // FileUploadOptions,
     FileTransferObject,
-    File,
     Camera,
     FilePath,
     FileOpener,
