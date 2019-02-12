@@ -1,8 +1,8 @@
 page-welcome-guest {
     .sub-line{
         text-align: center;
-        border-top: 1px solid #ddd;
-        border-bottom: 1px solid #ddd;
+        border-top: 1px solid rgb(83, 83, 83);
+        border-bottom: 1px solid rgb(83, 83, 83);
         padding: 10px;
         margin: 0 10px 10px;
         color: rgb(83, 83, 83);
@@ -12,6 +12,7 @@ page-welcome-guest {
         text-decoration: underline;
         font-size: 14px;
         margin-top: 25px;
+        color: #fff;
     }
 
     .text-2 {
@@ -19,6 +20,7 @@ page-welcome-guest {
         font-size: 17px;
         margin-top: 25px;
         font-weight: bold;
+        color: #32db64;
     }
 
     .text-3 {
@@ -26,11 +28,28 @@ page-welcome-guest {
         font-size: 17px;
         margin-top: 25px;
         font-weight: bold;
+        color: #2196F3;
     }
+
     .sub-head{
         margin-top: 5px; 
         padding-top: 5px;
         margin-bottom: 5px;
         padding-bottom: 5px;
+    }
+    // .ion-page > ion-content {
+    //     background-color: #1b1b1b !important;
+    // }
+    .content-md{
+        background-color: #1b1b1b !important;  
+    }
+    .bar-button-default-md, .bar-button-clear-md-default, .bar-button-md-default {
+        color: #fff !important;
+    }
+    .toolbar-background-md {
+        background-color: #009688;
+    }
+    .toolbar-title-md {
+        color: #fff;
     }
 }

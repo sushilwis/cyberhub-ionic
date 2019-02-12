@@ -11,5 +11,29 @@ page-search-organisation {
 		overflow-y: scroll;
 		/* visibility: hidden; */
 		/* opacity: 0; */
-	}
+    }
+    .content-md{
+        background-color: #202020 !important;  
+    }
+    .bar-button-default-md, .bar-button-clear-md-default, .bar-button-md-default {
+        color: #000 !important;
+    }
+    .toolbar-background-md {
+        background-color: #7becd7;
+    }
+    .toolbar-title-md {
+        color: #000;
+    }
+    .text-input{
+        background-color: #3f3f3f;
+    }
+    .item-md {
+        background-color: #3f3f3f;
+    }
+    .item-input .label-md, .item-select .label-md, .item-datetime .label-md {
+        color: #795548;
+    }
+    .icon-md-light {
+        color: #000;
+    }
 }
