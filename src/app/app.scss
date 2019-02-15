@@ -14,7 +14,9 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
-
+*{
+	font-family: Roboto, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
 .fixed{
 	margin-top: 2rem;
 	position: fixed;
@@ -59,3 +61,14 @@
 	width: 17%;
     margin-right: 20px;
 }
+
+
+
+// action-sheets-basic-page {
+    .action-sheet-md .action-sheet-title {
+        color: #000 !important;
+    }
+    .action-sheet-md .action-sheet-button {
+        font-size: 13.5px !important;
+    }
+// }

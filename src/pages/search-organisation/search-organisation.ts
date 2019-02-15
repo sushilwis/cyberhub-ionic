@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams, Platform, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController, Platform, ActionSheetController } from 'ionic-angular';
 import { apiUrl } from '../../apiUrl';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
@@ -28,7 +28,7 @@ export class SearchOrganisationPage {
   isSearchbarOpened: boolean;
   items: any[];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private http: Http, public platform: Platform, public toastCtrl: ToastController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private http: Http, public platform: Platform, public toastCtrl: ToastController, public actionsheetCtrl: ActionSheetController) {
     this.getUserDataFromLocal();
     this.getData();
   }
@@ -51,11 +51,34 @@ export class SearchOrganisationPage {
         data.data.forEach(ele => {
           const obj = {
             id: ele.id,
-            name: ele.org_name
+            name: ele.org_name,
+            city: ele.org_city,
+            landmark: ele.landmark,
+            org: this.genOrgName(ele.org_type_id),
+            org_logo: ele.org_logo,
+            org_text: ele.org_text,
+            email: ele.email,
+            phone_no: ele.phone_no,
+            website: ele.website
           };
           this.list.push(obj);
         });
       });
+  }
+
+
+
+
+  genOrgName(org_type_id) {
+    if(org_type_id == '1'){
+      return 'SCHOOL';
+    }
+    if(org_type_id == '2'){
+      return 'COLLEGE';
+    }
+    if(org_type_id == '3'){
+      return 'UNIVERSITY';
+    }
   }
 
 
@@ -148,6 +171,55 @@ export class SearchOrganisationPage {
     } else {
       this.navCtrl.setRoot(HomePage);
     }    
+  }
+
+
+
+
+  openActionSheet(org) {
+    let actionSheet = this.actionsheetCtrl.create({
+      // title: `<img [src]="${org.org_logo}"/> ${org.name}`,
+      title: `${org.name} ${org.landmark}`,
+      cssClass: 'action-sheets-basic-page',
+      buttons: [
+        {
+          text: `Phone :  ${org.phone_no}`,
+          // role: 'destructive',
+          icon: !this.platform.is('ios') ? 'call' : 'call',
+          handler: () => {
+            // console.log('Delete clicked');
+            this.schoolsDetails(org.id);
+          }
+        },
+        {
+          text: `Website :  ${org.website}`,
+          icon: !this.platform.is('ios') ? 'cloud' : 'cloud',
+          handler: () => {
+            // console.log('Share clicked');
+            this.schoolsDetails(org.id);
+          }
+        },
+        {
+          text: `Email :  ${org.email}`,
+          icon: !this.platform.is('ios') ? 'mail' : 'mail',
+          handler: () => {
+            // console.log('Play clicked');
+            this.schoolsDetails(org.id);
+          }
+        },
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          icon: !this.platform.is('ios') ? 'close' : 'close',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        }
+      ]
+    });
+
+
+    actionSheet.present();
   }
 
 }
