@@ -31,8 +31,12 @@
     
 				
   <ion-list class="search-result" [ngStyle]="{'display':isSearchbarOpened ? 'block' : 'none' }">
-    <ion-item *ngFor="let item of items" (click)="schoolsDetails(item.id)">
-      {{ item.name }}
+    <ion-item *ngFor="let item of items" (click)="openActionSheet(item)">
+      {{ item?.name }}
+      <p class="col-result-add">{{ item?.landmark }}, {{ item?.city }}</p>
+      <ion-note item-end>
+        {{ item?.org }}
+      </ion-note>
     </ion-item>
   </ion-list>
 </ion-content>

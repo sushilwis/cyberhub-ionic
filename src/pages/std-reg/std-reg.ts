@@ -128,11 +128,14 @@ export class StdRegPage {
       // console.log(data);      
   
       this.http.post(`${apiUrl.url}user/register`, data, options).
-        map(res => res.json()).subscribe(data => {	  
-          if (data.data.length > 0) {
-            this.presentLoading(false);
+        map(res => res.json()).subscribe(data => {          	  
+          if (data.data) { 
+            this.presentLoading(false);           
             console.log('student data : ', data);	
             this.showAlert('Success!', `Your Username is : ${data.data[0].user_name} and Password is : ${data.data[0].hint}. Please login to continue.`);				
+          }else{
+            this.presentLoading(false);
+            this.showAlert('Error!', `${data.Error}`);
           }
       });    
   }
