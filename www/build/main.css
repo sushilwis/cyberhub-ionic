@@ -40347,7 +40347,7 @@ page-home .sub-line {
 
 page-home .card-button-text {
   margin-top: 15px;
-  background: #000000d1;
+  background: rgba(0, 0, 0, 0.82);
   text-align: center;
   font-size: 17px;
   font-weight: 400;
