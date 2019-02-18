@@ -1,0 +1,59 @@
+page-staff-info {
+	ion-app.md [padding], ion-app.ios [padding]{
+			padding: 0px !important;
+		}
+		.scroll-content {
+    		padding: 0px !important;
+		}
+	.fixed p{
+		font-size:8px !important;	
+	}
+	.icon-center p{
+		font-size: 12px;
+	}
+	.bell-icon{
+		cursor:pointer !important;
+		background:none;
+		float: right; 
+	}
+	.toolbar-md, .toolbar-ios{
+		padding:0px;
+	}
+	.toolbar-md-blue .bar-button-md-light{
+	    display: block !important;
+	}
+	.back-ground{
+		/*background: url(../assets/imgs/blue-bk.jpg); */
+		// background: #051c92;
+		background: #000; 
+		width: 100%;
+		padding: 20px 0;
+	}
+
+	.back-ground img{
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 100px;
+		height: 100px;
+		text-align: center;
+		flex-wrap: wrap;
+		margin: 0px auto;
+	}
+	.back-ground h5{
+		color: #fff;
+	}
+	.icon-center, .icon-center img{
+		display: block !important;
+		text-align: center !important;
+		margin:0px auto !important;
+	}
+	.icon-center{
+		border: 1px solid #fff;
+	    background: #EEEEEE;
+	    padding: 5px 0;
+	}
+	.icon-center p{
+		font-size: 11px;
+	}
+}

@@ -73,6 +73,23 @@ import { StuffRegistrationPage } from '../pages/stuff-registration/stuff-registr
 import { WelcomeGuestPage } from '../pages/welcome-guest/welcome-guest';
 import { SearchOrganisationPage } from '../pages/search-organisation/search-organisation';
 
+import { Firebase } from '@ionic-native/firebase';
+
+import { AngularFireModule } from 'angularfire2';
+// import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
+// import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { FcmProvider } from '../providers/fcm/fcm';
+
+const firebase = {
+ // your firebase web config
+    apiKey: "AIzaSyDPcwzadP1MQHKAVdrSZ45cXhq_vallj94",
+    authDomain: "inunco-app.firebaseapp.com",
+    databaseURL: "https://inunco-app.firebaseio.com",
+    projectId: "inunco-app",
+    storageBucket: "inunco-app.appspot.com",
+    messagingSenderId: "1079256060941"
+}
 
 
 
@@ -133,6 +150,8 @@ import { SearchOrganisationPage } from '../pages/search-organisation/search-orga
     IonicModule.forRoot(MyApp),
     NgCalendarModule,
     // PdfViewerModule,
+    AngularFireModule.initializeApp(firebase), 
+    AngularFirestoreModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -195,7 +214,9 @@ import { SearchOrganisationPage } from '../pages/search-organisation/search-orga
     Camera,
     FilePath,
     FileOpener,
-    Transfer
+    Transfer,
+    Firebase,
+    FcmProvider,
     // Camera,
     // StreamingMedia
   ]

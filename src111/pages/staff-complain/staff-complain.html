@@ -1,0 +1,83 @@
+
+<ion-header>
+
+  <ion-navbar color="blue">
+    <ion-title>Complain</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+	<div class="enquiry-form">
+		 <h3 class="title" text-center text-uppercase margin-bottom>Enter Your Complain</h3>
+	 	<form>
+			<ion-list style="background-color: none;">
+
+			  <ion-item>
+			  	<ion-label> <ion-icon ios="ios-text" md="md-text"></ion-icon></ion-label>
+			    <ion-textarea name="complainMsg" [(ngModel)]="complainMsg" placeholder="Type Your Complain" (keyup)="onChangeTextValue()"></ion-textarea>
+				</ion-item>
+				
+			  <ion-note text-right float-right>You Have 3/3 Complain</ion-note>
+				<button ion-button block outline color="blue" class="mt-10" (click)=sendComplain() (click)=goHide() [disabled]="btnDisabled">Submit</button>
+				<!-- <p class="text-blue" *ngIf="isShown">Your Complain has been Submited to the Principal</p> -->
+			</ion-list>
+		</form>
+	</div>
+
+	<div style="    display: flex;flex-direction: column;	height: calc(67vh - 90px); overflow-y: scroll;">
+			<div *ngFor="let msg of allMsgs" class="messages" [ngClass]="(msg.from_id)?'other':''">
+				<div class="message">
+					<span class="orinal-text">{{msg.message}}</span>
+				</div>
+			</div>
+			<!-- <div class="messages other">
+				<div class="message" >
+					<span class="orinal-text">{msg.message}</span>
+				</div>
+			</div>
+			<div class="messages">
+				<div class="message" >
+					<span class="orinal-text">h</span>
+				</div>
+			</div>
+			<div class="messages other">
+				<div class="message" >
+					<span class="orinal-text">hiiii</span>
+				</div>
+			</div> -->
+	</div>
+
+</ion-content>
+
+
+
+
+
+
+<!-- <ion-footer class="fixed">
+		<ion-toolbar color="primary">  
+		<ion-grid text-center >
+			<ion-row>
+				<div col-3 (click)=goToHome()>
+					<img src="assets/imgs/white-icon5.png">
+					<p class="footer-p">Home</p>
+				</div>
+				<div col-3 (click)=gotoLiveStream()>
+					<img src="assets/imgs/white-icon1.png">
+					<p class="footer-p">Stream</p>
+				</div>
+				<div col-3 (click)=goToAttendance()>
+					<img src="assets/imgs/white-icon2.png">
+					<p  class="footer-p">Attendance</p>
+				</div>
+				<div col-3 (click)=goToRoutine()>
+					<img src="assets/imgs/white-icon3.png">
+					<p  class="footer-p">Routine</p>
+				</div>
+			</ion-row>
+		</ion-grid>
+		</ion-toolbar>
+</ion-footer> -->

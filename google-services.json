@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "1079256060941",
+    "firebase_url": "https://inunco-app.firebaseio.com",
+    "project_id": "inunco-app",
+    "storage_bucket": "inunco-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1079256060941:android:24185e1e1594a611",
+        "android_client_info": {
+          "package_name": "com.inunco.cyberhub"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1079256060941-95tsnauhtdaql6tdd92brsoauh7ce6tc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDRKHMOpvgA4Lu2XFJ1KPXggUudgvDGRwk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

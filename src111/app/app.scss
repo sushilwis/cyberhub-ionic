@@ -1,0 +1,74 @@
+// http://ionicframework.com/docs/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+*{
+	font-family: Roboto, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.fixed{
+	margin-top: 2rem;
+	position: fixed;
+	bottom: 0;
+}
+.footer-p{
+	margin:0;
+	padding:0;
+	color: #fff;
+	font-weight: 200;
+	letter-spacing: 1px;
+}
+
+.toolbar-nopadding .toolbar-title-md, .toolbar-nopadding .toolbar-title-ios{
+	padding:0px !important;
+	height: 166px;
+	// background: linear-gradient(141deg, #23309e 0%, #1b7bc5 51%, #2635bf 75%);
+	background-color: #000;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.toolbar-nopadding .toolbar-title-md img, .toolbar-nopadding .toolbar-title-ios img{
+	height: 100px;
+	margin: 0px auto;
+	text-align: center;
+}
+.content-margin .scroll-content{
+	margin-top: 166px !important;
+}
+.img-width{
+	width:100%;
+}
+
+
+.loading-content{
+	display: inline-flex;
+}
+.loader-class{
+	width: 17%;
+    margin-right: 20px;
+}
+
+
+
+// action-sheets-basic-page {
+    .action-sheet-md .action-sheet-title {
+        color: #000 !important;
+    }
+    .action-sheet-md .action-sheet-button {
+        font-size: 13.5px !important;
+    }
+// }
