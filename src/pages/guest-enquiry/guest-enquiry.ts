@@ -27,15 +27,15 @@ export class GuestEnquiryPage {
   allSchoolsList: any;
   list = [];
   idList = [];
-  country: number;
-  state: number;
+  country: string;
+  state: string;
   jela: string;
   localUserData: any;
   states: any;
   loading: any;
   dists: any;
   dist: any;
-  type: any;
+  type: string;
 
   constructor(
     public platform: Platform,
@@ -127,12 +127,15 @@ export class GuestEnquiryPage {
     if (this.country == null && this.state == null) {
       this.presentToast(`State and Country Can't be Blank`)
     } else {
+
       let data = {
-        country: this.country,
-        state: this.state,
-        jela: this.jela
+        country_id: this.country,
+        state_id: this.state,
+        dist_id: this.dist,
+        type_id: '2',
       };
-      this.navCtrl.push(SchoolListingPage, {data});
+
+      this.navCtrl.push(SchoolListingPage, {data: JSON.stringify(data)});
     }
   }
 
@@ -207,7 +210,7 @@ export class GuestEnquiryPage {
 
 
   onChangeCountry(){
-        this.presentLoading(true);
+        // this.presentLoading(true);
         var headers = new Headers();
         headers.append('Content-Type', 'application/json');
         let options = new RequestOptions({headers: headers});
@@ -221,7 +224,7 @@ export class GuestEnquiryPage {
           map(res => res.json()).subscribe(data => {				
             console.log('state data : ', data.data);   
             if(data.data.length > 0){
-              this.presentLoading(false);
+              // this.presentLoading(false);
               // this.loading.dismiss();
               this.states = data.data;
               // this.showAlert('Password Changed Successfully.');
@@ -275,15 +278,15 @@ export class GuestEnquiryPage {
 
 
   onChangeDist() {
-    this.presentLoading(true);
+    // this.presentLoading(true);
     var headers = new Headers();
     headers.append('Content-Type', 'application/json');
     let options = new RequestOptions({headers: headers});
 
     const params = new HttpParams()
-    .set('country_id', this.country.toString())
-    .set('state_id', this.state.toString())
-    .set('dist_id', this.dist.toString())
+    .set('country_id', this.country)
+    .set('state_id', this.state)
+    .set('dist_id', this.dist)
     .set('type_id', '2');
 
     // let data = {
@@ -296,16 +299,18 @@ export class GuestEnquiryPage {
     // }
 
     // let formData = new FormData();
-    // formData.append('country_id', this.country.toString());
-    // formData.append('state_id', this.state.toString());
-    // formData.append('dist_id', this.dist.toString());
-    // formData.append('type_id', this.type.toString());
+    // formData.append('country_id', this.country);
+    // formData.append('state_id', this.state);
+    // formData.append('dist_id', this.dist);
+    // formData.append('type_id', '2');
 
+    // let urlData = formData.toString();
+    console.log(params);    
     
-    this.http.get(`${apiUrl.url}org/search?country=${this.country}&state=${this.state}&dist=${this.dist}&type=2`).
+    this.http.get(`${apiUrl.url}org/search/${this.country}/${this.state}/${this.dist}/2`).
       map(res => res.json()).subscribe(data => {				
           console.log('dist data : ', data.data);   
-          this.presentLoading(false);      
+          // this.presentLoading(false);      
     });
   }
 

@@ -13,7 +13,7 @@
 </ion-header>
 
 
-<ion-content padding>
+<!-- <ion-content padding>
 
 <ion-list>
   <ion-item *ngFor="let item of orgList" (click)=goToListingDetails(item.id)>
@@ -23,17 +23,32 @@
     <h2>{{item.org_name}}</h2>
     <p>{{item.org_city}}, {{item.jela}} • {{item.estd}}</p>
     <button ion-button clear item-end>View</button>
-  </ion-item>
-  <!-- <ion-item >
-    <ion-thumbnail item-start>
-      <img src="assets/imgs/1-512.png">
-    </ion-thumbnail>
-    <h2>aaa</h2>
-    <p>aaa, vvv • 1234</p>
-    <button ion-button clear item-end>View</button>
-  </ion-item> -->
-  
+  </ion-item>  
 </ion-list>
 
 
+</ion-content> -->
+
+
+<ion-content padding>
+  <!-- <ion-list>
+    <ion-item>
+      <ion-label>
+        <ion-icon ios="ios-search" md="md-search"></ion-icon>
+      </ion-label>
+      <ion-input #search placeholder="Type Your Organisation" (keyup)="getItems($event)" (click)="onSearchButtonClick()"></ion-input>
+    </ion-item>
+  </ion-list> -->
+    
+  <!-- <ion-list class="search-result" [ngStyle]="{'display':isSearchbarOpened ? 'block' : 'none' }">				 -->
+  <ion-list class="search-result">
+    <ion-item *ngFor="let item of orgList" (click)="openActionSheet(item)">
+      {{ item?.org_name }}
+      <p class="col-result-add">{{ item?.landmark }}, {{ item?.org_city }}</p>
+      <ion-note item-end>
+        {{ item?.org }}
+      </ion-note>
+    </ion-item>
+  </ion-list>
+  
 </ion-content>

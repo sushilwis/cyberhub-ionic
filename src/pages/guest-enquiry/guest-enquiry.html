@@ -60,7 +60,7 @@
 
 		<ion-item>
 			<ion-label>District</ion-label>
-			<ion-select [(ngModel)]="dist" name="dist" (ionChange)="onChangeDist()">
+			<ion-select [(ngModel)]="dist" name="dist">
 		    <ion-option *ngFor="let dist of dists" value="{{dist.id}}">{{dist?.name}}</ion-option>		    
 		  </ion-select>
 		</ion-item>

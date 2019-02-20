@@ -40901,6 +40901,63 @@ page-school-details .info {
   margin-bottom: 5px;
 }
 
+page-school-listing html, page-school-listing body {
+  font-family: Roboto, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+page-school-listing .search-result {
+  position: absolute;
+  left: 0;
+  /* top: 56px; */
+  background: rgba(255, 255, 255, 0.839);
+  width: 100%;
+  z-index: 99;
+  border: 1px solid #ddd;
+  overflow-y: scroll;
+  /* visibility: hidden; */
+  /* opacity: 0; */
+}
+
+page-school-listing .toolbar-title-md {
+  color: #000;
+}
+
+page-school-listing .text-input {
+  background-color: #3f3f3f;
+}
+
+page-school-listing .item-md {
+  background-color: #3f3f3f;
+  color: #fff;
+  font-size: 13px;
+}
+
+page-school-listing .note-md {
+  color: #fff;
+  opacity: .3;
+  font-size: 11px;
+  margin: -10px 8px 9px 0 !important;
+}
+
+page-school-listing .col-result-add {
+  color: #fff;
+  opacity: .6;
+  font-size: 11px;
+  margin-top: 5px;
+}
+
+page-school-listing .item-input .label-md, page-school-listing .item-select .label-md, page-school-listing .item-datetime .label-md {
+  color: #795548;
+}
+
+page-school-listing .icon-md-light {
+  color: #000;
+}
+
+page-school-listing ion-app.md.scroll-content {
+  padding: 0px !important;
+}
+
 page-schoolcalender .table[_ngcontent-c1] > thead[_ngcontent-c1] > tr[_ngcontent-c1] > th[_ngcontent-c1] {
   vertical-align: bottom;
   border-bottom: 2px solid #ddd;

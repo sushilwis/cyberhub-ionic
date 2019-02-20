@@ -3830,63 +3830,63 @@ var map = {
 		16
 	],
 	"../pages/staff-complain/staff-complain.module": [
-		541,
+		554,
 		15
 	],
 	"../pages/staff-info/staff-info.module": [
-		540,
+		553,
 		14
 	],
 	"../pages/staff-login/staff-login.module": [
-		542,
+		540,
 		13
 	],
 	"../pages/std-reg/std-reg.module": [
-		543,
+		541,
 		12
 	],
 	"../pages/student-library-list/student-library-list.module": [
-		544,
+		542,
 		11
 	],
 	"../pages/student-login/student-login.module": [
-		545,
+		543,
 		10
 	],
 	"../pages/student-notice-board/student-notice-board.module": [
-		546,
+		544,
 		9
 	],
 	"../pages/student-owndetails/student-owndetails.module": [
-		547,
+		545,
 		8
 	],
 	"../pages/students-tabs/students-tabs.module": [
-		548,
+		546,
 		7
 	],
 	"../pages/stuff-change-pass/stuff-change-pass.module": [
-		549,
+		547,
 		6
 	],
 	"../pages/stuff-edit/stuff-edit.module": [
-		550,
+		548,
 		5
 	],
 	"../pages/stuff-examduty/stuff-examduty.module": [
-		551,
+		549,
 		4
 	],
 	"../pages/stuff-registration/stuff-registration.module": [
-		552,
+		550,
 		3
 	],
 	"../pages/test/test.module": [
-		553,
+		551,
 		2
 	],
 	"../pages/welcome-guest/welcome-guest.module": [
-		554,
+		552,
 		1
 	]
 };
@@ -5223,8 +5223,6 @@ var AppModule = /** @class */ (function () {
                         { loadChildren: '../pages/school-listing/school-listing.module#SchoolListingPageModule', name: 'SchoolListingPage', segment: 'school-listing', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/schoolcalender/schoolcalender.module#SchoolcalenderPageModule', name: 'SchoolcalenderPage', segment: 'schoolcalender', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/search-organisation/search-organisation.module#SearchOrganisationPageModule', name: 'SearchOrganisationPage', segment: 'search-organisation', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/staff-info/staff-info.module#StaffInfoPageModule', name: 'StaffInfoPage', segment: 'staff-info', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/staff-complain/staff-complain.module#StaffComplainPageModule', name: 'StaffComplainPage', segment: 'staff-complain', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/staff-login/staff-login.module#StaffLoginPageModule', name: 'StaffLoginPage', segment: 'staff-login', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/std-reg/std-reg.module#StdRegPageModule', name: 'StdRegPage', segment: 'std-reg', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/student-library-list/student-library-list.module#StudentLibraryListPageModule', name: 'StudentLibraryListPage', segment: 'student-library-list', priority: 'low', defaultHistory: [] },
@@ -5237,7 +5235,9 @@ var AppModule = /** @class */ (function () {
                         { loadChildren: '../pages/stuff-examduty/stuff-examduty.module#StuffExamdutyPageModule', name: 'StuffExamdutyPage', segment: 'stuff-examduty', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/stuff-registration/stuff-registration.module#StuffRegistrationPageModule', name: 'StuffRegistrationPage', segment: 'stuff-registration', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/test/test.module#TestPageModule', name: 'TestPage', segment: 'test', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/welcome-guest/welcome-guest.module#WelcomeGuestPageModule', name: 'WelcomeGuestPage', segment: 'welcome-guest', priority: 'low', defaultHistory: [] }
+                        { loadChildren: '../pages/welcome-guest/welcome-guest.module#WelcomeGuestPageModule', name: 'WelcomeGuestPage', segment: 'welcome-guest', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/staff-info/staff-info.module#StaffInfoPageModule', name: 'StaffInfoPage', segment: 'staff-info', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/staff-complain/staff-complain.module#StaffComplainPageModule', name: 'StaffComplainPage', segment: 'staff-complain', priority: 'low', defaultHistory: [] }
                     ]
                 }),
                 __WEBPACK_IMPORTED_MODULE_5_ionic2_calendar__["a" /* NgCalendarModule */],
@@ -6829,11 +6829,12 @@ var GuestEnquiryPage = /** @class */ (function () {
         }
         else {
             var data = {
-                country: this.country,
-                state: this.state,
-                jela: this.jela
+                country_id: this.country,
+                state_id: this.state,
+                dist_id: this.dist,
+                type_id: '2',
             };
-            this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__school_listing_school_listing__["a" /* SchoolListingPage */], { data: data });
+            this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__school_listing_school_listing__["a" /* SchoolListingPage */], { data: JSON.stringify(data) });
         }
     };
     GuestEnquiryPage.prototype.goToHome = function () {
@@ -6885,7 +6886,7 @@ var GuestEnquiryPage = /** @class */ (function () {
     };
     GuestEnquiryPage.prototype.onChangeCountry = function () {
         var _this = this;
-        this.presentLoading(true);
+        // this.presentLoading(true);
         var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
         var options = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["f" /* RequestOptions */]({ headers: headers });
@@ -6897,7 +6898,7 @@ var GuestEnquiryPage = /** @class */ (function () {
             map(function (res) { return res.json(); }).subscribe(function (data) {
             console.log('state data : ', data.data);
             if (data.data.length > 0) {
-                _this.presentLoading(false);
+                // this.presentLoading(false);
                 // this.loading.dismiss();
                 _this.states = data.data;
                 // this.showAlert('Password Changed Successfully.');
@@ -6937,15 +6938,14 @@ var GuestEnquiryPage = /** @class */ (function () {
         });
     };
     GuestEnquiryPage.prototype.onChangeDist = function () {
-        var _this = this;
-        this.presentLoading(true);
+        // this.presentLoading(true);
         var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
         var options = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["f" /* RequestOptions */]({ headers: headers });
         var params = new __WEBPACK_IMPORTED_MODULE_11__angular_common_http__["b" /* HttpParams */]()
-            .set('country_id', this.country.toString())
-            .set('state_id', this.state.toString())
-            .set('dist_id', this.dist.toString())
+            .set('country_id', this.country)
+            .set('state_id', this.state)
+            .set('dist_id', this.dist)
             .set('type_id', '2');
         // let data = {
         //     params : {
@@ -6956,14 +6956,16 @@ var GuestEnquiryPage = /** @class */ (function () {
         //   }
         // }
         // let formData = new FormData();
-        // formData.append('country_id', this.country.toString());
-        // formData.append('state_id', this.state.toString());
-        // formData.append('dist_id', this.dist.toString());
-        // formData.append('type_id', this.type.toString());
-        this.http.get(__WEBPACK_IMPORTED_MODULE_6__apiUrl__["a" /* apiUrl */].url + "org/search?country=" + this.country + "&state=" + this.state + "&dist=" + this.dist + "&type=2").
+        // formData.append('country_id', this.country);
+        // formData.append('state_id', this.state);
+        // formData.append('dist_id', this.dist);
+        // formData.append('type_id', '2');
+        // let urlData = formData.toString();
+        console.log(params);
+        this.http.get(__WEBPACK_IMPORTED_MODULE_6__apiUrl__["a" /* apiUrl */].url + "org/search/" + this.country + "/" + this.state + "/" + this.dist + "/2").
             map(function (res) { return res.json(); }).subscribe(function (data) {
             console.log('dist data : ', data.data);
-            _this.presentLoading(false);
+            // this.presentLoading(false);      
         });
     };
     GuestEnquiryPage.prototype.presentLoading = function (load) {
@@ -6990,7 +6992,7 @@ var GuestEnquiryPage = /** @class */ (function () {
     ], GuestEnquiryPage.prototype, "searchbox", void 0);
     GuestEnquiryPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: "page-guest-enquiry",template:/*ion-inline-start:"/home/wis/sushil/cyberHubApp/dev-cyberhub/src/pages/guest-enquiry/guest-enquiry.html"*/'<!--\n  Generated template for the GuestEnquiryPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n		<ion-navbar color="blue">\n			<ion-title>Submit Enquiry</ion-title>\n			\n			<ion-buttons end (click)=goToHome()>\n				<button ion-button icon-only>\n					<ion-icon name="home" color="light"></ion-icon>\n				</button>\n			</ion-buttons>\n			<!-- <ion-searchbar #search (ionInput)="getItems($event)" *ngIf="isSearchbarOpened" showCancelButton="true" (ionCancel)="isSearchbarOpened=false"></ion-searchbar> -->\n		</ion-navbar>\n		<!-- <div class="search-result" [ngStyle]="{\'display\':isSearchbarOpened ? \'block\' : \'none\' }">\n			<ion-list>\n			<ion-item *ngFor="let item of items" (click)="schoolsDetails(item.id)">\n				{{ item.name }}\n			</ion-item>\n		</ion-list>\n		</div> -->\n</ion-header>\n\n\n<ion-content class="item-center" padding color="light">\n	<!-- <img src="assets/imgs/inunco-dark.png" class="img-width"/> -->\n	<!-- <h1 class="heading" text-center text-uppercase>CyberHub</h1> -->\n	<!-- <img src="assets/imgs/bk.png" class="img-width" /> -->\n	<div class="enquiry-form">\n			<!-- <h1 text-center text-uppercase margin-bottom color="blue">Search Organization</h1>\n\n				<ion-input #search placeholder="Search" (keyup)="getItems($event)" (click)="onSearchButtonClick()"></ion-input>\n				\n					<ion-list class="search-result" [ngStyle]="{\'display\':isSearchbarOpened ? \'block\' : \'none\' }">\n						<ion-item *ngFor="let item of items" (click)="schoolsDetails(item.id)">\n								{{ item.name }}\n						</ion-item>\n					</ion-list> -->\n				\n\n		<p text-center text-uppercase margin-bottom class="top-heading">Find Your Organisation</p>\n		 \n	 <form>\n	 	<ion-item class="select-css">\n		  <ion-label>Country</ion-label>\n		  <ion-select [(ngModel)]="country" name="country" (ionChange)="onChangeCountry()">\n		    <ion-option value="101">India</ion-option>		    \n		  </ion-select>\n		</ion-item>\n\n	 	<ion-item class="select-css">\n	 		<ion-label>State</ion-label>\n		  <ion-select [(ngModel)]="state" name="state" (ionChange)="onChangeState()">\n		    <ion-option *ngFor="let state of states" value="{{state.id}}">{{state?.name}}</ion-option>		    \n		  </ion-select>\n		</ion-item>\n\n		<ion-item>\n			<ion-label>District</ion-label>\n			<ion-select [(ngModel)]="dist" name="dist" (ionChange)="onChangeDist()">\n		    <ion-option *ngFor="let dist of dists" value="{{dist.id}}">{{dist?.name}}</ion-option>		    \n		  </ion-select>\n		</ion-item>\n\n		<!-- <ion-item>\n			<ion-label>City</ion-label>\n			<ion-select [(ngModel)]="city" name="city">\n		    <ion-option value="">West Bangal</ion-option>		    \n		  </ion-select>\n		</ion-item> -->\n\n		<ion-item text-center>\n		  <button ion-button margin-top type="submit" class="btn-size" color="blue" (click)=goToListing()>NEXT</button>\n		</ion-item>\n		 <!-- <button ion-button type="submit" block outline color="blue" (click)=goToHome()>Back To Home</button> -->\n\n		 <div text-capitalize text-center>\n			 <p (click)="goToSearchOrg()">Not Sure?<br> Search your organisation name instead.</p>\n		 </div>\n	</form>\n</div>\n</ion-content>\n'/*ion-inline-end:"/home/wis/sushil/cyberHubApp/dev-cyberhub/src/pages/guest-enquiry/guest-enquiry.html"*/
+            selector: "page-guest-enquiry",template:/*ion-inline-start:"/home/wis/sushil/cyberHubApp/dev-cyberhub/src/pages/guest-enquiry/guest-enquiry.html"*/'<!--\n  Generated template for the GuestEnquiryPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n		<ion-navbar color="blue">\n			<ion-title>Submit Enquiry</ion-title>\n			\n			<ion-buttons end (click)=goToHome()>\n				<button ion-button icon-only>\n					<ion-icon name="home" color="light"></ion-icon>\n				</button>\n			</ion-buttons>\n			<!-- <ion-searchbar #search (ionInput)="getItems($event)" *ngIf="isSearchbarOpened" showCancelButton="true" (ionCancel)="isSearchbarOpened=false"></ion-searchbar> -->\n		</ion-navbar>\n		<!-- <div class="search-result" [ngStyle]="{\'display\':isSearchbarOpened ? \'block\' : \'none\' }">\n			<ion-list>\n			<ion-item *ngFor="let item of items" (click)="schoolsDetails(item.id)">\n				{{ item.name }}\n			</ion-item>\n		</ion-list>\n		</div> -->\n</ion-header>\n\n\n<ion-content class="item-center" padding color="light">\n	<!-- <img src="assets/imgs/inunco-dark.png" class="img-width"/> -->\n	<!-- <h1 class="heading" text-center text-uppercase>CyberHub</h1> -->\n	<!-- <img src="assets/imgs/bk.png" class="img-width" /> -->\n	<div class="enquiry-form">\n			<!-- <h1 text-center text-uppercase margin-bottom color="blue">Search Organization</h1>\n\n				<ion-input #search placeholder="Search" (keyup)="getItems($event)" (click)="onSearchButtonClick()"></ion-input>\n				\n					<ion-list class="search-result" [ngStyle]="{\'display\':isSearchbarOpened ? \'block\' : \'none\' }">\n						<ion-item *ngFor="let item of items" (click)="schoolsDetails(item.id)">\n								{{ item.name }}\n						</ion-item>\n					</ion-list> -->\n				\n\n		<p text-center text-uppercase margin-bottom class="top-heading">Find Your Organisation</p>\n		 \n	 <form>\n	 	<ion-item class="select-css">\n		  <ion-label>Country</ion-label>\n		  <ion-select [(ngModel)]="country" name="country" (ionChange)="onChangeCountry()">\n		    <ion-option value="101">India</ion-option>		    \n		  </ion-select>\n		</ion-item>\n\n	 	<ion-item class="select-css">\n	 		<ion-label>State</ion-label>\n		  <ion-select [(ngModel)]="state" name="state" (ionChange)="onChangeState()">\n		    <ion-option *ngFor="let state of states" value="{{state.id}}">{{state?.name}}</ion-option>		    \n		  </ion-select>\n		</ion-item>\n\n		<ion-item>\n			<ion-label>District</ion-label>\n			<ion-select [(ngModel)]="dist" name="dist">\n		    <ion-option *ngFor="let dist of dists" value="{{dist.id}}">{{dist?.name}}</ion-option>		    \n		  </ion-select>\n		</ion-item>\n\n		<!-- <ion-item>\n			<ion-label>City</ion-label>\n			<ion-select [(ngModel)]="city" name="city">\n		    <ion-option value="">West Bangal</ion-option>		    \n		  </ion-select>\n		</ion-item> -->\n\n		<ion-item text-center>\n		  <button ion-button margin-top type="submit" class="btn-size" color="blue" (click)=goToListing()>NEXT</button>\n		</ion-item>\n		 <!-- <button ion-button type="submit" block outline color="blue" (click)=goToHome()>Back To Home</button> -->\n\n		 <div text-capitalize text-center>\n			 <p (click)="goToSearchOrg()">Not Sure?<br> Search your organisation name instead.</p>\n		 </div>\n	</form>\n</div>\n</ion-content>\n'/*ion-inline-end:"/home/wis/sushil/cyberHubApp/dev-cyberhub/src/pages/guest-enquiry/guest-enquiry.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* Platform */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */],
@@ -7583,18 +7585,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Ionic pages and navigation.
  */
 var SchoolListingPage = /** @class */ (function () {
-    function SchoolListingPage(navCtrl, navParams, http, toastCtrl, loadingController) {
+    function SchoolListingPage(navCtrl, navParams, http, toastCtrl, loadingController, actionsheetCtrl, platform) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.http = http;
         this.toastCtrl = toastCtrl;
         this.loadingController = loadingController;
+        this.actionsheetCtrl = actionsheetCtrl;
+        this.platform = platform;
     }
     SchoolListingPage.prototype.ionViewDidLoad = function () {
         this.initLoader();
         var data = this.navParams.get("data");
         // console.log(data);
-        this.getOrganization(data);
+        this.getOrganization(JSON.parse(data));
         console.log("ionViewDidLoad SchoolListingPage");
     };
     SchoolListingPage.prototype.goToListingDetails = function (id) {
@@ -7602,20 +7606,84 @@ var SchoolListingPage = /** @class */ (function () {
     };
     SchoolListingPage.prototype.getOrganization = function (data) {
         var _this = this;
-        this.presentLoading(true);
+        // this.presentLoading(true);
         var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Headers */]();
         headers.append("Content-Type", "application/json");
         var options = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["f" /* RequestOptions */]({ headers: headers });
         this.http
-            .post(__WEBPACK_IMPORTED_MODULE_5__apiUrl__["a" /* apiUrl */].url + "org/search", data, options)
+            .get(__WEBPACK_IMPORTED_MODULE_5__apiUrl__["a" /* apiUrl */].url + "org/search/" + data.country_id + "/" + data.state_id + "/" + data.dist_id + "/2", options)
             .map(function (res) { return res.json(); })
             .subscribe(function (data) {
+            // console.log('school list : ', data);        
             if (data.data) {
-                _this.presentLoading(false);
+                // this.presentLoading(false);
                 _this.orgList = data.data;
+                _this.orgList.forEach(function (ele) {
+                    ele.org = _this.genOrgName(ele.org_type_id);
+                });
                 console.log(_this.orgList);
             }
         });
+    };
+    SchoolListingPage.prototype.genOrgName = function (org_type_id) {
+        if (org_type_id == '1') {
+            return 'SCHOOL';
+        }
+        if (org_type_id == '2') {
+            return 'COLLEGE';
+        }
+        if (org_type_id == '3') {
+            return 'UNIVERSITY';
+        }
+    };
+    SchoolListingPage.prototype.openActionSheet = function (org) {
+        var _this = this;
+        var actionSheet = this.actionsheetCtrl.create({
+            // title: `<img [src]="${org.org_logo}"/> ${org.name}`,
+            title: "" + org.org_name,
+            cssClass: 'action-sheets-basic-page',
+            buttons: [
+                {
+                    text: "Phone :  " + org.phone_no,
+                    // role: 'destructive',
+                    icon: !this.platform.is('ios') ? 'call' : 'call',
+                    handler: function () {
+                        // console.log('Delete clicked');
+                        _this.schoolsDetails(org.id);
+                    }
+                },
+                {
+                    text: "Website :  " + org.website,
+                    icon: !this.platform.is('ios') ? 'cloud' : 'cloud',
+                    handler: function () {
+                        // console.log('Share clicked');
+                        _this.schoolsDetails(org.id);
+                    }
+                },
+                {
+                    text: "Email :  " + org.email,
+                    icon: !this.platform.is('ios') ? 'mail' : 'mail',
+                    handler: function () {
+                        // console.log('Play clicked');
+                        _this.schoolsDetails(org.id);
+                    }
+                },
+                {
+                    text: 'Cancel',
+                    role: 'cancel',
+                    icon: !this.platform.is('ios') ? 'close' : 'close',
+                    handler: function () {
+                        console.log('Cancel clicked');
+                    }
+                }
+            ]
+        });
+        actionSheet.present();
+    };
+    SchoolListingPage.prototype.schoolsDetails = function (id) {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__school_details_school_details__["a" /* SchoolDetailsPage */], {
+            id: id
+        }, { animation: "transition", duration: 1000, direction: "forward" });
     };
     SchoolListingPage.prototype.initLoader = function () {
         this.loading = this.loadingController.create({
@@ -7636,15 +7704,12 @@ var SchoolListingPage = /** @class */ (function () {
     };
     SchoolListingPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: "page-school-listing",template:/*ion-inline-start:"/home/wis/sushil/cyberHubApp/dev-cyberhub/src/pages/school-listing/school-listing.html"*/'<!--\n  Generated template for the SchoolListingPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar color="blue">\n    <ion-title>List of School</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n<ion-list>\n  <ion-item *ngFor="let item of orgList" (click)=goToListingDetails(item.id)>\n    <ion-thumbnail item-start>\n      <img src="assets/imgs/1-512.png">\n    </ion-thumbnail>\n    <h2>{{item.org_name}}</h2>\n    <p>{{item.org_city}}, {{item.jela}} • {{item.estd}}</p>\n    <button ion-button clear item-end>View</button>\n  </ion-item>\n  <!-- <ion-item >\n    <ion-thumbnail item-start>\n      <img src="assets/imgs/1-512.png">\n    </ion-thumbnail>\n    <h2>aaa</h2>\n    <p>aaa, vvv • 1234</p>\n    <button ion-button clear item-end>View</button>\n  </ion-item> -->\n  \n</ion-list>\n\n\n</ion-content>\n'/*ion-inline-end:"/home/wis/sushil/cyberHubApp/dev-cyberhub/src/pages/school-listing/school-listing.html"*/
+            selector: "page-school-listing",template:/*ion-inline-start:"/home/wis/sushil/cyberHubApp/dev-cyberhub/src/pages/school-listing/school-listing.html"*/'<!--\n  Generated template for the SchoolListingPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar color="blue">\n    <ion-title>List of School</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<!-- <ion-content padding>\n\n<ion-list>\n  <ion-item *ngFor="let item of orgList" (click)=goToListingDetails(item.id)>\n    <ion-thumbnail item-start>\n      <img src="assets/imgs/1-512.png">\n    </ion-thumbnail>\n    <h2>{{item.org_name}}</h2>\n    <p>{{item.org_city}}, {{item.jela}} • {{item.estd}}</p>\n    <button ion-button clear item-end>View</button>\n  </ion-item>  \n</ion-list>\n\n\n</ion-content> -->\n\n\n<ion-content padding>\n  <!-- <ion-list>\n    <ion-item>\n      <ion-label>\n        <ion-icon ios="ios-search" md="md-search"></ion-icon>\n      </ion-label>\n      <ion-input #search placeholder="Type Your Organisation" (keyup)="getItems($event)" (click)="onSearchButtonClick()"></ion-input>\n    </ion-item>\n  </ion-list> -->\n    \n  <!-- <ion-list class="search-result" [ngStyle]="{\'display\':isSearchbarOpened ? \'block\' : \'none\' }">				 -->\n  <ion-list class="search-result">\n    <ion-item *ngFor="let item of orgList" (click)="openActionSheet(item)">\n      {{ item?.org_name }}\n      <p class="col-result-add">{{ item?.landmark }}, {{ item?.org_city }}</p>\n      <ion-note item-end>\n        {{ item?.org }}\n      </ion-note>\n    </ion-item>\n  </ion-list>\n  \n</ion-content>\n'/*ion-inline-end:"/home/wis/sushil/cyberHubApp/dev-cyberhub/src/pages/school-listing/school-listing.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["p" /* ToastController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["p" /* ToastController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["p" /* ToastController */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* ActionSheetController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* ActionSheetController */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* Platform */]) === "function" && _g || Object])
     ], SchoolListingPage);
     return SchoolListingPage;
+    var _a, _b, _c, _d, _e, _f, _g;
 }());
 
 //# sourceMappingURL=school-listing.js.map
