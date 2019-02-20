@@ -15,7 +15,7 @@ import StudentsTabsPage from '../pages/students-tabs/students-tabs';
 import { StaffInfoPage } from '../pages/staff-info/staff-info';
 import { App } from 'ionic-angular';
 
-import { FcmProvider } from '../providers/fcm/fcm';
+// import { FcmProvider } from '../providers/fcm/fcm';
 import { ToastController } from 'ionic-angular';
 import { Subject } from 'rxjs/Subject';
 import { tap } from 'rxjs/operators';
@@ -32,7 +32,9 @@ export class MyApp {
 
   pages: Array<{title: string, component: any}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public menuCtrl: MenuController, public app: App, public fcm: FcmProvider, public toastCtrl: ToastController) {
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public menuCtrl: MenuController, public app: App, 
+    // public fcm: FcmProvider, 
+    public toastCtrl: ToastController) {
 
     this.initializeApp();
 
@@ -55,22 +57,22 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       let localVal = JSON.parse(localStorage.getItem('userData'));
 
-      this.fcm.getToken();
+      // this.fcm.getToken();
 
-        // Listen to incoming messages
-        this.fcm.listenToNotifications().pipe(
-          tap(msg => {
-            // show a toast
-            const toast = this.toastCtrl.create({
-              message: msg.body,
-              duration: 3000
-            });
-            toast.present();
-          })
-        )
-        .subscribe((data)=> {
-          console.log('listen to notification : ', data);          
-        })
+      //   // Listen to incoming messages
+      //   this.fcm.listenToNotifications().pipe(
+      //     tap(msg => {
+      //       // show a toast
+      //       const toast = this.toastCtrl.create({
+      //         message: msg.body,
+      //         duration: 3000
+      //       });
+      //       toast.present();
+      //     })
+      //   )
+      //   .subscribe((data)=> {
+      //     console.log('listen to notification : ', data);          
+      //   })
 
 
       if(localVal){

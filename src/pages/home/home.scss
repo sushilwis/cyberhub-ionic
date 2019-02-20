@@ -96,11 +96,14 @@ page-home {
 
     .card-button-text{
         margin-top: 15px;
+        margin-bottom: 0px !important;
         background: rgba(0, 0, 0, 0.82);
         text-align: center;
         font-size: 17px;
         font-weight: 400;
-        color: #fff
+        color: #fff;
+        position: relative !important;
+        bottom: -1px !important;
     }
 
     @keyframes pulse {

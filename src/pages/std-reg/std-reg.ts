@@ -225,9 +225,12 @@ export class StdRegPage {
     var headers = new Headers();
     headers.append('Content-Type', 'application/json');
     let options = new RequestOptions({ headers: headers });
+
     let data = {
-      type: this.type
+      type: this.type,
+      is_reg: true,
     }
+    
     this.http
       .post(`${apiUrl.url}org/orgsearchbytype`, data, options)
       .map(res => res.json())

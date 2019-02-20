@@ -1,6 +1,6 @@
 import { Component, Input, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController, Platform} from 'ionic-angular';
-import { Http } from '@angular/http';
+import { IonicPage, NavController, NavParams, ToastController, Platform, LoadingController} from 'ionic-angular';
+import { Http, RequestOptions, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
 
 import { SchoolListingPage } from '../school-listing/school-listing';
@@ -10,12 +10,8 @@ import { HomePage } from '../home/home';
 import { StudentOwndetailsPage } from '../student-owndetails/student-owndetails';
 import { StaffInfoPage } from '../staff-info/staff-info';
 import { SearchOrganisationPage } from '../search-organisation/search-organisation';
-/**
- * Generated class for the GuestEnquiryPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { HttpParams } from '@angular/common/http';
+
 
 @IonicPage()
 @Component({
@@ -35,22 +31,37 @@ export class GuestEnquiryPage {
   state: number;
   jela: string;
   localUserData: any;
+  states: any;
+  loading: any;
+  dists: any;
+  dist: any;
+  type: any;
+
   constructor(
     public platform: Platform,
     public navCtrl: NavController,
     public navParams: NavParams,
     private http: Http,
     public toastCtrl: ToastController,
+    public loadingController: LoadingController
   ) {
     this.getUserDataFromLocal();
     // this.getData();
-    console.log(this.navCtrl.getViews())
+    console.log(this.navCtrl.getViews());
     this.platform.registerBackButtonAction(() => {
       if (this.navCtrl.getViews().length > 1) {
         this.navCtrl.pop();
       }
     })
+
+    this.initLoader();
   }
+
+
+
+  // loc/states   {country_id: 101}
+  // loc/dists    {state_id: }
+
 
 
 
@@ -191,4 +202,145 @@ export class GuestEnquiryPage {
     });
     toast.present();
   }
+
+
+
+
+  onChangeCountry(){
+        this.presentLoading(true);
+        var headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+        let options = new RequestOptions({headers: headers});
+    
+        let data = {
+          country_id: this.country,
+        }
+
+        // loc/states   {country_id: 101}
+        this.http.post(`${apiUrl.url}loc/states`, data, options).
+          map(res => res.json()).subscribe(data => {				
+            console.log('state data : ', data.data);   
+            if(data.data.length > 0){
+              this.presentLoading(false);
+              // this.loading.dismiss();
+              this.states = data.data;
+              // this.showAlert('Password Changed Successfully.');
+              // this.navCtrl.push(AccountPage);
+            }else{
+              // this.presentLoading(false);
+              // this.showAlert(data.mssg);
+              // this.loading.dismiss();
+            }       
+        });
+  }
+
+
+
+
+
+
+
+  onChangeState(){
+    // this.presentLoading(true);
+    var headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    let options = new RequestOptions({headers: headers});
+
+    let data = {
+      state_id: this.state,
+    }
+
+    
+    this.http.post(`${apiUrl.url}loc/dists`, data, options).
+      map(res => res.json()).subscribe(data => {				
+        console.log('dist data : ', data.data);   
+        if(data.data.length > 0){
+          // this.presentLoading(false);
+          // this.loading.dismiss();
+          this.dists = data.data;
+          // this.showAlert('Password Changed Successfully.');
+          // this.navCtrl.push(AccountPage);
+        }else{
+          // this.presentLoading(false);
+          // this.loading.dismiss();
+          // this.showAlert(data.mssg);
+        }       
+    });
+  }
+
+
+
+
+
+
+
+  onChangeDist() {
+    this.presentLoading(true);
+    var headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    let options = new RequestOptions({headers: headers});
+
+    const params = new HttpParams()
+    .set('country_id', this.country.toString())
+    .set('state_id', this.state.toString())
+    .set('dist_id', this.dist.toString())
+    .set('type_id', '2');
+
+    // let data = {
+    //     params : {
+    //     country_id: this.country,
+    //     state_id: this.state,
+    //     dist_id: this.dist,
+    //     type_id: this.type,
+    //   }
+    // }
+
+    // let formData = new FormData();
+    // formData.append('country_id', this.country.toString());
+    // formData.append('state_id', this.state.toString());
+    // formData.append('dist_id', this.dist.toString());
+    // formData.append('type_id', this.type.toString());
+
+    
+    this.http.get(`${apiUrl.url}org/search?country=${this.country}&state=${this.state}&dist=${this.dist}&type=2`).
+      map(res => res.json()).subscribe(data => {				
+          console.log('dist data : ', data.data);   
+          this.presentLoading(false);      
+    });
+  }
+
+
+
+
+
+
+
+  presentLoading(load: boolean) {
+		if (load) {
+			return this.loading.present();
+		}
+		else {
+			setTimeout(() => {
+				return this.loading.dismiss();
+			}, 1000);
+		}
+  }
+
+
+
+
+
+  initLoader() {
+		this.loading = this.loadingController.create({
+      spinner: 'hide',
+      dismissOnPageChange: true,
+			content: '<img class="loader-class" src="assets/icon/tail-spin.svg"> <p>Loading please wait...</p>',
+		});
+  }
+
+
+
+
+
+  
 }

@@ -19,6 +19,7 @@ import { apiUrl } from '../../apiUrl';
   selector: 'page-student-library-list',
   templateUrl: 'student-library-list.html',
 })
+
 export class StudentLibraryListPage {
   localUserData: any;
   allBookList: any = [];
@@ -88,7 +89,7 @@ export class StudentLibraryListPage {
         .map(res => res.json())
         .subscribe(
           async data => {
-            // console.log("book list : ", data.data);
+            console.log("book list : ", data.data);
             if(data.data.length > 1) {
               this.presentLoading(false);
               this.allBookList = await data.data;
@@ -140,10 +141,11 @@ export class StudentLibraryListPage {
     this.showNotFound = false;
     let tempArr = [];
     // console.log('search change...', e.target.value);
-    if(e.target.value != ""){     
+    let searchValue = e.target.value.toLowerCase();
+    if(searchValue != ""){     
       for (let index = 0; index < this.allBookList.length; index++) {
-            var matchFound = await this.allBookList[index].book_name.toLowerCase().match(e.target.value);
-            var matchAuthor = await this.allBookList[index].author.toLowerCase().match(e.target.value);
+            var matchFound = await this.allBookList[index].book_name.toLowerCase().match(searchValue);
+            var matchAuthor = await this.allBookList[index].author.toLowerCase().match(searchValue);
                 
             if (matchFound != null) {
               tempArr.push(this.allBookList[index]);
@@ -174,9 +176,10 @@ export class StudentLibraryListPage {
 
       this.allBookList = tempArr;
       // this.showNotFound = false;
+      console.log('book list by search : ', this.allBookList);      
     }else{
       this.allBookList = this.allBook;
-      
+      console.log('all book list : ', this.allBookList);
     }   
   }
 

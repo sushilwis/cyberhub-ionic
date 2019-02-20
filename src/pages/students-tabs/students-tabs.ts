@@ -32,7 +32,7 @@ export default class StudentsTabsPage implements OnInit {
   localUserData: any;
   loading: any;
   orgDetails: any;
-
+  seeTabs: boolean = true;
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -45,6 +45,7 @@ export default class StudentsTabsPage implements OnInit {
   }
 
   ngOnInit() {
+    this.seeTabs = true;
     this.getUserDataFromLocal();
     this.getUserData();
   }

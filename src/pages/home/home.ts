@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, OnInit } from '@angular/core';
 import { NavController, MenuController, Platform } from 'ionic-angular';
 import { GuestEnquiryPage } from '../guest-enquiry/guest-enquiry';
 import { StudentLoginPage } from '../student-login/student-login';
@@ -11,10 +11,11 @@ import { WelcomeGuestPage } from '../welcome-guest/welcome-guest';
   selector: 'page-home',
   templateUrl: 'home.html'
 })
-export class HomePage {
+export class HomePage implements OnInit{
   splash = true;
   @ViewChild('myElement') myElem;
   private animator: AnimationBuilder;
+  seeTabs: boolean = false;
 constructor(
     public platform: Platform,
     public navCtrl: NavController,
@@ -29,6 +30,8 @@ constructor(
         this.navCtrl.pop();
       }
     });
+
+    this.seeTabs = false;
   }
 
 
@@ -37,6 +40,12 @@ constructor(
       this.splash = false;
     }, 200);
     this.animateElem();
+  }
+
+
+
+  ngOnInit() {
+    this.hideTabs();
   }
 
   animateElem() {
@@ -57,4 +66,21 @@ constructor(
   goToStaff(){
     this.navCtrl.push(StaffLoginPage);
   }
+
+
+
+
+
+  hideTabs(){
+    let elements = document.querySelectorAll(".tabbar");
+    console.log(Object.keys(elements));
+    
+      if (elements != null) {
+          Object.keys(elements).map((key) => {
+              elements[key].style.display = 'none';
+          });
+      }
+  }
+
+  
 }

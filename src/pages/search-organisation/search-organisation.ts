@@ -1,7 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController, Platform, ActionSheetController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController, Platform, ActionSheetController, AlertController, LoadingController } from 'ionic-angular';
 import { apiUrl } from '../../apiUrl';
-import { Http } from '@angular/http';
+import { Http, RequestOptions, Headers, Jsonp } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { SchoolDetailsPage } from '../school-details/school-details';
 import { StudentOwndetailsPage } from '../student-owndetails/student-owndetails';
@@ -27,43 +27,115 @@ export class SearchOrganisationPage {
   localUserData: any;
   isSearchbarOpened: boolean;
   items: any[];
+  organization: any;
+  loading: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private http: Http, public platform: Platform, public toastCtrl: ToastController, public actionsheetCtrl: ActionSheetController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private http: Http, public platform: Platform, public toastCtrl: ToastController, public actionsheetCtrl: ActionSheetController, public alertCtrl: AlertController, public loadingController: LoadingController) {
     this.getUserDataFromLocal();
-    this.getData();
+    // this.getData();
+    this.initLoader();
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SearchOrganisationPage');
+    this.showRadio();
   }
 
 
 
 
 
-  getData() {
+  // getData() {
+  //   this.http
+  //     .get(`${apiUrl.url}org/alllist`)
+  //     .map(res => res.json())
+  //     .subscribe(data => {
+  //       this.allSchoolsList = data;
+  //       console.log("student list : ", this.allSchoolsList);
+  //       data.data.forEach(ele => {
+  //         const obj = {
+  //           id: ele.id,
+  //           name: ele.org_name,
+  //           city: ele.org_city,
+  //           landmark: ele.landmark,
+  //           org: this.genOrgName(ele.org_type_id),
+  //           org_logo: ele.org_logo,
+  //           org_text: ele.org_text,
+  //           email: ele.email,
+  //           phone_no: ele.phone_no,
+  //           website: ele.website
+  //         };
+  //         this.list.push(obj);
+  //       });
+  //     });
+  // }
+
+  initLoader() {
+		this.loading = this.loadingController.create({
+			spinner: 'hide',
+			content: '<img class="loader-class" src="assets/icon/tail-spin.svg"> <p>Loading please wait...</p>',
+		});
+  }
+
+
+
+  getData(id) {
+    this.presentLoading(true);
+    var headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    let options = new RequestOptions({ headers: headers });
+
+    let data = {
+      type: id,
+      is_reg: false,
+    }
+
     this.http
-      .get(`${apiUrl.url}org/alllist`)
+      .post(`${apiUrl.url}org/orgsearchbytype`, data, options)
       .map(res => res.json())
       .subscribe(data => {
-        this.allSchoolsList = data;
-        console.log("student list : ", this.allSchoolsList);
-        data.data.forEach(ele => {
-          const obj = {
-            id: ele.id,
-            name: ele.org_name,
-            city: ele.org_city,
-            landmark: ele.landmark,
-            org: this.genOrgName(ele.org_type_id),
-            org_logo: ele.org_logo,
-            org_text: ele.org_text,
-            email: ele.email,
-            phone_no: ele.phone_no,
-            website: ele.website
-          };
-          this.list.push(obj);
-        });
+        // this.presentLoading(false);
+        this.allSchoolsList = data.data;
+        console.log("school list..... : ", this.allSchoolsList);
+        // console.log("school list length..... : ", data.data.length);
+        if(this.allSchoolsList.length > 0){
+          this.allSchoolsList.forEach(ele => {
+            const obj = {
+                        id: ele.id,
+                        name: ele.org_name,
+                        city: ele.org_city,
+                        landmark: ele.landmark,
+                        org: this.genOrgName(ele.org_type_id),
+                        org_logo: ele.org_logo,
+                        org_text: ele.org_text,
+                        email: ele.email,
+                        phone_no: ele.phone_no,
+                        website: ele.website
+                      };
+            this.list.push(obj);
+          });
+          this.presentLoading(false);
+          console.log("arr list..... : ", this.list);
+        } else {
+          this.presentLoading(false);
+          // this.presentToast('Sorry, No Data Found !');
+          this.showAlert('Alert!', 'Sorry, No Data Found !');        
+        }       
       });
+  }
+
+
+
+
+  presentLoading(load: boolean) {
+		if (load) {
+			return this.loading.present();
+		}
+		else {
+			setTimeout(() => {
+				return this.loading.dismiss();
+			}, 1000);
+		}
   }
 
 
@@ -141,8 +213,8 @@ export class SearchOrganisationPage {
   presentToast(msg:string) {
     const toast = this.toastCtrl.create({
       message: msg,
-      duration: 3000,
-      position: 'top'
+      duration: 4000,
+      position: 'bottom'
     });
     toast.present();
   }
@@ -221,5 +293,63 @@ export class SearchOrganisationPage {
 
     actionSheet.present();
   }
+
+
+
+
+  showAlert(title, msg) {
+		const alert = this.alertCtrl.create({
+		  title: title,
+		  subTitle: msg,
+		  buttons: ['OK'],
+    });
+    
+		alert.present();
+  }
+
+
+
+  showRadio() {
+    let alert = this.alertCtrl.create();
+    alert.setTitle('SELECT WHAT YOU WANT TO SEARCH');
+
+    alert.addInput(
+      {
+        type: 'radio',
+        label: 'School',
+        value: '1',
+        checked: true
+      }
+    );
+    alert.addInput(
+      {
+        type: 'radio',
+        label: 'College',
+        value: '2',
+        checked: false
+      }
+    );
+    alert.addInput(
+      {
+        type: 'radio',
+        label: 'University',
+        value: '3',
+        checked: false
+      }
+    );
+
+    alert.addButton('Cancel');
+    alert.addButton({
+      text: 'OK',
+      handler: data => {
+        console.log(data);
+        this.getData(data);        
+      }
+    });
+    alert.present();
+  }
+
+
+
 
 }

@@ -7,9 +7,10 @@
 <ion-header>
   <ion-navbar color="blue">
     <ion-title>List of Books</ion-title>
-      <ion-buttons end class="search-icon"> <i class="fas fa-search fa-lg"></i> </ion-buttons>
+      <ion-buttons end class="search-icon">
+        <i class="fas fa-search fa-lg"></i> </ion-buttons>
   </ion-navbar>
-   <ion-toolbar>
+  <ion-toolbar>
     <ion-searchbar (keyup)="onChangeSearch($event)"></ion-searchbar>
   </ion-toolbar>
 </ion-header>
@@ -28,15 +29,16 @@
         <ion-thumbnail item-start>
           <img src="assets/imgs/book.png">
         </ion-thumbnail>
-        <h2 *ngIf="book.book_name"><strong>{{book.book_name}}</strong></h2>
+        <h2 *ngIf="book.book_name" class="book-name"><strong>{{book.book_name}}</strong></h2>
         <p><strong>Author Name</strong>: {{book.author}}</p>
-        <small><strong>Number of Copies</strong>: {{book.no_copy}}</small>
+        <!-- <small><strong>Number of Copies</strong>: {{book.no_copy}}</small> -->
+        <!-- <small>Subject Name : {{book.no_copy}}</small> -->
       </ion-item>
     </ion-list>
 
-    <ion-infinite-scroll (ionInfinite)="doInfinite($event)" *ngIf="page < totalPage">
+    <!-- <ion-infinite-scroll (ionInfinite)="doInfinite($event)" *ngIf="page < totalPage">
       <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more..."></ion-infinite-scroll-content>
-    </ion-infinite-scroll>
+    </ion-infinite-scroll> -->
 <!-- *ngIf="page < totalPage" *ngIf="book.book_name"-->
 
 </ion-content>

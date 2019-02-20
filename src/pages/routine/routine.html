@@ -22,11 +22,11 @@
 
       <ion-list *ngIf="routine?.showDetails">
 				<ion-item *ngFor="let r of routine.priods">
-          <p>Priod : {{r?.priod_name}} Priod</p>
-          <p *ngIf="r?.rutinedetails[0]">CC Name : {{r?.rutinedetails[0]?.cc_name}}</p>
-          <p *ngIf="!r?.rutinedetails[0]">CC Name : No Priod</p>
-          <p *ngIf="r?.rutinedetails[0]">Time : {{r?.from_time}} to {{r?.to_time}}</p>
-          <p *ngIf="!r?.rutinedetails[0]">Time : NA</p>
+          <p>Priod : {{r?.priod_name}} Priod ({{r?.from_time}} to {{r?.to_time}})</p>
+          <p *ngIf="r?.rutinedetails[0]">Subject Name : {{r?.rutinedetails[0]?.cc_name}}</p>
+          <p *ngIf="!r?.rutinedetails[0]">Subject Name : No Priod</p>
+          <!-- <p *ngIf="r?.rutinedetails[0]">Time : {{r?.from_time}} to {{r?.to_time}}</p> -->
+          <!-- <p *ngIf="!r?.rutinedetails[0]">Time : NA</p> -->
           <p *ngIf="r?.rutinedetails[0]">Teacher : {{r?.rutinedetails[0]?.teacher?.name}} ({{r?.rutinedetails[0]?.teacher?.short_name}})</p>
           <p *ngIf="!r?.rutinedetails[0]">Teacher : NA</p>
 				</ion-item>

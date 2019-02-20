@@ -14,15 +14,15 @@
   <ion-list>
     <ion-item *ngFor="let notice of allNotice">
       <ion-thumbnail item-start (click)="presentProfileModal(notice.id)">
-        <img src="assets/imgs/download-img.png">
+        <img class="notice-img" src="assets/imgs/pdf_logo.svg">
       </ion-thumbnail>
       <h2>{{notice?.notice?.subject}}</h2>
       <p>{{notice?.notice?.text}}</p>
-      <p>{{notice?.noticetype?.type_name}}</p>
-      <!-- <p style="font-size: 10px;">{{notice?.created_at}}</p> -->
-      <ion-note item-end style="font-size: 11px;">
+      <!-- <p>{{notice?.noticetype?.type_name}}</p> -->
+      <p style="font-size: 10px;">{{notice?.created_at}}</p>
+      <!-- <ion-note item-end style="font-size: 11px;">
         {{notice?.timeDifference}}
-      </ion-note>
+      </ion-note> -->
       <a *ngIf="notice?.notice?.file_url" ion-button clear (click)="showPdf('http://softechs.co.in/school_hub/public/uploads/Notices/1545809130-2.pdf')">
         <!-- <i class="fas fa-download fa-2x"></i> -->
         download Pdf

@@ -36,6 +36,8 @@ export class StudentOwndetailsPage implements OnInit {
   allPersonalNotice: any;
   personalNoticeCount: any;
   studentName: string;
+  seeTabs: boolean = true;
+  
   constructor(public navCtrl: NavController, public navParams: NavParams, public menuCtrl: MenuController, public loadingController: LoadingController, private http: Http, public platform: Platform,) {
     this.menuCtrl.enable(false);
     this.initLoader();
@@ -52,6 +54,7 @@ export class StudentOwndetailsPage implements OnInit {
     this.getNoticeList();
     // this.getWheatherData();
     this.getStudentDetails();
+    this.seeTabs = true;
   }
 
 

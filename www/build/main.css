@@ -40347,11 +40347,14 @@ page-home .sub-line {
 
 page-home .card-button-text {
   margin-top: 15px;
+  margin-bottom: 0px !important;
   background: rgba(0, 0, 0, 0.82);
   text-align: center;
   font-size: 17px;
   font-weight: 400;
   color: #fff;
+  position: relative !important;
+  bottom: -1px !important;
 }
 
 @-webkit-keyframes pulse {
@@ -41304,6 +41307,10 @@ page-student-library-list .search-icon i {
   padding-right: 10px;
 }
 
+page-student-library-list .book-name {
+  overflow: visible;
+}
+
 page-student-login ion-app.md [padding], page-student-login ion-app.ios [padding] {
   padding: 0px !important;
 }
@@ -41432,6 +41439,14 @@ page-student-notice-board .icon-center p {
 
 page-student-notice-board .toolbar-md, page-student-notice-board .toolbar-ios {
   padding: 0px;
+}
+
+page-student-notice-board .notice-img {
+  width: 40% !important;
+}
+
+page-student-notice-board .item-md ion-avatar[item-left], page-student-notice-board .item-md ion-thumbnail[item-left], page-student-notice-board .item-md ion-avatar[item-start], page-student-notice-board .item-md ion-thumbnail[item-start] {
+  margin: 8px -50px 8px 0 !important;
 }
 
 page-student-owndetails .fixed p {
