@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { UniqueDeviceID } from '@ionic-native/unique-device-id';
+import { Http, RequestOptions, Headers, Jsonp } from '@angular/http';
+import { apiUrl } from '../../apiUrl';
 
 /*
   Generated class for the FcmProvider provider.
@@ -33,7 +35,7 @@ export class FcmProvider {
     public firebaseNative: Firebase,
     public afs: AngularFirestore,
     private platform: Platform,
-    private uniqueDeviceID: UniqueDeviceID
+    private http: Http,
   ) {
     // this.localVal = JSON.parse(localStorage.getItem('userData'));
   }
@@ -70,14 +72,29 @@ export class FcmProvider {
   async saveTokenToFirestore(token) {
     if (!token) return;
     let localVal = await JSON.parse(localStorage.getItem('userData'));
-    const devicesRef = await this.afs.collection('devices');
-    const docData = {
-      token,
-      user: localVal ? localVal.id: null
+    // const devicesRef = await this.afs.collection('devices');
+    // const docData = {
+    //   token,
+    //   user: localVal ? localVal.id: null
+    // }
+
+    // return devicesRef.doc(token).set(docData);
+    var headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    let options = new RequestOptions({ headers: headers });
+
+    let data = {
+      id : localVal.id,
+      token
     }
 
-    return devicesRef.doc(token).set(docData);
-    
+    this.http.post(`${apiUrl.url}/user/savetoken`, data, options)
+    .map(res => res.json()).subscribe(data => {
+      // alert(JSON.stringify(data))
+      if (data.status == 1) {
+        return data
+      }
+    })
   }
 
 

@@ -5,6 +5,8 @@ import { RequestOptions, Headers, Http } from '@angular/http';
 import { apiUrl } from '../../apiUrl';
 import { HomePage } from "../home/home";
 import { StuffRegistrationPage } from '../stuff-registration/stuff-registration';
+import { FcmProvider } from "../../providers/fcm/fcm";
+
 /**
  * Generated class for the StaffLoginPage page.
  *
@@ -27,7 +29,8 @@ export class StaffLoginPage implements OnInit {
     public navParams: NavParams,
     private http: Http,
     public alertCtrl: AlertController,
-    public loadingController: LoadingController
+    public loadingController: LoadingController,
+    public fcm: FcmProvider
   ) {
     this.initLoader();
   }
@@ -88,8 +91,9 @@ export class StaffLoginPage implements OnInit {
           console.log("stuff login info : ", data.data);
           if (data.data.length > 0) {
             // console.log(data.data[0]);
-            this.presentLoading(false);
             localStorage.setItem("userData", JSON.stringify(data.data[0]));
+            this.fcm.getToken();
+            this.presentLoading(false);
             this.navCtrl.setRoot(StaffInfoPage);
           } else {
             this.showAlert(

@@ -59,7 +59,7 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       let localVal = JSON.parse(localStorage.getItem('userData'));
 
-      this.fcm.getToken();
+      
     //   this.afs.collection('devices', ref => ref.where('userId', '==','testUser1')).snapshotChanges().subscribe(data => {
     //    data.map(x => console.log(x.payload.doc.data()))
     //  })
