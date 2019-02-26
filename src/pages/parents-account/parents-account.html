@@ -13,52 +13,55 @@
 
 <ion-content>
   <div class="back-ground">
-      <img src="assets/imgs/student-icon.png"/>
+      <img class="profile-image" src="{{profile_image}}" *ngIf="profile_image"/>
+      <button ion-button icon-only round small color="light" class="camera-icon" (click)="getImage()">
+        <ion-icon name="camera"></ion-icon>
+      </button>
       <h5 text-center text-uppercase color="light">{{teacherDetails?.name}}</h5>
       <p text-center text-uppercase>Register Id: {{teacherDetails?.user_name}}</p>
   </div>
 
   <ion-card>
-  <ion-card-content>
-      <p><strong>Email</strong>: {{teacherDetails?.email}}</p>
-      <p><strong>Aadhar</strong>: {{teacherDetails?.adhar_no}}</p>
-      <p><strong>Mobile</strong>: 1234567890</p>
-      <p><strong>Gender</strong>: {{teacherDetails?.gender}}</p>
-      <p><strong>qualification</strong>: {{teacherDetails?.qualification}}</p>
-      <p><strong>Short Name</strong>: {{teacherDetails?.short_name}}</p>
-      <br/>
-      <button ion-button type="submit" block outline color="blue" class="mt-10" (click)=goToPassword()>Change Password</button>
-      <button ion-button type="submit" block outline color="blue" class="mt-10" (click)=goToEditProfile()>Edit Profile</button>
-  </ion-card-content>
-</ion-card>
+    <ion-card-content>
+        <p><strong>Email</strong>: {{teacherDetails?.email}}</p>
+        <p><strong>Identification No.</strong>: {{teacherDetails?.adhar_no}}</p>
+        <p><strong>Mobile</strong>: 1234567890</p>
+        <p><strong>Gender</strong>: {{teacherDetails?.gender}}</p>
+        <p><strong>qualification</strong>: {{teacherDetails?.qualification}}</p>
+        <p><strong>Short Name</strong>: {{teacherDetails?.short_name}}</p>
+        <br/>
+        <button ion-button type="submit" block outline color="blue" class="mt-10" (click)=goToPassword()>Change Password</button>
+        <button ion-button type="submit" block outline color="blue" class="mt-10" (click)=goToEditProfile()>Edit Profile</button>
+        <button ion-button type="submit" block outline color="blue" class="mt-10" (click)=addQues()>Add Security Question</button>
+    </ion-card-content>
+  </ion-card>
 
 </ion-content>
 
-<ion-footer class="fixed">
+
+
+
+<!-- <ion-footer class="fixed">
   <ion-toolbar color="primary">  
   <ion-grid text-center >
     <ion-row>
       <div col-3 (click)=gotoHome()>
         <img src="assets/imgs/white-icon5.png">
-       <!--  <i text-center class="fas fa-video fa-inverse fa-lg"></i> -->
         <p class="footer-p">Home</p>
       </div>
       <div col-3 (click)=gotoLiveStream()>
         <img src="assets/imgs/white-icon1.png">
-       <!--  <i text-center class="fas fa-video fa-inverse fa-lg"></i> -->
         <p class="footer-p">Live Streaming</p>
       </div>
       <div col-3 (click)=goToAttendance()>
         <img src="assets/imgs/white-icon2.png">
-        <!-- <i text-center class="fas fa-boxes fa-inverse fa-lg"></i> -->
         <p  class="footer-p">Attendance</p>
       </div>
       <div col-3 (click)=goToRoutine()>
         <img src="assets/imgs/white-icon3.png">
-        <!-- <i class="fas fa-box fa-inverse fa-lg"></i> -->
         <p  class="footer-p">Routine</p>
       </div>
     </ion-row>
   </ion-grid>
   </ion-toolbar>
-</ion-footer>
+</ion-footer> -->

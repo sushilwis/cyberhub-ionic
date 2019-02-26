@@ -102,7 +102,7 @@ export class StaffInfoPage {
     
 		this.http.post(`${apiUrl.url}org/getdetail`, data, options).
 			map(res => res.json()).subscribe(data => {				
-				// console.log('org_details : ', data.data[0]);
+				console.log('org_details : ', data.data[0]);
 
 				if (data.data) {
           this.presentLoading(false);
@@ -111,6 +111,33 @@ export class StaffInfoPage {
         
 			});
   }
+
+
+
+
+
+
+  // getUserData() {
+  //   this.presentLoading(true);
+	// 	var header = new Headers();
+	// 	header.append('Content-Type', 'application/json');
+	// 	let options = new RequestOptions({headers: header});
+
+	// 	let data = {
+  //     'org_id': this.localUserData.org_code,
+  //   }
+    
+	// 	this.http.post(`${apiUrl.url}org/getdetail`, data, options).
+	// 		map(res => res.json()).subscribe(data => {				
+	// 			console.log('org_details : ', data.data[0]);
+
+	// 			if (data.data) {
+  //         this.presentLoading(false);
+  //         this.orgDetails = data.data[0];					
+  //       }
+        
+	// 		});
+  // }
 
 
 

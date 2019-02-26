@@ -46,6 +46,7 @@ export class GetAttendancePage {
 
 
   ngOnInit(){
+    console.log('get attendance page...');    
     this.getUserDataFromLocal();
     this.getShiftLists();
     this.getClassList();
@@ -111,7 +112,7 @@ export class GetAttendancePage {
       this.filteredArrayForClassList = this.orgClassSectionList.filter((ele) => {
         return ele.org_shift_id == e;
       });
-      this.getPeriod();
+      // this.getPeriod();
       // console.log(this.filteredArrayForClassList);
       this.createSortArray(this.filteredArrayForClassList);
     // }
@@ -207,40 +208,45 @@ export class GetAttendancePage {
 
   createSortArray(arr){
     // var rs = 1;
+    let currYear = new Date().getFullYear();
     arr.forEach(ele => {
 
-      var obj = {
-        class_id: ele.class_id,
-        sec_id: ele.sec_id,
-        class_name: ele.class.class_name,
-        shift_id: ele.org_shift_id,
-        sections: [
-          {
+      if(ele.year == currYear){
+
+        var obj = {
+          class_id: ele.class_id,
+          sec_id: ele.sec_id,
+          class_name: ele.class.class_name,
+          shift_id: ele.org_shift_id,
+          sections: [
+            {
+              section_name: ele.section.sec_name,
+              sec_id: ele.sec_id,
+              classSectionIndexId: ele.id
+            }
+          ]
+        }
+
+        let check_exist = this.sortArray.filter((element)=> {
+          return element.class_id == ele.class_id;
+        });
+
+        if(check_exist.length > 0){
+          let i = this.sortArray.indexOf(check_exist[0]);
+          this.sortArray.splice(i,1); 
+
+          check_exist[0].sections.push({
             section_name: ele.section.sec_name,
             sec_id: ele.sec_id,
             classSectionIndexId: ele.id
-          }
-        ]
+          });
+
+          this.sortArray.push(check_exist[0]);       
+        }else{
+          this.sortArray.push(obj);
+        }
       }
 
-      let check_exist = this.sortArray.filter((element)=> {
-        return element.class_id == ele.class_id;
-      });
-
-      if(check_exist.length > 0){
-        let i = this.sortArray.indexOf(check_exist[0]);
-        this.sortArray.splice(i,1); 
-
-        check_exist[0].sections.push({
-          section_name: ele.section.sec_name,
-          sec_id: ele.sec_id,
-          classSectionIndexId: ele.id
-        });
-
-        this.sortArray.push(check_exist[0]);       
-      }else{
-        this.sortArray.push(obj);
-      }
     });
     // console.log(this.sortArray);    
   }
@@ -250,6 +256,7 @@ export class GetAttendancePage {
 
 
   getPeriod() {
+    console.log('get period called...');    
     let header = new Headers();
     header.set("Content-Type", "application/json");
     let data = { org_id: this.localUserData.org_code, shift_id: this.shiftID };
@@ -263,6 +270,15 @@ export class GetAttendancePage {
           this.periodList = data.data;
     });  
   }
+
+
+
+
+
+
+  // onChooseDepartment() {
+
+  // }
 
 
 

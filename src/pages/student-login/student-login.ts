@@ -1,8 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController, AlertController } from 'ionic-angular';
 import StudentsTabsPage from '../students-tabs/students-tabs';
-import { UniqueDeviceID } from '@ionic-native/unique-device-id';
-import { AngularFirestore } from '@angular/fire/firestore';
 
 import { Http, RequestOptions, Headers, Jsonp } from '@angular/http';
 import 'rxjs/add/operator/map';
@@ -39,7 +37,7 @@ export class StudentLoginPage {
 	show: boolean = false;
 
 	constructor(public navCtrl: NavController, public navParams: NavParams, 
-		private http: Http, private uniqueDeviceID: UniqueDeviceID, public loadingController: LoadingController, public jsonp: Jsonp, public alertCtrl: AlertController, public afs: AngularFirestore) {
+		private http: Http, public loadingController: LoadingController, public jsonp: Jsonp, public alertCtrl: AlertController) {
 		this.initLoader();
 		// setTimeout(() => {
 		// 	//
@@ -92,8 +90,7 @@ export class StudentLoginPage {
 			map(res => res.json()).subscribe(data => {	
 				console.log('login data : ', data.data);
 				if (data.data.length > 0) {
-					// console.log('login data : ', data.data);		
-					this.firebaseUpdate(data.data[0].master_id)			
+					// console.log('login data : ', data.data);					
 					this.presentLoading(false);
 					localStorage.setItem('userData', JSON.stringify(data.data[0]));
 					this.navCtrl.setRoot(StudentsTabsPage);					
@@ -164,22 +161,5 @@ export class StudentLoginPage {
 		alert.present();
 	}
 
-	firebaseUpdate(user_id){
-		const devicesRef = this.afs.collection('devices');
-		this.uniqueDeviceID.get()
-		.then((uuid: any) => {
-			
-			// devicesRef.
-				this.afs.collection('devices', ref => ref.where('deviece_id', '==', uuid)).snapshotChanges().subscribe(data => {
-				
-					data.map(x => {
-						let token = x.payload.doc.data()['token']
-						devicesRef.doc(token).update({ user_id}).then(updatex => {
-							console.log(updatex);
-						})
-					})
-			})
-		})
-	}
 
 }

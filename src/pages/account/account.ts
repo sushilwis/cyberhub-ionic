@@ -15,6 +15,7 @@ import { NavController, ActionSheetController, ToastController, Platform, Loadin
 import { FilePath } from '@ionic-native/file-path';
 import { File } from '@ionic-native/file';
 import { Transfer, TransferObject } from '@ionic-native/transfer';
+import { StudentOwndetailsPage } from '../student-owndetails/student-owndetails';
 
 
 declare var cordova: any;
@@ -38,11 +39,14 @@ export default class AccountPage implements OnInit {
   profile_image: string;
   lastImage: string = null;
   loading: Loading;
+  getData: any;
+  showDeptSelection: boolean = false;
   
 
-  constructor(public menuCtrl: MenuController, public navCtrl: NavController, public navParams: NavParams, private http: Http, public loadingController: LoadingController, public jsonp: Jsonp, public modalCtrl: ModalController, private camera: Camera, public loadingCtrl: LoadingController, public toastCtrl: ToastController, public actionSheetCtrl: ActionSheetController, public platform: Platform, private transfer: Transfer) {
+  constructor(public menuCtrl: MenuController, public navCtrl: NavController, public navParams: NavParams, private http: Http, public loadingController: LoadingController, public jsonp: Jsonp, public modalCtrl: ModalController, private camera: Camera, public loadingCtrl: LoadingController, public toastCtrl: ToastController, public actionSheetCtrl: ActionSheetController, public platform: Platform, public transfer: Transfer) {
     this.menuCtrl.enable(false);
     this.initLoader();
+    // this.getData = this.navParams.get('data');
     this.platform.registerBackButtonAction(() => {
       if (this.navCtrl.getViews().length > 1) {
         this.navCtrl.pop();
@@ -56,7 +60,6 @@ export default class AccountPage implements OnInit {
   ngOnInit() {
     this.getUserDataFromLocal();
     this.getStudentDetails();
-    this.showSelectDepartmentBtn = false;
   }
 
 
@@ -116,7 +119,7 @@ export default class AccountPage implements OnInit {
 				if (data.data[0]) {
           this.presentLoading(false);
           this.studentDetails = data.data[0];
-
+          console.log('student detasisld : ', this.studentDetails);          
           if(data.data[0].nameclass){
             this.showSelectDepartmentBtn = false;
           }else{
@@ -192,6 +195,12 @@ export default class AccountPage implements OnInit {
   }
 
 
+  goToEnterSecurityPin(){
+    let modal = this.modalCtrl.create(SecuritypinPage);
+    modal.present();
+  }
+
+
 
 
   getImage() {
@@ -247,7 +256,7 @@ export default class AccountPage implements OnInit {
 
 
    
-  private presentToast(text) {
+  presentToast(text) {
     let toast = this.toastCtrl.create({
       message: text,
       duration: 3000,
@@ -303,6 +312,7 @@ export class ModalPage {
   filteredArrayForSectionList: any = [];
   classStreamID: any;
   classIndexId: any;
+  // showDeptSelection: boolean = true;
 
   constructor(
     public platform: Platform,
@@ -401,7 +411,7 @@ export class ModalPage {
         .subscribe(
           data => {
             this.orgClassSectionList = data.data;
-            // console.log("Org class list ", data.data);
+            console.log("Raw class list ", data.data);
             this.createSortArray(this.orgClassSectionList);
       });
   }
@@ -475,7 +485,7 @@ onChooseClassStream(e) {
     this.filteredArrayForSectionList = this.filteredArrayForSectionList[0].sections;
   }  
 
-  // console.log('filter section array : ', this.filteredArrayForSectionList);
+  console.log('filter section array : ', this.filteredArrayForSectionList);
 }
 
 
@@ -512,6 +522,12 @@ submitDepartment() {
         .subscribe(
           data => {
             // console.log("after add data : ", data);
+            // this.showDeptSelection = false;
+            if(data.status == 1){
+              // this.navCtrl.push(AccountPage);              
+                let modal1 = this.modalCtrl.create(Modal1Page);
+                modal1.present();              
+            }
       });
 }
 
@@ -525,52 +541,310 @@ submitDepartment() {
 // ########################################################################
 createSortArray(arr){
   // var rs = 1;
+  let currYear = new Date().getFullYear();
+  console.log('year : ', currYear);  
+
   arr.forEach(ele => {
 
-    var obj = {
-      class_id: ele.class_id,
-      sec_id: ele.sec_id,
-      class_name: ele.class.class_name,
-      shift_id: ele.org_shift_id,
-      sections: [
-        {
+    if(currYear == ele.year){    
+
+      var obj = {
+        class_id: ele.class_id,
+        sec_id: ele.sec_id,
+        class_name: ele.class.class_name,
+        shift_id: ele.org_shift_id,
+        sections: [
+          {
+            section_name: ele.section.sec_name,
+            sec_id: ele.sec_id,
+            classSectionIndexId: ele.id
+          }
+        ]
+      }
+
+      let check_exist = this.sortArray.filter((element)=> {
+        return element.class_id == ele.class_id;
+      });
+
+      if(check_exist.length > 0){
+        // console.log('exist');
+        let i = this.sortArray.indexOf(check_exist[0]);
+        this.sortArray.splice(i,1); 
+
+        check_exist[0].sections.push({
           section_name: ele.section.sec_name,
           sec_id: ele.sec_id,
           classSectionIndexId: ele.id
-        }
-      ]
-    }
+        });
 
-    let check_exist = this.sortArray.filter((element)=> {
-      return element.class_id == ele.class_id;
-    });
-
-    if(check_exist.length > 0){
-      // console.log('exist');
-      let i = this.sortArray.indexOf(check_exist[0]);
-      this.sortArray.splice(i,1); 
-
-      check_exist[0].sections.push({
-        section_name: ele.section.sec_name,
-        sec_id: ele.sec_id,
-        classSectionIndexId: ele.id
-      });
-
-      this.sortArray.push(check_exist[0]);       
-    }else{
-      this.sortArray.push(obj);
+        this.sortArray.push(check_exist[0]); 
+        console.log('class section : ', this.sortArray);      
+      }else{
+        this.sortArray.push(obj);
+      }
     }
   });
 
 
-  // console.log('class section : ', this.sortArray);    
+      
+}
+
 }
 
 
 
 
-  
 
 
+
+
+
+
+@Component({
+  templateUrl: './modal1.html'
+})
+
+export class Modal1Page {
+
+  // character; 
+  // orgShiftLists: any;
+  // orgClassSectionList: any = []; 
+  localUserData: any;
+  // sortArray: any = [];
+  // shiftID: any;
+  // selectedData: any;
+  // filteredArrayForClassList: any = [];
+  // filteredArrayForSectionList: any = [];
+  // classStreamID: any;
+  // classIndexId: any;
+  guarPhone: string;
+  guarId: string;
+  // showDeptSelection: boolean = true;
+
+  constructor(
+    public platform: Platform,
+    public params: NavParams,
+    public viewCtrl: ViewController,
+    public menuCtrl: MenuController, 
+    public navCtrl: NavController, 
+    public navParams: NavParams, 
+    private http: Http, 
+    public loadingController: LoadingController, 
+    public jsonp: Jsonp, 
+    public modalCtrl: ModalController,
+  ) {
+    // var characters = [];
+    // this.character = characters[this.params.get('charNum')];
+    this.getUserDataFromLocal();
+  }
+
+
+
+  ngOnInit() {
+    // this.sortArray = [];
+    // this.filteredArrayForClassList = [];
+    // this.getUserDataFromLocal();
+    // this.getStudentDetails();
+    // this.showSelectDepartmentBtn = false;
+    // this.getShiftLists();
+    // this.getClassList();    
+  }
+
+
+
+
+
+
+    dismiss() {
+      this.viewCtrl.dismiss();
+    }
+
+
+
+
+
+// ########################################################################
+//    -------------- getting user data from localstorage ---------------
+// ########################################################################
+    getUserDataFromLocal() {
+      let data = localStorage.getItem('userData');
+      this.localUserData = JSON.parse(data);
+      // console.log('local data : ', this.localUserData);    
+    }
+
+
+
+
+// ########################################################################
+// ----------- submit Guardian Info function -----------
+// ########################################################################
+    submitGuardianInfo() {
+          let header = new Headers();
+          header.set("Content-Type", "application/json");
+
+          let data = {
+            phone: this.guarPhone,
+            adhar: this.guarId,
+            org_id: this.localUserData.org_code,
+            std_id: this.localUserData.master_id,
+            from_app: 1
+          };
+
+          this.http
+            .post(`${apiUrl.url}parent/add`, data, {headers: header})
+            .map(res => res.json())
+            .subscribe(
+              data => {
+                console.log('after guardian info submit : ', data); 
+                if(data.data){
+                  this.localUserData.is_first_time = '1';
+                  localStorage.setItem('userData', JSON.stringify(this.localUserData));
+                  this.navCtrl.push(AccountPage);
+                }                                
+          });
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+@Component({
+  templateUrl: './securitypin.html'
+})
+
+export class SecuritypinPage {
+
+  // character; 
+  // orgShiftLists: any;
+  // orgClassSectionList: any = []; 
+  localUserData: any;
+  // sortArray: any = [];
+  // shiftID: any;
+  // selectedData: any;
+  // filteredArrayForClassList: any = [];
+  // filteredArrayForSectionList: any = [];
+  // classStreamID: any;
+  // classIndexId: any;
+  guarPhone: string;
+  guarId: string;
+  securityPin: number;
+  btnDisabled: boolean = false;
+  // showDeptSelection: boolean = true;
+
+  constructor(
+    public platform: Platform,
+    public params: NavParams,
+    public viewCtrl: ViewController,
+    public menuCtrl: MenuController, 
+    public navCtrl: NavController, 
+    public navParams: NavParams, 
+    private http: Http, 
+    public loadingController: LoadingController, 
+    public jsonp: Jsonp, 
+    public modalCtrl: ModalController,
+    public toastCtrl: ToastController,
+  ) {
+    // var characters = [];
+    // this.character = characters[this.params.get('charNum')];
+    this.getUserDataFromLocal();
+  }
+
+
+
+  ngOnInit() {
+    // this.sortArray = [];
+    // this.filteredArrayForClassList = [];
+    // this.getUserDataFromLocal();
+    // this.getStudentDetails();
+    // this.showSelectDepartmentBtn = false;
+    // this.getShiftLists();
+    // this.getClassList();    
+  }
+
+
+
+
+
+
+    dismiss() {
+      this.viewCtrl.dismiss();
+    }
+
+
+
+
+
+// ########################################################################
+//    -------------- getting user data from localstorage ---------------
+// ########################################################################
+    getUserDataFromLocal() {
+      let data = localStorage.getItem('userData');
+      this.localUserData = JSON.parse(data);
+      // console.log('local data : ', this.localUserData);    
+    }
+
+
+
+
+// ########################################################################
+// ----------- submit Guardian Info function -----------
+// ########################################################################
+    submitSecurityPin() {
+          let header = new Headers();
+          header.set("Content-Type", "application/json");
+
+          let data = {
+            u_id: this.localUserData.id,
+            pin: this.securityPin,
+          };
+
+          this.http
+            .post(`${apiUrl.url}user/add-pin`, data, {headers: header})
+            .map(res => res.json())
+            .subscribe(
+              data => {
+                console.log('after add pin submit : ', data); 
+                if(data.status == 1){
+                  this.dismiss();
+                  this.navCtrl.push(AccountPage);                  
+                }else{
+                  this.presentToast('Sorry, Something went wrong.');
+                }                                
+          });
+    }
+
+
+
+
+    // checkForValidPin
+    checkForValidPin() {
+      let pinString = this.securityPin.toString();
+      console.log('pin length : ', pinString.length);      
+      if(pinString.length === 6){
+        this.btnDisabled = true; 
+      }else{
+        this.btnDisabled = false; 
+      }
+    }
+
+
+
+
+    presentToast(text) {
+      let toast = this.toastCtrl.create({
+        message: text,
+        duration: 3000,
+        position: 'top'
+      });
+      
+      toast.present();
+    }
 
 }

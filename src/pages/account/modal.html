@@ -11,7 +11,7 @@
 </ion-header>
 
 
-<ion-content>
+<ion-content padding>
     <ion-list>
       <ion-item>
         <ion-label>Shift</ion-label>
@@ -43,6 +43,26 @@
 
     <button ion-button type="submit" block outline color="blue" class="mt-10" (click)="submitDepartment()">Submit</button>
 </ion-content>
+
+
+
+
+
+
+<!-- <ion-content *ngIf="!showDeptSelection">
+  <ion-list>
+    <ion-item>
+      <ion-label>Shift</ion-label>
+      <ion-select [(ngModel)]="shift" (ionChange)="onChooseShift($event)">
+        <ng-container *ngFor="let shift of orgShiftLists">
+          <ion-option value="{{shift?.orgshift[0]?.id}}" *ngIf="shift?.orgshift[0]?.id">{{shift?.name}}</ion-option>
+        </ng-container>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+
+  <button ion-button type="submit" block outline color="blue" class="mt-10">Submit</button>
+</ion-content> -->
 
 
 

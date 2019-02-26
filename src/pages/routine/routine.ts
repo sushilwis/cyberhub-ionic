@@ -152,7 +152,7 @@ export class RoutinePage implements OnInit {
 				if (data.data.length > 0) {
           // this.presentLoading(false);
           this.rawRoutineList = data.data;
-          // console.log('routine list : ', this.rawRoutineList);
+          console.log('routine list : ', this.rawRoutineList);
           this.sortArr(this.rawRoutineList);
 				}else{
           this.presentLoading(false);

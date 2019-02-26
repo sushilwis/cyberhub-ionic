@@ -59,7 +59,12 @@ export class StaffLoginPage implements OnInit {
 
   goToRegister() {
 		this.navCtrl.push(StuffRegistrationPage);	
-	}
+  }
+  
+
+
+
+  
 
   onStuffLoginSubmit() {
     if (this.regID && this.pass) {
@@ -99,6 +104,11 @@ export class StaffLoginPage implements OnInit {
     }
   }
 
+
+
+
+
+
   showAlert(title, msg) {
     const alert = this.alertCtrl.create({
       title: title,
@@ -107,6 +117,11 @@ export class StaffLoginPage implements OnInit {
     });
     alert.present();
   }
+
+
+
+
+
 
   presentLoading(load: boolean) {
     if (load) {

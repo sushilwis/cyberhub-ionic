@@ -254,8 +254,13 @@ export class StudentNoticeBoardPage implements OnInit {
     //let pdfurl = `${apiUrl.url}public/uploads/Notices/${url}`;
     this.fileOpener
       .open(url, "application/pdf")
-      .then(dta => alert(JSON.stringify(dta)))
-      .catch(e => alert(JSON.stringify(e)));
+      .then(dta => {}
+        // alert(JSON.stringify(dta))
+        )
+      .catch(
+        e => {}
+        // alert(JSON.stringify(e))
+        );
   }
 }
 

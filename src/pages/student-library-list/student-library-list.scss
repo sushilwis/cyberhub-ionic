@@ -13,4 +13,11 @@ page-student-library-list {
 	.book-name {
 		overflow: visible; 
 	}
+	.item-md ion-thumbnail img {
+		width: 65px;
+		height: 65px;
+	}
+	.item-md ion-avatar[item-left], .item-md ion-thumbnail[item-left], .item-md ion-avatar[item-start], .item-md ion-thumbnail[item-start] {
+		margin: 8px -7px -11px 0 !important;
+	}
 }

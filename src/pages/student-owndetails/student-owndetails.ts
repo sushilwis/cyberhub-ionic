@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IonicPage, NavController, NavParams, MenuController, LoadingController, Platform} from 'ionic-angular';
+import { IonicPage, NavController, NavParams, MenuController, LoadingController, Platform, ModalController, ViewController} from 'ionic-angular';
 import { Http, RequestOptions, Headers, Jsonp } from '@angular/http';
 // import { PdfDownloadPage } from '../pdf-download/pdf-download';
 // import { LibraryListPage } from '../library-list/library-list';
@@ -9,7 +9,7 @@ import { PersonalNoticePage } from '../personal-notice/personal-notice';
 import { LiveStreamPage } from '../live-stream/live-stream';
 import { AttendancePage } from '../attendance/attendance';
 import { RoutinePage } from '../routine/routine';
-import AccountPage from '../account/account';
+import AccountPage, { Modal1Page } from '../account/account';
 import { apiUrl } from '../../apiUrl';
 import { HomePage } from '../home/home';
 import { StaffComplainPage } from '../staff-complain/staff-complain';
@@ -38,14 +38,16 @@ export class StudentOwndetailsPage implements OnInit {
   studentName: string;
   seeTabs: boolean = true;
   
-  constructor(public navCtrl: NavController, public navParams: NavParams, public menuCtrl: MenuController, public loadingController: LoadingController, private http: Http, public platform: Platform,) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public menuCtrl: MenuController, public loadingController: LoadingController, private http: Http, public platform: Platform, public modalCtrl: ModalController, public viewCtrl: ViewController,) {
     this.menuCtrl.enable(false);
     this.initLoader();
+
     this.platform.registerBackButtonAction(() => {
       if (this.navCtrl.getViews().length > 1) {
         this.navCtrl.pop();
       }
     });
+
   }
 
   ngOnInit(){
@@ -111,7 +113,8 @@ export class StudentOwndetailsPage implements OnInit {
 
 				if (data.data) {
           //this.presentLoading(false);
-          this.orgDetails = data.data[0];					
+          this.orgDetails = data.data[0];	
+          console.log('org details : ...', this.orgDetails);          				
         }
         
 			});
@@ -169,8 +172,26 @@ export class StudentOwndetailsPage implements OnInit {
 
   getUserDataFromLocal() {
     let data = localStorage.getItem('userData');
-    this.localUserData = JSON.parse(data);  
-      
+    this.localUserData = JSON.parse(data); 
+    
+    if(this.localUserData){
+      // alert('In the student home before modal called.');
+      if(this.localUserData.is_app_closed){
+          console.log('app closed false');
+          let modal = this.modalCtrl.create(Modal1Page);
+          modal.present();
+      }else{
+        console.log('app closed false');        
+      }
+    }      
+  }
+
+
+
+
+
+  dismiss() {
+    this.viewCtrl.dismiss();
   }
 
 
@@ -209,6 +230,10 @@ export class StudentOwndetailsPage implements OnInit {
       });
   }
 
+
+
+
+
   getStudentDetails() {
     this.presentLoading(true);
 
@@ -224,11 +249,13 @@ export class StudentOwndetailsPage implements OnInit {
       map(res => res.json()).subscribe(data => {
         //console.log('student detail data : ', data);
         if (data.data[0]) {
-          this.studentName = data.data[0].name
+          this.studentName = data.data[0].name;
+          console.log('student detail data : ', data.data[0]);
           this.presentLoading(false);
         }
       });
   }
+
 
 
 

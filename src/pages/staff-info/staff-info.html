@@ -1,8 +1,4 @@
-<!--
-  Generated template for the StaffInfoPage page.
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
+
 <ion-header>
   <ion-navbar color="blue">
     <button ion-button menuToggle color="light">
@@ -13,23 +9,57 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content >
+<ion-content>
 
   <ion-card>
-    <img src="{{orgDetails?.org_img}}"/>
+    <!-- <img src="{{orgDetails?.org_img}}"/> -->
     <ion-card-content>
       <ion-card-title>
         {{orgDetails?.org_name}}
-        </ion-card-title>
-        <div [innerHtml]="orgDetails?.org_text"></div>
+      </ion-card-title>
+
+
+      <ion-grid>      
+          <ion-row>
+            <ion-col>
+              <p> <b>City:</b> <span>{{orgDetails?.org_city}}</span> </p>
+            </ion-col>
+            <ion-col>
+              <p> <b>Pin:</b> <span>{{orgDetails?.pin}}</span> </p>
+            </ion-col>
+          </ion-row>
+  
+          <ion-row>
+            <ion-col>
+              <p> <b>Affiliated by:</b> <span>{{orgDetails?.affileats[0]?.affi_name}}</span> </p>
+            </ion-col>
+          </ion-row>
+  
+          <ion-row>
+            <ion-col>
+              <p> <b>Web:</b> <a href="{{orgDetails?.website}}" target="_blank">{{orgDetails?.website}}</a> </p>
+            </ion-col>
+            <ion-col>
+              <p> <b>Phone:</b> <span>{{orgDetails?.phone_no}}</span> </p>
+            </ion-col>
+            <ion-col>
+              <p> <b>Email:</b> <span>{{orgDetails?.email}}</span> </p>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+
+
+        <!-- <div [innerHtml]="orgDetails?.org_text"></div> -->
         <!-- <p><strong>About</strong> : </p>
         <div [innerHtml]="orgDetails?.org_about" class="mt-4"></div> -->        
         <!-- <p (click)=goToPrincipal()>PRINCIPAL</p>  -->
-        <button ion-button block outline color="blue" class="mt-10" (click)=goToPrincipal()>PRINCIPAL</button>
-        <!-- <p (click)=goToComplainDesk()>COMPLAIN DESK</p> -->
-        <button ion-button block outline color="blue" class="mt-10" (click)=goToComplainDesk()>COMPLAIN DESK</button>
-        <!-- <p (click)=goToStuffDuty()>STUFF DUTY</p> -->
-        <button ion-button block outline color="blue" class="mt-10" (click)=goToStuffDuty()>STUFF DUTY</button>
+        <div *ngIf="localUserData?.user_type_id == '1'">
+          <button ion-button block outline color="blue" class="mt-10" (click)=goToPrincipal()>PRINCIPAL</button>
+          <!-- <p (click)=goToComplainDesk()>COMPLAIN DESK</p> -->
+          <button ion-button block outline color="blue" class="mt-10" (click)=goToComplainDesk()>COMPLAIN DESK</button>
+          <!-- <p (click)=goToStuffDuty()>STUFF DUTY</p> -->
+          <button ion-button block outline color="blue" class="mt-10" (click)=goToStuffDuty()>STUFF DUTY</button>
+        </div>
     </ion-card-content>
   </ion-card>
 

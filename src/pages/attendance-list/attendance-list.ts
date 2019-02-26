@@ -37,6 +37,7 @@ export class AttendanceListPage implements OnInit {
   ) {}
 
   ngOnInit() {
+    console.log('attendence list page...');    
     this.getStudentList();
     // this.roomName = {
     //   room: JSON.parse(localStorage.getItem('attedCode')),

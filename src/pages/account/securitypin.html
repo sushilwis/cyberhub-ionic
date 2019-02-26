@@ -1,0 +1,24 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-title>Add Security Pin</ion-title>
+      <ion-buttons start>
+        <button ion-button (click)="dismiss()">
+          <span ion-text color="primary" showWhen="ios">Cancel</span>
+          <ion-icon name="md-close" showWhen="android, windows"></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+
+<ion-content padding>
+    <ion-list>
+      <ion-item>
+        <ion-label floating>Security Pin (6 digit)</ion-label>
+        <ion-input type="number" name="securityPin" no-margin [(ngModel)]="securityPin" (ionChange)="checkForValidPin()"></ion-input>
+      </ion-item>
+    </ion-list>
+  
+    <button ion-button type="submit" block outline color="blue" class="mt-10" (click)="submitSecurityPin()" [disabled]="!btnDisabled">Submit</button>
+    <!-- <button ion-button type="submit" block outline color="blue" class="mt-10" (click)="dismiss()">Skip For Now</button> -->
+</ion-content>

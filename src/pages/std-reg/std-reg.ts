@@ -122,7 +122,7 @@ export class StdRegPage {
         org_id: this.college,
         mobile_no: this.mobileNo,
         id_no: this.idNo,
-        type: this.type
+        type: this.type,
       }
 
       // console.log(data);      
@@ -132,7 +132,7 @@ export class StdRegPage {
           if (data.data) { 
             this.presentLoading(false);           
             console.log('student data : ', data);	
-            this.showAlert('Success!', `Your Username is : ${data.data[0].user_name} and Password is : ${data.data[0].hint}. Please login to continue.`);				
+            this.showAlert('Success!', `Your Username is : ${data.data[0].username} and Password is : ${data.data[0].hint}. Please login to continue.`);				
           }else{
             this.presentLoading(false);
             this.showAlert('Error!', `${data.Error}`);
@@ -237,14 +237,17 @@ export class StdRegPage {
       .subscribe(data => {
         // this.presentLoading(false);
         this.allSchoolsList = data.data;
-        console.log("school list..... : ", this.allSchoolsList);
+        // console.log("school list... : ", this.allSchoolsList);
         // console.log("school list length..... : ", data.data.length);
         if(this.allSchoolsList.length > 0){
           this.allSchoolsList.forEach(ele => {
             const obj = {
               id: ele.id,
-              name: ele.org_name
+              name: ele.org_name,
+              city: ele.org_city,
+              pin: ele.pin,
             };
+
             this.list.push(obj);
           });
 
