@@ -36,7 +36,8 @@
         <p><strong>Roll No</strong>: {{studentDetails?.roll_no}}</p>
         <p><strong>Registration No</strong>: {{studentDetails?.registration_no}}</p>
         <button ion-button type="submit" block outline color="blue" class="mt-10" (click)=goToPassword()>Change Password</button>
-        <button ion-button type="submit" block outline color="blue" class="mt-10" (click)=goToEnterSecurityPin()>Set Security Pin</button>
+        
+        <button ion-button type="submit" block outline color="blue" class="mt-10" *ngIf="! issecurityadded" (click)=goToEnterSecurityPin()>Set Security Pin</button>
     </ion-card-content>
   </ion-card>
 </ion-content>

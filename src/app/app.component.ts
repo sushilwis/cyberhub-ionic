@@ -12,7 +12,7 @@ import { PersonalNoticePage } from '../pages/personal-notice/personal-notice';
 import { GuestEnquiryPage } from '../pages/guest-enquiry/guest-enquiry';
 import { StudentLoginPage } from '../pages/student-login/student-login';
 import StudentsTabsPage from '../pages/students-tabs/students-tabs';
-import { StaffInfoPage } from '../pages/staff-info/staff-info';
+import { StaffTabsPage } from '../pages/staff-tabs/staff-tabs';
 import { App } from 'ionic-angular';
 
 import { FcmProvider } from '../providers/fcm/fcm';
@@ -88,7 +88,7 @@ export class MyApp {
           this.rootPage = StudentsTabsPage;
         }
         if(localVal.user_type_id == 2){
-          this.rootPage = StaffInfoPage;
+          this.rootPage = StaffTabsPage;
         }
       }else{
         this.rootPage = HomePage;

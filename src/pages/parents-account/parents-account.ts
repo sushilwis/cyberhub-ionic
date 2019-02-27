@@ -250,20 +250,22 @@ export class QuesmodalPage {
   // classIndexId: any;
   guarPhone: string;
   guarId: string;
-  ans: string;
+  securityPin: number;
+  btnDisabled: boolean = false;
   // showDeptSelection: boolean = true;
 
   constructor(
     public platform: Platform,
     public params: NavParams,
     public viewCtrl: ViewController,
-    public menuCtrl: MenuController, 
-    public navCtrl: NavController, 
-    public navParams: NavParams, 
-    private http: Http, 
-    public loadingController: LoadingController, 
-    public jsonp: Jsonp, 
+    public menuCtrl: MenuController,
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    private http: Http,
+    public loadingController: LoadingController,
+    public jsonp: Jsonp,
     public modalCtrl: ModalController,
+    public toastCtrl: ToastController,
   ) {
     // var characters = [];
     // this.character = characters[this.params.get('charNum')];
@@ -287,52 +289,80 @@ export class QuesmodalPage {
 
 
 
-    dismiss() {
-      this.viewCtrl.dismiss();
+  dismiss() {
+    this.viewCtrl.dismiss();
+  }
+
+
+
+
+
+  // ########################################################################
+  //    -------------- getting user data from localstorage ---------------
+  // ########################################################################
+  getUserDataFromLocal() {
+    let data = localStorage.getItem('userData');
+    this.localUserData = JSON.parse(data);
+    // console.log('local data : ', this.localUserData);    
+  }
+
+
+
+
+  // ########################################################################
+  // ----------- submit Guardian Info function -----------
+  // ########################################################################
+  submitSecurityPin() {
+    let header = new Headers();
+    header.set("Content-Type", "application/json");
+
+    let data = {
+      u_id: this.localUserData.id,
+      pin: this.securityPin,
+
+    };
+
+    this.http
+      .post(`${apiUrl.url}user/add-pin`, data, { headers: header })
+      .map(res => res.json())
+      .subscribe(
+        getdata => {
+          console.log('after add pin submit : ', getdata);
+          if (getdata.status == 1) {
+            this.dismiss();
+            localStorage.setItem("securitypinadded", JSON.stringify(data));
+            // this.navCtrl.push();
+          } else {
+            this.presentToast('Sorry, Something went wrong.');
+          }
+        });
+  }
+
+
+
+
+  // checkForValidPin
+  checkForValidPin() {
+    let pinString = this.securityPin.toString();
+    console.log('pin length : ', pinString.length);
+    if (pinString.length === 6) {
+      this.btnDisabled = true;
+    } else {
+      this.btnDisabled = false;
     }
+  }
 
 
 
 
+  presentToast(text) {
+    let toast = this.toastCtrl.create({
+      message: text,
+      duration: 3000,
+      position: 'top'
+    });
 
-// ########################################################################
-//    -------------- getting user data from localstorage ---------------
-// ########################################################################
-    getUserDataFromLocal() {
-      let data = localStorage.getItem('userData');
-      this.localUserData = JSON.parse(data);
-      // console.log('local data : ', this.localUserData);    
-    }
-
-
-
-
-// ########################################################################
-// ----------- submit Guardian Info function -----------
-// ########################################################################
-    submitSecurityQuesAns() {
-          let header = new Headers();
-          header.set("Content-Type", "application/json");
-
-          let data = {
-            phone: this.guarPhone,
-            adhar: this.guarId,
-            org_id: this.localUserData.org_code,
-            std_id: this.localUserData.master_id,
-          };
-
-          this.http
-            .post(`${apiUrl.url}parent/add`, data, {headers: header})
-            .map(res => res.json())
-            .subscribe(
-              data => {
-                console.log('after guardian info submit : ', data); 
-                if(data.data){
-                  this.localUserData.is_ques_answered = '1';
-                  localStorage.setItem('userData', JSON.stringify(this.localUserData));
-                  this.navCtrl.push(ParentsAccountPage);
-                }                                
-          });
-    }
+    toast.present();
+  }
 
 }

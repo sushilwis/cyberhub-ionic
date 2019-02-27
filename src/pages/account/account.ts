@@ -41,7 +41,7 @@ export default class AccountPage implements OnInit {
   loading: Loading;
   getData: any;
   showDeptSelection: boolean = false;
-  
+  issecurityadded: string;
 
   constructor(public menuCtrl: MenuController, public navCtrl: NavController, public navParams: NavParams, private http: Http, public loadingController: LoadingController, public jsonp: Jsonp, public modalCtrl: ModalController, private camera: Camera, public loadingCtrl: LoadingController, public toastCtrl: ToastController, public actionSheetCtrl: ActionSheetController, public platform: Platform, public transfer: Transfer) {
     this.menuCtrl.enable(false);
@@ -52,6 +52,7 @@ export default class AccountPage implements OnInit {
         this.navCtrl.pop();
       }
     });
+    this.issecurityadded = JSON.parse(localStorage.getItem("securitypinadded")); 
   }
 
 
@@ -91,12 +92,19 @@ export default class AccountPage implements OnInit {
   getUserDataFromLocal() {
     let data = localStorage.getItem('userData');
     this.localUserData = JSON.parse(data);
-    if(this.localUserData.profile_image){
+    if (this.localUserData.profile_image && this.localUserData.digit_pin != 0){
       this.profile_image = `${apiUrl.url}public/uploads/profile_pic/${this.localUserData.profile_image}`
-
+      let setdata = {
+        u_id: this.localUserData.id,
+        pin: this.localUserData.digit_pin,
+      };
+      localStorage.setItem("securitypinadded", JSON.stringify(setdata));
+      this.issecurityadded = JSON.parse(localStorage.getItem("securitypinadded"));    
     }else{
       this.profile_image = `assets/imgs/student-icon.png`
     }   
+
+
   }
 
 
@@ -128,39 +136,6 @@ export default class AccountPage implements OnInit {
 				}
 			});
   }
-
-
-
-
-
-  getStudentSubjectDetails() {
-    this.presentLoading(true);
-
-		var headers = new Headers();
-		headers.append('Content-Type', 'application/json');
-		let options = new RequestOptions({headers: headers});
-
-		let data = {
-		  'master_id': this.localUserData.master_id
-		}
-
-		this.http.post(`${apiUrl.url}student/studentdetail`, data, options).
-			map(res => res.json()).subscribe(data => {
-        console.log('student subject data : ', data);				
-				if (data.data[0]) {
-          this.presentLoading(false);
-          // this.studentDetails = data.data[0];
-
-          if(data.data[0].nameclass){
-            this.showSelectDepartmentBtn = false;
-          }else{
-            this.showSelectDepartmentBtn = true;
-          }
-				}
-			});
-  }
-
-
 
 
 
@@ -803,16 +778,18 @@ export class SecuritypinPage {
           let data = {
             u_id: this.localUserData.id,
             pin: this.securityPin,
+
           };
 
           this.http
             .post(`${apiUrl.url}user/add-pin`, data, {headers: header})
             .map(res => res.json())
             .subscribe(
-              data => {
-                console.log('after add pin submit : ', data); 
-                if(data.status == 1){
+              getdata => {
+                console.log('after add pin submit : ', getdata); 
+                if (getdata.status == 1){
                   this.dismiss();
+                  localStorage.setItem("securitypinadded", JSON.stringify(data));
                   this.navCtrl.push(AccountPage);                  
                 }else{
                   this.presentToast('Sorry, Something went wrong.');

@@ -24,7 +24,10 @@ export class ChangepasswordPage implements OnInit {
   confNewPassword: any;
   localUserData: any;
   loading: any;
-
+  securitylocaldata;
+  issecurityadded: boolean = false;
+  shownextdiv: boolean = false;
+  digitpin;
   constructor(public navCtrl: NavController, public navParams: NavParams, public menuCtrl: MenuController, private http: Http, public loadingController: LoadingController, public jsonp: Jsonp, public modalCtrl: ModalController, public alertCtrl: AlertController) {
   }
 
@@ -42,6 +45,15 @@ export class ChangepasswordPage implements OnInit {
   getUserDataFromLocal() {
     let data = localStorage.getItem('userData');
     this.localUserData = JSON.parse(data);
+    // this.securitylocaldata = JSON.parse(localStorage.getItem("securitypinadded"));
+    // console.log(this.securitylocaldata);
+    
+    // if (!this.securitylocaldata) {
+    //   alert("Set a Security Pin");
+    //   this.navCtrl.pop();
+    // }else{
+    //   this.issecurityadded = true;
+    // }
     // console.log('local data : ', this.localUserData);    
   }
 
@@ -80,7 +92,11 @@ export class ChangepasswordPage implements OnInit {
   }
 
 
-
+  // checkPin(){
+  //   if (this.digitpin == ) {
+      
+  //   }
+  // }
 
   presentLoading(load: boolean) {
 		if (load) {

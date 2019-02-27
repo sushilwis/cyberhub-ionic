@@ -52,7 +52,7 @@ export class SchoolListingPage {
     headers.append("Content-Type", "application/json");
     let options = new RequestOptions({ headers: headers });
     this.http
-      .get(`${apiUrl.url}org/search/${data.country_id}/${data.state_id}/${data.dist_id}/2`, options)
+      .get(`${apiUrl.url}org/search/${data.country_id}/${data.state_id}/${data.dist_id}/${data.type}`, options)
       .map(res => res.json())
       .subscribe(data => {
         // console.log('school list : ', data);        

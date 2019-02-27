@@ -240,6 +240,7 @@ export class StdRegPage {
         // console.log("school list... : ", this.allSchoolsList);
         // console.log("school list length..... : ", data.data.length);
         if(this.allSchoolsList.length > 0){
+          this.list = [];
           this.allSchoolsList.forEach(ele => {
             const obj = {
               id: ele.id,
@@ -247,7 +248,7 @@ export class StdRegPage {
               city: ele.org_city,
               pin: ele.pin,
             };
-
+            
             this.list.push(obj);
           });
 

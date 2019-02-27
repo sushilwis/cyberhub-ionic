@@ -30,9 +30,9 @@ import { ParentsChildTabsPage } from '../pages/parents-child-tabs/parents-child-
 import { StudentLibraryListPage } from '../pages/student-library-list/student-library-list';
 import { ProfilePage } from '../pages/student-library-list/student-library-list';
 import { StudentNoticeBoardPage, NoticeModalPage } from '../pages/student-notice-board/student-notice-board';
-import AccountPage, { ModalPage } from '../pages/account/account';
+import AccountPage, { ModalPage, SecuritypinPage } from '../pages/account/account';
 import { ChangepasswordPage } from '../pages/changepassword/changepassword';
-import { ParentsAccountPage } from '../pages/parents-account/parents-account';
+import { ParentsAccountPage, QuesmodalPage } from '../pages/parents-account/parents-account';
 import { StaffLoginPage } from '../pages/staff-login/staff-login';
 import { StaffInfoPage } from '../pages/staff-info/staff-info';
 import { StaffComplainPage } from '../pages/staff-complain/staff-complain';
@@ -80,8 +80,7 @@ import { AngularFireModule } from '@angular/fire';
 // import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { FcmProvider } from '../providers/fcm/fcm';
-import { UniqueDeviceID } from '@ionic-native/unique-device-id';
-
+import { StaffTabsPage } from "../pages/staff-tabs/staff-tabs";
 const firebase = {
  // your firebase web config
     apiKey: "AIzaSyDPcwzadP1MQHKAVdrSZ45cXhq_vallj94",
@@ -116,7 +115,10 @@ const firebase = {
     StudentLibraryListPage,
     StudentNoticeBoardPage,
     AccountPage,
+    SecuritypinPage,
+    QuesmodalPage,
     ModalPage,
+    StaffTabsPage,
     ChangepasswordPage,
     ParentsAccountPage,
     StaffLoginPage,
@@ -163,17 +165,20 @@ const firebase = {
     PdfDownloadPage,
     StudentLoginPage,
     LibraryListPage,
+    QuesmodalPage,
     StudentOwndetailsPage,
     PersonalNoticePage,
     LiveStreamPage,
     AttendancePage,
     RoutinePage,
     ParentsLoginPage,
+    StaffTabsPage,
     ParentsStudentViewPage,
     ParentsChildTabsPage,
     StudentLibraryListPage,
     StudentNoticeBoardPage,
     AccountPage,
+    SecuritypinPage,
     ModalPage,
     ChangepasswordPage,
     ParentsAccountPage,
@@ -208,7 +213,6 @@ const firebase = {
     DocumentViewer,
     ChatServProvider,
     FileTransfer,
-    UniqueDeviceID,
     FileTransferObject,
     Camera,
     FilePath,

@@ -6,7 +6,7 @@ import { apiUrl } from '../../apiUrl';
 import { HomePage } from "../home/home";
 import { StuffRegistrationPage } from '../stuff-registration/stuff-registration';
 import { FcmProvider } from "../../providers/fcm/fcm";
-
+import { StaffTabsPage } from "../staff-tabs/staff-tabs";
 /**
  * Generated class for the StaffLoginPage page.
  *
@@ -94,7 +94,7 @@ export class StaffLoginPage implements OnInit {
             localStorage.setItem("userData", JSON.stringify(data.data[0]));
             this.fcm.getToken();
             this.presentLoading(false);
-            this.navCtrl.setRoot(StaffInfoPage);
+            this.navCtrl.setRoot(StaffTabsPage);
           } else {
             this.showAlert(
               "Alert!",

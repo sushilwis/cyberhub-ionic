@@ -87,7 +87,7 @@ export class SearchOrganisationPage {
 
     let data = {
       type: id,
-      is_reg: false,
+      is_reg: 0,
     }
 
     this.http
@@ -318,7 +318,7 @@ export class SearchOrganisationPage {
         type: 'radio',
         label: 'School',
         value: '1',
-        checked: true
+        checked: false
       }
     );
     alert.addInput(
@@ -342,13 +342,23 @@ export class SearchOrganisationPage {
     alert.addButton({
       text: 'OK',
       handler: data => {
-        console.log(data);
+        // console.log(data);
         this.getData(data);        
       }
     });
     alert.present();
+
+    alert.onDidDismiss( data => {
+      if (! data) {
+        this.getData(0)
+      }else{
+        this.getData(data)
+      }
+      
+    })
   }
 
+  
 
 
 

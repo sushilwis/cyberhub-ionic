@@ -20,8 +20,8 @@
 			    <ion-textarea name="complainMsg" [(ngModel)]="complainMsg" placeholder="Type Your Complain" (keyup)="onChangeTextValue()"></ion-textarea>
 				</ion-item>
 				
-			  <!-- <ion-note text-right float-right>You Have 3/3 Complain</ion-note> -->
-				<button ion-button block outline color="blue" class="mt-10" (click)=sendComplain() (click)=goHide() [disabled]="btnDisabled">Submit</button>
+			  <ion-note text-right float-right>You Have {{totalcomplain}}/3 Complain</ion-note>
+				<button ion-button block outline color="blue" *ngIf="totalcomplain < 3" class="mt-10" (click)=sendComplain() (click)=goHide() [disabled]="btnDisabled">Submit</button>
 				<!-- <p class="text-blue" *ngIf="isShown">Your Complain has been Submited to the Principal</p> -->
 			</ion-list>
 		</form>

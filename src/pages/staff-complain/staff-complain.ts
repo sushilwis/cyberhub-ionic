@@ -25,12 +25,15 @@ export class StaffComplainPage implements OnInit {
   complainMsg: any = '';
   btnDisabled: boolean = true;
   allMsgs: any;
-
+  totalcomplain;
+  
   constructor(public navCtrl: NavController, public navParams: NavParams, public menuCtrl: MenuController, public loadingController: LoadingController, private http: Http, public alertCtrl: AlertController) {
   }
 
   ngOnInit() {
+    this.getUserDataFromLocal();
     this.getComplainAndReplys();
+    this.countComplain()
   }
 
   ionViewDidLoad() {
@@ -65,11 +68,16 @@ export class StaffComplainPage implements OnInit {
     this.navCtrl.push(StaffComplainPage);
   }
 
-
+  countComplain(){
+    this.http.get(`${apiUrl.url}desk/countMsg/${this.localUserData.master_id}`).map(res => res.json())
+    .subscribe(data => {
+      this.totalcomplain = data.data.length
+    })
+  }
 
   async sendComplain() {
     // this.presentLoading(true);
-    await this.getUserDataFromLocal();
+    
 
     let header = new Headers();
     header.set("Content-Type", "application/json");

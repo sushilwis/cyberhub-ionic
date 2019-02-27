@@ -132,7 +132,7 @@ export class GuestEnquiryPage {
         country_id: this.country,
         state_id: this.state,
         dist_id: this.dist,
-        type_id: '2',
+        type_id: this.type,
       };
 
       this.navCtrl.push(SchoolListingPage, {data: JSON.stringify(data)});
@@ -307,7 +307,7 @@ export class GuestEnquiryPage {
     // let urlData = formData.toString();
     console.log(params);    
     
-    this.http.get(`${apiUrl.url}org/search/${this.country}/${this.state}/${this.dist}/2`).
+    this.http.get(`${apiUrl.url}org/search/${this.country}/${this.state}/${this.dist}/${this.type}`).
       map(res => res.json()).subscribe(data => {				
           console.log('dist data : ', data.data);   
           // this.presentLoading(false);      

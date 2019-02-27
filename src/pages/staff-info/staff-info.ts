@@ -35,7 +35,7 @@ export class StaffInfoPage {
   loading: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public menuCtrl: MenuController, public loadingController: LoadingController, private http: Http) {
-    this.menuCtrl.enable(true);
+    this.menuCtrl.enable(false);
     this.initLoader();
   }
 
