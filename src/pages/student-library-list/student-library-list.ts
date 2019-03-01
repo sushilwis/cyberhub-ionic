@@ -30,7 +30,7 @@ export class StudentLibraryListPage {
   loading: any;
   matchItem: any;
   allBook: any;
-  showNotFound: boolean;
+  showNotFound: boolean = false;
   
 
 

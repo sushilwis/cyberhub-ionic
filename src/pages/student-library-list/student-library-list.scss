@@ -20,4 +20,29 @@ page-student-library-list {
 	.item-md ion-avatar[item-left], .item-md ion-thumbnail[item-left], .item-md ion-avatar[item-start], .item-md ion-thumbnail[item-start] {
 		margin: 8px -7px -11px 0 !important;
 	}
+	.content-md {
+		// color: #fff !important;
+		background-color: #1b1b1b !important;
+	}
+	.list-md .item-block .item-inner, .item-md.item-block .item-inner {
+		border-bottom: none;
+	}
+
+
+
+
+
+
+
+
+
+	.toolbar-background-md {
+		background-color: #009688 !important;
+	}
+	.toolbar-title-md {
+		color: #fff !important;
+	}
+	.title {
+		text-decoration: none !important;
+	}
 }

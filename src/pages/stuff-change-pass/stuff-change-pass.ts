@@ -3,6 +3,8 @@ import { IonicPage, NavController, NavParams, MenuController, LoadingController,
 import { Http, RequestOptions, Jsonp, Headers } from '@angular/http';
 import { apiUrl } from '../../apiUrl';
 import { ParentsAccountPage } from '../parents-account/parents-account';
+import { HomePage } from '../home/home';
+import { StaffLoginPage } from '../staff-login/staff-login';
 // import { ModalController, Platform, ViewController } from 'ionic-angular';
 
 /**
@@ -69,8 +71,9 @@ export class StuffChangePassPage implements OnInit {
           map(res => res.json()).subscribe(data => {				
             console.log(data);   
             if(data.status == "1"){
+              this.goToLogout();
               this.showAlert('Password Changed Successfully.');
-              this.navCtrl.setRoot(ParentsAccountPage);
+              this.navCtrl.push(StaffLoginPage);
             }else{
               this.showAlert(data.mssg);
             }       
@@ -125,6 +128,15 @@ export class StuffChangePassPage implements OnInit {
     });
 
     alert.present();
+  }
+
+
+
+
+
+  goToLogout() {
+    localStorage.clear();
+    this.navCtrl.setRoot(HomePage);
   }
 
 

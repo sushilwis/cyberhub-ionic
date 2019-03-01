@@ -4,6 +4,7 @@ import { apiUrl } from '../../apiUrl';
 import { ModalController, Platform, ViewController } from 'ionic-angular';
 import { Http, RequestOptions, Headers, Jsonp } from '@angular/http';
 import {HomePage} from '../home/home';
+import { StudentLoginPage } from '../student-login/student-login';
 
 /**
  * Generated class for the ChangepasswordPage page.
@@ -77,9 +78,9 @@ export class ChangepasswordPage implements OnInit {
           map(res => res.json()).subscribe(data => {				
             console.log(data);   
             if(data.status == "1"){
-              this.showAlert('Password Changed Successfully.');
-              // this.navCtrl.push(AccountPage);
               this.goToLogout();
+              this.showAlert('Password Changed Successfully.');
+              this.navCtrl.push(StudentLoginPage);
             }else{
               this.showAlert(data.mssg);
             }       
@@ -91,6 +92,10 @@ export class ChangepasswordPage implements OnInit {
       this.showAlert('Please enter New Password and Password field.');
     }    
   }
+
+
+
+  
 
   goToLogout() {
     localStorage.clear();

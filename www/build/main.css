@@ -40632,7 +40632,7 @@ page-parents-account .toolbar-md, page-parents-account .toolbar-ios {
 }
 
 page-parents-account .back-ground {
-  background: url(../assets/imgs/blue-bk.jpg);
+  background: black;
   width: 100%;
   padding: 20px 0;
 }
@@ -40657,6 +40657,33 @@ page-parents-account .back-ground img {
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
   margin: 0px auto;
+}
+
+page-parents-account .profile-image {
+  border-radius: 50%;
+  border: 2px solid #fff;
+  padding: 3px;
+  width: 140px !important;
+  height: 140px !important;
+}
+
+page-parents-account .camera-icon {
+  position: fixed;
+  top: 20%;
+  left: 59%;
+}
+
+page-parents-account p {
+  color: #eee;
+}
+
+page-parents-account h5 {
+  color: #eee;
+}
+
+.btnStyle {
+  color: #eee;
+  border-color: #eee;
 }
 
 page-parents-login ion-app.md [padding], page-parents-login ion-app.ios [padding] {
@@ -41250,7 +41277,7 @@ page-staff-login .item-center {
 page-staff-login .enquiry-form {
   /*background: linear-gradient(141deg, #23309e 0%, #1b7bc5 51%, #2635bf 75%);*/
   width: 100%;
-  padding: 30px 40px;
+  padding: 30px 25px;
 }
 
 page-staff-login .enquiry-form h3 {
@@ -41272,12 +41299,13 @@ page-staff-login .enquiry-form h3:after {
 }
 
 page-staff-login .mt-10 {
-  margin-top: 30px;
+  margin-top: 20px;
 }
 
 page-staff-login .item-md {
   background-color: none !important;
   background: none !important;
+  color: #f6f6f6 !important;
 }
 
 page-staff-login .item-ios {
@@ -41308,11 +41336,59 @@ page-staff-login .heading {
 }
 
 page-staff-login .title {
-  font-size: 20px;
+  font-size: 17px;
+  text-decoration: underline;
 }
 
 page-staff-login .list-ios > .item-block:first-child {
   border-top: 0px solid #c8c7cc !important;
+}
+
+page-staff-login .sub-line {
+  text-align: center;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  padding: 10px;
+  margin: 0 21px 10px;
+  color: #535353;
+}
+
+page-staff-login .btn-size {
+  padding: 15px 25px !important;
+}
+
+page-staff-login .bar-button-default-md, page-staff-login .bar-button-clear-md-default, page-staff-login .bar-button-md-default {
+  color: #fff !important;
+}
+
+page-staff-login .toolbar-background-md {
+  background-color: #009688 !important;
+}
+
+page-staff-login .toolbar-title-md {
+  color: #fff !important;
+}
+
+page-staff-login .title {
+  text-decoration: none !important;
+}
+
+page-staff-login .content-md {
+  color: #fff !important;
+  background-color: #1b1b1b !important;
+}
+
+page-staff-login .list-md .item-block .item-inner {
+  border-bottom: 1px solid #dedede !important;
+}
+
+page-staff-login .button-clear-md {
+  color: #f6f6f6 !important;
+}
+
+page-staff-login .button-md-blue {
+  color: #202020 !important;
+  background-color: #1CB9FF !important;
 }
 
 page-std-reg .search-result {
@@ -41350,6 +41426,50 @@ page-std-reg .list-md {
   margin: -1px 0 0px !important;
 }
 
+page-std-reg .bar-button-default-md, page-std-reg .bar-button-clear-md-default, page-std-reg .bar-button-md-default {
+  color: #fff !important;
+}
+
+page-std-reg .toolbar-background-md {
+  background-color: #009688 !important;
+}
+
+page-std-reg .toolbar-title-md {
+  color: #fff !important;
+}
+
+page-std-reg .title {
+  text-decoration: none !important;
+}
+
+page-std-reg .content-md {
+  color: #fff !important;
+  background-color: #1b1b1b !important;
+}
+
+page-std-reg .list-md .item-block .item-inner {
+  border-bottom: 1px solid #dedede !important;
+}
+
+page-std-reg .button-clear-md {
+  color: #f6f6f6 !important;
+}
+
+page-std-reg .button-md-blue {
+  color: #202020 !important;
+  background-color: #1CB9FF !important;
+}
+
+page-std-reg .item-md {
+  background-color: none !important;
+  background: none !important;
+  color: #f6f6f6 !important;
+}
+
+page-std-reg .list-md .item-input:last-child {
+  border-bottom: none !important;
+}
+
 page-student-library-list .fixed p {
   font-size: 8px !important;
 }
@@ -41366,6 +41486,35 @@ page-student-library-list .search-icon i {
 
 page-student-library-list .book-name {
   overflow: visible;
+}
+
+page-student-library-list .item-md ion-thumbnail img {
+  width: 65px;
+  height: 65px;
+}
+
+page-student-library-list .item-md ion-avatar[item-left], page-student-library-list .item-md ion-thumbnail[item-left], page-student-library-list .item-md ion-avatar[item-start], page-student-library-list .item-md ion-thumbnail[item-start] {
+  margin: 8px -7px -11px 0 !important;
+}
+
+page-student-library-list .content-md {
+  background-color: #1b1b1b !important;
+}
+
+page-student-library-list .list-md .item-block .item-inner, page-student-library-list .item-md.item-block .item-inner {
+  border-bottom: none;
+}
+
+page-student-library-list .toolbar-background-md {
+  background-color: #009688 !important;
+}
+
+page-student-library-list .toolbar-title-md {
+  color: #fff !important;
+}
+
+page-student-library-list .title {
+  text-decoration: none !important;
 }
 
 page-student-login ion-app.md [padding], page-student-login ion-app.ios [padding] {
@@ -41435,6 +41584,7 @@ page-student-login .mt-10 {
 page-student-login .item-md {
   background-color: none !important;
   background: none !important;
+  color: #e6e6e6;
 }
 
 page-student-login .item-ios {
@@ -41486,6 +41636,40 @@ page-student-login .btn-size {
   padding: 15px 25px !important;
 }
 
+page-student-login .bar-button-default-md, page-student-login .bar-button-clear-md-default, page-student-login .bar-button-md-default {
+  color: #fff !important;
+}
+
+page-student-login .toolbar-background-md {
+  background-color: #009688 !important;
+}
+
+page-student-login .toolbar-title-md {
+  color: #fff !important;
+}
+
+page-student-login .title {
+  text-decoration: none !important;
+}
+
+page-student-login .content-md {
+  color: #fff !important;
+  background-color: #1b1b1b !important;
+}
+
+page-student-login .list-md .item-block .item-inner {
+  border-bottom: 1px solid #dedede !important;
+}
+
+page-student-login .button-clear-md {
+  color: #f6f6f6 !important;
+}
+
+page-student-login .button-md-blue {
+  color: #202020;
+  background-color: #1CB9FF;
+}
+
 page-student-notice-board .fixed p {
   font-size: 8px !important;
 }
@@ -41504,6 +41688,41 @@ page-student-notice-board .notice-img {
 
 page-student-notice-board .item-md ion-avatar[item-left], page-student-notice-board .item-md ion-thumbnail[item-left], page-student-notice-board .item-md ion-avatar[item-start], page-student-notice-board .item-md ion-thumbnail[item-start] {
   margin: 8px -50px 8px 0 !important;
+}
+
+page-student-notice-board .toolbar-background-md {
+  background-color: #009688 !important;
+}
+
+page-student-notice-board .toolbar-title-md {
+  color: #fff !important;
+}
+
+page-student-notice-board .title {
+  text-decoration: none !important;
+}
+
+page-student-notice-board .content-md {
+  color: #fff !important;
+  background-color: #1b1b1b !important;
+}
+
+page-student-notice-board .list-md .item-block .item-inner {
+  border-bottom: 1px solid #dedede !important;
+}
+
+page-student-notice-board .button-clear-md {
+  color: #f6f6f6 !important;
+}
+
+page-student-notice-board .button-md-blue {
+  color: #202020;
+  background-color: #1CB9FF;
+}
+
+page-student-notice-board .item-md {
+  color: #f6f6f6;
+  background-color: #1b1b1b;
 }
 
 page-student-owndetails .fixed p {
@@ -41573,6 +41792,85 @@ page-stuff-examduty .fixed p {
 
 page-stuff-examduty .toolbar-md, page-stuff-examduty .toolbar-ios {
   padding: 0px;
+}
+
+page-stuff-registration .search-result {
+  position: absolute;
+  left: 0;
+  /* top: 56px; */
+  background: rgba(255, 255, 255, 0.839);
+  width: 100%;
+  z-index: 99;
+  border: 1px solid #ddd;
+  overflow-y: scroll;
+  /* visibility: hidden; */
+  /* opacity: 0; */
+}
+
+page-stuff-registration .title {
+  font-size: 17px;
+  text-decoration: underline;
+}
+
+page-stuff-registration .sub-line {
+  text-align: center;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  padding: 10px;
+  margin: 0 21px 10px;
+  color: #535353;
+}
+
+page-stuff-registration .btn-size {
+  padding: 15px 25px !important;
+}
+
+page-stuff-registration .list-md {
+  margin: -1px 0 0px !important;
+}
+
+page-stuff-registration .bar-button-default-md, page-stuff-registration .bar-button-clear-md-default, page-stuff-registration .bar-button-md-default {
+  color: #fff !important;
+}
+
+page-stuff-registration .toolbar-background-md {
+  background-color: #009688 !important;
+}
+
+page-stuff-registration .toolbar-title-md {
+  color: #fff !important;
+}
+
+page-stuff-registration .title {
+  text-decoration: none !important;
+}
+
+page-stuff-registration .content-md {
+  color: #fff !important;
+  background-color: #1b1b1b !important;
+}
+
+page-stuff-registration .list-md .item-block .item-inner {
+  border-bottom: 1px solid #dedede !important;
+}
+
+page-stuff-registration .button-clear-md {
+  color: #f6f6f6 !important;
+}
+
+page-stuff-registration .button-md-blue {
+  color: #202020 !important;
+  background-color: #1CB9FF !important;
+}
+
+page-stuff-registration .item-md {
+  background-color: none !important;
+  background: none !important;
+  color: #f6f6f6 !important;
+}
+
+page-stuff-registration .list-md .item-input:last-child {
+  border-bottom: none !important;
 }
 
 page-welcome-guest .sub-line {

@@ -196,6 +196,7 @@ export class StuffRegistrationPage {
 
 
   schoolsDetails(org) {
+    this.isSearchbarOpened = false;
     this.inputShowValue = org.name;
     this.college = org.id;
     

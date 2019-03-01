@@ -9,6 +9,7 @@ import { LiveStreamPage } from '../live-stream/live-stream';
 import { AttendancePage } from '../attendance/attendance';
 import { RoutinePage } from '../routine/routine';
 import AccountPage from '../account/account';
+import { StaffInfoPage } from '../staff-info/staff-info';
 
 
 
@@ -33,7 +34,7 @@ export class StaffComplainPage implements OnInit {
   ngOnInit() {
     this.getUserDataFromLocal();
     this.getComplainAndReplys();
-    this.countComplain()
+    this.countComplain();
   }
 
   ionViewDidLoad() {
@@ -71,14 +72,22 @@ export class StaffComplainPage implements OnInit {
   countComplain(){
     this.http.get(`${apiUrl.url}desk/countMsg/${this.localUserData.master_id}`).map(res => res.json())
     .subscribe(data => {
+      console.log('complain data : ...', data.data);      
       this.totalcomplain = data.data.length
     })
   }
 
-  async sendComplain() {
-    // this.presentLoading(true);
-    
 
+
+
+
+  async sendComplain() {
+
+    if(this.totalcomplain >= '3') {
+      this.showAlert('Alert!', 'Sorry, You Have Not Any Complain Left.');
+      this.navCtrl.setRoot(StaffInfoPage);
+    }else{
+    
     let header = new Headers();
     header.set("Content-Type", "application/json");
 
@@ -86,6 +95,7 @@ export class StaffComplainPage implements OnInit {
         org_id: this.localUserData.org_code,
         sender_id: this.localUserData.master_id,
         mssg: this.complainMsg,
+        user_type_id: this.localUserData.user_type_id
       }
       
       // console.log(data);      
@@ -96,14 +106,18 @@ export class StaffComplainPage implements OnInit {
         .subscribe(
           async data => {
             // console.log(data);
-            if(data){
+            if(data.data){
               this.complainMsg = '';
               this.btnDisabled = true;
+              this.countComplain();
+              this.getComplainAndReplys();
               this.showAlert('Alert!', 'Your Complain has been Submited.');
             } else {
               this.showAlert('Alert!', 'Something went wrong. Please try again.');
             }
       });
+
+    }
   }
 
 
