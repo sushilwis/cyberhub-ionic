@@ -25,7 +25,7 @@
     <p class="sub-line">
 			<span>Here you can register with your<br>organisation to get the most out<br>of this application.</span>
 		</p>
-		<p class="title" text-center text-capitalize margin-bottom>Please fill the following details</p>
+		<p class="title" text-center text-capitalize margin-bottom style="text-decoration: underline;">Please fill the following details</p>
 
     <!-- <ion-list>
       <ion-item> -->
@@ -45,7 +45,7 @@
 
         <ion-list>
             <ion-item>
-              <ion-label>Organization Type</ion-label>
+              <ion-label style="color: rgb(204, 204, 204)">Organization Type</ion-label>
 
               <ion-select [(ngModel)]="type" (ngModelChange)="getData()">
                 <ion-option value="1">School</ion-option>
@@ -55,14 +55,15 @@
 
             </ion-item>
             <ion-item>  
-              <ion-label floating>Institute</ion-label>
+              <ion-label floating style="color: rgb(204, 204, 204)">Organization</ion-label>
               <ion-input type="text" name="inputShowValue" [(ngModel)]="inputShowValue" (keyup)="getItems($event)"></ion-input>
             </ion-item>      
         </ion-list>
           
-        <ion-list class="search-result" [ngStyle]="{'display':isSearchbarOpened ? 'block' : 'none' }">
+        <ion-list style="background-color: #3f3f3f; color: #fff; font-size: 13px; margin-left: 10px;" class="search-result" [ngStyle]="{'display':isSearchbarOpened ? 'block' : 'none' }">
           <ion-item *ngFor="let item of items" (click)="schoolsDetails(item)">
               {{ item.name }}
+              <p>City : {{ item.city }}, Pin : {{ item.pin }}</p>
           </ion-item>
         </ion-list>
       <!-- </ion-item> 
@@ -70,7 +71,7 @@
 
     <ion-list>
         <ion-item>
-          <ion-label floating>Phone No</ion-label>
+          <ion-label floating style="color: rgb(204, 204, 204)">Phone No</ion-label>
           <ion-input type="number" name="regNo" [(ngModel)]="mobileNo"></ion-input>
         </ion-item>      
     </ion-list>

@@ -14,4 +14,41 @@ page-student-notice-board {
 	.item-md ion-avatar[item-left], .item-md ion-thumbnail[item-left], .item-md ion-avatar[item-start], .item-md ion-thumbnail[item-start] {
 		margin: 8px -50px 8px 0 !important;
 	}
+
+
+
+
+
+
+
+
+	.toolbar-background-md {
+		background-color: #009688 !important;
+	}
+	.toolbar-title-md {
+		color: #fff !important;
+	}
+	.title {
+		text-decoration: none !important;
+	}
+
+	.content-md {
+		color: #fff !important;
+		background-color: #1b1b1b !important;
+	}
+	.list-md .item-block .item-inner {
+		border-bottom: 1px solid #dedede !important;
+	}
+	.button-clear-md {
+		color: #f6f6f6 !important;
+	}
+	.button-md-blue {
+		color: #202020;
+		background-color:#1CB9FF;
+	}
+
+	.item-md {
+		color: #f6f6f6;
+    	background-color: #1b1b1b;
+	}
 }

@@ -32,4 +32,46 @@ page-stuff-registration {
 	.list-md{
 		margin: -1px 0 0px !important;
 	}
+
+
+
+
+
+
+
+	.bar-button-default-md, .bar-button-clear-md-default, .bar-button-md-default {
+		color: #fff !important;
+	}
+	.toolbar-background-md {
+		background-color: #009688 !important;
+	}
+	.toolbar-title-md {
+		color: #fff !important;
+	}
+	.title {
+			text-decoration: none !important;
+	}
+
+	.content-md {
+		color: #fff !important;
+		background-color: #1b1b1b !important;
+	}
+	.list-md .item-block .item-inner {
+		border-bottom: 1px solid #dedede !important;
+	}
+	.button-clear-md {
+		color: #f6f6f6 !important;
+	}
+	.button-md-blue {
+		color: #202020 !important;
+		background-color:#1CB9FF !important;
+	}
+	.item-md{
+		background-color: none !important;
+		background:  none !important;
+		color: #f6f6f6 !important;
+	}
+	.list-md .item-input:last-child {
+    border-bottom: none !important;
+	}
 }

@@ -46,11 +46,12 @@
 
 		.item-md{
 			background-color: none !important;
-			background:  none !important
+			background:  none !important;
+			color: #e6e6e6;
 		}
 		.item-ios{
 			background-color: none !important;
-			background:  none !important
+			background:  none !important;
 		}
 		.curve{
 			// background: #00109f;
@@ -90,4 +91,45 @@
 		.btn-size {
 			padding: 15px 25px !important;
 		}
+
+
+
+
+
+
+
+
+		.bar-button-default-md, .bar-button-clear-md-default, .bar-button-md-default {
+			color: #fff !important;
+		}
+		.toolbar-background-md {
+			background-color: #009688 !important;
+		}
+		.toolbar-title-md {
+			color: #fff !important;
+		}
+		.title {
+    		text-decoration: none !important;
+		}
+
+
+		.content-md {
+			color: #fff !important;
+			background-color: #1b1b1b !important;
+		}
+		.list-md .item-block .item-inner {
+			border-bottom: 1px solid #dedede !important;
+		}
+		.button-clear-md {
+			color: #f6f6f6 !important;
+		}
+		.button-md-blue {
+			color: #202020;
+			background-color:#1CB9FF;
+		}
+
+
+		// .toolbar-md-blue .toolbar-background-md {
+		// 	background: #ae9292;
+		// }
 	}
