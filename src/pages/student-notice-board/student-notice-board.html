@@ -12,14 +12,14 @@
 
 <ion-content *ngIf="allNotice">  
   <ion-list>
-    <ion-item *ngFor="let notice of allNotice">
+    <ion-item *ngFor="let notice of allNotice" style="background-color: #1b1b1b; color: #f6f6f6; border-bottom: 1px solid #fff">
       <ion-thumbnail item-start (click)="presentProfileModal(notice.id)">
         <img class="notice-img" src="assets/imgs/pdf_logo.svg">
       </ion-thumbnail>
       <h2>{{notice?.notice?.subject}}</h2>
-      <p>{{notice?.notice?.text}}</p>
+      <p style="font-size: 10px; color: #a0a0a0">{{notice?.notice?.text}}</p>
       <!-- <p>{{notice?.noticetype?.type_name}}</p> -->
-      <p style="font-size: 10px;">{{notice?.created_at}}</p>
+      <p style="font-size: 10px; color: #a0a0a0">{{notice?.created_at}}</p>
       <!-- <ion-note item-end style="font-size: 11px;">
         {{notice?.timeDifference}}
       </ion-note> -->
