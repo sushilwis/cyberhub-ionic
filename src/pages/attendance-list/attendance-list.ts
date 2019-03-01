@@ -23,7 +23,7 @@ export class AttendanceListPage implements OnInit {
   joinned: boolean = false;
   newUser: any = { nickname: "", room: "" };
   msgData: any = { room: "", nickname: "", message: "" };
-  socket = io("http://18.191.46.158:3000/");
+  socket = io("http://3.84.60.73:3000/");
   localUserData: any;
   studentList: any = [];
   attenStudentList: any = [];
