@@ -51,4 +51,10 @@ page-student-notice-board {
 		color: #f6f6f6;
     	background-color: #1b1b1b;
 	}
+	.list-md .item-block .item-inner, .item-md.item-block .item-inner {
+		border-bottom: none;
+	}
+	.list-md .item-block .item-inner {
+		border-bottom: none !important;
+	}
 }
