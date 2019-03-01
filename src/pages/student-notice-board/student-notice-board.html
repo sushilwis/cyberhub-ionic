@@ -23,7 +23,7 @@
       <!-- <ion-note item-end style="font-size: 11px;">
         {{notice?.timeDifference}}
       </ion-note> -->
-      <a *ngIf="notice?.notice?.file_url" ion-button clear href="notice?.notice?.file_url">
+      <a *ngIf="notice?.notice?.file_url" ion-button clear target="_blank" href="http://softechs.co.in/school_hub/public/uploads/Notices/{{notice?.notice?.file_url}}">
         <!-- <i class="fas fa-download fa-2x"></i> -->
         View Pdf
       </a>
