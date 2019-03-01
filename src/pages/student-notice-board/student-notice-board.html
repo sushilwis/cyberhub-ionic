@@ -23,9 +23,9 @@
       <!-- <ion-note item-end style="font-size: 11px;">
         {{notice?.timeDifference}}
       </ion-note> -->
-      <a *ngIf="notice?.notice?.file_url" ion-button clear (click)="showPdf('http://softechs.co.in/school_hub/public/uploads/Notices/1545809130-2.pdf')">
+      <a *ngIf="notice?.notice?.file_url" ion-button clear href="notice?.notice?.file_url">
         <!-- <i class="fas fa-download fa-2x"></i> -->
-        download Pdf
+        View Pdf
       </a>
       
     </ion-item>

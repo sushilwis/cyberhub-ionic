@@ -249,19 +249,19 @@ export class StudentNoticeBoardPage implements OnInit {
     this.viewCtrl.dismiss();
   }
 
-  showPdf(url: string) {
-    alert(`${apiUrl.url}public/uploads/Notices/${url}`);
-    //let pdfurl = `${apiUrl.url}public/uploads/Notices/${url}`;
-    this.fileOpener
-      .open(url, "application/pdf")
-      .then(dta => {}
-        // alert(JSON.stringify(dta))
-        )
-      .catch(
-        e => {}
-        // alert(JSON.stringify(e))
-        );
-  }
+  // showPdf(url: string) {
+  //   // alert(`${apiUrl.url}public/uploads/Notices/${url}`);
+  //   let pdfurl = `${apiUrl.url}public/uploads/Notices/${url}`;
+  //   this.fileOpener
+  //     .open(pdfurl, "application/pdf")
+  //     .then(dta => {
+  //       alert(JSON.stringify(dta))
+  //     })
+  //     .catch(
+  //       e => {}
+  //       // alert(JSON.stringify(e))
+  //       );
+  // }
 }
 
 

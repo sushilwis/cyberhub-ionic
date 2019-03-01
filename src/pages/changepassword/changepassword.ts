@@ -3,7 +3,7 @@ import { IonicPage, NavController, NavParams, MenuController, LoadingController,
 import { apiUrl } from '../../apiUrl';
 import { ModalController, Platform, ViewController } from 'ionic-angular';
 import { Http, RequestOptions, Headers, Jsonp } from '@angular/http';
-import AccountPage from '../account/account';
+import {HomePage} from '../home/home';
 
 /**
  * Generated class for the ChangepasswordPage page.
@@ -78,7 +78,8 @@ export class ChangepasswordPage implements OnInit {
             console.log(data);   
             if(data.status == "1"){
               this.showAlert('Password Changed Successfully.');
-              this.navCtrl.push(AccountPage);
+              // this.navCtrl.push(AccountPage);
+              this.goToLogout();
             }else{
               this.showAlert(data.mssg);
             }       
@@ -89,6 +90,11 @@ export class ChangepasswordPage implements OnInit {
     } else{
       this.showAlert('Please enter New Password and Password field.');
     }    
+  }
+
+  goToLogout() {
+    localStorage.clear();
+    this.navCtrl.setRoot(HomePage);
   }
 
 
