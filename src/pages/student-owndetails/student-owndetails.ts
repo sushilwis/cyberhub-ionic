@@ -13,7 +13,7 @@ import AccountPage, { Modal1Page } from '../account/account';
 import { apiUrl } from '../../apiUrl';
 import { HomePage } from '../home/home';
 import { StaffComplainPage } from '../staff-complain/staff-complain';
-
+import { NotificationListPage } from "../notification-list/notification-list";
 /**
  * Generated class for the StudentOwndetailsPage page.
  *
@@ -57,6 +57,7 @@ export class StudentOwndetailsPage implements OnInit {
     // this.getWheatherData();
     this.getStudentDetails();
     this.seeTabs = true;
+    this.getnotificationcount()
   }
 
 
@@ -92,7 +93,9 @@ export class StudentOwndetailsPage implements OnInit {
     this.navCtrl.push(StaffComplainPage);
   }
 
-
+  goToNotification(){
+    this.navCtrl.push(NotificationListPage);
+  }
 
 
 
@@ -221,7 +224,7 @@ export class StudentOwndetailsPage implements OnInit {
               this.allPersonalNotice = await this.allNotice.filter((item)=>{
                 return item.notiece_type_id == 3; 
               });              
-              this.personalNoticeCount = this.allPersonalNotice.length;
+              // this.personalNoticeCount = this.allPersonalNotice.length;
               // console.log('personal notice count : ', this.personalNoticeCount);
               // this.presentLoading(false);             
             }else{
@@ -249,6 +252,7 @@ export class StudentOwndetailsPage implements OnInit {
       map(res => res.json()).subscribe(data => {
         //console.log('student detail data : ', data);
         if (data.data[0]) {
+         
           this.studentName = data.data[0].name;
           console.log('student detail data : ', data.data[0]);
           this.presentLoading(false);
@@ -256,7 +260,15 @@ export class StudentOwndetailsPage implements OnInit {
       });
   }
 
-
+    getnotificationcount() {
+      this.http.get(`${apiUrl.url}notification/count/${this.localUserData.id}`).map(res => res.json())
+      .subscribe(data => {
+        if(data.count){
+          this.personalNoticeCount =  data.count
+        }
+        
+      })
+    }
 
 
 

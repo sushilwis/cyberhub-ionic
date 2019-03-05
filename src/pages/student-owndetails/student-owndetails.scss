@@ -9,6 +9,7 @@ page-student-owndetails {
 		cursor:pointer !important;
 		background:none;
 		float: right; 
+		padding-right: 10px; 
 	}
 	.icon-center, .icon-center img{
 		display: block !important;
@@ -25,6 +26,31 @@ page-student-owndetails {
 	}
 	.toolbar-md, .toolbar-ios{
 		padding:0px;
+	}
+
+	.badge-md,.badge-ios{
+		position: absolute;
+		border-radius: 47px;
+		color: #fff;
+		background-color: #000;
+		top: -16px;
+		left: 13px;
+		height: 22px;
+	}
+
+	.card {
+		background-color: #1b1b1b !important; // black
+		border: 1px solid rgba(161, 161, 161, 0.911);
+	}
+	.card-md *,.card-ios *{
+		color: #f4f4f4 !important;
+	}
+	.card-title-border{
+		position: absolute;
+		left: 7%;
+		top: -3px;
+		background-color: #1b1b1b;
+		padding: 4px 14px;
 	}
 
 }

@@ -48,7 +48,7 @@ import StudentsTabsPage from '../pages/students-tabs/students-tabs';
 // import { AccountPage, ModalPage } from '../pages/account/account';
 // import { StudentNoticeBoardPage, NoticeModalPage } from './student-notice-board';
 import { StuffChangePassPage } from '../pages/stuff-change-pass/stuff-change-pass';
-
+import { NotificationListPage } from "../pages/notification-list/notification-list";
 // import { RippleDirective } from 'ng2-ripple-directive';
 
 // import { StreamingMedia } from '@ionic-native/streaming-media';
@@ -143,6 +143,7 @@ const firebase = {
     StuffRegistrationPage,
     WelcomeGuestPage,
     SearchOrganisationPage,
+    NotificationListPage
   ],
   imports: [
     BrowserModule,
@@ -202,6 +203,7 @@ const firebase = {
     StuffRegistrationPage,
     WelcomeGuestPage,
     SearchOrganisationPage,
+    NotificationListPage
   ],
   
   providers: [

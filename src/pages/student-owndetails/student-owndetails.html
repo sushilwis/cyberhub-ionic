@@ -12,8 +12,15 @@
     </button>	 -->
     <ion-title (click)="goToAccount()">{{studentName}}</ion-title>
     <ion-buttons end>
-      <button class="bell-icon" (click)=goToPersonalNotice()> <i class="fas fa-bell fa-inverse fa-lg"></i> </button>
+      <button class="bell-icon" (click)=goToNotification()> 
+        <i class="fas fa-bell fa-inverse fa-lg"></i> 
+      </button>
       <ion-badge>{{personalNoticeCount}}</ion-badge>
+    </ion-buttons>
+    <ion-buttons end>
+      <button class="bell-icon" (click)=goToLogout()> 
+        <i class="fas fa-sign-out-alt fa-inverse fa-lg"></i> 
+      </button>
     </ion-buttons>
   </ion-navbar>
 </ion-header>
@@ -23,9 +30,10 @@
   <!-- <button ion-button menuToggle>Toggle Menu</button> -->
 
 <ion-card>
+  <p class="card-title-border">Organization Details</p>
   <!-- <img [src]="orgDetails?.org_img"/> -->
   <ion-card-content>
-    <ion-card-title style="font-size: 1.9rem">
+    <ion-card-title color="light" style="font-size: 1.9rem">
       {{orgDetails?.org_name}}
     </ion-card-title>
       <!-- <div float-right >
@@ -39,28 +47,28 @@
       
         <ion-row>
           <ion-col>
-            <p> <b>City:</b> <span>{{orgDetails?.org_city}}</span> </p>
+            <p color="light"> <b>City:</b> <span>{{orgDetails?.org_city}}</span> </p>
           </ion-col>
           <ion-col>
-            <p> <b>Pin:</b> <span>{{orgDetails?.pin}}</span> </p>
-          </ion-col>
-        </ion-row>
-
-        <ion-row>
-          <ion-col>
-            <p> <b>Affiliated by:</b> <span>{{orgDetails?.affileats[0]?.affi_name}}</span> </p>
+            <p color="light"> <b>Pin:</b> <span>{{orgDetails?.pin}}</span> </p>
           </ion-col>
         </ion-row>
 
         <ion-row>
           <ion-col>
-            <p> <b>Web:</b> <a href="{{orgDetails?.website}}" target="_blank">{{orgDetails?.website}}</a> </p>
+            <p color="light"> <b>Affiliated by:</b> <span>{{orgDetails?.affileats[0]?.affi_name}}</span> </p>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+            <p color="light"> <b>Web:</b> <a href="{{orgDetails?.website}}" target="_blank">{{orgDetails?.website}}</a> </p>
           </ion-col>
           <ion-col>
-            <p> <b>Phone:</b> <span>{{orgDetails?.phone_no}}</span> </p>
+            <p color="light"> <b>Phone:</b> <span>{{orgDetails?.phone_no}}</span> </p>
           </ion-col>
           <ion-col>
-            <p> <b>Email:</b> <span>{{orgDetails?.email}}</span> </p>
+            <p color="light"> <b>Email:</b> <span>{{orgDetails?.email}}</span> </p>
           </ion-col>
         </ion-row>
       </ion-grid>
