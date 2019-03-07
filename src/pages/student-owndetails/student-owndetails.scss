@@ -17,9 +17,13 @@ page-student-owndetails {
 		margin:0px auto !important;
 	}
 	.icon-center{
-		border: 1px solid #fff;
-	    background: #EEEEEE;
-	    padding: 5px 0;
+		 /* border: 1px solid #fff; */
+		background: #505050;
+		padding: 5px 0;
+		box-shadow: white;
+		/* box-shadow: 1px 4px 18px #9c9c9c6e; */
+		margin: 5px !important;
+		border-radius: 5px;
 	}
 	.icon-center p{
 		font-size: 12px;
@@ -52,5 +56,12 @@ page-student-owndetails {
 		background-color: #1b1b1b;
 		padding: 4px 14px;
 	}
-
+	.grid{
+		padding: 11px;
+	}
+	.logo-action {
+		max-width: 29%;
+		height: 61%;
+		padding-top: 15px;
+	}
 }

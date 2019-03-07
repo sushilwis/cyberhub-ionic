@@ -177,9 +177,9 @@ async sortArr(rawRoutineArr) {
         this.room = element.rutinedetails[0].room.name;
         this.floor = element.rutinedetails[0].room.floor_name;
       }else{
-        this.subject = 'No Priod';
-        this.room = 'NA';
-        this.floor = 'NA'
+        this.subject = 'No Class';
+        this.room = 'N/A';
+        this.floor = 'N/A'
       }
 
 

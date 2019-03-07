@@ -15,9 +15,13 @@ page-account {
 		padding:0px;
 	}
 	.back-ground{
-		background: black;
+		background: #1b1b1b;
 		width: 100%;
 		padding: 8px 0;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-wrap: wrap;
 	}
 	.profile-image{
 		border-radius: 50%;
@@ -27,9 +31,9 @@ page-account {
 		height: 140px !important;
 	}
 	.camera-icon{
-		position: fixed;
-		top: 20%;
-    	left: 59%;
+		position: absolute;
+		top: 70%;
+		right: 0;
 	}
 	.back-ground img{
 		display: flex;
@@ -47,6 +51,16 @@ page-account {
 	h5 {
 		color: #eee;
 	}
+	.mh-container{
+		position: relative;
+		display: flex;
+		/* margin: 0 auto; */
+		max-width: 40%;
+	}
+	.back-ground > * {
+		flex-basis: 100%;
+	}
+	
 }
 
 

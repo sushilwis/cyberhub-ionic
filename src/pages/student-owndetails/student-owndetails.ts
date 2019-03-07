@@ -38,7 +38,10 @@ export class StudentOwndetailsPage implements OnInit {
   studentName: string;
   seeTabs: boolean = true;
   
-  constructor(public navCtrl: NavController, public navParams: NavParams, public menuCtrl: MenuController, public loadingController: LoadingController, private http: Http, public platform: Platform, public modalCtrl: ModalController, public viewCtrl: ViewController,) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, 
+    public menuCtrl: MenuController, 
+    public loadingController: LoadingController, 
+    private http: Http, public platform: Platform, public modalCtrl: ModalController, public viewCtrl: ViewController,) {
     this.menuCtrl.enable(false);
     this.initLoader();
 

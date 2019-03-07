@@ -114,3 +114,33 @@
 		color: #f6f6f6;
 		background-color: transparent;
 	}
+
+	.card-black {
+		background-color: #1b1b1b00 !important; // black
+		border: 1px solid rgba(161, 161, 161, 0.911);
+	}
+	.card-black *{
+		color: #f4f4f4 !important;
+	}
+
+	ion-icon {
+		&[class*="customicon-"] {
+			// Instead of using the font-based icons
+			// We're applying SVG masks
+			mask-size: contain;
+			mask-position: 50% 50%;
+			mask-repeat: no-repeat;
+			width: 1em;
+			height: 1em;
+		}
+		// custom icons
+		&[class*="library"] {
+			mask-image: url("../assets/imgs/library_logo.svg");
+		}
+		&[class*="notice-board"] {
+			// mask-image: url(../assets/imgs/notice_board_logo.svg);
+			background: url("../assets/imgs/notice_board.svg") no-repeat 50% 50%;
+    		background-size: contain;
+		}
+	
+	}

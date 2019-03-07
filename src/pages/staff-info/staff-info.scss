@@ -56,4 +56,20 @@ page-staff-info {
 	.icon-center p{
 		font-size: 11px;
 	}
+	.icon-center{
+		 /* border: 1px solid #fff; */
+		background: #505050;
+		padding: 5px 0;
+		box-shadow: white;
+		/* box-shadow: 1px 4px 18px #9c9c9c6e; */
+		margin: 5px !important;
+		border-radius: 5px;
+	}
+	.card {
+			background-color: #1b1b1b !important; // black
+			border: 1px solid rgba(161, 161, 161, 0.911);
+		}
+		.card-md *,.card-ios *{
+			color: #f4f4f4 !important;
+		}
 }

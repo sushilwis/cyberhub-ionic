@@ -10,10 +10,13 @@
 
 <ion-content>
   <div class="back-ground">
+    <div class="mh-container">
       <img class="profile-image" src="{{profile_image}}" *ngIf="profile_image"/>
       <button ion-button icon-only round small color="light" class="camera-icon" (click)="getImage()">
         <ion-icon name="camera"></ion-icon>
       </button>
+
+    </div>
       <!-- <button ion-button block outline color="blue" class="mt-10 ml-10 mr-10" (click)="getImage()">Get Image</button>
       <button ion-button block outline color="blue" class="mt-10 ml-10 mr-10" (click)="uploadFile()">Upload Image</button> -->
       <h5 text-center text-uppercase color="light">{{studentDetails?.f_name}} {{studentDetails?.l_name}}</h5>
@@ -25,7 +28,7 @@
       </p>
   </div>
 
-  <ion-card>
+  <ion-card class="card-black">
     <ion-card-content>
         <p><strong>Email</strong>: {{studentDetails?.email}}</p>
         <p><strong>Mobile</strong>: {{localUserData?.mobile_no}}</p>
@@ -35,9 +38,9 @@
         <p><strong>Gender</strong>: {{studentDetails?.gender}}</p>
         <p><strong>Roll No</strong>: {{studentDetails?.roll_no}}</p>
         <p><strong>Registration No</strong>: {{studentDetails?.registration_no}}</p>
-        <button ion-button type="submit" block outline color="blue" class="mt-10" (click)=goToPassword()>Change Password</button>
+        <button ion-button type="submit" block outline color="light" class="mt-10" (click)=goToPassword()>Change Password</button>
         
-        <button ion-button type="submit" block outline color="blue" class="mt-10" *ngIf="! issecurityadded" (click)=goToEnterSecurityPin()>Set Security Pin</button>
+        <button ion-button type="submit" block outline color="light" class="mt-10" *ngIf="! issecurityadded" (click)=goToEnterSecurityPin()>Set Security Pin</button>
     </ion-card-content>
   </ion-card>
 </ion-content>

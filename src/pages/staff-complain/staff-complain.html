@@ -11,7 +11,7 @@
 <ion-content padding>
 
 	<div class="enquiry-form">
-		 <h3 class="title" text-center text-uppercase margin-bottom>Enter Your Complain</h3>
+		 <ion-title color="light" text-center text-uppercase margin-bottom>Enter Your Complain</ion-title>
 	 	<form>
 			<ion-list style="background-color: none;">
 
@@ -21,7 +21,7 @@
 				</ion-item>
 				
 			  <ion-note text-right float-right>You Have {{totalcomplain}}/3 Complain</ion-note>
-				<button ion-button block outline color="blue" class="mt-10" (click)=sendComplain() (click)=goHide() [disabled]="btnDisabled">Submit</button>
+				<button ion-button block outline color="light" class="mt-10" (click)=sendComplain() (click)=goHide() [disabled]="btnDisabled">Submit</button>
 				<!-- <p class="text-blue" *ngIf="isShown">Your Complain has been Submited to the Principal</p> -->
 			</ion-list>
 		</form>

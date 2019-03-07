@@ -6,6 +6,9 @@
 
 
 page-stuff-examduty {
+	.icon-md-primary, .icon-ios-primary  {
+		color: #f4f4f4 !important;
+	}
 	ion-list {
 	    ion-item {
 	      background-color: transparent;
