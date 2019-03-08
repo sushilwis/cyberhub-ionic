@@ -23,7 +23,7 @@ page-student-notice-board {
 
 
 	.toolbar-background-md {
-		background-color: #009688 !important;
+		background-color: #1b1b1b !important;
 	}
 	.toolbar-title-md {
 		color: #fff !important;
@@ -34,10 +34,10 @@ page-student-notice-board {
 
 	.content-md {
 		color: #fff !important;
-		background-color: #1b1b1b !important;
+		background-color: #1b1b1b;
 	}
 	.list-md .item-block .item-inner {
-		border-bottom: 1px solid #dedede !important;
+		border-bottom: 1px solid #aaa !important;
 	}
 	.button-clear-md {
 		color: #f6f6f6 !important;
@@ -57,4 +57,31 @@ page-student-notice-board {
 	.list-md .item-block .item-inner {
 		border-bottom: none !important;
 	}
+	.segment-md .segment-button{
+		color: #aaaaaa;
+		font-size: .8rem;
+		height: 5rem;
+		line-height: .7rem;
+	}
+	.segment-md .segment-button.activated, .segment-md .segment-button.segment-activated {
+		border-color: #fff;
+	}
+	// .segment-md .segment-button{
+	// 	height: 5rem;
+	// }
+	.item-md ion-thumbnail ion-img, .item-md ion-thumbnail img {
+		height: 40px !important;
+	}
+	.label-md{
+		margin: 5px 5px 5px 0 !important;
+	}
+	.item-md ion-thumbnail {
+		min-height: 40px !important;
+	}
+	.item-md h2 {
+		font-size: 1.35rem;
+	}
+	.cls-1 {
+        fill: #aaa !important;
+    }
 }

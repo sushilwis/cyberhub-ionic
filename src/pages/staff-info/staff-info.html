@@ -11,25 +11,52 @@
 
 <ion-content>
 
-  <ion-card>
+    <ion-card style="margin-top: 20px">
+        <p class="card-title-border">Personal Details</p>
+        <!-- <img [src]="orgDetails?.org_img"/> -->
+        <ion-card-content>
+            <div class="">
+                <div class="profile-container">
+                <div text-center class="mh-container">
+                  <img class="profile-image" src="{{profile_image}}" *ngIf="profile_image"/>
+                </div>
+                <!-- <button ion-button icon-only round small color="light" class="camera-icon" (click)="getImage()">
+                  <ion-icon name="camera"></ion-icon>
+                </button> -->
+                <div class="text-position">
+                  <h5 text-center text-uppercase color="light">{{teacherDetails?.name}}</h5>
+                  <p text-center text-uppercase class="">Dept: Physics</p>
+                </div>
+                </div>
+            </div>
+        </ion-card-content>  
+      </ion-card>
+
+  <ion-card style="margin-top: 20px">
     <!-- <img src="{{orgDetails?.org_img}}"/> -->
+    <p class="card-title-border1">Organization Details</p>
     <ion-card-content>
-      <ion-card-title>
+      <ion-card-title style="font-size: 18px; text-align: center">
         {{orgDetails?.org_name}}
       </ion-card-title>
 
 
-      <ion-grid>      
-          <ion-row>
-            <ion-col>
-              <p> <b>City:</b> <span>{{orgDetails?.org_city}}</span> </p>
-            </ion-col>
-            <ion-col>
+      <!-- <ion-grid>      
+          <ion-row> -->
+            <div>
+              <p class="personalDetailfont"> <b>City:</b> <span>{{orgDetails?.org_city}}</span> </p>
+              <p class="personalDetailfont"> <b>Pin:</b> <span>{{orgDetails?.pin}}</span> </p>
+              <p class="personalDetailfont"> <b>Affiliated by:</b> <span>{{orgDetails?.affileats[0]?.affi_name}}</span> </p>
+              <p class="personalDetailfont"> <b>Web:</b> <a href="{{orgDetails?.website}}" target="_blank">{{orgDetails?.website}}</a> </p>
+              <p class="personalDetailfont"> <b>Phone:</b> <span>{{orgDetails?.phone_no}}</span> </p>
+              <p class="personalDetailfont"> <b>Email:</b> <span>{{orgDetails?.email}}</span> </p>
+            </div>
+            <!-- <ion-col>
               <p> <b>Pin:</b> <span>{{orgDetails?.pin}}</span> </p>
-            </ion-col>
-          </ion-row>
+            </ion-col> -->
+          <!-- </ion-row> -->
   
-          <ion-row>
+          <!-- <ion-row>
             <ion-col>
               <p> <b>Affiliated by:</b> <span>{{orgDetails?.affileats[0]?.affi_name}}</span> </p>
             </ion-col>
@@ -45,8 +72,8 @@
             <ion-col>
               <p> <b>Email:</b> <span>{{orgDetails?.email}}</span> </p>
             </ion-col>
-          </ion-row>
-        </ion-grid>
+          </ion-row> -->
+        <!-- </ion-grid> -->
 
 
         <!-- <div [innerHtml]="orgDetails?.org_text"></div> -->
@@ -71,47 +98,60 @@
         <p>Library</p>
       </ion-col>
       <ion-col col-md-3 class="icon-center" (click)=goToAllPdf()>
-        <img src="assets/imgs/icon2.png"/>
+        <img src="assets/icon/personalNotice.svg" class="iconSize"/>
         <p>Notice Board</p>
       </ion-col>
-      <ion-col col-md-3 class="icon-center" (click)=goToPersonalNotice()>
+      <!-- <ion-col col-md-3 class="icon-center" (click)=goToPersonalNotice()>
         <img src="assets/imgs/icon6.png"/>
         <p>Personal Notice</p>
-      </ion-col>
+      </ion-col> -->
+      <ion-col col-md-3 class="icon-center" (click)=goToAttendance()>
+          <img src="assets/imgs/icon3.png" class="iconSize"/>
+          <p>Attendance</p>
+        </ion-col>
       <ion-col col-md-3 class="icon-center" (click)=goToAccount()>
-        <img src="assets/imgs/icon5.png"/>
+        <img src="assets/icon/myAccount.svg" class="iconSize"/>
         <p>Account</p>
       </ion-col>
     </ion-row>
 
     <ion-row>
-      <ion-col col-md-3 class="icon-center" (click)=goToAttendance()>
+      <!-- <ion-col col-md-3 class="icon-center" (click)=goToAttendance()>
         <img src="assets/imgs/icon3.png"/>
         <p>Attendance</p>
-      </ion-col>
+      </ion-col> -->
       <ion-col col-md-3 class="icon-center" (click)=goToStuffDuty()>
-        <img src="assets/imgs/calendar1.png"/>
+        <img src="assets/icon/staffRoutine.svg" class="iconSize"/>
         <p>Stuff Duty</p>
       </ion-col>
       <ion-col col-md-3 class="icon-center" (click)=gotoLiveStream()>
-        <img src="assets/imgs/icon1.png"/>
+        <img src="assets/imgs/icon1.png" class="iconSize"/>
         <p>Live Stream</p>
       </ion-col>
       <ion-col col-md-3 class="icon-center" (click)=goToComplain()>
-        <img src="assets/imgs/icon7.png"/>
+        <img src="assets/icon/complaints.svg" class="iconSize"/>
         <p>Complain</p>
       </ion-col>
+      <ion-col col-md-4 class="icon-center" (click)=goToGuest()>
+          <img src="assets/imgs/guest.png" class="iconSize"/>
+          <p>Guest</p>
+        </ion-col>
     </ion-row>
 
     <ion-row>
-      <ion-col col-md-4 class="icon-center" (click)=goToGuest()>
+      <!-- <ion-col col-md-4 class="icon-center" (click)=goToGuest()>
         <img src="assets/imgs/guest.png"/>
         <p>Guest</p>
-      </ion-col>
+      </ion-col> -->
 
       <ion-col col-md-4 class="icon-center" (click)=goToLogout()>
-        <img src="assets/imgs/icon7.png"/>
+        <img src="assets/icon/logout.svg" class="iconSize"/>
         <p>Logout</p>
+      </ion-col>
+
+      <ion-col col-md-4 class="">
+        <img src=""/>
+        <p></p>
       </ion-col>
 
       <ion-col col-md-4 class="">

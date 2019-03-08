@@ -18,7 +18,7 @@ page-student-owndetails {
 	}
 	.icon-center{
 		 /* border: 1px solid #fff; */
-		background: #505050;
+		background: #353434 !important;
 		padding: 5px 0;
 		box-shadow: white;
 		/* box-shadow: 1px 4px 18px #9c9c9c6e; */
@@ -52,16 +52,61 @@ page-student-owndetails {
 	.card-title-border{
 		position: absolute;
 		left: 7%;
-		top: -3px;
+		top: 6px;
 		background-color: #1b1b1b;
 		padding: 4px 14px;
+	}
+	.card-title-border1{
+		position: absolute;
+		left: 7%;
+		top: 34%;
+		background-color: #1b1b1b;
+		padding: 3px 14px;
 	}
 	.grid{
 		padding: 11px;
 	}
 	.logo-action {
 		max-width: 29%;
-		height: 61%;
-		padding-top: 15px;
+		height: 45%;
+		padding-top: 8px !important;
+	}
+	.profile-image {
+		border-radius: 50%;
+		border: 2px solid #fff;
+		padding: 3px;
+		width: 60px !important;
+		height: 60px !important;
+		margin: 0 auto;
+	}
+	.mh-container{
+		// position: relative;
+		// display: flex;
+		// max-width: 40%;
+		width: 40%;
+		align-items: center;
+		justify-content: center;
+		padding: 10px 0;
+	}
+	.personalDetailfont, .personalDetailfont span, .personalDetailfont b{
+		font-size: 10.5px;
+		color: #cccbcb !important;
+		display: block;
+		width: 100%;
+	}
+	.profile-container{
+		display: flex;
+	}
+	.text-position{
+		width: 55%;
+		align-items: center;
+		justify-content: center;
+		padding: 10px 0;
+	}
+	.icon-center p {
+		font-size: 9.5px;
+		margin-top: 15px;
+    	padding-bottom: 0px;
+    	padding-top: 0px;
 	}
 }

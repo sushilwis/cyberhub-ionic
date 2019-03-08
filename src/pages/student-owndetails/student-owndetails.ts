@@ -14,6 +14,8 @@ import { apiUrl } from '../../apiUrl';
 import { HomePage } from '../home/home';
 import { StaffComplainPage } from '../staff-complain/staff-complain';
 import { NotificationListPage } from "../notification-list/notification-list";
+import { GuestEnquiryPage } from '../guest-enquiry/guest-enquiry';
+import { SchoolcalenderPage } from '../schoolcalender/schoolcalender';
 /**
  * Generated class for the StudentOwndetailsPage page.
  *
@@ -37,6 +39,9 @@ export class StudentOwndetailsPage implements OnInit {
   personalNoticeCount: any;
   studentName: string;
   seeTabs: boolean = true;
+  profile_image: string;
+  issecurityadded: string;
+  studentDetails: any;
   
   constructor(public navCtrl: NavController, public navParams: NavParams, 
     public menuCtrl: MenuController, 
@@ -95,9 +100,14 @@ export class StudentOwndetailsPage implements OnInit {
   goToComplain(){
     this.navCtrl.push(StaffComplainPage);
   }
-
+  goToGuest(){
+    this.navCtrl.push(GuestEnquiryPage);
+  }
   goToNotification(){
     this.navCtrl.push(NotificationListPage);
+  }
+  goToEvents(){
+    this.navCtrl.push(SchoolcalenderPage);
   }
 
 
@@ -120,7 +130,7 @@ export class StudentOwndetailsPage implements OnInit {
 				if (data.data) {
           //this.presentLoading(false);
           this.orgDetails = data.data[0];	
-          console.log('org details : ...', this.orgDetails);          				
+          // console.log('org details : ...', this.orgDetails);          				
         }
         
 			});
@@ -183,13 +193,25 @@ export class StudentOwndetailsPage implements OnInit {
     if(this.localUserData){
       // alert('In the student home before modal called.');
       if(this.localUserData.is_app_closed){
-          console.log('app closed false');
+          // console.log('app closed false');
           let modal = this.modalCtrl.create(Modal1Page);
           modal.present();
       }else{
-        console.log('app closed false');        
+        // console.log('app closed false');        
       }
-    }      
+    } 
+    
+    if (this.localUserData.profile_image && this.localUserData.digit_pin != 0){
+      this.profile_image = `${apiUrl.url}public/uploads/profile_pic/${this.localUserData.profile_image}`
+      let setdata = {
+        u_id: this.localUserData.id,
+        pin: this.localUserData.digit_pin,
+      };
+      localStorage.setItem("securitypinadded", JSON.stringify(setdata));
+      this.issecurityadded = JSON.parse(localStorage.getItem("securitypinadded"));    
+    }else{
+      this.profile_image = `assets/imgs/student-icon.png`
+    }
   }
 
 
@@ -253,15 +275,17 @@ export class StudentOwndetailsPage implements OnInit {
 
     this.http.post(`${apiUrl.url}student/studentdetail`, data, options).
       map(res => res.json()).subscribe(data => {
-        //console.log('student detail data : ', data);
+        this.presentLoading(false);
+        // console.log('student detail data : ', data);
         if (data.data[0]) {
-         
-          this.studentName = data.data[0].name;
-          console.log('student detail data : ', data.data[0]);
-          this.presentLoading(false);
+          this.studentDetails = data.data[0];
+          this.studentName = data.data[0].f_name;
+          console.log('student detail data : ', data.data[0]);          
         }
       });
   }
+
+
 
     getnotificationcount() {
       this.http.get(`${apiUrl.url}notification/count/${this.localUserData.id}`).map(res => res.json())

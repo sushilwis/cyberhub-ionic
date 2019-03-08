@@ -102,9 +102,7 @@ export default class AccountPage implements OnInit {
       this.issecurityadded = JSON.parse(localStorage.getItem("securitypinadded"));    
     }else{
       this.profile_image = `assets/imgs/student-icon.png`
-    }   
-
-
+    }
   }
 
 
@@ -778,7 +776,6 @@ export class SecuritypinPage {
           let data = {
             u_id: this.localUserData.id,
             pin: this.securityPin,
-
           };
 
           this.http

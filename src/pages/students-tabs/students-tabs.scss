@@ -1,3 +1,23 @@
 page-students-tabs {
-
+    ion-icon {
+        &[class*="custom-"] {
+            margin: 0 5px 0 0;
+            vertical-align: middle;
+            $sz: 20px;
+            width: $sz;
+            height: $sz;
+        } // custom icons
+        &[class*="pin"][ng-reflect-is-active="true"] {
+            background: url("../assets/icon/") no-repeat 50% 50%;
+            background-size: contain;
+        }//in case of active
+        &[class*="pin"][ng-reflect-is-active="false"] {
+            background: url("../assets/icon/") no-repeat 50% 50%;
+            background-size: contain;
+        }//in case of inactive
+        &[class*="stars"] {
+            background: url("../assets/icon/") no-repeat 50% 50%;
+            background-size: contain;
+        }
+        }
 }

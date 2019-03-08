@@ -33,17 +33,20 @@ export class StaffInfoPage {
   localUserData: any;
   orgDetails: any;
   loading: any;
+  profile_image: string;
+  teacherDetails: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public menuCtrl: MenuController, public loadingController: LoadingController, private http: Http) {
     this.menuCtrl.enable(false);
     this.initLoader();
+    this.getUserDataFromLocal();
+    this.getUserData();
   }
 
 
-  ngOnInit(){
-    this.getUserDataFromLocal();
-    this.getUserData();
-    console.log('Stuff info page...');    
+  ngOnInit(){    
+    console.log('Stuff info page...');
+    this.getTeacherDetails();    
   }
 
 
@@ -91,7 +94,7 @@ export class StaffInfoPage {
 
 
   getUserData() {
-    this.presentLoading(true);
+    // this.presentLoading(true);
 		var header = new Headers();
 		header.append('Content-Type', 'application/json');
 		let options = new RequestOptions({headers: header});
@@ -101,11 +104,11 @@ export class StaffInfoPage {
     }
     
 		this.http.post(`${apiUrl.url}org/getdetail`, data, options).
-			map(res => res.json()).subscribe(data => {				
+			map(res => res.json()).subscribe(data => {	
+        // this.presentLoading(false);			
 				console.log('org_details : ', data.data[0]);
 
-				if (data.data) {
-          this.presentLoading(false);
+				if (data.data) {          
           this.orgDetails = data.data[0];					
         }
         
@@ -172,9 +175,15 @@ export class StaffInfoPage {
 
 
   getUserDataFromLocal() {
+    // this.presentLoading(true);
     let data = localStorage.getItem('userData');
     this.localUserData = JSON.parse(data);
-    // console.log('local data : ', this.localUserData);    
+    // console.log('local data : ', this.localUserData); 
+    if(this.localUserData.profile_image){
+      this.profile_image = `${apiUrl.url}public/uploads/profile_pic/${this.localUserData.profile_image}`;
+    }else{
+      this.profile_image = `assets/imgs/student-icon.png`;
+    }   
   }
 
 
@@ -184,5 +193,34 @@ export class StaffInfoPage {
   goToLogout() {
     localStorage.clear();
     this.navCtrl.setRoot(HomePage);
+  }
+
+
+
+
+  getTeacherDetails() {
+		var headers = new Headers();
+		headers.append('Content-Type', 'application/json');
+		let options = new RequestOptions({headers: headers});
+
+		let data = {
+      'master_id': this.localUserData.master_id,
+      'org_id': this.localUserData.org_code
+		}
+
+		this.http.post(`${apiUrl.url}staff/details`, data, options).
+			map(res => res.json()).subscribe(data => {				
+				// this.presentLoading(false);
+				if (data.data[0]) {          
+          this.teacherDetails = data.data[0];
+          console.log('teacher details : ', data.data[0]);
+
+          // if(data.data[0].nameclass){
+          //   this.showSelectDepartmentBtn = false;
+          // }else{
+          //   this.showSelectDepartmentBtn = true;
+          // }
+				}
+			});
   }
 }

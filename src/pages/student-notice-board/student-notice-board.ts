@@ -28,6 +28,9 @@ export class StudentNoticeBoardPage implements OnInit {
   totalPage: any = 0;
   pdfSrc: any;
   guestOrgId: any;
+  departmentalNotice: any = [];
+  generalNotice: any = [];
+  personalNotice: any = [];
 
   constructor(
     public platform: Platform,
@@ -114,11 +117,12 @@ export class StudentNoticeBoardPage implements OnInit {
       .subscribe(async data => {
         // console.log('Receive notice data : ', data.data);
         if (data.data.length > 1) {
-          console.log("Receive data : ", data.data);
+          console.log("notice list : ", data.data);
           this.allNotice = await data.data;
           this.allNotice.forEach(item => {
             item.timeDifference = this.createJavascriptDate(item.created_at);
           });
+          this.filterAllNotices(this.allNotice);
           this.totalData = await data.data.length;
           this.totalPage = await Math.floor(this.totalData / 5);
           this.presentLoading(false);
@@ -126,6 +130,21 @@ export class StudentNoticeBoardPage implements OnInit {
           this.presentLoading(false);
         }
       });
+  }
+
+
+  filterAllNotices(arr) {
+    arr.forEach(item => {
+      if(item.notiece_type_id == '1'){
+        this.departmentalNotice.push(item);
+      }
+      if(item.notiece_type_id == '2'){
+        this.generalNotice.push(item);
+      }
+      if(item.notiece_type_id == '3'){
+        this.personalNotice.push(item);
+      }
+    });
   }
 
 
@@ -155,9 +174,9 @@ export class StudentNoticeBoardPage implements OnInit {
       .post(`${apiUrl.url}notice/get-general`, data, { headers: header })
       .map(res => res.json())
       .subscribe(async data => {
-        console.log('Receive notice data for guest : ', data);
+        // console.log('Receive notice data for guest : ', data);
         if (data.data.length > 1) {
-          console.log("Receive data : ", data.data);
+          console.log("guest notice list : ", data.data);
           this.allNotice = await data.data;
           this.totalData = await data.data.length;
           this.totalPage = await Math.floor(this.totalData / 5);
