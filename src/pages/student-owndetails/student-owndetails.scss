@@ -19,7 +19,8 @@ page-student-owndetails {
 	.icon-center{
 		 /* border: 1px solid #fff; */
 		background: #353434 !important;
-		padding: 5px 0;
+		// padding: 5px 0;
+		padding-top: 12px;
 		box-shadow: white;
 		/* box-shadow: 1px 4px 18px #9c9c9c6e; */
 		margin: 5px !important;
@@ -59,7 +60,7 @@ page-student-owndetails {
 	.card-title-border1{
 		position: absolute;
 		left: 7%;
-		top: 34%;
+		top: 137px;
 		background-color: #1b1b1b;
 		padding: 3px 14px;
 	}
@@ -108,5 +109,23 @@ page-student-owndetails {
 		margin-top: 15px;
     	padding-bottom: 0px;
     	padding-top: 0px;
+	}
+
+	.stdsmallinfo {
+		font-size: 11px !important;
+		color: #cccbcb !important;
+	}
+	.wether-icon{
+		width: 70px !important;
+	}
+	.weatherDiv{
+		position: absolute;
+		top: 208px;
+		left: 230px;
+	}
+	.weatherdata {
+		position: relative;
+		top: -23px;
+		left: 34px;
 	}
 }

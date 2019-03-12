@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, MenuController, LoadingController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, MenuController, LoadingController, AlertController } from 'ionic-angular';
 import { RequestOptions, Headers, Http } from '@angular/http';
 import { apiUrl } from '../../apiUrl';
 
@@ -16,6 +16,7 @@ import { PrincipalExamviewPage } from '../principal-examview/principal-examview'
 import{ PrincipalComplaindeskPage } from '../principal-complaindesk/principal-complaindesk';
 import { StuffExamdutyPage } from '../stuff-examduty/stuff-examduty';
 import { HomePage } from '../home/home';
+import { StaffLoginPage } from '../staff-login/staff-login';
 /**
  * Generated class for the StaffInfoPage page.
  *
@@ -35,18 +36,23 @@ export class StaffInfoPage {
   loading: any;
   profile_image: string;
   teacherDetails: any;
+  weatherIcon: string;
+  weatherdata: any;
+  temp: any;
+  pin: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public menuCtrl: MenuController, public loadingController: LoadingController, private http: Http) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public menuCtrl: MenuController, public loadingController: LoadingController, private http: Http, public alertCtrl: AlertController) {
     this.menuCtrl.enable(false);
     this.initLoader();
     this.getUserDataFromLocal();
-    this.getUserData();
+    this.getUserData();    
   }
 
 
   ngOnInit(){    
     console.log('Stuff info page...');
-    this.getTeacherDetails();    
+    this.getTeacherDetails(); 
+    this.getWeatherData();   
   }
 
 
@@ -109,7 +115,8 @@ export class StaffInfoPage {
 				console.log('org_details : ', data.data[0]);
 
 				if (data.data) {          
-          this.orgDetails = data.data[0];					
+          this.orgDetails = data.data[0];	
+          this.pin = data.data[0].pin;				
         }
         
 			});
@@ -191,8 +198,9 @@ export class StaffInfoPage {
 
 
   goToLogout() {
-    localStorage.clear();
-    this.navCtrl.setRoot(HomePage);
+    this.showAlert('Logout', 'Are you sure want to logout ?');
+    // localStorage.clear();
+    // this.navCtrl.setRoot(HomePage);
   }
 
 
@@ -223,4 +231,60 @@ export class StaffInfoPage {
 				}
 			});
   }
+
+
+
+
+  getWeatherData() {
+    // b60c3e9d5ed15819d78fd18b00e5cfbb
+    // https://openweathermap.org/img/w/
+    var headers = new Headers();
+		headers.append('Content-Type', 'application/json');
+    let options = new RequestOptions({headers: headers});
+    
+    this.http.get(`http://api.openweathermap.org/data/2.5/weather?zip=700028,in&appid=c02a8ac947999e382330611c5f2c508b`).
+			map(res => res.json()).subscribe(data => {				
+        console.log('weather data.../',data); 
+        this.weatherdata = data.main;
+        this.temp = Math.round(parseInt(this.weatherdata.temp)-273.15);
+        this.weatherIcon = `https://openweathermap.org/img/w/${data.weather[0].icon}.png`; 
+        console.log('weather img link : ', this.temp );     
+			});
+  }
+
+
+
+
+
+  showAlert(title, msg) {
+    const alert = this.alertCtrl.create({
+      title: title,
+      subTitle: msg,
+      buttons: [
+        {
+          text: 'Cancel',
+          handler: () => {
+            console.log('Disagree clicked');
+          }
+        },
+        {
+          text: 'Ok',
+          handler: () => {
+            console.log('Agree clicked');
+            localStorage.clear();
+            this.navCtrl.setRoot(HomePage);
+            this.navCtrl.push(StaffLoginPage);
+          }
+        }
+      ]
+    });
+    alert.present();
+  }
+
+
+
+
+
+
+
 }

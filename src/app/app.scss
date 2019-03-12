@@ -142,5 +142,20 @@
 			background: url("../assets/imgs/notice_board.svg") no-repeat 50% 50%;
     		background-size: contain;
 		}
+		&[class*="home"] {
+			// mask-image: url(../assets/imgs/notice_board_logo.svg);
+			background: url("../assets/icon/Home_btn.svg") no-repeat 50% 50%;
+    		background-size: contain;
+		}
+		&[class*="routine"] {
+			// mask-image: url(../assets/imgs/notice_board_logo.svg);
+			background: url("../assets/icon/staffRoutine.svg") no-repeat 50% 50%;
+    		background-size: contain;
+		}
+		&[class*="attendance"] {
+			// mask-image: url(../assets/imgs/notice_board_logo.svg);
+			background: url("../assets/icon/attendance.svg") no-repeat 50% 50%;
+    		background-size: contain;
+		}
 	
 	}

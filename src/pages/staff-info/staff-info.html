@@ -4,8 +4,19 @@
     <!-- <button ion-button menuToggle color="light">
      <ion-icon name="menu"></ion-icon>
    </button> -->
-    <ion-title>General Information</ion-title>
-    <ion-buttons end><button class="bell-icon" (click)=goToPersonalNotice()> <i class="fas fa-bell fa-inverse fa-lg"></i> </button></ion-buttons>
+    <ion-title>Welcome {{teacherDetails?.f_name}}</ion-title>
+    <ion-buttons end>
+      <button class="bell-icon" (click)=goToPersonalNotice()> 
+        <!-- <i class="fas fa-bell fa-inverse fa-lg"></i>  -->
+        <img class="" src="assets/icon/notification.svg" style="height: 18px"/>
+      </button>
+    </ion-buttons>
+    <ion-buttons end>
+        <button class="bell-icon" (click)=goToLogout()> 
+          <!-- <i class="fas fa-sign-out-alt fa-inverse fa-lg"></i>  -->
+          <img class="" src="assets/icon/logout.svg" style="height: 18px"/>
+        </button>
+      </ion-buttons>
   </ion-navbar>
 </ion-header>
 
@@ -51,6 +62,14 @@
               <p class="personalDetailfont"> <b>Phone:</b> <span>{{orgDetails?.phone_no}}</span> </p>
               <p class="personalDetailfont"> <b>Email:</b> <span>{{orgDetails?.email}}</span> </p>
             </div>
+
+            <div class="weatherDiv" *ngIf="weatherdata">
+              <img class="wether-icon" src="{{weatherIcon}}" alt="weather">
+              <span class="weatherdata">
+                <label *ngIf="temp" style="font-size: 10px;">{{temp}} C</label>
+              </span>              
+            </div>
+            
             <!-- <ion-col>
               <p> <b>Pin:</b> <span>{{orgDetails?.pin}}</span> </p>
             </ion-col> -->
@@ -94,24 +113,28 @@
 
     <ion-row>
       <ion-col col-md-3 class="icon-center" (click)=goToLibrary()>
-        <img src="assets/imgs/icon.png"/>
-        <p>Library</p>
+        <img src="assets/icon/library_logo.svg" class="iconSize"/>
+        <p text-uppercase>Library</p>
       </ion-col>
-      <ion-col col-md-3 class="icon-center" (click)=goToAllPdf()>
+      <ion-col col-md-3 class="icon-center" (click)=goToComplain()>
+        <img src="assets/icon/complaints.svg" class="iconSize"/>
+        <p text-uppercase>Principal Desk</p>
+      </ion-col>
+      <!-- <ion-col col-md-3 class="icon-center" (click)=goToAllPdf()>
         <img src="assets/icon/personalNotice.svg" class="iconSize"/>
         <p>Notice Board</p>
-      </ion-col>
+      </ion-col> -->
       <!-- <ion-col col-md-3 class="icon-center" (click)=goToPersonalNotice()>
         <img src="assets/imgs/icon6.png"/>
         <p>Personal Notice</p>
       </ion-col> -->
-      <ion-col col-md-3 class="icon-center" (click)=goToAttendance()>
-          <img src="assets/imgs/icon3.png" class="iconSize"/>
+      <!-- <ion-col col-md-3 class="icon-center" (click)=goToAttendance()>
+          <img src="assets/icon/attendance.svg" class="iconSize"/>
           <p>Attendance</p>
-        </ion-col>
+        </ion-col> -->
       <ion-col col-md-3 class="icon-center" (click)=goToAccount()>
         <img src="assets/icon/myAccount.svg" class="iconSize"/>
-        <p>Account</p>
+        <p text-uppercase>Self Account</p>
       </ion-col>
     </ion-row>
 
@@ -120,22 +143,27 @@
         <img src="assets/imgs/icon3.png"/>
         <p>Attendance</p>
       </ion-col> -->
-      <ion-col col-md-3 class="icon-center" (click)=goToStuffDuty()>
+      <!-- <ion-col col-md-3 class="icon-center" (click)=goToStuffDuty()>
         <img src="assets/icon/staffRoutine.svg" class="iconSize"/>
         <p>Stuff Duty</p>
-      </ion-col>
+      </ion-col> -->
       <ion-col col-md-3 class="icon-center" (click)=gotoLiveStream()>
-        <img src="assets/imgs/icon1.png" class="iconSize"/>
-        <p>Live Stream</p>
+        <img src="assets/icon/live_stream_btn.svg" class="iconSize"/>
+        <p text-uppercase>Live Stream</p>
       </ion-col>
-      <ion-col col-md-3 class="icon-center" (click)=goToComplain()>
-        <img src="assets/icon/complaints.svg" class="iconSize"/>
-        <p>Complain</p>
+      <ion-col col-md-4 class="icon-center" (click)=goToEvents() style="border-top: 2px solid #fff;">
+        <img class="logo-action iconSize" src="assets/icon/calender_btn.svg"/>
+        <p text-uppercase>Events</p>
       </ion-col>
-      <ion-col col-md-4 class="icon-center" (click)=goToGuest()>
-          <img src="assets/imgs/guest.png" class="iconSize"/>
+      <ion-col col-md-4 class="icon-center" (click)=goToChangeLang() style="border-top: 2px solid #fff;">
+        <img class="logo-action iconSize" src="assets/icon/changeLanguage.svg" />
+        <p text-uppercase>Change Language</p>
+      </ion-col>
+      
+      <!-- <ion-col col-md-4 class="icon-center" (click)=goToGuest()>
+          <img src="assets/icon/guest_logo.svg" class="iconSize"/>
           <p>Guest</p>
-        </ion-col>
+        </ion-col> -->
     </ion-row>
 
     <ion-row>
@@ -144,12 +172,12 @@
         <p>Guest</p>
       </ion-col> -->
 
-      <ion-col col-md-4 class="icon-center" (click)=goToLogout()>
+      <!-- <ion-col col-md-4 class="icon-center" (click)=goToLogout()>
         <img src="assets/icon/logout.svg" class="iconSize"/>
         <p>Logout</p>
-      </ion-col>
+      </ion-col> -->
 
-      <ion-col col-md-4 class="">
+      <!-- <ion-col col-md-4 class="">
         <img src=""/>
         <p></p>
       </ion-col>
@@ -162,7 +190,7 @@
       <ion-col col-md-4 class="">
         <img src=""/>
         <p></p>
-      </ion-col>
+      </ion-col> -->
     </ion-row>
     
   </ion-grid>

@@ -19,5 +19,14 @@ page-students-tabs {
             background: url("../assets/icon/") no-repeat 50% 50%;
             background-size: contain;
         }
-        }
+    }
+
+    .tabs-md .tab-button-text {
+        font-size: 0.9rem;
+    }
+
+    .tabs-md-blue .tabbar {
+        border-top: 1.3px solid #fff;
+        background-color: #1b1b1b;
+    }
 }

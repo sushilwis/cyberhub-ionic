@@ -29,15 +29,15 @@
 
 
 <ion-content>        
-    <ion-card>       
+    <ion-card style="background-color: #353434">       
         
-        <h4 text-center style="font-size: 18px;"><strong>{{book?.book_name}}</strong></h4>
-        
+        <h4 text-center style="font-size: 18px; color: #fff; margin-top: 10px;"><strong>{{book?.book_name}}</strong></h4>
+        <!-- #ececec -->
         <ion-card-content>
-          <p><strong>Writer</strong> : {{book?.author}}</p>
-          <p><strong>Edition</strong> : {{book?.edition}}</p>
+          <p style="color: #ececec"><strong>Writer</strong> : {{book?.author}}</p>
+          <p style="color: #ececec"><strong>Edition</strong> : {{book?.edition}}</p>
           <!-- <p><strong>ISBN</strong> : {{book?.isbn_code}}</p> -->
-          <p><strong>Publisher</strong> : {{book?.publisher_name}}</p>
+          <p style="color: #ececec"><strong>Publisher</strong> : {{book?.publisher_name}}</p>
           <!-- <p><strong>No of Copy</strong> : {{book?.no_copy}}</p> -->
         </ion-card-content>
       </ion-card>

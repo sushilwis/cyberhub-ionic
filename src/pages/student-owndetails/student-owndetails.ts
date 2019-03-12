@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IonicPage, NavController, NavParams, MenuController, LoadingController, Platform, ModalController, ViewController} from 'ionic-angular';
+import { IonicPage, NavController, NavParams, MenuController, LoadingController, Platform, ModalController, ViewController, AlertController} from 'ionic-angular';
 import { Http, RequestOptions, Headers, Jsonp } from '@angular/http';
 // import { PdfDownloadPage } from '../pdf-download/pdf-download';
 // import { LibraryListPage } from '../library-list/library-list';
@@ -16,6 +16,7 @@ import { StaffComplainPage } from '../staff-complain/staff-complain';
 import { NotificationListPage } from "../notification-list/notification-list";
 import { GuestEnquiryPage } from '../guest-enquiry/guest-enquiry';
 import { SchoolcalenderPage } from '../schoolcalender/schoolcalender';
+import { StudentLoginPage } from '../student-login/student-login';
 /**
  * Generated class for the StudentOwndetailsPage page.
  *
@@ -42,11 +43,15 @@ export class StudentOwndetailsPage implements OnInit {
   profile_image: string;
   issecurityadded: string;
   studentDetails: any;
+  weatherdata: any;
+  temp: number;
+  weatherIcon: string;
+  pin: any;
   
   constructor(public navCtrl: NavController, public navParams: NavParams, 
     public menuCtrl: MenuController, 
     public loadingController: LoadingController, 
-    private http: Http, public platform: Platform, public modalCtrl: ModalController, public viewCtrl: ViewController,) {
+    private http: Http, public platform: Platform, public modalCtrl: ModalController, public viewCtrl: ViewController, public alertCtrl: AlertController) {
     this.menuCtrl.enable(false);
     this.initLoader();
 
@@ -65,7 +70,8 @@ export class StudentOwndetailsPage implements OnInit {
     // this.getWheatherData();
     this.getStudentDetails();
     this.seeTabs = true;
-    this.getnotificationcount()
+    this.getnotificationcount();
+    this.getWeatherData();
   }
 
 
@@ -130,6 +136,7 @@ export class StudentOwndetailsPage implements OnInit {
 				if (data.data) {
           //this.presentLoading(false);
           this.orgDetails = data.data[0];	
+          this.pin = data.data[0].pin;
           // console.log('org details : ...', this.orgDetails);          				
         }
         
@@ -300,11 +307,59 @@ export class StudentOwndetailsPage implements OnInit {
 
 
   goToLogout() {
-    localStorage.clear();
-    this.navCtrl.setRoot(HomePage);
+    this.showAlert('Logout', 'Are you sure want to logout ?');
+    // localStorage.clear();
+    // this.navCtrl.setRoot(HomePage);
   }
 
 
+
+
+  getWeatherData() {
+    // b60c3e9d5ed15819d78fd18b00e5cfbb
+    // https://openweathermap.org/img/w/
+    var headers = new Headers();
+		headers.append('Content-Type', 'application/json');
+    let options = new RequestOptions({headers: headers});
+    
+    this.http.get(`http://api.openweathermap.org/data/2.5/weather?zip=700028,in&appid=c02a8ac947999e382330611c5f2c508b`).
+			map(res => res.json()).subscribe(data => {				
+        console.log('weather data.../',data); 
+        this.weatherdata = data.main;
+        this.temp = Math.round(parseInt(this.weatherdata.temp)-273.15);
+        this.weatherIcon = `https://openweathermap.org/img/w/${data.weather[0].icon}.png`; 
+        console.log('weather img link : ', this.temp );     
+			});
+  }
+
+
+
+
+
+  showAlert(title, msg) {
+    const alert = this.alertCtrl.create({
+      title: title,
+      subTitle: msg,
+      buttons: [
+        {
+          text: 'Cancel',
+          handler: () => {
+            console.log('Disagree clicked');
+          }
+        },
+        {
+          text: 'Ok',
+          handler: () => {
+            console.log('Agree clicked');
+            localStorage.clear();
+            this.navCtrl.setRoot(HomePage);
+            this.navCtrl.push(StudentLoginPage);
+          }
+        }
+      ]
+    });
+    alert.present();
+  }
 
 
 

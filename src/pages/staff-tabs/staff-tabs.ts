@@ -11,6 +11,9 @@ import { Http, RequestOptions, Headers, Jsonp } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { apiUrl } from '../../apiUrl';
 import { ParentsAccountPage }  from '../parents-account/parents-account';
+import { StuffExamdutyPage } from '../stuff-examduty/stuff-examduty';
+import { GetAttendancePage } from '../get-attendance/get-attendance';
+import { StudentNoticeBoardPage } from '../student-notice-board/student-notice-board';
 /**
  * Generated class for the StudentsTabsPage page.
  *
@@ -25,8 +28,9 @@ import { ParentsAccountPage }  from '../parents-account/parents-account';
 })
 export class StaffTabsPage implements OnInit {
   tab1Root = StaffInfoPage;
-  tab2Root = RoutinePage;
-  tab3Root = ParentsAccountPage;
+  tab2Root = StuffExamdutyPage;
+  tab3Root = GetAttendancePage;
+  tab4Root = StudentNoticeBoardPage;
   loaded: boolean = false;
   tabIndex: number = 0;
   localUserData: any;

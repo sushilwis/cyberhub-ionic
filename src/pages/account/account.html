@@ -22,6 +22,7 @@
       <p text-center text-uppercase no-padding no-margin>{{studentDetails?.user_name}}</p>
       <p text-center text-uppercase no-padding no-margin>{{studentDetails?.nameclass?.class?.class_name}} {{studentDetails?.nameclass?.section?.sec_name}}</p>
       <p text-center text-uppercase no-padding no-margin>Semester : {{studentDetails?.nameclass?.sem_id?.sem_no}}</p>
+      <p text-center text-uppercase no-padding no-margin>Attendance : 60%</p>
       <p text-center>
         <button class="btnStyle" ion-button color="dark" outline (click)="openModal()" *ngIf="studentDetails?.nameclass == null">Select Department</button>
       </p>

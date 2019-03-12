@@ -35,9 +35,9 @@
               <!-- <h5 text-center text-uppercase color="light">{{studentDetails?.f_name}} {{studentDetails?.l_name}}</h5> -->
               <!-- <p text-center text-uppercase no-padding no-margin class="personalDetailfont">{{studentDetails?.user_name}}</p> -->
             <div class="text-position">
-              <p text-left text-uppercase no-padding no-margin class="">{{studentDetails?.nameclass?.class?.class_name}} {{studentDetails?.nameclass?.section?.sec_name}}</p>
-              <p text-left text-uppercase no-padding no-margin class="">Semester : {{studentDetails?.nameclass?.sem_id?.sem_no}}</p>
-              <p text-left text-uppercase no-padding no-margin class="">Attendance : 60%</p>
+              <p text-left text-uppercase no-padding no-margin class="stdsmallinfo">{{studentDetails?.nameclass?.class?.class_name}} {{studentDetails?.nameclass?.section?.sec_name}}</p>
+              <p text-left text-uppercase no-padding no-margin class="stdsmallinfo">Semester : {{studentDetails?.nameclass?.sem_id?.sem_no}}</p>
+              <p text-left text-uppercase no-padding no-margin class="stdsmallinfo">Attendance : 60%</p>
             </div>
             </div>
           </div>
@@ -75,6 +75,13 @@
                 <ion-col col-12>
                   <p color="light"> <b>Email:</b> <span>{{orgDetails?.email}}</span> </p>
                 </ion-col> -->
+              </div>
+
+              <div class="weatherDiv" *ngIf="weatherdata">
+                  <img class="wether-icon" src="{{weatherIcon}}" alt="weather">
+                  <span class="weatherdata">
+                    <label *ngIf="temp" style="font-size: 10px;">{{temp}} C</label>
+                  </span>              
               </div>
             <!-- </ion-grid> -->
 

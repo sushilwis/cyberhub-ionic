@@ -1,9 +1,10 @@
 <ion-content>
 
   <ion-tabs id="tabs" color="blue">
-    <ion-tab [root]="tab1Root" tabTitle="Home" tabIcon="home" tabsHideOnSubPages="true" (swipe)="transition($event)"></ion-tab>
-    <ion-tab [root]="tab2Root" tabTitle="Routine" tabIcon="grid" tabsHideOnSubPages="true" (swipe)="transition($event)"></ion-tab>
-    <ion-tab [root]="tab3Root" tabTitle="Profile" tabIcon="person" tabsHideOnSubPages="true" (ionChange)="transition($event)"></ion-tab>
+    <ion-tab [root]="tab1Root" tabTitle="HOME" tabIcon="customicon-home" tabsHideOnSubPages="true" (swipe)="transition($event)"></ion-tab>
+    <ion-tab [root]="tab2Root" tabTitle="ROUTINE" tabIcon="customicon-routine" tabsHideOnSubPages="true" (swipe)="transition($event)"></ion-tab>
+    <ion-tab [root]="tab3Root" tabTitle="ATTENDANCE" tabIcon="customicon-attendance" tabsHideOnSubPages="true" (ionChange)="transition($event)"></ion-tab>
+    <ion-tab [root]="tab4Root" tabTitle="NOTICE" tabIcon="customicon-notice-board" tabsHideOnSubPages="true" (ionChange)="transition($event)"></ion-tab>
   </ion-tabs>
 
 </ion-content>
