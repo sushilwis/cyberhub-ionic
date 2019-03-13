@@ -78,9 +78,10 @@
               </div>
 
               <div class="weatherDiv" *ngIf="weatherdata">
+                  <img class="wether-icon1" src="assets/icon/mobileme-logo-of-black-cloud.svg" alt="weather">
                   <img class="wether-icon" src="{{weatherIcon}}" alt="weather">
                   <span class="weatherdata">
-                    <label *ngIf="temp" style="font-size: 10px;">{{temp}} C</label>
+                    <label *ngIf="temp" style="font-size: 9px; color: #000;"><span style="font-size: 9px; color: #000;">Now</span> {{temp}} C</label>
                   </span>              
               </div>
             <!-- </ion-grid> -->

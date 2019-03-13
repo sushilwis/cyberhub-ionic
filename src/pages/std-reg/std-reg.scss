@@ -19,14 +19,7 @@ page-std-reg {
 		text-decoration: underline;
 	}
 
-	.sub-line{
-		text-align: center;
-		border-top: 1px solid #ddd;
-		border-bottom: 1px solid #ddd;
-		padding: 10px;
-		margin: 0 21px 10px;
-		color: rgb(83, 83, 83);
-	}
+	
 	.btn-size {
 		padding: 15px 25px !important;
 	}
@@ -81,4 +74,17 @@ page-std-reg {
 	// 	color: #fff;
 	// 	font-size: 13px;
 	// }
+
+	.sub-line{
+		text-align: center;
+		border-top: 1px solid #909090;
+		border-bottom: 1px solid #909090;
+		padding: 10px;
+		margin: 0 21px 10px;
+		color: #909090;
+	}
+
+	.login-page-logo {
+		width: 14%;
+	}
 }

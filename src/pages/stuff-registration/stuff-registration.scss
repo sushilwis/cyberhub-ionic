@@ -20,11 +20,11 @@ page-stuff-registration {
 
 	.sub-line{
 		text-align: center;
-		border-top: 1px solid #ddd;
-		border-bottom: 1px solid #ddd;
+		border-top: 1px solid #909090;
+		border-bottom: 1px solid #909090;
 		padding: 10px;
 		margin: 0 21px 10px;
-		color: rgb(83, 83, 83);
+		color: #909090;
 	}
 	.btn-size {
 		padding: 15px 25px !important;
@@ -73,5 +73,8 @@ page-stuff-registration {
 	}
 	.list-md .item-input:last-child {
     border-bottom: none !important;
+	}
+	.login-page-logo {
+		width: 14%;
 	}
 }

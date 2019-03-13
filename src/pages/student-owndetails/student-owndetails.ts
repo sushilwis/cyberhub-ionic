@@ -92,7 +92,7 @@ export class StudentOwndetailsPage implements OnInit {
     this.navCtrl.push(PersonalNoticePage);
   }
   gotoLiveStream(){
-    this.navCtrl.push(LiveStreamPage);
+    // this.navCtrl.push(LiveStreamPage);
   }
   goToAttendance(){
     this.navCtrl.push(AttendancePage);

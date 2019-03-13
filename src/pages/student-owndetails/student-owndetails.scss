@@ -48,7 +48,7 @@ page-student-owndetails {
 		border: 1px solid rgba(161, 161, 161, 0.911);
 	}
 	.card-md *,.card-ios *{
-		color: #f4f4f4 !important;
+		color: #f4f4f4;
 	}
 	.card-title-border{
 		position: absolute;
@@ -116,7 +116,10 @@ page-student-owndetails {
 		color: #cccbcb !important;
 	}
 	.wether-icon{
-		width: 70px !important;
+		position: absolute;
+		top: 11px;
+		left: 12px;
+		width: 50px !important;
 	}
 	.weatherDiv{
 		position: absolute;
@@ -125,7 +128,11 @@ page-student-owndetails {
 	}
 	.weatherdata {
 		position: relative;
-		top: -23px;
-		left: 34px;
+		top: -30px;
+		left: 18px;
+	}
+
+	.wether-icon1 {
+		width: 70px;
 	}
 }

@@ -251,7 +251,7 @@ export class SearchOrganisationPage {
   openActionSheet(org) {
     let actionSheet = this.actionsheetCtrl.create({
       // title: `<img [src]="${org.org_logo}"/> ${org.name}`,
-      title: `${org.name} ${org.landmark}`,
+      title: `${org.name} ${org.landmark} `,
       cssClass: 'action-sheets-basic-page',
       buttons: [
         {
@@ -277,14 +277,6 @@ export class SearchOrganisationPage {
           handler: () => {
             // console.log('Play clicked');
             this.schoolsDetails(org.id);
-          }
-        },
-        {
-          text: 'Cancel',
-          role: 'cancel',
-          icon: !this.platform.is('ios') ? 'close' : 'close',
-          handler: () => {
-            console.log('Cancel clicked');
           }
         }
       ]

@@ -1,13 +1,15 @@
-<ion-header>
+<!-- <ion-header>
   <ion-navbar color="blue">
     <ion-title>Stuff Login</ion-title>
   </ion-navbar>
-</ion-header>
+</ion-header> -->
 
 
 <ion-content class="item-center" padding color="secondary">
 	<div text-center margin-top>
-		<h4>Welcome Stuff !</h4>
+		<h4 style="font-size: 1.6rem;">
+			<img class="login-page-logo" src="assets/icon/cyverhub_logo.svg"> | Welcome Stuff !
+		</h4>
 	</div>
 
 	<!-- <img src="assets/imgs/inunco-dark.png" class="img-width"/> -->
@@ -17,17 +19,17 @@
 		<p class="sub-line">
 			<span>Here you can login to access all <br>the features your organisation <br>provides you with.</span>
 			</p>
-		<p class="title" text-center text-capitalize margin-bottom>Login with your credentials</p>
+			<p class="" text-center text-capitalize margin-bottom style="text-decoration: underline; font-size: 16px;">Login with your credentials</p>
 	 	<form>
 			<ion-list style="background-color: none;">
 
 			  <ion-item>
-			  	<ion-label floating style="color: #fff"> <ion-icon ios="ios-mail" md="md-mail"></ion-icon> Account ID</ion-label>
+			  	<ion-label floating style="color: #9a9a9a"> <ion-icon ios="ios-mail" md="md-mail"></ion-icon> Account ID</ion-label>
 			    <ion-input type="text" name="regID" no-margin [(ngModel)]="regID"></ion-input>
 				</ion-item>
 				
 			  <ion-item>
-			  	<ion-label floating style="color: #fff"> <ion-icon ios="ios-disc" md="md-disc"></ion-icon> Account Password</ion-label>
+			  	<ion-label floating style="color: #9a9a9a"> <ion-icon ios="ios-disc" md="md-disc"></ion-icon> Account Password</ion-label>
 			    <ion-input type="password" name="pass" no-margin [(ngModel)]="pass"></ion-input>
 				</ion-item>
 
@@ -36,7 +38,7 @@
 				</div>
 
 				<div text-capitalize text-center margin-top>
-						<p (click)=goToRegister()>Not registered yet?<br> click here to get registered now.</p>
+						<p (click)=goToRegister()  style="font-size: 16px; cursor: pointer;">Not registered yet?<br> click here to get registered now.</p>
 				</div>
 
 				<!-- <ion-grid>

@@ -126,11 +126,11 @@ page-staff-login {
 		}
 		.sub-line{
 			text-align: center;
-			border-top: 1px solid #ddd;
-			border-bottom: 1px solid #ddd;
+			border-top: 1px solid #909090;
+			border-bottom: 1px solid #909090;
 			padding: 10px;
 			margin: 0 21px 10px;
-			color: rgb(83, 83, 83);
+			color: #909090;
 		}
 		.btn-size {
 			padding: 15px 25px !important;
@@ -168,5 +168,8 @@ page-staff-login {
 		.button-md-blue {
 			color: #202020 !important;
 			background-color:#1CB9FF !important;
+		}
+		.login-page-logo {
+			width: 14%;
 		}
 }

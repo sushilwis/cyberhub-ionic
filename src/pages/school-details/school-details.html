@@ -67,21 +67,23 @@
           <img [src]="schoolDetails?.org_logo"/>
           <p>{{schoolDetails?.org_name}}</p>
         </ion-card-title>
-        <div class="info">        
+
+        <div class="info" style="padding: 10px;">        
         <p><strong>Land Mark</strong>: {{schoolDetails?.landmark}}</p>
         <p><strong>City</strong>: {{schoolDetails?.org_city}}</p>
-        <div float-right >
+        <!-- <div float-right >
             <p [ngStyle]="{'font-size': '24px'}">
               <ion-icon name="cloud"></ion-icon><br>
             17 °C</p>
-          </div>
+          </div> -->
         <p><strong>District</strong>: {{schoolDetails?.district?.name}}</p>
         <p><strong>Country</strong>: {{schoolDetails?.country?.name}}</p>
         
         
         <p ><strong>Email</strong>: {{schoolDetails?.email}}</p>
         <p><strong>College Phone</strong>: {{schoolDetails?.phone_no}}</p>
-        <p><strong>Website</strong>: {{schoolDetails?.website}}</p></div>
+        <p><strong>Website</strong>: {{schoolDetails?.website}}</p>
+      </div>
 
 
         <div [innerHtml]="schoolDetails?.org_text"></div>

@@ -10,17 +10,18 @@
   </div>
 </div> -->
 
-<ion-content class="item-center" style="background: #434244">
-  <img class="logo-school" src="assets/imgs/inunco.png">
-  <p class="sub-line">Kindly choose your account type <br>and<br>tap on it </p>
+<ion-content class="item-center" style="padding-top: 50px;">
+  <div class="overley"></div>
+  <img class="logo-school" src="assets/icon/cyverhub_logo.svg">
+  <p class="sub-line">Choose and Tap<br>on your Account</p>
   <ion-grid style="width: 85%">
     <ion-row #myElement>
 
       <ion-row col-6>
-        <ion-card color="innored"  (click)="goToGuest()">
+        <ion-card style="background-color: #353434" (click)="goToGuest()">
           <ion-card-header text-center class="padd-bottom">
             <!-- <i class="fas fa-user-circle fa-3x" style="color: black"></i> -->
-            <img class="" src="assets/imgs/guest_logo.svg">
+            <img class="custom-image-size" src="assets/imgs/guest_logo.svg">
           </ion-card-header>
           <!-- <ion-card-content> -->
             <!-- <ion-card-title text-uppercase text-center>
@@ -29,17 +30,17 @@
           <!-- </ion-card-content> -->
           <ion-row class="card-button-text">
             <ion-col>
-              <div>Guest</div>
+              <div text-uppercase style="color: #db3236; font-size: 13px;">Guest</div>
             </ion-col>
           </ion-row>
         </ion-card>
       </ion-row>
 
       <ion-row col-6>
-        <ion-card color="innoblue" (click)=goToStudent()>
+        <ion-card  style="background-color: #353434" (click)=goToStudent()>
           <ion-card-header text-center class="padd-bottom">
             <!-- <i class="fas fa-user fa-3x" style="color: black"></i> -->
-            <img class="" src="assets/imgs/student_logo.svg">
+            <img class="custom-image-size" src="assets/imgs/student_logo.svg">
           </ion-card-header>
           <!-- <ion-card-content> -->
             <!-- <ion-card-title text-uppercase text-center>
@@ -48,17 +49,17 @@
           <!-- </ion-card-content> -->
           <ion-row class="card-button-text">
             <ion-col>
-              <div>Student</div>
+              <div text-uppercase style="color: #4885ed; font-size: 13px;">Student</div>
             </ion-col>
           </ion-row>
         </ion-card>
       </ion-row>
 
       <ion-row col-6>
-        <ion-card color="innogreen" (click)=goToStaff()>
+        <ion-card  style="background-color: #353434" (click)=goToStaff()>
           <ion-card-header text-center class="padd-bottom">
             <!-- <i class="fas fa-briefcase fa-3x" style="color: black"></i> -->
-            <img class="" src="assets/imgs/staff_logo.svg">
+            <img class="custom-image-size" src="assets/imgs/staff_logo.svg">
           </ion-card-header>
           <!-- <ion-card-content> -->
             <!-- <ion-card-title text-uppercase text-center>
@@ -67,17 +68,17 @@
           <!-- </ion-card-content> -->
           <ion-row class="card-button-text">
             <ion-col>
-              <div>Staff</div>
+              <div text-uppercase style="color: #3cba54; font-size: 13px;">Staff</div>
             </ion-col>
           </ion-row>
         </ion-card>
       </ion-row>
 
       <ion-row col-6>
-        <ion-card color="innoyellow" (click)=goToParents()>
+        <ion-card style="background-color: #353434" (click)=goToParents()>
           <ion-card-header text-center class="padd-bottom">
             <!-- <i class="fas fa-users fa-3x" style="color: black"></i> -->
-            <img class="" src="assets/imgs/guardians_logo.svg">
+            <img style="margin-bottom: 6px;" src="assets/imgs/guardians_logo.svg">
           </ion-card-header>
           <!-- <ion-card-content> -->
             <!-- <ion-card-title text-uppercase text-center>
@@ -86,7 +87,7 @@
           <!-- </ion-card-content> -->
           <ion-row class="card-button-text">
             <ion-col>
-              <div>Parents</div>
+              <div text-uppercase style="color: #f4c20d; font-size: 13px;">guardians</div>
             </ion-col>
           </ion-row>
         </ion-card>

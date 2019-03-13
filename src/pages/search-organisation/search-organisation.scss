@@ -53,7 +53,31 @@ page-search-organisation {
     }
     .icon-md-light {
         color: #000;
-    }    
+    }
+    .bar-button-default-md, .bar-button-clear-md-default, .bar-button-md-default {
+        color: #fff !important;
+    }  
+    .search-result {
+        border: none !important;
+    }  
+    .item-md {
+        border-bottom: 0.2px solid #eee;
+    }
+
+
+    .action-sheets-basic-page .action-sheet-md .action-sheet-title {
+        border-bottom: 1px solid #b5b4b4;
+        padding-top: 4px;
+        padding-bottom: 8px;
+    }
+
+    .action-sheets-basic-page {
+        border-bottom: 1px solid #b5b4b4;
+        padding-top: 4px;
+        padding-bottom: 8px;
+    }
+
+    
 }
 
 
