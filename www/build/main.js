@@ -6089,11 +6089,11 @@ var map = {
 		36
 	],
 	"../pages/changepassword/changepassword.module": [
-		801,
+		802,
 		35
 	],
 	"../pages/complain-reply/complain-reply.module": [
-		802,
+		801,
 		34
 	],
 	"../pages/get-attendance/get-attendance.module": [
@@ -6109,11 +6109,11 @@ var map = {
 		31
 	],
 	"../pages/live-stream/live-stream.module": [
-		806,
+		807,
 		0
 	],
 	"../pages/notification-list/notification-list.module": [
-		807,
+		806,
 		30
 	],
 	"../pages/parents-account/parents-account.module": [
@@ -6121,11 +6121,11 @@ var map = {
 		29
 	],
 	"../pages/parents-child-tabs/parents-child-tabs.module": [
-		809,
+		810,
 		28
 	],
 	"../pages/parents-login/parents-login.module": [
-		810,
+		809,
 		27
 	],
 	"../pages/parents-student-view/parents-student-view.module": [
@@ -6133,11 +6133,11 @@ var map = {
 		26
 	],
 	"../pages/pdf-download/pdf-download.module": [
-		812,
+		813,
 		25
 	],
 	"../pages/personal-notice/personal-notice.module": [
-		813,
+		812,
 		24
 	],
 	"../pages/principal-complaindesk/principal-complaindesk.module": [
@@ -6145,11 +6145,11 @@ var map = {
 		23
 	],
 	"../pages/principal-examview/principal-examview.module": [
-		815,
+		816,
 		22
 	],
 	"../pages/routine/routine.module": [
-		816,
+		815,
 		21
 	],
 	"../pages/school-details/school-details.module": [
@@ -6157,11 +6157,11 @@ var map = {
 		20
 	],
 	"../pages/school-listing/school-listing.module": [
-		818,
+		819,
 		19
 	],
 	"../pages/schoolcalender/schoolcalender.module": [
-		819,
+		818,
 		18
 	],
 	"../pages/search-organisation/search-organisation.module": [
@@ -6181,19 +6181,19 @@ var map = {
 		14
 	],
 	"../pages/staff-tabs/staff-tabs.module": [
-		822,
+		823,
 		13
 	],
 	"../pages/std-reg/std-reg.module": [
-		823,
+		822,
 		12
 	],
 	"../pages/student-library-list/student-library-list.module": [
-		834,
+		824,
 		11
 	],
 	"../pages/student-login/student-login.module": [
-		824,
+		829,
 		10
 	],
 	"../pages/student-notice-board/student-notice-board.module": [
@@ -6213,7 +6213,7 @@ var map = {
 		6
 	],
 	"../pages/stuff-edit/stuff-edit.module": [
-		829,
+		831,
 		5
 	],
 	"../pages/stuff-examduty/stuff-examduty.module": [
@@ -6221,15 +6221,15 @@ var map = {
 		4
 	],
 	"../pages/stuff-registration/stuff-registration.module": [
-		831,
+		832,
 		3
 	],
 	"../pages/test/test.module": [
-		832,
+		833,
 		2
 	],
 	"../pages/welcome-guest/welcome-guest.module": [
-		833,
+		834,
 		1
 	]
 };
@@ -8249,40 +8249,40 @@ var AppModule = /** @class */ (function () {
                         { loadChildren: '../pages/account/account.module#AccountPageModule', name: 'AccountPage', segment: 'account', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/attendance-list/attendance-list.module#AttendanceListPageModule', name: 'AttendanceListPage', segment: 'attendance-list', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/attendance/attendance.module#AttendancePageModule', name: 'AttendancePage', segment: 'attendance', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/changepassword/changepassword.module#ChangepasswordPageModule', name: 'ChangepasswordPage', segment: 'changepassword', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/complain-reply/complain-reply.module#ComplainReplyPageModule', name: 'ComplainReplyPage', segment: 'complain-reply', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/changepassword/changepassword.module#ChangepasswordPageModule', name: 'ChangepasswordPage', segment: 'changepassword', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/get-attendance/get-attendance.module#GetAttendancePageModule', name: 'GetAttendancePage', segment: 'get-attendance', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/guest-enquiry/guest-enquiry.module#GuestEnquiryPageModule', name: 'GuestEnquiryPage', segment: 'guest-enquiry', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/library-list/library-list.module#LibraryListPageModule', name: 'LibraryListPage', segment: 'library-list', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/live-stream/live-stream.module#LiveStreamPageModule', name: 'LiveStreamPage', segment: 'live-stream', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/notification-list/notification-list.module#NotificationListPageModule', name: 'NotificationListPage', segment: 'notification-list', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/live-stream/live-stream.module#LiveStreamPageModule', name: 'LiveStreamPage', segment: 'live-stream', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/parents-account/parents-account.module#ParentsAccountPageModule', name: 'ParentsAccountPage', segment: 'parents-account', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/parents-child-tabs/parents-child-tabs.module#ParentsChildTabsPageModule', name: 'ParentsChildTabsPage', segment: 'parents-child-tabs', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/parents-login/parents-login.module#ParentsLoginPageModule', name: 'ParentsLoginPage', segment: 'parents-login', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/parents-child-tabs/parents-child-tabs.module#ParentsChildTabsPageModule', name: 'ParentsChildTabsPage', segment: 'parents-child-tabs', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/parents-student-view/parents-student-view.module#ParentsStudentViewPageModule', name: 'ParentsStudentViewPage', segment: 'parents-student-view', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/pdf-download/pdf-download.module#PdfDownloadPageModule', name: 'PdfDownloadPage', segment: 'pdf-download', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/personal-notice/personal-notice.module#PersonalNoticePageModule', name: 'PersonalNoticePage', segment: 'personal-notice', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/pdf-download/pdf-download.module#PdfDownloadPageModule', name: 'PdfDownloadPage', segment: 'pdf-download', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/principal-complaindesk/principal-complaindesk.module#PrincipalComplaindeskPageModule', name: 'PrincipalComplaindeskPage', segment: 'principal-complaindesk', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/principal-examview/principal-examview.module#PrincipalExamviewPageModule', name: 'PrincipalExamviewPage', segment: 'principal-examview', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/routine/routine.module#RoutinePageModule', name: 'RoutinePage', segment: 'routine', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/principal-examview/principal-examview.module#PrincipalExamviewPageModule', name: 'PrincipalExamviewPage', segment: 'principal-examview', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/school-details/school-details.module#SchoolDetailsPageModule', name: 'SchoolDetailsPage', segment: 'school-details', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/school-listing/school-listing.module#SchoolListingPageModule', name: 'SchoolListingPage', segment: 'school-listing', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/schoolcalender/schoolcalender.module#SchoolcalenderPageModule', name: 'SchoolcalenderPage', segment: 'schoolcalender', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/school-listing/school-listing.module#SchoolListingPageModule', name: 'SchoolListingPage', segment: 'school-listing', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/staff-info/staff-info.module#StaffInfoPageModule', name: 'StaffInfoPage', segment: 'staff-info', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/staff-login/staff-login.module#StaffLoginPageModule', name: 'StaffLoginPage', segment: 'staff-login', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/staff-tabs/staff-tabs.module#StaffTabsPageModule', name: 'StaffTabsPage', segment: 'staff-tabs', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/std-reg/std-reg.module#StdRegPageModule', name: 'StdRegPage', segment: 'std-reg', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/student-login/student-login.module#StudentLoginPageModule', name: 'StudentLoginPage', segment: 'student-login', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/staff-tabs/staff-tabs.module#StaffTabsPageModule', name: 'StaffTabsPage', segment: 'staff-tabs', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/student-library-list/student-library-list.module#StudentLibraryListPageModule', name: 'StudentLibraryListPage', segment: 'student-library-list', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/student-notice-board/student-notice-board.module#StudentNoticeBoardPageModule', name: 'StudentNoticeBoardPage', segment: 'student-notice-board', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/student-owndetails/student-owndetails.module#StudentOwndetailsPageModule', name: 'StudentOwndetailsPage', segment: 'student-owndetails', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/students-tabs/students-tabs.module#StudentsTabsPageModule', name: 'StudentsTabsPage', segment: 'students-tabs', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/stuff-change-pass/stuff-change-pass.module#StuffChangePassPageModule', name: 'StuffChangePassPage', segment: 'stuff-change-pass', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/stuff-edit/stuff-edit.module#StuffEditPageModule', name: 'StuffEditPage', segment: 'stuff-edit', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/student-login/student-login.module#StudentLoginPageModule', name: 'StudentLoginPage', segment: 'student-login', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/stuff-examduty/stuff-examduty.module#StuffExamdutyPageModule', name: 'StuffExamdutyPage', segment: 'stuff-examduty', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/stuff-edit/stuff-edit.module#StuffEditPageModule', name: 'StuffEditPage', segment: 'stuff-edit', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/stuff-registration/stuff-registration.module#StuffRegistrationPageModule', name: 'StuffRegistrationPage', segment: 'stuff-registration', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/test/test.module#TestPageModule', name: 'TestPage', segment: 'test', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/welcome-guest/welcome-guest.module#WelcomeGuestPageModule', name: 'WelcomeGuestPage', segment: 'welcome-guest', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/student-library-list/student-library-list.module#StudentLibraryListPageModule', name: 'StudentLibraryListPage', segment: 'student-library-list', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/staff-complain/staff-complain.module#StaffComplainPageModule', name: 'StaffComplainPage', segment: 'staff-complain', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/search-organisation/search-organisation.module#SearchOrganisationPageModule', name: 'SearchOrganisationPage', segment: 'search-organisation', priority: 'low', defaultHistory: [] }
                     ]
