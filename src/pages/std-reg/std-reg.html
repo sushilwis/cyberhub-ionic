@@ -23,14 +23,15 @@
 <ion-content padding>
     <!-- <h5 class="title" text-center text-uppercase margin-bottom>Student Registration</h5> -->
     <div text-center margin-top>
-      <h4 style="font-size: 1.6rem;">
-        <img class="login-page-logo" src="assets/icon/cyverhub_logo.svg"> | Welcome Student !
+      <h4 style="font-size: 1.6rem; padding-left: 20px;">
+        <img class="login-page-logo" src="assets/icon/cyverhub_logo.svg">
+        <img class="straight-line" src="assets/icon/substract.svg"> Welcome Student !
       </h4>
     </div>
 
 
     <p class="sub-line">
-			<span>Here you can register with your<br>organisation to get the most out<br>of this application.</span>
+			<span>Register with your<br>organisation to get the most<br>out of this application.</span>
 		</p>
 		<p class="" text-center text-capitalize margin-bottom style="text-decoration: underline; font-size: 16px;">Please fill the following details</p>
     <!-- <ion-list>
@@ -53,17 +54,20 @@
               </ion-select>
 
             </ion-item>
+
             <ion-item>  
-              <ion-label floating style="color: #9a9a9a">Organization</ion-label>
+              <ion-label floating style="color: #9a9a9a">Type Your Organization Name</ion-label>
               <ion-input type="text" name="inputShowValue" [(ngModel)]="inputShowValue" (keyup)="getItems($event)"></ion-input>
-            </ion-item>      
+            </ion-item>  
+                
         </ion-list>
 
         <ion-list style="background-color: #3f3f3f; color: #fff; font-size: 13px; margin-left: 10px;"  class="search-result" [ngStyle]="{'display':isSearchbarOpened ? '' : 'none' }">
           <ion-item *ngFor="let item of items" (click)="schoolsDetails(item)" style="margin-left: 10px;">
             {{ item.name }}
             <p>City : {{ item.city }}, Pin : {{ item.pin }}</p>
-          </ion-item>          
+          </ion-item>
+                    
         </ion-list>
 
         <ion-list>
@@ -71,10 +75,12 @@
             <ion-label floating style="color: #9a9a9a">Registered Phone No</ion-label>
             <ion-input type="number" name="regNo" [(ngModel)]="mobileNo"></ion-input>
           </ion-item>
+          <p class="input-info">Which linked with your organisation</p>
           <ion-item>
             <ion-label floating style="color: #9a9a9a">Registered Identity No</ion-label>
             <ion-input type="text" name="idNo" [(ngModel)]="idNo"></ion-input>
           </ion-item>
+          <p class="input-info">Which linked with your organisation</p>
         </ion-list>
       <!-- </ion-item> 
     </ion-list> -->

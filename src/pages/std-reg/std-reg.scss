@@ -87,4 +87,28 @@ page-std-reg {
 	.login-page-logo {
 		width: 14%;
 	}
+
+	.input-info {
+		padding: 0px;
+		margin: 0px;
+		padding-left: 17px;
+		padding-top: 2px;
+		font-size: 9px;
+		color: #909090;
+	}
+	
+	.login-page-logo {
+		width: 17%;
+		position: relative;
+		left: -15px;
+		top: 8px;
+	}
+
+	.straight-line {
+		transform: rotate(90deg);
+		height: 30px;
+		position: absolute;
+		left: 103px;
+		top: 32px;
+	}
 }

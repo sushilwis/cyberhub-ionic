@@ -77,4 +77,17 @@ page-stuff-registration {
 	.login-page-logo {
 		width: 14%;
 	}
+	.login-page-logo {
+		width: 17%;
+		position: relative;
+		left: -15px;
+		top: 8px;
+	}
+	.straight-line {
+		transform: rotate(90deg);
+		height: 30px;
+		position: absolute;
+		left: 113px;
+		top: 33px;
+	}
 }

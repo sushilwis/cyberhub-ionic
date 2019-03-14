@@ -7,8 +7,9 @@
 
 <ion-content class="item-center" padding color="secondary">
 	<div text-center margin-top>
-		<h4 style="font-size: 1.6rem;">
-			<img class="login-page-logo" src="assets/icon/cyverhub_logo.svg"> | Welcome Stuff !
+		<h4 style="font-size: 1.6rem; padding-left: 20px;">
+			<img class="login-page-logo" src="assets/icon/cyverhub_logo.svg">
+			<img class="straight-line" src="assets/icon/substract.svg"> Welcome Stuff !
 		</h4>
 	</div>
 
@@ -27,13 +28,15 @@
 			  	<ion-label floating style="color: #9a9a9a"> <ion-icon ios="ios-mail" md="md-mail"></ion-icon> Account ID</ion-label>
 			    <ion-input type="text" name="regID" no-margin [(ngModel)]="regID"></ion-input>
 				</ion-item>
+				<p class="input-info">Which Created by Cyberhub</p>
 				
 			  <ion-item>
 			  	<ion-label floating style="color: #9a9a9a"> <ion-icon ios="ios-disc" md="md-disc"></ion-icon> Account Password</ion-label>
 			    <ion-input type="password" name="pass" no-margin [(ngModel)]="pass"></ion-input>
 				</ion-item>
+				<p class="input-info">Which Created by Cyberhub</p>
 
-				<div text-center>
+				<div text-center style="margin-top: 25px;">
 					<button ion-button color="blue" class="btn-size mt-10" (click)=onStuffLoginSubmit()>Submit</button>
 				</div>
 

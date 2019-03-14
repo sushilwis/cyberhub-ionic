@@ -18,23 +18,27 @@
 	<!-- <img src="assets/imgs/bk.png" class="img-width"/> -->
 	<div text-center margin-top>
 		<!-- <img class="logo-school" src="assets/icon/cyverhub_logo.svg"> -->
-		<h4 style="font-size: 1.6rem;">
-			<img class="login-page-logo" src="assets/icon/cyverhub_logo.svg"> | Welcome Student !
+		<h4 style="font-size: 1.6rem; padding-left: 20px;">
+			<img class="login-page-logo" src="assets/icon/cyverhub_logo.svg">
+			<img class="straight-line" src="assets/icon/substract.svg">
+			   Welcome Student !
 		</h4>
 	</div>
 
 
 	<div class="enquiry-form">
 			<p class="sub-line">
-				<span>Here you can login to access all <br>the features your organisation <br>provides you with.</span>
+				<span>Login to access features<br>which provide with you.</span>
 			</p>
 		 <p class="" text-center text-capitalize margin-bottom style="text-decoration: underline; font-size: 16px;">Login with your credentials</p>
 	 	<form>
 			<ion-list style="background-color: none;">
 			  <ion-item>
 			  	<ion-label floating style="color: #9a9a9a"> <ion-icon ios="ios-mail" md="md-mail"></ion-icon> Account ID</ion-label>
-			    <ion-input type="text" name="student_register" no-margin [(ngModel)]="student_register"></ion-input>
+					<ion-input type="text" name="student_register" no-margin [(ngModel)]="student_register"></ion-input>					
 				</ion-item>
+
+				<p class="input-info">Which Created by Cyberhub</p>
 				
 				<ion-item>
 			  	<ion-label floating style="color: #9a9a9a"> <ion-icon name="lock"></ion-icon> Account Password</ion-label>
@@ -42,11 +46,13 @@
 					<button ion-button clear icon-start item-end (click)="password()" style="margin-top: 36px;">
 						<ion-icon [name]="show ? 'eye' : 'eye-off'"></ion-icon>
 					</button>
-					<!-- <ion-icon item-end  ></ion-icon> -->
+					<!-- <ion-icon item-end  ></ion-icon> -->					
 				</ion-item>
-			
+
+				<p class="input-info">Which Created by Cyberhub</p>
+
 				<!-- <button ion-button block outline color="blue" class="mt-10" *ngIf="isHide" (click)=loginSubmit()>Submit</button> -->
-				<div text-center>
+				<div text-center style="margin-top: 25px;">
 						<button ion-button color="blue" class="btn-size mt-10" *ngIf="isHide" (click)=loginSubmit()>Submit</button>
 				</div>
 
