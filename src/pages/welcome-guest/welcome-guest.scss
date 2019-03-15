@@ -4,7 +4,7 @@ page-welcome-guest {
         border-top: 1px solid rgb(83, 83, 83);
         border-bottom: 1px solid rgb(83, 83, 83);
         padding: 10px;
-        margin: 0 10px 10px;
+        margin: 0px 10px 25px 0px;
         color: rgb(83, 83, 83);
     }
 
@@ -51,5 +51,20 @@ page-welcome-guest {
     }
     .toolbar-title-md {
         color: #fff;
+    }
+
+    .login-page-logo {
+        width: 17%;
+        position: relative;
+        left: -15px;
+        top: 8px;
+    }
+
+    .straight-line {
+        transform: rotate(90deg);
+        height: 30px;
+        position: absolute;
+        left: 37%;
+        top: 5.5%;
     }
 }

@@ -43,7 +43,7 @@
 
 		<p text-center text-uppercase margin-bottom class="top-heading" style="margin-top: 30px; text-align: center;">Find Your Organisation</p>
 		 
-	 <form>
+	 <!-- <form> -->
 	 	<ion-item class="select-css">
 		  <ion-label>Country</ion-label>
 		  <ion-select [(ngModel)]="country" name="country" (ionChange)="onChangeCountry()">
@@ -64,6 +64,7 @@
 		    <ion-option *ngFor="let dist of dists" value="{{dist.id}}">{{dist?.name}}</ion-option>		    
 		  </ion-select>
 		</ion-item>
+
 		<ion-item>
 			<ion-label>Type</ion-label>
 			<ion-select [(ngModel)]="type" name="type">
@@ -80,14 +81,14 @@
 		  </ion-select>
 		</ion-item> -->
 
-		<ion-item text-center>
-		  <button ion-button margin-top type="submit" class="btn-size" color="blue" (click)=goToListing()>NEXT</button>
-		</ion-item>
+		<div text-center style="border-bottom: none; margin-top: 40px;">
+		  <button ion-button margin-top type="submit" class="btn-size mt-10" color="blue" (click)=goToListing()>NEXT</button>
+		</div>
 		 <!-- <button ion-button type="submit" block outline color="blue" (click)=goToHome()>Back To Home</button> -->
 
 		 <div text-capitalize text-center>
-			 <p (click)="goToSearchOrg()" style="font-size: 15px; cursor: pointer;">Not Sure?<br> Search your organisation name instead.</p>
+			 <p (click)="goToSearchOrg()" style="font-size: 16px; cursor: pointer; font-weight: bold; margin-top: 40px;">Not Sure?<br> Search your organisation name instead</p>
 		 </div>
-	</form>
+	<!-- </form> -->
 </div>
 </ion-content>

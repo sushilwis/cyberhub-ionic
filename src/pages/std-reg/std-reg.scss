@@ -65,6 +65,7 @@ page-std-reg {
 		background-color: none !important;
 		background:  none !important;
 		color: #f6f6f6 !important;
+		padding-left: 10px !important;
 	}
 	.list-md .item-input:last-child {
     border-bottom: none !important;
@@ -80,7 +81,7 @@ page-std-reg {
 		border-top: 1px solid #909090;
 		border-bottom: 1px solid #909090;
 		padding: 10px;
-		margin: 0 21px 10px;
+		margin: 15px 0px 15px 0px;
 		color: #909090;
 	}
 
@@ -108,7 +109,7 @@ page-std-reg {
 		transform: rotate(90deg);
 		height: 30px;
 		position: absolute;
-		left: 103px;
-		top: 32px;
+		left: 127px;
+		top: 34px;
 	}
 }

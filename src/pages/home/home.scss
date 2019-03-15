@@ -29,6 +29,7 @@ page-home {
     .logo-school{
         display: block;
         margin: 13px auto;
+        width: 41% !important;
     }
 	#custom-overlay {
         position: fixed;
@@ -96,7 +97,7 @@ page-home {
     }
 
     .card-button-text{
-        margin-top: 15px;
+        margin-top: 24px;
         margin-bottom: 0px !important;
         background: rgba(0, 0, 0, 0.82);
         text-align: center;
@@ -127,7 +128,7 @@ page-home {
     }
 
     .content-md {
-        background-image: url('../../assets/imgs/splash_screen_bg.jpg');
+        background-image: url('../../assets/imgs/account_selection_screen_bg.jpg');
         background-repeat: no-repeat;
         background-position: center;
         background-size: cover;
@@ -135,8 +136,8 @@ page-home {
 
     .overley {
         position: absolute;
-        width: 100vw;
-        height: 100vh;
+        width: 100%;
+        height: 100%;
         background-color: #000;
         opacity: 0.6 !important;
         z-index: -1;
@@ -205,5 +206,9 @@ page-home {
     .custom-image-size {
         width: 75%;
         margin: 0 auto;
+    }
+
+    .card-md {
+        height: 140px !important;
     }
 }

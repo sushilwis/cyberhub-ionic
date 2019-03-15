@@ -57,7 +57,7 @@ page-stuff-registration {
 		background-color: #1b1b1b !important;
 	}
 	.list-md .item-block .item-inner {
-		border-bottom: 1px solid #dedede !important;
+		// border-bottom: 1px solid #dedede !important;
 	}
 	.button-clear-md {
 		color: #f6f6f6 !important;
@@ -70,6 +70,7 @@ page-stuff-registration {
 		background-color: none !important;
 		background:  none !important;
 		color: #f6f6f6 !important;
+		padding-left: 10px !important;
 	}
 	.list-md .item-input:last-child {
     border-bottom: none !important;
@@ -87,7 +88,12 @@ page-stuff-registration {
 		transform: rotate(90deg);
 		height: 30px;
 		position: absolute;
-		left: 113px;
-		top: 33px;
+		left: 137px;
+		top: 35px;
 	}
+
+	.input-wrapper {
+		border-bottom: 1px solid #988f8f;
+	}
+
 }
