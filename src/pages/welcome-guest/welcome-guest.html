@@ -10,13 +10,36 @@
     <ion-title>Welcome Guest !</ion-title>
   </ion-navbar>
 
+  <ion-toolbar no-border-top>
+      <ion-segment [(ngModel)]="notice">
+        <ion-segment-button value="general">
+          <p>
+            <img class="notice-img" style="height: 20px" src="assets/imgs/generalNotice.svg">
+          </p>        
+          GENERAL NOTICE
+        </ion-segment-button>
+        <ion-segment-button value="personal">
+            <p>
+                <img class="notice-img" style="height: 20px" src="assets/imgs/personalNotice.svg">
+              </p>
+          PERSONAL NOTICE
+        </ion-segment-button>
+        <ion-segment-button value="departmental">
+            <p>
+                <img class="notice-img" style="height: 20px" src="assets/imgs/departmentalNotice.svg">
+              </p>
+          DEPARTMENTAL NOTICE
+        </ion-segment-button>
+      </ion-segment>
+  </ion-toolbar>
+
 </ion-header>
 
 
 <ion-content padding>
 
   <div text-center margin-top style="margin-bottom: 40px;">
-    <h4 style="font-size: 1.6rem; padding-left: 20px;">
+    <h4 style="font-size: 1.6rem;">
       <img class="login-page-logo" src="assets/icon/cyverhub_logo.svg">
       <img class="straight-line" src="assets/icon/substract.svg"> Welcome Guest !
     </h4>

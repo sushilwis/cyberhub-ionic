@@ -170,9 +170,9 @@ page-staff-login {
 			color: #202020 !important;
 			background-color:#1CB9FF !important;
 		}
-		.login-page-logo {
-			width: 14%;
-		}
+		// .login-page-logo {
+		// 	width: 14%;
+		// }
 		.input-info {
 			padding: 0px;
 			margin: 0px;
@@ -182,16 +182,17 @@ page-staff-login {
 			color: #909090;
 		}
 		.login-page-logo {
-			width: 17%;
+			width: 19%;
 			position: relative;
-			left: -15px;
+			left: 23px;
 			top: 8px;
 		}
+	
 		.straight-line {
 			transform: rotate(90deg);
-			height: 30px;
-			position: absolute;
-			left: 139px;
-			top: 45px;
+			height: 35px;
+			position: relative;
+			left: 12px;
+			top: 9px;
 		}
 }

@@ -60,18 +60,20 @@ export class StudentOwndetailsPage implements OnInit {
         this.navCtrl.pop();
       }
     });
+    this.getUserDataFromLocal();
+    this.getUserData();
 
   }
 
   ngOnInit(){
-    this.getUserDataFromLocal();
-    this.getUserData();
+    // this.getUserDataFromLocal();
+    // this.getUserData();
     this.getNoticeList();
     // this.getWheatherData();
     this.getStudentDetails();
     this.seeTabs = true;
     this.getnotificationcount();
-    this.getWeatherData();
+    // this.getWeatherData();
   }
 
 
@@ -137,7 +139,9 @@ export class StudentOwndetailsPage implements OnInit {
           //this.presentLoading(false);
           this.orgDetails = data.data[0];	
           this.pin = data.data[0].pin;
-          // console.log('org details : ...', this.orgDetails);          				
+          // console.log('org details : ...', this.orgDetails);
+          // console.log('PIN: ...', this.pin);
+          this.getWeatherData();          				
         }
         
 			});
@@ -287,7 +291,7 @@ export class StudentOwndetailsPage implements OnInit {
         if (data.data[0]) {
           this.studentDetails = data.data[0];
           this.studentName = data.data[0].f_name;
-          console.log('student detail data : ', data.data[0]);          
+          // console.log('student detail data : ', data.data[0]);          
         }
       });
   }
@@ -307,7 +311,7 @@ export class StudentOwndetailsPage implements OnInit {
 
 
   goToLogout() {
-    this.showAlert('Logout', 'Are you sure want to logout ?');
+    this.showAlert('Logout !', 'Are you sure ?');
     // localStorage.clear();
     // this.navCtrl.setRoot(HomePage);
   }
@@ -322,13 +326,13 @@ export class StudentOwndetailsPage implements OnInit {
 		headers.append('Content-Type', 'application/json');
     let options = new RequestOptions({headers: headers});
     
-    this.http.get(`http://api.openweathermap.org/data/2.5/weather?zip=700028,in&appid=c02a8ac947999e382330611c5f2c508b`).
+    this.http.get(`http://api.openweathermap.org/data/2.5/weather?zip=${this.pin},in&appid=c02a8ac947999e382330611c5f2c508b`).
 			map(res => res.json()).subscribe(data => {				
-        console.log('weather data.../',data); 
+        // console.log('weather data.../',data); 
         this.weatherdata = data.main;
         this.temp = Math.round(parseInt(this.weatherdata.temp)-273.15);
         this.weatherIcon = `https://openweathermap.org/img/w/${data.weather[0].icon}.png`; 
-        console.log('weather img link : ', this.temp );     
+        // console.log('weather img link : ', this.temp );     
 			});
   }
 
@@ -340,17 +344,19 @@ export class StudentOwndetailsPage implements OnInit {
     const alert = this.alertCtrl.create({
       title: title,
       subTitle: msg,
+      cssClass: "confirmAlert",
       buttons: [
         {
           text: 'Cancel',
           handler: () => {
-            console.log('Disagree clicked');
+            // console.log('Disagree clicked');
           }
         },
         {
           text: 'Ok',
+          cssClass: "okBtn",
           handler: () => {
-            console.log('Agree clicked');
+            // console.log('Agree clicked');
             localStorage.clear();
             this.navCtrl.setRoot(HomePage);
             this.navCtrl.push(StudentLoginPage);

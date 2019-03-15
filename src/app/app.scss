@@ -17,6 +17,11 @@
 *{
 	font-family: Roboto, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
+
+// .confirmAlert {
+// 	background-color: #1b1b1b;
+// }
+
 .fixed{
 	margin-top: 2rem;
 	position: fixed;
@@ -121,6 +126,26 @@
 	}
 	.card-black *{
 		color: #f4f4f4 !important;
+	}
+
+	.okBtn {
+		background-color: #3c3c3c !important;
+		color: #fff !important;
+		width: 75px !important;
+		text-align: center !important;
+	}
+
+	.button-inner{
+		display: block !important;
+		text-align: center !important;
+	}
+
+	.alert-head {
+		padding: 10px 24px 4px !important;
+	}
+
+	#alert-hdr-5 {
+		text-align: center !important;
 	}
 
 	ion-icon {

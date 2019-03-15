@@ -19,6 +19,7 @@ import * as moment from 'moment';
   templateUrl: "student-notice-board.html"
 })
 export class StudentNoticeBoardPage implements OnInit {
+  notice: string = "general";
   localUserData: any;
   loading: any;
   allNotice: any = [];

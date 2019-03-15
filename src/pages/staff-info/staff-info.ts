@@ -42,23 +42,25 @@ export class StaffInfoPage {
   pin: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public menuCtrl: MenuController, public loadingController: LoadingController, private http: Http, public alertCtrl: AlertController) {
+    this.getUserDataFromLocal();
     this.menuCtrl.enable(false);
     this.initLoader();
-    this.getUserDataFromLocal();
-    this.getUserData();    
+    
+    this.getUserData();
+    this.getTeacherDetails();    
   }
 
 
   ngOnInit(){    
-    console.log('Stuff info page...');
-    this.getTeacherDetails(); 
-    this.getWeatherData();   
+    console.log('Stuff info page...');     
+       
   }
 
 
 
   ionViewDidLoad() {
     // console.log('ionViewDidLoad StaffInfoPage');
+    // this.getWeatherData();
   }
 
 
@@ -112,11 +114,14 @@ export class StaffInfoPage {
 		this.http.post(`${apiUrl.url}org/getdetail`, data, options).
 			map(res => res.json()).subscribe(data => {	
         // this.presentLoading(false);			
-				console.log('org_details : ', data.data[0]);
+				// console.log('org_details : ', data.data[0]);
 
 				if (data.data) {          
           this.orgDetails = data.data[0];	
-          this.pin = data.data[0].pin;				
+          this.pin = data.data[0].pin;
+          // console.log('org_details : ', data.data[0]);
+          // console.log('PIN : ', this.pin);	
+          this.getWeatherData();			
         }
         
 			});
@@ -221,7 +226,7 @@ export class StaffInfoPage {
 				// this.presentLoading(false);
 				if (data.data[0]) {          
           this.teacherDetails = data.data[0];
-          console.log('teacher details : ', data.data[0]);
+          // console.log('teacher details : ', data.data[0]);
 
           // if(data.data[0].nameclass){
           //   this.showSelectDepartmentBtn = false;
@@ -242,13 +247,13 @@ export class StaffInfoPage {
 		headers.append('Content-Type', 'application/json');
     let options = new RequestOptions({headers: headers});
     
-    this.http.get(`http://api.openweathermap.org/data/2.5/weather?zip=700028,in&appid=c02a8ac947999e382330611c5f2c508b`).
+    this.http.get(`http://api.openweathermap.org/data/2.5/weather?zip=${this.pin},in&appid=c02a8ac947999e382330611c5f2c508b`).
 			map(res => res.json()).subscribe(data => {				
-        console.log('weather data.../',data); 
+        // console.log('weather data.../',data); 
         this.weatherdata = data.main;
         this.temp = Math.round(parseInt(this.weatherdata.temp)-273.15);
         this.weatherIcon = `https://openweathermap.org/img/w/${data.weather[0].icon}.png`; 
-        console.log('weather img link : ', this.temp );     
+        // console.log('weather img link : ', this.temp );     
 			});
   }
 
@@ -264,13 +269,13 @@ export class StaffInfoPage {
         {
           text: 'Cancel',
           handler: () => {
-            console.log('Disagree clicked');
+            // console.log('Disagree clicked');
           }
         },
         {
           text: 'Ok',
           handler: () => {
-            console.log('Agree clicked');
+            // console.log('Agree clicked');
             localStorage.clear();
             this.navCtrl.setRoot(HomePage);
             this.navCtrl.push(StaffLoginPage);

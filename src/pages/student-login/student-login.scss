@@ -129,13 +129,6 @@
 			background-color:#1CB9FF;
 		}
 
-		.login-page-logo {
-			width: 17%;
-			position: relative;
-			left: -15px;
-			top: 8px;
-		}
-
 		.input-info {
 			padding: 0px;
 			margin: 0px;
@@ -145,12 +138,19 @@
 			color: #909090;
 		}
 
+		.login-page-logo {
+			width: 19%;
+			position: relative;
+			left: 23px;
+			top: 8px;
+		}
+	
 		.straight-line {
 			transform: rotate(90deg);
-			height: 30px;
-			position: absolute;
-			left: 130px;
-			top: 45px;
+			height: 35px;
+			position: relative;
+			left: 12px;
+			top: 9px;
 		}
 
 
