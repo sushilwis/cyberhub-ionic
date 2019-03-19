@@ -153,6 +153,19 @@
     	font-weight: bold;
 	}
 
+	.eventAlert p {
+		margin: 4px 0px 4px 0px !important;	
+		color: rgba(41, 33, 33, 1) !important; 	 
+	}
+
+	.eventAlert .alert-message {
+		padding-bottom: 0px;
+	}
+
+	// .eventAlert .alert-md .alert-message, .eventAlert .alert-md .alert-input-group {
+	// 	color: rgba(41, 33, 33, 1) !important; 
+	// }
+
 	ion-icon {
 		&[class*="customicon-"] {
 			// Instead of using the font-based icons

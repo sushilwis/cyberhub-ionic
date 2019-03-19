@@ -39,14 +39,14 @@
   <div [ngSwitch]="notice">
 
     <ion-list *ngSwitchCase="'general'">
-        <ion-item *ngFor="let notice of generalNotice" style="background-color: #1b1b1b; color: #f6f6f6; border-bottom: 1px solid #3b3b3b" (click)="presentProfileModal(notice.id)">
-            <ion-thumbnail item-start>
+        <ion-item *ngFor="let notice of generalNotice" style="background-color: #1b1b1b; color: #f6f6f6; border-bottom: 1px solid #3b3b3b">
+            <ion-thumbnail item-start (click)="presentProfileModal(notice.id)">
               <img *ngIf="notice?.docType == 'pdf'" class="notice-img" src="assets/imgs/pdf_logo.svg">
               <img *ngIf="!notice?.docType" class="notice-img" src="assets/icon/file.svg">
               <img *ngIf="notice?.docType == 'docx'" class="notice-img" src="assets/icon/doc.svg">
             </ion-thumbnail>
-            <h2>{{notice?.notice?.subject}}</h2>
-            <p style="font-size: 10px; color: #a0a0a0">{{notice?.notice?.text}}</p>
+            <h2 (click)="presentProfileModal(notice.id)">{{notice?.notice?.subject}}</h2>
+            <p style="font-size: 10px; color: #a0a0a0" (click)="presentProfileModal(notice.id)">{{notice?.notice?.text}}</p>
             <!-- <p>{{notice?.noticetype?.type_name}}</p> -->
             <ion-note style="font-size: 10px; color: #a0a0a0" item-end>{{notice?.created_at}}</ion-note>
             <!-- <ion-note item-end style="font-size: 11px;">
@@ -61,14 +61,14 @@
 
 
     <ion-list *ngSwitchCase="'personal'">
-      <ion-item *ngFor="let notice of personalNotice" style="background-color: #1b1b1b; color: #f6f6f6; border-bottom: 1px solid #3b3b3b" (click)="presentProfileModal(notice.id)">
-        <ion-thumbnail item-start>
+      <ion-item *ngFor="let notice of personalNotice" style="background-color: #1b1b1b; color: #f6f6f6; border-bottom: 1px solid #3b3b3b">
+        <ion-thumbnail item-start (click)="presentProfileModal(notice.id)">
             <img *ngIf="notice?.docType == 'pdf'" class="notice-img" src="assets/imgs/pdf_logo.svg">
             <img *ngIf="!notice?.docType" class="notice-img" src="assets/icon/file.svg">
             <img *ngIf="notice?.docType == 'docx'" class="notice-img" src="assets/icon/doc.svg">
         </ion-thumbnail>
-        <h2>{{notice?.notice?.subject}}</h2>
-        <p style="font-size: 10px; color: #a0a0a0">{{notice?.notice?.text}}</p>
+        <h2 (click)="presentProfileModal(notice.id)">{{notice?.notice?.subject}}</h2>
+        <p style="font-size: 10px; color: #a0a0a0" (click)="presentProfileModal(notice.id)">{{notice?.notice?.text}}</p>
         <!-- <p>{{notice?.noticetype?.type_name}}</p> -->
         <ion-note style="font-size: 10px; color: #a0a0a0" item-end>{{notice?.created_at}}</ion-note>
         <!-- <p style="font-size: 10px; color: #a0a0a0">{{notice?.created_at}}</p> -->
@@ -84,14 +84,14 @@
     </ion-list>
 
     <ion-list *ngSwitchCase="'departmental'">
-        <ion-item *ngFor="let notice of departmentalNotice" style="background-color: #1b1b1b; color: #f6f6f6; border-bottom: 1px solid #3b3b3b" (click)="presentProfileModal(notice.id)">
-            <ion-thumbnail item-start>
+        <ion-item *ngFor="let notice of departmentalNotice" style="background-color: #1b1b1b; color: #f6f6f6; border-bottom: 1px solid #3b3b3b">
+            <ion-thumbnail item-start (click)="presentProfileModal(notice.id)">
                 <img *ngIf="notice?.docType == 'pdf'" class="notice-img" src="assets/imgs/pdf_logo.svg">
                 <img *ngIf="!notice?.docType" class="notice-img" src="assets/icon/file.svg">
                 <img *ngIf="notice?.docType == 'docx'" class="notice-img" src="assets/icon/doc.svg">
             </ion-thumbnail>
-            <h2>{{notice?.notice?.subject}}</h2>
-            <p style="font-size: 10px; color: #a0a0a0">{{notice?.notice?.text}}</p>
+            <h2 (click)="presentProfileModal(notice.id)">{{notice?.notice?.subject}}</h2>
+            <p style="font-size: 10px; color: #a0a0a0" (click)="presentProfileModal(notice.id)">{{notice?.notice?.text}}</p>
             <!-- <p>{{notice?.noticetype?.type_name}}</p> -->
             <!-- <p style="font-size: 10px; color: #a0a0a0">{{notice?.created_at}}</p> -->
             <ion-note style="font-size: 10px; color: #a0a0a0" item-end>{{notice?.created_at}}</ion-note>

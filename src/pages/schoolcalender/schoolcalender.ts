@@ -147,10 +147,19 @@ export class SchoolcalenderPage implements OnInit{
 
 
   onEventSelected(event) {
-    //console.log('Event selected:' + event.startTime + '-' + event.endTime + ',' + event.title);
+    console.log(event);
+    let startTime = event.startTime.toString().substring(0,16);
+    let endTime = event.endTime.toString().substring(0,16);
+
     let alert = this.alertCtrl.create({
       title: event.title.toUpperCase(),
-      subTitle: 'Event Started:' + event.startTime + ', To: ' + event.endTime,
+      cssClass: "eventAlert",
+      message: `<div>
+      <p>Title : ${event.title}</p>
+      <p>Description : ${event.desc}</p>
+      </div>
+      <p>Event Started: ${startTime}, To: ${endTime}</p>
+      `,      
       buttons: ['Dismiss']
     });
 
