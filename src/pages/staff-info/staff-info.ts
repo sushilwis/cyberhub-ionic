@@ -17,6 +17,7 @@ import{ PrincipalComplaindeskPage } from '../principal-complaindesk/principal-co
 import { StuffExamdutyPage } from '../stuff-examduty/stuff-examduty';
 import { HomePage } from '../home/home';
 import { StaffLoginPage } from '../staff-login/staff-login';
+import { SchoolcalenderPage } from '../schoolcalender/schoolcalender';
 /**
  * Generated class for the StaffInfoPage page.
  *
@@ -97,6 +98,11 @@ export class StaffInfoPage {
   }
   goToStuffDuty(){
     this.navCtrl.push(StuffExamdutyPage);
+  }
+  goToEvents() {
+    this.navCtrl.push(SchoolcalenderPage,{
+      id: this.localUserData.org_code
+    });
   }
 
 
@@ -203,9 +209,10 @@ export class StaffInfoPage {
 
 
   goToLogout() {
-    this.showAlert('Logout', 'Are you sure want to logout ?');
+    // this.showAlert('Logout', 'Are you sure want to logout ?');
     // localStorage.clear();
     // this.navCtrl.setRoot(HomePage);
+    this.showAlert('Logout !', 'Are you sure ?');
   }
 
 
@@ -265,6 +272,7 @@ export class StaffInfoPage {
     const alert = this.alertCtrl.create({
       title: title,
       subTitle: msg,
+      cssClass: "confirmAlert",
       buttons: [
         {
           text: 'Cancel',
@@ -274,11 +282,11 @@ export class StaffInfoPage {
         },
         {
           text: 'Ok',
+          cssClass: "okBtn",
           handler: () => {
-            // console.log('Agree clicked');
             localStorage.clear();
             this.navCtrl.setRoot(HomePage);
-            this.navCtrl.push(StaffLoginPage);
+            // this.navCtrl.push(StaffLoginPage);
           }
         }
       ]

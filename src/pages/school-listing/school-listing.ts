@@ -19,6 +19,8 @@ import { apiUrl } from "../../apiUrl";
 export class SchoolListingPage {
   orgList: any;
   loading: any;
+  headTitle: string;
+  navData: any;
 
   constructor(
     public navCtrl: NavController,
@@ -33,7 +35,7 @@ export class SchoolListingPage {
   ionViewDidLoad() {
     this.initLoader();
     let data = this.navParams.get("data");
-    // console.log(data);
+    console.log('route data : ...', data);
     this.getOrganization(JSON.parse(data));
     console.log("ionViewDidLoad SchoolListingPage");
   }
@@ -46,17 +48,17 @@ export class SchoolListingPage {
 
 
 
-  getOrganization(data: any) {
+  getOrganization(navdata: any) {
     // this.presentLoading(true);
     var headers = new Headers();
     headers.append("Content-Type", "application/json");
     let options = new RequestOptions({ headers: headers });
     this.http
-      .get(`${apiUrl.url}org/search/${data.country_id}/${data.state_id}/${data.dist_id}/${data.type_id}`, options)
+      .get(`${apiUrl.url}org/search/${navdata.country_id}/${navdata.state_id}/${navdata.dist_id}/${navdata.type_id}`, options)
       .map(res => res.json())
       .subscribe(data => {
         // console.log('school list : ', data);        
-        if (data.data) {
+        if (data.data.length > 0) {
           // this.presentLoading(false);
           this.orgList = data.data;
           
@@ -65,6 +67,9 @@ export class SchoolListingPage {
           });
 
           console.log(this.orgList);
+        } else {
+          console.log('No data...');          
+          this.genOrgName(navdata.type_id);
         }
       });
   }
@@ -73,13 +78,17 @@ export class SchoolListingPage {
 
 
   genOrgName(org_type_id) {
+    console.log('Type ID :... ', org_type_id);    
     if(org_type_id == '1'){
+      this.headTitle = 'School';
       return 'SCHOOL';
     }
     if(org_type_id == '2'){
+      this.headTitle = 'College';
       return 'COLLEGE';
     }
     if(org_type_id == '3'){
+      this.headTitle = 'University';
       return 'UNIVERSITY';
     }
   }
@@ -89,7 +98,6 @@ export class SchoolListingPage {
 
   openActionSheet(org) {
     let actionSheet = this.actionsheetCtrl.create({
-      // title: `<img [src]="${org.org_logo}"/> ${org.name}`,
       title: `${org.org_name}`,
       cssClass: 'action-sheets-basic-page',
       buttons: [
@@ -118,14 +126,14 @@ export class SchoolListingPage {
             this.schoolsDetails(org.id);
           }
         },
-        {
-          text: 'Cancel',
-          role: 'cancel',
-          icon: !this.platform.is('ios') ? 'close' : 'close',
-          handler: () => {
-            console.log('Cancel clicked');
-          }
-        }
+        // {
+        //   text: 'Cancel',
+        //   role: 'cancel',
+        //   icon: !this.platform.is('ios') ? 'close' : 'close',
+        //   handler: () => {
+        //     console.log('Cancel clicked');
+        //   }
+        // }
       ]
     });
 

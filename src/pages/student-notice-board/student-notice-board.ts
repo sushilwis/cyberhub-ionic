@@ -118,20 +118,38 @@ export class StudentNoticeBoardPage implements OnInit {
       .subscribe(async data => {
         // console.log('Receive notice data : ', data.data);
         if (data.data.length > 1) {
-          console.log("notice list : ", data.data);
+          // console.log("notice list : ", data.data);
           this.allNotice = await data.data;
           this.allNotice.forEach(item => {
             item.timeDifference = this.createJavascriptDate(item.created_at);
+            if(item.notice != null && item.notice.file_url != null){
+              item.docType = this.getDocType(item.notice.file_url);
+            }            
           });
           this.filterAllNotices(this.allNotice);
           this.totalData = await data.data.length;
           this.totalPage = await Math.floor(this.totalData / 5);
           this.presentLoading(false);
+          console.log("notice list : ", this.allNotice);
         } else {
           this.presentLoading(false);
         }
       });
   }
+
+
+
+  getDocType(file) {
+    console.log(file); 
+    if(file != null && file != ''){
+      let arr = file.split('.');
+      let extention = arr[parseInt(arr.length)-1];
+      return extention;
+    }else{
+      return null;
+    }    
+  }
+
 
 
   filterAllNotices(arr) {

@@ -17,7 +17,7 @@
 
 	<ion-list>
     <ion-item padding *ngFor="let routine of routineList" (click)="toggleDetails(routine)"><ion-icon color="primary" item-right [name]="routine?.icon"></ion-icon>
-      Day {{routine?.day}}
+      Day {{routine?.dayName}}
       <!-- <table *ngIf="routine.showDetails">{{routine}}</table> -->
 
       <ion-list *ngIf="routine?.showDetails">

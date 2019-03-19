@@ -135,7 +135,7 @@
 		text-align: center !important;
 	}
 
-	.button-inner{
+	.okBtn .button-inner {
 		display: block !important;
 		text-align: center !important;
 	}
@@ -146,6 +146,11 @@
 
 	#alert-hdr-5 {
 		text-align: center !important;
+	}
+
+	.action-sheet-md .action-sheet-title {
+		font-size: 17px;
+    	font-weight: bold;
 	}
 
 	ion-icon {

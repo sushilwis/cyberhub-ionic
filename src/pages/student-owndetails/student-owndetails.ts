@@ -115,7 +115,9 @@ export class StudentOwndetailsPage implements OnInit {
     this.navCtrl.push(NotificationListPage);
   }
   goToEvents(){
-    this.navCtrl.push(SchoolcalenderPage);
+    this.navCtrl.push(SchoolcalenderPage,{
+      id: this.localUserData.org_code
+    });
   }
 
 
@@ -359,7 +361,7 @@ export class StudentOwndetailsPage implements OnInit {
             // console.log('Agree clicked');
             localStorage.clear();
             this.navCtrl.setRoot(HomePage);
-            this.navCtrl.push(StudentLoginPage);
+            // this.navCtrl.push(StudentLoginPage);
           }
         }
       ]

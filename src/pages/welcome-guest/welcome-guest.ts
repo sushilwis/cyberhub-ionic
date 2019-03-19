@@ -16,6 +16,7 @@ import { SearchOrganisationPage } from '../search-organisation/search-organisati
   templateUrl: 'welcome-guest.html',
 })
 export class WelcomeGuestPage {
+  guestTab: string = 'search';
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }

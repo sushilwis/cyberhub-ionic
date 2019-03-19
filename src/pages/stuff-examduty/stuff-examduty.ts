@@ -23,6 +23,7 @@ export class StuffExamdutyPage implements OnInit {
   subject: any;
   floor: any;
   room: any;
+  dayName: any = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public menuCtrl: MenuController, public loadingController: LoadingController, private http: Http) {
     this.initLoader();
@@ -164,13 +165,14 @@ initLoader() {
 
 async sortArr(rawRoutineArr) {
   let new_arry = [];
+
   rawRoutineArr.forEach((element, i) => {
     let pos = new_arry
       .map(function(e) {
         return e.day;
       })
       .indexOf(element.day);
-    // console.log(new_arry.indexOf(element.day));
+    
     if (pos < 0) {
       if(element.rutinedetails.length > 0){
         this.subject = element.rutinedetails[0].class.section.sec_name;
@@ -186,6 +188,7 @@ async sortArr(rawRoutineArr) {
       let new_data = {
         id: element.id,
         day: element.day,
+        dayName: this.dayName[parseInt(element.day)-1],
         icon: 'ios-add-circle-outline',
         showDetails: false,
         priods: [
@@ -230,7 +233,7 @@ async sortArr(rawRoutineArr) {
   });
 
   this.routineList = new_arry;
-  console.log('final array : ', this.routineList);
+  console.log('final array routine list: ', this.routineList);
   this.presentLoading(false);
 }
 

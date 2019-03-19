@@ -25,6 +25,7 @@ export class RoutinePage implements OnInit {
   loading: any;
   routineList: any;
   rawRoutineList: any;
+  dayName: any = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public menuCtrl: MenuController, public loadingController: LoadingController, private http: Http) {
   		// for(let i = 1; i < 7; i++ ){
@@ -216,6 +217,7 @@ export class RoutinePage implements OnInit {
         let new_data = {
           id: element.id,
           day: element.day,
+          dayName: this.dayName[parseInt(element.day)-1],
           icon: 'ios-add-circle-outline',
           showDetails: false,
           priods: [

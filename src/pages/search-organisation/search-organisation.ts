@@ -102,6 +102,7 @@ export class SearchOrganisationPage {
           this.allSchoolsList.forEach(ele => {
             const obj = {
                         id: ele.id,
+                        is_registered: this.getRegisterStatus(ele.is_registered),
                         name: ele.org_name,
                         city: ele.org_city,
                         landmark: ele.landmark,
@@ -122,6 +123,18 @@ export class SearchOrganisationPage {
           this.showAlert('Alert!', 'Sorry, No Data Found !');        
         }       
       });
+  }
+
+
+
+
+  getRegisterStatus(val) {
+    if(val == '0'){
+      return 'Not Registered';
+    }
+    if(val == '1'){
+      return 'Registered';
+    }
   }
 
 
@@ -196,6 +209,7 @@ export class SearchOrganisationPage {
 
   initializeItems() {
     this.items = this.list;
+    console.log('All items', this.items);    
   }
 
 
@@ -254,6 +268,15 @@ export class SearchOrganisationPage {
       title: `${org.name} ${org.landmark} `,
       cssClass: 'action-sheets-basic-page',
       buttons: [
+        {
+          text: `Status :  ${org.is_registered}`,
+          // role: 'destructive',
+          icon: !this.platform.is('ios') ? 'checkbox-outline' : 'checkbox-outline',
+          handler: () => {
+            // console.log('Delete clicked');
+            this.schoolsDetails(org.id);
+          }
+        },
         {
           text: `Phone :  ${org.phone_no}`,
           // role: 'destructive',

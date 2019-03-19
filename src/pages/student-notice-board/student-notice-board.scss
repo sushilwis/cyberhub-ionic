@@ -12,7 +12,7 @@ page-student-notice-board {
 		width: 40% !important;
 	}
 	.item-md ion-avatar[item-left], .item-md ion-thumbnail[item-left], .item-md ion-avatar[item-start], .item-md ion-thumbnail[item-start] {
-		margin: 8px -50px 8px 0 !important;
+		margin: 8px -80px 8px 0 !important;
 	}
 
 
@@ -83,5 +83,8 @@ page-student-notice-board {
 	}
 	.cls-1 {
         fill: #aaa !important;
-    }
+	}
+	.item-md .item-button {
+		padding: 0px;
+	}
 }
