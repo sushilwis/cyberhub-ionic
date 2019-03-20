@@ -243,7 +243,7 @@ export class AttendanceListPage implements OnInit {
           await localStorage.removeItem("atted_id");
           await localStorage.removeItem("attedCode");
           await localStorage.removeItem("department");
-          this.showAlert(data.msg);
+          this.showAlert("Digital Attendance and Manual Check out Successfully Submitted");
           this.navCtrl.push(StaffInfoPage);
         } else {
           this.showAlert(data.msg);

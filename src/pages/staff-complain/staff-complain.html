@@ -2,7 +2,7 @@
 <ion-header>
 
   <ion-navbar color="blue">
-    <ion-title>Complain</ion-title>
+    <ion-title>The Principal Desk</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -10,8 +10,8 @@
 
 <ion-content padding>
 
-	<div class="enquiry-form">
-		 <ion-title color="light" text-center text-uppercase margin-bottom>Enter Your Complain</ion-title>
+	<div class="enquiry-form compl-tittle">
+		 <ion-title  color="light" text-center text-uppercase margin-bottom >Complain Directly to<br> Principal</ion-title>
 	 	<form>
 			<ion-list style="background-color: none;">
 
@@ -20,7 +20,7 @@
 			    <ion-textarea name="complainMsg" [(ngModel)]="complainMsg" placeholder="Type Your Complain" (keyup)="onChangeTextValue()"></ion-textarea>
 				</ion-item>
 				
-			  <ion-note text-right float-right>You Have Left {{totalcomplain-3}} of 3 Complain</ion-note>
+			  <ion-note text-right float-right>Left {{totalcomplain-3}} of 3 Complain</ion-note>
 				<button ion-button block outline color="light" class="mt-10" (click)=sendComplain() (click)=goHide() [disabled]="btnDisabled">Submit</button>
 				<!-- <p class="text-blue" *ngIf="isShown">Your Complain has been Submited to the Principal</p> -->
 			</ion-list>
