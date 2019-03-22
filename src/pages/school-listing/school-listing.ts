@@ -52,9 +52,19 @@ export class SchoolListingPage {
     // this.presentLoading(true);
     var headers = new Headers();
     headers.append("Content-Type", "application/json");
+    // headers.append('Access-Control-Allow-Origin', '*');
+
     let options = new RequestOptions({ headers: headers });
+
+    let data = {
+      country: navdata.country_id,
+      state: navdata.state_id,
+      dist: navdata.dist_id,
+      org_type: navdata.type_id,
+    }
+
     this.http
-      .get(`${apiUrl.url}org/search/${navdata.country_id}/${navdata.state_id}/${navdata.dist_id}/${navdata.type_id}`, options)
+      .post(`${apiUrl.url}org/searchApp`, data, options)
       .map(res => res.json())
       .subscribe(data => {
         // console.log('school list : ', data);        

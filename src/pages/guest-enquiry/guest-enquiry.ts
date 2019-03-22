@@ -1,5 +1,5 @@
 import { Component, Input, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController, Platform, LoadingController} from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController, Platform, LoadingController, AlertController} from 'ionic-angular';
 import { Http, RequestOptions, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
 
@@ -27,15 +27,15 @@ export class GuestEnquiryPage {
   allSchoolsList: any;
   list = [];
   idList = [];
-  country: string;
-  state: string;
-  jela: string;
+  country: string = '';
+  state: string = 'aaa';
+  jela: string = '';
   localUserData: any;
   states: any;
   loading: any;
   dists: any;
-  dist: any;
-  type: string;
+  dist: any = 'aaa';
+  type: string = '';
 
   constructor(
     public platform: Platform,
@@ -43,7 +43,8 @@ export class GuestEnquiryPage {
     public navParams: NavParams,
     private http: Http,
     public toastCtrl: ToastController,
-    public loadingController: LoadingController
+    public loadingController: LoadingController,
+    public alertCtrl: AlertController,
   ) {
     this.getUserDataFromLocal();
     // this.getData();
@@ -124,8 +125,13 @@ export class GuestEnquiryPage {
   
 
   goToListing() {
-    if (this.country == null && this.state == null) {
-      this.presentToast(`State and Country Can't be Blank`)
+    if (this.country != '' && this.type == '') {
+      this.showAlert(`Sorry, Type should not be blank.`);
+      return;
+    }
+
+    if (this.country == '' || this.type == '') {
+      this.showAlert(`Sorry, Country and Type should not be blank.`);
     } else {
 
       let data = {
@@ -135,6 +141,7 @@ export class GuestEnquiryPage {
         type_id: this.type,
       };
 
+      console.log('data : ...', data);
       this.navCtrl.push(SchoolListingPage, {data: JSON.stringify(data)});
     }
   }
@@ -341,6 +348,30 @@ export class GuestEnquiryPage {
       dismissOnPageChange: true,
 			content: '<img class="loader-class" src="assets/icon/tail-spin.svg"> <p>Loading please wait...</p>',
 		});
+  }
+
+
+
+
+
+
+  isBtnDisabled() {
+    if(this.country == '' || this.country == null || this.type == '' || this.type == null) {
+      return true;
+    }
+  }
+
+
+
+
+
+  showAlert(msg) {
+    const alert = this.alertCtrl.create({
+      title: 'Alert!',
+      subTitle: msg,
+      buttons: ['OK']
+    });
+    alert.present();
   }
 
 

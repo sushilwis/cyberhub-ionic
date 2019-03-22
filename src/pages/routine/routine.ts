@@ -19,7 +19,7 @@ import { SchoolDetailsPage } from '../school-details/school-details';
   templateUrl: 'routine.html',
 })
 export class RoutinePage implements OnInit {
-
+  scheduleTab: string = "class";
 	data: Array<{title: string, details: string, icon: string, showDetails: boolean}> = [];
   localUserData: any;
   loading: any;

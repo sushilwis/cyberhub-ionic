@@ -278,7 +278,7 @@ export class StudentNoticeBoardPage implements OnInit {
     });
 
     let profileModal = this.modalCtrl.create(NoticeModalPage, {
-      notice: filterNotice[0]
+      notice: filterNotice[0], 
     });
     profileModal.present();
   }

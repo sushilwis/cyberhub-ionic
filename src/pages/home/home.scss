@@ -1,4 +1,5 @@
 page-home {
+    
 	background-color: #fff;
 	overflow-y:inherit;
 	.item-center{
@@ -6,9 +7,10 @@ page-home {
     	position: relative;
     	top: 50%;
     	transform: translateY(-50%);
-    	overflow:hidden;
-	}
-	.padd-bottom{
+    	overflow: hidden;
+    }
+    
+	.padd-bottom {
 		padding-bottom: 0px !important;
 	}
 

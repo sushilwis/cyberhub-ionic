@@ -45,6 +45,7 @@ export class StudentLibraryListPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad StudentLibraryListPage');
+    this.setSearchbarPlaceholder();
   }
 
   
@@ -66,6 +67,7 @@ export class StudentLibraryListPage {
 
   ngOnInit(){
     this.getBookList();
+    // this.setSearchbarPlaceholder();
   }
 
 
@@ -237,25 +239,38 @@ export class StudentLibraryListPage {
   onFocusSearch(){
     // console.log('input is on focus...'); 
     let searchInput = document.querySelector('#booksearch'); 
-    console.log(searchInput);
-    console.log(searchInput.children[0].childNodes[2]);
+    // console.log(searchInput);
+    // console.log(searchInput.children[0].childNodes[2]);
     let input = <HTMLInputElement>searchInput.children[0].childNodes[2];
-    console.log(input.getAttribute('placeholder'));  
+    // console.log(input.getAttribute('placeholder'));  
     input.setAttribute('placeholder', '')   
   }
+
+
+  setSearchbarPlaceholder(){
+    // console.log('input is on focus...'); 
+    let searchInput = document.querySelector('#booksearch'); 
+    // console.log(searchInput);
+    // console.log(searchInput.children[0].childNodes[2]);
+    let input = <HTMLInputElement>searchInput.children[0].childNodes[2];
+    // console.log(input.getAttribute('placeholder'));  
+    input.setAttribute('placeholder', 'Search book through Title/Writer')   
+  }
+
 
   onUnFocusSearch(){
     // console.log('input is on focus...'); 
     let searchInput = document.querySelector('#booksearch'); 
-    console.log(searchInput);
-    console.log(searchInput.children[0].childNodes[2]);
+    // console.log(searchInput);
+    // console.log(searchInput.children[0].childNodes[2]);
     let input = <HTMLInputElement>searchInput.children[0].childNodes[2];
-    console.log(input.getAttribute('placeholder')); 
+    // console.log(input.getAttribute('placeholder')); 
     let placevalue = input.getAttribute('placeholder')
     if(placevalue == '' || placevalue == null){
-      input.setAttribute('placeholder', 'Search');
+      input.setAttribute('placeholder', 'Search book through Title/Writer');
     }       
   }
+
 
 }
 

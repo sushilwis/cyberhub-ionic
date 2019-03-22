@@ -7,6 +7,7 @@ import { SchoolDetailsPage } from '../school-details/school-details';
 import { StudentOwndetailsPage } from '../student-owndetails/student-owndetails';
 import { StaffInfoPage } from '../staff-info/staff-info';
 import { HomePage } from '../home/home';
+import { WelcomeGuestPage } from '../welcome-guest/welcome-guest';
 
 /**
  * Generated class for the SearchOrganisationPage page.
@@ -353,7 +354,14 @@ export class SearchOrganisationPage {
       }
     );
 
-    alert.addButton('Cancel');
+    // alert.addButton('Cancel');
+    alert.addButton({
+      text: 'Cancel',
+      handler: data => {
+        console.log('cancel clicked :...', );
+        this.navCtrl.push(WelcomeGuestPage);        
+      }
+    });
     alert.addButton({
       text: 'OK',
       handler: data => {
@@ -363,14 +371,14 @@ export class SearchOrganisationPage {
     });
     alert.present();
 
-    alert.onDidDismiss( data => {
-      if (! data) {
-        this.getData(0)
-      }else{
-        this.getData(data)
-      }
+    // alert.onDidDismiss( data => {
+    //   if (! data) {
+    //     this.getData(0)
+    //   }else{
+    //     this.getData(data)
+    //   }
       
-    })
+    // })
   }
 
   

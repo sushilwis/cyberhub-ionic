@@ -240,11 +240,11 @@ export class AttendanceListPage implements OnInit {
       .subscribe(async data => {
         // console.log("attendence data : ", data);
         if (data.success) {
-          await localStorage.removeItem("atted_id");
-          await localStorage.removeItem("attedCode");
-          await localStorage.removeItem("department");
+          localStorage.removeItem("atted_id");
+          localStorage.removeItem("attedCode");
+          localStorage.removeItem("department");
           this.showAlert("Digital Attendance and Manual Check out Successfully Submitted");
-          this.navCtrl.push(StaffInfoPage);
+          this.navCtrl.setRoot(StaffInfoPage);
         } else {
           this.showAlert(data.msg);
         }

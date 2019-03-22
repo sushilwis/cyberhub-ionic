@@ -30,7 +30,7 @@ export class AttendancePage {
   localUserData: any;
   periodList: any;
   showPeriodForm: boolean;
-  period: any;
+  period: any = '';
   attendenceCode: any;
   attPin: any;
   room: any;
@@ -159,9 +159,17 @@ export class AttendancePage {
     // console.log('local data : ', this.localUserData);
   }
 
+
+
+
+
   onPeriodSubmit() {
     // let todayDate = new Date().toLocaleString().substring(0,9).toString();
     // todayDate = todayDate.toLocaleString();
+    if(this.period == '') {
+      this.showAlert('Please select your period.');
+      return;
+    }
 
     let data = {
       period_id: this.period,
@@ -171,7 +179,6 @@ export class AttendancePage {
     };
 
     // console.log("data : ", data);
-
     let header = new Headers();
     header.set("Content-Type", "application/json");
 
@@ -197,10 +204,14 @@ export class AttendancePage {
           // this.showAlert(data.msg);
         } else {
           this.showPeriodForm = true;
-          this.showAlert(data.msg);
+          this.showAlert('Sorry, wrong selection.');
         }
       });
   }
+
+
+
+
 
   makeDateString(date) {
     let year = date.getFullYear();

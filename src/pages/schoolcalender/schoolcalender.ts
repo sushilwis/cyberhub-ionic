@@ -152,7 +152,7 @@ export class SchoolcalenderPage implements OnInit{
     let endTime = event.endTime.toString().substring(0,16);
 
     let alert = this.alertCtrl.create({
-      title: event.title.toUpperCase(),
+      title: `Event`,
       cssClass: "eventAlert",
       message: `<div>
       <p>Title : ${event.title}</p>
@@ -239,7 +239,7 @@ async getEventList() {
               this.allEventList = await data.data; 
               // console.log("event list : ", data.data);
               this.ArrangeArrFromEventList(this.allEventList);
-              console.log('event source : ', this.eventSource);               
+              // console.log('event source : ', this.eventSource);               
             } else {
               // this.presentLoading(false);
             }            
@@ -262,6 +262,11 @@ async getEventList() {
       this.end = this.createJavascriptDate(arrItem.event_enddate);
       this.start = this.createJavascriptDate(arrItem.event_startdate);
 
+      // console.log('start :...', this.start); 
+      // console.log('end :...', this.end);
+      // console.log('start :...', arrItem.event_startime); 
+      // console.log('end :...', arrItem.event_endtime);      
+
       let obj = await {
         allDay: false,
         eTime: arrItem.event_endtime,
@@ -272,8 +277,9 @@ async getEventList() {
         desc: arrItem.event_description
       }
 
-      // console.log('arr item : ', obj);
-      await this.eventSource.push(obj);
+      
+      this.eventSource.push(obj);
+      console.log('arr item : ', this.eventSource);
     }); 
     
     // console.log('event source 111 : ', this.eventSource); 

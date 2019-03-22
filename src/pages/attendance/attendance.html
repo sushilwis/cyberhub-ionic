@@ -44,7 +44,9 @@
 			<ion-item>
 				<ion-label>Period</ion-label>
 				<ion-select [(ngModel)]="period">
-					<ion-option *ngFor="let period of periodList" value="{{period.id}}">{{period.priod_name}} ({{period.from_time}} {{period.to_time}})</ion-option>
+					<ion-option *ngFor="let period of periodList" value="{{period.id}}">
+						{{period.priod_name}} ({{period.from_time}} {{period.to_time}})
+					</ion-option>
 				</ion-select>
 			</ion-item>
 	</ion-list>

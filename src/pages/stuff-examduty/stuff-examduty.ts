@@ -16,6 +16,8 @@ import { apiUrl } from '../../apiUrl';
   templateUrl: 'stuff-examduty.html',
 })
 export class StuffExamdutyPage implements OnInit {
+  
+  scheduleTab: string = "class";
   localUserData: any;
   rawRoutineList: any;
   loading: any;

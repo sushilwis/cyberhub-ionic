@@ -48,7 +48,7 @@
             <h2 (click)="presentProfileModal(notice.id)">{{notice?.notice?.subject}}</h2>
             <p style="font-size: 10px; color: #a0a0a0" (click)="presentProfileModal(notice.id)">{{notice?.notice?.text}}</p>
             <!-- <p>{{notice?.noticetype?.type_name}}</p> -->
-            <ion-note style="font-size: 10px; color: #a0a0a0" item-end>{{notice?.created_at}}</ion-note>
+            <ion-note style="font-size: 10px; color: #a0a0a0" item-end>{{notice?.created_at.substring(0,10)}}</ion-note>
             <!-- <ion-note item-end style="font-size: 11px;">
               {{notice?.timeDifference}}
             </ion-note> -->
@@ -70,7 +70,7 @@
         <h2 (click)="presentProfileModal(notice.id)">{{notice?.notice?.subject}}</h2>
         <p style="font-size: 10px; color: #a0a0a0" (click)="presentProfileModal(notice.id)">{{notice?.notice?.text}}</p>
         <!-- <p>{{notice?.noticetype?.type_name}}</p> -->
-        <ion-note style="font-size: 10px; color: #a0a0a0" item-end>{{notice?.created_at}}</ion-note>
+        <ion-note style="font-size: 10px; color: #a0a0a0" item-end>{{notice?.created_at.substring(0,10)}}</ion-note>
         <!-- <p style="font-size: 10px; color: #a0a0a0">{{notice?.created_at}}</p> -->
         <!-- <ion-note item-end style="font-size: 11px;">
           {{notice?.timeDifference}}
@@ -94,7 +94,7 @@
             <p style="font-size: 10px; color: #a0a0a0" (click)="presentProfileModal(notice.id)">{{notice?.notice?.text}}</p>
             <!-- <p>{{notice?.noticetype?.type_name}}</p> -->
             <!-- <p style="font-size: 10px; color: #a0a0a0">{{notice?.created_at}}</p> -->
-            <ion-note style="font-size: 10px; color: #a0a0a0" item-end>{{notice?.created_at}}</ion-note>
+            <ion-note style="font-size: 10px; color: #a0a0a0" item-end>{{notice?.created_at.substring(0,10)}}</ion-note>
             <!-- <ion-note item-end style="font-size: 11px;">
               {{notice?.timeDifference}}
             </ion-note> -->

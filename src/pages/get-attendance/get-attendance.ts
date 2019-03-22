@@ -30,10 +30,10 @@ export class GetAttendancePage {
   classStreamID: any;
   periodList: any;
 
-  period: any;
-  department: any;
-  stream: any;
-  shift: any;
+  period: any = '';
+  department: any = '';
+  stream: any = '';
+  shift: any = '';
   genAttCode: number;
 
   showTeacherForm: boolean = true;
@@ -284,7 +284,12 @@ export class GetAttendancePage {
 
 
 
-  onPeriodSubmit() {    
+  onPeriodSubmit() {  
+    
+    if(this.period == '' || this.department == '' || this.stream == '' || this.shift == ''){
+      this.showAlert('Please select all the fields to continue.');
+      return;
+    }
 
     let data = {
       period_id: this.period, 
