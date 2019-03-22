@@ -29,4 +29,8 @@ page-students-tabs {
         border-top: 1.3px solid #fff;
         background-color: #1b1b1b;
     }
+
+    .tabs-md-blue .tab-button, .tabs-md-blue .tab-button-icon {
+        color: rgba(255, 255, 255, 0.4);
+    }
 }

@@ -64,6 +64,7 @@ export default class AccountPage implements OnInit {
   ngOnInit() {
     this.getUserDataFromLocal();
     this.getStudentDetails();
+    this.getAttendanceDetails();
   }
 
 
@@ -269,6 +270,34 @@ export default class AccountPage implements OnInit {
     });
     
     toast.present();
+  }
+
+
+
+
+
+
+
+  getAttendanceDetails() {
+    // this.presentLoading(true);
+
+		var headers = new Headers();
+		headers.append('Content-Type', 'application/json');
+		let options = new RequestOptions({headers: headers});
+
+		let data = {
+      'org_id': this.localUserData.org_code,
+      'dept_id': this.localUserData.dept_id,
+		}
+
+		this.http.post(`${apiUrl.node_url}getStudentAttnPercent`, data, options).
+			map(res => res.json()).subscribe(data => {
+        console.log('attn data : ', data);
+        
+        // data.data.forEach(elem => {
+          
+        // });
+			});
   }
 
 
