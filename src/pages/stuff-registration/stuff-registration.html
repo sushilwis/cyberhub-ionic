@@ -44,7 +44,7 @@
             
             <ion-item>  
               <ion-label floating style="color: #9a9a9a">Organization</ion-label>
-              <ion-input type="text" name="inputShowValue" [(ngModel)]="inputShowValue" (keyup)="getItems($event)"></ion-input>
+              <ion-input type="text" name="inputShowValue" [(ngModel)]="inputShowValue" (keyup)="getItems($event)" [disabled]="disabledField()"></ion-input>
             </ion-item>      
         </ion-list>
           
@@ -61,7 +61,17 @@
         <ion-item>
           <ion-label floating style="color: #9a9a9a">Phone No</ion-label>
           <ion-input type="number" name="regNo" [(ngModel)]="mobileNo"></ion-input>
-        </ion-item>      
+        </ion-item> 
+        <p class="input-info">Which linked with your organisation</p>     
+    </ion-list>
+
+
+    <ion-list>
+      <ion-item>
+        <ion-label floating style="color: #9a9a9a">Registered Identity No</ion-label>
+        <ion-input type="text" name="identityNo" [(ngModel)]="identityNo"></ion-input>
+      </ion-item> 
+      <p class="input-info">Which linked with your organisation</p>     
     </ion-list>
 
     <!-- <button ion-button block outline color="blue" class="" (click)='registrationSubmit()'>Submit</button> -->

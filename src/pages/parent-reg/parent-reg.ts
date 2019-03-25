@@ -1,20 +1,23 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams,  MenuController, LoadingController, AlertController, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, MenuController, LoadingController, AlertController, ToastController } from 'ionic-angular';
+import { ParentsLoginPage } from '../parents-login/parents-login';
+import { SchoolListingPage } from '../school-listing/school-listing';
 import { Http, RequestOptions, Headers, Jsonp } from '@angular/http';
 import { apiUrl } from '../../apiUrl';
-import { StudentLoginPage } from '../student-login/student-login';
-import { SchoolDetailsPage } from '../school-details/school-details';
-import { SchoolListingPage } from '../school-listing/school-listing';
-import { StdRegPage } from '../std-reg/std-reg';
-import { StaffLoginPage } from '../staff-login/staff-login';
 
+/**
+ * Generated class for the ParentRegPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
 
 @IonicPage()
 @Component({
-  selector: 'page-stuff-registration',
-  templateUrl: 'stuff-registration.html',
+  selector: 'page-parent-reg',
+  templateUrl: 'parent-reg.html',
 })
-export class StuffRegistrationPage {
+export class ParentRegPage {
 
   @ViewChild("search") searchbox;
 
@@ -38,19 +41,25 @@ export class StuffRegistrationPage {
   identityNo: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private http: Http, public menuCtrl: MenuController, public loadingController: LoadingController, public alertCtrl: AlertController, public toastCtrl: ToastController) {
-    this.menuCtrl.enable(true);
-    this.initLoader();
-    // this.getData();
-  }
-
-  ngOnInit(){
-    this.getCollege();
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad StuffRegistrationPage');
+    console.log('ionViewDidLoad ParentRegPage');
   }
 
+
+  disabledField() {
+    if (this.type == '' || this.type == null) {
+      return true;
+    }else{
+      return false;
+    }
+  }
+
+
+  goToParentsLogin(){
+    this.navCtrl.push(ParentsLoginPage);
+  }
 
 
   getCollege() {
@@ -119,7 +128,7 @@ export class StuffRegistrationPage {
           console.log('after stuff reg :... ', data);          	  
           if (data.data) {
             this.showAlert('Success!', `Your Username is : ${data.data.username} and Password is : ${data.data.hint}. Please login to continue.`);
-            this.navCtrl.push(StaffLoginPage);				
+            this.navCtrl.push(ParentsLoginPage);				
           }else{
             this.showAlert('Error!', `Sorry, Invalid Credential !.`);
           }
@@ -288,25 +297,5 @@ export class StuffRegistrationPage {
     });
     toast.present();
   }
-
-
-
-
-  goToStuffLogin(){
-    this.navCtrl.push(StaffLoginPage);
-  }
-
-
-
-
-  disabledField() {
-    if (this.type == '' || this.type == null) {
-      return true;
-    }else{
-      return false;
-    }
-  }
-
-
 
 }

@@ -40,7 +40,6 @@ export class StdRegPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, private http: Http, public menuCtrl: MenuController, public loadingController: LoadingController, public alertCtrl: AlertController, public toastCtrl: ToastController) {
     this.menuCtrl.enable(true);
     this.initLoader();
-    // this.getData();
   }
 
 

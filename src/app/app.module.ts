@@ -81,6 +81,7 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { FcmProvider } from '../providers/fcm/fcm';
 import { StaffTabsPage } from "../pages/staff-tabs/staff-tabs";
+import { ParentRegPage } from '../pages/parent-reg/parent-reg';
 const firebase = {
  // your firebase web config
     apiKey: "AIzaSyDPcwzadP1MQHKAVdrSZ45cXhq_vallj94",
@@ -143,7 +144,8 @@ const firebase = {
     StuffRegistrationPage,
     WelcomeGuestPage,
     SearchOrganisationPage,
-    NotificationListPage
+    NotificationListPage,
+    ParentRegPage,
   ],
   imports: [
     BrowserModule,
@@ -203,7 +205,8 @@ const firebase = {
     StuffRegistrationPage,
     WelcomeGuestPage,
     SearchOrganisationPage,
-    NotificationListPage
+    NotificationListPage,
+    ParentRegPage,
   ],
   
   providers: [

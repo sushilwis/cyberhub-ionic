@@ -128,14 +128,14 @@
 		color: #f4f4f4 !important;
 	}
 
-	.okBtn {
+	.okBtn, .alertOkBtn {
 		background-color: #3c3c3c !important;
 		color: #fff !important;
 		width: 75px !important;
 		text-align: center !important;
 	}
 
-	.okBtn .button-inner {
+	.okBtn .button-inner, .alertOkBtn .button-inner {
 		display: block !important;
 		text-align: center !important;
 	}
@@ -160,6 +160,15 @@
 
 	.eventAlert .alert-message {
 		padding-bottom: 0px;
+	}
+
+	.input-info {
+		padding: 0px;
+		margin: 0px;
+		padding-left: 17px;
+		padding-top: 2px;
+		font-size: 9px;
+		color: #909090;
 	}
 
 	// .eventAlert .alert-md .alert-message, .eventAlert .alert-md .alert-input-group {

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ParentsChildTabsPage } from '../parents-child-tabs/parents-child-tabs';
+import { ParentRegPage } from '../parent-reg/parent-reg';
 /**
  * Generated class for the ParentsLoginPage page.
  *
@@ -31,4 +32,8 @@ export class ParentsLoginPage {
 	goToChildDetails(){
 		this.navCtrl.setRoot(ParentsChildTabsPage);
 	}
+
+	goToParentsReg() {
+		this.navCtrl.push(ParentRegPage);
+	} 
 }
