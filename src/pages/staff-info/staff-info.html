@@ -45,7 +45,7 @@
 
   <ion-card style="margin-top: 20px">
     <!-- <img src="{{orgDetails?.org_img}}"/> -->
-    <p class="card-title-border1">Organization Details</p>
+    <p class="card-title-border1">Institution Details</p>
     <ion-card-content>
       <ion-card-title style="font-size: 18px; text-align: center">
         {{orgDetails?.org_name}}
@@ -111,8 +111,8 @@
           <button ion-button block outline color="blue" class="mt-10" (click)=goToPrincipal()>PRINCIPAL</button>
           <!-- <p (click)=goToComplainDesk()>COMPLAIN DESK</p> -->
           <button ion-button block outline color="blue" class="mt-10" (click)=goToComplainDesk()>COMPLAIN DESK</button>
-          <!-- <p (click)=goToStuffDuty()>STUFF DUTY</p> -->
-          <button ion-button block outline color="blue" class="mt-10" (click)=goToStuffDuty()>STUFF DUTY</button>
+          <!-- <p (click)=goToStaffDuty()>Staff DUTY</p> -->
+          <button ion-button block outline color="blue" class="mt-10" (click)=goToStaffDuty()>STAFF DUTY</button>
         </div>
     </ion-card-content>
   </ion-card>
@@ -151,9 +151,9 @@
         <img src="assets/imgs/icon3.png"/>
         <p>Attendance</p>
       </ion-col> -->
-      <!-- <ion-col col-md-3 class="icon-center" (click)=goToStuffDuty()>
+      <!-- <ion-col col-md-3 class="icon-center" (click)=goToStaffDuty()>
         <img src="assets/icon/staffRoutine.svg" class="iconSize"/>
-        <p>Stuff Duty</p>
+        <p>Staff Duty</p>
       </ion-col> -->
       <ion-col col-md-3 class="icon-center" (click)=gotoLiveStream()>
         <img src="assets/icon/live_stream_btn.svg" class="iconSize"/>

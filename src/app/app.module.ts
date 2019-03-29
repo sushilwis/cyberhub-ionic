@@ -82,6 +82,9 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { FcmProvider } from '../providers/fcm/fcm';
 import { StaffTabsPage } from "../pages/staff-tabs/staff-tabs";
 import { ParentRegPage } from '../pages/parent-reg/parent-reg';
+import { ParentHomePage } from '../pages/parent-home/parent-home';
+import { AddChildPage } from '../pages/add-child/add-child';
+import { ViewChildPage } from '../pages/view-child/view-child';
 const firebase = {
  // your firebase web config
     apiKey: "AIzaSyDPcwzadP1MQHKAVdrSZ45cXhq_vallj94",
@@ -146,6 +149,9 @@ const firebase = {
     SearchOrganisationPage,
     NotificationListPage,
     ParentRegPage,
+    ParentHomePage,
+    AddChildPage,
+    ViewChildPage,
   ],
   imports: [
     BrowserModule,
@@ -207,6 +213,9 @@ const firebase = {
     SearchOrganisationPage,
     NotificationListPage,
     ParentRegPage,
+    ParentHomePage,
+    AddChildPage,
+    ViewChildPage,
   ],
   
   providers: [

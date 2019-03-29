@@ -96,7 +96,7 @@ export class StaffInfoPage {
   goToComplainDesk(){
     this.navCtrl.push(PrincipalComplaindeskPage);
   }
-  goToStuffDuty(){
+  goToStaffDuty(){
     this.navCtrl.push(StuffExamdutyPage);
   }
   goToEvents() {

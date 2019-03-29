@@ -1,16 +1,16 @@
 <ion-content padding>
-  <div [ngSwitch]="guestTab">
-    <div *ngSwitchCase="'search'">
+  <div>
+    <div>
       <div text-center margin-top style="margin-bottom: 40px;">
         <h4 style="font-size: 1.9rem;">
           <img class="login-page-logo" src="assets/icon/cyverhub_logo.svg">
-          <img class="straight-line" src="assets/icon/substract.svg"> Welcome Guest !
+          <img class="straight-line" src="assets/icon/substract.svg"> Welcome Guardian !
         </h4>
       </div>
 
       <div class="sub-line" style="margin-bottom: 40px;">
-        <p class="sub-head">Search for Enrolled <br>Institution under this <br>Digital Library.</p>
-        <p class="sub-head"><br>Tap to view information for<br>Registered Institution.</p>
+        <p class="sub-head">Search for Enrolled <br>institution under this <br>Digital Library.</p>
+        <p class="sub-head"><br>Tap to view information for<br>Registered institution.</p>
       </div>
 
       <!-- <div text-capitalize text-center margin-top>
@@ -18,33 +18,29 @@
       </div> -->
 
       <div text-uppercase text-center>
-        <p class="text-2"(click)="goToSearchOrg()">I know<br> my institution</p>
+        <p class="text-2"(click)="goToAddChild()">Add New Child</p>
         <p style="color: #fff">or</p>
-        <p class="text-3" (click)="goToFilterOrg()">help me<br> find my institution</p>
+        <p class="text-3" (click)="goToViewChildDetails()">View Details<br>of all child</p>
       </div>
     </div>
   </div>
 
 
 
-  <div [ngSwitch]="guestTab">
-      <div *ngSwitchCase="'live'">
-      
-      </div>
-    </div>
+  <!-- <div [ngSwitch]="guestTab">
+      <div *ngSwitchCase="'live'"></div>
+  </div>
 
 
 
     <div [ngSwitch]="guestTab">
-        <div *ngSwitchCase="'skill'">
-        
-        </div>
-    </div>
+        <div *ngSwitchCase="'skill'"></div>
+    </div> -->
 </ion-content>
 
 
 
-<ion-footer>
+<!-- <ion-footer>
 
     <ion-toolbar no-border-top>
         <ion-segment [(ngModel)]="guestTab">
@@ -52,7 +48,7 @@
             <p>
               <img class="notice-img" style="height: 20px" src="assets/imgs/generalNotice.svg">
             </p>        
-            Search Institution
+            Search institution
           </ion-segment-button>
           <ion-segment-button value="live">
               <p>
@@ -92,4 +88,5 @@
         </ion-segment>
     </ion-toolbar>
   
-  </ion-footer>
+  </ion-footer> -->
+
