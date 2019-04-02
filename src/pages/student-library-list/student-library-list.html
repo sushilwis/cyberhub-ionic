@@ -5,69 +5,71 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-  <ion-navbar color="blue">
+  <ion-navbar color="" >
     <ion-title>List of Books</ion-title>
-      <ion-buttons end class="search-icon"> <i class="fas fa-search fa-lg"></i> </ion-buttons>
+      <!-- <ion-buttons end class="search-icon">
+        <i class="fas fa-search fa-lg"></i> </ion-buttons> -->
   </ion-navbar>
-   <ion-toolbar>
+  <!-- <ion-toolbar>
     <ion-searchbar (keyup)="onChangeSearch($event)"></ion-searchbar>
-  </ion-toolbar>
+  </ion-toolbar> -->
 </ion-header>
 
 
 <ion-content>
 
-    <ion-list>
-        <ion-item *ngIf="showNotFound" text-center>
+    <ion-list *ngIf="showNotFound">
+        <ion-item text-center>
           <p>Not Found Any Book</p>
         </ion-item>
     </ion-list>
 
+    <!-- <ion-toolbar> -->
+      <ion-searchbar id="booksearch" class="library-book-search" (keyup)="onChangeSearch($event)" (focusin)="onFocusSearch()" (focusout)="onUnFocusSearch()" style="background-color: transparent; border-bottom: 1px solid #b59292; color: #fff;"></ion-searchbar>
+    <!-- </ion-toolbar> -->
+
     <ion-list>
-      <ion-item *ngFor="let book of allBookList" (click)="presentProfileModal(book.id)">
+      <ion-item *ngFor="let book of allBookList" (click)="presentProfileModal(book.id)" style="background-color: #1b1b1b; color: #f6f6f6; border-bottom: 1px solid #fff">
         <ion-thumbnail item-start>
           <img src="assets/imgs/book.png">
         </ion-thumbnail>
-        <h2 *ngIf="book.book_name"><strong>{{book.book_name}}</strong></h2>
-        <p><strong>Author Name</strong>: {{book.author}}</p>
-        <small><strong>Number of Copies</strong>: {{book.no_copy}}</small>
+        <h2 *ngIf="book.book_name" class="book-name"><strong>{{book.book_name}}</strong></h2>
+        <p style="color: #a0a0a0"><strong>Writer </strong>: {{book.author}}</p>
+        <!-- <small><strong>Number of Copies</strong>: {{book.no_copy}}</small> -->
+        <!-- <small>Subject Name : {{book.no_copy}}</small> -->
       </ion-item>
     </ion-list>
 
-    <ion-infinite-scroll (ionInfinite)="doInfinite($event)" *ngIf="page < totalPage">
+    <!-- <ion-infinite-scroll (ionInfinite)="doInfinite($event)" *ngIf="page < totalPage">
       <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more..."></ion-infinite-scroll-content>
-    </ion-infinite-scroll>
+    </ion-infinite-scroll> -->
 <!-- *ngIf="page < totalPage" *ngIf="book.book_name"-->
 
 </ion-content>
 
 
 
-<ion-footer class="fixed">
+<!-- <ion-footer class="fixed">
   <ion-toolbar color="primary">  
   <ion-grid text-center >
     <ion-row>
       <div col-3 (click)=goToHome()>
         <img src="assets/imgs/white-icon5.png">
-       <!--  <i text-center class="fas fa-video fa-inverse fa-lg"></i> -->
         <p class="footer-p">Home</p>
       </div>
       <div col-3 (click)=gotoLiveStream()>
         <img src="assets/imgs/white-icon1.png">
-       <!--  <i text-center class="fas fa-video fa-inverse fa-lg"></i> -->
         <p class="footer-p">Live Streaming</p>
       </div>
       <div col-3 (click)=goToAttendance()>
         <img src="assets/imgs/white-icon2.png">
-        <!-- <i text-center class="fas fa-boxes fa-inverse fa-lg"></i> -->
         <p  class="footer-p">Attendance</p>
       </div>
       <div col-3 (click)=goToRoutine()>
         <img src="assets/imgs/white-icon3.png">
-      	<!-- <i class="fas fa-box fa-inverse fa-lg"></i> -->
         <p  class="footer-p">Routine</p>
       </div>
     </ion-row>
   </ion-grid>
   </ion-toolbar>
-</ion-footer>
+</ion-footer> -->

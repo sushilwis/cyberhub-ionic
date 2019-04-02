@@ -3,7 +3,8 @@ import { IonicPage, NavController, NavParams, MenuController, LoadingController,
 import { apiUrl } from '../../apiUrl';
 import { ModalController, Platform, ViewController } from 'ionic-angular';
 import { Http, RequestOptions, Headers, Jsonp } from '@angular/http';
-import AccountPage from '../account/account';
+import {HomePage} from '../home/home';
+import { StudentLoginPage } from '../student-login/student-login';
 
 /**
  * Generated class for the ChangepasswordPage page.
@@ -24,7 +25,10 @@ export class ChangepasswordPage implements OnInit {
   confNewPassword: any;
   localUserData: any;
   loading: any;
-
+  securitylocaldata;
+  issecurityadded: boolean = false;
+  shownextdiv: boolean = false;
+  digitpin;
   constructor(public navCtrl: NavController, public navParams: NavParams, public menuCtrl: MenuController, private http: Http, public loadingController: LoadingController, public jsonp: Jsonp, public modalCtrl: ModalController, public alertCtrl: AlertController) {
   }
 
@@ -42,6 +46,15 @@ export class ChangepasswordPage implements OnInit {
   getUserDataFromLocal() {
     let data = localStorage.getItem('userData');
     this.localUserData = JSON.parse(data);
+    // this.securitylocaldata = JSON.parse(localStorage.getItem("securitypinadded"));
+    // console.log(this.securitylocaldata);
+    
+    // if (!this.securitylocaldata) {
+    //   alert("Set a Security Pin");
+    //   this.navCtrl.pop();
+    // }else{
+    //   this.issecurityadded = true;
+    // }
     // console.log('local data : ', this.localUserData);    
   }
 
@@ -65,8 +78,9 @@ export class ChangepasswordPage implements OnInit {
           map(res => res.json()).subscribe(data => {				
             console.log(data);   
             if(data.status == "1"){
+              this.goToLogout();
               this.showAlert('Password Changed Successfully.');
-              this.navCtrl.push(AccountPage);
+              this.navCtrl.push(StudentLoginPage);
             }else{
               this.showAlert(data.mssg);
             }       
@@ -81,6 +95,19 @@ export class ChangepasswordPage implements OnInit {
 
 
 
+  
+
+  goToLogout() {
+    localStorage.clear();
+    this.navCtrl.setRoot(HomePage);
+  }
+
+
+  // checkPin(){
+  //   if (this.digitpin == ) {
+      
+  //   }
+  // }
 
   presentLoading(load: boolean) {
 		if (load) {

@@ -23,7 +23,7 @@ export class AttendanceListPage implements OnInit {
   joinned: boolean = false;
   newUser: any = { nickname: "", room: "" };
   msgData: any = { room: "", nickname: "", message: "" };
-  socket = io("http://18.191.46.158:3000/");
+  socket = io("http://3.84.60.73:3000/");
   localUserData: any;
   studentList: any = [];
   attenStudentList: any = [];
@@ -37,6 +37,7 @@ export class AttendanceListPage implements OnInit {
   ) {}
 
   ngOnInit() {
+    console.log('attendence list page...');    
     this.getStudentList();
     // this.roomName = {
     //   room: JSON.parse(localStorage.getItem('attedCode')),
@@ -239,11 +240,11 @@ export class AttendanceListPage implements OnInit {
       .subscribe(async data => {
         // console.log("attendence data : ", data);
         if (data.success) {
-          await localStorage.removeItem("atted_id");
-          await localStorage.removeItem("attedCode");
-          await localStorage.removeItem("department");
-          this.showAlert(data.msg);
-          this.navCtrl.push(StaffInfoPage);
+          localStorage.removeItem("atted_id");
+          localStorage.removeItem("attedCode");
+          localStorage.removeItem("department");
+          this.showAlert("Digital Attendance and Manual Check out Successfully Submitted");
+          this.navCtrl.setRoot(StaffInfoPage);
         } else {
           this.showAlert(data.msg);
         }

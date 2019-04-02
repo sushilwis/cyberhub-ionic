@@ -10,6 +10,7 @@ import { ModalController, Platform, ViewController } from 'ionic-angular';
 import { FileOpener } from "@ionic-native/file-opener";
 import { HomePage } from '../home/home';
 import { StaffInfoPage } from '../staff-info/staff-info';
+import * as moment from 'moment';
 
 
 @IonicPage()
@@ -18,6 +19,7 @@ import { StaffInfoPage } from '../staff-info/staff-info';
   templateUrl: "student-notice-board.html"
 })
 export class StudentNoticeBoardPage implements OnInit {
+  notice: string = "general";
   localUserData: any;
   loading: any;
   allNotice: any = [];
@@ -27,6 +29,9 @@ export class StudentNoticeBoardPage implements OnInit {
   totalPage: any = 0;
   pdfSrc: any;
   guestOrgId: any;
+  departmentalNotice: any = [];
+  generalNotice: any = [];
+  personalNotice: any = [];
 
   constructor(
     public platform: Platform,
@@ -113,11 +118,19 @@ export class StudentNoticeBoardPage implements OnInit {
       .subscribe(async data => {
         // console.log('Receive notice data : ', data.data);
         if (data.data.length > 1) {
-          console.log("Receive data : ", data.data);
+          // console.log("notice list : ", data.data);
           this.allNotice = await data.data;
+          this.allNotice.forEach(item => {
+            item.timeDifference = this.createJavascriptDate(item.created_at);
+            if(item.notice != null && item.notice.file_url != null){
+              item.docType = this.getDocType(item.notice.file_url);
+            }            
+          });
+          this.filterAllNotices(this.allNotice);
           this.totalData = await data.data.length;
           this.totalPage = await Math.floor(this.totalData / 5);
           this.presentLoading(false);
+          console.log("notice list : ", this.allNotice);
         } else {
           this.presentLoading(false);
         }
@@ -126,6 +139,43 @@ export class StudentNoticeBoardPage implements OnInit {
 
 
 
+  getDocType(file) {
+    console.log(file); 
+    if(file != null && file != ''){
+      let arr = file.split('.');
+      let extention = arr[parseInt(arr.length)-1];
+      return extention;
+    }else{
+      return null;
+    }    
+  }
+
+
+
+  filterAllNotices(arr) {
+    arr.forEach(item => {
+      if(item.notiece_type_id == '1'){
+        this.departmentalNotice.push(item);
+      }
+      if(item.notiece_type_id == '2'){
+        this.generalNotice.push(item);
+      }
+      if(item.notiece_type_id == '3'){
+        this.personalNotice.push(item);
+      }
+    });
+  }
+
+
+  createJavascriptDate(strDate) {
+    // let date = await new Date();
+    let onlyDate = strDate.substring(0, 10);
+    let dateArr = onlyDate.split('-');
+    let date = dateArr[0] + dateArr[1] + dateArr[2];
+    //console.log('date str : ', date);
+    return moment(date, "YYYYMMDD").fromNow();
+
+  }
 
   getGuestNoticeList(infiniteScroll?) {
 
@@ -143,9 +193,9 @@ export class StudentNoticeBoardPage implements OnInit {
       .post(`${apiUrl.url}notice/get-general`, data, { headers: header })
       .map(res => res.json())
       .subscribe(async data => {
-        console.log('Receive notice data for guest : ', data);
+        // console.log('Receive notice data for guest : ', data);
         if (data.data.length > 1) {
-          console.log("Receive data : ", data.data);
+          console.log("guest notice list : ", data.data);
           this.allNotice = await data.data;
           this.totalData = await data.data.length;
           this.totalPage = await Math.floor(this.totalData / 5);
@@ -228,7 +278,7 @@ export class StudentNoticeBoardPage implements OnInit {
     });
 
     let profileModal = this.modalCtrl.create(NoticeModalPage, {
-      notice: filterNotice[0]
+      notice: filterNotice[0], 
     });
     profileModal.present();
   }
@@ -237,14 +287,19 @@ export class StudentNoticeBoardPage implements OnInit {
     this.viewCtrl.dismiss();
   }
 
-  showPdf(url: string) {
-    alert(`${apiUrl.url}public/uploads/Notices/${url}`);
-    //let pdfurl = `${apiUrl.url}public/uploads/Notices/${url}`;
-    this.fileOpener
-      .open(url, "application/pdf")
-      .then(dta => alert(JSON.stringify(dta)))
-      .catch(e => alert(JSON.stringify(e)));
-  }
+  // showPdf(url: string) {
+  //   // alert(`${apiUrl.url}public/uploads/Notices/${url}`);
+  //   let pdfurl = `${apiUrl.url}public/uploads/Notices/${url}`;
+  //   this.fileOpener
+  //     .open(pdfurl, "application/pdf")
+  //     .then(dta => {
+  //       alert(JSON.stringify(dta))
+  //     })
+  //     .catch(
+  //       e => {}
+  //       // alert(JSON.stringify(e))
+  //       );
+  // }
 }
 
 

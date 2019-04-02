@@ -3,61 +3,96 @@
     <ion-title>Home</ion-title>
   </ion-navbar>
 </ion-header> -->
-
+<!-- 
 <div id="custom-overlay" [style.display]="splash ? 'flex' : 'none'">
   <div class="flb">
     <img class="img-screen" src="assets/imgs/logo.png">
   </div>
-</div>
+</div> -->
 
-<ion-content class="item-center" style="background: #434244">
-  <img class="logo-school" src="assets/imgs/inunco.png">
-  <p class="sub-line">Kindly choose your account type <br>and<br>tap on it </p>
-  <ion-grid >
+<ion-content class="item-center" style="padding-top: 100px;">
+  <div class="overley"></div>
+  <img class="logo-school" src="assets/icon/cyverhub_logo.svg" style="margin-top: 50px;">
+  <p class="sub-line">Choose and Tap<br>on your Account</p>
+  <ion-grid style="width: 85%">
     <ion-row #myElement>
 
       <ion-row col-6>
-        <ion-card color="blue" class="blue-gradient"  (click)="goToGuest()">
-          <ion-card-header text-center class="padd-bottom"><i class="fas fa-user-circle fa-3x"></i></ion-card-header>
-          <ion-card-content>
-            <ion-card-title text-uppercase text-center>
+        <ion-card style="background-color: #353434" (click)="goToGuest()">
+          <ion-card-header text-center class="padd-bottom">
+            <!-- <i class="fas fa-user-circle fa-3x" style="color: black"></i> -->
+            <img class="custom-image-size" src="assets/imgs/guest_logo.svg">
+          </ion-card-header>
+          <!-- <ion-card-content> -->
+            <!-- <ion-card-title text-uppercase text-center>
               Guest
-            </ion-card-title>
-          </ion-card-content>
+            </ion-card-title> -->
+          <!-- </ion-card-content> -->
+          <ion-row class="card-button-text">
+            <ion-col>
+              <div text-uppercase style="color: #db3236; font-size: 13px;">Guest</div>
+            </ion-col>
+          </ion-row>
         </ion-card>
       </ion-row>
 
       <ion-row col-6>
-        <ion-card color="blue" class="blue-gradient" (click)=goToStudent()>
-          <ion-card-header text-center class="padd-bottom"><i class="fas fa-user fa-3x"></i></ion-card-header>
-          <ion-card-content>
-            <ion-card-title text-uppercase text-center>
+        <ion-card  style="background-color: #353434" (click)=goToStudent()>
+          <ion-card-header text-center class="padd-bottom">
+            <!-- <i class="fas fa-user fa-3x" style="color: black"></i> -->
+            <img class="custom-image-size" src="assets/imgs/student_logo.svg">
+          </ion-card-header>
+          <!-- <ion-card-content> -->
+            <!-- <ion-card-title text-uppercase text-center>
               Student
-            </ion-card-title>
-          </ion-card-content>
+            </ion-card-title> -->
+          <!-- </ion-card-content> -->
+          <ion-row class="card-button-text">
+            <ion-col>
+              <div text-uppercase style="color: #4885ed; font-size: 13px;">Student</div>
+            </ion-col>
+          </ion-row>
         </ion-card>
       </ion-row>
 
       <ion-row col-6>
-        <ion-card color="blue" class="blue-gradient" (click)=goToStaff()>
-          <ion-card-header text-center class="padd-bottom"><i class="fas fa-briefcase fa-3x"></i></ion-card-header>
-          <ion-card-content>
-            <ion-card-title text-uppercase text-center>
+        <ion-card  style="background-color: #353434" (click)=goToStaff()>
+          <ion-card-header text-center class="padd-bottom">
+            <!-- <i class="fas fa-briefcase fa-3x" style="color: black"></i> -->
+            <img class="custom-image-size" src="assets/imgs/staff_logo.svg">
+          </ion-card-header>
+          <!-- <ion-card-content> -->
+            <!-- <ion-card-title text-uppercase text-center>
               Staff
-            </ion-card-title>
-          </ion-card-content>
+            </ion-card-title> -->
+          <!-- </ion-card-content> -->
+          <ion-row class="card-button-text">
+            <ion-col>
+              <div text-uppercase style="color: #3cba54; font-size: 13px;">Staff</div>
+            </ion-col>
+          </ion-row>
         </ion-card>
       </ion-row>
 
       <ion-row col-6>
-        <ion-card color="blue" class="blue-gradient" (click)=goToParents()>
-          <ion-card-header text-center class="padd-bottom"><i class="fas fa-users fa-3x"></i></ion-card-header>
-          <ion-card-content>
-            <ion-card-title text-uppercase text-center>
+
+        <ion-card style="background-color: #353434" (click)=goToParents()>
+          <ion-card-header text-center class="padd-bottom">
+            <!-- <i class="fas fa-users fa-3x" style="color: black"></i> -->
+            <img style="margin-bottom: 8px;" src="assets/imgs/guardians_logo.svg">
+          </ion-card-header>
+          <!-- <ion-card-content> -->
+            <!-- <ion-card-title text-uppercase text-center>
               Parents
-            </ion-card-title>
-          </ion-card-content>
+            </ion-card-title> -->
+          <!-- </ion-card-content> -->
+          <ion-row class="card-button-text">
+            <ion-col>
+              <div text-uppercase style="color: #f4c20d; font-size: 13px;">guardians</div>
+            </ion-col>
+          </ion-row>
         </ion-card>
+        
       </ion-row>
     </ion-row>
   </ion-grid>

@@ -1,4 +1,5 @@
 page-home {
+    
 	background-color: #fff;
 	overflow-y:inherit;
 	.item-center{
@@ -6,9 +7,10 @@ page-home {
     	position: relative;
     	top: 50%;
     	transform: translateY(-50%);
-    	overflow:hidden;
-	}
-	.padd-bottom{
+    	overflow: hidden;
+    }
+    
+	.padd-bottom {
 		padding-bottom: 0px !important;
 	}
 
@@ -29,6 +31,7 @@ page-home {
     .logo-school{
         display: block;
         margin: 13px auto;
+        width: 41% !important;
     }
 	#custom-overlay {
         position: fixed;
@@ -87,11 +90,24 @@ page-home {
     }
     .sub-line{
         text-align: center;
-        border-top: 1px solid #ddd;
-        border-bottom: 1px solid #ddd;
-        padding: 10px;
+        border-top: 1px solid #9b9b9b;
+        border-bottom: 1px solid #9b9b9b;
+        padding: 20px;
         margin: 0 21px 10px;
+        color: #9b9b9b;
+        font-size: 16px;
+    }
+
+    .card-button-text{
+        margin-top: 24px;
+        margin-bottom: 0px !important;
+        background: rgba(0, 0, 0, 0.82);
+        text-align: center;
+        font-size: 17px;
+        font-weight: 400;
         color: #fff;
+        position: relative !important;
+        bottom: 0px !important;
     }
 
     @keyframes pulse {
@@ -104,10 +120,31 @@ page-home {
         
     }
 
+    .card {
+		border-radius: 9px !important;
+	}
+
     .img-screen {
         -webkit-animation: animation 3000ms linear both;
         animation: animation 3000ms linear both;
     }
+
+    .content-md {
+        background-image: url('http://softechs.co.in/app_image/account_selection_screen_bg.jpg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+
+    .overley {
+        position: absolute;
+        width: 100%;
+        height: 100vh;
+        background-color: #000;
+        opacity: 0.85 !important;
+        z-index: -1;
+    }
+
     /* Generated with Bounce.js. Edit at http://bouncejs.com#%7Bs%3A%5B%7BT%3A%22r%22%2Ce%3A%22b%22%2Cd%3A1000%2CD%3A0%2Cf%3A0%2Ct%3A90%2Cs%3A3%2Cb%3A4%7D%2C%7BT%3A%22k%22%2Ce%3A%22s%22%2Cd%3A1000%2CD%3A0%2Cf%3A%7Bx%3A0%2Cy%3A0%7D%2Ct%3A%7Bx%3A20%2Cy%3A20%7D%2Cs%3A3%2Cb%3A4%7D%5D%7D */
     @-webkit-keyframes animation { 
         0% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
@@ -165,5 +202,16 @@ page-home {
         85.49% { -webkit-transform: matrix3d(1.999, 0, 0, 0, 0, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.999, 0, 0, 0, 0, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
         90.69% { -webkit-transform: matrix3d(1.999, 0, 0, 0, 0, 1.999, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.999, 0, 0, 0, 0, 1.999, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
         100% { -webkit-transform: matrix3d(2, 0, 0, 0, 0, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(2, 0, 0, 0, 0, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); } 
+    }
+
+
+    .custom-image-size {
+        width: 75%;
+        max-width: 200px;
+        margin: 0 auto;
+    }
+
+    .card-md {
+        height: 86% !important;
     }
 }

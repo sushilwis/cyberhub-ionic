@@ -1,0 +1,89 @@
+<ion-content padding>
+  <!-- <h5 class="title" text-center text-uppercase margin-bottom>Stuff Registration</h5> -->
+
+  <div text-center margin-top>
+    <h4 style="font-size: 1.9rem;">
+      <img class="login-page-logo" src="assets/icon/cyverhub_logo.svg">
+      <img class="straight-line" src="assets/icon/substract.svg"> Welcome Guardian !
+    </h4>
+  </div>
+
+
+  <p class="sub-line" style="margin-top: 25px; padding: 10px;">
+    <span>Here you can register with institution<br> of your child to get the most out<br>of this application.</span>
+  </p>
+  <p class="" text-center text-capitalize margin-bottom style="text-decoration: underline; font-size: 16px;">Please fill the following details</p>
+
+  <!-- <ion-list>
+    <ion-item> -->
+      <!-- <ion-navbar color="light" [hideBackButton]="isSearchbarOpened ? 'true' : 'false'"> -->
+        <!-- <ion-title *ngIf="isSearchbarOpened==false">Submit Enquiry</ion-title>
+        <ion-buttons end *ngIf="isSearchbarOpened==false" (click)="onSearchButtonClick()">
+          <button ion-button icon-only>
+            <ion-icon name="search" color="light"></ion-icon>
+          </button>
+        </ion-buttons> -->
+      <!-- <ion-list>
+        <ion-item>  
+          <ion-label floating>Search</ion-label>
+          <ion-input type="text" name="inputShowValue" [(ngModel)]="inputShowValue" (keyup)="getItems($event)" (click)="onSearchButtonClick()"></ion-input>
+        </ion-item>
+      </ion-list> -->
+
+      <ion-list>
+          <ion-item>
+            <ion-label style="color: #9a9a9a;">Institution Type</ion-label>
+
+            <ion-select [(ngModel)]="type" (ngModelChange)="getData()">
+              <ion-option value="1">School</ion-option>
+              <ion-option value="2">College</ion-option>
+              <ion-option value="3">University</ion-option>                
+            </ion-select>
+
+          </ion-item>
+          
+          <ion-item>  
+            <ion-label floating style="color: #9a9a9a">Institution</ion-label>
+            <ion-input type="text" name="inputShowValue" [(ngModel)]="inputShowValue" (keyup)="getItems($event)" [disabled]="disabledField()"></ion-input>
+          </ion-item>      
+      </ion-list>
+        
+      <ion-list style="background-color: #3f3f3f; color: #fff; font-size: 13px; margin-left: 10px;" class="search-result" [ngStyle]="{'display':isSearchbarOpened ? 'block' : 'none' }">
+        <ion-item *ngFor="let item of items" (click)="schoolsDetails(item)">
+            {{ item.name }}
+            <p>City : {{ item.city }}, Pin : {{ item.pin }}</p>
+        </ion-item>
+      </ion-list>
+    <!-- </ion-item> 
+  </ion-list> -->
+
+  <ion-list>
+      <ion-item>
+        <ion-label floating style="color: #9a9a9a">Phone No</ion-label>
+        <ion-input type="number" name="regNo" [(ngModel)]="mobileNo"></ion-input>
+      </ion-item> 
+      <p class="input-info">Which linked with your institution</p>     
+  </ion-list>
+
+
+  <ion-list>
+    <ion-item>
+      <ion-label floating style="color: #9a9a9a">Registered Identity No</ion-label>
+      <ion-input type="text" name="identityNo" [(ngModel)]="identityNo"></ion-input>
+    </ion-item> 
+    <p class="input-info">Which linked with your institution</p>     
+  </ion-list>
+
+  <!-- <button ion-button block outline color="blue" class="" (click)='registrationSubmit()'>Submit</button> -->
+
+  <div text-center margin-top style="margin-top: 35px;">
+      <button ion-button color="blue" class="btn-size" (click)='registrationSubmit()'>Submit</button>
+  </div>
+
+  
+  <div text-capitalize text-center margin-top>
+    <p (click)='goToParentsLogin()' style="font-size: 16px; cursor: pointer; font-weight: bold; margin-top: 40px;">already registered?<br> click here to login now.</p>
+  </div>
+</ion-content>
+
+

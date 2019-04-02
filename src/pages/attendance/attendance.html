@@ -11,7 +11,7 @@
 
 <ion-content *ngIf="showPeriodForm" class="item-center" padding>
 	<h4 class="title" text-center text-uppercase margin-bottom>Select Period</h4>
-	 <ion-list>
+	 <!-- <ion-list>
 			<ion-item>
 				<ion-label>Shift</ion-label>
 				<ion-select [(ngModel)]="shift" (ionChange)="getPeriod($event)">
@@ -20,7 +20,7 @@
 					</ng-container>
 				</ion-select>
 			</ion-item>
-	</ion-list>
+	</ion-list> -->
 
 	<!--<ion-list>
 			<ion-item>
@@ -44,7 +44,9 @@
 			<ion-item>
 				<ion-label>Period</ion-label>
 				<ion-select [(ngModel)]="period">
-					<ion-option *ngFor="let period of periodList" value="{{period.id}}">{{period.priod_name}} ({{period.from_time}} {{period.to_time}})</ion-option>
+					<ion-option *ngFor="let period of periodList" value="{{period.id}}">
+						{{period.priod_name}} ({{period.from_time}} {{period.to_time}})
+					</ion-option>
 				</ion-select>
 			</ion-item>
 	</ion-list>

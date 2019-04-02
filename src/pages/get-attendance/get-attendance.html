@@ -19,7 +19,7 @@
 
 		<ion-list>
 				<ion-item>
-					<ion-label>Shift</ion-label>
+					<ion-label>Choose Shift</ion-label>
 					<ion-select [(ngModel)]="shift" (ionChange)="onChooseShift($event)">
 						<ng-container *ngFor="let shift of orgShiftLists">
 							<ion-option value="{{shift.orgshift[0]?.id}}" *ngIf="shift.orgshift[0]?.id">{{shift.name}}</ion-option>
@@ -30,26 +30,35 @@
 
 		<ion-list>
 				<ion-item>
-					<ion-label>Stream</ion-label>
+					<ion-label>Choose Stream</ion-label>
 					<ion-select [(ngModel)]="stream" (ionChange)="onChooseClassStream($event)">
 						<ion-option value="{{classStream.class_id}}" *ngFor="let classStream of sortArray">{{classStream.class_name}}</ion-option>
 					</ion-select>
 				</ion-item>
 		</ion-list>
-
+		<ion-list>
+			<ion-item>
+				<ion-label>Choose Sem</ion-label>
+				<ion-select [(ngModel)]="sem_no" (ionChange)="onSemChange($event)">
+					<ion-option *ngFor="let sem of allSemList" value="{{sem.id}}">
+						{{sem.sem_no}}
+					</ion-option>
+				</ion-select>
+			</ion-item>
+		</ion-list>
 		<ion-list>
 				<ion-item>
-					<ion-label>Department</ion-label>
-					<ion-select [(ngModel)]="department">
-						<ion-option value="{{sec.classSectionIndexId}}" *ngFor="let sec of filteredArrayForSectionList">{{sec.section_name}}</ion-option>
+					<ion-label>Choose Department</ion-label>
+					<ion-select [(ngModel)]="department" (ionChange)="getPeriod()">
+						<ion-option value="{{sec.classSectionIndexId}}" *ngFor="let sec of newFilterSectionArry">{{sec.section_name}}</ion-option>
 					</ion-select>
 				</ion-item>
 		</ion-list>		
-
+		
 		<ion-list>
 				<ion-item>
-					<ion-label>Period</ion-label>
-					<ion-select [(ngModel)]="period">
+					<ion-label>Choose Session</ion-label>
+					<ion-select [(ngModel)]="period" (ionChange)="getSubjectid($event)">
 						<ion-option *ngFor="let period of periodList" value="{{period.id}}">{{period.priod_name}} ({{period.from_time}} {{period.to_time}})</ion-option>
 					</ion-select>
 				</ion-item>

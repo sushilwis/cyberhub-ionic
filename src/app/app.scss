@@ -14,6 +14,13 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+*{
+	font-family: Roboto, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+// .confirmAlert {
+// 	background-color: #1b1b1b;
+// }
 
 .fixed{
 	margin-top: 2rem;
@@ -59,3 +66,153 @@
 	width: 17%;
     margin-right: 20px;
 }
+
+
+
+// action-sheets-basic-page {
+    .action-sheet-md .action-sheet-title {
+        color: #000 !important;
+    }
+    .action-sheet-md .action-sheet-button {
+        font-size: 13.5px !important;
+    }
+// }
+
+	.toolbar-background-md {
+		background-color: #009688 !important;
+	}
+	.toolbar-title-md {
+		color: #fff !important;
+	}
+	.title {
+		text-decoration: none !important;
+	}
+
+	.content-md {
+		color: #fff !important;
+		background-color: #1b1b1b !important;
+	}
+	.list-md .item-block .item-inner {
+		border-bottom: 1px solid #dedede !important;
+	}
+	.button-clear-md {
+		color: #f6f6f6 !important;
+	}
+	.button-md-blue {
+		color: #202020;
+		background-color:#1CB9FF;
+	}
+
+	.item-md {
+		color: #f6f6f6;
+    	background-color: #1b1b1b;
+	}
+	.list-md .item-block .item-inner, .item-md.item-block .item-inner {
+		border-bottom: none;
+	}
+	.list-md .item-block .item-inner {
+		border-bottom: none !important;
+	}
+	.bar-button-default-md, .bar-button-clear-md-default, .bar-button-md-default
+	.bar-button-default-ios, .bar-button-clear-ios-default, .bar-button-ios-default
+	{
+		color: #f6f6f6;
+		background-color: transparent;
+	}
+
+	.card-black {
+		background-color: #1b1b1b00 !important; // black
+		border: 1px solid rgba(161, 161, 161, 0.911);
+	}
+	.card-black *{
+		color: #f4f4f4 !important;
+	}
+
+	.okBtn, .alertOkBtn {
+		background-color: #3c3c3c !important;
+		color: #fff !important;
+		width: 75px !important;
+		text-align: center !important;
+	}
+
+	.okBtn .button-inner, .alertOkBtn .button-inner {
+		display: block !important;
+		text-align: center !important;
+	}
+
+	.alert-head {
+		padding: 10px 24px 4px !important;
+	}
+
+	#alert-hdr-5 {
+		text-align: center !important;
+	}
+
+	.action-sheet-md .action-sheet-title {
+		font-size: 17px;
+    	font-weight: bold;
+	}
+
+	.eventAlert p {
+		margin: 4px 0px 4px 0px !important;	
+		color: rgba(41, 33, 33, 1) !important; 	 
+	}
+
+	.eventAlert .alert-message {
+		padding-bottom: 0px;
+	}
+
+	.input-info {
+		padding: 0px;
+		margin: 0px;
+		padding-left: 17px;
+		padding-top: 2px;
+		font-size: 9px;
+		color: #909090;
+	}
+
+
+	#level-3 > .toolbar-background-md {
+		background-color: #004e47 !important;
+	}
+
+	// .eventAlert .alert-md .alert-message, .eventAlert .alert-md .alert-input-group {
+	// 	color: rgba(41, 33, 33, 1) !important; 
+	// }
+
+	ion-icon {
+		&[class*="customicon-"] {
+			// Instead of using the font-based icons
+			// We're applying SVG masks
+			mask-size: contain;
+			mask-position: 50% 50%;
+			mask-repeat: no-repeat;
+			width: 1em;
+			height: 1em;
+		}
+		// custom icons
+		&[class*="library"] {
+			mask-image: url("../assets/imgs/library_logo.svg");
+		}
+		&[class*="notice-board"] {
+			// mask-image: url(../assets/imgs/notice_board_logo.svg);
+			background: url("../assets/imgs/notice_board.svg") no-repeat 50% 50%;
+    		background-size: contain;
+		}
+		&[class*="home"] {
+			// mask-image: url(../assets/imgs/notice_board_logo.svg);
+			background: url("../assets/icon/Home_btn.svg") no-repeat 50% 50%;
+    		background-size: contain;
+		}
+		&[class*="routine"] {
+			// mask-image: url(../assets/imgs/notice_board_logo.svg);
+			background: url("../assets/icon/staffRoutine.svg") no-repeat 50% 50%;
+    		background-size: contain;
+		}
+		&[class*="attendance"] {
+			// mask-image: url(../assets/imgs/notice_board_logo.svg);
+			background: url("../assets/icon/attendance.svg") no-repeat 50% 50%;
+    		background-size: contain;
+		}
+	
+	}

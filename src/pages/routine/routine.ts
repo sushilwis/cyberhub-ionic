@@ -19,12 +19,13 @@ import { SchoolDetailsPage } from '../school-details/school-details';
   templateUrl: 'routine.html',
 })
 export class RoutinePage implements OnInit {
-
+  scheduleTab: string = "class";
 	data: Array<{title: string, details: string, icon: string, showDetails: boolean}> = [];
   localUserData: any;
   loading: any;
   routineList: any;
   rawRoutineList: any;
+  dayName: any = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public menuCtrl: MenuController, public loadingController: LoadingController, private http: Http) {
   		// for(let i = 1; i < 7; i++ ){
@@ -152,7 +153,7 @@ export class RoutinePage implements OnInit {
 				if (data.data.length > 0) {
           // this.presentLoading(false);
           this.rawRoutineList = data.data;
-          // console.log('routine list : ', this.rawRoutineList);
+          console.log('routine list : ', this.rawRoutineList);
           this.sortArr(this.rawRoutineList);
 				}else{
           this.presentLoading(false);
@@ -216,6 +217,7 @@ export class RoutinePage implements OnInit {
         let new_data = {
           id: element.id,
           day: element.day,
+          dayName: this.dayName[parseInt(element.day)-1],
           icon: 'ios-add-circle-outline',
           showDetails: false,
           priods: [

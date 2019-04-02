@@ -8,6 +8,7 @@ import { apiUrl } from '../../apiUrl';
 import {messageVendor} from '../../vendors';
 import { StdRegPage } from '../std-reg/std-reg';
 import {HomePage} from '../home/home'
+import { FcmProvider } from "../../providers/fcm/fcm";
 // declare var $: any;
 // declare var jquery : any;
 
@@ -34,8 +35,11 @@ export class StudentLoginPage {
 	OTP: number;
 	otp_pass: number;
 	userdata: any;
+	show: boolean = false;
+
 	constructor(public navCtrl: NavController, public navParams: NavParams, 
-		private http: Http, public loadingController: LoadingController, public jsonp: Jsonp, public alertCtrl: AlertController) {
+		private http: Http, public loadingController: LoadingController, 
+		public jsonp: Jsonp, public alertCtrl: AlertController, public fcm: FcmProvider ) {
 		this.initLoader();
 		// setTimeout(() => {
 		// 	//
@@ -88,9 +92,10 @@ export class StudentLoginPage {
 			map(res => res.json()).subscribe(data => {	
 				console.log('login data : ', data.data);
 				if (data.data.length > 0) {
-					// console.log('login data : ', data.data);					
-					this.presentLoading(false);
 					localStorage.setItem('userData', JSON.stringify(data.data[0]));
+					// console.log('login data : ', data.data);	
+					this.fcm.getToken();				
+					this.presentLoading(false);
 					this.navCtrl.setRoot(StudentsTabsPage);					
 				}else {
 					this.showAlert('Alert!', 'Sorry, user not found. Please check your ID or Password.');
@@ -145,7 +150,10 @@ export class StudentLoginPage {
 	}
 
 
-
+	password() {
+		this.show = !this.show;
+		
+	}
 
 	showAlert(title, msg) {
 		const alert = this.alertCtrl.create({

@@ -1,4 +1,7 @@
 page-search-organisation {
+    html, body{
+        font-family: Roboto, Cochin, Georgia, Times, 'Times New Roman', serif;
+    }
     .search-result{
 		position: absolute;
 		left: 0;
@@ -8,7 +11,8 @@ page-search-organisation {
 		// height: 100vh;
 		z-index: 99;
 		border: 1px solid #ddd;
-		overflow-y: scroll;
+        overflow-y: scroll;
+        
 		/* visibility: hidden; */
 		/* opacity: 0; */
     }
@@ -29,6 +33,20 @@ page-search-organisation {
     }
     .item-md {
         background-color: #3f3f3f;
+        color: #fff;
+        font-size: 13px;
+    }
+    .note-md{
+        color: #fff;
+        opacity: .3;
+        font-size: 11px;
+        margin: -10px 8px 9px 0 !important;
+    }
+    .col-result-add {
+        color: #fff;
+        opacity: .6;
+        font-size: 11px;
+        margin-top: 5px;
     }
     .item-input .label-md, .item-select .label-md, .item-datetime .label-md {
         color: #795548;
@@ -36,4 +54,33 @@ page-search-organisation {
     .icon-md-light {
         color: #000;
     }
+    .bar-button-default-md, .bar-button-clear-md-default, .bar-button-md-default {
+        color: #fff !important;
+    }  
+    .search-result {
+        border: none !important;
+    }  
+    .item-md {
+        border-bottom: 0.2px solid #eee;
+    }
+
+
+    .action-sheets-basic-page .action-sheet-md .action-sheet-title {
+        border-bottom: 1px solid #b5b4b4;
+        padding-top: 4px;
+        padding-bottom: 8px;
+    }
+
+    .action-sheets-basic-page {
+        border-bottom: 1px solid #b5b4b4;
+        padding-top: 4px;
+        padding-bottom: 8px;
+    }
+
+    
 }
+
+
+
+
+

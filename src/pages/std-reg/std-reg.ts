@@ -27,6 +27,7 @@ export class StdRegPage {
   collegeList: any;
   college: any;
   mobileNo: any;
+  idNo: any;
 
   searchQuery: string = "";
   items = [];
@@ -34,19 +35,16 @@ export class StdRegPage {
   inputShowValue: any;
   list = [];
   idList = [];
-  country: number;
-  state: number;
-  jela: string;
 
+  type: string;
   constructor(public navCtrl: NavController, public navParams: NavParams, private http: Http, public menuCtrl: MenuController, public loadingController: LoadingController, public alertCtrl: AlertController, public toastCtrl: ToastController) {
     this.menuCtrl.enable(true);
     this.initLoader();
-    this.getData();
   }
 
 
   ngOnInit(){
-    this.getCollege();
+    // this.getCollege();
   }
   
 
@@ -121,17 +119,22 @@ export class StdRegPage {
   
       let data = {
         org_id: this.college,
-        mobile_no: this.mobileNo
+        mobile_no: this.mobileNo,
+        id_no: this.idNo,
+        type: this.type,
       }
 
       // console.log(data);      
   
       this.http.post(`${apiUrl.url}user/register`, data, options).
-        map(res => res.json()).subscribe(data => {	  
-          if (data.data.length > 0) {
-            this.presentLoading(false);
+        map(res => res.json()).subscribe(data => {          	  
+          if (data.data) { 
+            this.presentLoading(false);           
             console.log('student data : ', data);	
-            this.showAlert('Success!', `Your Username is : ${data.data[0].user_name} and Password is : ${data.data[0].hint}. Please login to continue.`);				
+            this.showAlert('Success!', `Your Username is : ${data.data[0].username} and Password is : ${data.data[0].hint}. Please login to continue.`);				
+          }else{
+            this.presentLoading(false);
+            this.showAlert('Error!', `${data.Error}`);
           }
       });    
   }
@@ -155,6 +158,8 @@ export class StdRegPage {
 
   getItems(ev: any) {
     // Reset items back to all of the items
+    console.log('item arr : ', this.items);
+    // console.log('value : ', ev.target.value);
     if(ev.target.value == ""){
       this.isSearchbarOpened = false;
       this.items = [];
@@ -182,18 +187,18 @@ export class StdRegPage {
 
 
 
-  goToListing() {
-    if (this.country == null && this.state == null) {
-      this.presentToast(`State and Country Can't be Blank`)
-    } else {
-      let data = {
-        country: this.country,
-        state: this.state,
-        jela: this.jela
-      };
-      this.navCtrl.push(SchoolListingPage, {data});
-    }
-  }
+  // goToListing() {
+  //   if (this.country == null && this.state == null) {
+  //     this.presentToast(`State and Country Can't be Blank`)
+  //   } else {
+  //     let data = {
+  //       country: this.country,
+  //       state: this.state,
+  //       jela: this.jela
+  //     };
+  //     this.navCtrl.push(SchoolListingPage, {data});
+  //   }
+  // }
 
 
 
@@ -206,6 +211,7 @@ export class StdRegPage {
 
 
   schoolsDetails(org) {
+    this.isSearchbarOpened = false;
     this.inputShowValue = org.name;
     this.college = org.id;
     
@@ -216,20 +222,38 @@ export class StdRegPage {
 
 
   getData() {
+    var headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    let options = new RequestOptions({ headers: headers });
+
+    let data = {
+      type: this.type,
+      is_reg: true,
+    }
+    
     this.http
-      .get(`${apiUrl.url}org/alllist`)
+      .post(`${apiUrl.url}org/orgsearchbytype`, data, options)
       .map(res => res.json())
       .subscribe(data => {
-        this.presentLoading(false);
-        this.allSchoolsList = data;
-        console.log("student list : ", this.allSchoolsList);
-        data.data.forEach(ele => {
-          const obj = {
-            id: ele.id,
-            name: ele.org_name
-          };
-          this.list.push(obj);
-        });
+        // this.presentLoading(false);
+        this.allSchoolsList = data.data;
+        // console.log("school list... : ", this.allSchoolsList);
+        // console.log("school list length..... : ", data.data.length);
+        if(this.allSchoolsList.length > 0){
+          this.list = [];
+          this.allSchoolsList.forEach(ele => {
+            const obj = {
+              id: ele.id,
+              name: ele.org_name,
+              city: ele.org_city,
+              pin: ele.pin,
+            };
+            
+            this.list.push(obj);
+          });
+
+          console.log("arr list..... : ", this.list);
+        }        
       });
   }
 
@@ -239,7 +263,7 @@ export class StdRegPage {
   onSearchButtonClick() {
     this.isSearchbarOpened = true;
     setTimeout(() => {
-      this.searchbox.setFocus();
+      //this.searchbox.setFocus();
     }, 150);
   }
 

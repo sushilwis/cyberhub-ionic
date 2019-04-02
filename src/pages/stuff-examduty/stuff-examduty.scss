@@ -6,6 +6,9 @@
 
 
 page-stuff-examduty {
+	.icon-md-primary, .icon-ios-primary  {
+		color: #f4f4f4 !important;
+	}
 	ion-list {
 	    ion-item {
 	      background-color: transparent;
@@ -38,5 +41,106 @@ page-stuff-examduty {
 	}
 	.toolbar-md, .toolbar-ios{
 		padding:0px;
+	}
+	.ion-label div {
+		// padding: 0px !important;
+	}
+
+
+
+
+
+
+	.toolbar-md, .toolbar-ios{
+		padding:0px;
+	}
+
+
+	.notice-img {
+		width: 40% !important;
+	}
+	.item-md ion-avatar[item-left], .item-md ion-thumbnail[item-left], .item-md ion-avatar[item-start], .item-md ion-thumbnail[item-start] {
+		margin: 8px -80px 8px 0 !important;
+	}
+
+
+	.segment-md .segment-button {		
+		opacity: 0.4;		
+	}
+
+	.toolbar-background-md {
+		background-color: #1b1b1b !important;
+	}
+	.toolbar-title-md {
+		color: #fff !important;
+	}
+	.title {
+		text-decoration: none !important;
+	}
+
+
+
+
+
+
+
+	.content-md {
+		color: #fff !important;
+		background-color: #1b1b1b;
+	}
+	.list-md .item-block .item-inner {
+		border-bottom: 1px solid #aaa !important;
+	}
+	.button-clear-md {
+		color: #f6f6f6 !important;
+	}
+	.button-md-blue {
+		color: #202020;
+		background-color:#1CB9FF;
+	}
+
+	.item-md {
+		color: #f6f6f6;
+    	background-color: #1b1b1b;
+	}
+	.list-md .item-block .item-inner, .item-md.item-block .item-inner {
+		border-bottom: none;
+	}
+	.list-md .item-block .item-inner {
+		border-bottom: none !important;
+	}
+	.segment-md .segment-button{
+		color: #aaaaaa;
+		font-size: .8rem;
+		height: 5rem;
+		line-height: .7rem;
+	}
+	.segment-md .segment-button.activated, .segment-md .segment-button.segment-activated {
+		border-color: #fff;
+	}
+	// .segment-md .segment-button{
+	// 	height: 5rem;
+	// }
+	.item-md ion-thumbnail ion-img, .item-md ion-thumbnail img {
+		height: 40px !important;
+	}
+	.label-md{
+		margin: 5px 5px 5px 0 !important;
+	}
+	.item-md ion-thumbnail {
+		min-height: 40px !important;
+	}
+	.item-md h2 {
+		font-size: 1.35rem;
+	}
+	.cls-1 {
+        fill: #aaa !important;
+	}
+	.item-md .item-button {
+		padding: 0px;
+	}
+
+	.item-md p {
+		color: #a6a6a6;
 	}
 }

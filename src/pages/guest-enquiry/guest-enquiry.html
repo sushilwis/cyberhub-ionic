@@ -41,45 +41,54 @@
 					</ion-list> -->
 				
 
-		<p text-center text-uppercase margin-bottom class="top-heading">Find Your Organisation</p>
+		<p text-center text-uppercase margin-bottom class="top-heading" style="margin-top: 30px; text-align: center;">Find Your institution</p>
 		 
-	 <form>
+	 <!-- <form> -->
 	 	<ion-item class="select-css">
 		  <ion-label>Country</ion-label>
-		  <ion-select [(ngModel)]="country" name="country">
-		    <ion-option value="">India</ion-option>		    
+		  <ion-select [(ngModel)]="country" name="country" (ionChange)="onChangeCountry()">
+		    <ion-option value="101">India</ion-option>		    
 		  </ion-select>
 		</ion-item>
 
 	 	<ion-item class="select-css">
 	 		<ion-label>State</ion-label>
-		  <ion-select [(ngModel)]="state" name="state">
-		    <ion-option value="">West Bangal</ion-option>		    
+		  <ion-select [(ngModel)]="state" name="state" (ionChange)="onChangeState()">
+		    <ion-option *ngFor="let state of states" value="{{state.id}}">{{state?.name}}</ion-option>		    
 		  </ion-select>
 		</ion-item>
 
 		<ion-item>
 			<ion-label>District</ion-label>
 			<ion-select [(ngModel)]="dist" name="dist">
-		    <ion-option value="">West Bangal</ion-option>		    
+		    <ion-option *ngFor="let dist of dists" value="{{dist.id}}">{{dist?.name}}</ion-option>		    
 		  </ion-select>
 		</ion-item>
 
 		<ion-item>
+			<ion-label>Type</ion-label>
+			<ion-select [(ngModel)]="type" name="type">
+		    <ion-option value = "1" >School</ion-option>		    
+		    <ion-option value = "2" >College</ion-option>		    
+		    <ion-option value = "3" >University</ion-option>		    
+		  </ion-select>
+		</ion-item>
+
+		<!-- <ion-item>
 			<ion-label>City</ion-label>
 			<ion-select [(ngModel)]="city" name="city">
 		    <ion-option value="">West Bangal</ion-option>		    
 		  </ion-select>
-		</ion-item>
+		</ion-item> -->
 
-		<ion-item text-center>
-		  <button ion-button margin-top type="submit" class="btn-size" color="blue" (click)=goToListing()>NEXT</button>
-		</ion-item>
+		<div text-center style="border-bottom: none; margin-top: 40px;">
+		  <button ion-button margin-top type="submit" class="btn-size mt-10" color="blue" (click)="goToListing()">NEXT</button>
+		</div>
 		 <!-- <button ion-button type="submit" block outline color="blue" (click)=goToHome()>Back To Home</button> -->
 
 		 <div text-capitalize text-center>
-			 <p (click)="goToSearchOrg()">Not Sure?<br> Search your organisation name instead.</p>
+			 <p (click)="goToSearchOrg()" style="font-size: 16px; cursor: pointer; font-weight: bold; margin-top: 40px;">Not Sure?<br> Search your institution name instead</p>
 		 </div>
-	</form>
+	<!-- </form> -->
 </div>
 </ion-content>

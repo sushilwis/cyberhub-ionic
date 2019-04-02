@@ -16,6 +16,7 @@ page-parents-login {
     	top: 50%;
     	transform: translateY(-50%);
 	}
+	
 	.enquiry-form{
 		/*background: linear-gradient(141deg, #23309e 0%, #1b7bc5 51%, #2635bf 75%);*/
 		width: 100%;
@@ -58,5 +59,44 @@ page-parents-login {
 		    padding-top: 24px;
 		    padding-bottom: 0px;
 		    margin-bottom: 0px;
+		}
+
+		.list-md .item-block .item-inner {
+			border-bottom: 1px solid #dedede !important;
+		}
+
+		.login-page-logo {
+			width: 19%;
+			position: relative;
+			left: 23px;
+			top: 8px;
+		}
+	
+		.straight-line {
+			transform: rotate(90deg);
+			height: 35px;
+			position: relative;
+			left: 12px;
+			top: 9px;
+		}
+		
+		.sub-line{
+			text-align: center;
+			border-top: 1px solid #909090;
+			border-bottom: 1px solid #909090;
+			padding: 10px;
+			margin: 0 0px 35px 0px;
+			color: #909090;
+		}
+		.btn-size {
+			padding: 15px 25px !important;
+		}
+		.input-info {
+			padding: 0px;
+			margin: 0px;
+			padding-left: 17px;
+			padding-top: 2px;
+			font-size: 9px;
+			color: #909090;
 		}
 }

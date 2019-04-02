@@ -19,11 +19,11 @@
 
 
 <ion-content>
-  <ion-buttons end>
+  <!-- <ion-buttons end>
     <button ion-button [disabled]="isToday" (click)="today()">Today</button>
   </ion-buttons>
   
-  <br>
+  <br> -->
 
   <calendar [eventSource]="eventSource" [calendarMode]="calendar.mode" [currentDate]="calendar.currentDate" (onCurrentDateChanged)="onCurrentDateChanged($event)"
     (onRangeChanged)="reloadSource(startTime, endTime)" (onEventSelected)="onEventSelected($event)" (onTitleChanged)="onViewTitleChanged($event)"

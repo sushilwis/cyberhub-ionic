@@ -19,6 +19,7 @@ import { apiUrl } from '../../apiUrl';
   selector: 'page-student-library-list',
   templateUrl: 'student-library-list.html',
 })
+
 export class StudentLibraryListPage {
   localUserData: any;
   allBookList: any = [];
@@ -29,7 +30,7 @@ export class StudentLibraryListPage {
   loading: any;
   matchItem: any;
   allBook: any;
-  showNotFound: boolean;
+  showNotFound: boolean = false;
   
 
 
@@ -44,6 +45,7 @@ export class StudentLibraryListPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad StudentLibraryListPage');
+    this.setSearchbarPlaceholder();
   }
 
   
@@ -65,6 +67,7 @@ export class StudentLibraryListPage {
 
   ngOnInit(){
     this.getBookList();
+    // this.setSearchbarPlaceholder();
   }
 
 
@@ -88,7 +91,7 @@ export class StudentLibraryListPage {
         .map(res => res.json())
         .subscribe(
           async data => {
-            // console.log("book list : ", data.data);
+            console.log("book list : ", data.data);
             if(data.data.length > 1) {
               this.presentLoading(false);
               this.allBookList = await data.data;
@@ -140,10 +143,11 @@ export class StudentLibraryListPage {
     this.showNotFound = false;
     let tempArr = [];
     // console.log('search change...', e.target.value);
-    if(e.target.value != ""){     
+    let searchValue = e.target.value.toLowerCase();
+    if(searchValue != ""){     
       for (let index = 0; index < this.allBookList.length; index++) {
-            var matchFound = await this.allBookList[index].book_name.toLowerCase().match(e.target.value);
-            var matchAuthor = await this.allBookList[index].author.toLowerCase().match(e.target.value);
+            var matchFound = await this.allBookList[index].book_name.toLowerCase().match(searchValue);
+            var matchAuthor = await this.allBookList[index].author.toLowerCase().match(searchValue);
                 
             if (matchFound != null) {
               tempArr.push(this.allBookList[index]);
@@ -174,9 +178,10 @@ export class StudentLibraryListPage {
 
       this.allBookList = tempArr;
       // this.showNotFound = false;
+      console.log('book list by search : ', this.allBookList);      
     }else{
       this.allBookList = this.allBook;
-      
+      console.log('all book list : ', this.allBookList);
     }   
   }
 
@@ -229,6 +234,43 @@ export class StudentLibraryListPage {
   dismiss() {
     this.viewCtrl.dismiss();
   }
+
+
+  onFocusSearch(){
+    // console.log('input is on focus...'); 
+    let searchInput = document.querySelector('#booksearch'); 
+    // console.log(searchInput);
+    // console.log(searchInput.children[0].childNodes[2]);
+    let input = <HTMLInputElement>searchInput.children[0].childNodes[2];
+    // console.log(input.getAttribute('placeholder'));  
+    input.setAttribute('placeholder', '')   
+  }
+
+
+  setSearchbarPlaceholder(){
+    // console.log('input is on focus...'); 
+    let searchInput = document.querySelector('#booksearch'); 
+    // console.log(searchInput);
+    // console.log(searchInput.children[0].childNodes[2]);
+    let input = <HTMLInputElement>searchInput.children[0].childNodes[2];
+    // console.log(input.getAttribute('placeholder'));  
+    input.setAttribute('placeholder', 'Search book through Title/Writer')   
+  }
+
+
+  onUnFocusSearch(){
+    // console.log('input is on focus...'); 
+    let searchInput = document.querySelector('#booksearch'); 
+    // console.log(searchInput);
+    // console.log(searchInput.children[0].childNodes[2]);
+    let input = <HTMLInputElement>searchInput.children[0].childNodes[2];
+    // console.log(input.getAttribute('placeholder')); 
+    let placevalue = input.getAttribute('placeholder')
+    if(placevalue == '' || placevalue == null){
+      input.setAttribute('placeholder', 'Search book through Title/Writer');
+    }       
+  }
+
 
 }
 

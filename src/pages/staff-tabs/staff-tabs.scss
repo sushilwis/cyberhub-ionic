@@ -1,0 +1,14 @@
+page-staff-tabs {
+    .tabs-md .tab-button-text{
+        font-size: 0.9rem !important;
+    }
+
+    .tabs-md-blue .tabbar {
+        border-top: 1.3px solid #fff !important;
+        background-color: #1b1b1b !important;
+    }
+    // .tabs-md-blue .tabbar
+    .tabs-md-blue .tab-button, .tabs-md-blue .tab-button-icon {
+        color: rgba(255, 255, 255, 0.4);
+    }
+}

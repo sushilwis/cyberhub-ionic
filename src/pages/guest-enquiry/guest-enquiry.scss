@@ -15,10 +15,10 @@ background-color: #fff;
 		align-items: center;
 		flex-wrap: nowrap;
 		justify-content: center;
-		height: 90vh;
+		height: 100%;
     	flex-direction: column;
     	position: relative;
-    	top: 45%;
+    	top: 50%;
     	transform: translateY(-50%);
 	}
 	.search-icon i{
@@ -55,9 +55,9 @@ background-color: #fff;
 		/* visibility: hidden; */
 		/* opacity: 0; */
 	}
-	.item-md{
-		background-color: rgba(255, 255, 255, 0.502);
-	}
+	// .item-md{
+	// 	background-color: rgba(255, 255, 255, 0.502);
+	// }
 
 	.top-heading {
 		text-decoration: underline;
@@ -68,6 +68,10 @@ background-color: #fff;
 
 	.btn-size {
 		padding: 15px 25px !important;
+	}
+
+	.input-wrapper {
+		border-bottom: 1px solid #888686;
 	}
 
 }

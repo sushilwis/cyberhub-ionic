@@ -12,14 +12,15 @@
         </ion-toolbar>
       </ion-header> -->
 
-
+      <!-- #004e47 -->
       <ion-header>
-            <ion-toolbar>
+            <ion-toolbar id="level-3"> 
               <ion-title>
                   Book Details
               </ion-title>
               <ion-buttons start>
-                <button ion-button (click)="dismiss()">
+                <button ion-button (click)="dismiss()" style="
+                width: 61%; font-size: 2.2rem;">
                   <span ion-text color="primary" showWhen="ios">Cancel</span>
                   <ion-icon name="md-close" showWhen="android, windows"></ion-icon>
                 </button>
@@ -29,17 +30,15 @@
 
 
 <ion-content>        
-    <ion-card>       
-        
-        <h4 text-center style="font-size: 18px;"><strong>{{book?.book_name}}</strong></h4>
-        
+    <ion-card style="background-color: #353434">       
+        <h4 text-center style="font-size: 18px; color: #fff; margin-top: 10px;"><strong>{{book?.book_name}}</strong></h4>
         <ion-card-content>
-          <p><strong>Author</strong> : {{book?.author}}</p>
-          <p><strong>Edition</strong> : {{book?.edition}}</p>
-          <p><strong>ISBN</strong> : {{book?.isbn_code}}</p>
-          <p><strong>Publisher</strong> : {{book?.publisher_name}}</p>
-          <p><strong>No of Copy</strong> : {{book?.no_copy}}</p>
+          <p style="color: #ececec"><strong>Writer</strong> : {{book?.author}}</p>
+          <p style="color: #ececec"><strong>Edition</strong> : {{book?.edition}}</p>
+          <!-- <p><strong>ISBN</strong> : {{book?.isbn_code}}</p> -->
+          <p style="color: #ececec"><strong>Publisher</strong> : {{book?.publisher_name}}</p>
+          <!-- <p><strong>No of Copy</strong> : {{book?.no_copy}}</p> -->
         </ion-card-content>
-      </ion-card>
+    </ion-card>
 </ion-content>
 

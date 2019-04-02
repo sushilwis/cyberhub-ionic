@@ -17,6 +17,9 @@ page-staff-complain {
 			transform: translateX(-50%);
 
 		}
+		.compl-tittle ion-title{
+			font-size: 1.8rem!important;
+		}
 		.text-blue{
 			font-size:10px;
 			// color:#00109f;
@@ -90,6 +93,12 @@ page-staff-complain {
 			text-align: left !important;
 			max-width: 240px !important;
 		   }
+
+
+		   .list-md .item-block .item-inner {
+			   border-bottom: 1px solid #fff !important;
+		   }
+
 }
 
 

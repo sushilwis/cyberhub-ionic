@@ -5,6 +5,8 @@ import { apiUrl } from '../../apiUrl';
 import { StudentLoginPage } from '../student-login/student-login';
 import { SchoolDetailsPage } from '../school-details/school-details';
 import { SchoolListingPage } from '../school-listing/school-listing';
+import { StdRegPage } from '../std-reg/std-reg';
+import { StaffLoginPage } from '../staff-login/staff-login';
 
 
 @IonicPage()
@@ -32,11 +34,13 @@ export class StuffRegistrationPage {
   country: number;
   state: number;
   jela: string;
+  type: string;
+  identityNo: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private http: Http, public menuCtrl: MenuController, public loadingController: LoadingController, public alertCtrl: AlertController, public toastCtrl: ToastController) {
     this.menuCtrl.enable(true);
     this.initLoader();
-    this.getData();
+    // this.getData();
   }
 
   ngOnInit(){
@@ -104,17 +108,20 @@ export class StuffRegistrationPage {
   
       let data = {
         org_id: this.college,
-        mobile_no: this.mobileNo
+        mobile_no: this.mobileNo,
+        id_no: this.identityNo,
       }
 
       console.log('sent stuff reg data : ', data);      
 
       this.http.post(`${apiUrl.url}user/register`, data, options).
-        map(res => res.json()).subscribe(data => {	  
-          if (data.data.length > 0) {
-            this.presentLoading(false);
-            // console.log('student data : ', data);	
-            this.showAlert('Success!', `Your Username is : ${data.data[0].user_name} and Password is : ${data.data[0].hint}. Please login to continue.`);				
+        map(res => res.json()).subscribe(data => {
+          console.log('after stuff reg :... ', data);          	  
+          if (data.data) {
+            this.showAlert('Success!', `Your Username is : ${data.data.username} and Password is : ${data.data.hint}. Please login to continue.`);
+            this.navCtrl.push(StaffLoginPage);				
+          }else{
+            this.showAlert('Error!', `Sorry, Invalid Credential !.`);
           }
       });    
   }
@@ -127,7 +134,14 @@ export class StuffRegistrationPage {
     const alert = this.alertCtrl.create({
       title: title,
       subTitle: msg,
-      buttons: ['OK']
+      buttons: [{
+        text: 'OK',
+        role: 'ok',
+        cssClass: 'alertOkBtn',
+        handler: (blah) => {
+          console.log('Ok clicked.');
+        }
+      }]
     });
     
     alert.present();
@@ -189,6 +203,7 @@ export class StuffRegistrationPage {
 
 
   schoolsDetails(org) {
+    this.isSearchbarOpened = false;
     this.inputShowValue = org.name;
     this.college = org.id;
     
@@ -198,21 +213,57 @@ export class StuffRegistrationPage {
 
 
 
+  // getData() {
+  //   this.http
+  //     .get(`${apiUrl.url}org/alllist`)
+  //     .map(res => res.json())
+  //     .subscribe(data => {
+  //       this.presentLoading(false);
+  //       this.allSchoolsList = data;
+  //       console.log("student list : ", this.allSchoolsList);
+  //       data.data.forEach(ele => {
+  //         const obj = {
+  //           id: ele.id,
+  //           name: ele.org_name
+  //         };
+  //         this.list.push(obj);
+  //       });
+  //     });
+  // }
+
+
+
+
+
   getData() {
+    var headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    let options = new RequestOptions({ headers: headers });
+
+    let data = {
+      type: this.type,
+      is_reg: true,
+    }
+    
     this.http
-      .get(`${apiUrl.url}org/alllist`)
+      .post(`${apiUrl.url}org/orgsearchbytype`, data, options)
       .map(res => res.json())
       .subscribe(data => {
-        this.presentLoading(false);
-        this.allSchoolsList = data;
-        console.log("student list : ", this.allSchoolsList);
-        data.data.forEach(ele => {
-          const obj = {
-            id: ele.id,
-            name: ele.org_name
-          };
-          this.list.push(obj);
-        });
+        // this.presentLoading(false);
+        this.allSchoolsList = data.data;
+        console.log("school list..... : ", this.allSchoolsList);
+        // console.log("school list length..... : ", data.data.length);
+        if(this.allSchoolsList.length > 0){
+          this.allSchoolsList.forEach(ele => {
+            const obj = {
+              id: ele.id,
+              name: ele.org_name
+            };
+            this.list.push(obj);
+          });
+
+          console.log("arr list..... : ", this.list);
+        }        
       });
   }
 
@@ -236,6 +287,24 @@ export class StuffRegistrationPage {
       position: 'top'
     });
     toast.present();
+  }
+
+
+
+
+  goToStuffLogin(){
+    this.navCtrl.push(StaffLoginPage);
+  }
+
+
+
+
+  disabledField() {
+    if (this.type == '' || this.type == null) {
+      return true;
+    }else{
+      return false;
+    }
   }
 
 

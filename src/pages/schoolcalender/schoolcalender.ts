@@ -147,10 +147,19 @@ export class SchoolcalenderPage implements OnInit{
 
 
   onEventSelected(event) {
-    //console.log('Event selected:' + event.startTime + '-' + event.endTime + ',' + event.title);
+    console.log(event);
+    let startTime = event.startTime.toString().substring(0,16);
+    let endTime = event.endTime.toString().substring(0,16);
+
     let alert = this.alertCtrl.create({
-      title: event.title.toUpperCase(),
-      subTitle: 'Event Started:' + event.startTime + ', To: ' + event.endTime,
+      title: `Event`,
+      cssClass: "eventAlert",
+      message: `<div>
+      <p>Title : ${event.title}</p>
+      <p>Description : ${event.desc}</p>
+      </div>
+      <p>Event Started: ${startTime}, To: ${endTime}</p>
+      `,      
       buttons: ['Dismiss']
     });
 
@@ -230,7 +239,7 @@ async getEventList() {
               this.allEventList = await data.data; 
               // console.log("event list : ", data.data);
               this.ArrangeArrFromEventList(this.allEventList);
-              console.log('event source : ', this.eventSource);               
+              // console.log('event source : ', this.eventSource);               
             } else {
               // this.presentLoading(false);
             }            
@@ -248,12 +257,12 @@ async getEventList() {
   async ArrangeArrFromEventList(arr) {
     this.eventSource = [];
 
-    arr.forEach(async (arrItem) => {
+    arr.forEach((arrItem) => {
 
       this.end = this.createJavascriptDate(arrItem.event_enddate);
-      this.start = this.createJavascriptDate(arrItem.event_startdate);
+      this.start = this.createJavascriptDate(arrItem.event_startdate);      
 
-      let obj = await {
+      let obj = {
         allDay: false,
         eTime: arrItem.event_endtime,
         endTime: this.end,
@@ -263,11 +272,10 @@ async getEventList() {
         desc: arrItem.event_description
       }
 
-      // console.log('arr item : ', obj);
-      await this.eventSource.push(obj);
+      
+      this.eventSource.push(obj);
+      console.log('arr item : ', this.eventSource);
     }); 
-    
-    // console.log('event source 111 : ', this.eventSource); 
   }
 
 
@@ -275,7 +283,7 @@ async getEventList() {
 
 
 
-  createJavascriptDate(strDate){
+  createJavascriptDate(strDate) {
     // let date = await new Date();
     let dateArr = strDate.split('-');    
     let timeStamp = new Date().setFullYear(dateArr[0], dateArr[1]-1, dateArr[2]);

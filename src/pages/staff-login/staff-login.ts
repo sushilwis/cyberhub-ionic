@@ -5,6 +5,8 @@ import { RequestOptions, Headers, Http } from '@angular/http';
 import { apiUrl } from '../../apiUrl';
 import { HomePage } from "../home/home";
 import { StuffRegistrationPage } from '../stuff-registration/stuff-registration';
+import { FcmProvider } from "../../providers/fcm/fcm";
+import { StaffTabsPage } from "../staff-tabs/staff-tabs";
 /**
  * Generated class for the StaffLoginPage page.
  *
@@ -27,7 +29,8 @@ export class StaffLoginPage implements OnInit {
     public navParams: NavParams,
     private http: Http,
     public alertCtrl: AlertController,
-    public loadingController: LoadingController
+    public loadingController: LoadingController,
+    public fcm: FcmProvider
   ) {
     this.initLoader();
   }
@@ -59,7 +62,12 @@ export class StaffLoginPage implements OnInit {
 
   goToRegister() {
 		this.navCtrl.push(StuffRegistrationPage);	
-	}
+  }
+  
+
+
+
+  
 
   onStuffLoginSubmit() {
     if (this.regID && this.pass) {
@@ -83,9 +91,10 @@ export class StaffLoginPage implements OnInit {
           console.log("stuff login info : ", data.data);
           if (data.data.length > 0) {
             // console.log(data.data[0]);
-            this.presentLoading(false);
             localStorage.setItem("userData", JSON.stringify(data.data[0]));
-            this.navCtrl.setRoot(StaffInfoPage);
+            this.fcm.getToken();
+            this.presentLoading(false);
+            this.navCtrl.setRoot(StaffTabsPage);
           } else {
             this.showAlert(
               "Alert!",
@@ -99,6 +108,11 @@ export class StaffLoginPage implements OnInit {
     }
   }
 
+
+
+
+
+
   showAlert(title, msg) {
     const alert = this.alertCtrl.create({
       title: title,
@@ -107,6 +121,11 @@ export class StaffLoginPage implements OnInit {
     });
     alert.present();
   }
+
+
+
+
+
 
   presentLoading(load: boolean) {
     if (load) {

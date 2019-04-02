@@ -26,15 +26,18 @@ export class AttendancePage {
   joinned: boolean = false;
   newUser: any = { nickname: "", room: "" };
   msgData: any = { room: "", nickname: "", message: "" };
-  socket = io("http://18.191.46.158:3000/");
+  socket = io("http://3.84.60.73:3000/");
   localUserData: any;
   periodList: any;
   showPeriodForm: boolean;
-  period: any;
+  period: any = '';
   attendenceCode: any;
   attPin: any;
   room: any;
   orgShiftLists;
+  studentName: any;
+  loading: any;
+  student: any;
 
   constructor(
     public navCtrl: NavController,
@@ -45,15 +48,18 @@ export class AttendancePage {
     public alertCtrl: AlertController
   ) {
     this.menuCtrl.enable(false);
+    this.initLoader();
   }
 
   ngOnInit() {
+    console.log('Attendance page...');    
     this.getUserDataFromLocal();
     this.getShiftLists();
     // this.getClassList();
     // this.getPeriod();
     this.showPeriodForm = true;
-
+    this.getStudentDetails();
+    
     this.socket.on("updateUserList", function(users) {
       console.log(users);
     });
@@ -153,9 +159,17 @@ export class AttendancePage {
     // console.log('local data : ', this.localUserData);
   }
 
+
+
+
+
   onPeriodSubmit() {
     // let todayDate = new Date().toLocaleString().substring(0,9).toString();
     // todayDate = todayDate.toLocaleString();
+    if(this.period == '') {
+      this.showAlert('Please select your period.');
+      return;
+    }
 
     let data = {
       period_id: this.period,
@@ -165,7 +179,6 @@ export class AttendancePage {
     };
 
     // console.log("data : ", data);
-
     let header = new Headers();
     header.set("Content-Type", "application/json");
 
@@ -191,10 +204,14 @@ export class AttendancePage {
           // this.showAlert(data.msg);
         } else {
           this.showPeriodForm = true;
-          this.showAlert(data.msg);
+          this.showAlert('Sorry, wrong selection.');
         }
       });
   }
+
+
+
+
 
   makeDateString(date) {
     let year = date.getFullYear();
@@ -212,4 +229,54 @@ export class AttendancePage {
     });
     alert.present();
   }
+
+
+
+  getStudentDetails() {
+    this.presentLoading(true);
+
+    var headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    let options = new RequestOptions({ headers: headers });
+
+    let data = {
+      'master_id': this.localUserData.master_id
+    }
+
+    this.http.post(`${apiUrl.url}student/studentdetail`, data, options).
+      map(res => res.json()).subscribe(data => {
+        //console.log('student detail data : ', data);
+        if (data.data[0]) {
+          this.presentLoading(false);
+          this.student = data.data[0];
+          console.log('student details : ...', this.student);
+          this.getPeriod(this.student.shift_id);          
+          // this.presentLoading(false);
+        }
+      });
+  }
+
+
+
+
+  presentLoading(load: boolean) {
+		if (load) {
+			return this.loading.present();
+		}
+		else {
+			setTimeout(() => {
+				return this.loading.dismiss();
+			}, 1000);
+		}
+  }
+
+
+
+  initLoader() {
+		this.loading = this.loadingController.create({
+			spinner: 'hide',
+			content: '<img class="loader-class" src="assets/icon/tail-spin.svg"> <p>Loading please wait...</p>',
+		});
+  }
+
 }

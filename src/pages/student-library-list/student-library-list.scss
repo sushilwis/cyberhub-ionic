@@ -10,4 +10,59 @@ page-student-library-list {
 		padding-top: 5px;
 		padding-right: 10px;
 	}
+	.book-name {
+		overflow: visible; 
+	}
+	.item-md ion-thumbnail img {
+		width: 50px;
+		height: 58px;
+	}
+	.item-md ion-avatar[item-left], .item-md ion-thumbnail[item-left], .item-md ion-avatar[item-start], .item-md ion-thumbnail[item-start] {
+		margin: 8px -7px -11px 0 !important;
+	}
+	.content-md {
+		// color: #fff !important;
+		background-color: #1b1b1b !important;
+	}
+	.list-md .item-block .item-inner, .item-md.item-block .item-inner {
+		border-bottom: none;
+	}
+
+
+
+
+
+
+
+
+
+	.toolbar-background-md {
+		// background-color: #009688 !important;
+		background-color: #007167 !important;
+	}
+	.toolbar-title-md {
+		color: #fff !important;
+	}
+	.title {
+		text-decoration: none !important;
+	}
+
+	.searchbar-md .searchbar-input {
+		background-color: transparent !important;
+		border-bottom: 1px solid #b59292 !important;
+		color: #fff !important;
+	}
+
+	.searchbar-search-icon {
+		background-image: url('../../assets/icon/')
+	}
+
+	.item-md h2 {
+		font-size: 1.3rem !important;
+	}
+
+	.item-md p{
+		font-size: 1.1rem !important;
+	}
+	
 }

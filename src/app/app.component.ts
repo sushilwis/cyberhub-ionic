@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { Nav, Platform } from 'ionic-angular';
+import { Nav, Platform, List, Item } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { MenuController } from 'ionic-angular';
@@ -12,9 +12,16 @@ import { PersonalNoticePage } from '../pages/personal-notice/personal-notice';
 import { GuestEnquiryPage } from '../pages/guest-enquiry/guest-enquiry';
 import { StudentLoginPage } from '../pages/student-login/student-login';
 import StudentsTabsPage from '../pages/students-tabs/students-tabs';
-import { StaffInfoPage } from '../pages/staff-info/staff-info';
+import { StaffTabsPage } from '../pages/staff-tabs/staff-tabs';
 import { App } from 'ionic-angular';
 
+import { FcmProvider } from '../providers/fcm/fcm';
+import { ToastController } from 'ionic-angular';
+// import { Subject } from 'rxjs/Subject';
+import { tap } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { Firebase } from '@ionic-native/firebase';
+// import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 
 
 @Component({
@@ -27,14 +34,15 @@ export class MyApp {
 
   pages: Array<{title: string, component: any}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public menuCtrl: MenuController, public app: App) {
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public menuCtrl: MenuController, public app: App, 
+    public fcm: FcmProvider, 
+    public toastCtrl: ToastController, private firebase: Firebase) {
 
     this.initializeApp();
 
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Guest', component: GuestEnquiryPage },
-      // { title: 'List', component: ListPage },
       { title: 'Live-Stream', component: LiveStreamPage },
       { title: 'Attendance', component: AttendancePage },
       { title: 'Routine', component: RoutinePage },
@@ -51,12 +59,36 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       let localVal = JSON.parse(localStorage.getItem('userData'));
 
+      
+    //   this.afs.collection('devices', ref => ref.where('userId', '==','testUser1')).snapshotChanges().subscribe(data => {
+    //    data.map(x => console.log(x.payload.doc.data()))
+    //  })
+      // abcs.subscribe(data => console.log(data))
+      // abcs.valueChanges().subscribe(data => console.log(data))
+      
+//  yolo kya baat
+
+        // Listen to incoming messages
+      // this.fcm.listenToNotifications().pipe(
+      //   tap(msg => {
+      //     // show a toast
+      //     const toast = this.toastCtrl.create({
+      //       message: msg.body,
+      //       duration: 3000
+      //     });
+      //     toast.present();
+      //   })
+      // )
+      // .subscribe((data)=> {
+      //   console.log('listen to notification : ', data);          
+      // })
+
       if(localVal){
         if(localVal.user_type_id == 4){
           this.rootPage = StudentsTabsPage;
         }
         if(localVal.user_type_id == 2){
-          this.rootPage = StaffInfoPage;
+          this.rootPage = StaffTabsPage;
         }
       }else{
         this.rootPage = HomePage;
@@ -65,7 +97,7 @@ export class MyApp {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
       // this.splashScreen.show();
-    });
+    });    
   }
 
 
@@ -86,6 +118,41 @@ export class MyApp {
     localStorage.clear();
     this.nav.setRoot(HomePage);
   }
+
+
+
+
+
+
+  // abc() {
+  //     this.platform.ready().then(() => {
+
+  //       // Get a FCM token
+  //       this.fcm.getToken()
+
+  //       // Listen to incoming messages
+  //       this.fcm.listenToNotifications().pipe(
+  //         tap(msg => {
+  //           // show a toast
+  //           const toast = this.toastCtrl.create({
+  //             message: msg.body,
+  //             duration: 3000
+  //           });
+  //           toast.present();
+  //         })
+  //       )
+  //       .subscribe()
+  //     // }
+
+  //     });
+  //   // }
+  // }
+
+
+
+
+
+
 
 
 

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { IonicPage, NavParams, MenuController } from 'ionic-angular';
 import { ChangepasswordPage } from '../changepassword/changepassword';
 import { LiveStreamPage } from '../live-stream/live-stream';
@@ -15,17 +15,20 @@ import { NavController, ActionSheetController, ToastController, Platform, Loadin
 import { FilePath } from '@ionic-native/file-path';
 import { File } from '@ionic-native/file';
 import { Transfer, TransferObject } from '@ionic-native/transfer';
+import { StudentOwndetailsPage } from '../student-owndetails/student-owndetails';
+import { Chart } from 'chart.js';
 
 
 declare var cordova: any;
 
 @IonicPage()
 @Component({
-  selector: 'page-account',
-  templateUrl: 'account.html',
+  selector: "page-account",
+  templateUrl: "account.html"
 })
-
 export default class AccountPage implements OnInit {
+  @ViewChild("doughnutCanvas") doughnutCanvas;
+  doughnutChart: any;
 
   localUserData: any;
   // loading: any;
@@ -33,245 +36,324 @@ export default class AccountPage implements OnInit {
   showSelectDepartmentBtn: boolean;
   sortArray: any;
 
-  imageURI:any;
-  imageFileName:any = "assets/imgs/student-icon.png";
+  imageURI: any;
+  imageFileName: any = "assets/imgs/student-icon.png";
   profile_image: string;
   lastImage: string = null;
   loading: Loading;
-  
+  getData: any;
+  showDeptSelection: boolean = false;
+  issecurityadded: string;
+  chartClassList = [];
+  chartAttdValue = [];
+  chartcolor = [];
+  avgAtdence;
 
-  constructor(public menuCtrl: MenuController, public navCtrl: NavController, public navParams: NavParams, private http: Http, public loadingController: LoadingController, public jsonp: Jsonp, public modalCtrl: ModalController, private camera: Camera, public loadingCtrl: LoadingController, public toastCtrl: ToastController, public actionSheetCtrl: ActionSheetController, public platform: Platform, private transfer: Transfer) {
+  backgroundColor = [
+    "rgb(255, 99, 132)",
+    "rgb(54, 162, 235)",
+    "rgb(255, 206, 86)",
+    "rgb(75, 192, 192)",
+    "rgb(153, 102, 255)",
+    "rgb(255, 159, 64)",
+    "rgb(66, 134, 244)",
+    "rgb(190, 71, 255)"
+  ];
+
+  constructor(
+    public menuCtrl: MenuController,
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    private http: Http,
+    public loadingController: LoadingController,
+    public jsonp: Jsonp,
+    public modalCtrl: ModalController,
+    private camera: Camera,
+    public loadingCtrl: LoadingController,
+    public toastCtrl: ToastController,
+    public actionSheetCtrl: ActionSheetController,
+    public platform: Platform,
+    public transfer: Transfer
+  ) {
     this.menuCtrl.enable(false);
     this.initLoader();
+    // this.getData = this.navParams.get('data');
     this.platform.registerBackButtonAction(() => {
       if (this.navCtrl.getViews().length > 1) {
         this.navCtrl.pop();
       }
     });
+    this.issecurityadded = JSON.parse(localStorage.getItem("securitypinadded"));
   }
-
-
-
 
   ngOnInit() {
     this.getUserDataFromLocal();
     this.getStudentDetails();
-    this.showSelectDepartmentBtn = false;
   }
-
-
-
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad AccountPage');
+    console.log("ionViewDidLoad AccountPage");
   }
 
-  goToPassword(){
-		this.navCtrl.push(ChangepasswordPage);
-	}
-	 gotoHome(){
+  goToPassword() {
+    this.navCtrl.push(ChangepasswordPage);
+  }
+  gotoHome() {
     this.navCtrl.setRoot(ParentsStudentViewPage);
   }
-  gotoLiveStream(){
+  gotoLiveStream() {
     this.navCtrl.push(LiveStreamPage);
   }
-  goToAttendance(){
+  goToAttendance() {
     this.navCtrl.push(AttendancePage);
   }
-  goToRoutine(){
+  goToRoutine() {
     this.navCtrl.push(RoutinePage);
   }
 
-
-
-
   getUserDataFromLocal() {
-    let data = localStorage.getItem('userData');
+    let data = localStorage.getItem("userData");
     this.localUserData = JSON.parse(data);
-    if(this.localUserData.profile_image){
-      this.profile_image = `${apiUrl.url}public/uploads/profile_pic/${this.localUserData.profile_image}`
-
-    }else{
-      this.profile_image = `assets/imgs/student-icon.png`
-    }   
+    if (this.localUserData.profile_image && this.localUserData.digit_pin != 0) {
+      this.profile_image = `${apiUrl.url}public/uploads/profile_pic/${
+        this.localUserData.profile_image
+      }`;
+      let setdata = {
+        u_id: this.localUserData.id,
+        pin: this.localUserData.digit_pin
+      };
+      localStorage.setItem("securitypinadded", JSON.stringify(setdata));
+      this.issecurityadded = JSON.parse(
+        localStorage.getItem("securitypinadded")
+      );
+    } else {
+      this.profile_image = `assets/imgs/student-icon.png`;
+    }
   }
-
-
-
 
   getStudentDetails() {
     this.presentLoading(true);
 
-		var headers = new Headers();
-		headers.append('Content-Type', 'application/json');
-		let options = new RequestOptions({headers: headers});
+    var headers = new Headers();
+    headers.append("Content-Type", "application/json");
+    let options = new RequestOptions({ headers: headers });
 
-		let data = {
-		  'master_id': this.localUserData.master_id
-		}
+    let data = {
+      master_id: this.localUserData.master_id
+    };
 
-		this.http.post(`${apiUrl.url}student/studentdetail`, data, options).
-			map(res => res.json()).subscribe(data => {
-        console.log('student detail data : ', data);				
-				if (data.data[0]) {
+    this.http
+      .post(`${apiUrl.url}student/studentdetail`, data, options)
+      .map(res => res.json())
+      .subscribe(data => {
+        console.log("student detail data : ", data);
+        if (data.data[0]) {
           this.presentLoading(false);
           this.studentDetails = data.data[0];
-
-          if(data.data[0].nameclass){
+          // console.log('student detasisld : ', this.studentDetails);
+          if (data.data[0].nameclass) {
+            this.getAttendanceDetails(this.studentDetails.class_id);
             this.showSelectDepartmentBtn = false;
-          }else{
+          } else {
             this.showSelectDepartmentBtn = true;
           }
-				}
-			});
+        }
+      });
   }
-
-
-
-
-
-  getStudentSubjectDetails() {
-    this.presentLoading(true);
-
-		var headers = new Headers();
-		headers.append('Content-Type', 'application/json');
-		let options = new RequestOptions({headers: headers});
-
-		let data = {
-		  'master_id': this.localUserData.master_id
-		}
-
-		this.http.post(`${apiUrl.url}student/studentdetail`, data, options).
-			map(res => res.json()).subscribe(data => {
-        console.log('student subject data : ', data);				
-				if (data.data[0]) {
-          this.presentLoading(false);
-          // this.studentDetails = data.data[0];
-
-          if(data.data[0].nameclass){
-            this.showSelectDepartmentBtn = false;
-          }else{
-            this.showSelectDepartmentBtn = true;
-          }
-				}
-			});
-  }
-
-
-
-
 
   presentLoading(load: boolean) {
-		if (load) {
-			return this.loading.present();
-		}
-		else {
-			setTimeout(() => {
-				return this.loading.dismiss();
-			}, 1000);
-		}
+    if (load) {
+      return this.loading.present();
+    } else {
+      setTimeout(() => {
+        return this.loading.dismiss();
+      }, 1000);
+    }
   }
-
-
-
 
   initLoader() {
-		this.loading = this.loadingController.create({
-			spinner: 'hide',
-			content: '<img class="loader-class" src="assets/icon/tail-spin.svg"> <p>Loading please wait...</p>',
-		});
+    this.loading = this.loadingController.create({
+      spinner: "hide",
+      content:
+        '<img class="loader-class" src="assets/icon/tail-spin.svg"> <p>Loading please wait...</p>'
+    });
   }
-  
-
-
-
 
   openModal() {
     let modal = this.modalCtrl.create(ModalPage);
     modal.present();
   }
 
-
-
+  goToEnterSecurityPin() {
+    let modal = this.modalCtrl.create(SecuritypinPage);
+    modal.present();
+  }
 
   getImage() {
     const options: CameraOptions = {
       quality: 30,
       allowEdit: false,
       destinationType: this.camera.DestinationType.FILE_URI,
-      correctOrientation:true
-    }
-  
-    this.camera.getPicture(options).then((imageData) => {
-      
-      this.imageURI = imageData;
-      this.imageFileName = imageData;
-      const fileTransfer: any = this.transfer.create();
+      correctOrientation: true
+    };
 
-      let options: FileUploadOptions = {
-        fileKey: 'file',
-        fileName: 'ionicfile.jpg',
-        chunkedMode: false,
-        mimeType: "image/jpeg",
-        headers: {},
-        params: {
-          id: this.localUserData.id
-        },
-      }
-      // this.presentLoading(true);
+    this.camera.getPicture(options).then(
+      imageData => {
+        this.imageURI = imageData;
+        this.imageFileName = imageData;
+        const fileTransfer: any = this.transfer.create();
 
-      fileTransfer.upload(this.imageURI, `${apiUrl.url}user/addprofileimage`, options)
-        .then((data) => {
-          if(data){
-            // alert(JSON.stringify(data.response));
-            let parseData = JSON.parse(data.response);
-            // this.presentLoading(false);
-            this.imageFileName = `${apiUrl.url}public/uploads/profile_pic/${parseData.data.profile_image}`;
-            //alert(this.imageFileName);
-            localStorage.removeItem('userData');
-            localStorage.setItem('userData', JSON.stringify(parseData.data));
-            this.getUserDataFromLocal();
-            this.presentToast("Image uploaded successfully");
+        let options: FileUploadOptions = {
+          fileKey: "file",
+          fileName: "ionicfile.jpg",
+          chunkedMode: false,
+          mimeType: "image/jpeg",
+          headers: {},
+          params: {
+            id: this.localUserData.id
           }
-      }, (err) => {
+        };
+        // this.presentLoading(true);
+
+        fileTransfer
+          .upload(this.imageURI, `${apiUrl.url}user/addprofileimage`, options)
+          .then(
+            data => {
+              if (data) {
+                // alert(JSON.stringify(data.response));
+                let parseData = JSON.parse(data.response);
+                // this.presentLoading(false);
+                this.imageFileName = `${apiUrl.url}public/uploads/profile_pic/${
+                  parseData.data.profile_image
+                }`;
+                //alert(this.imageFileName);
+                localStorage.removeItem("userData");
+                localStorage.setItem(
+                  "userData",
+                  JSON.stringify(parseData.data)
+                );
+                this.getUserDataFromLocal();
+                this.presentToast("Image uploaded successfully");
+              }
+            },
+            err => {
+              console.log(err);
+              alert(JSON.stringify(err));
+            }
+          );
+      },
+      err => {
         console.log(err);
-        alert(JSON.stringify(err));
-      });     
-    }, (err) => {
-      console.log(err);
-      this.presentToast(err);
-    });
+        this.presentToast(err);
+      }
+    );
   }
 
-
-
-
-   
-  private presentToast(text) {
+  presentToast(text) {
     let toast = this.toastCtrl.create({
       message: text,
       duration: 3000,
-      position: 'top'
+      position: "top"
     });
-    
+
     toast.present();
   }
 
+  getAttendanceDetails(class_id) {
+    // this.presentLoading(true);
 
+    var headers = new Headers();
+    headers.append("Content-Type", "application/json");
+    let options = new RequestOptions({ headers: headers });
 
+    let apidata = {
+      org_id: this.localUserData.org_code,
+      dept_id: 31,
+      std_id: 110
+      // std_id: this.localUserData.master_id
+    };
 
+    this.http
+      .post(
+        `${apiUrl.node_url}attendance/getStudentAttnPercent`,
+        apidata,
+        options
+      )
+      .map(res => res.json())
+      .subscribe(data => {
+        console.log("attn data : ", data);
+        if (data.status) {
+          this.http
+            .post(`${apiUrl.url}coursecat/getsubcource`, apidata, options)
+            .map(res => res.json())
+            .subscribe(classes => {
+              console.log(classes);
 
+              classes.data.forEach((element, i) => {
+                let new_arry = [];
+                new_arry = data.attd.filter(cls => {
+                  return cls.class_sub_id == element.id;
+                });
+                // console.log(new_arry);
+
+                if (new_arry.length == 0) {
+                  this.chartAttdValue.push(0);
+                  this.chartClassList.push(element.subject_name);
+                  this.chartcolor.push(this.backgroundColor[i]);
+                } else {
+                  this.chartAttdValue.push(new_arry[0].percent);
+                  this.chartClassList.push(element.subject_name);
+                  this.chartcolor.push(this.backgroundColor[i]);
+                }
+              });
+              let sum = this.chartAttdValue.reduce(
+                (partial_sum, a) => partial_sum + a
+              );
+
+              this.avgAtdence = sum / this.chartAttdValue.length;
+              console.log(this.chartAttdValue);
+              this.renderGraph();
+            });
+        }
+        // data.data.forEach(elem => {
+
+        // });
+      });
+  }
+  renderGraph() {
+    this.doughnutChart = new Chart(this.doughnutCanvas.nativeElement, {
+      type: "bar",
+      data: {
+        labels: this.chartClassList,
+        datasets: [
+          {
+            label: "% Attdence",
+            data: this.chartAttdValue,
+            backgroundColor: this.chartcolor
+            // hoverBackgroundColor: [
+            //   "#FF6384",
+            //   "#36A2EB",
+            //   "#FFCE56",
+            //   "#FF6384",
+            //   "#36A2EB",
+            //   "#FFCE56"
+            // ]
+          }
+        ]
+      }
+    });
+  }
   // presentToast(msg) {
   //   let toast = this.toastCtrl.create({
   //     message: msg,
   //     duration: 3000,
   //     position: 'bottom'
   //   });
-  
+
   //   toast.onDidDismiss(() => {
   //     console.log('Dismissed toast');
   //   });
-  
+
   //   toast.present();
   // }
 }
@@ -303,6 +385,7 @@ export class ModalPage {
   filteredArrayForSectionList: any = [];
   classStreamID: any;
   classIndexId: any;
+  // showDeptSelection: boolean = true;
 
   constructor(
     public platform: Platform,
@@ -401,7 +484,7 @@ export class ModalPage {
         .subscribe(
           data => {
             this.orgClassSectionList = data.data;
-            // console.log("Org class list ", data.data);
+            console.log("Raw class list ", data.data);
             this.createSortArray(this.orgClassSectionList);
       });
   }
@@ -475,7 +558,7 @@ onChooseClassStream(e) {
     this.filteredArrayForSectionList = this.filteredArrayForSectionList[0].sections;
   }  
 
-  // console.log('filter section array : ', this.filteredArrayForSectionList);
+  console.log('filter section array : ', this.filteredArrayForSectionList);
 }
 
 
@@ -512,6 +595,12 @@ submitDepartment() {
         .subscribe(
           data => {
             // console.log("after add data : ", data);
+            // this.showDeptSelection = false;
+            if(data.status == 1){
+              // this.navCtrl.push(AccountPage);              
+                let modal1 = this.modalCtrl.create(Modal1Page);
+                modal1.present();              
+            }
       });
 }
 
@@ -525,52 +614,311 @@ submitDepartment() {
 // ########################################################################
 createSortArray(arr){
   // var rs = 1;
+  let currYear = new Date().getFullYear();
+  console.log('year : ', currYear);  
+
   arr.forEach(ele => {
 
-    var obj = {
-      class_id: ele.class_id,
-      sec_id: ele.sec_id,
-      class_name: ele.class.class_name,
-      shift_id: ele.org_shift_id,
-      sections: [
-        {
+    if(currYear == ele.year){    
+
+      var obj = {
+        class_id: ele.class_id,
+        sec_id: ele.sec_id,
+        class_name: ele.class.class_name,
+        shift_id: ele.org_shift_id,
+        sections: [
+          {
+            section_name: ele.section.sec_name,
+            sec_id: ele.sec_id,
+            classSectionIndexId: ele.id
+          }
+        ]
+      }
+
+      let check_exist = this.sortArray.filter((element)=> {
+        return element.class_id == ele.class_id;
+      });
+
+      if(check_exist.length > 0){
+        // console.log('exist');
+        let i = this.sortArray.indexOf(check_exist[0]);
+        this.sortArray.splice(i,1); 
+
+        check_exist[0].sections.push({
           section_name: ele.section.sec_name,
           sec_id: ele.sec_id,
           classSectionIndexId: ele.id
-        }
-      ]
-    }
+        });
 
-    let check_exist = this.sortArray.filter((element)=> {
-      return element.class_id == ele.class_id;
-    });
-
-    if(check_exist.length > 0){
-      // console.log('exist');
-      let i = this.sortArray.indexOf(check_exist[0]);
-      this.sortArray.splice(i,1); 
-
-      check_exist[0].sections.push({
-        section_name: ele.section.sec_name,
-        sec_id: ele.sec_id,
-        classSectionIndexId: ele.id
-      });
-
-      this.sortArray.push(check_exist[0]);       
-    }else{
-      this.sortArray.push(obj);
+        this.sortArray.push(check_exist[0]); 
+        console.log('class section : ', this.sortArray);      
+      }else{
+        this.sortArray.push(obj);
+      }
     }
   });
 
 
-  // console.log('class section : ', this.sortArray);    
+      
+}
+
 }
 
 
 
 
-  
 
 
+
+
+
+
+@Component({
+  templateUrl: './modal1.html'
+})
+
+export class Modal1Page {
+
+  // character; 
+  // orgShiftLists: any;
+  // orgClassSectionList: any = []; 
+  localUserData: any;
+  // sortArray: any = [];
+  // shiftID: any;
+  // selectedData: any;
+  // filteredArrayForClassList: any = [];
+  // filteredArrayForSectionList: any = [];
+  // classStreamID: any;
+  // classIndexId: any;
+  guarPhone: string;
+  guarId: string;
+  // showDeptSelection: boolean = true;
+
+  constructor(
+    public platform: Platform,
+    public params: NavParams,
+    public viewCtrl: ViewController,
+    public menuCtrl: MenuController, 
+    public navCtrl: NavController, 
+    public navParams: NavParams, 
+    private http: Http, 
+    public loadingController: LoadingController, 
+    public jsonp: Jsonp, 
+    public modalCtrl: ModalController,
+  ) {
+    // var characters = [];
+    // this.character = characters[this.params.get('charNum')];
+    this.getUserDataFromLocal();
+  }
+
+
+
+  ngOnInit() {
+    // this.sortArray = [];
+    // this.filteredArrayForClassList = [];
+    // this.getUserDataFromLocal();
+    // this.getStudentDetails();
+    // this.showSelectDepartmentBtn = false;
+    // this.getShiftLists();
+    // this.getClassList();    
+  }
+
+
+
+
+
+
+    dismiss() {
+      this.viewCtrl.dismiss();
+    }
+
+
+
+
+
+// ########################################################################
+//    -------------- getting user data from localstorage ---------------
+// ########################################################################
+    getUserDataFromLocal() {
+      let data = localStorage.getItem('userData');
+      this.localUserData = JSON.parse(data);
+      // console.log('local data : ', this.localUserData);    
+    }
+
+
+
+
+// ########################################################################
+// ----------- submit Guardian Info function -----------
+// ########################################################################
+    submitGuardianInfo() {
+          let header = new Headers();
+          header.set("Content-Type", "application/json");
+
+          let data = {
+            phone: this.guarPhone,
+            adhar: this.guarId,
+            org_id: this.localUserData.org_code,
+            std_id: this.localUserData.master_id,
+            from_app: 1
+          };
+
+          this.http
+            .post(`${apiUrl.url}parent/add`, data, {headers: header})
+            .map(res => res.json())
+            .subscribe(
+              data => {
+                console.log('after guardian info submit : ', data); 
+                if(data.data){
+                  this.localUserData.is_first_time = '1';
+                  localStorage.setItem('userData', JSON.stringify(this.localUserData));
+                  this.navCtrl.push(AccountPage);
+                }                                
+          });
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+@Component({
+  templateUrl: './securitypin.html'
+})
+
+export class SecuritypinPage {
+
+  // character; 
+  // orgShiftLists: any;
+  // orgClassSectionList: any = []; 
+  localUserData: any;
+  // sortArray: any = [];
+  // shiftID: any;
+  // selectedData: any;
+  // filteredArrayForClassList: any = [];
+  // filteredArrayForSectionList: any = [];
+  // classStreamID: any;
+  // classIndexId: any;
+  guarPhone: string;
+  guarId: string;
+  securityPin: number;
+  btnDisabled: boolean = false;
+  // showDeptSelection: boolean = true;
+
+  constructor(
+    public platform: Platform,
+    public params: NavParams,
+    public viewCtrl: ViewController,
+    public menuCtrl: MenuController, 
+    public navCtrl: NavController, 
+    public navParams: NavParams, 
+    private http: Http, 
+    public loadingController: LoadingController, 
+    public jsonp: Jsonp, 
+    public modalCtrl: ModalController,
+    public toastCtrl: ToastController,
+  ) {
+    // var characters = [];
+    // this.character = characters[this.params.get('charNum')];
+    this.getUserDataFromLocal();
+  }
+
+
+
+  ngOnInit() {
+    // this.sortArray = [];
+    // this.filteredArrayForClassList = [];
+    // this.getUserDataFromLocal();
+    // this.getStudentDetails();
+    // this.showSelectDepartmentBtn = false;
+    // this.getShiftLists();
+    // this.getClassList();    
+  }
+
+
+
+
+
+
+    dismiss() {
+      this.viewCtrl.dismiss();
+    }
+
+
+
+
+
+// ########################################################################
+//    -------------- getting user data from localstorage ---------------
+// ########################################################################
+    getUserDataFromLocal() {
+      let data = localStorage.getItem('userData');
+      this.localUserData = JSON.parse(data);
+      // console.log('local data : ', this.localUserData);    
+    }
+
+
+
+
+// ########################################################################
+// ----------- submit Guardian Info function -----------
+// ########################################################################
+    submitSecurityPin() {
+          let header = new Headers();
+          header.set("Content-Type", "application/json");
+
+          let data = {
+            u_id: this.localUserData.id,
+            pin: this.securityPin,
+          };
+
+          this.http
+            .post(`${apiUrl.url}user/add-pin`, data, {headers: header})
+            .map(res => res.json())
+            .subscribe(
+              getdata => {
+                console.log('after add pin submit : ', getdata); 
+                if (getdata.status == 1){
+                  this.dismiss();
+                  localStorage.setItem("securitypinadded", JSON.stringify(data));
+                  this.navCtrl.push(AccountPage);                  
+                }else{
+                  this.presentToast('Sorry, Something went wrong.');
+                }                                
+          });
+    }
+
+
+
+
+    // checkForValidPin
+    checkForValidPin() {
+      let pinString = this.securityPin.toString();
+      console.log('pin length : ', pinString.length);      
+      if(pinString.length === 6){
+        this.btnDisabled = true; 
+      }else{
+        this.btnDisabled = false; 
+      }
+    }
+
+
+
+
+    presentToast(text) {
+      let toast = this.toastCtrl.create({
+        message: text,
+        duration: 3000,
+        position: 'top'
+      });
+      
+      toast.present();
+    }
 
 }

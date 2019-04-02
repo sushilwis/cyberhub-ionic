@@ -1,0 +1,149 @@
+<ion-header>
+    <ion-navbar color="blue">
+      <!-- <button ion-button menuToggle color="light">
+        <ion-icon name="menu"></ion-icon>
+      </button>	 -->
+      <ion-title (click)="goToAccount()">Welcome Romel</ion-title>
+     
+      <ion-buttons end>
+        <button class="bell-icon" (click)=goToLogout()> 
+          <!-- <i class="fas fa-sign-out-alt fa-inverse fa-lg"></i>  -->
+          <img class="" src="assets/icon/logout.svg" style="height: 18px"/>
+        </button>
+      </ion-buttons>
+
+    </ion-navbar>
+  </ion-header>
+
+<ion-content padding>
+  <div>
+    <div>
+
+        <ion-card style="margin-top: 20px; height: 117px;">
+            <p class="card-title-border">Personal Details</p>
+            <!-- <img [src]="orgDetails?.org_img"/> -->
+            <ion-card-content>
+              <div class="back-ground">
+                <div class="profile-container">
+                <div text-center class="mh-container">
+                  <img class="profile-image" src="{{profile_image}}" *ngIf="profile_image"/>
+                  <button ion-button icon-only round small color="light" class="camera-icon" (click)="getImage()">
+                    <ion-icon name="camera" style="color: #000"></ion-icon>
+                  </button>
+                </div>
+                  <!-- <h5 text-center text-uppercase color="light">{{studentDetails?.f_name}} {{studentDetails?.l_name}}</h5> -->
+                  <!-- <p text-center text-uppercase no-padding no-margin class="personalDetailfont">{{studentDetails?.user_name}}</p> -->
+                <div class="text-position">
+                  <p text-left text-uppercase no-padding no-margin class="stdsmallinfo">ID : ABC123</p>
+                  <p text-left text-uppercase no-padding no-margin class="stdsmallinfo">NAME : Ramel Roy</p>
+                  <p text-left text-uppercase no-padding no-margin class="stdsmallinfo">CHILDS ATTACHED: 2</p>
+                </div>
+                </div>
+              </div>
+            </ion-card-content>  
+          </ion-card>
+
+          <button ion-button type="submit" block outline color="light" class="mt-10" (click)=goToPassword() style="width: 94%; text-align: center; margin: 0 auto;">Change Password</button>
+
+      <!-- <div text-center margin-top style="margin-bottom: 40px;">
+        <h4 style="font-size: 1.9rem;">
+          <img class="login-page-logo" src="assets/icon/cyverhub_logo.svg">
+          <img class="straight-line" src="assets/icon/substract.svg"> Welcome Guardian !
+        </h4>
+      </div> -->
+
+      <div class="sub-line" style="margin-bottom: 40px;">
+        <p class="sub-head">Digital account who was<br>Registered with cyberhub</p>
+        <p text-uppercase class="text-2"(click)="goToAddChild()">Add your Child</p>
+        <!-- <p class="sub-head"><br>Tap to view information for<br>Registered institution.</p> -->
+      </div>
+
+
+      <div class="sub-line" style="border-bottom: none;">
+          <p class="sub-head">Tap to view information for<br>your child who was<br>Registered with cyberhub</p>
+          <p text-uppercase class="text-3" (click)="goToViewChildDetails()">View Details<br>about your childs</p>
+          <!-- <p class="sub-head"><br>Tap to view information for<br>Registered institution.</p> -->
+      </div>
+
+      <!-- <div text-capitalize text-center margin-top>
+        <p class="text-1">Choose one option from below</p>
+      </div> -->
+
+      <!-- <div text-uppercase text-center>
+        <p class="text-2"(click)="goToAddChild()">Add New Child</p>
+        <p style="color: #fff">or</p>
+        <p class="text-3" (click)="goToViewChildDetails()">View Details<br>of all child</p>
+      </div> -->
+    </div>
+  </div>
+
+
+
+  <!-- <div [ngSwitch]="guestTab">
+      <div *ngSwitchCase="'live'"></div>
+  </div>
+
+
+
+    <div [ngSwitch]="guestTab">
+        <div *ngSwitchCase="'skill'"></div>
+    </div> -->
+    <!-- <ion-card style="background-color: #353434;" class="text-white">
+      <ion-card-content> -->
+        
+      <!-- </ion-card-content>
+    </ion-card> -->
+</ion-content>
+
+
+
+<!-- <ion-footer>
+
+    <ion-toolbar no-border-top>
+        <ion-segment [(ngModel)]="guestTab">
+          <ion-segment-button value="search">
+            <p>
+              <img class="notice-img" style="height: 20px" src="assets/imgs/generalNotice.svg">
+            </p>        
+            Search institution
+          </ion-segment-button>
+          <ion-segment-button value="live">
+              <p>
+                <img class="notice-img" style="height: 20px" src="assets/imgs/personalNotice.svg">
+              </p>
+            Live Stream
+          </ion-segment-button>
+          <ion-segment-button value="library">
+            <p>
+              <img class="notice-img" style="height: 20px" src="assets/imgs/personalNotice.svg">
+            </p>
+            Library Inventory
+          </ion-segment-button>
+        </ion-segment>        
+    </ion-toolbar>
+  
+    <ion-toolbar no-border-top>
+        <ion-segment [(ngModel)]="guestTab">
+          <ion-segment-button value="event">
+            <p>
+              <img class="notice-img" style="height: 20px" src="assets/icon/calender_btn.svg">
+            </p>        
+            Event Viewer
+          </ion-segment-button>
+          <ion-segment-button value="skill">
+              <p>
+                <img class="notice-img" style="height: 20px" src="assets/imgs/departmentalNotice.svg">
+              </p>
+            Skill Development
+          </ion-segment-button>
+          <ion-segment-button value="stuff">
+            <p>
+              <img class="notice-img" style="height: 20px" src="assets/imgs/departmentalNotice.svg">
+            </p>
+            Stuff Details
+          </ion-segment-button>
+        </ion-segment>
+    </ion-toolbar>
+  
+  </ion-footer> -->
+

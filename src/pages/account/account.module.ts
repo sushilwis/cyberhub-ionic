@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
-import AccountPage, { ModalPage } from './account';
+import AccountPage, { ModalPage, Modal1Page } from './account';
 import { Camera } from '@ionic-native/camera';
 
 @NgModule({
   declarations: [
     AccountPage,
-    ModalPage
+    ModalPage,
+    Modal1Page,
   ],
 
   imports: [
@@ -14,7 +15,8 @@ import { Camera } from '@ionic-native/camera';
   ],
   
   entryComponents: [
-    ModalPage
+    ModalPage,
+    Modal1Page,
   ],
 
   providers: [
