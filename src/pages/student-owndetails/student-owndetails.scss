@@ -37,8 +37,7 @@ page-student-owndetails {
 		position: absolute;
 		border-radius: 47px;
 		color: #fff;
-		background-color: #000;
-		top: -16px;
+		top: -9px;
 		left: 13px;
 		height: 22px;
 	}
@@ -80,6 +79,7 @@ page-student-owndetails {
 		height: 60px !important;
 		margin: 0 auto;
 	}
+
 	.mh-container{
 		// position: relative;
 		// display: flex;
@@ -89,21 +89,25 @@ page-student-owndetails {
 		justify-content: center;
 		padding: 10px 0;
 	}
+
 	.personalDetailfont, .personalDetailfont span, .personalDetailfont b{
 		font-size: 10.5px;
 		color: #cccbcb !important;
 		display: block;
 		width: 100%;
 	}
+
 	.profile-container{
 		display: flex;
 	}
+
 	.text-position{
 		width: 55%;
 		align-items: center;
 		justify-content: center;
 		padding: 10px 0;
 	}
+
 	.icon-center p {
 		font-size: 9.5px;
 		margin-top: 15px;
@@ -115,17 +119,20 @@ page-student-owndetails {
 		font-size: 11px !important;
 		color: #cccbcb !important;
 	}
+
 	.wether-icon{
 		position: absolute;
 		top: 11px;
 		left: 12px;
 		width: 50px !important;
 	}
+
 	.weatherDiv{
 		position: absolute;
 		top: 208px;
 		left: 230px;
 	}
+
 	.weatherdata {
 		position: relative;
 		top: -30px;
@@ -134,6 +141,10 @@ page-student-owndetails {
 
 	.wether-icon1 {
 		width: 70px;
+	}
+
+	.badge-md {
+		background: none !important;
 	}
 
 	

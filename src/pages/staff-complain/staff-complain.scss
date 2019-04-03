@@ -21,8 +21,7 @@ page-staff-complain {
 			font-size: 1.8rem!important;
 		}
 		.text-blue{
-			font-size:10px;
-			// color:#00109f;
+			font-size: 10px;
 			color: #000;
 		}
 		.fixed p {
@@ -84,7 +83,7 @@ page-staff-complain {
 			  background-color: #C7C7CC !important;
 			}
 		   }
-		   span.orinal-text{
+		   span.orinal-text {
 			background: #007AFF !important;
 			display: inline-block !important;
 			color: white !important;
@@ -97,6 +96,11 @@ page-staff-complain {
 
 		   .list-md .item-block .item-inner {
 			   border-bottom: 1px solid #fff !important;
+		   }
+
+
+		   .toolbar-background-md {
+				background-color: #015b53 !important;
 		   }
 
 }

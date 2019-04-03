@@ -135,7 +135,18 @@
 		text-align: center !important;
 	}
 
-	.okBtn .button-inner, .alertOkBtn .button-inner {
+	.cancelBtn {
+		border: 1px solid #717171 !important;
+		// color: #fff !important;
+		width: 75px !important;
+		text-align: center !important;
+	}
+
+	.cancelBtn .button-inner {
+		color: #717171;
+	}
+
+	.okBtn .button-inner, .alertOkBtn .button-inner, .cancelBtn .button-inner {
 		display: block !important;
 		text-align: center !important;
 	}
@@ -173,12 +184,18 @@
 
 
 	#level-3 > .toolbar-background-md {
-		background-color: #004e47 !important;
+		background-color: grey !important;
+	}
+
+
+	.back-button-icon-md {
+		font-size: 3rem !important;
 	}
 
 	// .eventAlert .alert-md .alert-message, .eventAlert .alert-md .alert-input-group {
 	// 	color: rgba(41, 33, 33, 1) !important; 
 	// }
+	
 
 	ion-icon {
 		&[class*="customicon-"] {

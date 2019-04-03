@@ -28,6 +28,10 @@ export class SchoolDetailsPage {
   schoolId: string;
   localUserData: any;
   pet;
+  weatherdata: any;
+  temp: number;
+  weatherIcon: string;
+  pin: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     private http: Http, public loadingController: LoadingController, private menuCtrl: MenuController, public platform: Platform) {
@@ -49,6 +53,7 @@ export class SchoolDetailsPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SchoolDetailsPage');
+    
   }
 
 
@@ -79,7 +84,11 @@ export class SchoolDetailsPage {
       map(res => res.json()).subscribe(data => {
         // this.presentLoading(false);
         this.schoolDetails = data.data[0];
-        console.log(this.schoolDetails);        
+        this.pin = data.data[0].pin.replace(' ','');
+        // this.pin;
+        this.getWeatherData();
+        console.log(this.pin);
+        console.log(this.schoolDetails);
       })
   }
 
@@ -158,6 +167,27 @@ export class SchoolDetailsPage {
         return this.loading.dismiss();
       }, 500);
     }
+  }
+
+
+
+
+
+  getWeatherData() {
+    // b60c3e9d5ed15819d78fd18b00e5cfbb
+    // https://openweathermap.org/img/w/
+    var headers = new Headers();
+		headers.append('Content-Type', 'application/json');
+    let options = new RequestOptions({headers: headers});
+    
+    this.http.get(`http://api.openweathermap.org/data/2.5/weather?zip=${this.pin},in&appid=c02a8ac947999e382330611c5f2c508b`).
+			map(res => res.json()).subscribe(data => {				
+        // console.log('weather data.../',data); 
+        this.weatherdata = data.main;
+        this.temp = Math.round(parseInt(this.weatherdata.temp)-273.15);
+        this.weatherIcon = `https://openweathermap.org/img/w/${data.weather[0].icon}.png`; 
+        // console.log('weather img link : ', this.temp );     
+			});
   }
 
 

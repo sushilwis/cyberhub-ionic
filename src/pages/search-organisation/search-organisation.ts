@@ -131,7 +131,7 @@ export class SearchOrganisationPage {
 
   getRegisterStatus(val) {
     if(val == '0'){
-      return 'Not Registered';
+      return 'Pending';
     }
     if(val == '1'){
       return 'Registered';
@@ -315,9 +315,18 @@ export class SearchOrganisationPage {
 
   showAlert(title, msg) {
 		const alert = this.alertCtrl.create({
-		  title: title,
+      title: title,
+      cssClass: "confirmAlert",
 		  subTitle: msg,
-		  buttons: ['OK'],
+		  buttons: [
+        {
+          text: 'Ok',
+          cssClass: "okBtn",
+          handler: () => {
+            this.navCtrl.push(WelcomeGuestPage);
+          }
+        }
+      ]
     });
     
 		alert.present();
@@ -337,6 +346,7 @@ export class SearchOrganisationPage {
         checked: false
       }
     );
+
     alert.addInput(
       {
         type: 'radio',
@@ -345,6 +355,7 @@ export class SearchOrganisationPage {
         checked: false
       }
     );
+
     alert.addInput(
       {
         type: 'radio',
@@ -357,6 +368,7 @@ export class SearchOrganisationPage {
     // alert.addButton('Cancel');
     alert.addButton({
       text: 'Cancel',
+      cssClass: "cancelBtn",
       handler: data => {
         console.log('cancel clicked :...', );
         this.navCtrl.push(WelcomeGuestPage);        
@@ -364,6 +376,7 @@ export class SearchOrganisationPage {
     });
     alert.addButton({
       text: 'OK',
+      cssClass: "okBtn",
       handler: data => {
         // console.log(data);
         if(data != '' && data != null){

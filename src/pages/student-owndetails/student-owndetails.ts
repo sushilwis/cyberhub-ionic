@@ -95,6 +95,10 @@ export class StudentOwndetailsPage implements OnInit {
   }
   gotoLiveStream(){
     // this.navCtrl.push(LiveStreamPage);
+    console.log('goToChangeLang');
+  }
+  goToChangeLang(){
+    console.log('goToChangeLang');    
   }
   goToAttendance(){
     this.navCtrl.push(AttendancePage);

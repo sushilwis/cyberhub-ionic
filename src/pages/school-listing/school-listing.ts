@@ -74,6 +74,16 @@ export class SchoolListingPage {
           
           this.orgList.forEach(ele => {            
               ele.org = this.genOrgName(ele.org_type_id);
+              ele.id = ele.id,
+              ele.is_registered= this.getRegisterStatus(ele.is_registered),
+              ele.name= ele.org_name,
+              ele.city= ele.org_city,
+              ele.landmark= ele.landmark,
+              ele.org_logo= ele.org_logo,
+              ele.org_text= ele.org_text,
+              ele.email= ele.email,
+              ele.phone_no= ele.phone_no,
+              ele.website= ele.website
           });
 
           console.log(this.orgList);
@@ -111,6 +121,15 @@ export class SchoolListingPage {
       title: `${org.org_name}`,
       cssClass: 'action-sheets-basic-page',
       buttons: [
+        {
+          text: `Status :  ${org.is_registered}`,
+          // role: 'destructive',
+          icon: !this.platform.is('ios') ? 'checkbox-outline' : 'checkbox-outline',
+          handler: () => {
+            // console.log('Delete clicked');
+            this.schoolsDetails(org.id);
+          }
+        },
         {
           text: `Phone :  ${org.phone_no}`,
           // role: 'destructive',
@@ -150,6 +169,71 @@ export class SchoolListingPage {
 
     actionSheet.present();
   }
+
+
+
+
+
+  getRegisterStatus(val) {
+    if(val == '0'){
+      return 'Pending';
+    }
+    if(val == '1'){
+      return 'Registered';
+    }
+  }
+
+
+
+
+
+  // openActionSheet(org) {
+  //   let actionSheet = this.actionsheetCtrl.create({
+  //     // title: `<img [src]="${org.org_logo}"/> ${org.name}`,
+  //     title: `${org.name} ${org.landmark} `,
+  //     cssClass: 'action-sheets-basic-page',
+  //     buttons: [
+  //       {
+  //         text: `Status :  ${org.is_registered}`,
+  //         // role: 'destructive',
+  //         icon: !this.platform.is('ios') ? 'checkbox-outline' : 'checkbox-outline',
+  //         handler: () => {
+  //           // console.log('Delete clicked');
+  //           this.schoolsDetails(org.id);
+  //         }
+  //       },
+  //       {
+  //         text: `Phone :  ${org.phone_no}`,
+  //         // role: 'destructive',
+  //         icon: !this.platform.is('ios') ? 'call' : 'call',
+  //         handler: () => {
+  //           // console.log('Delete clicked');
+  //           this.schoolsDetails(org.id);
+  //         }
+  //       },
+  //       {
+  //         text: `Website :  ${org.website}`,
+  //         icon: !this.platform.is('ios') ? 'cloud' : 'cloud',
+  //         handler: () => {
+  //           // console.log('Share clicked');
+  //           this.schoolsDetails(org.id);
+  //         }
+  //       },
+  //       {
+  //         text: `Email :  ${org.email}`,
+  //         icon: !this.platform.is('ios') ? 'mail' : 'mail',
+  //         handler: () => {
+  //           // console.log('Play clicked');
+  //           this.schoolsDetails(org.id);
+  //         }
+  //       }
+  //     ]
+  //   });
+
+
+  //   actionSheet.present();
+  // }
+
 
 
 

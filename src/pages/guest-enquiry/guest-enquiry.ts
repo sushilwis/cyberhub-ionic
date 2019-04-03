@@ -1,4 +1,4 @@
-import { Component, Input, ViewChild } from '@angular/core';
+import { Component, Input, ViewChild, OnInit, AfterViewInit } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController, Platform, LoadingController, AlertController} from 'ionic-angular';
 import { Http, RequestOptions, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
@@ -18,7 +18,7 @@ import { HttpParams } from '@angular/common/http';
   selector: "page-guest-enquiry",
   templateUrl: "guest-enquiry.html"
 })
-export class GuestEnquiryPage {
+export class GuestEnquiryPage implements OnInit, AfterViewInit {
   @ViewChild("search") searchbox;
 
   isSearchbarOpened = false;
@@ -56,6 +56,15 @@ export class GuestEnquiryPage {
     })
 
     this.initLoader();
+  }
+
+
+  ngOnInit() {
+    // this.okBtnColorChange();
+  }
+
+  ngAfterViewInit() {
+    // this.okBtnColorChange();
   }
 
 
@@ -126,12 +135,12 @@ export class GuestEnquiryPage {
 
   goToListing() {
     if (this.country != '' && this.type == '') {
-      this.showAlert(`Sorry, Type should not be blank.`);
+      this.showAlert(`Institution type should not be blank.`);
       return;
     }
 
     if (this.country == '' || this.type == '') {
-      this.showAlert(`Sorry, Country and Type should not be blank.`);
+      this.showAlert(`Country and institution type should not be blank.`);
     } else {
 
       let data = {
@@ -365,14 +374,44 @@ export class GuestEnquiryPage {
 
 
 
+  // showAlert(msg) {
+  //   const alert = this.alertCtrl.create({
+  //     title: 'Alert!',
+  //     subTitle: msg,
+  //     buttons: ['OK']
+  //   });
+  //   alert.present();
+  // }
+
+
+
   showAlert(msg) {
-    const alert = this.alertCtrl.create({
-      title: 'Alert!',
-      subTitle: msg,
-      buttons: ['OK']
-    });
-    alert.present();
+  const alert = this.alertCtrl.create({
+    title: 'Alert!',
+    cssClass: "confirmAlert",
+    subTitle: msg,
+    buttons: [
+      {
+        text: 'Ok',
+        cssClass: "okBtn",
+        handler: () => {
+          // this.navCtrl.push(WelcomeGuestPage);
+        }
+      }
+    ]
+  });
+  
+  alert.present();
   }
+
+
+
+
+
+  // okBtnColorChange() {
+  //   var btn = document.querySelector('.alert-button');
+  //   console.log('alert btn :... ', btn);    
+  // }
 
 
 
