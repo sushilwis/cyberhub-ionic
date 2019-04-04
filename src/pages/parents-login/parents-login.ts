@@ -51,19 +51,40 @@ export class ParentsLoginPage {
 		this.navCtrl.setRoot(ParentHomePage);
 		this.showAlert(
 			"Alert!",
-			"Successfully logged in to your account."
+			"Successfully logged in to your account"
 		);
 	}
+
+
+	// showAlert(title, msg) {
+  //   const alert = this.alertCtrl.create({
+  //     title: title,
+  //     subTitle: msg,
+  //     buttons: ["OK"]
+  //   });
+  //   alert.present();
+	// }
+
 
 
 	showAlert(title, msg) {
     const alert = this.alertCtrl.create({
       title: title,
+      cssClass: "confirmAlert",
       subTitle: msg,
-      buttons: ["OK"]
+      buttons: [
+        {
+          text: 'OK',
+          cssClass: "okBtn",
+          handler: () => {
+            // this.navCtrl.push(WelcomeGuestPage);
+          }
+        }
+      ]
     });
+    
     alert.present();
-	}
+  }
 	
 
 }

@@ -131,7 +131,7 @@ export class StdRegPage {
           if (data.data) { 
             this.presentLoading(false);           
             console.log('student data : ', data);	
-            this.showAlert('Success!', `Your Username is : ${data.data[0].username} and Password is : ${data.data[0].hint}. Please login to continue.`);				
+            this.showAlert('Success!', `Your Username is : ${data.data[0].username} and Password is : ${data.data[0].hint}. Please login to continue`);				
           }else{
             this.presentLoading(false);
             this.showAlert('Error!', `${data.Error}`);
@@ -143,11 +143,33 @@ export class StdRegPage {
 
 
 
+  // showAlert(title, msg) {
+  //   const alert = this.alertCtrl.create({
+  //     title: title,
+  //     subTitle: msg,
+  //     buttons: ['OK']
+  //   });
+    
+  //   alert.present();
+  // }
+
+
+
+
   showAlert(title, msg) {
     const alert = this.alertCtrl.create({
       title: title,
+      cssClass: "confirmAlert",
       subTitle: msg,
-      buttons: ['OK']
+      buttons: [
+        {
+          text: 'OK',
+          cssClass: "okBtn",
+          handler: () => {
+            // this.navCtrl.push(WelcomeGuestPage);
+          }
+        }
+      ]
     });
     
     alert.present();

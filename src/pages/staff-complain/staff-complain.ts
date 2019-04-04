@@ -84,7 +84,7 @@ export class StaffComplainPage implements OnInit {
   async sendComplain() {
 
     if(this.totalcomplain >= '3') {
-      this.showAlert('Alert!', 'Sorry, You Have Not Any Complain Left.');
+      this.showAlert('Alert!', 'You Have Not Any Complain Left');
       this.navCtrl.setRoot(StaffInfoPage);
     }else{
     
@@ -111,9 +111,9 @@ export class StaffComplainPage implements OnInit {
               this.btnDisabled = true;
               this.countComplain();
               this.getComplainAndReplys();
-              this.showAlert('Alert!', 'Your Complain has been Submited.');
+              this.showAlert('Alert!', 'Your Complain has been Submited');
             } else {
-              this.showAlert('Alert!', 'Something went wrong. Please try again.');
+              this.showAlert('Alert!', 'Something went wrong. Please try again');
             }
       });
 
@@ -198,14 +198,36 @@ export class StaffComplainPage implements OnInit {
 
 
 
+  // showAlert(title, msg) {
+	// 	const alert = this.alertCtrl.create({
+	// 	  title: title,
+	// 	  subTitle: msg,
+	// 	  buttons: ['OK'],
+  //   });
+    
+	// 	alert.present();
+  // }
+
+
+
+
   showAlert(title, msg) {
-		const alert = this.alertCtrl.create({
-		  title: title,
-		  subTitle: msg,
-		  buttons: ['OK'],
+    const alert = this.alertCtrl.create({
+      title: title,
+      cssClass: "confirmAlert",
+      subTitle: msg,
+      buttons: [
+        {
+          text: 'OK',
+          cssClass: "okBtn",
+          handler: () => {
+            // this.navCtrl.push(WelcomeGuestPage);
+          }
+        }
+      ]
     });
     
-		alert.present();
+    alert.present();
   }
 
 

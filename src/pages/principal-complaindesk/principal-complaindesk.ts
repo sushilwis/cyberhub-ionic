@@ -119,14 +119,36 @@ export class PrincipalComplaindeskPage implements OnInit {
 
 
 
+  // showAlert(title, msg) {
+	// 	const alert = this.alertCtrl.create({
+	// 	  title: title,
+	// 	  subTitle: msg,
+	// 	  buttons: ['OK'],
+  //   });
+    
+	// 	alert.present();
+  // }
+
+
+
+
   showAlert(title, msg) {
-		const alert = this.alertCtrl.create({
-		  title: title,
-		  subTitle: msg,
-		  buttons: ['OK'],
+    const alert = this.alertCtrl.create({
+      title: title,
+      cssClass: "confirmAlert",
+      subTitle: msg,
+      buttons: [
+        {
+          text: 'OK',
+          cssClass: "okBtn",
+          handler: () => {
+            // this.navCtrl.push(WelcomeGuestPage);
+          }
+        }
+      ]
     });
     
-		alert.present();
+    alert.present();
   }
 
 }

@@ -79,17 +79,17 @@ export class ChangepasswordPage implements OnInit {
             console.log(data);   
             if(data.status == "1"){
               this.goToLogout();
-              this.showAlert('Password Changed Successfully.');
+              this.showAlert('Password Changed Successfully');
               this.navCtrl.push(StudentLoginPage);
             }else{
               this.showAlert(data.mssg);
             }       
           });
       } else {
-        this.showAlert('Password Not Match.');
+        this.showAlert('Password Not Match');
       }
     } else{
-      this.showAlert('Please enter New Password and Password field.');
+      this.showAlert('Please enter New Password and Password field');
     }    
   }
 
@@ -133,13 +133,36 @@ export class ChangepasswordPage implements OnInit {
 
 
 
+  // showAlert(msg) {
+  //   const alert = this.alertCtrl.create({
+  //     title: 'Alert!',
+  //     subTitle: msg,
+  //     buttons: ['OK']
+  //   });
+
+  //   alert.present();
+  // }
+
+
+
+
+
   showAlert(msg) {
     const alert = this.alertCtrl.create({
-      title: 'Alert!',
+      title: "Alert!",
+      cssClass: "confirmAlert",
       subTitle: msg,
-      buttons: ['OK']
+      buttons: [
+        {
+          text: 'OK',
+          cssClass: "okBtn",
+          handler: () => {
+            // this.navCtrl.push(WelcomeGuestPage);
+          }
+        }
+      ]
     });
-
+    
     alert.present();
   }
 

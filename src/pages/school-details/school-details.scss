@@ -82,7 +82,7 @@ page-school-details {
     }
     .info p {
         color: #fff;
-        font-size: 13px;
+        font-size: 12px;
         padding-top: 3px;
     }
     .card-title p {
@@ -90,22 +90,28 @@ page-school-details {
     }
 
     .wether-icon{
-		position: absolute;
-		top: 1px;
+		position: relative;
+		top: -61px;
 		left: 12px;
 		width: 50px !important;
 	}
 
-	.weatherDiv{
-		position: absolute;
+	.weatherDiv {
+		// position: absolute;
 		top: 208px;
 		left: 230px;
 	}
 
 	.weatherdata {
 		position: relative;
-		top: -26px;
+		top: -88px;
 		left: 18px;
+    }
+    
+    .weatherdata1 {
+		position: relative;
+		top: -129px;
+		left: 70px;
 	}
 
 	.wether-icon1 {

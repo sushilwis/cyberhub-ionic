@@ -70,16 +70,16 @@ export class StuffEditPage {
           console.log('stuff data : ', data);	  
           if (data.data) {
             this.presentLoading(false);
-            this.showAlert('Success!', `Update Successful.`);	
+            this.showAlert('Success!', `Update Successful`);	
             this.navCtrl.push(ParentsAccountPage);			
           }else{
             this.presentLoading(false);
-            this.showAlert('Error!', `Something Wrong. Please Try Again.`);
+            this.showAlert('Error!', `Something Wrong. Please Try Again`);
             this.navCtrl.push(ParentsAccountPage);
           }
       })
     } else {
-      this.showAlert('Error!', `Please fill all the data.`);
+      this.showAlert('Error!', `Please fill all the data`);
     }    
   }
 
@@ -115,15 +115,43 @@ export class StuffEditPage {
 
 
 
+  // showAlert(title, msg) {
+  //   const alert = this.alertCtrl.create({
+  //     title: title,
+  //     subTitle: msg,
+  //     buttons: ['OK']
+  //   });
+
+  //   alert.present();
+  // }
+
+
+
+
   showAlert(title, msg) {
     const alert = this.alertCtrl.create({
       title: title,
+      cssClass: "confirmAlert",
       subTitle: msg,
-      buttons: ['OK']
+      buttons: [
+        {
+          text: 'OK',
+          cssClass: "okBtn",
+          handler: () => {
+            // this.navCtrl.push(WelcomeGuestPage);
+          }
+        }
+      ]
     });
-
+    
     alert.present();
   }
+
+
+
+
+
+  
 
 
 

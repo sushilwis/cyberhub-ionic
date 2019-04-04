@@ -57,11 +57,11 @@ export class TestPage implements OnInit {
       console.log("Status : ", status);
       if (status) {
         this.presentLoading(false);
-        this.showAlert("Attendence Successful.");
+        this.showAlert("Attendence Successful");
         this.socket.emit("forceDisconnect");
         this.navCtrl.setRoot(StudentOwndetailsPage);
       } else {
-        this.showAlert("Attendence Not Successful.");
+        this.showAlert("Attendence Not Successful");
       }
     });
 
@@ -90,14 +90,37 @@ export class TestPage implements OnInit {
     // }
   }
 
+  // showAlert(msg) {
+  //   const alert = this.alertCtrl.create({
+  //     title: "Alert!",
+  //     subTitle: msg,
+  //     buttons: ["OK"]
+  //   });
+  //   alert.present();
+  // }
+
+
+
   showAlert(msg) {
     const alert = this.alertCtrl.create({
-      title: "Alert!",
+      title: 'Alert!',
+      cssClass: "confirmAlert",
       subTitle: msg,
-      buttons: ["OK"]
+      buttons: [
+        {
+          text: 'OK',
+          cssClass: "okBtn",
+          handler: () => {
+            // this.navCtrl.push(WelcomeGuestPage);
+          }
+        }
+      ]
     });
+    
     alert.present();
   }
+  
+
 
   presentLoading(load: boolean) {
     if (load) {

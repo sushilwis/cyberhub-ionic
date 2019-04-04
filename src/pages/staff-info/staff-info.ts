@@ -41,6 +41,9 @@ export class StaffInfoPage {
   weatherdata: any;
   temp: any;
   pin: any;
+  maxTemp: any;
+  minTemp: any;
+  humidity: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public menuCtrl: MenuController, public loadingController: LoadingController, private http: Http, public alertCtrl: AlertController) {
     this.getUserDataFromLocal();
@@ -259,6 +262,10 @@ export class StaffInfoPage {
         // console.log('weather data.../',data); 
         this.weatherdata = data.main;
         this.temp = Math.round(parseInt(this.weatherdata.temp)-273.15);
+        this.maxTemp = Math.round(parseInt(this.weatherdata.temp_max)-273.15);
+        this.minTemp = Math.round(parseInt(this.weatherdata.temp_min)-273.15);
+        this.humidity = this.weatherdata.humidity;
+        
         this.weatherIcon = `https://openweathermap.org/img/w/${data.weather[0].icon}.png`; 
         // console.log('weather img link : ', this.temp );     
 			});

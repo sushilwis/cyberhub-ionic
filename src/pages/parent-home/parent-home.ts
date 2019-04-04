@@ -81,7 +81,7 @@ export class ParentHomePage {
           }
         },
         {
-          text: 'Ok',
+          text: 'OK',
           cssClass: "okBtn",
           handler: () => {
             // console.log('Agree clicked');

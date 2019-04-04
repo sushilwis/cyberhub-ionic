@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController, MenuController, Platform } from 'ionic-angular';
 
 import { Http, RequestOptions, Headers } from '@angular/http';
@@ -22,7 +22,7 @@ import { StaffInfoPage } from '../staff-info/staff-info';
 })
 
 
-export class SchoolDetailsPage {
+export class SchoolDetailsPage implements OnInit {
   loading: any;
   schoolDetails: any;
   schoolId: string;
@@ -32,12 +32,15 @@ export class SchoolDetailsPage {
   temp: number;
   weatherIcon: string;
   pin: any;
+  maxTemp: number;
+  minTemp: number;
+  humidity: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     private http: Http, public loadingController: LoadingController, private menuCtrl: MenuController, public platform: Platform) {
     this.getUserDataFromLocal();
     this.schoolId = navParams.get('id');
-    this.getDetails(this.schoolId);
+    
     this.initLoader();
     this.menuCtrl.enable(false);
     this.pet = "about";
@@ -46,6 +49,11 @@ export class SchoolDetailsPage {
         this.navCtrl.pop();
       }
     });
+  }
+
+
+  ngOnInit() {
+    this.getDetails(this.schoolId);
   }
 
 
@@ -185,6 +193,10 @@ export class SchoolDetailsPage {
         // console.log('weather data.../',data); 
         this.weatherdata = data.main;
         this.temp = Math.round(parseInt(this.weatherdata.temp)-273.15);
+        this.maxTemp = Math.round(parseInt(this.weatherdata.temp_max)-273.15);
+        this.minTemp = Math.round(parseInt(this.weatherdata.temp_min)-273.15);
+        this.humidity = this.weatherdata.humidity;
+
         this.weatherIcon = `https://openweathermap.org/img/w/${data.weather[0].icon}.png`; 
         // console.log('weather img link : ', this.temp );     
 			});

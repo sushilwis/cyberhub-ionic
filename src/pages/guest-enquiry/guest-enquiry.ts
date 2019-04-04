@@ -135,12 +135,12 @@ export class GuestEnquiryPage implements OnInit, AfterViewInit {
 
   goToListing() {
     if (this.country != '' && this.type == '') {
-      this.showAlert(`Institution type should not be blank.`);
+      this.showAlert(`Institution type should not be blank`);
       return;
     }
 
     if (this.country == '' || this.type == '') {
-      this.showAlert(`Country and institution type should not be blank.`);
+      this.showAlert(`Country and institution type should not be blank`);
     } else {
 
       let data = {
@@ -392,7 +392,7 @@ export class GuestEnquiryPage implements OnInit, AfterViewInit {
     subTitle: msg,
     buttons: [
       {
-        text: 'Ok',
+        text: 'OK',
         cssClass: "okBtn",
         handler: () => {
           // this.navCtrl.push(WelcomeGuestPage);

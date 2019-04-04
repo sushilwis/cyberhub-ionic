@@ -114,7 +114,7 @@ export class AttendancePage {
       // });
       this.navCtrl.push(TestPage);
     } else {
-      this.showAlert("Invalid Code.");
+      this.showAlert("Invalid Code");
     }
   }
 
@@ -167,7 +167,7 @@ export class AttendancePage {
     // let todayDate = new Date().toLocaleString().substring(0,9).toString();
     // todayDate = todayDate.toLocaleString();
     if(this.period == '') {
-      this.showAlert('Please select your period.');
+      this.showAlert('Please select your period');
       return;
     }
 
@@ -204,7 +204,7 @@ export class AttendancePage {
           // this.showAlert(data.msg);
         } else {
           this.showPeriodForm = true;
-          this.showAlert('Sorry, wrong selection.');
+          this.showAlert('Wrong selection');
         }
       });
   }
@@ -221,13 +221,34 @@ export class AttendancePage {
     return day + "/" + month + "/" + year;
   }
 
+  // showAlert(msg) {
+  //   const alert = this.alertCtrl.create({
+  //     title: "Alert!",
+  //     subTitle: msg,
+  //     buttons: ["OK"]
+  //   });
+  //   alert.present();
+  // }
+
+
+
   showAlert(msg) {
-    const alert = this.alertCtrl.create({
-      title: "Alert!",
-      subTitle: msg,
-      buttons: ["OK"]
-    });
-    alert.present();
+  const alert = this.alertCtrl.create({
+    title: "Alert!",
+    cssClass: "confirmAlert",
+    subTitle: msg,
+    buttons: [
+      {
+        text: 'OK',
+        cssClass: "okBtn",
+        handler: () => {
+          // this.navCtrl.push(WelcomeGuestPage);
+        }
+      }
+    ]
+  });
+  
+  alert.present();
   }
 
 

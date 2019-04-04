@@ -121,7 +121,7 @@ export class SearchOrganisationPage {
         } else {
           this.presentLoading(false);
           // this.presentToast('Sorry, No Data Found !');
-          this.showAlert('Alert!', 'Sorry, No Data Found !');        
+          this.showAlert('Alert!', 'No Data Found !');        
         }       
       });
   }
@@ -382,7 +382,7 @@ export class SearchOrganisationPage {
         if(data != '' && data != null){
           this.getData(data); 
         }else{
-          this.showAlert('Alert!', 'Please select a type of institution.');
+          this.showAlert('Alert!', 'Please select a type of institution');
         }       
       }
     });

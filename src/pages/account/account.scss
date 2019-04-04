@@ -70,8 +70,21 @@ page-account {
 	// 	font-weight: bold;
 	// }
 
+	.profile-container{
+		display: flex;
+		padding-left: 30px;
+		padding-top: 10px;
+	}
+
 	.toolbar-background-md {
 		background-color: #015b53 !important;
+	}
+
+	.text-position{
+		width: 55%;
+		align-items: center;
+		justify-content: center;
+		padding: 10px 0;
 	}
 	
 }

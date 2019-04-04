@@ -98,13 +98,13 @@ export class StaffLoginPage implements OnInit {
           } else {
             this.showAlert(
               "Alert!",
-              "Sorry, user not found. Please check your ID or Password."
+              "User not found. Please check your ID or Password"
             );
             this.presentLoading(false);
           }
         });
     } else {
-      this.showAlert("Alert!", "Please fill all the field.");
+      this.showAlert("Alert!", "Please fill all the fields");
     }
   }
 
@@ -113,14 +113,37 @@ export class StaffLoginPage implements OnInit {
 
 
 
+  // showAlert(title, msg) {
+  //   const alert = this.alertCtrl.create({
+  //     title: title,
+  //     subTitle: msg,
+  //     buttons: ["OK"]
+  //   });
+  //   alert.present();
+  // }
+
+
+
+
+
   showAlert(title, msg) {
-    const alert = this.alertCtrl.create({
-      title: title,
-      subTitle: msg,
-      buttons: ["OK"]
-    });
-    alert.present();
-  }
+  const alert = this.alertCtrl.create({
+    title: title,
+    cssClass: "confirmAlert",
+    subTitle: msg,
+    buttons: [
+      {
+        text: 'OK',
+        cssClass: "okBtn",
+        handler: () => {
+          // this.navCtrl.push(WelcomeGuestPage);
+        }
+      }
+    ]
+  });
+  
+  alert.present();
+}
 
 
 

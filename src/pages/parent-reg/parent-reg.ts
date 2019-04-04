@@ -127,10 +127,10 @@ export class ParentRegPage {
         map(res => res.json()).subscribe(data => {
           console.log('after stuff reg :... ', data);          	  
           if (data.data) {
-            this.showAlert('Success!', `Your Username is : ${data.data.username} and Password is : ${data.data.hint}. Please login to continue.`);
+            this.showAlert('Success!', `Your Username is : ${data.data.username} and Password is : ${data.data.hint}. Please login to continue`);
             this.navCtrl.push(ParentsLoginPage);				
           }else{
-            this.showAlert('Error!', `Sorry, Invalid Credential !.`);
+            this.showAlert('Error!', `Invalid Credential !`);
           }
       });    
   }
@@ -139,18 +139,40 @@ export class ParentRegPage {
 
 
 
+  // showAlert(title, msg) {
+  //   const alert = this.alertCtrl.create({
+  //     title: title,
+  //     subTitle: msg,
+  //     buttons: [{
+  //       text: 'OK',
+  //       role: 'ok',
+  //       cssClass: 'alertOkBtn',
+  //       handler: (blah) => {
+  //         console.log('Ok clicked.');
+  //       }
+  //     }]
+  //   });
+    
+  //   alert.present();
+  // }
+
+
+
+
   showAlert(title, msg) {
     const alert = this.alertCtrl.create({
       title: title,
+      cssClass: "confirmAlert",
       subTitle: msg,
-      buttons: [{
-        text: 'OK',
-        role: 'ok',
-        cssClass: 'alertOkBtn',
-        handler: (blah) => {
-          console.log('Ok clicked.');
+      buttons: [
+        {
+          text: 'OK',
+          cssClass: "okBtn",
+          handler: () => {
+            // this.navCtrl.push(WelcomeGuestPage);
+          }
         }
-      }]
+      ]
     });
     
     alert.present();

@@ -320,14 +320,23 @@ export default class AccountPage implements OnInit {
         // });
       });
   }
+
+
+
+
+
   renderGraph() {
     this.doughnutChart = new Chart(this.doughnutCanvas.nativeElement, {
       type: "bar",
+      options: {
+        legend: {
+            display: false,
+        }
+      },
       data: {
         labels: this.chartClassList,
         datasets: [
           {
-            label: "% Attdence",
             data: this.chartAttdValue,
             backgroundColor: this.chartcolor
             // hoverBackgroundColor: [
@@ -343,6 +352,12 @@ export default class AccountPage implements OnInit {
       }
     });
   }
+
+
+
+
+
+
   // presentToast(msg) {
   //   let toast = this.toastCtrl.create({
   //     message: msg,

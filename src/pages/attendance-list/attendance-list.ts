@@ -251,14 +251,47 @@ export class AttendanceListPage implements OnInit {
       });
   }
 
+
+
+
+
+
+  // showAlert(msg) {
+  //   const alert = this.alertCtrl.create({
+  //     title: "Alert!",
+  //     subTitle: msg,
+  //     buttons: ["OK"]
+  //   });
+  //   alert.present();
+  // }
+
+
+
+
+
   showAlert(msg) {
     const alert = this.alertCtrl.create({
       title: "Alert!",
+      cssClass: "confirmAlert",
       subTitle: msg,
-      buttons: ["OK"]
+      buttons: [
+        {
+          text: 'OK',
+          cssClass: "okBtn",
+          handler: () => {
+            // this.navCtrl.push(WelcomeGuestPage);
+          }
+        }
+      ]
     });
+    
     alert.present();
   }
+
+
+
+
+  
 }
 
 

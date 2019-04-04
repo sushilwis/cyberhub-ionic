@@ -72,17 +72,17 @@ export class StuffChangePassPage implements OnInit {
             console.log(data);   
             if(data.status == "1"){
               this.goToLogout();
-              this.showAlert('Password Changed Successfully.');
+              this.showAlert('Password Changed Successfully');
               this.navCtrl.push(StaffLoginPage);
             }else{
               this.showAlert(data.mssg);
             }       
           });
       }else{
-        this.showAlert('Password Not Match.');
+        this.showAlert('Password Not Match');
       }
     } else {
-      this.showAlert('Please fill all the fields.');
+      this.showAlert('Please fill all the fields');
     }   
   }
 
@@ -120,13 +120,35 @@ export class StuffChangePassPage implements OnInit {
 
 
 
+  // showAlert(msg) {
+  //   const alert = this.alertCtrl.create({
+  //     title: 'Alert!',
+  //     subTitle: msg,
+  //     buttons: ['OK']
+  //   });
+
+  //   alert.present();
+  // }
+
+
+
+
   showAlert(msg) {
     const alert = this.alertCtrl.create({
       title: 'Alert!',
+      cssClass: "confirmAlert",
       subTitle: msg,
-      buttons: ['OK']
+      buttons: [
+        {
+          text: 'OK',
+          cssClass: "okBtn",
+          handler: () => {
+            // this.navCtrl.push(WelcomeGuestPage);
+          }
+        }
+      ]
     });
-
+    
     alert.present();
   }
 

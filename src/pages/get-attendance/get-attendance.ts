@@ -320,7 +320,7 @@ export class GetAttendancePage {
       this.stream == "" ||
       this.shift == ""
     ) {
-      this.showAlert("Please select all the fields to continue.");
+      this.showAlert("Select all field step wise");
       return;
     }
 
@@ -372,14 +372,39 @@ export class GetAttendancePage {
     this.navCtrl.push(AttendanceListPage);
   }
 
+  // showAlert(msg) {
+  //   const alert = this.alertCtrl.create({
+  //     title: "Alert!",
+  //     subTitle: msg,
+  //     buttons: ["OK"]
+  //   });
+  //   alert.present();
+  // }
+
+
+
+
   showAlert(msg) {
     const alert = this.alertCtrl.create({
-      title: "Alert!",
+      title: 'Alert!',
+      cssClass: "confirmAlert",
       subTitle: msg,
-      buttons: ["OK"]
+      buttons: [
+        {
+          text: 'OK',
+          cssClass: "okBtn",
+          handler: () => {
+            // this.navCtrl.push(WelcomeGuestPage);
+          }
+        }
+      ]
     });
+    
     alert.present();
   }
+
+
+  
 
   makeDateString(date) {
     let year = date.getFullYear();

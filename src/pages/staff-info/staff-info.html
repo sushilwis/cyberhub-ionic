@@ -75,7 +75,21 @@
               <img class="wether-icon" src="{{weatherIcon}}" alt="weather">
               <span class="weatherdata">
                 <label *ngIf="temp" style="font-size: 9px; color: #000;"><span style="font-size: 9px; color: #000;">Now</span> {{temp}} C</label>
-              </span>              
+              </span> 
+              
+              <span class="weatherdata1">
+                  <p style="font-size: 9px; padding: 0px; margin: 0px; line-height: 1.3">
+                    <span style="font-size: 9px; color: #fff;">Max</span> {{maxTemp}} C
+                  </p>
+                
+                  <p style="font-size: 9px; padding: 0px; margin: 0px; line-height: 1.3">
+                    <span style="font-size: 9px; color: #fff;">Min</span> {{minTemp}} C
+                  </p>
+                  
+                  <p style="font-size: 9px; padding: 0px; margin: 0px; line-height: 1.3">
+                    <span style="font-size: 9px; color: #fff;">Humidity</span> {{humidity}}
+                  </p>
+              </span>
             </div>
             
             <!-- <ion-col>

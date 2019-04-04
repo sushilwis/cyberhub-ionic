@@ -32,20 +32,41 @@ export class AddChildPage {
     console.log('save child clicked.');  
     this.showAlert(
 			"Alert!",
-			"Successfully added your child information to your account."
+			"Successfully added your child information to your account"
     ); 
     this.navCtrl.setRoot(ParentHomePage); 
   }
 
 
+  // showAlert(title, msg) {
+  //   const alert = this.alertCtrl.create({
+  //     title: title,
+  //     subTitle: msg,
+  //     buttons: ["OK"]
+  //   });
+  //   alert.present();
+  // }
+  
+
+
   showAlert(title, msg) {
-    const alert = this.alertCtrl.create({
-      title: title,
-      subTitle: msg,
-      buttons: ["OK"]
-    });
-    alert.present();
-	}
+  const alert = this.alertCtrl.create({
+    title: title,
+    cssClass: "confirmAlert",
+    subTitle: msg,
+    buttons: [
+      {
+        text: 'OK',
+        cssClass: "okBtn",
+        handler: () => {
+          // this.navCtrl.push(WelcomeGuestPage);
+        }
+      }
+    ]
+  });
+  
+  alert.present();
+}
 
 
 }

@@ -98,12 +98,12 @@ export class StudentLoginPage {
 					this.presentLoading(false);
 					this.navCtrl.setRoot(StudentsTabsPage);					
 				}else {
-					this.showAlert('Alert!', 'Sorry, user not found. Please check your ID or Password.');
+					this.showAlert('Alert!', 'User not found. Please check your ID or Password');
 					this.presentLoading(false);
 				}
 			});
 	  }	else {
-		this.showAlert('Alert!', 'Please enter all the field.');
+		this.showAlert('Alert!', 'Please enter all the field');
 	  }	
 	}
 
@@ -155,12 +155,34 @@ export class StudentLoginPage {
 		
 	}
 
+	// showAlert(title, msg) {
+	// 	const alert = this.alertCtrl.create({
+	// 	  title: title,
+	// 	  subTitle: msg,
+	// 	  buttons: ['OK']
+	// 	});
+	// 	alert.present();
+	// }
+
+
+
+
 	showAlert(title, msg) {
 		const alert = this.alertCtrl.create({
 		  title: title,
+		  cssClass: "confirmAlert",
 		  subTitle: msg,
-		  buttons: ['OK']
+		  buttons: [
+			{
+			  text: 'OK',
+			  cssClass: "okBtn",
+			  handler: () => {
+				// this.navCtrl.push(WelcomeGuestPage);
+			  }
+			}
+		  ]
 		});
+		
 		alert.present();
 	}
 
