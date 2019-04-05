@@ -2,19 +2,13 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, MenuController, LoadingController, Platform, ModalController, ViewController, AlertController, ActionSheetController, ToastController } from 'ionic-angular';
 import { AddChildPage } from '../add-child/add-child';
 import { ViewChildPage } from '../view-child/view-child';
-import { Http, Jsonp } from '@angular/http';
+import { Http, Jsonp, RequestOptions, Headers } from '@angular/http';
 import { HomePage } from '../home/home';
 import { Modal1Page } from '../account/account';
 import { apiUrl } from '../../apiUrl';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { Transfer, FileUploadOptions } from '@ionic-native/transfer';
 
-/**
- * Generated class for the ParentHomePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -28,24 +22,30 @@ export class ParentHomePage {
   issecurityadded: any;
   imageURI: any;
   imageFileName: any;
+  parentDetails: any;
+  parentName: any;
+  loading: any;
+  
 
   constructor(
-    public navCtrl: NavController, public navParams: NavParams, 
+    public navCtrl: NavController, 
+    public navParams: NavParams, 
     public menuCtrl: MenuController, 
     public loadingController: LoadingController, 
-    private http: Http, 
+    public http: Http, 
     public platform: Platform, 
     public modalCtrl: ModalController, 
     public viewCtrl: ViewController, 
     public alertCtrl: AlertController,   
     public jsonp: Jsonp,
-    private camera: Camera, 
+    public camera: Camera, 
     public loadingCtrl: LoadingController, 
     public toastCtrl: ToastController, 
     public actionSheetCtrl: ActionSheetController,  
     public transfer: Transfer,
   ) {
     this.getUserDataFromLocal();
+    this.initLoader();
   }
 
   ionViewDidLoad() {
@@ -101,6 +101,7 @@ export class ParentHomePage {
   getUserDataFromLocal() {
     let data = localStorage.getItem('userData');
     this.localUserData = JSON.parse(data); 
+    console.log('local data : ...', data);    
     
     if(this.localUserData){
       // alert('In the student home before modal called.');
@@ -113,17 +114,17 @@ export class ParentHomePage {
       }
     } 
     
-    // if (this.localUserData.profile_image && this.localUserData.digit_pin != 0){
-    //   this.profile_image = `${apiUrl.url}public/uploads/profile_pic/${this.localUserData.profile_image}`
-    //   let setdata = {
-    //     u_id: this.localUserData.id,
-    //     pin: this.localUserData.digit_pin,
-    //   };
-    //   localStorage.setItem("securitypinadded", JSON.stringify(setdata));
-    //   this.issecurityadded = JSON.parse(localStorage.getItem("securitypinadded"));    
-    // }else{
+    if (this.localUserData.profile_image && this.localUserData.digit_pin != 0){
+      this.profile_image = `${apiUrl.url}public/uploads/profile_pic/${this.localUserData.profile_image}`
+      let setdata = {
+        u_id: this.localUserData.id,
+        pin: this.localUserData.digit_pin,
+      };
+      localStorage.setItem("securitypinadded", JSON.stringify(setdata));
+      this.issecurityadded = JSON.parse(localStorage.getItem("securitypinadded"));    
+    }else{
       this.profile_image = `assets/imgs/student-icon.png`;
-    // }
+    }
   }
 
 
@@ -193,5 +194,69 @@ export class ParentHomePage {
     
     toast.present();
   }
+
+
+
+
+
+
+
+  // getParentDetails() {
+  //   this.presentLoading(true);
+
+  //   var headers = new Headers();
+  //   headers.append('Content-Type', 'application/json');
+  //   let options = new RequestOptions({ headers: headers });
+
+  //   let data = {
+  //     'master_id': this.localUserData.master_id
+  //   }
+
+  //   this.http.post(`${apiUrl.url}student/studentdetail`, data, options).
+  //     map(res => res.json()).subscribe(data => {
+  //       this.presentLoading(false);
+  //       // console.log('student detail data : ', data);
+  //       if (data.data[0]) {
+  //         this.parentDetails = data.data[0];
+  //         this.parentName = data.data[0].f_name;
+  //         // console.log('student detail data : ', data.data[0]);          
+  //       }
+  //     });
+  // }
+
+
+
+
+
+
+  presentLoading(load: boolean) {
+		if (load) {
+			return this.loading.present();
+		}
+		else {
+			setTimeout(() => {
+				return this.loading.dismiss();
+			}, 1000);
+		}
+  }
+
+
+
+
+
+
+
+  initLoader() {
+		this.loading = this.loadingController.create({
+			spinner: 'hide',
+			content: '<img class="loader-class" src="assets/icon/tail-spin.svg"> <p>Loading please wait...</p>',
+		});
+  }
+
+
+
+
+
+
 
 }

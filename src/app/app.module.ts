@@ -85,6 +85,7 @@ import { ParentRegPage } from '../pages/parent-reg/parent-reg';
 import { ParentHomePage } from '../pages/parent-home/parent-home';
 import { AddChildPage } from '../pages/add-child/add-child';
 import { ViewChildPage } from '../pages/view-child/view-child';
+
 const firebase = {
  // your firebase web config
     apiKey: "AIzaSyDPcwzadP1MQHKAVdrSZ45cXhq_vallj94",

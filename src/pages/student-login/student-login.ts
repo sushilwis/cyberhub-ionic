@@ -12,13 +12,6 @@ import { FcmProvider } from "../../providers/fcm/fcm";
 // declare var $: any;
 // declare var jquery : any;
 
-/**
- * Generated class for the StudentLoginPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 @IonicPage()
 @Component({
   selector: 'page-student-login',
@@ -66,9 +59,9 @@ export class StudentLoginPage {
 		this.navCtrl.setRoot(HomePage);
 	}
 
-  ionViewDidLoad() {	
-    console.log('ionViewDidLoad StudentLoginPage');
-  }
+	ionViewDidLoad() {	
+		console.log('ionViewDidLoad StudentLoginPage');
+	}
 
 
 

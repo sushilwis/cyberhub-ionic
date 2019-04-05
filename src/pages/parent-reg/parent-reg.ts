@@ -26,6 +26,7 @@ export class ParentRegPage {
   localUserData: any;
   collegeList: any;
   college: any;
+  institute: any;
   mobileNo: any;
 
   searchQuery: string = "";
@@ -117,17 +118,17 @@ export class ParentRegPage {
   
       let data = {
         org_id: this.college,
-        mobile_no: this.mobileNo,
-        id_no: this.identityNo,
+        phone: this.mobileNo,
+        adhar: this.identityNo,
       }
 
       console.log('sent stuff reg data : ', data);      
 
-      this.http.post(`${apiUrl.url}user/register`, data, options).
+      this.http.post(`${apiUrl.url}parent/add`, data, options).
         map(res => res.json()).subscribe(data => {
-          console.log('after stuff reg :... ', data);          	  
+          console.log('after parent reg :... ', data);          	  
           if (data.data) {
-            this.showAlert('Success!', `Your Username is : ${data.data.username} and Password is : ${data.data.hint}. Please login to continue`);
+            this.showAlert('Success!', `Your Username : ${data.data.username}, Password : ${data.data.hint}. Please login to continue`);
             this.navCtrl.push(ParentsLoginPage);				
           }else{
             this.showAlert('Error!', `Invalid Credential !`);

@@ -13,7 +13,7 @@
       </ion-buttons>
 
     </ion-navbar>
-  </ion-header>
+</ion-header>
 
 <ion-content padding>
   <div>
@@ -34,8 +34,9 @@
                   <!-- <h5 text-center text-uppercase color="light">{{studentDetails?.f_name}} {{studentDetails?.l_name}}</h5> -->
                   <!-- <p text-center text-uppercase no-padding no-margin class="personalDetailfont">{{studentDetails?.user_name}}</p> -->
                 <div class="text-position">
-                  <p text-left text-uppercase no-padding no-margin class="stdsmallinfo">ID : ABC123</p>
-                  <p text-left text-uppercase no-padding no-margin class="stdsmallinfo">NAME : Ramel Roy</p>
+                  <p text-left text-uppercase no-padding no-margin class="stdsmallinfo" *ngIf="!parentName">{{localUserData?.username}}</p>
+                  <p text-left text-uppercase no-padding no-margin class="stdsmallinfo" *ngIf="parentName">{{parentName}}</p>
+                  <!-- <p text-left text-uppercase no-padding no-margin class="stdsmallinfo">NAME : Ramel Roy</p> -->
                   <p text-left text-uppercase no-padding no-margin class="stdsmallinfo">CHILDS ATTACHED: 2</p>
                 </div>
                 </div>
