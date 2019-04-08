@@ -266,7 +266,7 @@ export class SearchOrganisationPage {
   openActionSheet(org) {
     let actionSheet = this.actionsheetCtrl.create({
       // title: `<img [src]="${org.org_logo}"/> ${org.name}`,
-      title: `${org.name} ${org.landmark} `,
+      title: `${org.name}`,
       cssClass: 'action-sheets-basic-page',
       buttons: [
         {
@@ -323,7 +323,7 @@ export class SearchOrganisationPage {
           text: 'Ok',
           cssClass: "okBtn",
           handler: () => {
-            this.navCtrl.push(WelcomeGuestPage);
+            this.navCtrl.setRoot(WelcomeGuestPage);
           }
         }
       ]
@@ -336,7 +336,7 @@ export class SearchOrganisationPage {
 
   showRadio() {
     let alert = this.alertCtrl.create();
-    alert.setTitle('SELECT WHAT YOU WANT TO SEARCH');
+    alert.setTitle('SELECT WHAT TO SEARCH');
 
     alert.addInput(
       {
@@ -371,7 +371,7 @@ export class SearchOrganisationPage {
       cssClass: "cancelBtn",
       handler: data => {
         console.log('cancel clicked :...', );
-        this.navCtrl.push(WelcomeGuestPage);        
+        this.navCtrl.setRoot(WelcomeGuestPage);        
       }
     });
     alert.addButton({

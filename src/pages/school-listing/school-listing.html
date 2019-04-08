@@ -30,7 +30,7 @@
 </ion-content> -->
 
 
-<ion-content padding>
+<ion-content padding (ionScrollEnd)="scrollComplete($event)">
   <!-- <ion-list>
     <ion-item>
       <ion-label>
@@ -41,7 +41,7 @@
   </ion-list> -->
     
   <!-- <ion-list class="search-result" [ngStyle]="{'display':isSearchbarOpened ? 'block' : 'none' }">				 -->
-  <ion-list class="search-result">
+  <ion-list class="search-result" id="itemsHeight">
     <ion-item *ngFor="let item of orgList" (click)="openActionSheet(item)">
       {{ item?.org_name }}
       <p class="col-result-add">{{ item?.landmark }}, {{ item?.org_city }}</p>

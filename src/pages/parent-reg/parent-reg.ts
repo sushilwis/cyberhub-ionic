@@ -204,7 +204,7 @@ export class ParentRegPage {
         return item.name.toLowerCase().indexOf(val.toLowerCase()) > -1;
       });
 
-      console.log('items : ...', this.items);      
+      console.log('college list : ...', this.items);      
     }
   }
 
@@ -289,7 +289,9 @@ export class ParentRegPage {
           this.allSchoolsList.forEach(ele => {
             const obj = {
               id: ele.id,
-              name: ele.org_name
+              name: ele.org_name,
+              landMark: ele.landmark,
+              city: ele.org_city,
             };
             this.list.push(obj);
           });

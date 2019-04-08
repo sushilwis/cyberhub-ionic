@@ -132,7 +132,7 @@ export class ParentsLoginPage {
 				}
 			});
 	  }	else {
-		  this.showAlert('Alert!', 'Please enter all the field');
+		  this.showAlert('Alert!', 'Please fill all the credentials');
 	  }	
   }
 

@@ -51,7 +51,7 @@
       <ion-list style="background-color: #3f3f3f; color: #fff; font-size: 13px; margin-left: 10px;" class="search-result" [ngStyle]="{'display':isSearchbarOpened ? 'block' : 'none' }">
         <ion-item *ngFor="let item of items" (click)="schoolsDetails(item)">
             {{ item.name }}
-            <p>City : {{ item.city }}, Pin : {{ item.pin }}</p>
+            <p>City : {{ item.city }}, Land Mark : {{ item.landMark }}</p>
         </ion-item>
       </ion-list>
     <!-- </ion-item> 

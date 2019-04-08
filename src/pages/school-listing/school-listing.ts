@@ -271,4 +271,22 @@ export class SchoolListingPage {
       }, 500);
     }
   }
+
+
+
+
+  scrollComplete(event) {
+    console.log(event);
+    // var scrollHei = <HTMLElement>document.getElementById('itemsHeight');
+    // console.log(scrollHei);    
+    console.log('Scroll end :...', event.scrollHeight - (event.contentElement.offsetHeight + event.scrollTop));
+    if(event.contentElement.offsetHeight + event.scrollTop == event.scrollHeight){
+       console.log("End");
+     }
+  }
+
+
+
+
+
 }

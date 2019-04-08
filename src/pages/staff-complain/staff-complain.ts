@@ -84,7 +84,7 @@ export class StaffComplainPage implements OnInit {
   async sendComplain() {
 
     if(this.totalcomplain >= '3') {
-      this.showAlert('Alert!', 'You Have Not Any Complain Left');
+      this.showAlert('Alert!', 'Your complain limit is over, contact your upper authority');
       this.navCtrl.setRoot(StaffInfoPage);
     }else{
     
