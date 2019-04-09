@@ -4,12 +4,6 @@ import { Http, RequestOptions, Headers } from "@angular/http";
 import "rxjs/add/operator/map";
 import { SchoolDetailsPage } from "./../school-details/school-details";
 import { apiUrl } from "../../apiUrl";
-/**
- * Generated class for the SchoolListingPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -17,10 +11,13 @@ import { apiUrl } from "../../apiUrl";
   templateUrl: "school-listing.html"
 })
 export class SchoolListingPage {
-  orgList: any;
+  orgList: any = [];
   loading: any;
   headTitle: string;
   navData: any;
+  items: any = [];
+  skip: number = 0;
+  searchData: any;
 
   constructor(
     public navCtrl: NavController,
@@ -30,15 +27,25 @@ export class SchoolListingPage {
     public loadingController: LoadingController,
     public actionsheetCtrl: ActionSheetController,
     public platform: Platform,
-  ) {}
-
-  ionViewDidLoad() {
+  ) {
+    this.skip = 0;
     this.initLoader();
+
+    for (let i = 0; i < 20; i++) {
+      this.items.push( this.items.length );
+    }
+
+  }
+
+  ionViewDidLoad() {    
     let data = this.navParams.get("data");
-    console.log('route data : ...', data);
-    this.getOrganization(JSON.parse(data));
+    // console.log('route data : ...', data);
+    this.searchData = JSON.parse(data);
+    this.getOrganization(this.searchData, this.skip);
     console.log("ionViewDidLoad SchoolListingPage");
   }
+
+
 
 
 
@@ -48,12 +55,14 @@ export class SchoolListingPage {
 
 
 
-  getOrganization(navdata: any) {
+
+
+  getOrganization(navdata: any, skip: any) {
+    this.presentLoadingDefault();
     // this.presentLoading(true);
+    // console.log('get org called...');    
     var headers = new Headers();
     headers.append("Content-Type", "application/json");
-    // headers.append('Access-Control-Allow-Origin', '*');
-
     let options = new RequestOptions({ headers: headers });
 
     let data = {
@@ -61,6 +70,7 @@ export class SchoolListingPage {
       state: navdata.state_id,
       dist: navdata.dist_id,
       org_type: navdata.type_id,
+      skip: skip,
     }
 
     this.http
@@ -70,25 +80,31 @@ export class SchoolListingPage {
         // console.log('school list : ', data);        
         if (data.length > 0) {
           // this.presentLoading(false);
-          this.orgList = data;
+          // this.orgList = data;
           
-          this.orgList.forEach(ele => {            
-              ele.org = this.genOrgName(ele.org_type_id);
-              ele.id = ele.id,
-              ele.is_registered= this.getRegisterStatus(ele.is_registered),
-              ele.name= ele.org_name,
-              ele.city= ele.org_city,
-              ele.landmark= ele.landmark,
-              ele.org_logo= ele.org_logo,
-              ele.org_text= ele.org_text,
-              ele.email= ele.email,
-              ele.phone_no= ele.phone_no,
-              ele.website= ele.website
+          data.forEach(ele => {
+
+            let obj = {
+              org : this.genOrgName(ele.org_type_id),
+              id : ele.id,
+              is_registered: this.getRegisterStatus(ele.is_registered),
+              name: ele.org_name,
+              city: ele.org_city,
+              landmark: ele.landmark,
+              org_logo: ele.org_logo,
+              org_text: ele.org_text,
+              email: ele.email,
+              phone_no: ele.phone_no,
+              website: ele.website
+            } 
+            
+            this.orgList.push(obj);
+              
           });
 
-          console.log(this.orgList);
+          // console.log('custom arr data :...', this.orgList);
         } else {
-          console.log('No data...');          
+          // console.log('No data...');          
           this.genOrgName(navdata.type_id);
         }
       });
@@ -97,8 +113,9 @@ export class SchoolListingPage {
 
 
 
+
   genOrgName(org_type_id) {
-    console.log('Type ID :... ', org_type_id);    
+    // console.log('Type ID :... ', org_type_id);    
     if(org_type_id == '1'){
       this.headTitle = 'School';
       return 'SCHOOL';
@@ -112,6 +129,7 @@ export class SchoolListingPage {
       return 'UNIVERSITY';
     }
   }
+
 
 
 
@@ -261,11 +279,14 @@ export class SchoolListingPage {
 
 
 
+
+
   presentLoading(load: boolean) {
+    this.loading.dismissAll();
+
     if (load){
       return this.loading.present();
-    }
-    else{
+    }else{
       setTimeout(() => {
         return this.loading.dismiss();
       }, 500);
@@ -275,15 +296,55 @@ export class SchoolListingPage {
 
 
 
-  scrollComplete(event) {
-    console.log(event);
-    // var scrollHei = <HTMLElement>document.getElementById('itemsHeight');
-    // console.log(scrollHei);    
-    console.log('Scroll end :...', event.scrollHeight - (event.contentElement.offsetHeight + event.scrollTop));
-    if(event.contentElement.offsetHeight + event.scrollTop == event.scrollHeight){
-       console.log("End");
-     }
+
+  // scrollComplete(event) {
+  //   console.log(event);
+  //   var scrollHei = <HTMLElement>document.getElementById('content');
+  //   console.log(scrollHei.scrollHeight);    
+  //   console.log('Scroll end :...', event.scrollHeight - (event.contentElement.offsetHeight + event.scrollTop));
+  //   if(event.scrollHeight - (event.contentElement.offsetHeight + event.scrollTop) < -45) {
+       
+  //   }
+  // }
+
+
+
+
+
+
+  doInfinite(infiniteScroll) {
+    this.skip += 20;
+
+    setTimeout(() => {
+
+      for (let i = 0; i < 20; i++) {
+        this.items.push( this.items.length );
+      }
+
+      console.log('Async operation has ended');
+      this.getOrganization(this.searchData, this.skip);
+      infiniteScroll.complete();
+    }, 500);
   }
+
+
+
+
+
+
+  presentLoadingDefault() {
+    let loading = this.loadingController.create({
+      content: 'Please wait...'
+    });
+
+    // console.log('loading data :...', loading);  
+    loading.present();
+  
+    setTimeout(() => {
+      loading.dismiss();
+    }, 2000);
+  }
+
 
 
 

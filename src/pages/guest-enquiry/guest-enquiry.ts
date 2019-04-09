@@ -11,6 +11,7 @@ import { StudentOwndetailsPage } from '../student-owndetails/student-owndetails'
 import { StaffInfoPage } from '../staff-info/staff-info';
 import { SearchOrganisationPage } from '../search-organisation/search-organisation';
 import { HttpParams } from '@angular/common/http';
+import { WelcomeGuestPage } from '../welcome-guest/welcome-guest';
 
 
 @IonicPage()
@@ -48,10 +49,19 @@ export class GuestEnquiryPage implements OnInit, AfterViewInit {
   ) {
     this.getUserDataFromLocal();
     // this.getData();
-    console.log(this.navCtrl.getViews());
+    // console.log(this.navCtrl.getViews());
     this.platform.registerBackButtonAction(() => {
       if (this.navCtrl.getViews().length > 1) {
+        let alert1 = <HTMLElement>document.querySelector('.alert-md');
+        let alert2 = <HTMLElement>document.querySelector('.alert-wrapper');
+        // alert1.remove();
+        alert1.style.display = 'none';
+        alert2.style.display = 'none';
+        // alert(alert1);        
         this.navCtrl.pop();
+        // this.navCtrl.remove;
+        // this.navCtrl.removeView;
+        this.navCtrl.setRoot(WelcomeGuestPage);
       }
     })
 
@@ -412,6 +422,27 @@ export class GuestEnquiryPage implements OnInit, AfterViewInit {
   //   var btn = document.querySelector('.alert-button');
   //   console.log('alert btn :... ', btn);    
   // }
+
+
+
+  stateDisabled(){
+    if(this.country == '' || this.country === null){
+      return true;
+    }else{
+      return false;
+    }
+  }
+
+
+
+
+  distDisabled(){
+    if(this.state == '' || this.state === null || this.state == 'aaa'){
+      return true;
+    }else{
+      return false;
+    }
+  }
 
 
 

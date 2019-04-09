@@ -137,12 +137,12 @@ page-home {
     }
 
     .overley {
-        position: absolute;
+        position: fixed;
         width: 100%;
         height: 100vh;
         background-color: #000;
         opacity: 0.85 !important;
-        z-index: -1;
+        z-index: -1; top: 0px; bottom: 0px;
     }
 
     /* Generated with Bounce.js. Edit at http://bouncejs.com#%7Bs%3A%5B%7BT%3A%22r%22%2Ce%3A%22b%22%2Cd%3A1000%2CD%3A0%2Cf%3A0%2Ct%3A90%2Cs%3A3%2Cb%3A4%7D%2C%7BT%3A%22k%22%2Ce%3A%22s%22%2Cd%3A1000%2CD%3A0%2Cf%3A%7Bx%3A0%2Cy%3A0%7D%2Ct%3A%7Bx%3A20%2Cy%3A20%7D%2Cs%3A3%2Cb%3A4%7D%5D%7D */
@@ -203,8 +203,11 @@ page-home {
         90.69% { -webkit-transform: matrix3d(1.999, 0, 0, 0, 0, 1.999, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.999, 0, 0, 0, 0, 1.999, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
         100% { -webkit-transform: matrix3d(2, 0, 0, 0, 0, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(2, 0, 0, 0, 0, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); } 
     }
-
-
+    .card-md{ height: 100%; position: relative; padding-bottom: 70px;}
+    .padd-bottom img{ height:70%;}
+    .card-button-text{ position: absolute !important; width: 100%;}
+.scroll-content{ contain: size !important;}
+.overley{ position: fixed !important; top: 0px; bottom: 0px; left: 0px;}
     .custom-image-size {
         width: 75%;
         max-width: 200px;

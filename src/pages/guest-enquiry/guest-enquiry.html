@@ -54,14 +54,14 @@
 
 	 	<ion-item class="select-css">
 	 		<ion-label>State</ion-label>
-		  <ion-select [(ngModel)]="state" name="state" (ionChange)="onChangeState()">
+		  <ion-select [(ngModel)]="state" name="state" (ionChange)="onChangeState()" [disabled]="stateDisabled()">
 		    <ion-option *ngFor="let state of states" value="{{state.id}}">{{state?.name}}</ion-option>		    
 		  </ion-select>
 		</ion-item>
 
 		<ion-item>
 			<ion-label>District</ion-label>
-			<ion-select [(ngModel)]="dist" name="dist">
+			<ion-select [(ngModel)]="dist" name="dist" [disabled]="distDisabled()">
 		    <ion-option *ngFor="let dist of dists" value="{{dist.id}}">{{dist?.name}}</ion-option>		    
 		  </ion-select>
 		</ion-item>
