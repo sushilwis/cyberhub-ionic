@@ -30,6 +30,7 @@ background-color: #fff;
 		/*background: linear-gradient(141deg, #23309e 0%, #1b7bc5 51%, #2635bf 75%);*/
 		width: 95%;
 		padding: 10px 20px;
+		margin: 0 auto;
 	}
 	.select-css{
 		margin-bottom: 10px;
@@ -72,6 +73,10 @@ background-color: #fff;
 
 	.input-wrapper {
 		border-bottom: 1px solid #888686;
+	}
+
+	.item-inner {
+		padding-right: 16px !important;
 	}
 
 }

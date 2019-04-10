@@ -136,7 +136,7 @@ export class SchoolListingPage {
 
   openActionSheet(org) {
     let actionSheet = this.actionsheetCtrl.create({
-      title: `${org.org_name}`,
+      title: `${org.name}`,
       cssClass: 'action-sheets-basic-page',
       buttons: [
         {

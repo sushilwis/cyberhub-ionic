@@ -6,6 +6,9 @@ import { ParentsLoginPage } from '../parents-login/parents-login';
 import { StaffLoginPage } from '../staff-login/staff-login';
 import { AnimationService, AnimationBuilder } from 'css-animator';
 import { WelcomeGuestPage } from '../welcome-guest/welcome-guest';
+import { App } from 'ionic-angular';
+import {IonicApp } from 'ionic-angular';
+
 
 @Component({
   selector: 'page-home',
@@ -20,7 +23,10 @@ constructor(
     public platform: Platform,
     public navCtrl: NavController,
     public menuCtrl: MenuController,
-    animationService: AnimationService
+    animationService: AnimationService,
+    public app: App,
+    private ionicApp: IonicApp,
+
   )
   {
     this.menuCtrl.enable(false);
@@ -29,9 +35,48 @@ constructor(
       if (this.navCtrl.getViews().length > 1) {
         this.navCtrl.pop();
       }
+
+      // let activeModal=this.ionicApp._modalPortal.getActive();
+      // if(activeModal){
+      //   activeModal.dismiss();
+      //     return;
+      // }
+
+      let alert1 = <HTMLDivElement>document.querySelector('.alert-wrapper');
+      let actionSheet = <HTMLDivElement>document.querySelector('.action-sheet-wrapper');
+      let backdrop: any = <HTMLCollection>document.getElementsByTagName('ion-backdrop');
+
+      if(backdrop && backdrop.length > 0){
+        // alert(backdrop);
+        for(var i=0; i <= backdrop.length; i++){
+          if(backdrop[i]){
+            backdrop[i].style.opacity = '0.1';
+            // backdrop[i].style.display = 'none';
+            // backdrop[i].remove();
+          }          
+        }
+      }
+
+      if(actionSheet){
+        actionSheet.style.display = 'none';
+      }
+      
+      if(alert1){
+        alert1.style.display = 'none';
+      }
     });
 
     this.seeTabs = false;
+
+    // this.platform.registerBackButtonAction(() => {
+    //   if (this.nav.getViews().length > 1) {
+    //     let alert1 = <HTMLDivElement>document.querySelector('.alert-wrapper');
+    //     if(alert1){
+    //       alert1.style.display = 'none';
+    //     }        
+    //     this.nav.pop();
+    //   }
+    // })
   }
 
 

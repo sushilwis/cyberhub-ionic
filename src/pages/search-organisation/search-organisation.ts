@@ -323,7 +323,7 @@ export class SearchOrganisationPage {
           text: 'Ok',
           cssClass: "okBtn",
           handler: () => {
-            this.navCtrl.setRoot(WelcomeGuestPage);
+            this.navCtrl.pop();
           }
         }
       ]
@@ -371,7 +371,7 @@ export class SearchOrganisationPage {
       cssClass: "cancelBtn",
       handler: data => {
         console.log('cancel clicked :...', );
-        this.navCtrl.setRoot(WelcomeGuestPage);        
+        this.navCtrl.pop();        
       }
     });
     alert.addButton({

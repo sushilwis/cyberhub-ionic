@@ -1,5 +1,8 @@
 import { Component, Input, ViewChild, OnInit, AfterViewInit } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController, Platform, LoadingController, AlertController} from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController, Platform, LoadingController, ActionSheetController, ModalController, PopoverController, AlertController } from 'ionic-angular';
+// import { ActionSheetController, AlertController, ModalController, PopoverController } from '@ionic/angular';
+// import { AlertController } from '@ionic/angular';
+
 import { Http, RequestOptions, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
 
@@ -46,24 +49,22 @@ export class GuestEnquiryPage implements OnInit, AfterViewInit {
     public toastCtrl: ToastController,
     public loadingController: LoadingController,
     public alertCtrl: AlertController,
+    public actionSheetCtrl: ActionSheetController,
+    public popOverCtrl: PopoverController,
+    public modalCtrl: ModalController,
   ) {
     this.getUserDataFromLocal();
     // this.getData();
     // console.log(this.navCtrl.getViews());
-    this.platform.registerBackButtonAction(() => {
-      if (this.navCtrl.getViews().length > 1) {
-        // let alert1 = <HTMLElement>document.querySelector('.alert-md');
-        // let alert2 = <HTMLElement>document.querySelector('.alert-wrapper');
-        // // alert1.remove();
-        // alert1.style.display = 'none';
-        // alert2.style.display = 'none';
-        // alert(alert1);        
-        this.navCtrl.pop();
-        // this.navCtrl.remove;
-        // this.navCtrl.removeView;
-        // this.navCtrl.setRoot(WelcomeGuestPage);
-      }
-    })
+    // this.platform.registerBackButtonAction(() => {
+    //   if (this.navCtrl.getViews().length > 1) {
+    //     let alert1 = <HTMLDivElement>document.querySelector('.alert-wrapper');
+    //     if(alert1){
+    //       alert1.style.display = 'none';
+    //     }        
+    //     this.navCtrl.pop();
+    //   }
+    // })
 
     this.initLoader();
   }
@@ -335,7 +336,7 @@ export class GuestEnquiryPage implements OnInit, AfterViewInit {
     
     this.http.get(`${apiUrl.url}org/search/${this.country}/${this.state}/${this.dist}/${this.type}`).
       map(res => res.json()).subscribe(data => {				
-          console.log('dist data : ', data.data);   
+          // console.log('dist data : ', data.data);   
           // this.presentLoading(false);      
     });
   }
@@ -443,6 +444,97 @@ export class GuestEnquiryPage implements OnInit, AfterViewInit {
       return false;
     }
   }
+
+
+
+
+
+  // active hardware back button
+//   backButtonEvent() {
+//     this.platform.backButton.subscribe(async () => {
+
+//         // console.log(this.router.url);
+
+//         // close alert
+//         try {
+//             const element = await this.alertCtrl.getTop();
+//             if (element) {
+//                 element.dismiss();
+//                 return;
+//             }
+//         } catch (error) {
+//         }
+
+//         // close action sheet
+//         try {
+//             const element = await this.actionSheetCtrl.getTop();
+//             if (element) {
+//                 element.dismiss();
+//                 return;
+//             }
+//         } catch (error) {
+//         }
+
+//         // close popover
+//         try {
+//             const element = await this.popOverCtrl.getTop();
+//             if (element) {
+//                 element.dismiss();
+//                 return;
+//             }
+//         } catch (error) {
+//         }
+
+//         // close modal
+//         try {
+//             const element = await this.modalCtrl.getTop();
+//             if (element) {
+//                 element.dismiss();
+//                 return;
+//             }
+//         } catch (error) {
+//             console.log(error);
+
+//         }
+
+//         // close side menua
+//         // try {
+//         //     const element = await this.menu.getOpen();
+//         //     if (element !== null) {
+//         //         this.menu.close();
+//         //         return;
+
+//         //     }
+
+//         // } catch (error) {
+
+//         // }
+
+//         // this.routerOutlets.forEach((outlet: IonRouterOutlet) => {
+//         //     if (outlet && outlet.canGoBack()) {
+//         //         outlet.pop();
+
+//         //     } else if ((this.router.url === '/tabs/(cat_bd:cat_bd)')
+//         //         || (this.router.url === '/tabs/(cat_en:cat_en)')
+//         //         || (this.router.url === '/tabs/(cat_hi:cat_hi)')) {
+//         //         if (new Date().getTime() - this.lastTimeBackPress < this.timePeriodToExit) {
+//         //             // this.platform.exitApp(); // Exit from app
+//         //             navigator['app'].exitApp(); // work in ionic 4
+
+//         //         } else {
+//         //             this.toast.show(
+//         //                 `Press back again to exit App.`,
+//         //                 '2000',
+//         //                 'center')
+//         //                 .subscribe(toast => {
+//         //                     // console.log(JSON.stringify(toast));
+//         //                 });
+//         //             this.lastTimeBackPress = new Date().getTime();
+//         //         }
+//         //     }
+//         // });
+//     });
+// }
 
 
 

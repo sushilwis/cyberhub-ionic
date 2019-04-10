@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { Nav, Platform, List, Item } from 'ionic-angular';
+import { Nav, Platform, List, Item, NavController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { MenuController } from 'ionic-angular';
@@ -49,6 +49,9 @@ export class MyApp {
       { title: 'Personal Notice', component: PersonalNoticePage },
       { title: 'Log out', component: GuestEnquiryPage },
     ];
+
+
+    
   }
 
 

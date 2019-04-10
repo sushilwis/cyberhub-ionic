@@ -10,16 +10,16 @@
   </div>
 </div> -->
 
-<ion-content class="item-center" style="padding-top: 100px;">
+<ion-content class="item-center">
   <div class="overley"></div>
-  <img class="logo-school" src="assets/icon/cyverhub_logo.svg" style="margin-top: 50px;">
+  <img class="logo-school" src="assets/icon/cyverhub_logo.svg" style="margin-top:50px; margin-bottom: 30px">
   <p class="sub-line">Choose and Tap<br>on your Account</p>
   <ion-grid style="width: 85%">
     <ion-row #myElement>
 
-      <ion-row col-6>
-        <ion-card style="background-color: #353434" (click)="goToGuest()">
-          <ion-card-header text-center class="padd-bottom">
+      <ion-row col-6 style="margin-bottom:10px;">
+        <ion-card style="background-color: #353434; margin-bottom:10px;" (click)="goToGuest()">
+          <ion-card-header text-center class="padd-bottom" style="margin-bottom:25px;">
             <!-- <i class="fas fa-user-circle fa-3x" style="color: black"></i> -->
             <img class="custom-image-size" src="assets/imgs/guest_logo.svg">
           </ion-card-header>
@@ -36,9 +36,9 @@
         </ion-card>
       </ion-row>
 
-      <ion-row col-6>
-        <ion-card  style="background-color: #353434" (click)=goToStudent()>
-          <ion-card-header text-center class="padd-bottom">
+      <ion-row col-6 style="margin-bottom:10px;">
+        <ion-card  style="background-color: #353434;" (click)=goToStudent()>
+          <ion-card-header text-center class="padd-bottom" style="margin-bottom:25px;">
             <!-- <i class="fas fa-user fa-3x" style="color: black"></i> -->
             <img class="custom-image-size" src="assets/imgs/student_logo.svg">
           </ion-card-header>
@@ -57,7 +57,7 @@
 
       <ion-row col-6>
         <ion-card  style="background-color: #353434" (click)=goToStaff()>
-          <ion-card-header text-center class="padd-bottom">
+          <ion-card-header text-center class="padd-bottom" style="margin-bottom:18px;">
             <!-- <i class="fas fa-briefcase fa-3x" style="color: black"></i> -->
             <img class="custom-image-size" src="assets/imgs/staff_logo.svg">
           </ion-card-header>
@@ -77,7 +77,7 @@
       <ion-row col-6>
 
         <ion-card style="background-color: #353434" (click)=goToParents()>
-          <ion-card-header text-center class="padd-bottom">
+          <ion-card-header text-center class="padd-bottom" style="margin-bottom:18px;">
             <!-- <i class="fas fa-users fa-3x" style="color: black"></i> -->
             <img style="margin-bottom: 8px;" src="assets/imgs/guardians_logo.svg">
           </ion-card-header>
