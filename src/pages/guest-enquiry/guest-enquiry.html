@@ -47,7 +47,7 @@
 	 <!-- <form> -->
 	 	<ion-item class="select-css">
 		  <ion-label>Country</ion-label>
-		  <ion-select [(ngModel)]="country" name="country" (ionChange)="onChangeCountry()">
+		  <ion-select [(ngModel)]="country" name="country" [selectOptions]="selectOptions" (ionChange)="onChangeCountry()">
 		    <ion-option value="101">India</ion-option>		    
 		  </ion-select>
 		</ion-item>

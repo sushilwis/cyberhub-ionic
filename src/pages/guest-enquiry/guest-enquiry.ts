@@ -40,6 +40,7 @@ export class GuestEnquiryPage implements OnInit, AfterViewInit {
   dists: any;
   dist: any = 'aaa';
   type: string = '';
+  selectOptions: any;
 
   constructor(
     public platform: Platform,
@@ -53,6 +54,28 @@ export class GuestEnquiryPage implements OnInit, AfterViewInit {
     public popOverCtrl: PopoverController,
     public modalCtrl: ModalController,
   ) {
+
+    this.selectOptions = {
+      cssClass: 'select-alert-dialog',
+      buttons: [
+        {
+          text: 'OK',
+          cssClass: "okBtn",
+          handler: () => {
+            // this.navCtrl.pop();
+          }
+        },
+        {
+          text: 'OKK',
+          cssClass: "okBtn",
+          handler: () => {
+            // this.navCtrl.pop();
+          }
+        }
+      ]
+    };
+
+
     this.getUserDataFromLocal();
     // this.getData();
     // console.log(this.navCtrl.getViews());
@@ -72,6 +95,7 @@ export class GuestEnquiryPage implements OnInit, AfterViewInit {
 
   ngOnInit() {
     // this.okBtnColorChange();
+    
   }
 
   ngAfterViewInit() {
