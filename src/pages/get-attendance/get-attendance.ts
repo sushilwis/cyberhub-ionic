@@ -1,8 +1,15 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, MenuController, LoadingController, AlertController } from 'ionic-angular';
-import { AttendanceListPage } from '../attendance-list/attendance-list';
-import { RequestOptions, Headers, Http } from '@angular/http';
-import { apiUrl } from '../../apiUrl';
+import { Component } from "@angular/core";
+import {
+  IonicPage,
+  NavController,
+  NavParams,
+  MenuController,
+  LoadingController,
+  AlertController
+} from "ionic-angular";
+import { AttendanceListPage } from "../attendance-list/attendance-list";
+import { RequestOptions, Headers, Http } from "@angular/http";
+import { apiUrl } from "../../apiUrl";
 
 /**
  * Generated class for the GetAttendancePage page.
@@ -35,10 +42,10 @@ export class GetAttendancePage {
   shift: any = "";
   genAttCode: number;
   allSemList;
-  sem_no;
+  sem_no: any = "";
   showTeacherForm: boolean = true;
   newFilterSectionArry;
-  classfilteredSubject
+  classfilteredSubject;
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -180,13 +187,11 @@ export class GetAttendancePage {
       });
   }
 
-  onSemChange(e){
-    
+  onSemChange(e) {
     this.newFilterSectionArry = this.filteredArrayForSectionList.filter(ele => {
-      return ele.sem_id == e
-    })
+      return ele.sem_id == e;
+    });
     // console.log(this.newFilterSectionArry);
-
   }
   getSubjectid(e) {
     console.log(e);
@@ -214,7 +219,7 @@ export class GetAttendancePage {
           this.classfilteredSubject = data.data.filter(ele => {
             return ele.priod_id == e;
           });
-          
+
           console.log("Org ", this.classfilteredSubject);
         }
         // this.allSemList = data.data;
@@ -338,8 +343,7 @@ export class GetAttendancePage {
         "" +
         this.localUserData.master_id,
       date: this.makeDateString(new Date()),
-      class_sub_id: this.classfilteredSubject[0].rutinedetails[0]
-        .class_sub_id
+      class_sub_id: this.classfilteredSubject[0].rutinedetails[0].class_sub_id
     };
 
     // console.log(data);
@@ -381,17 +385,14 @@ export class GetAttendancePage {
   //   alert.present();
   // }
 
-
-
-
   showAlert(msg) {
     const alert = this.alertCtrl.create({
-      title: 'Alert!',
+      title: "Alert!",
       cssClass: "confirmAlert",
       subTitle: msg,
       buttons: [
         {
-          text: 'OK',
+          text: "OK",
           cssClass: "okBtn",
           handler: () => {
             // this.navCtrl.push(WelcomeGuestPage);
@@ -399,12 +400,9 @@ export class GetAttendancePage {
         }
       ]
     });
-    
+
     alert.present();
   }
-
-
-  
 
   makeDateString(date) {
     let year = date.getFullYear();
@@ -412,5 +410,37 @@ export class GetAttendancePage {
     let day = date.getDate();
 
     return day + "/" + month + "/" + year;
+  }
+
+  streamDisabled() {
+    if (this.shift == "" || this.shift === null) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  semDisabled() {
+    if (this.stream == "" || this.stream === null) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  departmentDisabled() {
+    if (this.sem_no == "" || this.sem_no === null) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  periodDisabled() {
+    if (this.department == "" || this.department === null) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }

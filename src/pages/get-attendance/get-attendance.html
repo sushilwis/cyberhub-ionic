@@ -15,56 +15,60 @@
 
 <ion-content *ngIf="showTeacherForm" class="item-center" padding>
 
-		<h4 class="title" text-center text-uppercase margin-bottom>preparation of Attendance</h4>
+  <h4 class="title" text-center text-uppercase margin-bottom>preparation of Attendance</h4>
 
-		<ion-list>
-				<ion-item>
-					<ion-label>Choose Shift</ion-label>
-					<ion-select [(ngModel)]="shift" (ionChange)="onChooseShift($event)">
-						<ng-container *ngFor="let shift of orgShiftLists">
-							<ion-option value="{{shift.orgshift[0]?.id}}" *ngIf="shift.orgshift[0]?.id">{{shift.name}}</ion-option>
-						</ng-container>
-					</ion-select>
-				</ion-item>
-		</ion-list>
+  <ion-list>
+    <ion-item>
+      <ion-label>Choose Shift</ion-label>
+      <ion-select [(ngModel)]="shift" (ionChange)="onChooseShift($event)">
+        <ng-container *ngFor="let shift of orgShiftLists">
+          <ion-option value="{{shift.orgshift[0]?.id}}" *ngIf="shift.orgshift[0]?.id">{{shift.name}}</ion-option>
+        </ng-container>
+      </ion-select>
+    </ion-item>
+  </ion-list>
 
-		<ion-list>
-				<ion-item>
-					<ion-label>Choose Stream</ion-label>
-					<ion-select [(ngModel)]="stream" (ionChange)="onChooseClassStream($event)">
-						<ion-option value="{{classStream.class_id}}" *ngFor="let classStream of sortArray">{{classStream.class_name}}</ion-option>
-					</ion-select>
-				</ion-item>
-		</ion-list>
-		<ion-list>
-			<ion-item>
-				<ion-label>Choose Sem</ion-label>
-				<ion-select [(ngModel)]="sem_no" (ionChange)="onSemChange($event)">
-					<ion-option *ngFor="let sem of allSemList" value="{{sem.id}}">
-						{{sem.sem_no}}
-					</ion-option>
-				</ion-select>
-			</ion-item>
-		</ion-list>
-		<ion-list>
-				<ion-item>
-					<ion-label>Choose Department</ion-label>
-					<ion-select [(ngModel)]="department" (ionChange)="getPeriod()">
-						<ion-option value="{{sec.classSectionIndexId}}" *ngFor="let sec of newFilterSectionArry">{{sec.section_name}}</ion-option>
-					</ion-select>
-				</ion-item>
-		</ion-list>		
-		
-		<ion-list>
-				<ion-item>
-					<ion-label>Choose Session</ion-label>
-					<ion-select [(ngModel)]="period" (ionChange)="getSubjectid($event)">
-						<ion-option *ngFor="let period of periodList" value="{{period.id}}">{{period.priod_name}} ({{period.from_time}} {{period.to_time}})</ion-option>
-					</ion-select>
-				</ion-item>
-		</ion-list>
+  <ion-list>
+    <ion-item>
+      <ion-label>Choose Stream</ion-label>
+      <ion-select [(ngModel)]="stream" (ionChange)="onChooseClassStream($event)" [disabled]="streamDisabled()">
+        <ion-option value="{{classStream.class_id}}" *ngFor="let classStream of sortArray">{{classStream.class_name}}
+        </ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+  <ion-list>
+    <ion-item>
+      <ion-label>Choose Sem</ion-label>
+      <ion-select [(ngModel)]="sem_no" (ionChange)="onSemChange($event)" [disabled]="semDisabled()">
+        <ion-option *ngFor="let sem of allSemList" value="{{sem.id}}">
+          {{sem.sem_no}}
+        </ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+  <ion-list>
+    <ion-item>
+      <ion-label>Choose Department</ion-label>
+      <ion-select [(ngModel)]="department" (ionChange)="getPeriod()" [disabled]="departmentDisabled()">
+        <ion-option value="{{sec.classSectionIndexId}}" *ngFor="let sec of newFilterSectionArry">{{sec.section_name}}
+        </ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
 
-		<button ion-button block outline color="blue" class="mt-10" (click)="onPeriodSubmit()">Continue to Generate Code</button>
+  <ion-list>
+    <ion-item>
+      <ion-label>Choose Session</ion-label>
+      <ion-select [(ngModel)]="period" (ionChange)="getSubjectid($event)" [disabled]="periodDisabled()">
+        <ion-option *ngFor="let period of periodList" value="{{period.id}}">{{period.priod_name}} ({{period.from_time}}
+          {{period.to_time}})</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+
+  <button ion-button block outline color="blue" class="mt-10" (click)="onPeriodSubmit()">Continue to Generate
+    Code</button>
 
 </ion-content>
 
@@ -77,9 +81,9 @@
 
 <ion-content *ngIf="!showTeacherForm" class="item-center" padding>
 
-		<h3 class="title" text-center text-uppercase margin-bottom style="margin-top: 7rem;">Your Attendance Code</h3>
-		<h4 text-center margin-bottom>{{genAttCode}}</h4>
-		
-		<button ion-button block outline color="blue" class="mt-10" (click)="onStartAttendence()">Start</button>
+  <h3 class="title" text-center text-uppercase margin-bottom style="margin-top: 7rem;">Your Attendance Code</h3>
+  <h4 text-center margin-bottom>{{genAttCode}}</h4>
+
+  <button ion-button block outline color="blue" class="mt-10" (click)="onStartAttendence()">Start</button>
 
 </ion-content>

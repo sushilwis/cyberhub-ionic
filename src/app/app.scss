@@ -1,248 +1,271 @@
-// http://ionicframework.com/docs/theming/
-
-
-// App Global Sass
-// --------------------------------------------------
-// Put style rules here that you want to apply globally. These
-// styles are for the entire app and not just one component.
-// Additionally, this file can be also used as an entry point
-// to import other Sass files to be included in the output CSS.
-//
-// Shared Sass variables, which can be used to adjust Ionic's
-// default Sass variables, belong in "theme/variables.scss".
-//
-// To declare rules for a specific mode, create a child rule
-// for the .md, .ios, or .wp mode classes. The mode class is
-// automatically applied to the <body> element in the app.
-*{
-	font-family: Roboto, Cochin, Georgia, Times, 'Times New Roman', serif;
-}
-
-// .confirmAlert {
-// 	background-color: #1b1b1b;
-// }
-
-.fixed{
-	margin-top: 2rem;
-	position: fixed;
-	bottom: 0;
-}
-.footer-p{
-	margin:0;
-	padding:0;
-	color: #fff;
-	font-weight: 200;
-	letter-spacing: 1px;
-}
-
-.toolbar-nopadding .toolbar-title-md, .toolbar-nopadding .toolbar-title-ios{
-	padding:0px !important;
-	height: 166px;
-	// background: linear-gradient(141deg, #23309e 0%, #1b7bc5 51%, #2635bf 75%);
-	background-color: #000;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-direction: column;
-}
-
-.toolbar-nopadding .toolbar-title-md img, .toolbar-nopadding .toolbar-title-ios img{
-	height: 100px;
-	margin: 0px auto;
-	text-align: center;
-}
-.content-margin .scroll-content{
-	margin-top: 166px !important;
-}
-.img-width{
-	width:100%;
+* {
+  font-family: Roboto, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 
-.loading-content{
-	display: inline-flex;
+.fixed {
+  margin-top: 2rem;
+  position: fixed;
+  bottom: 0;
 }
-.loader-class{
-	width: 17%;
-    margin-right: 20px;
+
+.footer-p {
+  margin: 0;
+  padding: 0;
+  color: #fff;
+  font-weight: 200;
+  letter-spacing: 1px;
+}
+
+.toolbar-nopadding .toolbar-title-md,
+.toolbar-nopadding .toolbar-title-ios {
+  padding: 0px !important;
+  height: 166px;
+  // background: linear-gradient(141deg, #23309e 0%, #1b7bc5 51%, #2635bf 75%);
+  background-color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.toolbar-nopadding .toolbar-title-md img,
+.toolbar-nopadding .toolbar-title-ios img {
+  height: 100px;
+  margin: 0px auto;
+  text-align: center;
+}
+
+.content-margin .scroll-content {
+  margin-top: 166px !important;
+}
+
+.img-width {
+  width: 100%;
+}
+
+
+.loading-content {
+  display: inline-flex;
+}
+
+.loader-class {
+  width: 17%;
+  margin-right: 20px;
 }
 
 
 
 // action-sheets-basic-page {
-    .action-sheet-md .action-sheet-title {
-        color: #000 !important;
-    }
-    .action-sheet-md .action-sheet-button {
-        font-size: 13.5px !important;
-    }
+.action-sheet-md .action-sheet-title {
+  color: #000 !important;
+}
+
+.action-sheet-md .action-sheet-button {
+  font-size: 13.5px !important;
+}
+
 // }
 
-	.toolbar-background-md {
-		background-color: #009688 !important;
-	}
-	.toolbar-title-md {
-		color: #fff !important;
-	}
-	.title {
-		text-decoration: none !important;
-	}
+.toolbar-background-md {
+  background-color: #009688 !important;
+}
 
-	.content-md {
-		color: #fff !important;
-		background-color: #1b1b1b !important;
-	}
-	.list-md .item-block .item-inner {
-		border-bottom: 1px solid #dedede !important;
-	}
-	.button-clear-md {
-		color: #f6f6f6 !important;
-	}
-	.button-md-blue {
-		color: #202020;
-		background-color:#1CB9FF;
-	}
+.toolbar-title-md {
+  color: #fff !important;
+}
 
-	.item-md {
-		color: #f6f6f6;
-    	background-color: #1b1b1b;
-	}
-	.list-md .item-block .item-inner, .item-md.item-block .item-inner {
-		border-bottom: none;
-	}
-	.list-md .item-block .item-inner {
-		border-bottom: none !important;
-	}
-	.bar-button-default-md, .bar-button-clear-md-default, .bar-button-md-default
-	.bar-button-default-ios, .bar-button-clear-ios-default, .bar-button-ios-default
-	{
-		color: #f6f6f6;
-		background-color: transparent;
-	}
+.title {
+  text-decoration: none !important;
+}
 
-	.card-black {
-		background-color: #1b1b1b00 !important; // black
-		border: 1px solid rgba(161, 161, 161, 0.911);
-	}
-	.card-black *{
-		color: #f4f4f4 !important;
-	}
+.content-md {
+  color: #fff !important;
+  background-color: #1b1b1b !important;
+}
 
-	.okBtn, .alertOkBtn {
-		background-color: #3c3c3c !important;
-		color: #fff !important;
-		width: 75px !important;
-		text-align: center !important;
-	}
+.list-md .item-block .item-inner {
+  border-bottom: 1px solid #dedede !important;
+}
 
-	.cancelBtn {
-		// border: 1px solid #717171 !important;
-		// color: #fff !important;
-		width: 80px !important;
-		text-align: center !important;
-	}
+.button-clear-md {
+  color: #f6f6f6 !important;
+}
 
-	.cancelBtn .button-inner {
-		color: #717171;
-	}
+.button-md-blue {
+  color: #202020;
+  background-color: #1CB9FF;
+}
 
-	.okBtn .button-inner, .alertOkBtn .button-inner, .cancelBtn .button-inner {
-		display: block !important;
-		text-align: center !important;
-	}
+.item-md {
+  color: #f6f6f6;
+  background-color: #1b1b1b;
+}
 
-	.alert-head {
-		padding: 10px 24px 4px !important;
-	}
+.list-md .item-block .item-inner,
+.item-md.item-block .item-inner {
+  border-bottom: none;
+}
 
-	#alert-hdr-5 {
-		text-align: center !important;
-	}
+.list-md .item-block .item-inner {
+  border-bottom: none !important;
+}
 
-	.action-sheet-md .action-sheet-title {
-		font-size: 17px;
-    	font-weight: bold;
-	}
+.bar-button-default-md,
+.bar-button-clear-md-default,
+.bar-button-md-default .bar-button-default-ios,
+.bar-button-clear-ios-default,
+.bar-button-ios-default {
+  color: #f6f6f6;
+  background-color: transparent;
+}
 
-	.eventAlert p {
-		margin: 4px 0px 4px 0px !important;	
-		color: rgba(41, 33, 33, 1) !important; 	 
-	}
+.card-black {
+  background-color: #1b1b1b00 !important; // black
+  border: 1px solid rgba(161, 161, 161, 0.911);
+}
 
-	.eventAlert .alert-message {
-		padding-bottom: 0px;
-	}
+.card-black * {
+  color: #f4f4f4 !important;
+}
 
-	.input-info {
-		padding: 0px;
-		margin: 0px;
-		padding-left: 17px;
-		padding-top: 2px;
-		font-size: 9px;
-		color: #909090;
-	}
+.okBtn,
+.alertOkBtn {
+  background-color: #3c3c3c !important;
+  color: #fff !important;
+  width: 75px !important;
+  text-align: center !important;
+}
 
+.cancelBtn {
+  // border: 1px solid #717171 !important;
+  // color: #fff !important;
+  width: 80px !important;
+  text-align: center !important;
+}
 
-	#level-3 > .toolbar-background-md {
-		background-color: grey !important;
-	}
+.cancelBtn .button-inner {
+  color: #717171;
+}
 
+.okBtn .button-inner,
+.alertOkBtn .button-inner,
+.cancelBtn .button-inner {
+  display: block !important;
+  text-align: center !important;
+}
 
-	.back-button-icon-md {
-		font-size: 3rem !important;
-	}
+.alert-head {
+  padding: 10px 24px 4px !important;
+}
 
+#alert-hdr-5 {
+  text-align: center !important;
+}
 
+.action-sheet-md .action-sheet-title {
+  font-size: 17px;
+  font-weight: bold;
+}
 
+.eventAlert p {
+  margin: 4px 0px 4px 0px !important;
+  color: rgba(41, 33, 33, 1) !important;
+}
 
+.eventAlert .alert-message {
+  padding-bottom: 0px;
+}
 
-	// .item-inner {
-	// 	padding-right: 0px !important;
-	// }
+.input-info {
+  padding: 0px;
+  margin: 0px;
+  padding-left: 17px;
+  padding-top: 2px;
+  font-size: 9px;
+  color: #909090;
+}
 
 
-	// .alert-button-group.alert-button {
-	// 	border: 1px solid #000 !important;
-	// } 
+#level-3>.toolbar-background-md {
+  background-color: grey !important;
+}
 
-	// .eventAlert .alert-md .alert-message, .eventAlert .alert-md .alert-input-group {
-	// 	color: rgba(41, 33, 33, 1) !important; 
-	// }
-	
 
-	ion-icon {
-		&[class*="customicon-"] {
-			// Instead of using the font-based icons
-			// We're applying SVG masks
-			mask-size: contain;
-			mask-position: 50% 50%;
-			mask-repeat: no-repeat;
-			width: 1em;
-			height: 1em;
-		}
-		// custom icons
-		&[class*="library"] {
-			mask-image: url("../assets/imgs/library_logo.svg");
-		}
-		&[class*="notice-board"] {
-			// mask-image: url(../assets/imgs/notice_board_logo.svg);
-			background: url("../assets/imgs/notice_board.svg") no-repeat 50% 50%;
-    		background-size: contain;
-		}
-		&[class*="home"] {
-			// mask-image: url(../assets/imgs/notice_board_logo.svg);
-			background: url("../assets/icon/Home_btn.svg") no-repeat 50% 50%;
-    		background-size: contain;
-		}
-		&[class*="routine"] {
-			// mask-image: url(../assets/imgs/notice_board_logo.svg);
-			background: url("../assets/icon/staffRoutine.svg") no-repeat 50% 50%;
-    		background-size: contain;
-		}
-		&[class*="attendance"] {
-			// mask-image: url(../assets/imgs/notice_board_logo.svg);
-			background: url("../assets/icon/attendance.svg") no-repeat 50% 50%;
-    		background-size: contain;
-		}
-	
-	}
+.back-button-icon-md {
+  font-size: 3rem !important;
+}
+
+
+.alert-md .alert-button:nth-child(2) {
+  background-color: #3c3c3c !important;
+  color: #fff !important;
+  width: 75px !important;
+  text-align: center !important;
+}
+
+.alert-md .alert-button:nth-child(2) .button-inner {
+  display: block !important;
+  text-align: center !important;
+}
+
+
+
+
+
+
+// .item-inner {
+// 	padding-right: 0px !important;
+// }
+
+
+// .alert-button-group.alert-button {
+// 	border: 1px solid #000 !important;
+// } 
+
+// .eventAlert .alert-md .alert-message, .eventAlert .alert-md .alert-input-group {
+// 	color: rgba(41, 33, 33, 1) !important; 
+// }
+
+
+ion-icon {
+  &[class*="customicon-"] {
+    // Instead of using the font-based icons
+    // We're applying SVG masks
+    mask-size: contain;
+    mask-position: 50% 50%;
+    mask-repeat: no-repeat;
+    width: 1em;
+    height: 1em;
+  }
+
+  // custom icons
+  &[class*="library"] {
+    mask-image: url("../assets/imgs/library_logo.svg");
+  }
+
+  &[class*="notice-board"] {
+    // mask-image: url(../assets/imgs/notice_board_logo.svg);
+    background: url("../assets/imgs/notice_board.svg") no-repeat 50% 50%;
+    background-size: contain;
+  }
+
+  &[class*="home"] {
+    // mask-image: url(../assets/imgs/notice_board_logo.svg);
+    background: url("../assets/icon/Home_btn.svg") no-repeat 50% 50%;
+    background-size: contain;
+  }
+
+  &[class*="routine"] {
+    // mask-image: url(../assets/imgs/notice_board_logo.svg);
+    background: url("../assets/icon/staffRoutine.svg") no-repeat 50% 50%;
+    background-size: contain;
+  }
+
+  &[class*="attendance"] {
+    // mask-image: url(../assets/imgs/notice_board_logo.svg);
+    background: url("../assets/icon/attendance.svg") no-repeat 50% 50%;
+    background-size: contain;
+  }
+
+}

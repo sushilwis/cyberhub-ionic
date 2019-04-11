@@ -1,36 +1,51 @@
 page-students-tabs {
-    ion-icon {
-        &[class*="custom-"] {
-            margin: 0 5px 0 0;
-            vertical-align: middle;
-            $sz: 20px;
-            width: $sz;
-            height: $sz;
-        } // custom icons
-        &[class*="pin"][ng-reflect-is-active="true"] {
-            background: url("../assets/icon/") no-repeat 50% 50%;
-            background-size: contain;
-        }//in case of active
-        &[class*="pin"][ng-reflect-is-active="false"] {
-            background: url("../assets/icon/") no-repeat 50% 50%;
-            background-size: contain;
-        }//in case of inactive
-        &[class*="stars"] {
-            background: url("../assets/icon/") no-repeat 50% 50%;
-            background-size: contain;
-        }
+  ion-icon {
+    &[class*="custom-"] {
+      margin: 0 5px 0 0;
+      vertical-align: middle;
+      $sz: 20px;
+      width: $sz;
+      height: $sz;
     }
 
-    .tabs-md .tab-button-text {
-        font-size: 0.9rem;
+    // custom icons
+    &[class*="pin"][ng-reflect-is-active="true"] {
+      background: url("../assets/icon/") no-repeat 50% 50%;
+      background-size: contain;
     }
 
-    .tabs-md-blue .tabbar {
-        border-top: 1.3px solid #fff;
-        background-color: #1b1b1b;
+    //in case of active
+    &[class*="pin"][ng-reflect-is-active="false"] {
+      background: url("../assets/icon/") no-repeat 50% 50%;
+      background-size: contain;
     }
 
-    .tabs-md-blue .tab-button, .tabs-md-blue .tab-button-icon {
-        color: rgba(255, 255, 255, 0.4);
+    //in case of inactive
+    &[class*="stars"] {
+      background: url("../assets/icon/") no-repeat 50% 50%;
+      background-size: contain;
     }
+  }
+
+  .tabs-md .tab-button-text {
+    font-size: 0.9rem;
+  }
+
+  .tabs-md-blue .tabbar {
+    border-top: 1.3px solid #fff;
+    background-color: #1b1b1b;
+  }
+
+  //   .tabs-md-blue .tab-button,
+  //   .tabs-md-blue .tab-button-icon[] {
+  //     // color: rgba(255, 255, 255, 1);
+  //     opacity: 0.5;
+  //   }
+
+  .tabs-md-blue .tab-button[aria-selected=false],
+  .tabs-md-blue .tab-button[aria-selected=false] .tab-button-icon {
+    opacity: 0.45 !important;
+  }
+
+
 }

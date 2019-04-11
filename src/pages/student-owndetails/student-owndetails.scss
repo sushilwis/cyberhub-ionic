@@ -1,159 +1,177 @@
 page-student-owndetails {
-	.fixed p{
-		font-size:8px !important;	
-	}
-	.toolbar-md-blue .bar-button-md-light{
-	    display: block !important;
-	}
-	.bell-icon{
-		cursor:pointer !important;
-		background:none;
-		float: right; 
-		padding-right: 10px; 
-	}
-	.icon-center, .icon-center img{
-		display: block !important;
-		text-align: center !important;
-		margin:0px auto !important;
-	}
-	.icon-center{
-		 /* border: 1px solid #fff; */
-		background: #353434 !important;
-		// padding: 5px 0;
-		padding-top: 12px;
-		box-shadow: white;
-		/* box-shadow: 1px 4px 18px #9c9c9c6e; */
-		margin: 5px !important;
-		border-radius: 5px;
-	}
-	.icon-center p{
-		font-size: 12px;
-	}
-	.toolbar-md, .toolbar-ios{
-		padding:0px;
-	}
+  .fixed p {
+    font-size: 8px !important;
+  }
 
-	.badge-md,.badge-ios{
-		position: absolute;
-		border-radius: 47px;
-		color: #fff;
-		top: -9px;
-		left: 13px;
-		height: 22px;
-	}
+  .toolbar-md-blue .bar-button-md-light {
+    display: block !important;
+  }
 
-	.card {
-		background-color: #1b1b1b !important; // black
-		border: 1px solid rgba(161, 161, 161, 0.911);
-	}
-	.card-md *,.card-ios * {
-		color: #f4f4f4;
-	}
-	.card-title-border{
-		position: absolute;
-		left: 7%;
-		top: 6px;
-		background-color: #1b1b1b;
-		padding: 4px 14px;
-	}
-	.card-title-border1{
-		position: absolute;
-		left: 7%;
-		top: 137px;
-		background-color: #1b1b1b;
-		padding: 3px 14px;
-	}
-	.grid{
-		padding: 11px;
-	}
-	.logo-action {
-		max-width: 29%;
-		height: 45%;
-		padding-top: 8px !important;
-	}
-	.profile-image {
-		border-radius: 50%;
-		border: 2px solid #fff;
-		padding: 3px;
-		width: 60px !important;
-		height: 60px !important;
-		margin: 0 auto;
-	}
+  .bell-icon {
+    cursor: pointer !important;
+    background: none;
+    float: right;
+    padding-right: 10px;
+  }
 
-	.mh-container{
-		// position: relative;
-		// display: flex;
-		// max-width: 40%;
-		width: 40%;
-		align-items: center;
-		justify-content: center;
-		padding: 10px 0;
-	}
+  .icon-center,
+  .icon-center img {
+    display: block !important;
+    text-align: center !important;
+    margin: 0px auto !important;
+  }
 
-	.personalDetailfont, .personalDetailfont span, .personalDetailfont b{
-		font-size: 10.5px;
-		color: #cccbcb !important;
-		display: block;
-		width: 100%;
-	}
+  .icon-center {
+    /* border: 1px solid #fff; */
+    background: #353434 !important;
+    // padding: 5px 0;
+    padding-top: 12px;
+    box-shadow: white;
+    /* box-shadow: 1px 4px 18px #9c9c9c6e; */
+    margin: 5px !important;
+    border-radius: 5px;
+  }
 
-	.profile-container{
-		display: flex;
-	}
+  .icon-center p {
+    font-size: 12px;
+  }
 
-	.text-position{
-		width: 55%;
-		align-items: center;
-		justify-content: center;
-		padding: 10px 0;
-	}
+  .toolbar-md,
+  .toolbar-ios {
+    padding: 0px;
+  }
 
-	.icon-center p {
-		font-size: 9.5px;
-		margin-top: 15px;
-    	padding-bottom: 0px;
-    	padding-top: 0px;
-	}
+  .badge-md,
+  .badge-ios {
+    position: absolute;
+    border-radius: 47px;
+    color: #fff;
+    top: -9px;
+    left: 13px;
+    height: 22px;
+  }
 
-	.stdsmallinfo {
-		font-size: 11px !important;
-		color: #cccbcb !important;
-	}
+  .card {
+    background-color: #1b1b1b !important; // black
+    border: 1px solid rgba(161, 161, 161, 0.911);
+  }
 
-	.wether-icon{
-		position: absolute;
-		top: 11px;
-		left: 12px;
-		width: 50px !important;
-	}
+  .card-md *,
+  .card-ios * {
+    color: #f4f4f4;
+  }
 
-	.weatherDiv{
-		position: absolute;
-		top: 208px;
-		left: 218px;
-	}
+  .card-title-border {
+    position: absolute;
+    left: 7%;
+    top: 6px;
+    background-color: #1b1b1b;
+    padding: 4px 14px;
+  }
 
-	.weatherdata {
-		position: relative;
-		top: -30px;
-		left: 18px;
-	}
+  .card-title-border1 {
+    position: absolute;
+    left: 7%;
+    top: 137px;
+    background-color: #1b1b1b;
+    padding: 3px 14px;
+  }
 
-	.weatherdata1 {
-		position: relative;
-		top: -73px;
-		left: 72px;
-	}
+  .grid {
+    padding: 11px;
+  }
 
-	.wether-icon1 {
-		width: 70px;
-	}
+  .logo-action {
+    max-width: 29%;
+    height: 45%;
+    padding-top: 8px !important;
+  }
 
-	.badge-md {
-		background: none !important;
-	}
+  .profile-image {
+    border-radius: 50%;
+    border: 2px solid #fff;
+    padding: 3px;
+    width: 60px !important;
+    height: 60px !important;
+    margin: 0 auto;
+  }
 
-	
+  .mh-container {
+    // position: relative;
+    // display: flex;
+    // max-width: 40%;
+    width: 40%;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 0;
+  }
 
-	
+  .personalDetailfont,
+  .personalDetailfont span,
+  .personalDetailfont b {
+    font-size: 10.5px;
+    color: #cccbcb !important;
+    display: block;
+    width: 100%;
+  }
+
+  .profile-container {
+    display: flex;
+  }
+
+  .text-position {
+    width: 55%;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 0;
+  }
+
+  .icon-center p {
+    font-size: 9.5px;
+    margin-top: 15px;
+    padding-bottom: 0px;
+    padding-top: 0px;
+  }
+
+  .stdsmallinfo {
+    font-size: 11px !important;
+    color: #cccbcb !important;
+  }
+
+  .wether-icon {
+    position: absolute;
+    top: 11px;
+    left: 12px;
+    width: 50px !important;
+  }
+
+  .weatherDiv {
+    position: absolute;
+    top: 208px;
+    left: 218px;
+  }
+
+  .weatherdata {
+    position: relative;
+    top: -30px;
+    left: 18px;
+  }
+
+  .weatherdata1 {
+    position: relative;
+    top: -73px;
+    left: 72px;
+  }
+
+  .wether-icon1 {
+    width: 70px;
+  }
+
+  .badge-md {
+    background: none !important;
+  }
+
+
+
+
 }

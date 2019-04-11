@@ -1,23 +1,30 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, MenuController, LoadingController, AlertController } from 'ionic-angular';
-import { RequestOptions, Headers, Http } from '@angular/http';
-import { apiUrl } from '../../apiUrl';
+import { Component } from "@angular/core";
+import {
+  IonicPage,
+  NavController,
+  NavParams,
+  MenuController,
+  LoadingController,
+  AlertController,
+  Platform
+} from "ionic-angular";
+import { RequestOptions, Headers, Http } from "@angular/http";
+import { apiUrl } from "../../apiUrl";
 
-
-import { StudentLibraryListPage } from '../student-library-list/student-library-list';
-import { StudentNoticeBoardPage } from '../student-notice-board/student-notice-board';
-import { PersonalNoticePage } from '../personal-notice/personal-notice';
-import { GetAttendancePage } from '../get-attendance/get-attendance';
-import { LiveStreamPage } from '../live-stream/live-stream';
-import { StaffComplainPage } from '../staff-complain/staff-complain';
-import { ParentsAccountPage } from '../parents-account/parents-account';
-import { GuestEnquiryPage } from '../guest-enquiry/guest-enquiry';
-import { PrincipalExamviewPage } from '../principal-examview/principal-examview';
-import{ PrincipalComplaindeskPage } from '../principal-complaindesk/principal-complaindesk';
-import { StuffExamdutyPage } from '../stuff-examduty/stuff-examduty';
-import { HomePage } from '../home/home';
-import { StaffLoginPage } from '../staff-login/staff-login';
-import { SchoolcalenderPage } from '../schoolcalender/schoolcalender';
+import { StudentLibraryListPage } from "../student-library-list/student-library-list";
+import { StudentNoticeBoardPage } from "../student-notice-board/student-notice-board";
+import { PersonalNoticePage } from "../personal-notice/personal-notice";
+import { GetAttendancePage } from "../get-attendance/get-attendance";
+import { LiveStreamPage } from "../live-stream/live-stream";
+import { StaffComplainPage } from "../staff-complain/staff-complain";
+import { ParentsAccountPage } from "../parents-account/parents-account";
+import { GuestEnquiryPage } from "../guest-enquiry/guest-enquiry";
+import { PrincipalExamviewPage } from "../principal-examview/principal-examview";
+import { PrincipalComplaindeskPage } from "../principal-complaindesk/principal-complaindesk";
+import { StuffExamdutyPage } from "../stuff-examduty/stuff-examduty";
+import { HomePage } from "../home/home";
+import { StaffLoginPage } from "../staff-login/staff-login";
+import { SchoolcalenderPage } from "../schoolcalender/schoolcalender";
 /**
  * Generated class for the StaffInfoPage page.
  *
@@ -27,11 +34,10 @@ import { SchoolcalenderPage } from '../schoolcalender/schoolcalender';
 
 @IonicPage()
 @Component({
-  selector: 'page-staff-info',
-  templateUrl: 'staff-info.html',
+  selector: "page-staff-info",
+  templateUrl: "staff-info.html"
 })
 export class StaffInfoPage {
-
   localUserData: any;
   orgDetails: any;
   loading: any;
@@ -45,196 +51,184 @@ export class StaffInfoPage {
   minTemp: any;
   humidity: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public menuCtrl: MenuController, public loadingController: LoadingController, private http: Http, public alertCtrl: AlertController) {
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public menuCtrl: MenuController,
+    public loadingController: LoadingController,
+    private http: Http,
+    public alertCtrl: AlertController,
+    public platform: Platform
+  ) {
+    this.platform.registerBackButtonAction(() => {
+      if (this.navCtrl.getViews().length > 1) {
+        this.navCtrl.pop();
+      }
+    });
+
     this.getUserDataFromLocal();
     this.menuCtrl.enable(false);
     this.initLoader();
-    
+
     this.getUserData();
-    this.getTeacherDetails();    
+    this.getTeacherDetails();
   }
 
-
-  ngOnInit(){    
-    console.log('Stuff info page...');     
-       
+  ngOnInit() {
+    console.log("Stuff info page...");
   }
-
-
 
   ionViewDidLoad() {
     // console.log('ionViewDidLoad StaffInfoPage');
     // this.getWeatherData();
   }
 
-
-
-  goToAllPdf(){
-		this.navCtrl.push(StudentNoticeBoardPage);
-	}
-  goToLibrary(){
+  goToAllPdf() {
+    this.navCtrl.push(StudentNoticeBoardPage);
+  }
+  goToLibrary() {
     this.navCtrl.push(StudentLibraryListPage);
   }
-  goToPersonalNotice(){
+  goToPersonalNotice() {
     this.navCtrl.push(PersonalNoticePage);
   }
-  gotoLiveStream(){
+  gotoLiveStream() {
     // this.navCtrl.push(LiveStreamPage);
   }
-  goToAttendance(){
+  goToAttendance() {
     this.navCtrl.push(GetAttendancePage);
   }
-  goToComplain(){
+  goToComplain() {
     this.navCtrl.push(StaffComplainPage);
   }
-  goToAccount(){
+  goToAccount() {
     this.navCtrl.push(ParentsAccountPage);
   }
-  goToGuest(){
+  goToGuest() {
     this.navCtrl.push(GuestEnquiryPage);
   }
-  goToPrincipal(){
+  goToPrincipal() {
     this.navCtrl.push(PrincipalExamviewPage);
   }
-  goToComplainDesk(){
+  goToComplainDesk() {
     this.navCtrl.push(PrincipalComplaindeskPage);
   }
-  goToStaffDuty(){
+  goToStaffDuty() {
     this.navCtrl.push(StuffExamdutyPage);
   }
+  goToChangeLang() {
+    console.log("goToChangeLang");
+  }
   goToEvents() {
-    this.navCtrl.push(SchoolcalenderPage,{
+    this.navCtrl.push(SchoolcalenderPage, {
       id: this.localUserData.org_code
     });
   }
 
-
-
   getUserData() {
     // this.presentLoading(true);
-		var header = new Headers();
-		header.append('Content-Type', 'application/json');
-		let options = new RequestOptions({headers: header});
+    var header = new Headers();
+    header.append("Content-Type", "application/json");
+    let options = new RequestOptions({ headers: header });
 
-		let data = {
-      'org_id': this.localUserData.org_code,
-    }
-    
-		this.http.post(`${apiUrl.url}org/getdetail`, data, options).
-			map(res => res.json()).subscribe(data => {	
-        // this.presentLoading(false);			
-				// console.log('org_details : ', data.data[0]);
+    let data = {
+      org_id: this.localUserData.org_code
+    };
 
-				if (data.data) {          
-          this.orgDetails = data.data[0];	
+    this.http
+      .post(`${apiUrl.url}org/getdetail`, data, options)
+      .map(res => res.json())
+      .subscribe(data => {
+        // this.presentLoading(false);
+        // console.log('org_details : ', data.data[0]);
+
+        if (data.data) {
+          this.orgDetails = data.data[0];
           this.pin = data.data[0].pin;
           // console.log('org_details : ', data.data[0]);
-          // console.log('PIN : ', this.pin);	
-          this.getWeatherData();			
+          // console.log('PIN : ', this.pin);
+          this.getWeatherData();
         }
-        
-			});
+      });
   }
-
-
-
-
-
 
   // getUserData() {
   //   this.presentLoading(true);
-	// 	var header = new Headers();
-	// 	header.append('Content-Type', 'application/json');
-	// 	let options = new RequestOptions({headers: header});
+  // 	var header = new Headers();
+  // 	header.append('Content-Type', 'application/json');
+  // 	let options = new RequestOptions({headers: header});
 
-	// 	let data = {
+  // 	let data = {
   //     'org_id': this.localUserData.org_code,
   //   }
-    
-	// 	this.http.post(`${apiUrl.url}org/getdetail`, data, options).
-	// 		map(res => res.json()).subscribe(data => {				
-	// 			console.log('org_details : ', data.data[0]);
 
-	// 			if (data.data) {
+  // 	this.http.post(`${apiUrl.url}org/getdetail`, data, options).
+  // 		map(res => res.json()).subscribe(data => {
+  // 			console.log('org_details : ', data.data[0]);
+
+  // 			if (data.data) {
   //         this.presentLoading(false);
-  //         this.orgDetails = data.data[0];					
+  //         this.orgDetails = data.data[0];
   //       }
-        
-	// 		});
+
+  // 		});
   // }
 
-
-
-
-
-
   presentLoading(load: boolean) {
-		if (load) {
-			return this.loading.present();
-		}
-		else {
-			setTimeout(() => {
-				return this.loading.dismiss();
-			}, 1000);
-		}
+    if (load) {
+      return this.loading.present();
+    } else {
+      setTimeout(() => {
+        return this.loading.dismiss();
+      }, 1000);
+    }
   }
-
-
-
-  
-
 
   initLoader() {
-		this.loading = this.loadingController.create({
-			spinner: 'hide',
-			content: '<img class="loader-class" src="assets/icon/tail-spin.svg"> <p>Loading please wait...</p>',
-		});
+    this.loading = this.loadingController.create({
+      spinner: "hide",
+      content:
+        '<img class="loader-class" src="assets/icon/tail-spin.svg"> <p>Loading please wait...</p>'
+    });
   }
-
-
-  
-
 
   getUserDataFromLocal() {
     // this.presentLoading(true);
-    let data = localStorage.getItem('userData');
+    let data = localStorage.getItem("userData");
     this.localUserData = JSON.parse(data);
-    // console.log('local data : ', this.localUserData); 
-    if(this.localUserData.profile_image){
-      this.profile_image = `${apiUrl.url}public/uploads/profile_pic/${this.localUserData.profile_image}`;
-    }else{
+    // console.log('local data : ', this.localUserData);
+    if (this.localUserData.profile_image) {
+      this.profile_image = `${apiUrl.url}public/uploads/profile_pic/${
+        this.localUserData.profile_image
+      }`;
+    } else {
       this.profile_image = `assets/imgs/student-icon.png`;
-    }   
+    }
   }
-
-
-
-
 
   goToLogout() {
     // this.showAlert('Logout', 'Are you sure want to logout ?');
     // localStorage.clear();
     // this.navCtrl.setRoot(HomePage);
-    this.showAlert('Logout !', 'Are you sure ?');
+    this.showAlert("Logout !", "Are you sure ?");
   }
 
-
-
-
   getTeacherDetails() {
-		var headers = new Headers();
-		headers.append('Content-Type', 'application/json');
-		let options = new RequestOptions({headers: headers});
+    var headers = new Headers();
+    headers.append("Content-Type", "application/json");
+    let options = new RequestOptions({ headers: headers });
 
-		let data = {
-      'master_id': this.localUserData.master_id,
-      'org_id': this.localUserData.org_code
-		}
+    let data = {
+      master_id: this.localUserData.master_id,
+      org_id: this.localUserData.org_code
+    };
 
-		this.http.post(`${apiUrl.url}staff/details`, data, options).
-			map(res => res.json()).subscribe(data => {				
-				// this.presentLoading(false);
-				if (data.data[0]) {          
+    this.http
+      .post(`${apiUrl.url}staff/details`, data, options)
+      .map(res => res.json())
+      .subscribe(data => {
+        // this.presentLoading(false);
+        if (data.data[0]) {
           this.teacherDetails = data.data[0];
           // console.log('teacher details : ', data.data[0]);
 
@@ -243,37 +237,38 @@ export class StaffInfoPage {
           // }else{
           //   this.showSelectDepartmentBtn = true;
           // }
-				}
-			});
+        }
+      });
   }
-
-
-
 
   getWeatherData() {
     // b60c3e9d5ed15819d78fd18b00e5cfbb
     // https://openweathermap.org/img/w/
     var headers = new Headers();
-		headers.append('Content-Type', 'application/json');
-    let options = new RequestOptions({headers: headers});
-    
-    this.http.get(`http://api.openweathermap.org/data/2.5/weather?zip=${this.pin},in&appid=c02a8ac947999e382330611c5f2c508b`).
-			map(res => res.json()).subscribe(data => {				
-        // console.log('weather data.../',data); 
+    headers.append("Content-Type", "application/json");
+    let options = new RequestOptions({ headers: headers });
+
+    this.http
+      .get(
+        `http://api.openweathermap.org/data/2.5/weather?zip=${
+          this.pin
+        },in&appid=c02a8ac947999e382330611c5f2c508b`
+      )
+      .map(res => res.json())
+      .subscribe(data => {
+        // console.log('weather data.../',data);
         this.weatherdata = data.main;
-        this.temp = Math.round(parseInt(this.weatherdata.temp)-273.15);
-        this.maxTemp = Math.round(parseInt(this.weatherdata.temp_max)-273.15);
-        this.minTemp = Math.round(parseInt(this.weatherdata.temp_min)-273.15);
+        this.temp = Math.round(parseInt(this.weatherdata.temp) - 273.15);
+        this.maxTemp = Math.round(parseInt(this.weatherdata.temp_max) - 273.15);
+        this.minTemp = Math.round(parseInt(this.weatherdata.temp_min) - 273.15);
         this.humidity = this.weatherdata.humidity;
-        
-        this.weatherIcon = `https://openweathermap.org/img/w/${data.weather[0].icon}.png`; 
-        // console.log('weather img link : ', this.temp );     
-			});
+
+        this.weatherIcon = `https://openweathermap.org/img/w/${
+          data.weather[0].icon
+        }.png`;
+        // console.log('weather img link : ', this.temp );
+      });
   }
-
-
-
-
 
   showAlert(title, msg) {
     const alert = this.alertCtrl.create({
@@ -282,13 +277,13 @@ export class StaffInfoPage {
       cssClass: "confirmAlert",
       buttons: [
         {
-          text: 'Cancel',
+          text: "Cancel",
           handler: () => {
             // console.log('Disagree clicked');
           }
         },
         {
-          text: 'Ok',
+          text: "Ok",
           cssClass: "okBtn",
           handler: () => {
             localStorage.clear();
@@ -300,11 +295,4 @@ export class StaffInfoPage {
     });
     alert.present();
   }
-
-
-
-
-
-
-
 }
