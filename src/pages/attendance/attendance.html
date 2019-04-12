@@ -42,7 +42,7 @@
 
 	<ion-list>
 			<ion-item>
-				<ion-label>Period</ion-label>
+				<ion-label>Choose from Drop Down</ion-label>
 				<ion-select [(ngModel)]="period">
 					<ion-option *ngFor="let period of periodList" value="{{period.id}}">
 						{{period.priod_name}} ({{period.from_time}} {{period.to_time}})
@@ -51,7 +51,7 @@
 			</ion-item>
 	</ion-list>
 
-	<button ion-button block outline color="blue" class="mt-10" (click)="onPeriodSubmit()">Submit</button>
+	<button ion-button block outline color="blue" class="mt-10" (click)="onPeriodSubmit()">Click To Put Attendance</button>
 </ion-content>
 
 

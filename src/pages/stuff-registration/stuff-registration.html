@@ -48,7 +48,7 @@
             </ion-item>      
         </ion-list>
           
-        <ion-list style="background-color: #3f3f3f; color: #fff; font-size: 13px; margin-left: 10px;" class="search-result" [ngStyle]="{'display':isSearchbarOpened ? 'block' : 'none' }">
+        <ion-list style="background-color: #3f3f3f; color: #fff; font-size: 13px; margin-left: 0px;" class="search-result" [ngStyle]="{'display':isSearchbarOpened ? 'block' : 'none' }">
           <ion-item *ngFor="let item of items" (click)="schoolsDetails(item)">
               {{ item.name }}
               <p>City : {{ item.city }}, Pin : {{ item.pin }}</p>

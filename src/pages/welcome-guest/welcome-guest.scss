@@ -4,9 +4,14 @@ page-welcome-guest {
     border-top: 1px solid rgb(83, 83, 83);
     border-bottom: 1px solid rgb(83, 83, 83);
     padding: 10px;
-    margin: 0px 0px 25px 0px;
-    color: rgb(83, 83, 83);
+    margin: 0px 16px 25px 16px;
+    // color: rgb(83, 83, 83);
+    color: #8a8a8a;
   }
+
+  .scroll-content {
+		padding: 0px !important;
+	}
 
   .text-1 {
     text-decoration: underline;

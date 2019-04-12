@@ -3,15 +3,19 @@ page-std-reg {
 		position: absolute;
 		left: 0;
 		/* top: 56px; */
-		background: rgba(255, 255, 255, 0.839);
+		background-color: #000;
 		width: 100%;
 		// height: 100vh;
 		z-index: 99;
-		border: 1px solid #ddd;
+		// border: 1px solid #ddd;
 		overflow-y: scroll;
 		/* visibility: hidden; */
-		/* opacity: 0; */
+		opacity: 1;
 
+	}
+
+	.scroll-content {
+		padding: 0px !important;
 	}
 	
 	.title{
@@ -24,7 +28,7 @@ page-std-reg {
 		padding: 15px 25px !important;
 	}
 	.list-md{
-		margin: -1px 0 0px !important;
+		margin: -1px 16px 0px 16px;
 	}
 
 
@@ -53,6 +57,7 @@ page-std-reg {
 	}
 	.list-md .item-block .item-inner {
 		border-bottom: 1px solid #dedede !important;
+		box-shadow: none !important;
 	}
 	.button-clear-md {
 		color: #f6f6f6 !important;
@@ -69,7 +74,9 @@ page-std-reg {
 		padding-right: 10px !important;
 	}
 	.list-md .item-input:last-child {
-    border-bottom: none !important;
+	border-bottom: none !important;
+	box-shadow: none !important;
+	
 	}
 	// .item-md {
 	// 	background-color: #3f3f3f;
@@ -82,8 +89,9 @@ page-std-reg {
 		border-top: 1px solid #909090;
 		border-bottom: 1px solid #909090;
 		padding: 10px;
-		margin: 15px 0px 15px 0px;
-		color: #909090;
+		margin: 15px 16px 15px 16px;
+		// color: #909090;
+		color: #8a8a8a;
 	}
 
 	.login-page-logo {
@@ -112,5 +120,21 @@ page-std-reg {
 		position: relative;
 		left: 12px;
 		top: 9px;
+	}
+
+	.item-md.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner, .item-md.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
+		box-shadow: none !important;
+	}
+
+	.item-md.item-input.ng-valid.item-input-has-value .item-inner, .item-md.item-input.ng-valid.input-has-value .item-inner {
+		box-shadow: none !important;
+	}
+
+	.list-md .item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus):last-child, .list-md .item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus):last-child {
+		box-shadow: none !important;
+	}
+
+	.list-md .item-input.ng-valid.item-input-has-value:last-child, .list-md .item-input.ng-valid.input-has-value:last-child {
+		box-shadow: none !important;
 	}
 }

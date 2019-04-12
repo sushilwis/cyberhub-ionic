@@ -1,6 +1,5 @@
 <ion-content padding>
-    <!-- <h5 class="title" text-center text-uppercase margin-bottom>Student Registration</h5> -->
-    <div text-center margin-top>
+    <div text-center style="margin-top: 30px;">
       <h4 style="font-size: 1.9rem;">
         <img class="login-page-logo" src="assets/icon/cyverhub_logo.svg">
         <img class="straight-line" src="assets/icon/substract.svg"> Welcome Student !
@@ -40,10 +39,10 @@
                 
         </ion-list>
 
-        <ion-list style="background-color: #3f3f3f; color: #fff; font-size: 13px; margin-left: 10px;"  class="search-result" [ngStyle]="{'display':isSearchbarOpened ? '' : 'none' }">
+        <ion-list style="background-color: #3f3f3f; color: #fff; font-size: 13px; margin-left: 0px;border-bottom: 1px solid #dedede;" class="search-result" [ngStyle]="{'display':isSearchbarOpened ? '' : 'none' }">
           <ion-item *ngFor="let item of items" (click)="schoolsDetails(item)" style="margin-left: 10px;">
             {{ item.name }}
-            <p>City : {{ item.city }}, Pin : {{ item.pin }}</p>
+            <p style="color: #8b8b8b;">City : {{ item.city }}, Pin : {{ item.pin }}</p>
           </ion-item>
                     
         </ion-list>

@@ -132,7 +132,8 @@ page-staff-login {
 			border-bottom: 1px solid #909090;
 			padding: 10px;
 			margin: 0 0px 35px 0px;
-			color: #909090;
+			// color: #909090;
+			color: #8a8a8a;
 		}
 		.btn-size {
 			padding: 15px 25px !important;
@@ -195,5 +196,22 @@ page-staff-login {
 			position: relative;
 			left: 12px;
 			top: 9px;
+		}
+
+
+		.item-md.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner, .item-md.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
+			box-shadow: none !important;
+		}
+	
+		.item-md.item-input.ng-valid.item-input-has-value .item-inner, .item-md.item-input.ng-valid.input-has-value .item-inner, .item-md.item-input.ng-valid.input-has-focus .item-inner {
+			box-shadow: none !important;
+		}
+	
+		.list-md .item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus):last-child, .list-md .item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus):last-child {
+			box-shadow: none !important;
+		}
+	
+		.list-md .item-input.ng-valid.item-input-has-value:last-child, .list-md .item-input.ng-valid.input-has-value:last-child, .item-input.ng-valid.input-has-focus:last-child {
+			box-shadow: none !important;
 		}
 }

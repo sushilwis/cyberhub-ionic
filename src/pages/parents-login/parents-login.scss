@@ -86,7 +86,8 @@ page-parents-login {
 			border-bottom: 1px solid #909090;
 			padding: 10px;
 			margin: 0 0px 35px 0px;
-			color: #909090;
+			// color: #909090;
+			color: #8a8a8a;
 		}
 		.btn-size {
 			padding: 15px 25px !important;
@@ -105,5 +106,13 @@ page-parents-login {
 		}
 		.item-md{
 			padding-right: 16px !important;
+		}
+
+		.item-md.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner, .item-md.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
+			box-shadow: none !important;
+		}
+
+		.item-md.item-input.ng-valid.item-input-has-value .item-inner, .item-md.item-input.ng-valid.input-has-value .item-inner {
+			box-shadow: none !important;
 		}
 }
