@@ -341,3 +341,14 @@ ion-icon {
   box-shadow: none !important;
 }
 
+
+.item-md.item-input.ng-valid.item-input-has-value .item-inner, .item-md.item-input.ng-valid.input-has-value .item-inner, .list-md.item.item-block.item-md.item-select.item-input-has-value .item-inner, .list-md.item.item-block.item-md.item-select.input-has-value .item-inner {
+  box-shadow: none !important;
+  border-bottom: 1px solid #3cba54 !important;
+}
+
+.list-md .item-block .item-input-has-value .item-inner, .list-md .item-block .input-has-value .item-inner {
+  border-bottom: 1px solid #3cba54 !important;
+  // box-shadow: none !important;
+}
+
