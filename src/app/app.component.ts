@@ -23,6 +23,8 @@ import { Observable } from 'rxjs';
 import { Firebase } from '@ionic-native/firebase';
 // import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 
+import {timer} from 'rxjs/observable/timer';
+
 
 @Component({
   templateUrl: 'app.html'
@@ -31,6 +33,7 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   rootPage: any;
+  showSplash: boolean = true;
 
   pages: Array<{title: string, component: any}>;
 
@@ -99,6 +102,8 @@ export class MyApp {
 
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+      
+      timer(3000).subscribe(()=> this.showSplash = false);
       // this.splashScreen.show();
     });    
   }

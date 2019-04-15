@@ -56,6 +56,7 @@
 
 
 
+
 // action-sheets-basic-page {
 .action-sheet-md .action-sheet-title {
   color: #000 !important;
@@ -269,3 +270,74 @@ ion-icon {
   }
 
 }
+
+
+
+
+
+
+.spinner {
+  margin: 100px auto;
+  width: 100px;
+  height: 70px;
+  text-align: center;
+  font-size: 10px;
+}
+
+.spinner > div {
+  background-color: #333;
+  border-radius: 5px;
+  height: 100%;
+  width: 10px;
+  margin: 2px;
+  display: inline-block;
+
+  -webkit-animation: sk-stretchdelay 1.2s infinite ease-in-out;
+  animation: sk-stretchdelay 1.2s infinite ease-in-out;
+}
+
+.spinner .rect1 {
+  background: #ed3533;
+}
+
+.spinner .rect2 {
+  background: #0f6;
+  -webkit-animation-delay: -1.1s;
+  animation-delay: -1.1s;
+}
+
+.spinner .rect3 {
+  background: #1cb9ff;
+  -webkit-animation-delay: -1s;
+  animation-delay: -1s;
+}
+
+.spinner .rect4 {
+  background: #ffe42e;
+  -webkit-animation-delay: -0.9s;
+  animation-delay: -0.9s;
+}
+
+.spinner .rect5 {
+  background: #5af9ff;
+  -webkit-animation-delay: -0.8s;
+  animation-delay: -0.8s;
+}
+@keyframes sk-stretchdelay {
+  0%,
+  40%,
+  100% {
+    transform: scaleY(0.4);
+    border-radius: 320px;
+  }
+  20% {
+    transform: scaleY(1);
+    border-radius: 50px;
+  }
+}
+
+.loading-wrapper {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+

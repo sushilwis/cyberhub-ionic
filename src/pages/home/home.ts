@@ -1,5 +1,5 @@
 import { Component, ViewChild, OnInit } from '@angular/core';
-import { NavController, MenuController, Platform } from 'ionic-angular';
+import { NavController, MenuController, Platform, LoadingController } from 'ionic-angular';
 import { GuestEnquiryPage } from '../guest-enquiry/guest-enquiry';
 import { StudentLoginPage } from '../student-login/student-login';
 import { ParentsLoginPage } from '../parents-login/parents-login';
@@ -19,6 +19,7 @@ export class HomePage implements OnInit{
   @ViewChild('myElement') myElem;
   private animator: AnimationBuilder;
   seeTabs: boolean = false;
+  loading: any;
 constructor(
     public platform: Platform,
     public navCtrl: NavController,
@@ -26,9 +27,10 @@ constructor(
     animationService: AnimationService,
     public app: App,
     private ionicApp: IonicApp,
-
+    public loadingController: LoadingController
   )
   {
+    this.initLoader();
     this.menuCtrl.enable(false);
     this.animator = animationService.builder();
     this.platform.registerBackButtonAction(() => {
@@ -81,6 +83,7 @@ constructor(
 
 
   ionViewDidLoad() {
+    this.presentLoading(false);
     setTimeout(() => {
       this.splash = false;
     }, 200);
@@ -91,6 +94,7 @@ constructor(
 
   ngOnInit() {
     this.hideTabs();
+    this.presentLoading(true);
   }
 
   animateElem() {
@@ -126,6 +130,35 @@ constructor(
           });
       }
   }
+
+
+
+
+  presentLoading(load: boolean) {
+		if (load) {
+			return this.loading.present();
+		}
+		else {
+			setTimeout(() => {
+				return this.loading.dismiss();
+			}, 1000);
+		}
+  }
+  
+
+
+  initLoader() {
+		this.loading = this.loadingController.create({
+			spinner: 'hide',
+			content: `<div class="spinner">
+      <div class="rect1"></div>
+      <div class="rect2"></div>
+      <div class="rect3"></div>
+      <div class="rect4"></div>
+      <div class="rect5"></div>
+    </div>`,
+		});
+	}
 
   
 }
