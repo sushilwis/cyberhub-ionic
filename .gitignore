@@ -36,7 +36,10 @@ build/Release
 node_modules/
 jspm_packages/
 platforms/
+plugins/
 .history/
+.sourcemaps/
+.sourcemaps
 www/
 
 # TypeScript v1 declaration files

@@ -1,14 +1,14 @@
 webpackJsonp([32],{
 
-/***/ 518:
+/***/ 530:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ComplainReplyPageModule", function() { return ComplainReplyPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ParentHomePageModule", function() { return ParentHomePageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__complain_reply__ = __webpack_require__(149);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__parent_home__ = __webpack_require__(83);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,23 +18,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var ComplainReplyPageModule = /** @class */ (function () {
-    function ComplainReplyPageModule() {
+var ParentHomePageModule = /** @class */ (function () {
+    function ParentHomePageModule() {
     }
-    ComplainReplyPageModule = __decorate([
+    ParentHomePageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__complain_reply__["a" /* ComplainReplyPage */],
+                __WEBPACK_IMPORTED_MODULE_2__parent_home__["a" /* ParentHomePage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__complain_reply__["a" /* ComplainReplyPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__parent_home__["a" /* ParentHomePage */]),
             ],
         })
-    ], ComplainReplyPageModule);
-    return ComplainReplyPageModule;
+    ], ParentHomePageModule);
+    return ParentHomePageModule;
 }());
 
-//# sourceMappingURL=complain-reply.module.js.map
+//# sourceMappingURL=parent-home.module.js.map
 
 /***/ })
 
