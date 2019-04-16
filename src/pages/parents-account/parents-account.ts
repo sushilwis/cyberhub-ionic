@@ -7,12 +7,6 @@ import { StuffEditPage } from '../stuff-edit/stuff-edit';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { Transfer, FileUploadOptions } from '@ionic-native/transfer';
 
-/**
- * Generated class for the ParentsAccountPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -191,7 +185,7 @@ export class ParentsAccountPage {
       });     
     }, (err) => {
       console.log(err);
-      this.presentToast(err);
+      // this.presentToast(err);
     });
   }
 
@@ -333,7 +327,7 @@ export class QuesmodalPage {
             localStorage.setItem("securitypinadded", JSON.stringify(data));
             // this.navCtrl.push();
           } else {
-            this.presentToast('Sorry, Something went wrong.');
+            // this.presentToast('Sorry, Something went wrong.');
           }
         });
   }
