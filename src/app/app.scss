@@ -284,7 +284,7 @@ ion-icon {
   font-size: 10px;
 }
 
-.spinner > div {
+.spinner>div {
   background-color: #333;
   border-radius: 5px;
   height: 100%;
@@ -323,13 +323,16 @@ ion-icon {
   -webkit-animation-delay: -0.8s;
   animation-delay: -0.8s;
 }
+
 @keyframes sk-stretchdelay {
+
   0%,
   40%,
   100% {
     transform: scaleY(0.4);
     border-radius: 320px;
   }
+
   20% {
     transform: scaleY(1);
     border-radius: 50px;
@@ -342,13 +345,16 @@ ion-icon {
 }
 
 
-.item-md.item-input.ng-valid.item-input-has-value .item-inner, .item-md.item-input.ng-valid.input-has-value .item-inner, .list-md.item.item-block.item-md.item-select.item-input-has-value .item-inner, .list-md.item.item-block.item-md.item-select.input-has-value .item-inner {
+.item-md.item-input.ng-valid.item-input-has-value .item-inner,
+.item-md.item-input.ng-valid.input-has-value .item-inner,
+.list-md.item.item-block.item-md.item-select.item-input-has-value .item-inner,
+.list-md.item.item-block.item-md.item-select.input-has-value .item-inner {
   box-shadow: none !important;
   border-bottom: 1px solid #3cba54 !important;
 }
 
-.list-md .item-block .item-input-has-value .item-inner, .list-md .item-block .input-has-value .item-inner {
+.list-md .item-block .item-input-has-value .item-inner,
+.list-md .item-block .input-has-value .item-inner {
   border-bottom: 1px solid #3cba54 !important;
   // box-shadow: none !important;
 }
-
