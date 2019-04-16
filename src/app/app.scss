@@ -344,11 +344,39 @@ ion-icon {
 
 .item-md.item-input.ng-valid.item-input-has-value .item-inner, .item-md.item-input.ng-valid.input-has-value .item-inner, .list-md.item.item-block.item-md.item-select.item-input-has-value .item-inner, .list-md.item.item-block.item-md.item-select.input-has-value .item-inner {
   box-shadow: none !important;
-  border-bottom: 1px solid #3cba54 !important;
+  border-bottom: 1px solid #32db64 !important;
 }
 
 .list-md .item-block .item-input-has-value .item-inner, .list-md .item-block .input-has-value .item-inner {
-  border-bottom: 1px solid #3cba54 !important;
-  // box-shadow: none !important;
+  border-bottom: 1px solid #32db64 !important;
+  box-shadow: none !important;
 }
 
+.input-has-focus .label-md[floating] {
+  color: #999;
+}
+
+
+.button-outline-md-blue {
+  border-color: #fff !important;
+  color: #fff !important;
+  // margin-left: 1px !important;
+  // margin-right: 16px !important;
+  margin: 0 auto !important;
+}
+
+
+.list-md .item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus):last-child, .list-md .item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus):last-child{
+  box-shadow: none !important;
+}
+
+
+.list-md .item-input.ng-valid.item-input-has-value:last-child, .list-md .item-input.ng-valid.input-has-value:last-child {
+  border-bottom-color: #32db64 !important;
+  box-shadow: none !important;
+}
+
+.list-md .item-input.ng-valid.item-input-has-focus:last-child, .list-md .item-input.ng-valid.input-has-focus:last-child {
+  border-bottom-color: #dedede !important;
+  box-shadow: none !important;
+}
