@@ -1,6 +1,10 @@
 webpackJsonp([30],{
 
+<<<<<<< HEAD
 /***/ 559:
+=======
+/***/ 545:
+>>>>>>> f11b30d915a1873c1397abab283416ba738614dc
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -9,8 +13,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__parents_account__ = __webpack_require__(63);
+<<<<<<< HEAD
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__stuff_change_pass_stuff_change_pass__ = __webpack_require__(151);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__stuff_edit_stuff_edit__ = __webpack_require__(152);
+=======
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__stuff_change_pass_stuff_change_pass__ = __webpack_require__(153);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__stuff_edit_stuff_edit__ = __webpack_require__(154);
+>>>>>>> f11b30d915a1873c1397abab283416ba738614dc
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
