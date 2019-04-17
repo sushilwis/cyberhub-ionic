@@ -95,7 +95,7 @@ var HomePage = /** @class */ (function () {
         // this.presentLoading(false);
         setTimeout(function () {
             _this.splash = false;
-        }, 10000);
+        }, 5000);
         this.animateElem();
     };
     HomePage.prototype.ngOnInit = function () {
@@ -195,7 +195,7 @@ var HomePage = /** @class */ (function () {
     ], HomePage.prototype, "myElem", void 0);
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: "page-home",template:/*ion-inline-start:"I:\wis projects\cyberhub-ionic\src\pages\home\home.html"*/'<div class="splashScreen" *ngIf="splash">\n\n  <div class="splashBg">\n\n  </div>\n\n  <div class="splashLogo1"></div>\n\n  <div class="splashLogo2">\n\n    <div class="splashLogoBranding">\n\n      <span class="splashLogoBrandingText">POWERED BY</span>\n\n    </div>\n\n  </div>\n\n  <div class="animationContainer">\n\n\n\n    <div class="spinner">\n\n      <div class="rect1"></div>\n\n      <div class="rect2"></div>\n\n      <div class="rect3"></div>\n\n      <div class="rect4"></div>\n\n      <div class="rect5"></div>\n\n    </div>\n\n  </div>\n\n  <div class="splashFooterText">\n\n    <p><span>A Comprehensive Institutional Management Hub</span></p>\n\n  </div>\n\n</div>\n\n<div class="viewportArea">\n\n  <div class="statusBar" style="text-align:center; color:#909090; line-height:24px"> --Space for STATUS BAR-- </div>\n\n  <div class="viewportBg"></div>\n\n  <div class="navigationBar" style="text-align:center; color:#909090; line-height: 48px">--Space for NAVIGATION BAR--\n\n  </div>\n\n  <div class="headerLogo"></div>\n\n  <hr class="greyHr">\n\n  <p class="screen2text">Choose and Tap <br /> on your Account</p>\n\n  <hr class="greyHr">\n\n  <div style="text-align:center; margin:auto">\n\n    <div class="accountSelect guest">\n\n      <div class="accntBg guestIco"></div>\n\n      <div class="accntTag">\n\n        <h4>GUEST</h4>\n\n      </div>\n\n    </div>\n\n    <div class="accountSelect student">\n\n      <div class="accntBg studentIco"></div>\n\n      <div class="accntTag">\n\n        <h4>STUDENT</h4>\n\n      </div>\n\n    </div>\n\n    <div class="accountSelect staff">\n\n      <div class="accntBg staffIco"></div>\n\n      <div class="accntTag">\n\n        <h4>STAFF</h4>\n\n      </div>\n\n    </div>\n\n    <div class="accountSelect guardians">\n\n      <div class="accntBg guardiansIco"></div>\n\n      <div class="accntTag">\n\n        <h4>GUARDIAN</h4>\n\n      </div>\n\n    </div>\n\n  </div>\n\n</div>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<ion-content class="item-center">\n\n  <div class="overley"></div>\n\n  <img class="logo-school" src="assets/icon/cyverhub_logo.svg" style="margin-top:50px; margin-bottom: 30px">\n\n  <p class="sub-line">Choose and Tap<br>on your Account</p>\n\n  <ion-grid style="width: 85%">\n\n    <ion-row #myElement>\n\n\n\n      <ion-row col-6 style="margin-bottom:10px;">\n\n        <ion-card style="background-color: #161616; margin-bottom:10px;" (click)="goToGuest()">\n\n          <ion-card-header text-center class="padd-bottom" style="margin-bottom:25px;">\n\n            <!-- <i class="fas fa-user-circle fa-3x" style="color: black"></i> -->\n\n            <img class="custom-image-size" src="assets/imgs/guest_logo.svg">\n\n          </ion-card-header>\n\n          <!-- <ion-card-content> -->\n\n          <!-- <ion-card-title text-uppercase text-center>\n\n              Guest\n\n            </ion-card-title> -->\n\n          <!-- </ion-card-content> -->\n\n          <ion-row class="card-button-text">\n\n            <ion-col>\n\n              <div text-uppercase style="color: #db3236; font-size: 13px; font-weight: 600;">Guest</div>\n\n            </ion-col>\n\n          </ion-row>\n\n        </ion-card>\n\n      </ion-row>\n\n\n\n      <ion-row col-6 style="margin-bottom:10px;">\n\n        <ion-card style="background-color: #161616;" (click)=goToStudent()>\n\n          <ion-card-header text-center class="padd-bottom" style="margin-bottom:25px;">\n\n            <!-- <i class="fas fa-user fa-3x" style="color: black"></i> -->\n\n            <img class="custom-image-size" src="assets/imgs/student_logo.svg">\n\n          </ion-card-header>\n\n          <!-- <ion-card-content> -->\n\n          <!-- <ion-card-title text-uppercase text-center>\n\n              Student\n\n            </ion-card-title> -->\n\n          <!-- </ion-card-content> -->\n\n          <ion-row class="card-button-text">\n\n            <ion-col>\n\n              <div text-uppercase style="color: #4885ed; font-size: 13px; font-weight: 600;">Student</div>\n\n            </ion-col>\n\n          </ion-row>\n\n        </ion-card>\n\n      </ion-row>\n\n\n\n      <ion-row col-6>\n\n        <ion-card style="background-color: #161616" (click)=goToStaff()>\n\n          <ion-card-header text-center class="padd-bottom" style="margin-bottom:18px;">\n\n            <!-- <i class="fas fa-briefcase fa-3x" style="color: black"></i> -->\n\n            <img class="custom-image-size" src="assets/imgs/staff_logo.svg">\n\n          </ion-card-header>\n\n          <!-- <ion-card-content> -->\n\n          <!-- <ion-card-title text-uppercase text-center>\n\n              Staff\n\n            </ion-card-title> -->\n\n          <!-- </ion-card-content> -->\n\n          <ion-row class="card-button-text">\n\n            <ion-col>\n\n              <div text-uppercase style="color: #3cba54; font-size: 13px; font-weight: 600;">Staff</div>\n\n            </ion-col>\n\n          </ion-row>\n\n        </ion-card>\n\n      </ion-row>\n\n\n\n      <ion-row col-6>\n\n\n\n        <ion-card style="background-color: #161616" (click)=goToParents()>\n\n          <ion-card-header text-center class="padd-bottom" style="margin-bottom:18px;">\n\n            <!-- <i class="fas fa-users fa-3x" style="color: black"></i> -->\n\n            <img style="margin-bottom: 8px;" src="assets/imgs/guardians_logo.svg">\n\n          </ion-card-header>\n\n          <!-- <ion-card-content> -->\n\n          <!-- <ion-card-title text-uppercase text-center>\n\n              Parents\n\n            </ion-card-title> -->\n\n          <!-- </ion-card-content> -->\n\n          <ion-row class="card-button-text">\n\n            <ion-col>\n\n              <div text-uppercase style="color: #f4c20d; font-size: 13px; font-weight: 600;">guardians</div>\n\n            </ion-col>\n\n          </ion-row>\n\n        </ion-card>\n\n\n\n      </ion-row>\n\n    </ion-row>\n\n  </ion-grid>\n\n</ion-content>\n\n'/*ion-inline-end:"I:\wis projects\cyberhub-ionic\src\pages\home\home.html"*/
+            selector: "page-home",template:/*ion-inline-start:"I:\wis projects\cyberhub-ionic\src\pages\home\home.html"*/'<div class="splashScreen" *ngIf="splash">\n\n  <div class="splashBg">\n\n  </div>\n\n  <div class="splashLogo1"></div>\n\n  <div class="splashLogo2">\n\n    <div class="splashLogoBranding">\n\n      <span class="splashLogoBrandingText">POWERED BY</span>\n\n    </div>\n\n  </div>\n\n  <div class="animationContainer">\n\n\n\n    <div class="spinner">\n\n      <div class="rect1"></div>\n\n      <div class="rect2"></div>\n\n      <div class="rect3"></div>\n\n      <div class="rect4"></div>\n\n      <div class="rect5"></div>\n\n    </div>\n\n  </div>\n\n  <div class="splashFooterText">\n\n    <p><span>A Comprehensive Institutional Management Hub</span></p>\n\n  </div>\n\n</div>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<ion-content class="item-center">\n\n  <div class="overley"></div>\n\n  <img class="logo-school" src="assets/icon/cyverhub_logo.svg" style="margin-top:50px; margin-bottom: 30px">\n\n  <p class="sub-line">Choose and Tap<br>on your Account</p>\n\n  <ion-grid style="width: 85%">\n\n    <ion-row #myElement>\n\n\n\n      <ion-row col-6 style="margin-bottom:10px;">\n\n        <ion-card style="background-color: #161616; margin-bottom:10px;" (click)="goToGuest()">\n\n          <ion-card-header text-center class="padd-bottom" style="margin-bottom:25px;">\n\n            <!-- <i class="fas fa-user-circle fa-3x" style="color: black"></i> -->\n\n            <img class="custom-image-size" src="assets/imgs/guest_logo.svg">\n\n          </ion-card-header>\n\n          <!-- <ion-card-content> -->\n\n          <!-- <ion-card-title text-uppercase text-center>\n\n              Guest\n\n            </ion-card-title> -->\n\n          <!-- </ion-card-content> -->\n\n          <ion-row class="card-button-text">\n\n            <ion-col>\n\n              <div text-uppercase style="color: #db3236; font-size: 13px; font-weight: 600;">Guest</div>\n\n            </ion-col>\n\n          </ion-row>\n\n        </ion-card>\n\n      </ion-row>\n\n\n\n      <ion-row col-6 style="margin-bottom:10px;">\n\n        <ion-card style="background-color: #161616;" (click)=goToStudent()>\n\n          <ion-card-header text-center class="padd-bottom" style="margin-bottom:25px;">\n\n            <!-- <i class="fas fa-user fa-3x" style="color: black"></i> -->\n\n            <img class="custom-image-size" src="assets/imgs/student_logo.svg">\n\n          </ion-card-header>\n\n          <!-- <ion-card-content> -->\n\n          <!-- <ion-card-title text-uppercase text-center>\n\n              Student\n\n            </ion-card-title> -->\n\n          <!-- </ion-card-content> -->\n\n          <ion-row class="card-button-text">\n\n            <ion-col>\n\n              <div text-uppercase style="color: #4885ed; font-size: 13px; font-weight: 600;">Student</div>\n\n            </ion-col>\n\n          </ion-row>\n\n        </ion-card>\n\n      </ion-row>\n\n\n\n      <ion-row col-6>\n\n        <ion-card style="background-color: #161616" (click)=goToStaff()>\n\n          <ion-card-header text-center class="padd-bottom" style="margin-bottom:18px;">\n\n            <!-- <i class="fas fa-briefcase fa-3x" style="color: black"></i> -->\n\n            <img class="custom-image-size" src="assets/imgs/staff_logo.svg">\n\n          </ion-card-header>\n\n          <!-- <ion-card-content> -->\n\n          <!-- <ion-card-title text-uppercase text-center>\n\n              Staff\n\n            </ion-card-title> -->\n\n          <!-- </ion-card-content> -->\n\n          <ion-row class="card-button-text">\n\n            <ion-col>\n\n              <div text-uppercase style="color: #3cba54; font-size: 13px; font-weight: 600;">Staff</div>\n\n            </ion-col>\n\n          </ion-row>\n\n        </ion-card>\n\n      </ion-row>\n\n\n\n      <ion-row col-6>\n\n\n\n        <ion-card style="background-color: #161616" (click)=goToParents()>\n\n          <ion-card-header text-center class="padd-bottom" style="margin-bottom:18px;">\n\n            <!-- <i class="fas fa-users fa-3x" style="color: black"></i> -->\n\n            <img style="margin-bottom: 8px;" src="assets/imgs/guardians_logo.svg">\n\n          </ion-card-header>\n\n          <!-- <ion-card-content> -->\n\n          <!-- <ion-card-title text-uppercase text-center>\n\n              Parents\n\n            </ion-card-title> -->\n\n          <!-- </ion-card-content> -->\n\n          <ion-row class="card-button-text">\n\n            <ion-col>\n\n              <div text-uppercase style="color: #f4c20d; font-size: 13px; font-weight: 600;">guardians</div>\n\n            </ion-col>\n\n          </ion-row>\n\n        </ion-card>\n\n\n\n      </ion-row>\n\n    </ion-row>\n\n  </ion-grid>\n\n</ion-content>\n\n'/*ion-inline-end:"I:\wis projects\cyberhub-ionic\src\pages\home\home.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* Platform */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */],
@@ -4330,7 +4330,7 @@ var RoutinePage = /** @class */ (function () {
 
 var map = {
 	"../pages/account/account.module": [
-		566,
+		565,
 		42
 	],
 	"../pages/add-child/add-child.module": [
@@ -4366,11 +4366,11 @@ var map = {
 		34
 	],
 	"../pages/live-stream/live-stream.module": [
-		529,
+		530,
 		0
 	],
 	"../pages/notification-list/notification-list.module": [
-		530,
+		529,
 		33
 	],
 	"../pages/parent-home/parent-home.module": [
@@ -4430,7 +4430,7 @@ var map = {
 		19
 	],
 	"../pages/search-organisation/search-organisation.module": [
-		562,
+		563,
 		18
 	],
 	"../pages/staff-complain/staff-complain.module": [
@@ -4438,7 +4438,7 @@ var map = {
 		17
 	],
 	"../pages/staff-info/staff-info.module": [
-		563,
+		562,
 		16
 	],
 	"../pages/staff-login/staff-login.module": [
@@ -4466,7 +4466,7 @@ var map = {
 		10
 	],
 	"../pages/student-owndetails/student-owndetails.module": [
-		565,
+		566,
 		9
 	],
 	"../pages/students-tabs/students-tabs.module": [
@@ -5646,8 +5646,8 @@ var AppModule = /** @class */ (function () {
                         { loadChildren: '../pages/changepassword/changepassword.module#ChangepasswordPageModule', name: 'ChangepasswordPage', segment: 'changepassword', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/complain-reply/complain-reply.module#ComplainReplyPageModule', name: 'ComplainReplyPage', segment: 'complain-reply', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/library-list/library-list.module#LibraryListPageModule', name: 'LibraryListPage', segment: 'library-list', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/live-stream/live-stream.module#LiveStreamPageModule', name: 'LiveStreamPage', segment: 'live-stream', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/notification-list/notification-list.module#NotificationListPageModule', name: 'NotificationListPage', segment: 'notification-list', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/live-stream/live-stream.module#LiveStreamPageModule', name: 'LiveStreamPage', segment: 'live-stream', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/parent-home/parent-home.module#ParentHomePageModule', name: 'ParentHomePage', segment: 'parent-home', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/parent-reg/parent-reg.module#ParentRegPageModule', name: 'ParentRegPage', segment: 'parent-reg', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/parents-child-tabs/parents-child-tabs.module#ParentsChildTabsPageModule', name: 'ParentsChildTabsPage', segment: 'parents-child-tabs', priority: 'low', defaultHistory: [] },
@@ -5679,11 +5679,11 @@ var AppModule = /** @class */ (function () {
                         { loadChildren: '../pages/parents-account/parents-account.module#ParentsAccountPageModule', name: 'ParentsAccountPage', segment: 'parents-account', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/school-listing/school-listing.module#SchoolListingPageModule', name: 'SchoolListingPage', segment: 'school-listing', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/schoolcalender/schoolcalender.module#SchoolcalenderPageModule', name: 'SchoolcalenderPage', segment: 'schoolcalender', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/search-organisation/search-organisation.module#SearchOrganisationPageModule', name: 'SearchOrganisationPage', segment: 'search-organisation', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/staff-info/staff-info.module#StaffInfoPageModule', name: 'StaffInfoPage', segment: 'staff-info', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/search-organisation/search-organisation.module#SearchOrganisationPageModule', name: 'SearchOrganisationPage', segment: 'search-organisation', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/student-notice-board/student-notice-board.module#StudentNoticeBoardPageModule', name: 'StudentNoticeBoardPage', segment: 'student-notice-board', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/student-owndetails/student-owndetails.module#StudentOwndetailsPageModule', name: 'StudentOwndetailsPage', segment: 'student-owndetails', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/account/account.module#AccountPageModule', name: 'AccountPage', segment: 'account', priority: 'low', defaultHistory: [] }
+                        { loadChildren: '../pages/account/account.module#AccountPageModule', name: 'AccountPage', segment: 'account', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/student-owndetails/student-owndetails.module#StudentOwndetailsPageModule', name: 'StudentOwndetailsPage', segment: 'student-owndetails', priority: 'low', defaultHistory: [] }
                     ]
                 }),
                 __WEBPACK_IMPORTED_MODULE_5_ionic2_calendar__["a" /* NgCalendarModule */],

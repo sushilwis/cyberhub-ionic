@@ -95,7 +95,7 @@ export class HomePage implements OnInit {
     // this.presentLoading(false);
     setTimeout(() => {
       this.splash = false;
-    }, 10000);
+    }, 5000);
     this.animateElem();
   }
 
