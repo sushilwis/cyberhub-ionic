@@ -13,18 +13,24 @@
     <form>
       <!-- or with standalone set to true -->
       <ion-item class="select-css">
-         <ion-input type="password" name="oldPassword" placeholder="Old Password" [(ngModel)]="oldPassword"></ion-input>
+         <!-- <ion-input type="password" name="oldPassword" placeholder="Old Password" [(ngModel)]="oldPassword"></ion-input> -->
+          <ion-label floating>Old Password</ion-label>
+          <ion-input type="password" name="oldPassword" [(ngModel)]="oldPassword"></ion-input>
       </ion-item>
   
       <ion-item class="select-css">
-        <ion-input type="password" name="newPassword" placeholder="New Password" [(ngModel)]="newPassword"></ion-input>
+        <!-- <ion-input type="password" name="newPassword" placeholder="New Password" [(ngModel)]="newPassword"></ion-input> -->
+        <ion-label floating>New Password</ion-label>
+        <ion-input type="password" name="newPassword" [(ngModel)]="newPassword"></ion-input>
       </ion-item>
   
-      <ion-item class="select-css">
-         <ion-input type="password" name="confNewPassword" placeholder="Confirm New Password" [(ngModel)]="confNewPassword"></ion-input>
+      <ion-item class="select-css" style="margin-bottom: 20px;">
+         <!-- <ion-input type="password" name="confNewPassword" placeholder="Confirm New Password" [(ngModel)]="confNewPassword"></ion-input> -->
+         <ion-label floating>Confirm New Password</ion-label>
+          <ion-input type="password" name="confNewPassword" [(ngModel)]="confNewPassword"></ion-input>
       </ion-item>
       
-      <button ion-button type="submit" block outline color="blue" class="mt-10" (click)="onChangePassSubmit()">Submit</button>
+      <button ion-button type="submit" style="margin-top: 15px;" block outline color="blue" (click)="onChangePassSubmit()">Submit</button>
     </form>
   </div>  
 </ion-content>

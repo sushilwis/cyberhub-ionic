@@ -1,15 +1,14 @@
 webpackJsonp([36],{
 
-/***/ 514:
+/***/ 538:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AccountPageModule", function() { return AccountPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GetAttendancePageModule", function() { return GetAttendancePageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__account__ = __webpack_require__(53);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_camera__ = __webpack_require__(158);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__get_attendance__ = __webpack_require__(84);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -19,31 +18,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-
-var AccountPageModule = /** @class */ (function () {
-    function AccountPageModule() {
+var GetAttendancePageModule = /** @class */ (function () {
+    function GetAttendancePageModule() {
     }
-    AccountPageModule = __decorate([
+    GetAttendancePageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__account__["b" /* default */],
-                __WEBPACK_IMPORTED_MODULE_2__account__["a" /* ModalPage */]
+                __WEBPACK_IMPORTED_MODULE_2__get_attendance__["a" /* GetAttendancePage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__account__["b" /* default */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__get_attendance__["a" /* GetAttendancePage */]),
             ],
-            entryComponents: [
-                __WEBPACK_IMPORTED_MODULE_2__account__["a" /* ModalPage */]
-            ],
-            providers: [
-                __WEBPACK_IMPORTED_MODULE_3__ionic_native_camera__["a" /* Camera */]
-            ]
         })
-    ], AccountPageModule);
-    return AccountPageModule;
+    ], GetAttendancePageModule);
+    return GetAttendancePageModule;
 }());
 
-//# sourceMappingURL=account.module.js.map
+//# sourceMappingURL=get-attendance.module.js.map
 
 /***/ })
 
