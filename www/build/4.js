@@ -1,14 +1,14 @@
 webpackJsonp([4],{
 
-/***/ 546:
+/***/ 569:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StuffExamdutyPageModule", function() { return StuffExamdutyPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StuffRegistrationPageModule", function() { return StuffRegistrationPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__stuff_examduty__ = __webpack_require__(150);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__stuff_registration__ = __webpack_require__(158);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,23 +18,26 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var StuffExamdutyPageModule = /** @class */ (function () {
-    function StuffExamdutyPageModule() {
+var StuffRegistrationPageModule = /** @class */ (function () {
+    function StuffRegistrationPageModule() {
     }
-    StuffExamdutyPageModule = __decorate([
+    StuffRegistrationPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__stuff_examduty__["a" /* StuffExamdutyPage */],
+                __WEBPACK_IMPORTED_MODULE_2__stuff_registration__["a" /* StuffRegistrationPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__stuff_examduty__["a" /* StuffExamdutyPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__stuff_registration__["a" /* StuffRegistrationPage */]),
             ],
+            entryComponents: [
+                __WEBPACK_IMPORTED_MODULE_2__stuff_registration__["a" /* StuffRegistrationPage */],
+            ]
         })
-    ], StuffExamdutyPageModule);
-    return StuffExamdutyPageModule;
+    ], StuffRegistrationPageModule);
+    return StuffRegistrationPageModule;
 }());
 
-//# sourceMappingURL=stuff-examduty.module.js.map
+//# sourceMappingURL=stuff-registration.module.js.map
 
 /***/ })
 

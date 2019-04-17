@@ -55,7 +55,7 @@ page-account {
 		position: relative;
 		display: flex;
 		/* margin: 0 auto; */
-		max-width: 40%;
+		max-width: 45%;
 	}
 	.back-ground > * {
 		flex-basis: 100%;
@@ -95,4 +95,14 @@ page-account {
 .btnStyle {
 	color: #eee;
 	border-color: #eee;
+}
+
+
+.icon-size {
+	font-size: 1.8em !important;
+}
+
+
+.ion-icon {
+	font-size: 1.8em !important;
 }
