@@ -322,6 +322,7 @@ export class SchoolListingPage {
       }
 
       console.log('Async operation has ended');
+      
       this.getOrganization(this.searchData, this.skip);
       infiniteScroll.complete();
     }, 500);

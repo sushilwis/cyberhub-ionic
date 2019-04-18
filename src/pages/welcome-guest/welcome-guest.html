@@ -1,3 +1,9 @@
+<ion-header *ngIf="showHeader" class="custom-header">
+  <ion-navbar color="">
+    <ion-title>{{tabHeaderTitle}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
 <ion-content padding>
   <div [ngSwitch]="guestTab">
     <div *ngSwitchCase="'search'">
@@ -29,17 +35,93 @@
 
   <div [ngSwitch]="guestTab">
       <div *ngSwitchCase="'live'">
-      
+          <ion-list class="search-result">
+              <ion-item *ngFor="let item of orgList" (click)="openActionSheet(item)">
+                {{ item?.name }}
+                <p class="col-result-add">{{ item?.landmark }}, {{ item?.city }}</p>
+                <ion-note item-end>
+                  {{ item?.org }}
+                </ion-note>
+              </ion-item>
+            </ion-list> 
+          
+          
+            <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+              <ion-infinite-scroll-content></ion-infinite-scroll-content>
+            </ion-infinite-scroll>
       </div>
-    </div>
+  </div>
 
 
 
-    <div [ngSwitch]="guestTab">
+  <div [ngSwitch]="guestTab">
         <div *ngSwitchCase="'skill'">
         
         </div>
+   </div>
+
+
+   <div [ngSwitch]="guestTab">
+    <div *ngSwitchCase="'library'">
+
+      <ion-list class="search-result">
+        <ion-item *ngFor="let item of orgList" (click)="openActionSheet(item)">
+          {{ item?.name }}
+          <p class="col-result-add">{{ item?.landmark }}, {{ item?.city }}</p>
+          <ion-note item-end>
+            {{ item?.org }}
+          </ion-note>
+        </ion-item>
+      </ion-list> 
+    
+    
+      <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+        <ion-infinite-scroll-content></ion-infinite-scroll-content>
+      </ion-infinite-scroll>
+
     </div>
+</div>
+
+
+<div [ngSwitch]="guestTab">
+    <div *ngSwitchCase="'event'">
+        <ion-list class="search-result">
+            <ion-item *ngFor="let item of orgList" (click)="openActionSheet(item)">
+              {{ item?.name }}
+              <p class="col-result-add">{{ item?.landmark }}, {{ item?.city }}</p>
+              <ion-note item-end>
+                {{ item?.org }}
+              </ion-note>
+            </ion-item>
+          </ion-list> 
+        
+        
+          <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+            <ion-infinite-scroll-content></ion-infinite-scroll-content>
+          </ion-infinite-scroll>
+    </div>
+</div>
+
+
+<div [ngSwitch]="guestTab">
+    <div *ngSwitchCase="'stuff'">
+        <ion-list class="search-result">
+            <ion-item *ngFor="let item of orgList" (click)="openActionSheet(item)">
+              {{ item?.name }}
+              <p class="col-result-add">{{ item?.landmark }}, {{ item?.city }}</p>
+              <ion-note item-end>
+                {{ item?.org }}
+              </ion-note>
+            </ion-item>
+        </ion-list> 
+        
+        
+        <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+            <ion-infinite-scroll-content></ion-infinite-scroll-content>
+        </ion-infinite-scroll>
+    </div>
+</div>
+
 </ion-content>
 
 
@@ -48,19 +130,19 @@
 
     <ion-toolbar no-border-top>
         <ion-segment [(ngModel)]="guestTab">
-          <ion-segment-button value="search">
+          <ion-segment-button value="search" (click)="onClickTab('1')">
             <p>
               <img class="notice-img" style="height: 20px" src="assets/imgs/generalNotice.svg">
             </p>        
             Search Institution
           </ion-segment-button>
-          <ion-segment-button value="live">
+          <ion-segment-button value="live" (click)="onClickTab('2')">
               <p>
                 <img class="notice-img" style="height: 20px" src="assets/imgs/personalNotice.svg">
               </p>
             Live Stream
           </ion-segment-button>
-          <ion-segment-button value="library">
+          <ion-segment-button value="library" (click)="onClickTab('3')">
             <p>
               <img class="notice-img" style="height: 20px" src="assets/imgs/personalNotice.svg">
             </p>
@@ -71,19 +153,19 @@
   
     <ion-toolbar no-border-top>
         <ion-segment [(ngModel)]="guestTab">
-          <ion-segment-button value="event">
+          <ion-segment-button value="event" (click)="onClickTab('4')">
             <p>
               <img class="notice-img" style="height: 20px" src="assets/icon/calender_btn.svg">
             </p>        
             Event Viewer
           </ion-segment-button>
-          <ion-segment-button value="skill">
+          <ion-segment-button value="skill" (click)="onClickTab('5')">
               <p>
                 <img class="notice-img" style="height: 20px" src="assets/imgs/departmentalNotice.svg">
               </p>
             Skill Development
           </ion-segment-button>
-          <ion-segment-button value="stuff">
+          <ion-segment-button value="stuff" (click)="onClickTab('6')">
             <p>
               <img class="notice-img" style="height: 20px" src="assets/imgs/departmentalNotice.svg">
             </p>
