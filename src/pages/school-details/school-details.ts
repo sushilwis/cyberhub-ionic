@@ -35,13 +35,15 @@ export class SchoolDetailsPage implements OnInit {
   maxTemp: number;
   minTemp: number;
   humidity: any;
+  showLoader: boolean;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     private http: Http, public loadingController: LoadingController, private menuCtrl: MenuController, public platform: Platform) {
+    this.showLoader = true;
     this.getUserDataFromLocal();
     this.schoolId = navParams.get('id');
     
-    this.initLoader();
+    // this.initLoader();
     this.menuCtrl.enable(false);
     this.pet = "about";
     this.platform.registerBackButtonAction(() => {
@@ -61,24 +63,25 @@ export class SchoolDetailsPage implements OnInit {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SchoolDetailsPage');
-    
+    this.showLoader = false;
   }
 
 
 
 
-  initLoader() {
-    this.loading = this.loadingController.create({
-      spinner: 'hide',
-      content: '<img class="loader-class" src="assets/icon/tail-spin.svg"> <p>Loading please wait...</p>',
-    });
-  }
+  // initLoader() {
+  //   this.loading = this.loadingController.create({
+  //     spinner: 'hide',
+  //     content: '<img class="loader-class" src="assets/icon/tail-spin.svg"> <p>Loading please wait...</p>',
+  //   });
+  // }
 
 
 
 
   getDetails(id: string) {
     // this.presentLoading(true);
+    this.showLoader = true;
     let header = new Headers();
     header.set("Content-Type", "application/json");
 
@@ -97,6 +100,7 @@ export class SchoolDetailsPage implements OnInit {
         this.getWeatherData();
         console.log(this.pin);
         console.log(this.schoolDetails);
+        this.showLoader = false;
       })
   }
 
@@ -166,16 +170,16 @@ export class SchoolDetailsPage implements OnInit {
 
 
 
-  presentLoading(load: boolean) {
-    if (load){
-      return this.loading.present();
-    }
-    else{
-      setTimeout(() => {
-        return this.loading.dismiss();
-      }, 500);
-    }
-  }
+  // presentLoading(load: boolean) {
+  //   if (load){
+  //     return this.loading.present();
+  //   }
+  //   else{
+  //     setTimeout(() => {
+  //       return this.loading.dismiss();
+  //     }, 500);
+  //   }
+  // }
 
 
 
@@ -184,6 +188,7 @@ export class SchoolDetailsPage implements OnInit {
   getWeatherData() {
     // b60c3e9d5ed15819d78fd18b00e5cfbb
     // https://openweathermap.org/img/w/
+    this.showLoader = true;
     var headers = new Headers();
 		headers.append('Content-Type', 'application/json');
     let options = new RequestOptions({headers: headers});
@@ -197,7 +202,8 @@ export class SchoolDetailsPage implements OnInit {
         this.minTemp = Math.round(parseInt(this.weatherdata.temp_min)-273.15);
         this.humidity = this.weatherdata.humidity;
 
-        this.weatherIcon = `https://openweathermap.org/img/w/${data.weather[0].icon}.png`; 
+        this.weatherIcon = `https://openweathermap.org/img/w/${data.weather[0].icon}.png`;
+        this.showLoader = false; 
         // console.log('weather img link : ', this.temp );     
 			});
   }

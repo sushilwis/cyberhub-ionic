@@ -31,12 +31,14 @@ export class StudentLibraryListPage {
   matchItem: any;
   allBook: any;
   showNotFound: boolean = false;
+  showLoader: boolean;
   
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private menuCtrl:MenuController,  private http: Http, public alertCtrl: AlertController, public loadingController: LoadingController, public modalCtrl: ModalController, public viewCtrl: ViewController) {
+      this.showLoader = true;
       this.menuCtrl.enable(false);
-      this.initLoader();
+      // this.initLoader();
 
       for (let i = 0; i < 5; i++) {
         this.allBookList.push( this.allBookList.length );
@@ -46,6 +48,7 @@ export class StudentLibraryListPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad StudentLibraryListPage');
     this.setSearchbarPlaceholder();
+    this.showLoader = false;
   }
 
   
@@ -75,7 +78,8 @@ export class StudentLibraryListPage {
 
 
   async getBookList() {
-    this.presentLoading(true);
+    // this.presentLoading(true);
+    this.showLoader = true;
     await this.getUserDataFromLocal();
     let header = new Headers();
     header.set("Content-Type", "application/json");
@@ -93,15 +97,17 @@ export class StudentLibraryListPage {
           async data => {
             console.log("book list : ", data.data);
             if(data.data.length > 1) {
-              this.presentLoading(false);
+              // this.presentLoading(false);
               this.allBookList = await data.data;
               this.allBook = await data.data; 
               this.totalData = await data.data.length;
               this.totalPage = await Math.floor(data.data.length/5);
               // console.log('total data : ', this.totalData);
-              // console.log('total page : ', this.totalPage);              
+              // console.log('total page : ', this.totalPage);  
+              this.showLoader = false;            
             } else {
-              this.presentLoading(false);
+              // this.presentLoading(false);
+              this.showLoader = false;
             }          
       });        
   }
@@ -190,28 +196,28 @@ export class StudentLibraryListPage {
 
 
 
-  initLoader() {
-		this.loading = this.loadingController.create({
-			spinner: 'hide',
-			content: '<img class="loader-class" src="assets/icon/tail-spin.svg"> <p>Loading please wait...</p>',
-		});
-	}
+  // initLoader() {
+	// 	this.loading = this.loadingController.create({
+	// 		spinner: 'hide',
+	// 		content: '<img class="loader-class" src="assets/icon/tail-spin.svg"> <p>Loading please wait...</p>',
+	// 	});
+	// }
 
 
 
 
 
 
-  presentLoading(load: boolean) {
-		if (load) {
-			return this.loading.present();
-		}
-		else {
-			setTimeout(() => {
-				return this.loading.dismiss();
-			}, 500);
-		}
-  }
+  // presentLoading(load: boolean) {
+	// 	if (load) {
+	// 		return this.loading.present();
+	// 	}
+	// 	else {
+	// 		setTimeout(() => {
+	// 			return this.loading.dismiss();
+	// 		}, 500);
+	// 	}
+  // }
   
 
 

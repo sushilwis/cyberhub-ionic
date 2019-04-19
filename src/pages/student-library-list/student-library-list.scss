@@ -38,7 +38,7 @@ page-student-library-list {
 
 	.toolbar-background-md {
 		// background-color: #009688 !important;
-		background-color: #015b53 !important;
+		background-color: #353434 !important;
 	}
 	.toolbar-title-md {
 		color: #fff !important;
@@ -67,5 +67,16 @@ page-student-library-list {
 	
 	.back-button-icon-md {
 		font-size: 3rem !important;
+	}
+
+	.overley {
+		position: fixed;
+		top: 0px;
+		left: 0px;
+		width: 100vw;
+		height: 100vh;
+		background-color: #000;
+		opacity: 0.6;
+		z-index: 999999999;
 	}
 }

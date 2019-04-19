@@ -91,6 +91,17 @@ page-guest-enquiry {
     padding-right: 16px !important;
   }
 
+  .overley {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000;
+    opacity: 0.6;
+    z-index: 999999999;
+  }
+
 
   //   .alert-wrapper.alert-button-group button {
   //     background-color: #1b1b1b !important;

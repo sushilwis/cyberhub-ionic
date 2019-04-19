@@ -30,16 +30,19 @@ export class SearchOrganisationPage {
   items: any[];
   organization: any;
   loading: any;
+  showLoader: boolean;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private http: Http, public platform: Platform, public toastCtrl: ToastController, public actionsheetCtrl: ActionSheetController, public alertCtrl: AlertController, public loadingController: LoadingController) {
+    this.showLoader = true;
     this.getUserDataFromLocal();
     // this.getData();
-    this.initLoader();
+    // this.initLoader();
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SearchOrganisationPage');
     this.showRadio();
+    this.showLoader = false;
   }
 
 
@@ -71,17 +74,17 @@ export class SearchOrganisationPage {
   //     });
   // }
 
-  initLoader() {
-		this.loading = this.loadingController.create({
-			spinner: 'hide',
-			content: '<img class="loader-class" src="assets/icon/tail-spin.svg"> <p>Loading please wait...</p>',
-		});
-  }
+  // initLoader() {
+	// 	this.loading = this.loadingController.create({
+	// 		spinner: 'hide',
+	// 		content: '<img class="loader-class" src="assets/icon/tail-spin.svg"> <p>Loading please wait...</p>',
+	// 	});
+  // }
 
 
 
   getData(id) {
-    this.presentLoading(true);
+    this.showLoader = true;
     var headers = new Headers();
     headers.append('Content-Type', 'application/json');
     let options = new RequestOptions({ headers: headers });
@@ -116,10 +119,10 @@ export class SearchOrganisationPage {
                       };
             this.list.push(obj);
           });
-          this.presentLoading(false);
+          this.showLoader = false;
           console.log("arr list..... : ", this.list);
         } else {
-          this.presentLoading(false);
+          this.showLoader = false;
           // this.presentToast('Sorry, No Data Found !');
           this.showAlert('Alert!', 'No Data Found !');        
         }       
@@ -141,16 +144,16 @@ export class SearchOrganisationPage {
 
 
 
-  presentLoading(load: boolean) {
-		if (load) {
-			return this.loading.present();
-		}
-		else {
-			setTimeout(() => {
-				return this.loading.dismiss();
-			}, 1000);
-		}
-  }
+  // presentLoading(load: boolean) {
+	// 	if (load) {
+	// 		return this.loading.present();
+	// 	}
+	// 	else {
+	// 		setTimeout(() => {
+	// 			return this.loading.dismiss();
+	// 		}, 1000);
+	// 	}
+  // }
 
 
 

@@ -277,11 +277,16 @@ ion-icon {
 
 
 .spinner {
-  margin: 100px auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0px auto;
   width: 100px;
   height: 70px;
   text-align: center;
   font-size: 10px;
+  z-index: 99999999999;
 }
 
 .spinner > div {
@@ -380,3 +385,16 @@ ion-icon {
   border-bottom-color: #dedede !important;
   box-shadow: none !important;
 }
+
+// .overley {
+//   position: fixed;
+//   top: 0px;
+//   left: 0px;
+//   width: 100vw;
+//   height: 100vh;
+//   background-color: #000;
+//   opacity: 0.6;
+//   z-index: 999999999;
+// }
+
+

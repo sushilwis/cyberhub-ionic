@@ -1,9 +1,14 @@
-<!--
-  Generated template for the StudentLibraryListPage page.
 
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
+<div class="overley" *ngIf="showLoader"></div>  
+<div class="spinner" *ngIf="showLoader">
+        <div class="rect1"></div>
+        <div class="rect2"></div>
+        <div class="rect3"></div>
+        <div class="rect4"></div>
+        <div class="rect5"></div>
+</div>
+
+
 <ion-header>
   <ion-navbar color="" >
     <ion-title>List of Books</ion-title>
