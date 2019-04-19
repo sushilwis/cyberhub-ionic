@@ -18,6 +18,7 @@ export class SchoolListingPage {
   items: any = [];
   skip: number = 0;
   searchData: any;
+  showLoader: boolean;
 
   constructor(
     public navCtrl: NavController,
@@ -28,8 +29,9 @@ export class SchoolListingPage {
     public actionsheetCtrl: ActionSheetController,
     public platform: Platform,
   ) {
+    this.showLoader = true;
     this.skip = 0;
-    this.initLoader();
+    // this.initLoader();
 
     for (let i = 0; i < 20; i++) {
       this.items.push( this.items.length );
@@ -43,6 +45,7 @@ export class SchoolListingPage {
     this.searchData = JSON.parse(data);
     this.getOrganization(this.searchData, this.skip);
     console.log("ionViewDidLoad SchoolListingPage");
+    this.showLoader = false;
   }
 
 
@@ -58,7 +61,8 @@ export class SchoolListingPage {
 
 
   getOrganization(navdata: any, skip: any) {
-    this.presentLoadingDefault();
+    this.showLoader = true;
+    // this.presentLoadingDefault();
     // this.presentLoading(true);
     // console.log('get org called...');    
     var headers = new Headers();
@@ -103,9 +107,11 @@ export class SchoolListingPage {
           });
 
           // console.log('custom arr data :...', this.orgList);
+          this.showLoader = false;
         } else {
           // console.log('No data...');          
           this.genOrgName(navdata.type_id);
+          this.showLoader = false;
         }
       });
   }
@@ -269,29 +275,29 @@ export class SchoolListingPage {
 
 
 
-  initLoader() {
-    this.loading = this.loadingController.create({
-      spinner: "hide",
-      content:
-        '<img class="loader-class" src="assets/icon/tail-spin.svg"> <p>Loading please wait...</p>'
-    });
-  }
+  // initLoader() {
+  //   this.loading = this.loadingController.create({
+  //     spinner: "hide",
+  //     content:
+  //       '<img class="loader-class" src="assets/icon/tail-spin.svg"> <p>Loading please wait...</p>'
+  //   });
+  // }
 
 
 
 
 
-  presentLoading(load: boolean) {
-    this.loading.dismissAll();
+  // presentLoading(load: boolean) {
+  //   this.loading.dismissAll();
 
-    if (load){
-      return this.loading.present();
-    }else{
-      setTimeout(() => {
-        return this.loading.dismiss();
-      }, 500);
-    }
-  }
+  //   if (load){
+  //     return this.loading.present();
+  //   }else{
+  //     setTimeout(() => {
+  //       return this.loading.dismiss();
+  //     }, 500);
+  //   }
+  // }
 
 
 
@@ -333,18 +339,18 @@ export class SchoolListingPage {
 
 
 
-  presentLoadingDefault() {
-    let loading = this.loadingController.create({
-      content: 'Please wait...'
-    });
+  // presentLoadingDefault() {
+  //   let loading = this.loadingController.create({
+  //     content: 'Please wait...'
+  //   });
 
-    // console.log('loading data :...', loading);  
-    loading.present();
+  //   // console.log('loading data :...', loading);  
+  //   loading.present();
   
-    setTimeout(() => {
-      loading.dismiss();
-    }, 2000);
-  }
+  //   setTimeout(() => {
+  //     loading.dismiss();
+  //   }, 2000);
+  // }
 
 
 

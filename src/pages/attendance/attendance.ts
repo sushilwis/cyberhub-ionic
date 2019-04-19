@@ -38,6 +38,7 @@ export class AttendancePage {
   studentName: any;
   loading: any;
   student: any;
+  showLoader: boolean;
 
   constructor(
     public navCtrl: NavController,
@@ -47,8 +48,9 @@ export class AttendancePage {
     private http: Http,
     public alertCtrl: AlertController
   ) {
+    this.showLoader = true;
     this.menuCtrl.enable(false);
-    this.initLoader();
+    // this.initLoader();
   }
 
   ngOnInit() {
@@ -67,6 +69,7 @@ export class AttendancePage {
 
   ionViewDidLoad() {
     // console.log('ionViewDidLoad AttendancePage');
+    this.showLoader = false;
   }
   gotoHome() {
     this.navCtrl.setRoot(StudentOwndetailsPage);
@@ -119,6 +122,7 @@ export class AttendancePage {
   }
 
   getShiftLists() {
+    this.showLoader = true;
     let header = new Headers();
     header.set("Content-Type", "application/json");
     let data = {
@@ -131,10 +135,12 @@ export class AttendancePage {
       .subscribe(data => {
         // console.log("Org shift list ", data.data);
         this.orgShiftLists = data.data;
+        this.showLoader = false;
       });
   }
 
   getPeriod(e) {
+    this.showLoader = true;
     console.log(e);
 
     let header = new Headers();
@@ -150,6 +156,7 @@ export class AttendancePage {
       .subscribe(data => {
         // console.log("period list : ", data.data);
         this.periodList = data.data;
+        this.showLoader = false;
       });
   }
 
@@ -164,6 +171,7 @@ export class AttendancePage {
 
 
   onPeriodSubmit() {
+    this.showLoader = true;
     // let todayDate = new Date().toLocaleString().substring(0,9).toString();
     // todayDate = todayDate.toLocaleString();
     if(this.period == '') {
@@ -202,9 +210,12 @@ export class AttendancePage {
           // localStorage.setItem('attedCode', JSON.stringify(this.genAttCode));
           // this.showTeacherForm = false;
           // this.showAlert(data.msg);
+          this.showLoader = false;
         } else {
+          this.showLoader = false;
           this.showPeriodForm = true;
           this.showAlert('Wrong selection');
+          
         }
       });
   }
@@ -254,7 +265,8 @@ export class AttendancePage {
 
 
   getStudentDetails() {
-    this.presentLoading(true);
+    this.showLoader = true;
+    // this.presentLoading(true);
 
     var headers = new Headers();
     headers.append('Content-Type', 'application/json');
@@ -268,11 +280,14 @@ export class AttendancePage {
       map(res => res.json()).subscribe(data => {
         //console.log('student detail data : ', data);
         if (data.data[0]) {
-          this.presentLoading(false);
+          // this.presentLoading(false);
           this.student = data.data[0];
           console.log('student details : ...', this.student);
           this.getPeriod(this.student.shift_id);          
           // this.presentLoading(false);
+          this.showLoader = false;
+        }else{
+          this.showLoader = false;
         }
       });
   }
@@ -280,24 +295,24 @@ export class AttendancePage {
 
 
 
-  presentLoading(load: boolean) {
-		if (load) {
-			return this.loading.present();
-		}
-		else {
-			setTimeout(() => {
-				return this.loading.dismiss();
-			}, 1000);
-		}
-  }
+  // presentLoading(load: boolean) {
+	// 	if (load) {
+	// 		return this.loading.present();
+	// 	}
+	// 	else {
+	// 		setTimeout(() => {
+	// 			return this.loading.dismiss();
+	// 		}, 1000);
+	// 	}
+  // }
 
 
 
-  initLoader() {
-		this.loading = this.loadingController.create({
-			spinner: 'hide',
-			content: '<img class="loader-class" src="assets/icon/tail-spin.svg"> <p>Loading please wait...</p>',
-		});
-  }
+  // initLoader() {
+	// 	this.loading = this.loadingController.create({
+	// 		spinner: 'hide',
+	// 		content: '<img class="loader-class" src="assets/icon/tail-spin.svg"> <p>Loading please wait...</p>',
+	// 	});
+  // }
 
 }

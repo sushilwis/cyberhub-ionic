@@ -47,6 +47,7 @@ export default class AccountPage implements OnInit {
   chartClassList = [];
   chartAttdValue = [];
   chartcolor = [];
+  showLoader: boolean;
   avgAtdence;
 
   backgroundColor = [
@@ -75,8 +76,9 @@ export default class AccountPage implements OnInit {
     public platform: Platform,
     public transfer: Transfer
   ) {
+    this.showLoader = true;
     this.menuCtrl.enable(false);
-    this.initLoader();
+    // this.initLoader();
     // this.getData = this.navParams.get('data');
     this.platform.registerBackButtonAction(() => {
       if (this.navCtrl.getViews().length > 1) {
@@ -93,6 +95,7 @@ export default class AccountPage implements OnInit {
 
   ionViewDidLoad() {
     console.log("ionViewDidLoad AccountPage");
+    this.showLoader = false;
   }
 
   goToPassword() {
@@ -132,7 +135,8 @@ export default class AccountPage implements OnInit {
   }
 
   getStudentDetails() {
-    this.presentLoading(true);
+    this.showLoader = true;
+    // this.presentLoading(true);
 
     var headers = new Headers();
     headers.append("Content-Type", "application/json");
@@ -148,36 +152,39 @@ export default class AccountPage implements OnInit {
       .subscribe(data => {
         console.log("student detail data : ", data);
         if (data.data[0]) {
-          this.presentLoading(false);
+          // this.presentLoading(false);
           this.studentDetails = data.data[0];
           // console.log('student detasisld : ', this.studentDetails);
           if (data.data[0].nameclass) {
             this.getAttendanceDetails(this.studentDetails.class_id);
             this.showSelectDepartmentBtn = false;
+            this.showLoader = false;
           } else {
             this.showSelectDepartmentBtn = true;
+            this.showLoader = false;
           }
+          this.showLoader = false;
         }
       });
   }
 
-  presentLoading(load: boolean) {
-    if (load) {
-      return this.loading.present();
-    } else {
-      setTimeout(() => {
-        return this.loading.dismiss();
-      }, 1000);
-    }
-  }
+  // presentLoading(load: boolean) {
+  //   if (load) {
+  //     return this.loading.present();
+  //   } else {
+  //     setTimeout(() => {
+  //       return this.loading.dismiss();
+  //     }, 1000);
+  //   }
+  // }
 
-  initLoader() {
-    this.loading = this.loadingController.create({
-      spinner: "hide",
-      content:
-        '<img class="loader-class" src="assets/icon/tail-spin.svg"> <p>Loading please wait...</p>'
-    });
-  }
+  // initLoader() {
+  //   this.loading = this.loadingController.create({
+  //     spinner: "hide",
+  //     content:
+  //       '<img class="loader-class" src="assets/icon/tail-spin.svg"> <p>Loading please wait...</p>'
+  //   });
+  // }
 
   openModal() {
     let modal = this.modalCtrl.create(ModalPage);
@@ -260,6 +267,7 @@ export default class AccountPage implements OnInit {
   }
 
   getAttendanceDetails(class_id) {
+    this.showLoader = true;
     // this.presentLoading(true);
 
     var headers = new Headers();
@@ -305,15 +313,17 @@ export default class AccountPage implements OnInit {
                   this.chartClassList.push(element.subject_name);
                   this.chartcolor.push(this.backgroundColor[i]);
                 }
+                this.showLoader = false;
               });
               let sum = this.chartAttdValue.reduce(
                 (partial_sum, a) => partial_sum + a
               );
 
               this.avgAtdence = sum / this.chartAttdValue.length;
-              console.log(this.chartAttdValue);
+              // console.log(this.chartAttdValue);
               this.renderGraph();
             });
+            this.showLoader = false;
         }
         // data.data.forEach(elem => {
 
@@ -400,6 +410,7 @@ export class ModalPage {
   filteredArrayForSectionList: any = [];
   classStreamID: any;
   classIndexId: any;
+  showLoader: boolean;
   // showDeptSelection: boolean = true;
 
   constructor(
@@ -461,6 +472,7 @@ export class ModalPage {
 //     ------------------ getting all shift list here -----------------
 // ########################################################################
   getShiftLists() {
+    this.showLoader = true;
       let header = new Headers();
       header.set("Content-Type", "application/json");
 
@@ -475,6 +487,7 @@ export class ModalPage {
           data => {
             // console.log("Org shift list ", data.data);
             this.orgShiftLists = data.data;
+            this.showLoader = false;
       });
   }
 
@@ -486,6 +499,7 @@ export class ModalPage {
 //     ------------------ getting all class list here -----------------
 // ########################################################################
   getClassList(){
+    this.showLoader = true;
       let header = new Headers();
       header.set("Content-Type", "application/json");
 
@@ -501,6 +515,7 @@ export class ModalPage {
             this.orgClassSectionList = data.data;
             console.log("Raw class list ", data.data);
             this.createSortArray(this.orgClassSectionList);
+            this.showLoader = false;
       });
   }
 
@@ -596,6 +611,7 @@ onChooseSection(e) {
 // ----------- submit department function -----------
 // ########################################################################
 submitDepartment() {
+  this.showLoader = true;
       let header = new Headers();
       header.set("Content-Type", "application/json");
 
@@ -614,8 +630,10 @@ submitDepartment() {
             if(data.status == 1){
               // this.navCtrl.push(AccountPage);              
                 let modal1 = this.modalCtrl.create(Modal1Page);
-                modal1.present();              
+                modal1.present();
+                this.showLoader = false;              
             }
+            this.showLoader = false;
       });
 }
 
@@ -707,6 +725,7 @@ export class Modal1Page {
   // classIndexId: any;
   guarPhone: string;
   guarId: string;
+  showLoader: boolean;
   // showDeptSelection: boolean = true;
 
   constructor(
@@ -721,6 +740,7 @@ export class Modal1Page {
     public jsonp: Jsonp, 
     public modalCtrl: ModalController,
   ) {
+    this.showLoader = true;
     // var characters = [];
     // this.character = characters[this.params.get('charNum')];
     this.getUserDataFromLocal();
@@ -735,7 +755,8 @@ export class Modal1Page {
     // this.getStudentDetails();
     // this.showSelectDepartmentBtn = false;
     // this.getShiftLists();
-    // this.getClassList();    
+    // this.getClassList();
+    this.showLoader = false;    
   }
 
 
@@ -767,6 +788,7 @@ export class Modal1Page {
 // ----------- submit Guardian Info function -----------
 // ########################################################################
     submitGuardianInfo() {
+      this.showLoader = true;
           let header = new Headers();
           header.set("Content-Type", "application/json");
 
@@ -788,6 +810,9 @@ export class Modal1Page {
                   this.localUserData.is_first_time = '1';
                   localStorage.setItem('userData', JSON.stringify(this.localUserData));
                   this.navCtrl.push(AccountPage);
+                  this.showLoader = false;
+                }else{
+                  this.showLoader = false;
                 }                                
           });
     }
@@ -824,6 +849,7 @@ export class SecuritypinPage {
   guarId: string;
   securityPin: number;
   btnDisabled: boolean = false;
+  showLoader: boolean;
   // showDeptSelection: boolean = true;
 
   constructor(
@@ -839,6 +865,7 @@ export class SecuritypinPage {
     public modalCtrl: ModalController,
     public toastCtrl: ToastController,
   ) {
+    this.showLoader = true;
     // var characters = [];
     // this.character = characters[this.params.get('charNum')];
     this.getUserDataFromLocal();
@@ -853,7 +880,8 @@ export class SecuritypinPage {
     // this.getStudentDetails();
     // this.showSelectDepartmentBtn = false;
     // this.getShiftLists();
-    // this.getClassList();    
+    // this.getClassList(); 
+    this.showLoader = false;   
   }
 
 
@@ -885,6 +913,7 @@ export class SecuritypinPage {
 // ----------- submit Guardian Info function -----------
 // ########################################################################
     submitSecurityPin() {
+      this.showLoader = true;
           let header = new Headers();
           header.set("Content-Type", "application/json");
 
@@ -902,9 +931,11 @@ export class SecuritypinPage {
                 if (getdata.status == 1){
                   this.dismiss();
                   localStorage.setItem("securitypinadded", JSON.stringify(data));
-                  this.navCtrl.push(AccountPage);                  
+                  this.navCtrl.push(AccountPage); 
+                  this.showLoader = false;                 
                 }else{
                   this.presentToast('Sorry, Something went wrong.');
+                  this.showLoader = false;
                 }                                
           });
     }

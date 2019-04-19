@@ -26,8 +26,10 @@ export class RoutinePage implements OnInit {
   routineList: any;
   rawRoutineList: any;
   dayName: any = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+  showLoader: boolean;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public menuCtrl: MenuController, public loadingController: LoadingController, private http: Http) {
+    this.showLoader = true;
   		// for(let i = 1; i < 7; i++ ){
       // this.data.push({
       //     title: 'Day '+ i,
@@ -36,7 +38,7 @@ export class RoutinePage implements OnInit {
       //     showDetails: false
       //   });
       // }
-    this.initLoader();
+    // this.initLoader();
     this.getUserDataFromLocal();
   }
 
@@ -83,7 +85,8 @@ export class RoutinePage implements OnInit {
 
 
 	ionViewDidLoad() {
-	    console.log('ionViewDidLoad RoutinePage');
+      console.log('ionViewDidLoad RoutinePage');
+      this.showLoader = false;
   }
   
 
@@ -122,7 +125,7 @@ export class RoutinePage implements OnInit {
   getUserDataFromLocal() {
     let data = localStorage.getItem('userData');
     this.localUserData = JSON.parse(data);
-    console.log('local data : ', this.localUserData);       
+    // console.log('local data : ', this.localUserData);       
   }
 
 
@@ -133,7 +136,8 @@ export class RoutinePage implements OnInit {
 // |--------------------------------------------------------------------
 
   getStudentRoutine() {
-    this.presentLoading(true);
+    this.showLoader = true;
+    // this.presentLoading(true);
 
 		var headers = new Headers();
 		headers.append('Content-Type', 'application/json');
@@ -155,8 +159,10 @@ export class RoutinePage implements OnInit {
           this.rawRoutineList = data.data;
           console.log('routine list : ', this.rawRoutineList);
           this.sortArr(this.rawRoutineList);
+          this.showLoader = false;
 				}else{
-          this.presentLoading(false);
+          // this.presentLoading(false);
+          this.showLoader = false;
         }
 
 			});
@@ -170,15 +176,15 @@ export class RoutinePage implements OnInit {
 // |-- loading start and stop method by passing true or false --
 // |--------------------------------------------------------------------
 
-  presentLoading(load: boolean) {
-		if (load) {
-			return this.loading.present();
-		}else {
-			setTimeout(() => {
-				return this.loading.dismiss();
-			}, 500);
-		}
-  }
+  // presentLoading(load: boolean) {
+	// 	if (load) {
+	// 		return this.loading.present();
+	// 	}else {
+	// 		setTimeout(() => {
+	// 			return this.loading.dismiss();
+	// 		}, 500);
+	// 	}
+  // }
 
 
 
@@ -189,12 +195,12 @@ export class RoutinePage implements OnInit {
 // |--------- loading initialization --------------
 // |--------------------------------------------------------------------
 
-  initLoader() {
-		this.loading = this.loadingController.create({
-			spinner: 'hide',
-			content: '<img class="loader-class" src="assets/icon/tail-spin.svg"> <p>Loading please wait...</p>',
-		});
-  }
+  // initLoader() {
+	// 	this.loading = this.loadingController.create({
+	// 		spinner: 'hide',
+	// 		content: '<img class="loader-class" src="assets/icon/tail-spin.svg"> <p>Loading please wait...</p>',
+	// 	});
+  // }
 
 
 
@@ -255,7 +261,7 @@ export class RoutinePage implements OnInit {
 
     this.routineList = new_arry;
     // console.log('final array : ', this.routineList);
-    this.presentLoading(false);
+    // this.presentLoading(false);
   }
   
 

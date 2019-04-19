@@ -32,6 +32,7 @@ export class StudentNoticeBoardPage implements OnInit {
   departmentalNotice: any = [];
   generalNotice: any = [];
   personalNotice: any = [];
+  showLoader: boolean;
 
   constructor(
     public platform: Platform,
@@ -45,9 +46,10 @@ export class StudentNoticeBoardPage implements OnInit {
     public viewCtrl: ViewController,
     private fileOpener: FileOpener
   ) {
+    this.showLoader = true;
     this.getUserDataFromLocal();
     this.menuCtrl.enable(false);
-    this.initLoader();
+    // this.initLoader();
 
     for (let i = 0; i < 5; i++) {
       this.allNotice.push(this.allNotice.length);
@@ -69,6 +71,7 @@ export class StudentNoticeBoardPage implements OnInit {
 
   ionViewDidLoad() {
     console.log("StudentNoticeBoardPage");
+    this.showLoader = false;
   }
 
   goToHome() {
@@ -99,8 +102,8 @@ export class StudentNoticeBoardPage implements OnInit {
 
 
   getNoticeList(infiniteScroll?) {
-
-    this.presentLoading(true);
+    this.showLoader = true;
+    // this.presentLoading(true);
     // this.getUserDataFromLocal();
     let header = new Headers();
     header.set("Content-Type", "application/json");
@@ -129,10 +132,12 @@ export class StudentNoticeBoardPage implements OnInit {
           this.filterAllNotices(this.allNotice);
           this.totalData = await data.data.length;
           this.totalPage = await Math.floor(this.totalData / 5);
-          this.presentLoading(false);
+          // this.presentLoading(false);
           console.log("notice list : ", this.allNotice);
+          this.showLoader = false;
         } else {
-          this.presentLoading(false);
+          // this.presentLoading(false);
+          this.showLoader = false;
         }
       });
   }
@@ -178,8 +183,8 @@ export class StudentNoticeBoardPage implements OnInit {
   }
 
   getGuestNoticeList(infiniteScroll?) {
-
-    this.presentLoading(true);
+    this.showLoader = true;
+    // this.presentLoading(true);
     // this.getUserDataFromLocal();
     let header = new Headers();
     header.set("Content-Type", "application/json");
@@ -195,13 +200,15 @@ export class StudentNoticeBoardPage implements OnInit {
       .subscribe(async data => {
         // console.log('Receive notice data for guest : ', data);
         if (data.data.length > 1) {
-          console.log("guest notice list : ", data.data);
+          // console.log("guest notice list : ", data.data);
           this.allNotice = await data.data;
           this.totalData = await data.data.length;
           this.totalPage = await Math.floor(this.totalData / 5);
-          this.presentLoading(false);
+          // this.presentLoading(false);
+          this.showLoader = false;
         } else {
-          this.presentLoading(false);
+          // this.presentLoading(false);
+          this.showLoader = false;
         }
       });
   }
@@ -251,26 +258,26 @@ export class StudentNoticeBoardPage implements OnInit {
     console.log('local data : ', this.localUserData);
   }
 
-  initLoader() {
-    this.loading = this.loadingController.create({
-      spinner: "hide",
-      content:
-        '<img class="loader-class" src="assets/icon/tail-spin.svg"> <p>Loading please wait...</p>'
-    });
-  }
+  // initLoader() {
+  //   this.loading = this.loadingController.create({
+  //     spinner: "hide",
+  //     content:
+  //       '<img class="loader-class" src="assets/icon/tail-spin.svg"> <p>Loading please wait...</p>'
+  //   });
+  // }
 
   // |------------------------------------------------------------------
   // |--------- show loading method(control show loading) ----------
   // |------------------------------------------------------------------
-  presentLoading(load: boolean) {
-    if (load) {
-      return this.loading.present();
-    } else {
-      setTimeout(() => {
-        return this.loading.dismiss();
-      }, 500);
-    }
-  }
+  // presentLoading(load: boolean) {
+  //   if (load) {
+  //     return this.loading.present();
+  //   } else {
+  //     setTimeout(() => {
+  //       return this.loading.dismiss();
+  //     }, 500);
+  //   }
+  // }
 
   presentProfileModal(id) {
     let filterNotice = this.allNotice.filter(function(item) {

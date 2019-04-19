@@ -1,3 +1,12 @@
+<div class="overley" *ngIf="showLoader"></div>  
+<div class="spinner" *ngIf="showLoader">
+        <div class="rect1"></div>
+        <div class="rect2"></div>
+        <div class="rect3"></div>
+        <div class="rect4"></div>
+        <div class="rect5"></div>
+</div>
+
 <ion-content padding>
     <div text-center style="margin-top: 30px;">
       <h4 style="font-size: 1.9rem;">
@@ -79,7 +88,7 @@
     </div>
 
     
-    <div text-capitalize text-center margin-top>
+    <!-- <div text-capitalize text-center margin-top>
       <p (click)='goToLogin()' style="font-size: 16px; cursor: pointer; font-weight: bold;">already registered?<br> click here to login now.</p>
-    </div>
+    </div> -->
 </ion-content>

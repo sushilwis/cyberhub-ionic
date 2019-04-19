@@ -41,6 +41,7 @@ export class GuestEnquiryPage implements OnInit, AfterViewInit {
   dist: any = 'aaa';
   type: string = '';
   selectOptions: any;
+  showLoader: boolean;
 
   constructor(
     public platform: Platform,
@@ -54,6 +55,7 @@ export class GuestEnquiryPage implements OnInit, AfterViewInit {
     public popOverCtrl: PopoverController,
     public modalCtrl: ModalController,
   ) {
+    this.showLoader = true;
 
     this.selectOptions = {
       cssClass: 'select-alert-dialog',
@@ -89,7 +91,7 @@ export class GuestEnquiryPage implements OnInit, AfterViewInit {
     //   }
     // })
 
-    this.initLoader();
+    // this.initLoader();
   }
 
 
@@ -100,6 +102,7 @@ export class GuestEnquiryPage implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     // this.okBtnColorChange();
+    this.showLoader = false;
   }
 
 
@@ -262,6 +265,7 @@ export class GuestEnquiryPage implements OnInit, AfterViewInit {
 
   onChangeCountry(){
         // this.presentLoading(true);
+        this.showLoader = true;
         var headers = new Headers();
         headers.append('Content-Type', 'application/json');
         let options = new RequestOptions({headers: headers});
@@ -280,10 +284,12 @@ export class GuestEnquiryPage implements OnInit, AfterViewInit {
               this.states = data.data;
               // this.showAlert('Password Changed Successfully.');
               // this.navCtrl.push(AccountPage);
+              this.showLoader = false;
             }else{
               // this.presentLoading(false);
               // this.showAlert(data.mssg);
               // this.loading.dismiss();
+              this.showLoader = false;
             }       
         });
   }
@@ -296,6 +302,7 @@ export class GuestEnquiryPage implements OnInit, AfterViewInit {
 
   onChangeState(){
     // this.presentLoading(true);
+    this.showLoader = true;
     var headers = new Headers();
     headers.append('Content-Type', 'application/json');
     let options = new RequestOptions({headers: headers});
@@ -314,10 +321,12 @@ export class GuestEnquiryPage implements OnInit, AfterViewInit {
           this.dists = data.data;
           // this.showAlert('Password Changed Successfully.');
           // this.navCtrl.push(AccountPage);
+          this.showLoader = false;
         }else{
           // this.presentLoading(false);
           // this.loading.dismiss();
           // this.showAlert(data.mssg);
+          this.showLoader = false;
         }       
     });
   }
@@ -330,6 +339,7 @@ export class GuestEnquiryPage implements OnInit, AfterViewInit {
 
   onChangeDist() {
     // this.presentLoading(true);
+    this.showLoader = true;
     var headers = new Headers();
     headers.append('Content-Type', 'application/json');
     let options = new RequestOptions({headers: headers});
@@ -361,7 +371,8 @@ export class GuestEnquiryPage implements OnInit, AfterViewInit {
     this.http.get(`${apiUrl.url}org/search/${this.country}/${this.state}/${this.dist}/${this.type}`).
       map(res => res.json()).subscribe(data => {				
           // console.log('dist data : ', data.data);   
-          // this.presentLoading(false);      
+          // this.presentLoading(false); 
+          this.showLoader = false;     
     });
   }
 
@@ -371,28 +382,28 @@ export class GuestEnquiryPage implements OnInit, AfterViewInit {
 
 
 
-  presentLoading(load: boolean) {
-		if (load) {
-			return this.loading.present();
-		}
-		else {
-			setTimeout(() => {
-				return this.loading.dismiss();
-			}, 1000);
-		}
-  }
+  // presentLoading(load: boolean) {
+	// 	if (load) {
+	// 		return this.loading.present();
+	// 	}
+	// 	else {
+	// 		setTimeout(() => {
+	// 			return this.loading.dismiss();
+	// 		}, 1000);
+	// 	}
+  // }
 
 
 
 
 
-  initLoader() {
-		this.loading = this.loadingController.create({
-      spinner: 'hide',
-      dismissOnPageChange: true,
-			content: '<img class="loader-class" src="assets/icon/tail-spin.svg"> <p>Loading please wait...</p>',
-		});
-  }
+  // initLoader() {
+	// 	this.loading = this.loadingController.create({
+  //     spinner: 'hide',
+  //     dismissOnPageChange: true,
+	// 		content: '<img class="loader-class" src="assets/icon/tail-spin.svg"> <p>Loading please wait...</p>',
+	// 	});
+  // }
 
 
 

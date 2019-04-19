@@ -21,6 +21,7 @@ import { StaffInfoPage } from '../staff-info/staff-info';
   templateUrl: 'schoolcalender.html',
 })
 export class SchoolcalenderPage implements OnInit{
+  showLoader: boolean;
   eventSource: any = [];
   isToday: boolean;
   viewTitle
@@ -66,6 +67,7 @@ export class SchoolcalenderPage implements OnInit{
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     private alertCtrl: AlertController, private http: Http,) {
+      this.showLoader = true;
       this.getUserDataFromLocal();
       this.schoolId =  this.navParams.get('id');
   }
@@ -96,6 +98,7 @@ export class SchoolcalenderPage implements OnInit{
   ionViewDidLoad() {
     console.log('ionViewDidLoad SchoolcalenderPage');
     this.getEventList();
+    this.showLoader = false;
   }
 
 
@@ -219,6 +222,7 @@ export class SchoolcalenderPage implements OnInit{
 
 
 async getEventList() {
+    this.showLoader = true;
     // this.presentLoading(true);
     // await this.getUserDataFromLocal();
     let header = new Headers();
@@ -239,9 +243,11 @@ async getEventList() {
               this.allEventList = await data.data; 
               // console.log("event list : ", data.data);
               this.ArrangeArrFromEventList(this.allEventList);
-              // console.log('event source : ', this.eventSource);               
+              // console.log('event source : ', this.eventSource); 
+              this.showLoader = false;              
             } else {
               // this.presentLoading(false);
+              this.showLoader = false;
             }            
       });
 

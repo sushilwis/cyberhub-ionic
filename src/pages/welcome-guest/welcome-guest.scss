@@ -120,4 +120,38 @@ page-welcome-guest {
 		/* visibility: hidden; */
 		/* opacity: 0; */
     }
+
+
+
+    .col-result-add {
+      color: #fff;
+      opacity: .6;
+      font-size: 11px;
+      margin-top: 5px;
+    }
+
+
+
+  .note-md {
+    color: #fff;
+    opacity: .3;
+    font-size: 11px;
+    margin: -10px 8px 9px 0 !important;
+  }
+
+
+
+  .overley {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000;
+    opacity: 0.6;
+    z-index: 999999999;
+  }
+
+  
+
 }
