@@ -1,4 +1,3 @@
-
 <ion-header *ngIf="showHeader" class="custom-header">
   <ion-navbar color="">
     <ion-title>{{tabHeaderTitle}}</ion-title>
@@ -17,7 +16,7 @@
 
   <div [ngSwitch]="guestTab">
     <div *ngSwitchCase="'search'">
-      <div text-center margin-top style="margin-bottom: 40px;">
+      <div text-center margin-top style="margin-top: 40px;">
         <h4 style="font-size: 1.9rem;">
           <img class="login-page-logo" src="assets/icon/cyverhub_logo.svg">
           <img class="straight-line" src="assets/icon/substract.svg"> Welcome Guest !
@@ -46,19 +45,19 @@
   <div [ngSwitch]="guestTab">
       <div *ngSwitchCase="'live'">
           <ion-list class="search-result">
-              <ion-item *ngFor="let item of lists">
+              <ion-item *ngFor="let item of lists" (click)="goToLiveSection(item.id)">
                 {{ item?.name }}
                 <p class="col-result-add">{{ item?.landmark }}, {{ item?.city }}</p>
                 <ion-note item-end class="note note-md">
                   {{ item?.org }}
                 </ion-note>
               </ion-item>
-            </ion-list> 
+          </ion-list> 
           
           
-            <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+          <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
               <ion-infinite-scroll-content></ion-infinite-scroll-content>
-            </ion-infinite-scroll>
+          </ion-infinite-scroll>
       </div>
   </div>
 
@@ -67,7 +66,7 @@
   <div [ngSwitch]="guestTab">
         <div *ngSwitchCase="'skill'">
             <ion-list class="search-result">
-                <ion-item *ngFor="let item of lists">
+                <ion-item *ngFor="let item of lists" (click)="goToSkillSection(item.id)">
                   {{ item?.name }}
                   <p class="col-result-add">{{ item?.landmark }}, {{ item?.city }}</p>
                   <ion-note item-end class="note note-md">
@@ -88,7 +87,7 @@
     <div *ngSwitchCase="'library'">
 
       <ion-list class="search-result">
-        <ion-item *ngFor="let item of lists">
+        <ion-item *ngFor="let item of lists" (click)="goToLibrarySection(item.id)">
           {{ item?.name }}
           <p class="col-result-add">{{ item?.landmark }}, {{ item?.city }}</p>
           <ion-note item-end class="note note-md">
@@ -109,7 +108,7 @@
 <div [ngSwitch]="guestTab">
     <div *ngSwitchCase="'event'">
         <ion-list class="search-result">
-            <ion-item *ngFor="let item of lists">
+            <ion-item *ngFor="let item of lists" (click)="goToEventSection(item.id)">
               {{ item?.name }}
               <p class="col-result-add">{{ item?.landmark }}, {{ item?.city }}</p>
               <ion-note item-end class="note note-md">
@@ -129,7 +128,7 @@
 <div [ngSwitch]="guestTab">
     <div *ngSwitchCase="'stuff'">
         <ion-list class="search-result">
-            <ion-item *ngFor="let item of lists">
+            <ion-item *ngFor="let item of lists" (click)="goToStaffSection(item.id)">
               {{ item?.name }}
               <p class="col-result-add">{{ item?.landmark }}, {{ item?.city }}</p>
               <ion-note item-end class="note note-md">

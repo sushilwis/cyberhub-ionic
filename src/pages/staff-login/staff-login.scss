@@ -20,7 +20,7 @@ page-staff-login {
 		.enquiry-form{
 			/*background: linear-gradient(141deg, #23309e 0%, #1b7bc5 51%, #2635bf 75%);*/
 			width: 100%;
-			padding: 30px 20px;
+			padding: 20px 20px;
 		}
 		.enquiry-form h3{
 			// color: #00109f;
@@ -213,5 +213,16 @@ page-staff-login {
 	
 		.list-md .item-input.ng-valid.item-input-has-value:last-child, .list-md .item-input.ng-valid.input-has-value:last-child, .item-input.ng-valid.input-has-focus:last-child {
 			box-shadow: none !important;
+		}
+
+		.overley {
+			position: fixed;
+			top: 0px;
+			left: 0px;
+			width: 100vw;
+			height: 100vh;
+			background-color: #000;
+			opacity: 0.6;
+			z-index: 999999999;
 		}
 }

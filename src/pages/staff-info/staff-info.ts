@@ -50,6 +50,7 @@ export class StaffInfoPage {
   maxTemp: any;
   minTemp: any;
   humidity: any;
+  showLoader: boolean;
 
   constructor(
     public navCtrl: NavController,
@@ -60,6 +61,7 @@ export class StaffInfoPage {
     public alertCtrl: AlertController,
     public platform: Platform
   ) {
+    this.showLoader = true;
     this.platform.registerBackButtonAction(() => {
       if (this.navCtrl.getViews().length > 1) {
         this.navCtrl.pop();
@@ -68,17 +70,19 @@ export class StaffInfoPage {
 
     this.getUserDataFromLocal();
     this.menuCtrl.enable(false);
-    this.initLoader();
+    // this.initLoader();
 
     this.getUserData();
     this.getTeacherDetails();
   }
 
   ngOnInit() {
+    this.showLoader = true;
     console.log("Stuff info page...");
   }
 
   ionViewDidLoad() {
+    this.showLoader = false;
     // console.log('ionViewDidLoad StaffInfoPage');
     // this.getWeatherData();
   }
@@ -126,6 +130,7 @@ export class StaffInfoPage {
   }
 
   getUserData() {
+    this.showLoader = true;
     // this.presentLoading(true);
     var header = new Headers();
     header.append("Content-Type", "application/json");
@@ -143,11 +148,14 @@ export class StaffInfoPage {
         // console.log('org_details : ', data.data[0]);
 
         if (data.data) {
+          this.showLoader = false;
           this.orgDetails = data.data[0];
           this.pin = data.data[0].pin;
           // console.log('org_details : ', data.data[0]);
           // console.log('PIN : ', this.pin);
           this.getWeatherData();
+        }else{
+          this.showLoader = false;
         }
       });
   }
@@ -174,23 +182,23 @@ export class StaffInfoPage {
   // 		});
   // }
 
-  presentLoading(load: boolean) {
-    if (load) {
-      return this.loading.present();
-    } else {
-      setTimeout(() => {
-        return this.loading.dismiss();
-      }, 1000);
-    }
-  }
+  // presentLoading(load: boolean) {
+  //   if (load) {
+  //     return this.loading.present();
+  //   } else {
+  //     setTimeout(() => {
+  //       return this.loading.dismiss();
+  //     }, 1000);
+  //   }
+  // }
 
-  initLoader() {
-    this.loading = this.loadingController.create({
-      spinner: "hide",
-      content:
-        '<img class="loader-class" src="assets/icon/tail-spin.svg"> <p>Loading please wait...</p>'
-    });
-  }
+  // initLoader() {
+  //   this.loading = this.loadingController.create({
+  //     spinner: "hide",
+  //     content:
+  //       '<img class="loader-class" src="assets/icon/tail-spin.svg"> <p>Loading please wait...</p>'
+  //   });
+  // }
 
   getUserDataFromLocal() {
     // this.presentLoading(true);
@@ -214,6 +222,7 @@ export class StaffInfoPage {
   }
 
   getTeacherDetails() {
+    this.showLoader = true;
     var headers = new Headers();
     headers.append("Content-Type", "application/json");
     let options = new RequestOptions({ headers: headers });
@@ -229,6 +238,7 @@ export class StaffInfoPage {
       .subscribe(data => {
         // this.presentLoading(false);
         if (data.data[0]) {
+          this.showLoader = false;
           this.teacherDetails = data.data[0];
           // console.log('teacher details : ', data.data[0]);
 
@@ -237,11 +247,18 @@ export class StaffInfoPage {
           // }else{
           //   this.showSelectDepartmentBtn = true;
           // }
+        }else{
+          this.showLoader = false;
         }
       });
   }
 
+
+
+  
+
   getWeatherData() {
+    this.showLoader = true;
     // b60c3e9d5ed15819d78fd18b00e5cfbb
     // https://openweathermap.org/img/w/
     var headers = new Headers();
@@ -256,6 +273,7 @@ export class StaffInfoPage {
       )
       .map(res => res.json())
       .subscribe(data => {
+        this.showLoader = false;
         // console.log('weather data.../',data);
         this.weatherdata = data.main;
         this.temp = Math.round(parseInt(this.weatherdata.temp) - 273.15);
@@ -269,6 +287,10 @@ export class StaffInfoPage {
         // console.log('weather img link : ', this.temp );
       });
   }
+
+
+
+
 
   showAlert(title, msg) {
     const alert = this.alertCtrl.create({

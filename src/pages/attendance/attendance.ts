@@ -121,6 +121,12 @@ export class AttendancePage {
     }
   }
 
+
+
+
+
+
+
   getShiftLists() {
     this.showLoader = true;
     let header = new Headers();
@@ -138,6 +144,11 @@ export class AttendancePage {
         this.showLoader = false;
       });
   }
+
+
+
+
+
 
   getPeriod(e) {
     this.showLoader = true;
@@ -160,6 +171,11 @@ export class AttendancePage {
       });
   }
 
+
+
+
+
+
   getUserDataFromLocal() {
     let data = localStorage.getItem("userData");
     this.localUserData = JSON.parse(data);
@@ -175,6 +191,7 @@ export class AttendancePage {
     // let todayDate = new Date().toLocaleString().substring(0,9).toString();
     // todayDate = todayDate.toLocaleString();
     if(this.period == '') {
+      this.showLoader = false;
       this.showAlert('Please select your period');
       return;
     }
@@ -214,8 +231,7 @@ export class AttendancePage {
         } else {
           this.showLoader = false;
           this.showPeriodForm = true;
-          this.showAlert('Wrong selection');
-          
+          this.showAlert('Wrong selection');          
         }
       });
   }

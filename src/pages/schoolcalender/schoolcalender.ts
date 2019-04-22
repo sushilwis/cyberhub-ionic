@@ -63,10 +63,12 @@ export class SchoolcalenderPage implements OnInit{
   start: any;
   end: any;
   localUserData: any;
+  orgId: any;
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     private alertCtrl: AlertController, private http: Http,) {
+      this.orgId = navParams.get('data');
       this.showLoader = true;
       this.getUserDataFromLocal();
       this.schoolId =  this.navParams.get('id');
@@ -227,10 +229,20 @@ async getEventList() {
     // await this.getUserDataFromLocal();
     let header = new Headers();
     header.set("Content-Type", "application/json");
+      // let data = {
+      //   org_id: this.schoolId
+      // }         
+      var data;
 
-      let data = {
-        org_id: this.schoolId
-      }      
+      if(typeof(this.orgId) == 'undefined') {        
+        data = {
+          org_id: this.schoolId
+        }
+      }else {
+        data = {
+          org_id: this.orgId
+        }
+      }
 
       this.http
         .post(`${apiUrl.url}event/eventdetails`, data, {headers: header})

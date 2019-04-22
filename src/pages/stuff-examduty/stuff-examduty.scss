@@ -143,4 +143,18 @@ page-stuff-examduty {
 	.item-md p {
 		color: #a6a6a6;
 	}
+
+
+	.overley {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000;
+    opacity: 0.6;
+    z-index: 999999999;
+	}
+	
+	
 }

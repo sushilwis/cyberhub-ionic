@@ -4,6 +4,8 @@ import { GuestEnquiryPage } from '../guest-enquiry/guest-enquiry';
 import { SearchOrganisationPage } from '../search-organisation/search-organisation';
 import { Http, RequestOptions, Headers, Jsonp } from '@angular/http';
 import { apiUrl } from '../../apiUrl';
+import { StudentLibraryListPage } from '../student-library-list/student-library-list';
+import { SchoolcalenderPage } from '../schoolcalender/schoolcalender';
 
 
 @IonicPage()
@@ -32,7 +34,6 @@ export class WelcomeGuestPage {
     for (let i = 0; i < 20; i++) {
       this.items.push( this.items.length );
     }
-
     // this.initLoader();
   }
 
@@ -305,7 +306,7 @@ export class WelcomeGuestPage {
       .subscribe(data => {
         // this.presentLoading(false);
         this.allSchoolsList = data.data;
-        console.log("school list..... : ", this.allSchoolsList);
+        // console.log("school list..... : ", this.allSchoolsList);
         // console.log("school list length..... : ", data.data.length);
         if(this.allSchoolsList.length > 0){
           this.allSchoolsList.forEach(ele => {
@@ -325,7 +326,7 @@ export class WelcomeGuestPage {
             this.lists.push(obj);
           });
           // this.presentLoading(false);
-          console.log("arr list..... : ", this.lists);
+          // console.log("arr list..... : ", this.lists);
           this.showLoader = false;
         } else {
           this.showLoader = false;
@@ -395,6 +396,68 @@ export class WelcomeGuestPage {
   //     dismissOnPageChange: false,
 	// 		content: '<img class="loader-class" src="assets/icon/tail-spin.svg"> <p>Loading please wait...</p>',
 	// 	});
+  // }
+
+
+
+  goToLibrarySection(org_id) {
+    console.log('id :...', org_id);  
+    this.navCtrl.push(StudentLibraryListPage, { data: org_id });  
+  }
+
+
+  goToLiveSection(org_id) {
+
+  }
+
+
+  goToSkillSection(org_id){
+
+  }
+
+
+  goToEventSection(org_id){
+    console.log('id :...', org_id);  
+    this.navCtrl.push(SchoolcalenderPage, { data: org_id });
+  }
+
+
+  goToStaffSection(org_id){
+
+  }
+
+
+
+
+  // getBookList(org_id) {
+  //   // this.presentLoading(true);
+  //   this.showLoader = true;
+  //   let header = new Headers();
+  //   header.set("Content-Type", "application/json");
+
+  //     let data = {
+  //       master_id: org_id
+  //     }
+
+      
+  //     this.http
+  //       .post(`${apiUrl.url}library/librarydetails`, data, {headers: header})
+  //       .map(res => res.json())
+  //       .subscribe(
+  //         async data => {
+  //           console.log("book list : ", data.data);
+  //           if(data.data.length > 1) {
+  //             // this.presentLoading(false);
+  //             this.allBookList = await data.data;
+  //             this.allBook = await data.data; 
+  //             this.totalData = await data.data.length;
+  //             this.totalPage = await Math.floor(data.data.length/5);  
+  //             this.showLoader = false;   
+
+  //           } else {
+  //             this.showLoader = false;
+  //           }          
+  //     });        
   // }
 
 

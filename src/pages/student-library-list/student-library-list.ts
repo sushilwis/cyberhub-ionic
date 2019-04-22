@@ -23,8 +23,8 @@ import { apiUrl } from '../../apiUrl';
 export class StudentLibraryListPage {
   localUserData: any;
   allBookList: any = [];
-  page: any = 1;
-  perPage: any = 5;
+  // page: any = 1;
+  // perPage: any = 5;
   totalData: any = 0;
   totalPage: any = 0;
   loading: any;
@@ -32,17 +32,20 @@ export class StudentLibraryListPage {
   allBook: any;
   showNotFound: boolean = false;
   showLoader: boolean;
+  orgId: any;
   
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private menuCtrl:MenuController,  private http: Http, public alertCtrl: AlertController, public loadingController: LoadingController, public modalCtrl: ModalController, public viewCtrl: ViewController) {
+      this.orgId = navParams.get('data');
+      this.getUserDataFromLocal();
       this.showLoader = true;
       this.menuCtrl.enable(false);
-      // this.initLoader();
-
-      for (let i = 0; i < 5; i++) {
-        this.allBookList.push( this.allBookList.length );
-      }
+      // this.initLoader();      
+      // console.log('id came from guest :...', this.orgId, ' && ', typeof(this.orgId));      
+      // for (let i = 0; i < 10; i++) {
+      //   this.allBookList.push( this.allBookList.length );
+      // }
   }
 
   ionViewDidLoad() {
@@ -84,9 +87,20 @@ export class StudentLibraryListPage {
     let header = new Headers();
     header.set("Content-Type", "application/json");
 
-      let data = {
-        master_id: this.localUserData.org_code
+      var data;
+
+      if(typeof(this.orgId) == 'undefined') {
+        // console.log('...from if...');        
+        data = {
+          master_id: this.localUserData.org_code
+        }
+      }else {
+        // console.log('...from else...');
+        data = {
+          master_id: this.orgId
+        }
       }
+      
       
       // console.log('Data sent : ', data);
       
@@ -95,18 +109,14 @@ export class StudentLibraryListPage {
         .map(res => res.json())
         .subscribe(
           async data => {
-            console.log("book list : ", data.data);
+            console.log("book list :.... ", data.data);
             if(data.data.length > 1) {
-              // this.presentLoading(false);
               this.allBookList = await data.data;
               this.allBook = await data.data; 
               this.totalData = await data.data.length;
-              this.totalPage = await Math.floor(data.data.length/5);
-              // console.log('total data : ', this.totalData);
-              // console.log('total page : ', this.totalPage);  
+              this.totalPage = await Math.floor(data.data.length/5);  
               this.showLoader = false;            
             } else {
-              // this.presentLoading(false);
               this.showLoader = false;
             }          
       });        
@@ -126,19 +136,20 @@ export class StudentLibraryListPage {
 
 
 
-  doInfinite(infiniteScroll) {
-    this.page = this.page+1;
-    console.log('Begin async operation');
+  // doInfinite(infiniteScroll) {
+  //   // this.page = this.page+1;
+  //   // console.log('Begin async operation');
 
-    setTimeout(() => {
-      for (let i = 0; i < 5; i++) {
-        this.allBookList.push( this.allBookList.length );
-      }
+  //   setTimeout(() => {
+  //     for (let i = 0; i < 10; i++) {
+  //       this.allBookList.push( this.allBookList.length );
+  //     }
 
-      console.log('Async operation has ended');
-      infiniteScroll.complete();
-    }, 500);
-  }
+  //     // console.log('Async operation has ended');
+  //     this.getBookList();
+  //     infiniteScroll.complete();
+  //   }, 500);
+  // }
 
 
 
@@ -174,7 +185,7 @@ export class StudentLibraryListPage {
       // }
 
       if(tempArr.length == 0){
-        console.log('not found any thing...');
+        // console.log('not found any thing...');
         this.showNotFound = true;
       }
 
@@ -184,10 +195,10 @@ export class StudentLibraryListPage {
 
       this.allBookList = tempArr;
       // this.showNotFound = false;
-      console.log('book list by search : ', this.allBookList);      
+      // console.log('book list by search : ', this.allBookList);      
     }else{
       this.allBookList = this.allBook;
-      console.log('all book list : ', this.allBookList);
+      // console.log('all book list : ', this.allBookList);
     }   
   }
 
@@ -225,7 +236,7 @@ export class StudentLibraryListPage {
 
 
   presentProfileModal(id) {
-    console.log('clicked...', id); 
+    // console.log('clicked...', id); 
     let filterBook = this.allBook.filter(function(item) {
       return item.id == id;
     })   
@@ -296,7 +307,7 @@ export class ProfilePage implements OnInit {
  }
 
  ngOnInit(){  
-  console.log(this.book); 
+  // console.log(this.book); 
  }
 
 
