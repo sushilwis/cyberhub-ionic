@@ -35,7 +35,7 @@ export class HomePage implements OnInit {
     public loadingController: LoadingController
   ) {
     this.loadScript();
-    this.initLoader();
+    // this.initLoader();
     this.menuCtrl.enable(false);
     this.animator = animationService.builder();
     this.platform.registerBackButtonAction(() => {
@@ -95,7 +95,7 @@ export class HomePage implements OnInit {
     // this.presentLoading(false);
     setTimeout(() => {
       this.splash = false;
-    }, 5000);
+    }, 10000);
     this.animateElem();
   }
 
@@ -135,28 +135,28 @@ export class HomePage implements OnInit {
     }
   }
 
-  presentLoading(load: boolean) {
-    if (load) {
-      return this.loading.present();
-    } else {
-      setTimeout(() => {
-        return this.loading.dismiss();
-      }, 1000);
-    }
-  }
+  // presentLoading(load: boolean) {
+  //   if (load) {
+  //     return this.loading.present();
+  //   } else {
+  //     setTimeout(() => {
+  //       return this.loading.dismiss();
+  //     }, 1000);
+  //   }
+  // }
 
-  initLoader() {
-    this.loading = this.loadingController.create({
-      spinner: "hide",
-      content: `<div class="spinner">
-      <div class="rect1"></div>
-      <div class="rect2"></div>
-      <div class="rect3"></div>
-      <div class="rect4"></div>
-      <div class="rect5"></div>
-    </div>`
-    });
-  }
+  // initLoader() {
+  //   this.loading = this.loadingController.create({
+  //     spinner: "hide",
+  //     content: `<div class="spinner">
+  //     <div class="rect1"></div>
+  //     <div class="rect2"></div>
+  //     <div class="rect3"></div>
+  //     <div class="rect4"></div>
+  //     <div class="rect5"></div>
+  //   </div>`
+  //   });
+  // }
 
   loadScript() {
     var $splash = $(".splashScreen");
@@ -164,8 +164,8 @@ export class HomePage implements OnInit {
     var $logo2 = $(".splashLogo2");
     var $footext = $(".splashFooterText");
     var $anim = $(".animationContainer");
-    var $viewport = $(".viewportArea");
-    $logo1.delay(5000).animate(
+    // var $viewport = $(".viewportArea");
+    $logo1.delay(3000).animate(
       {
         left: "-100%",
         opacity: 0,
@@ -193,33 +193,25 @@ export class HomePage implements OnInit {
                   },
                   500,
                   function() {
-                    $viewport.animate(
-                      {
-                        opacity: 1
-                      },
-                      500,
-                      "linear",
-                      function() {
-                        //   alert("into second phase");
-                        $viewport.animate(
-                          {
-                            opacity: 1
-                          },
-                          500,
-                          function() {
-                            $splash.delay(7000).animate(
-                              {
-                                opacity: 0
-                              },
-
-                              function() {
-                                $splash.remove();
-                              }
-                            );
-                          }
-                        );
-                      }
-                    );
+                    // $viewport.animate({ opacity: 1 }, 500, "linear", function() {
+                    //   //   alert("into second phase");
+                    //   $viewport.animate(
+                    //     {
+                    //       opacity: 1
+                    //     },
+                    //     500,
+                    //     function() {
+                    //       $splash.delay(7000).animate(
+                    //         {
+                    //           opacity: 0
+                    //         },
+                    //         function() {
+                    //           $splash.remove();
+                    //         }
+                    //       );
+                    //     }
+                    //   );
+                    // });
                   }
                 );
               }

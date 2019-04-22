@@ -100,7 +100,9 @@ export class MyApp {
       }
 
       this.statusBar.styleDefault();
-      this.splashScreen.hide();
+      setTimeout(() => {
+        this.splashScreen.hide();
+      }, 1000);
 
       // timer(3000).subscribe(()=> this.showSplash = false);
       // this.splashScreen.show();
