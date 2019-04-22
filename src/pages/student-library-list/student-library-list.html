@@ -30,10 +30,10 @@
     </ion-list>
 
     <!-- <ion-toolbar> -->
-      <ion-searchbar id="booksearch" class="library-book-search" (keyup)="onChangeSearch($event)" (focusin)="onFocusSearch()" (focusout)="onUnFocusSearch()" style="background-color: transparent; border-bottom: 1px solid #b59292; color: #fff;"></ion-searchbar>
-    <!-- </ion-toolbar> -->
+  <ion-searchbar id="booksearch" class="library-book-search" (keyup)="onChangeSearch($event)" (focusin)="onFocusSearch()" (focusout)="onUnFocusSearch()" style="background-color: transparent; border-bottom: 1px solid #b59292; color: #fff;"></ion-searchbar>
+    
 
-    <ion-list>
+    <ion-list *ngIf="allBookList.length > 0">
       <ion-item *ngFor="let book of allBookList" (click)="presentProfileModal(book.id)" style="background-color: #1b1b1b; color: #f6f6f6; border-bottom: 1px solid #fff">
         <ion-thumbnail item-start>
           <img src="assets/imgs/book.png">
@@ -48,7 +48,7 @@
     <!-- <ion-infinite-scroll (ionInfinite)="doInfinite($event)" *ngIf="page < totalPage">
       <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more..."></ion-infinite-scroll-content>
     </ion-infinite-scroll> -->
-<!-- *ngIf="page < totalPage" *ngIf="book.book_name"-->
+    <!-- *ngIf="page < totalPage" *ngIf="book.book_name"-->
 
 </ion-content>
 
