@@ -43,4 +43,17 @@ page-get-attendance {
   .button-inner {
     border-bottom: 1px solid #a0a0a0 !important;
   }
+
+  .overley {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000;
+    opacity: 0.6;
+    z-index: 999999999;
+  }
+
+  
 }

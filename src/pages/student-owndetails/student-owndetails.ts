@@ -388,7 +388,7 @@ export class StudentOwndetailsPage implements OnInit {
           handler: () => {
             // console.log('Agree clicked');
             localStorage.clear();
-            this.navCtrl.setRoot(HomePage);
+            this.navCtrl.setRoot(HomePage, {loader: false});
             // this.navCtrl.push(StudentLoginPage);
           }
         }

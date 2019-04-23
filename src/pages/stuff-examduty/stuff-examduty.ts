@@ -3,13 +3,6 @@ import { IonicPage, NavController, NavParams, LoadingController, MenuController 
 import { Http, RequestOptions, Headers } from '@angular/http';
 import { apiUrl } from '../../apiUrl';
 
-/**
- * Generated class for the StuffExamdutyPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 @IonicPage()
 @Component({
   selector: 'page-stuff-examduty',
@@ -242,7 +235,7 @@ async sortArr(rawRoutineArr) {
   });
 
   this.routineList = new_arry;
-  console.log('final array routine list: ', this.routineList);
+  // console.log('final array routine list: ', this.routineList);
   // this.presentLoading(false);
 }
 

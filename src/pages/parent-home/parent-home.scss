@@ -4,7 +4,7 @@ page-parent-home {
         // border-top: 1px solid rgb(83, 83, 83);
         border-bottom: 1px solid rgb(83, 83, 83);
         padding: 10px;
-        margin: 0px 10px 25px 0px;
+        margin: 20px 10px 15px 0px;
         color: rgb(83, 83, 83);
     }
 
@@ -135,5 +135,15 @@ page-parent-home {
 		position: relative;
 		top: -35px;
     left: 23px;
+  }
+  .overley {
+		position: fixed;
+		top: 0px;
+		left: 0px;
+		width: 100vw;
+		height: 100vh;
+		background-color: #000;
+		opacity: 0.6;
+		z-index: 999999999;
 	}
 }

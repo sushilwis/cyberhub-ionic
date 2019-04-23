@@ -11,12 +11,6 @@ import { AttendanceListPage } from "../attendance-list/attendance-list";
 import { RequestOptions, Headers, Http } from "@angular/http";
 import { apiUrl } from "../../apiUrl";
 
-/**
- * Generated class for the GetAttendancePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -35,6 +29,7 @@ export class GetAttendancePage {
   filteredArrayForSectionList: any = [];
   classStreamID: any;
   periodList: any;
+  showLoader: boolean;
 
   period: any = "";
   department: any = "";
@@ -54,8 +49,9 @@ export class GetAttendancePage {
     private http: Http,
     public alertCtrl: AlertController
   ) {
+    this.showLoader = true;
     this.menuCtrl.enable(true);
-    this.initLoader();
+    // this.initLoader();
   }
 
   ngOnInit() {
@@ -76,6 +72,7 @@ export class GetAttendancePage {
   }
 
   getShiftLists() {
+    this.showLoader = true;
     let header = new Headers();
     header.set("Content-Type", "application/json");
     let data = {
@@ -87,6 +84,7 @@ export class GetAttendancePage {
       .map(res => res.json())
       .subscribe(data => {
         // console.log("Org shift list ", data.data);
+        this.showLoader = false;
         this.orgShiftLists = data.data;
       });
   }
@@ -125,6 +123,7 @@ export class GetAttendancePage {
   }
 
   getClassList() {
+    this.showLoader = true;
     let header = new Headers();
     header.set("Content-Type", "application/json");
 
@@ -136,6 +135,7 @@ export class GetAttendancePage {
       .post(`${apiUrl.url}classsection/getall`, data)
       .map(res => res.json())
       .subscribe(data => {
+        this.showLoader = false;
         // console.log("Org Class list : ", data.data);
         this.orgClassSectionList = data.data;
         // this.createSortArray(this.orgClassSectionList);
@@ -166,6 +166,7 @@ export class GetAttendancePage {
   }
 
   getallsem() {
+    this.showLoader = true;
     let header = new Headers();
     header.set("Content-Type", "application/json");
 
@@ -177,6 +178,7 @@ export class GetAttendancePage {
       .post(`${apiUrl.url}classsection/getallsem`, data)
       .map(res => res.json())
       .subscribe(data => {
+        this.showLoader = false;
         // console.log("Org Class list : ", data.data);
         this.allSemList = data.data;
         // this.createSortArray(this.orgClassSectionList);
@@ -194,7 +196,8 @@ export class GetAttendancePage {
     // console.log(this.newFilterSectionArry);
   }
   getSubjectid(e) {
-    console.log(e);
+    // console.log(e);
+    this.showLoader = true;
     let header = new Headers();
     header.set("Content-Type", "application/json");
 
@@ -214,13 +217,15 @@ export class GetAttendancePage {
       .map(res => res.json())
       .subscribe(data => {
         if (data.length == 0 && data[0].rutinedetails) {
+          this.showLoader = false;
           alert("No Class found in your routine");
         } else {
+          this.showLoader = false;
           this.classfilteredSubject = data.data.filter(ele => {
             return ele.priod_id == e;
           });
 
-          console.log("Org ", this.classfilteredSubject);
+          // console.log("Org ", this.classfilteredSubject);
         }
         // this.allSemList = data.data;
         // this.createSortArray(this.orgClassSectionList);
@@ -231,23 +236,23 @@ export class GetAttendancePage {
       });
   }
 
-  presentLoading(load: boolean) {
-    if (load) {
-      return this.loading.present();
-    } else {
-      setTimeout(() => {
-        return this.loading.dismiss();
-      }, 1000);
-    }
-  }
+  // presentLoading(load: boolean) {
+  //   if (load) {
+  //     return this.loading.present();
+  //   } else {
+  //     setTimeout(() => {
+  //       return this.loading.dismiss();
+  //     }, 1000);
+  //   }
+  // }
 
-  initLoader() {
-    this.loading = this.loadingController.create({
-      spinner: "hide",
-      content:
-        '<img class="loader-class" src="assets/icon/tail-spin.svg"> <p>Loading please wait...</p>'
-    });
-  }
+  // initLoader() {
+  //   this.loading = this.loadingController.create({
+  //     spinner: "hide",
+  //     content:
+  //       '<img class="loader-class" src="assets/icon/tail-spin.svg"> <p>Loading please wait...</p>'
+  //   });
+  // }
 
   getUserDataFromLocal() {
     let data = localStorage.getItem("userData");
@@ -300,6 +305,7 @@ export class GetAttendancePage {
   }
 
   getPeriod() {
+    this.showLoader = true;
     console.log("get period called...");
     let header = new Headers();
     header.set("Content-Type", "application/json");
@@ -309,6 +315,7 @@ export class GetAttendancePage {
       .post(`${apiUrl.url}routine/all`, data, { headers: header })
       .map(res => res.json())
       .subscribe(data => {
+        this.showLoader = false;
         // console.log("period list : ", data.data);
         this.periodList = data.data;
       });
@@ -319,12 +326,14 @@ export class GetAttendancePage {
   // }
 
   onPeriodSubmit() {
+    this.showLoader = true;
     if (
       this.period == "" ||
       this.department == "" ||
       this.stream == "" ||
       this.shift == ""
     ) {
+      this.showLoader = false;
       this.showAlert("Select all field step wise");
       return;
     }
@@ -359,6 +368,7 @@ export class GetAttendancePage {
       .subscribe(async data => {
         // console.log("data : ", data);
         if (data.success) {
+          this.showLoader = false;
           this.genAttCode = await data.data[0].atted_code;
           localStorage.setItem("attedCode", JSON.stringify(this.genAttCode));
           localStorage.setItem("department", JSON.stringify(this.department));
@@ -366,6 +376,7 @@ export class GetAttendancePage {
           this.showTeacherForm = false;
           this.showAlert(data.msg);
         } else {
+          this.showLoader = false;
           this.showTeacherForm = true;
           this.showAlert(data.msg);
         }

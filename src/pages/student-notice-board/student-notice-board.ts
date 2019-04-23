@@ -133,7 +133,7 @@ export class StudentNoticeBoardPage implements OnInit {
           this.totalData = await data.data.length;
           this.totalPage = await Math.floor(this.totalData / 5);
           // this.presentLoading(false);
-          console.log("notice list : ", this.allNotice);
+          // console.log("notice list : ", this.allNotice);
           this.showLoader = false;
         } else {
           // this.presentLoading(false);
@@ -236,7 +236,7 @@ export class StudentNoticeBoardPage implements OnInit {
 
   doInfinite(infiniteScroll) {
     this.page = this.page + 1;
-    console.log("Begin async operation");
+    // console.log("Begin async operation");
 
     if (this.page === this.totalPage) {
       infiniteScroll.enable(false);
@@ -247,7 +247,7 @@ export class StudentNoticeBoardPage implements OnInit {
         this.allNotice.push(this.allNotice.length);
       }
 
-      console.log("Async operation has ended");
+      // console.log("Async operation has ended");
       infiniteScroll.complete();
     }, 500);
   }
@@ -255,7 +255,7 @@ export class StudentNoticeBoardPage implements OnInit {
   getUserDataFromLocal() {
     let data = localStorage.getItem("userData");
     this.localUserData = JSON.parse(data);
-    console.log('local data : ', this.localUserData);
+    // console.log('local data : ', this.localUserData);
   }
 
   // initLoader() {

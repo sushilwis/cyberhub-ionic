@@ -47,6 +47,9 @@ page-view-child {
         color: #fff !important;
     }
     .toolbar-background-md {
+        background-color: #009688;
+    }
+    .bottomtoolbar .toolbar-background-md {
         background-color: #1b1b1b !important;
     }
     .toolbar-title-md {
@@ -72,13 +75,23 @@ page-view-child {
 		width: 40% !important;
     }
     
-    .segment-md .segment-button{
+    .segment-md .segment-button {
 		color: #aaaaaa;
 		font-size: .8rem;
-		height: 5rem;
+		height: 6rem;
 		line-height: .7rem;
 	}
 	.segment-md .segment-button.activated, .segment-md .segment-button.segment-activated {
 		border-color: #fff;
-	}
+    }
+    .overley {
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        width: 100vw;
+        height: 100vh;
+        background-color: #000;
+        opacity: 0.6;
+        z-index: 999999999;
+    }
 }

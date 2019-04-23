@@ -28,6 +28,7 @@ export class ParentRegPage {
   college: any;
   institute: any;
   mobileNo: any;
+  showLoader: boolean;
 
   searchQuery: string = "";
   items = [];
@@ -42,9 +43,11 @@ export class ParentRegPage {
   identityNo: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private http: Http, public menuCtrl: MenuController, public loadingController: LoadingController, public alertCtrl: AlertController, public toastCtrl: ToastController) {
+    this.showLoader = true;
   }
 
   ionViewDidLoad() {
+    this.showLoader = false;
     console.log('ionViewDidLoad ParentRegPage');
   }
 
@@ -64,7 +67,8 @@ export class ParentRegPage {
 
 
   getCollege() {
-    this.presentLoading(true);
+    this.showLoader = true;
+    // this.presentLoading(true);
 
 		var header = new Headers();
 		header.append('Content-Type', 'application/json');
@@ -74,10 +78,13 @@ export class ParentRegPage {
 			map(res => res.json()).subscribe(data => {				
 				// console.log(data)
 				if (data.data) {
-          this.presentLoading(false);
+          this.showLoader = false;
+          // this.presentLoading(false);
           // console.log('receive college list : ', data);
           this.collegeList = data.data;					
-				}
+				}else{
+          this.showLoader = false;
+        }
 			});
   }
 
@@ -85,30 +92,31 @@ export class ParentRegPage {
 
 
 
-  presentLoading(load: boolean) {
-		if (load) {
-			return this.loading.present();
-		} else {
-			setTimeout(() => {
-				return this.loading.dismiss();
-			}, 1000);
-		}
-  }
+  // presentLoading(load: boolean) {
+	// 	if (load) {
+	// 		return this.loading.present();
+	// 	} else {
+	// 		setTimeout(() => {
+	// 			return this.loading.dismiss();
+	// 		}, 1000);
+	// 	}
+  // }
 
 
 
 
-  initLoader() {
-		this.loading = this.loadingController.create({
-			spinner: 'hide',
-			content: '<img class="loader-class" src="assets/icon/tail-spin.svg"> <p>Loading please wait...</p>',
-		});
-  }
+  // initLoader() {
+	// 	this.loading = this.loadingController.create({
+	// 		spinner: 'hide',
+	// 		content: '<img class="loader-class" src="assets/icon/tail-spin.svg"> <p>Loading please wait...</p>',
+	// 	});
+  // }
 
 
 
 
   registrationSubmit() {
+    this.showLoader = true;
 	
       // this.presentLoading(true);
   
@@ -122,15 +130,17 @@ export class ParentRegPage {
         adhar: this.identityNo,
       }
 
-      console.log('sent stuff reg data : ', data);      
+      // console.log('sent stuff reg data : ', data);      
 
       this.http.post(`${apiUrl.url}parent/add`, data, options).
         map(res => res.json()).subscribe(data => {
-          console.log('after parent reg :... ', data);          	  
+          // console.log('after parent reg :... ', data);          	  
           if (data.data) {
+            this.showLoader = false;
             this.showAlert('Success!', `Your Username : ${data.data.username}, Password : ${data.data.hint}. Please login to continue`);
             this.navCtrl.push(ParentsLoginPage);				
           }else{
+            this.showLoader = false;
             this.showAlert('Error!', `Invalid Credential !`);
           }
       });    
@@ -268,6 +278,7 @@ export class ParentRegPage {
 
 
   getData() {
+    this.showLoader = true;
     var headers = new Headers();
     headers.append('Content-Type', 'application/json');
     let options = new RequestOptions({ headers: headers });
@@ -281,11 +292,9 @@ export class ParentRegPage {
       .post(`${apiUrl.url}org/orgsearchbytype`, data, options)
       .map(res => res.json())
       .subscribe(data => {
-        // this.presentLoading(false);
         this.allSchoolsList = data.data;
-        console.log("school list..... : ", this.allSchoolsList);
-        // console.log("school list length..... : ", data.data.length);
         if(this.allSchoolsList.length > 0){
+          this.showLoader = false;
           this.allSchoolsList.forEach(ele => {
             const obj = {
               id: ele.id,
@@ -295,9 +304,9 @@ export class ParentRegPage {
             };
             this.list.push(obj);
           });
-
-          console.log("arr list..... : ", this.list);
-        }        
+        } else {
+          this.showLoader = false;
+        }       
       });
   }
 

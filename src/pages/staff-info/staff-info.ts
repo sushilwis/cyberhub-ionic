@@ -309,7 +309,7 @@ export class StaffInfoPage {
           cssClass: "okBtn",
           handler: () => {
             localStorage.clear();
-            this.navCtrl.setRoot(HomePage);
+            this.navCtrl.setRoot(HomePage, {loader: false});
             // this.navCtrl.push(StaffLoginPage);
           }
         }

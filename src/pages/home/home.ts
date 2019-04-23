@@ -1,6 +1,7 @@
 import { Component, ViewChild, OnInit } from "@angular/core";
 import {
   NavController,
+  NavParams,
   MenuController,
   Platform,
   LoadingController
@@ -20,7 +21,7 @@ import * as $ from "jquery";
   templateUrl: "home.html"
 })
 export class HomePage implements OnInit {
-  splash = true;
+  splash: boolean;
   @ViewChild("myElement") myElem;
   private animator: AnimationBuilder;
   seeTabs: boolean = false;
@@ -32,8 +33,16 @@ export class HomePage implements OnInit {
     animationService: AnimationService,
     public app: App,
     private ionicApp: IonicApp,
-    public loadingController: LoadingController
+    public loadingController: LoadingController,
+    public navParams: NavParams,
   ) {
+    let navData = this.navParams.get("loader");
+    console.log('nav data :...', navData);    
+    if(navData === false){
+      this.splash = false;
+    }else{
+      this.splash = true;
+    }
     this.loadScript();
     // this.initLoader();
     this.menuCtrl.enable(false);
@@ -90,6 +99,8 @@ export class HomePage implements OnInit {
     // })
   }
 
+
+
   ionViewDidLoad() {
     this.loadScript();
     // this.presentLoading(false);
@@ -99,11 +110,15 @@ export class HomePage implements OnInit {
     this.animateElem();
   }
 
+
+
   ngOnInit() {
     this.loadScript();
     this.hideTabs();
     // this.presentLoading(true);
   }
+
+
 
   animateElem() {
     this.animator.setType("pulse").show(this.myElem.nativeElement);

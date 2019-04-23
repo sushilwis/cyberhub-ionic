@@ -78,6 +78,18 @@ page-parents-account {
 		background-color: #353434 !important;
 	}
 
+
+	.overley {
+		position: fixed;
+		top: 0px;
+		left: 0px;
+		width: 100vw;
+		height: 100vh;
+		background-color: #000;
+		opacity: 0.6;
+		z-index: 999999999;
+	}
+
 	
 }
 
