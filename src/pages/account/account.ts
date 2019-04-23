@@ -8,7 +8,6 @@ import { AttendancePage } from '../attendance/attendance';
 import { Http, RequestOptions, Headers, Jsonp } from '@angular/http';
 import { apiUrl } from '../../apiUrl';
 import { ModalController, ViewController } from 'ionic-angular';
-// import { NavController, LoadingController, ToastController } from 'ionic-angular';
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { NavController, ActionSheetController, ToastController, Platform, LoadingController, Loading } from 'ionic-angular';
@@ -78,8 +77,7 @@ export default class AccountPage implements OnInit {
   ) {
     this.showLoader = true;
     this.menuCtrl.enable(false);
-    // this.initLoader();
-    // this.getData = this.navParams.get('data');
+    
     this.platform.registerBackButtonAction(() => {
       if (this.navCtrl.getViews().length > 1) {
         this.navCtrl.pop();
@@ -136,7 +134,6 @@ export default class AccountPage implements OnInit {
 
   getStudentDetails() {
     this.showLoader = true;
-    // this.presentLoading(true);
 
     var headers = new Headers();
     headers.append("Content-Type", "application/json");
@@ -150,11 +147,8 @@ export default class AccountPage implements OnInit {
       .post(`${apiUrl.url}student/studentdetail`, data, options)
       .map(res => res.json())
       .subscribe(data => {
-        console.log("student detail data : ", data);
         if (data.data[0]) {
-          // this.presentLoading(false);
           this.studentDetails = data.data[0];
-          // console.log('student detasisld : ', this.studentDetails);
           if (data.data[0].nameclass) {
             this.getAttendanceDetails(this.studentDetails.class_id);
             this.showSelectDepartmentBtn = false;
@@ -168,23 +162,7 @@ export default class AccountPage implements OnInit {
       });
   }
 
-  // presentLoading(load: boolean) {
-  //   if (load) {
-  //     return this.loading.present();
-  //   } else {
-  //     setTimeout(() => {
-  //       return this.loading.dismiss();
-  //     }, 1000);
-  //   }
-  // }
 
-  // initLoader() {
-  //   this.loading = this.loadingController.create({
-  //     spinner: "hide",
-  //     content:
-  //       '<img class="loader-class" src="assets/icon/tail-spin.svg"> <p>Loading please wait...</p>'
-  //   });
-  // }
 
   openModal() {
     let modal = this.modalCtrl.create(ModalPage);
@@ -220,20 +198,20 @@ export default class AccountPage implements OnInit {
             id: this.localUserData.id
           }
         };
-        // this.presentLoading(true);
+        
 
         fileTransfer
           .upload(this.imageURI, `${apiUrl.url}user/addprofileimage`, options)
           .then(
             data => {
               if (data) {
-                // alert(JSON.stringify(data.response));
+                
                 let parseData = JSON.parse(data.response);
-                // this.presentLoading(false);
+                
                 this.imageFileName = `${apiUrl.url}public/uploads/profile_pic/${
                   parseData.data.profile_image
                 }`;
-                //alert(this.imageFileName);
+                
                 localStorage.removeItem("userData");
                 localStorage.setItem(
                   "userData",
@@ -268,7 +246,6 @@ export default class AccountPage implements OnInit {
 
   getAttendanceDetails(class_id) {
     this.showLoader = true;
-    // this.presentLoading(true);
 
     var headers = new Headers();
     headers.append("Content-Type", "application/json");
@@ -278,7 +255,7 @@ export default class AccountPage implements OnInit {
       org_id: this.localUserData.org_code,
       dept_id: 31,
       std_id: 110
-      // std_id: this.localUserData.master_id
+      
     };
 
     this.http
@@ -302,7 +279,6 @@ export default class AccountPage implements OnInit {
                 new_arry = data.attd.filter(cls => {
                   return cls.class_sub_id == element.id;
                 });
-                // console.log(new_arry);
 
                 if (new_arry.length == 0) {
                   this.chartAttdValue.push(0);
@@ -320,14 +296,11 @@ export default class AccountPage implements OnInit {
               );
 
               this.avgAtdence = sum / this.chartAttdValue.length;
-              // console.log(this.chartAttdValue);
               this.renderGraph();
             });
             this.showLoader = false;
         }
-        // data.data.forEach(elem => {
-
-        // });
+      
       });
   }
 
@@ -349,14 +322,6 @@ export default class AccountPage implements OnInit {
           {
             data: this.chartAttdValue,
             backgroundColor: this.chartcolor
-            // hoverBackgroundColor: [
-            //   "#FF6384",
-            //   "#36A2EB",
-            //   "#FFCE56",
-            //   "#FF6384",
-            //   "#36A2EB",
-            //   "#FFCE56"
-            // ]
           }
         ]
       }
@@ -366,21 +331,6 @@ export default class AccountPage implements OnInit {
 
 
 
-
-
-  // presentToast(msg) {
-  //   let toast = this.toastCtrl.create({
-  //     message: msg,
-  //     duration: 3000,
-  //     position: 'bottom'
-  //   });
-
-  //   toast.onDidDismiss(() => {
-  //     console.log('Dismissed toast');
-  //   });
-
-  //   toast.present();
-  // }
 }
 
 
@@ -411,7 +361,6 @@ export class ModalPage {
   classStreamID: any;
   classIndexId: any;
   showLoader: boolean;
-  // showDeptSelection: boolean = true;
 
   constructor(
     public platform: Platform,
@@ -426,8 +375,7 @@ export class ModalPage {
     public jsonp: Jsonp, 
     public modalCtrl: ModalController
   ) {
-    // var characters = [];
-    // this.character = characters[this.params.get('charNum')];
+    
   }
 
 
@@ -436,8 +384,6 @@ export class ModalPage {
     this.sortArray = [];
     this.filteredArrayForClassList = [];
     this.getUserDataFromLocal();
-    // this.getStudentDetails();
-    // this.showSelectDepartmentBtn = false;
     this.getShiftLists();
     this.getClassList();    
   }
@@ -460,8 +406,7 @@ export class ModalPage {
 // ########################################################################
   getUserDataFromLocal() {
     let data = localStorage.getItem('userData');
-    this.localUserData = JSON.parse(data);
-    // console.log('local data : ', this.localUserData);    
+    this.localUserData = JSON.parse(data);  
   }
 
 
@@ -485,7 +430,7 @@ export class ModalPage {
         .map(res => res.json())
         .subscribe(
           data => {
-            // console.log("Org shift list ", data.data);
+            
             this.orgShiftLists = data.data;
             this.showLoader = false;
       });
@@ -530,34 +475,18 @@ export class ModalPage {
   onChooseShift(e){
     this.sortArray = [];
     this.shiftID = e;
-    // console.log(e);
-    // console.log(this.allSelected);        
-    // console.log('shift : ', e);  
     
-    // let ifAllSelect = e.value.filter((ele)=>{
-    //   return ele == "all";
-    // });
-    
-    // if(ifAllSelect.length > 0){
-    //   this.sortArray = [];
-    //   this.selectedData.selectedShifts = this.orgShiftLists;
-
-    //   this.createSortArray(this.orgClassSectionList);
-    //   // console.log("filter class list for choosen shift : ", this.sortArray); 
-    // // }else{
-    //   this.sortArray = [];
-    //   this.selectedData.selectedShifts = e.value;
 
       this.filteredArrayForClassList = this.orgClassSectionList.filter((ele) => {
         return ele.org_shift_id == e;
       });
 
-      // console.log(this.filteredArrayForClassList);
+      
       this.createSortArray(this.filteredArrayForClassList);
-    // }
+   
 
 
-    // console.log('sort array : ', this.sortArray);
+    
   }
 
 
@@ -567,18 +496,10 @@ export class ModalPage {
 // ########################################################################
 //      ------------------ After choose class/stream -----------------
 // ########################################################################
-onChooseClassStream(e) {
-  // console.log(e); 
+onChooseClassStream(e) { 
 
   this.filteredArrayForSectionList = [];
   this.classStreamID = e;
-
-  // if(e.value == "all"){
-  //   this.filteredArrayForSectionList = [
-  //     { sec_id: "all", section_name: "All" }
-  //   ];
-  //   return;
-  // }
 
   this.filteredArrayForSectionList = this.sortArray.filter((element)=> {
     return element.class_id == e;
@@ -587,8 +508,6 @@ onChooseClassStream(e) {
   if(this.filteredArrayForSectionList.length > 0){
     this.filteredArrayForSectionList = this.filteredArrayForSectionList[0].sections;
   }  
-
-  console.log('filter section array : ', this.filteredArrayForSectionList);
 }
 
 
@@ -625,10 +544,8 @@ submitDepartment() {
         .map(res => res.json())
         .subscribe(
           data => {
-            // console.log("after add data : ", data);
-            // this.showDeptSelection = false;
-            if(data.status == 1){
-              // this.navCtrl.push(AccountPage);              
+            
+            if(data.status == 1){                           
                 let modal1 = this.modalCtrl.create(Modal1Page);
                 modal1.present();
                 this.showLoader = false;              
@@ -646,9 +563,7 @@ submitDepartment() {
 // ----------- sorting class list array here for looping -----------
 // ########################################################################
 createSortArray(arr){
-  // var rs = 1;
-  let currYear = new Date().getFullYear();
-  console.log('year : ', currYear);  
+  let currYear = new Date().getFullYear();  
 
   arr.forEach(ele => {
 
@@ -673,7 +588,7 @@ createSortArray(arr){
       });
 
       if(check_exist.length > 0){
-        // console.log('exist');
+        
         let i = this.sortArray.indexOf(check_exist[0]);
         this.sortArray.splice(i,1); 
 
@@ -684,7 +599,7 @@ createSortArray(arr){
         });
 
         this.sortArray.push(check_exist[0]); 
-        console.log('class section : ', this.sortArray);      
+              
       }else{
         this.sortArray.push(obj);
       }
@@ -712,21 +627,11 @@ createSortArray(arr){
 
 export class Modal1Page {
 
-  // character; 
-  // orgShiftLists: any;
-  // orgClassSectionList: any = []; 
   localUserData: any;
-  // sortArray: any = [];
-  // shiftID: any;
-  // selectedData: any;
-  // filteredArrayForClassList: any = [];
-  // filteredArrayForSectionList: any = [];
-  // classStreamID: any;
-  // classIndexId: any;
   guarPhone: string;
   guarId: string;
   showLoader: boolean;
-  // showDeptSelection: boolean = true;
+  
 
   constructor(
     public platform: Platform,
@@ -741,21 +646,12 @@ export class Modal1Page {
     public modalCtrl: ModalController,
   ) {
     this.showLoader = true;
-    // var characters = [];
-    // this.character = characters[this.params.get('charNum')];
     this.getUserDataFromLocal();
   }
 
 
 
   ngOnInit() {
-    // this.sortArray = [];
-    // this.filteredArrayForClassList = [];
-    // this.getUserDataFromLocal();
-    // this.getStudentDetails();
-    // this.showSelectDepartmentBtn = false;
-    // this.getShiftLists();
-    // this.getClassList();
     this.showLoader = false;    
   }
 
@@ -834,23 +730,12 @@ export class Modal1Page {
 
 export class SecuritypinPage {
 
-  // character; 
-  // orgShiftLists: any;
-  // orgClassSectionList: any = []; 
   localUserData: any;
-  // sortArray: any = [];
-  // shiftID: any;
-  // selectedData: any;
-  // filteredArrayForClassList: any = [];
-  // filteredArrayForSectionList: any = [];
-  // classStreamID: any;
-  // classIndexId: any;
   guarPhone: string;
   guarId: string;
   securityPin: number;
   btnDisabled: boolean = false;
   showLoader: boolean;
-  // showDeptSelection: boolean = true;
 
   constructor(
     public platform: Platform,
@@ -866,21 +751,12 @@ export class SecuritypinPage {
     public toastCtrl: ToastController,
   ) {
     this.showLoader = true;
-    // var characters = [];
-    // this.character = characters[this.params.get('charNum')];
     this.getUserDataFromLocal();
   }
 
 
 
   ngOnInit() {
-    // this.sortArray = [];
-    // this.filteredArrayForClassList = [];
-    // this.getUserDataFromLocal();
-    // this.getStudentDetails();
-    // this.showSelectDepartmentBtn = false;
-    // this.getShiftLists();
-    // this.getClassList(); 
     this.showLoader = false;   
   }
 

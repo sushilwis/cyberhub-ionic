@@ -11,6 +11,8 @@ import { ParentHomePage } from '../parent-home/parent-home';
 })
 export class AddChildPage {
 
+  showLoader: boolean;
+
   constructor(
     public navCtrl: NavController, 
 		public navParams: NavParams, 
@@ -18,18 +20,20 @@ export class AddChildPage {
     public alertCtrl: AlertController,
     public loadingController: LoadingController,
   ) {
+    this.showLoader = true;
   }
 
 
 
   ionViewDidLoad() {
+    this.showLoader = false;
     console.log('ionViewDidLoad AddChildPage');
   }
 
 
 
   saveChild() {
-    console.log('save child clicked.');  
+    // console.log('save child clicked.');  
     this.showAlert(
 			"Alert!",
 			"Successfully added your child information to your account"
@@ -38,15 +42,6 @@ export class AddChildPage {
   }
 
 
-  // showAlert(title, msg) {
-  //   const alert = this.alertCtrl.create({
-  //     title: title,
-  //     subTitle: msg,
-  //     buttons: ["OK"]
-  //   });
-  //   alert.present();
-  // }
-  
 
 
   showAlert(title, msg) {
@@ -59,7 +54,6 @@ export class AddChildPage {
         text: 'OK',
         cssClass: "okBtn",
         handler: () => {
-          // this.navCtrl.push(WelcomeGuestPage);
         }
       }
     ]

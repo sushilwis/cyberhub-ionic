@@ -21,10 +21,12 @@ export class ComplainReplyPage implements OnInit {
   localUserData: any;
   btnDisabled: boolean = true;
   complainMsg: string;
+  showLoader: boolean;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController, private http: Http) {
+    this.showLoader = true;
     this.id = navParams.get('data');
-    console.log('id : ', this.id);    
+    // console.log('id : ', this.id);    
   }
 
   ngOnInit() {
@@ -32,6 +34,7 @@ export class ComplainReplyPage implements OnInit {
   }
 
   ionViewDidLoad() {
+    this.showLoader = false;
     console.log('ionViewDidLoad ComplainReplyPage');
   }
 
@@ -50,18 +53,6 @@ export class ComplainReplyPage implements OnInit {
       this.btnDisabled = false;
     }
   }
-
-
-
-  // showAlert(title, msg) {
-	// 	const alert = this.alertCtrl.create({
-	// 	  title: title,
-	// 	  subTitle: msg,
-	// 	  buttons: ['OK'],
-  //   });
-    
-	// 	alert.present();
-  // }
 
 
 

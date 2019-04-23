@@ -54,7 +54,7 @@ export class AttendancePage {
   }
 
   ngOnInit() {
-    console.log('Attendance page...');    
+    // console.log('Attendance page...');    
     this.getUserDataFromLocal();
     this.getShiftLists();
     // this.getClassList();
@@ -63,7 +63,7 @@ export class AttendancePage {
     this.getStudentDetails();
     
     this.socket.on("updateUserList", function(users) {
-      console.log(users);
+      // console.log(users);
     });
   }
 

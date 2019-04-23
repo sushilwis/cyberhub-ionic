@@ -61,7 +61,9 @@ export class StaffInfoPage {
     public alertCtrl: AlertController,
     public platform: Platform
   ) {
+
     this.showLoader = true;
+
     this.platform.registerBackButtonAction(() => {
       if (this.navCtrl.getViews().length > 1) {
         this.navCtrl.pop();
@@ -76,15 +78,17 @@ export class StaffInfoPage {
     this.getTeacherDetails();
   }
 
+
+
   ngOnInit() {
     this.showLoader = true;
-    console.log("Stuff info page...");
   }
+
+
 
   ionViewDidLoad() {
     this.showLoader = false;
-    // console.log('ionViewDidLoad StaffInfoPage');
-    // this.getWeatherData();
+    console.log('ionViewDidLoad StaffInfoPage');
   }
 
   goToAllPdf() {
@@ -123,11 +127,17 @@ export class StaffInfoPage {
   goToChangeLang() {
     console.log("goToChangeLang");
   }
+
+
+
   goToEvents() {
     this.navCtrl.push(SchoolcalenderPage, {
       id: this.localUserData.org_code
     });
   }
+
+
+
 
   getUserData() {
     this.showLoader = true;
@@ -160,45 +170,7 @@ export class StaffInfoPage {
       });
   }
 
-  // getUserData() {
-  //   this.presentLoading(true);
-  // 	var header = new Headers();
-  // 	header.append('Content-Type', 'application/json');
-  // 	let options = new RequestOptions({headers: header});
-
-  // 	let data = {
-  //     'org_id': this.localUserData.org_code,
-  //   }
-
-  // 	this.http.post(`${apiUrl.url}org/getdetail`, data, options).
-  // 		map(res => res.json()).subscribe(data => {
-  // 			console.log('org_details : ', data.data[0]);
-
-  // 			if (data.data) {
-  //         this.presentLoading(false);
-  //         this.orgDetails = data.data[0];
-  //       }
-
-  // 		});
-  // }
-
-  // presentLoading(load: boolean) {
-  //   if (load) {
-  //     return this.loading.present();
-  //   } else {
-  //     setTimeout(() => {
-  //       return this.loading.dismiss();
-  //     }, 1000);
-  //   }
-  // }
-
-  // initLoader() {
-  //   this.loading = this.loadingController.create({
-  //     spinner: "hide",
-  //     content:
-  //       '<img class="loader-class" src="assets/icon/tail-spin.svg"> <p>Loading please wait...</p>'
-  //   });
-  // }
+  
 
   getUserDataFromLocal() {
     // this.presentLoading(true);
@@ -214,12 +186,20 @@ export class StaffInfoPage {
     }
   }
 
+
+
+
+
   goToLogout() {
     // this.showAlert('Logout', 'Are you sure want to logout ?');
     // localStorage.clear();
     // this.navCtrl.setRoot(HomePage);
     this.showAlert("Logout !", "Are you sure ?");
   }
+
+
+
+  
 
   getTeacherDetails() {
     this.showLoader = true;
