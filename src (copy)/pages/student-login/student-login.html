@@ -1,0 +1,91 @@
+
+<div class="overley" *ngIf="showLoader"></div>  
+<div class="spinner" *ngIf="showLoader">
+        <div class="rect1"></div>
+        <div class="rect2"></div>
+        <div class="rect3"></div>
+        <div class="rect4"></div>
+        <div class="rect5"></div>
+</div>
+
+
+<ion-content padding class="item-center" color="secondary" style="padding-top: 100px;">
+	<div text-center style="margin-top: 40px;">
+		<h4 style="font-size: 1.9rem;">
+			<img class="login-page-logo" src="assets/icon/cyverhub_logo.svg">
+			<img class="straight-line" src="assets/icon/substract.svg">
+			   Welcome Student !
+		</h4>
+	</div>
+
+
+	<div class="enquiry-form">
+			<p class="sub-line">
+				<span>Login to access features<br>which provide with you.</span>
+			</p>
+		 <p class="" text-center text-capitalize margin-bottom style="text-decoration: underline; font-size: 16px;">Login with your credentials</p>
+	 	<form>
+			<ion-list style="background-color: none;">
+			  <ion-item>
+			  	<ion-label floating style="color: #9a9a9a"> <ion-icon ios="ios-mail" md="md-mail"></ion-icon> Account ID</ion-label>
+					<ion-input type="text" name="student_register" no-margin [(ngModel)]="student_register"></ion-input>					
+				</ion-item>
+
+				<p class="input-info">Which Created by Cyberhub</p>
+				
+				<ion-item>
+			  	<ion-label floating style="color: #9a9a9a"> <ion-icon name="lock"></ion-icon> Account Password</ion-label>
+			    <ion-input [type]="show ? 'text' : 'password'" name="student_password" no-margin [(ngModel)]="student_password"></ion-input>
+					<button ion-button clear icon-start item-end (click)="password()" style="margin-top: 36px;">
+						<ion-icon [name]="show ? 'eye' : 'eye-off'"></ion-icon>
+					</button>
+					<!-- <ion-icon item-end  ></ion-icon> -->					
+				</ion-item>
+
+				<p class="input-info">Which Created by Cyberhub</p>
+
+				<!-- <button ion-button block outline color="blue" class="mt-10" *ngIf="isHide" (click)=loginSubmit()>Submit</button> -->
+				<div text-center style="margin-top: 25px;">
+						<button ion-button color="blue" class="btn-size mt-10" *ngIf="isHide" (click)=loginSubmit()>Submit</button>
+				</div>
+
+
+
+			<!-- <ion-grid> -->
+				<!-- <ion-row col-12 text-center>
+					<div>
+						<button ion-button color="blue" class="btn-size mt-10" *ngIf="isHide" (click)=loginSubmit()>Submit</button>
+					</div>
+				</ion-row> -->
+
+				<!-- <ion-row col-12> -->
+				<div text-capitalize text-center>
+					<p (click)='goToRegister()' style="font-size: 16px; cursor: pointer; font-weight: bold; margin-top: 40px;">Not registered yet?<br> click here to get registered now.</p>
+				</div>
+				<!-- </ion-row>	 -->
+				<!-- <ion-row>
+					<ion-row col-6>
+						<button ion-button block outline color="blue" class="" (click)='goToRegister()'>Registration</button>
+					</ion-row>
+					<ion-row col-6>
+						<button ion-button block outline color="blue" class="" (click)='gotoHome()'>Back</button>
+					</ion-row>
+				</ion-row> -->
+			<!-- </ion-grid> -->
+
+			<button block ion-button outline text-left color="blue" *ngIf="isShown">Register_Id: {{student_register}} </button>
+			<button block ion-button outline text-left color="blue" *ngIf="isShown">Phone: {{phone}}</button>
+
+				<ion-item *ngIf="isShown" margin-top >
+			    <ion-input type="number" name="otp_pass" maxlengtgh=4 [(ngModel)]="otp_pass" placeholder="Enter One Time Password" no-margin></ion-input>
+				</ion-item>
+				<p *ngIf="isShown">Not getting any message? <a href="#" (click)="resendMessage()">Resend</a> </p>
+			</ion-list>
+
+
+			<button ion-button block color="blue" class="mt-10" *ngIf="isShown" (click)=goToOwnDetails()>Next</button>
+
+		</form>
+	</div>
+</ion-content>
+

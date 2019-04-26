@@ -1,0 +1,73 @@
+<div class="overley" *ngIf="showLoader"></div>  
+<div class="spinner" *ngIf="showLoader">
+        <div class="rect1"></div>
+        <div class="rect2"></div>
+        <div class="rect3"></div>
+        <div class="rect4"></div>
+        <div class="rect5"></div>
+</div>
+
+<ion-header>
+  <ion-navbar color="blue">
+    <button ion-button menuToggle color="light">
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Account</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+  <div class="back-ground">
+
+    <div class="profile-container">
+      <div class="mh-container">
+        <img class="profile-image" src="{{profile_image}}" *ngIf="profile_image"/>
+        <button ion-button icon-only round small color="light" class="camera-icon" (click)="getImage()">
+          <ion-icon name="camera"></ion-icon>
+        </button>
+      </div>
+
+
+      <!-- <button ion-button block outline color="blue" class="mt-10 ml-10 mr-10" (click)="getImage()">Get Image</button>
+      <button ion-button block outline color="blue" class="mt-10 ml-10 mr-10" (click)="uploadFile()">Upload Image</button> -->
+
+      <div class="text-position">
+        <h5 text-center text-uppercase color="light">{{studentDetails?.f_name}} {{studentDetails?.l_name}}</h5>
+        <p text-center text-uppercase no-padding no-margin>{{studentDetails?.user_name}}</p>
+        <p text-center text-uppercase no-padding no-margin>{{studentDetails?.nameclass?.class?.class_name}} {{studentDetails?.nameclass?.section?.sec_name}}</p>
+        <p text-center text-uppercase no-padding no-margin>Semester : {{studentDetails?.nameclass?.sem_id?.sem_no}}</p>
+        <!-- <p text-center text-uppercase no-padding no-margin>Attendance : {{avgAtdence}}%</p> -->
+      </div>
+    </div>
+  </div>
+
+      <p text-center>
+        <button class="btnStyle" ion-button color="dark" outline (click)="openModal()" *ngIf="studentDetails?.nameclass == null">Select Department</button>
+      </p>
+
+    <ion-card style="background-color: #1b1b1b">
+      <ion-card-header style="color: #eee">
+        Attendance
+      </ion-card-header>
+      <ion-card-content style="border: 1px solid #fff;">
+        <canvas #doughnutCanvas></canvas>
+      </ion-card-content>
+    </ion-card>
+
+  <ion-card style="background-color: #353434; border: 1px solid #fff;" class="text-white">
+    <ion-card-content>
+        <p><strong>Email</strong>: {{studentDetails?.email}}</p>
+        <p><strong>Mobile</strong>: {{localUserData?.mobile_no}}</p>
+        <p><strong>Identification No.</strong>: {{studentDetails?.adhar_no}}</p>
+        <p><strong>Caste</strong>: {{studentDetails?.cast_category}}</p>
+        <p><strong>DOB</strong>: {{studentDetails?.dob}}</p>
+        <p><strong>Gender</strong>: {{studentDetails?.gender}}</p>
+        <p><strong>Roll No</strong>: {{studentDetails?.roll_no}}</p>
+        <p><strong>Registration No</strong>: {{studentDetails?.registration_no}}</p>
+        <button ion-button type="submit" block outline color="light" class="mt-10" (click)=goToPassword()>Change Password</button>
+        
+        <button ion-button type="submit" block outline color="light" class="mt-10" *ngIf="! issecurityadded" (click)=goToEnterSecurityPin()>Set Security Pin</button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

@@ -1,0 +1,185 @@
+page-staff-info {
+	ion-app.md [padding], ion-app.ios [padding]{
+			padding: 0px !important;
+		}
+		.scroll-content {
+    		padding: 0px !important;
+		}
+	.fixed p{
+		font-size:8px !important;	
+	}
+	.icon-center p{
+		font-size: 12px;
+	}
+	.bell-icon{
+		cursor:pointer !important;
+		background:none;
+		float: right; 
+	}
+	.toolbar-md, .toolbar-ios{
+		padding:0px;
+	}
+	.toolbar-md-blue .bar-button-md-light{
+	    display: block !important;
+	}
+	.back-ground{
+		/*background: url(../assets/imgs/blue-bk.jpg); */
+		// background: #051c92;
+		background: #000; 
+		width: 100%;
+		padding: 20px 0;
+	}
+
+	.back-ground img{
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 100px;
+		height: 100px;
+		text-align: center;
+		flex-wrap: wrap;
+		margin: 0px auto;
+	}
+	.back-ground h5{
+		color: #fff;
+	}
+	.icon-center, .icon-center img{
+		display: block !important;
+		text-align: center !important;
+		margin:0px auto !important;
+	}
+	.icon-center{
+		border-top: 2px solid #fff;
+	    background: #EEEEEE;
+	    padding: 5px 0;
+	}
+	.icon-center p{
+		font-size: 9.1px;
+	}
+	.icon-center{
+		 /* border: 1px solid #fff; */
+		background: #353434;
+		// padding: 5px 0;
+		padding-top: 12px;
+		box-shadow: white;
+		/* box-shadow: 1px 4px 18px #9c9c9c6e; */
+		margin: 5px !important;
+		border-radius: 5px;
+	}
+	.card {
+			background-color: #1b1b1b !important; // black
+			border: 1px solid rgba(161, 161, 161, 0.911);
+		}
+		.card-md *,.card-ios *{
+			color: #f4f4f4;
+		}
+
+
+		.profile-image {
+			border-radius: 50%;
+			border: 2px solid #fff;
+			padding: 3px;
+			width: 60px !important;
+			height: 60px !important;
+			margin: 0 auto
+		}
+		
+		.mh-container{
+			// position: relative;
+			// display: flex;
+			// max-width: 40%;
+			width: 40%;
+			align-items: center;
+			justify-content: center;
+			padding: 10px 0;
+		}
+		.personalDetailfont, .personalDetailfont span, .personalDetailfont b{
+			font-size: 10px;
+			color: #cccbcb !important;
+		}
+		.card-title-border{
+			position: absolute;
+			left: 7%;
+			top: 6px;
+			background-color: #1b1b1b;
+			padding: 4px 14px;
+		}
+		.card-title-border1{
+			position: absolute;
+			left: 7%;
+			top: 135px;
+			background-color: #1b1b1b;
+			padding: 3px 14px;
+		}
+		.profile-container{
+			display: flex;
+		}
+		.text-position{
+			width: 45%;
+			align-items: center;
+			justify-content: center;
+			padding: 10px 0;
+		}
+		.iconSize{
+			min-width: 22px !important;
+			width: 24px !important;			
+			// padding: 5px !important;
+		}
+		// .wether-icon{
+		// 	width: 70px !important;
+		// }
+		// .weatherDiv{
+		// 	position: absolute;
+		// 	top: 208px;
+		// 	left: 230px;
+		// }
+		// .weatherdata {
+		// 	position: relative;
+		// 	top: -23px;
+		// 	left: 34px;
+		// }
+
+
+		.wether-icon{
+			position: absolute;
+			top: 11px;
+			left: 12px;
+			width: 50px !important;
+		}
+		
+		.weatherDiv{
+			position: absolute;
+			top: 208px;
+			left: 218px;
+		}
+
+		.weatherdata {
+			position: relative;
+			top: -30px;
+			left: 18px;
+		}
+
+		.weatherdata1 {
+			position: relative;
+			top: -73px;
+			left: 72px;
+		}
+
+
+		.wether-icon1 {
+			width: 70px;
+		}
+
+
+		.overley {
+			position: fixed;
+			top: 0px;
+			left: 0px;
+			width: 100vw;
+			height: 100vh;
+			background-color: #000;
+			opacity: 0.6;
+			z-index: 999999999;
+		}
+		
+}

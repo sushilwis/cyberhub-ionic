@@ -1,0 +1,119 @@
+page-account {
+	ion-app.md [padding], ion-app.ios [padding]{
+			padding: 0px !important;
+		}
+		.scroll-content {
+    		padding: 0px !important;
+		}
+	.fixed p{
+		font-size:8px !important;	
+	}
+	.icon-center p{
+		font-size: 12px;
+	}
+	.toolbar-md, .toolbar-ios{
+		padding:0px;
+	}
+	.back-ground{
+		background: #1b1b1b;
+		width: 100%;
+		padding: 8px 0;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-wrap: wrap;
+	}
+	.profile-image{
+		border-radius: 50%;
+		border: 2px solid #fff;
+		padding: 3px;
+		width: 140px !important;
+		height: 140px !important;
+	}
+	.camera-icon{
+		position: absolute;
+		top: 70%;
+		right: 0;
+	}
+	.back-ground img{
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 100px;
+		height: 100px;
+		text-align: center;
+		flex-wrap: wrap;
+		margin: 0px auto;
+	}
+	p {
+		color: #eee;
+	}
+	h5 {
+		color: #eee;
+	}
+	.mh-container{
+		position: relative;
+		display: flex;
+		/* margin: 0 auto; */
+		max-width: 45%;
+	}
+	.back-ground > * {
+		flex-basis: 100%;
+	}
+	.text-white, .text-white p {
+		color: #fff;
+	}
+	// .scroll-content {
+	// 	background-color: map-get($colors, light);
+	// }
+	// ion-card-header {
+	// 	font-weight: bold;
+	// }
+
+	.profile-container{
+		display: flex;
+		padding-left: 30px;
+		padding-top: 10px;
+	}
+
+	.toolbar-background-md {
+		background-color: #353434 !important;
+	}
+
+	.text-position{
+		width: 55%;
+		align-items: center;
+		justify-content: center;
+		padding: 10px 0;
+	}
+
+	.overley {
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        width: 100vw;
+        height: 100vh;
+        background-color: #000;
+        opacity: 0.6;
+        z-index: 999999999;
+    }
+	
+}
+
+
+
+
+.btnStyle {
+	color: #eee;
+	border-color: #eee;
+}
+
+
+.icon-size {
+	font-size: 1.8em !important;
+}
+
+
+.ion-icon {
+	font-size: 1.8em !important;
+}

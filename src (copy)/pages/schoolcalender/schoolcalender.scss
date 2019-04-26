@@ -1,0 +1,34 @@
+page-schoolcalender {
+    .table[_ngcontent-c1] > thead[_ngcontent-c1] > tr[_ngcontent-c1] > th[_ngcontent-c1] {
+        vertical-align: bottom;
+        border-bottom: 2px solid #ddd;
+    }
+
+    .table-bordered[_ngcontent-c1] > tbody[_ngcontent-c1] > tr[_ngcontent-c1] > td[_ngcontent-c1]{
+        border: 0px;
+    }
+    .monthview-selected[_ngcontent-c1] {
+        background-color: #2196F3 !important;
+        color: white;
+    }
+    .monthview-current[_ngcontent-c1] {
+        background-color: #e1e1e1;
+    }
+    .monthview-primary-with-event[_ngcontent-c1] {
+        background-color: #4b4b4b;
+        color: white;
+    }
+    .toolbar-background-md {
+		background-color: #353434 !important;
+    }
+    .overley {
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        width: 100vw;
+        height: 100vh;
+        background-color: #000;
+        opacity: 0.6;
+        z-index: 999999999;
+    }
+}

@@ -1,0 +1,160 @@
+<div class="overley" *ngIf="showLoader"></div>  
+  <div class="spinner" *ngIf="showLoader">
+        <div class="rect1"></div>
+        <div class="rect2"></div>
+        <div class="rect3"></div>
+        <div class="rect4"></div>
+        <div class="rect5"></div>
+  </div>
+
+
+
+<ion-header>
+
+  <ion-navbar color="blue">
+    <ion-title>Schedule</ion-title>
+  </ion-navbar>
+
+  <ion-toolbar no-border-top>
+      <ion-segment [(ngModel)]="scheduleTab">
+        <ion-segment-button value="class">
+          <p>
+            <img class="notice-img" style="height: 20px" src="assets/imgs/generalNotice.svg">
+          </p>        
+          Class Schedule
+        </ion-segment-button>
+        <ion-segment-button value="exam">
+            <p>
+              <img class="notice-img" style="height: 20px" src="assets/imgs/personalNotice.svg">
+            </p>
+          Exam Schedule
+        </ion-segment-button>
+      </ion-segment>        
+  </ion-toolbar>
+</ion-header>
+
+
+
+
+
+<ion-content no-padding>
+    <div [ngSwitch]="scheduleTab">
+      <ion-list *ngSwitchCase="'class'">
+          <ion-item *ngFor="let routine of routineList" style="padding-bottom: 0px; margin-bottom: 0px;" (click)="toggleDetails(routine)">
+            <ion-icon color="light" color="primary" item-right [name]="routine?.icon"></ion-icon>
+            {{routine?.dayName}}
+            <!-- <table *ngIf="routine.showDetails">{{routine}}</table> -->
+      
+            <ion-list *ngIf="routine?.showDetails" style="padding-bottom: 0px; margin-bottom: 0px;">
+              <ion-item *ngFor="let r of routine.priods" style="padding-bottom: 0px; margin-bottom: 0px;">
+
+                <ion-card style="background-color: #353434; color: #fff;">
+                    <ion-grid>
+                      <ion-row style="color: #fff;">
+                        <ion-col col-md-12 text-uppercase text-center style="color: #fff;">
+                          <h2 style="color: #fff;"><strong>{{r?.sub}}</strong></h2>
+                      </ion-col>
+                      </ion-row>
+                      <ion-row class="border">
+                        <ion-col col-md-4 >
+                          <p style="color: #fff;font-size: 1.1rem;"><strong>Time</strong>:</p>
+                          <p style="color: #fff;font-size: 1.1rem;">{{r?.from_time}} - {{r?.to_time}}</p>
+                        </ion-col>
+                        <ion-col col-md-4 style="color: #fff;">
+                          <p style="color: #fff;font-size: 1.1rem;"><strong>Room No</strong>:</p>
+                          <p style="color: #fff;font-size: 1.1rem;">{{r?.room}}</p>
+                        </ion-col>
+                        <ion-col col-md-4 style="color: #fff;">
+                          <p style="color: #fff;font-size: 1.1rem;"><strong>Floor</strong>:</p>
+                          <p style="color: #fff;font-size: 1.1rem;">{{r?.floor}}</p>
+                        </ion-col>
+                      </ion-row>
+                    </ion-grid>  
+                </ion-card>
+              </ion-item>            
+            </ion-list>
+
+
+            <ion-list *ngSwitchCase="'exam'"></ion-list>
+          
+          </ion-item>
+
+      </ion-list>
+    </div>
+
+
+
+
+<!-- <ion-card>
+<ion-grid>
+  <ion-row>
+    <ion-col col-md-12 text-uppercase text-center>
+    	<h2 ><strong>Bengali Honours</strong></h2>
+	</ion-col>
+  </ion-row>
+  <ion-row class="border">
+    <ion-col col-md-4 >
+    	<p><strong>Time</strong>:</p>
+    	<p>12PM-2PM</p>
+    </ion-col>
+    <ion-col col-md-4>
+    	<p><strong>Room No</strong>:</p>
+    	<p>12C</p>
+    </ion-col>
+    <ion-col col-md-4>
+    	<p><strong>Floor</strong>:</p>
+    	<p>2ND</p>
+    </ion-col>
+  </ion-row>
+</ion-grid>  
+</ion-card>
+
+
+<ion-card>
+<ion-grid>
+  <ion-row>
+    <ion-col col-md-12 text-uppercase text-center>
+    	<h2 ><strong>Philosophy Honours</strong></h2>
+	</ion-col>
+  </ion-row>
+  <ion-row class="border">
+    <ion-col col-md-4 >
+    	<p><strong>Time</strong>:</p>
+    	<p>2PM-4PM</p>
+    </ion-col>
+    <ion-col col-md-4>
+    	<p><strong>Room No</strong>:</p>
+    	<p>10</p>
+    </ion-col>
+    <ion-col col-md-4>
+    	<p><strong>Floor</strong>:</p>
+    	<p>3ND</p>
+    </ion-col>
+  </ion-row>
+</ion-grid>  
+</ion-card>
+
+<ion-card>
+<ion-grid>
+  <ion-row>
+    <ion-col col-md-12 text-uppercase text-center>
+    	<h2 ><strong>English Honours</strong></h2>
+	</ion-col>
+  </ion-row>
+  <ion-row class="border">
+    <ion-col col-md-4>
+    	<p><strong>Time</strong>:</p>
+    	<p>4PM-6PM</p>
+    </ion-col>
+    <ion-col col-md-4>
+    	<p><strong>Room No</strong>:</p>
+    	<p>12B</p>
+    </ion-col>
+    <ion-col col-md-4>
+    	<p><strong>Floor</strong>:</p>
+    	<p>2ND</p>
+    </ion-col>
+  </ion-row>
+</ion-grid>  
+</ion-card> -->
+</ion-content>

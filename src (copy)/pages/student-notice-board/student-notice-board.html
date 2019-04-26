@@ -1,0 +1,156 @@
+<div class="overley" *ngIf="showLoader"></div>  
+<div class="spinner" *ngIf="showLoader">
+        <div class="rect1"></div>
+        <div class="rect2"></div>
+        <div class="rect3"></div>
+        <div class="rect4"></div>
+        <div class="rect5"></div>
+</div>
+
+
+<ion-header>
+  <ion-navbar color="blue">
+    <ion-title>Notice Board</ion-title>
+    <ion-buttons end (click)=goToHome() *ngIf="localUserData == null">
+        <button ion-button icon-only>
+          <ion-icon name="home" color="light"></ion-icon>
+        </button>
+    </ion-buttons>
+  </ion-navbar>
+
+  <ion-toolbar no-border-top class="toolbar1">
+    <ion-segment [(ngModel)]="notice">
+      <ion-segment-button value="general">
+        <p>
+          <img class="notice-img" style="height: 20px" src="assets/imgs/generalNotice.svg">
+        </p>        
+        GENERAL NOTICE
+      </ion-segment-button>
+      <ion-segment-button value="personal">
+          <p>
+              <img class="notice-img" style="height: 20px" src="assets/imgs/personalNotice.svg">
+            </p>
+        PERSONAL NOTICE
+      </ion-segment-button>
+      <ion-segment-button value="departmental">
+          <p>
+              <img class="notice-img" style="height: 20px" src="assets/imgs/departmentalNotice.svg">
+            </p>
+        DEPARTMENTAL NOTICE
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+
+
+
+<ion-content>
+  <div [ngSwitch]="notice">
+
+    <ion-list *ngSwitchCase="'general'">
+        <ion-item *ngFor="let notice of generalNotice" style="background-color: #1b1b1b; color: #f6f6f6; border-bottom: 1px solid #3b3b3b">
+            <ion-thumbnail item-start (click)="presentProfileModal(notice.id)">
+              <img *ngIf="notice?.docType == 'pdf'" class="notice-img" src="assets/imgs/pdf_logo.svg">
+              <img *ngIf="!notice?.docType" class="notice-img" src="assets/icon/file.svg">
+              <img *ngIf="notice?.docType == 'docx'" class="notice-img" src="assets/icon/doc.svg">
+            </ion-thumbnail>
+            <h2 (click)="presentProfileModal(notice.id)">{{notice?.notice?.subject}}</h2>
+            <p style="font-size: 10px; color: #a0a0a0" (click)="presentProfileModal(notice.id)">{{notice?.notice?.text}}</p>
+            <!-- <p>{{notice?.noticetype?.type_name}}</p> -->
+            <ion-note style="font-size: 10px; color: #a0a0a0" item-end>{{notice?.created_at.substring(0,10)}}</ion-note>
+            <!-- <ion-note item-end style="font-size: 11px;">
+              {{notice?.timeDifference}}
+            </ion-note> -->
+            <a style="padding: 0px" *ngIf="notice?.notice?.file_url" ion-button clear target="_blank" href="http://softechs.co.in/school_hub/public/uploads/Notices/{{notice?.notice?.file_url}}">
+              <!-- <i class="fas fa-download fa-2x"></i> -->
+              View Pdf
+            </a>            
+        </ion-item>
+    </ion-list>
+
+
+    <ion-list *ngSwitchCase="'personal'">
+      <ion-item *ngFor="let notice of personalNotice" style="background-color: #1b1b1b; color: #f6f6f6; border-bottom: 1px solid #3b3b3b">
+        <ion-thumbnail item-start (click)="presentProfileModal(notice.id)">
+            <img *ngIf="notice?.docType == 'pdf'" class="notice-img" src="assets/imgs/pdf_logo.svg">
+            <img *ngIf="!notice?.docType" class="notice-img" src="assets/icon/file.svg">
+            <img *ngIf="notice?.docType == 'docx'" class="notice-img" src="assets/icon/doc.svg">
+        </ion-thumbnail>
+        <h2 (click)="presentProfileModal(notice.id)">{{notice?.notice?.subject}}</h2>
+        <p style="font-size: 10px; color: #a0a0a0" (click)="presentProfileModal(notice.id)">{{notice?.notice?.text}}</p>
+        <!-- <p>{{notice?.noticetype?.type_name}}</p> -->
+        <ion-note style="font-size: 10px; color: #a0a0a0" item-end>{{notice?.created_at.substring(0,10)}}</ion-note>
+        <!-- <p style="font-size: 10px; color: #a0a0a0">{{notice?.created_at}}</p> -->
+        <!-- <ion-note item-end style="font-size: 11px;">
+          {{notice?.timeDifference}}
+        </ion-note> -->
+        <a style="padding: 0px" *ngIf="notice?.notice?.file_url" ion-button clear target="_blank" href="http://softechs.co.in/school_hub/public/uploads/Notices/{{notice?.notice?.file_url}}">
+          <!-- <i class="fas fa-download fa-2x"></i> -->
+          View Pdf
+        </a>
+        
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'departmental'">
+        <ion-item *ngFor="let notice of departmentalNotice" style="background-color: #1b1b1b; color: #f6f6f6; border-bottom: 1px solid #3b3b3b">
+            <ion-thumbnail item-start (click)="presentProfileModal(notice.id)">
+                <img *ngIf="notice?.docType == 'pdf'" class="notice-img" src="assets/imgs/pdf_logo.svg">
+                <img *ngIf="!notice?.docType" class="notice-img" src="assets/icon/file.svg">
+                <img *ngIf="notice?.docType == 'docx'" class="notice-img" src="assets/icon/doc.svg">
+            </ion-thumbnail>
+            <h2 (click)="presentProfileModal(notice.id)">{{notice?.notice?.subject}}</h2>
+            <p style="font-size: 10px; color: #a0a0a0" (click)="presentProfileModal(notice.id)">{{notice?.notice?.text}}</p>
+            <!-- <p>{{notice?.noticetype?.type_name}}</p> -->
+            <!-- <p style="font-size: 10px; color: #a0a0a0">{{notice?.created_at}}</p> -->
+            <ion-note style="font-size: 10px; color: #a0a0a0" item-end>{{notice?.created_at.substring(0,10)}}</ion-note>
+            <!-- <ion-note item-end style="font-size: 11px;">
+              {{notice?.timeDifference}}
+            </ion-note> -->
+            <a style="padding: 0px" *ngIf="notice?.notice?.file_url" ion-button clear target="_blank" href="http://softechs.co.in/school_hub/public/uploads/Notices/{{notice?.notice?.file_url}}">
+              <!-- <i class="fas fa-download fa-2x"></i> -->
+              View Pdf
+            </a>
+            
+        </ion-item>
+    </ion-list>
+  </div>
+</ion-content>
+
+
+
+
+<ion-content *ngIf="!allNotice">
+    <ion-item>
+        <p text-center><strong>Nothing Found</strong></p>
+    </ion-item>
+</ion-content>
+
+<!-- <pdf-viewer [src]="pdfSrc" [render-text]="true" style="display: block;"></pdf-viewer> -->
+
+
+<!-- <ion-footer class="fixed" *ngIf="localUserData != null">
+  <ion-toolbar color="primary">  
+  <ion-grid text-center >
+    <ion-row>
+      <div col-3 (click)=goToHome()>
+        <img src="assets/imgs/white-icon5.png">
+        <p class="footer-p">Home</p>
+      </div>
+      <div col-3 (click)=gotoLiveStream()>
+        <img src="assets/imgs/white-icon1.png">
+        <p class="footer-p">Live Streaming</p>
+      </div>
+      <div col-3 (click)=goToAttendance()>
+        <img src="assets/imgs/white-icon2.png">
+        <p  class="footer-p">Attendance</p>
+      </div>
+      <div col-3 (click)=goToRoutine()>
+        <img src="assets/imgs/white-icon3.png">
+        <p  class="footer-p">Routine</p>
+      </div>
+    </ion-row>
+  </ion-grid>
+  </ion-toolbar>
+</ion-footer> -->

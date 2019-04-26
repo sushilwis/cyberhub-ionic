@@ -1,0 +1,17 @@
+page-stuff-change-pass {
+    .list-md .item-block .item-inner, .item-md.item-block .item-inner{
+        border-bottom: 1px solid #dedede;
+    }
+
+    .item-md.item-input.input-has-focus .item-inner{
+        box-shadow: none;
+        border-bottom-color: #dedede;
+    }
+    .item-md {
+        padding-left: 0px;
+    }
+
+    ion-app.md[padding] .scroll-content{
+        padding: 30px !important;
+    }
+}
