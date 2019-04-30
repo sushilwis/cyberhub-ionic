@@ -99,7 +99,7 @@ export class ChangepasswordPage implements OnInit {
 
   goToLogout() {
     localStorage.clear();
-    this.navCtrl.setRoot(HomePage);
+    this.navCtrl.setRoot(HomePage, {loader: false});
   }
 
 

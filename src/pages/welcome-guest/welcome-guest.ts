@@ -60,20 +60,19 @@ export class WelcomeGuestPage {
 
 
   onClickTab(value) {
-    // console.log('tab clicked', value); 
     if(value != '1'){
-      this.lists = [];
-      this.showHeader = true;
+      this.showHeader = true;      
+      this.lists = [];      
       this.getHeaderTitle(value);
       this.tabHeaderTitle = this.getHeaderTitle(value);
-      console.log('Header : ',this.tabHeaderTitle);
+      // console.log('Header : ',this.tabHeaderTitle);
       this.showRadio();
     }else{
-      this.lists = [];
       this.showHeader = false;
+      this.lists = [];      
       this.getHeaderTitle(value);
       this.tabHeaderTitle = this.getHeaderTitle(value);
-      console.log('Header : ',this.tabHeaderTitle);      
+      // console.log('Header : ',this.tabHeaderTitle);      
     }   
   }
 
@@ -401,7 +400,7 @@ export class WelcomeGuestPage {
 
 
   goToLibrarySection(org_id) {
-    console.log('id :...', org_id);  
+    // console.log('id :...', org_id);  
     this.navCtrl.push(StudentLibraryListPage, { data: org_id });  
   }
 
@@ -417,7 +416,7 @@ export class WelcomeGuestPage {
 
 
   goToEventSection(org_id){
-    console.log('id :...', org_id);  
+    // console.log('id :...', org_id);  
     this.navCtrl.push(SchoolcalenderPage, { data: org_id });
   }
 

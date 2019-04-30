@@ -95,11 +95,12 @@ export class SchoolDetailsPage implements OnInit {
       map(res => res.json()).subscribe(data => {
         // this.presentLoading(false);
         this.schoolDetails = data.data[0];
+        this.schoolDetails.website = this.websiteLinkFix(this.schoolDetails.website);
+        console.log('new link :...', this.schoolDetails.website);        
         this.pin = data.data[0].pin.replace(' ','');
-        // this.pin;
         this.getWeatherData();
-        console.log(this.pin);
-        console.log(this.schoolDetails);
+        // console.log(this.pin);
+        console.log('school details :....', this.schoolDetails);
         this.showLoader = false;
       })
   }
@@ -143,7 +144,7 @@ export class SchoolDetailsPage implements OnInit {
         this.navCtrl.setRoot(StaffInfoPage);
       }      
     } else {
-      this.navCtrl.setRoot(HomePage);
+      this.navCtrl.setRoot(HomePage, {loader: false});
     }    
   }
 
@@ -206,6 +207,31 @@ export class SchoolDetailsPage implements OnInit {
         this.showLoader = false; 
         // console.log('weather img link : ', this.temp );     
 			});
+  }
+
+
+
+
+
+
+
+  websiteLinkFix(link) {
+    let protocol = link.substring(0,7);
+    let web = link.substring(0,3);
+    // console.log(protocol);
+    // console.log(web);
+    if(protocol == 'http://'){
+      let newLink = link.replace('http://', 'http://www.');
+      return newLink;
+    }
+    if(web == 'www'){
+      let newLink = link.replace('www', 'http://www');
+      return newLink;
+    }
+    if(web != 'www' && protocol != 'http://'){
+      let newLink = `http://www.${link}`;
+      return newLink;
+    }
   }
 
 

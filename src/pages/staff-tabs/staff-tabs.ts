@@ -100,7 +100,7 @@ export class StaffTabsPage implements OnInit {
 
   goToLogout() {
     localStorage.clear();
-    this.navCtrl.setRoot(HomePage);
+    this.navCtrl.setRoot(HomePage, {loader: false});
   }
 
   getUserData() {

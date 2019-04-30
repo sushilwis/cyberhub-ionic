@@ -204,7 +204,7 @@ export class GuestEnquiryPage implements OnInit, AfterViewInit {
         this.navCtrl.setRoot(StaffInfoPage);
       }      
     } else {
-      this.navCtrl.setRoot(HomePage);
+      this.navCtrl.setRoot(HomePage, {loader: false});
     }    
   }
 

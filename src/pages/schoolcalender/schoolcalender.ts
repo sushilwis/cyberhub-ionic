@@ -90,7 +90,7 @@ export class SchoolcalenderPage implements OnInit{
         this.navCtrl.setRoot(StaffInfoPage);
       }      
     } else {
-      this.navCtrl.setRoot(HomePage);
+      this.navCtrl.setRoot(HomePage, {loader: false});
     }    
   }
 

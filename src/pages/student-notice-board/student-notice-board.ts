@@ -82,7 +82,7 @@ export class StudentNoticeBoardPage implements OnInit {
         this.navCtrl.setRoot(StaffInfoPage);
       }      
     } else {
-      this.navCtrl.setRoot(HomePage);
+      this.navCtrl.setRoot(HomePage, {loader: false});
     }    
   }
 
