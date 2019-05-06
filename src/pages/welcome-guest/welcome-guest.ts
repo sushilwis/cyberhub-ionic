@@ -251,10 +251,11 @@ export class WelcomeGuestPage {
       text: 'Cancel',
       cssClass: "cancelBtn",
       handler: data => {
-        console.log('cancel clicked :...', );
-        this.navCtrl.push(WelcomeGuestPage);        
+        // console.log('cancel clicked :...', );
+        this.navCtrl.pop();        
       }
     });
+    
     alert.addButton({
       text: 'OK',
       cssClass: "okBtn",
@@ -416,7 +417,6 @@ export class WelcomeGuestPage {
 
 
   goToEventSection(org_id){
-    // console.log('id :...', org_id);  
     this.navCtrl.push(SchoolcalenderPage, { data: org_id });
   }
 

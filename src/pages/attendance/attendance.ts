@@ -50,7 +50,6 @@ export class AttendancePage {
   ) {
     this.showLoader = true;
     this.menuCtrl.enable(false);
-    // this.initLoader();
   }
 
   ngOnInit() {

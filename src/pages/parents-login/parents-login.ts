@@ -6,12 +6,7 @@ import { ParentHomePage } from '../parent-home/parent-home';
 // import { FcmProvider } from '../../providers/fcm/fcm';
 import { Http, RequestOptions, Headers, Jsonp } from '@angular/http';
 import { apiUrl } from '../../apiUrl';
-/**
- * Generated class for the ParentsLoginPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+
 
 @IonicPage()
 @Component({
