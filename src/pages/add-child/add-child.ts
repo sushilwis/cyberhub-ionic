@@ -128,7 +128,7 @@ export class AddChildPage {
           console.log('child details : ', data.data[0]);
           this.stdDetails = data.data[0];
   
-          this.showAlert('Confirm', `<label style="font-size: 11px;">Name : ${this.stdDetails.studentmaster.name}</label><br><label>User Name : ${this.stdDetails.username}</label><br><label>Organization : ${this.stdDetails.orgmaster.org_name}</label>`);
+          this.showAlert('Confirm', `<label style="font-size: 11px;">Name : ${this.stdDetails.studentmaster.name}</label><br><label>User Name : ${this.stdDetails.username}</label><br><label>Organization : ${this.stdDetails.studentmaster.orgmaster.org_name}</label>`);
         }else{
           this.showLoader = false;
           this.showAlert('Alert!', 'Student not found. Please check the Username.');
