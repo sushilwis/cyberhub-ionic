@@ -6,6 +6,7 @@ import { Http, RequestOptions, Headers, Jsonp } from '@angular/http';
 import { apiUrl } from '../../apiUrl';
 import { StudentLibraryListPage } from '../student-library-list/student-library-list';
 import { SchoolcalenderPage } from '../schoolcalender/schoolcalender';
+import { SchoolDetailsPage } from '../school-details/school-details';
 
 
 @IonicPage()
@@ -169,7 +170,11 @@ export class WelcomeGuestPage {
       case '5':
         return "Skill Development";        
       case '6':
-        return "Staff Details";       
+        return "Staff Details"; 
+      case '7':
+        return "Admission"; 
+      case '8':
+        return "Online Payment";         
       default:
         return "";
     }
@@ -260,7 +265,7 @@ export class WelcomeGuestPage {
       text: 'OK',
       cssClass: "okBtn",
       handler: data => {
-        // console.log(data);
+        console.log(data);
         if(data != '' && data != null){
           this.typeId = data;
           this.getData(data, this.skip);
@@ -335,6 +340,22 @@ export class WelcomeGuestPage {
           this.showAlert('Alert!', 'No Data Found !');        
         }       
       });
+  }
+
+
+
+
+
+
+  schoolsDetails(id) {
+    this.navCtrl.push(
+      SchoolDetailsPage,
+      {
+        id: id,
+        admission :1
+      },
+      { animation: "transition", duration: 1000, direction: "forward" }
+    );
   }
 
 

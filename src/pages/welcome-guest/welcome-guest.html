@@ -83,26 +83,26 @@
    </div>
 
 
-<div [ngSwitch]="guestTab">
-    <div *ngSwitchCase="'library'">
+  <div [ngSwitch]="guestTab">
+      <div *ngSwitchCase="'library'">
 
-      <ion-list class="search-result">
-        <ion-item *ngFor="let item of lists" (click)="goToLibrarySection(item.id)">
-          {{ item?.name }}
-          <p class="col-result-add">{{ item?.landmark }}, {{ item?.city }}</p>
-          <ion-note item-end class="note note-md">
-            {{ item?.org }}
-          </ion-note>
-        </ion-item>
-      </ion-list> 
-    
-    
-      <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
-        <ion-infinite-scroll-content></ion-infinite-scroll-content>
-      </ion-infinite-scroll>
+        <ion-list class="search-result">
+          <ion-item *ngFor="let item of lists" (click)="goToLibrarySection(item.id)">
+            {{ item?.name }}
+            <p class="col-result-add">{{ item?.landmark }}, {{ item?.city }}</p>
+            <ion-note item-end class="note note-md">
+              {{ item?.org }}
+            </ion-note>
+          </ion-item>
+        </ion-list> 
+      
+      
+        <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+          <ion-infinite-scroll-content></ion-infinite-scroll-content>
+        </ion-infinite-scroll>
 
-    </div>
-</div>
+      </div>
+  </div>
 
 
 <div [ngSwitch]="guestTab">
@@ -143,6 +143,52 @@
         </ion-infinite-scroll>
     </div>
 </div>
+
+
+
+  <div [ngSwitch]="guestTab">
+      <div *ngSwitchCase="'admission'">
+
+        <ion-list class="search-result">
+          <ion-item *ngFor="let item of lists" (click)="schoolsDetails(item.id)">
+            {{ item?.name }}
+            <p class="col-result-add">{{ item?.landmark }}, {{ item?.city }}</p>
+            <ion-note item-end class="note note-md">
+              {{ item?.org }}
+            </ion-note>
+          </ion-item>
+        </ion-list> 
+      
+      
+        <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+          <ion-infinite-scroll-content></ion-infinite-scroll-content>
+        </ion-infinite-scroll>
+
+      </div>
+  </div>
+
+
+
+  <div [ngSwitch]="guestTab">
+      <div *ngSwitchCase="'payment'">
+
+        <ion-list class="search-result">
+          <ion-item *ngFor="let item of lists">
+            {{ item?.name }}
+            <p class="col-result-add">{{ item?.landmark }}, {{ item?.city }}</p>
+            <ion-note item-end class="note note-md">
+              {{ item?.org }}
+            </ion-note>
+          </ion-item>
+        </ion-list> 
+      
+      
+        <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+          <ion-infinite-scroll-content></ion-infinite-scroll-content>
+        </ion-infinite-scroll>
+
+      </div>
+  </div>
 
 </ion-content>
 
@@ -194,6 +240,34 @@
             Staff Details
           </ion-segment-button>
         </ion-segment>
-    </ion-toolbar>
-  
+    </ion-toolbar> 
+    
+    
+    <ion-toolbar no-border-top>
+      <ion-segment [(ngModel)]="guestTab">
+
+        <ion-segment-button value="admission" (click)="onClickTab('7')">
+          <p>
+            <img class="notice-img" style="height: 20px" src="assets/icon/calender_btn.svg">
+          </p>        
+          Admission
+        </ion-segment-button>
+
+        <ion-segment-button value="payment" (click)="onClickTab('8')">
+            <p>
+              <img class="notice-img" style="height: 20px" src="assets/imgs/departmentalNotice.svg">
+            </p>
+          Online Payment  
+        </ion-segment-button>
+
+        <ion-segment-button value="stuff" (click)="onClickTab('9')">
+          <!-- <p>
+            <img class="notice-img" style="height: 20px" src="assets/imgs/departmentalNotice.svg">
+          </p>
+          Staff Details -->
+        </ion-segment-button>
+
+      </ion-segment>
+    </ion-toolbar> 
+
   </ion-footer>

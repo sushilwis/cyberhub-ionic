@@ -59,6 +59,9 @@ export class AddChildPage {
         text: 'OK',
         cssClass: "okBtn",
         handler: () => {
+          console.log('ok pressed on alert.'); 
+          console.log('std details : ...', this.stdDetails); 
+          this.saveChild();          
         }
       }
     ]

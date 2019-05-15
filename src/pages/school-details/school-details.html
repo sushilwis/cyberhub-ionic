@@ -94,7 +94,7 @@
       </div>
 
 
-      <div [innerHtml]="schoolDetails?.org_text"></div>
+      <!-- <div [innerHtml]="schoolDetails?.org_text"></div> -->
         <!-- <p><strong>About</strong> : </p>
         <div [innerHtml]="schoolDetails?.org_about" class="mt-4"></div> -->
         <!-- <ion-toolbar no-border-top *ngIf="schoolDetails?.is_registered == '1'">
@@ -116,7 +116,7 @@
 
 
 
-  <ion-card>    
+  <ion-card *ngIf="isAdmission">    
     <ion-card-content>
       <div class="info" style="padding: 10px; height: 80px;">
         <div class="" *ngIf="weatherdata">
@@ -176,7 +176,7 @@
   
 
 
-  <ion-grid>
+  <ion-grid *ngIf="isAdmission">
       <ion-row>
         <ion-col col-6>
           <div><img src="https://image.shutterstock.com/image-vector/classical-school-building-bus-isolated-260nw-306667898.jpg" alt="gallary" class="img-thumbnail"></div>

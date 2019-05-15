@@ -36,12 +36,15 @@ export class SchoolDetailsPage implements OnInit {
   minTemp: number;
   humidity: any;
   showLoader: boolean;
+  isAdmission: boolean = false;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     private http: Http, public loadingController: LoadingController, private menuCtrl: MenuController, public platform: Platform) {
     this.showLoader = true;
     this.getUserDataFromLocal();
     this.schoolId = navParams.get('id');
+    this.isAdmission = navParams.get('admission');
+    console.log(navParams.get('admission'));
     
     // this.initLoader();
     this.menuCtrl.enable(false);
@@ -89,7 +92,7 @@ export class SchoolDetailsPage implements OnInit {
       org_id: id,
     }
 
-    console.log('data : ', data);    
+    // console.log('data : ', data);    
 
     this.http.post(`${apiUrl.url}org/getdetail`, data, {headers: header}).
       map(res => res.json()).subscribe(data => {
