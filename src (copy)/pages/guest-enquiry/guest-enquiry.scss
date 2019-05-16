@@ -1,0 +1,122 @@
+page-guest-enquiry {
+  background-color: #fff;
+  overflow-y: inherit;
+
+  ion-app.md [padding],
+  ion-app.ios [padding] {
+    padding: 0px !important;
+  }
+
+  .scroll-content {
+    padding: 0px !important;
+  }
+
+  h1 {
+    margin-bottom: 0px;
+  }
+
+  .item-center {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    justify-content: center;
+    height: 100%;
+    flex-direction: column;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .search-icon i {
+    color: #fff;
+    padding-top: 5px;
+    padding-right: 10px;
+  }
+
+  .enquiry-form {
+    /*background: linear-gradient(141deg, #23309e 0%, #1b7bc5 51%, #2635bf 75%);*/
+    width: 95%;
+    padding: 10px 20px;
+    margin: 0 auto;
+  }
+
+  .select-css {
+    margin-bottom: 10px;
+  }
+
+  .enquiry-form h1 {
+    // color: #0d1ca4;
+    color: #000;
+    font-size: 20px;
+  }
+
+  .mt-10 {
+    margin-top: 20px;
+  }
+
+  .search-result {
+    position: absolute;
+    left: 0;
+    /* top: 56px; */
+    background: rgba(255, 255, 255, 0.839);
+    width: 100%;
+    // height: 100vh;
+    z-index: 99;
+    border: 1px solid #ddd;
+    overflow-y: scroll;
+    /* visibility: hidden; */
+    /* opacity: 0; */
+  }
+
+  // .item-md{
+  // 	background-color: rgba(255, 255, 255, 0.502);
+  // }
+
+  .top-heading {
+    text-decoration: underline;
+    font-size: 16px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+  }
+
+  .btn-size {
+    padding: 15px 25px !important;
+  }
+
+  .input-wrapper {
+    border-bottom: 1px solid #888686;
+  }
+
+  .item-inner {
+    padding-right: 16px !important;
+  }
+
+  .overley {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000;
+    opacity: 0.6;
+    z-index: 999999999;
+  }
+
+
+  //   .alert-wrapper.alert-button-group button {
+  //     background-color: #1b1b1b !important;
+  //   }
+
+
+  //   .alert-md .alert-button {
+  //     background-color: #1b1b1b !important;
+  //   }
+
+  //   ion-alert div[class="alert-radio-label"] {
+  //     // your style.
+  //     background-color: #1b1b1b !important;
+  //   }
+
+
+
+}

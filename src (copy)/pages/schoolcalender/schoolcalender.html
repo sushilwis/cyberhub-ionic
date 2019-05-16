@@ -1,0 +1,38 @@
+
+<div class="overley" *ngIf="showLoader"></div>  
+<div class="spinner" *ngIf="showLoader">
+        <div class="rect1"></div>
+        <div class="rect2"></div>
+        <div class="rect3"></div>
+        <div class="rect4"></div>
+        <div class="rect5"></div>
+</div>
+
+
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>{{viewTitle}}</ion-title>
+
+    <ion-buttons end (click)=goToHome() *ngIf="localUserData == null">
+        <button ion-button icon-only>
+          <ion-icon name="home" color="light"></ion-icon>
+        </button>
+    </ion-buttons>
+    
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+  <!-- <ion-buttons end>
+    <button ion-button [disabled]="isToday" (click)="today()">Today</button>
+  </ion-buttons>
+  
+  <br> -->
+
+  <calendar [eventSource]="eventSource" [calendarMode]="calendar.mode" [currentDate]="calendar.currentDate" (onCurrentDateChanged)="onCurrentDateChanged($event)"
+    (onRangeChanged)="reloadSource(startTime, endTime)" (onEventSelected)="onEventSelected($event)" (onTitleChanged)="onViewTitleChanged($event)"
+    (onTimeSelected)="onTimeSelected($event)" step="30">
+  </calendar>
+
+</ion-content>

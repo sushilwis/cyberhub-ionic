@@ -4,7 +4,7 @@ page-welcome-guest {
     border-top: 1px solid rgb(83, 83, 83);
     border-bottom: 1px solid rgb(83, 83, 83);
     padding: 10px;
-    margin: 0px 16px 25px 16px;
+    margin: 30px 16px 25px 16px;
     // color: rgb(83, 83, 83);
     color: #8a8a8a;
   }
@@ -99,4 +99,59 @@ page-welcome-guest {
   .segment-md .segment-button.segment-activated {
     border-color: #cacaca;
   }
+
+
+  .custom-header .toolbar-background-md {
+    background-color: #009688 !important;
+  }
+
+
+  .search-result{
+		position: absolute;
+		left: 0;
+		/* top: 56px; */
+		background: rgba(255, 255, 255, 0.839);
+		width: 100%;
+		// height: 100vh;
+		z-index: 99;
+		border: 1px solid #ddd;
+        overflow-y: scroll;
+        
+		/* visibility: hidden; */
+		/* opacity: 0; */
+    }
+
+
+
+    .col-result-add {
+      color: #fff;
+      opacity: .6;
+      font-size: 11px;
+      margin-top: 5px;
+    }
+
+
+
+  .note-md {
+    color: #fff;
+    opacity: .3;
+    font-size: 11px;
+    margin: -10px 8px 9px 0 !important;
+  }
+
+
+
+  .overley {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000;
+    opacity: 0.6;
+    z-index: 999999999;
+  }
+
+  
+
 }

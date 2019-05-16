@@ -1,7 +1,18 @@
+<div class="overley" *ngIf="showLoader"></div>  
+<div class="spinner" *ngIf="showLoader">
+        <div class="rect1"></div>
+        <div class="rect2"></div>
+        <div class="rect3"></div>
+        <div class="rect4"></div>
+        <div class="rect5"></div>
+</div>
+
+
+
 <ion-content padding>
   <!-- <h5 class="title" text-center text-uppercase margin-bottom>Stuff Registration</h5> -->
 
-  <div text-center margin-top>
+  <div text-center style="margin-top: 40px;">
     <h4 style="font-size: 1.9rem;">
       <img class="login-page-logo" src="assets/icon/cyverhub_logo.svg">
       <img class="straight-line" src="assets/icon/substract.svg"> Welcome Guardian !
@@ -9,7 +20,7 @@
   </div>
 
 
-  <p class="sub-line" style="margin-top: 25px; padding: 10px;">
+  <p class="sub-line" style="margin-top: 30px; padding: 10px;">
     <span>Register with institution<br> of your child to get the most out<br>of this application.</span>
   </p>
   <p class="" text-center text-capitalize margin-bottom style="text-decoration: underline; font-size: 16px;">Please fill the following details</p>
@@ -81,9 +92,9 @@
   </div>
 
   
-  <div text-capitalize text-center margin-top>
+  <!-- <div text-capitalize text-center margin-top>
     <p (click)='goToParentsLogin()' style="font-size: 16px; cursor: pointer; font-weight: bold; margin-top: 40px;">already registered?<br> click here to login now.</p>
-  </div>
+  </div> -->
 </ion-content>
 
 

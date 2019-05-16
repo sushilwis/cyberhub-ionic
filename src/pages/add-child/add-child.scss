@@ -103,4 +103,14 @@ page-add-child {
         padding-left: 25px !important;
         padding-right: 25px !important;
     }
+    .overley {
+		position: fixed;
+		top: 0px;
+		left: 0px;
+		width: 100vw;
+		height: 100vh;
+		background-color: #000;
+		opacity: 0.6;
+		z-index: 999999999;
+	}
 }

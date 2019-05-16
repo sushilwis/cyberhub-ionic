@@ -1,0 +1,40 @@
+<ion-content class="item-center" padding color="secondary">
+	<div text-center style="margin-top: 40px;">
+		<h4 style="font-size: 1.9rem;">
+			<img class="login-page-logo" src="assets/icon/cyverhub_logo.svg">
+			<img class="straight-line" src="assets/icon/substract.svg"> Welcome Guardian !
+		</h4>
+	</div>
+
+	<div class="enquiry-form">
+		<p class="sub-line">
+			<span>Login to access features<br>which provide with you.</span>
+			</p>
+			<p class="" text-center text-capitalize margin-bottom style="text-decoration: underline; font-size: 16px;">Login with your credentials</p>
+	 	<form>
+			<ion-list style="background-color: none;">
+
+			  <ion-item>
+			  	<ion-label floating style="color: #9a9a9a"> <ion-icon ios="ios-mail" md="md-mail"></ion-icon> Account ID</ion-label>
+			    <ion-input type="text" name="regID" no-margin [(ngModel)]="parent_id"></ion-input>
+				</ion-item>
+				<p class="input-info">Which Created by Cyberhub</p>
+				
+			  <ion-item>
+			  	<ion-label floating style="color: #9a9a9a"> <ion-icon name="lock"></ion-icon> Account Password</ion-label>
+			    <ion-input type="password" name="pass" no-margin [(ngModel)]="parent_password"></ion-input>
+				</ion-item>
+				<p class="input-info">Which Created by Cyberhub</p>
+
+				<div text-center style="margin-top: 25px;">
+					<button ion-button color="blue" class="btn-size mt-10" (click)="parentLogin()">Submit</button>
+				</div>
+
+				<div text-capitalize text-center margin-top>
+						<p style="font-size: 16px; cursor: pointer; margin-top: 40px;" (click)='goToParentsReg()'>Not registered yet?<br> click here to get registered now.</p>
+				</div>
+			</ion-list>
+		</form>
+	</div>
+
+</ion-content>

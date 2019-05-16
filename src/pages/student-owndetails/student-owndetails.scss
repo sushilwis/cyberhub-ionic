@@ -159,7 +159,7 @@ page-student-owndetails {
 
   .weatherdata1 {
     position: relative;
-    top: -73px;
+    top: -40px;
     left: 72px;
   }
 
@@ -169,6 +169,17 @@ page-student-owndetails {
 
   .badge-md {
     background: none !important;
+  }
+
+  .overley {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000;
+    opacity: 0.6;
+    z-index: 999999999;
   }
 
 

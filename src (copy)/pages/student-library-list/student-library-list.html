@@ -1,0 +1,80 @@
+
+<div class="overley" *ngIf="showLoader"></div>  
+<div class="spinner" *ngIf="showLoader">
+        <div class="rect1"></div>
+        <div class="rect2"></div>
+        <div class="rect3"></div>
+        <div class="rect4"></div>
+        <div class="rect5"></div>
+</div>
+
+
+<ion-header>
+  <ion-navbar color="" >
+    <ion-title>List of Books</ion-title>
+      <!-- <ion-buttons end class="search-icon">
+        <i class="fas fa-search fa-lg"></i> </ion-buttons> -->
+  </ion-navbar>
+  <!-- <ion-toolbar>
+    <ion-searchbar (keyup)="onChangeSearch($event)"></ion-searchbar>
+  </ion-toolbar> -->
+</ion-header>
+
+
+<ion-content>
+
+    <ion-list *ngIf="showNotFound">
+        <ion-item text-center>
+          <p>Not Found Any Book</p>
+        </ion-item>
+    </ion-list>
+
+    <!-- <ion-toolbar> -->
+  <ion-searchbar id="booksearch" class="library-book-search" (keyup)="onChangeSearch($event)" (focusin)="onFocusSearch()" (focusout)="onUnFocusSearch()" style="background-color: transparent; border-bottom: 1px solid #b59292; color: #fff;"></ion-searchbar>
+    
+
+    <ion-list *ngIf="allBookList.length > 0">
+      <ion-item *ngFor="let book of allBookList" (click)="presentProfileModal(book.id)" style="background-color: #1b1b1b; color: #f6f6f6; border-bottom: 1px solid #fff">
+        <ion-thumbnail item-start>
+          <img src="assets/imgs/book.png">
+        </ion-thumbnail>
+        <h2 *ngIf="book.book_name" class="book-name"><strong>{{book.book_name}}</strong></h2>
+        <p style="color: #a0a0a0"><strong>Writer </strong>: {{book.author}}</p>
+        <!-- <small><strong>Number of Copies</strong>: {{book.no_copy}}</small> -->
+        <!-- <small>Subject Name : {{book.no_copy}}</small> -->
+      </ion-item>
+    </ion-list>
+
+    <!-- <ion-infinite-scroll (ionInfinite)="doInfinite($event)" *ngIf="page < totalPage">
+      <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more..."></ion-infinite-scroll-content>
+    </ion-infinite-scroll> -->
+    <!-- *ngIf="page < totalPage" *ngIf="book.book_name"-->
+
+</ion-content>
+
+
+
+<!-- <ion-footer class="fixed">
+  <ion-toolbar color="primary">  
+  <ion-grid text-center >
+    <ion-row>
+      <div col-3 (click)=goToHome()>
+        <img src="assets/imgs/white-icon5.png">
+        <p class="footer-p">Home</p>
+      </div>
+      <div col-3 (click)=gotoLiveStream()>
+        <img src="assets/imgs/white-icon1.png">
+        <p class="footer-p">Live Streaming</p>
+      </div>
+      <div col-3 (click)=goToAttendance()>
+        <img src="assets/imgs/white-icon2.png">
+        <p  class="footer-p">Attendance</p>
+      </div>
+      <div col-3 (click)=goToRoutine()>
+        <img src="assets/imgs/white-icon3.png">
+        <p  class="footer-p">Routine</p>
+      </div>
+    </ion-row>
+  </ion-grid>
+  </ion-toolbar>
+</ion-footer> -->

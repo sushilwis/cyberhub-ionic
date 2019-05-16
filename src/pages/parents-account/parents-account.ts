@@ -14,6 +14,7 @@ import { Transfer, FileUploadOptions } from '@ionic-native/transfer';
   templateUrl: 'parents-account.html',
 })
 export class ParentsAccountPage {
+
   localUserData: any;
   orgDetails: any;
   loading: any;
@@ -21,10 +22,12 @@ export class ParentsAccountPage {
   profile_image: string;
   imageURI:any;
   imageFileName:any = "assets/imgs/student-icon.png";
+  showLoader: boolean;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public menuCtrl: MenuController, public loadingController: LoadingController, private http: Http, public jsonp: Jsonp, public modalCtrl: ModalController, private camera: Camera, public loadingCtrl: LoadingController, public toastCtrl: ToastController, public actionSheetCtrl: ActionSheetController, public platform: Platform, public transfer: Transfer) {
+    this.showLoader = true;
     this.menuCtrl.enable(true);
-    this.initLoader();
+    // this.initLoader();
   }
 
 
@@ -41,13 +44,13 @@ export class ParentsAccountPage {
 
 
   goToPassword() {
-    console.log('change pass...');
+    // console.log('change pass...');
     this.navCtrl.push(StuffChangePassPage);    
   }
 
 
   goToEditProfile() {
-    console.log('edit profile...');
+    // console.log('edit profile...');
 
     let editData = {
       id: this.teacherDetails.id,
@@ -63,7 +66,8 @@ export class ParentsAccountPage {
 
 
   getTeacherDetails() {
-    this.presentLoading(true);
+    this.showLoader = true;
+    // this.presentLoading(true);
 
 		var headers = new Headers();
 		headers.append('Content-Type', 'application/json');
@@ -78,16 +82,13 @@ export class ParentsAccountPage {
 			map(res => res.json()).subscribe(data => {				
 				
 				if (data.data[0]) {
-          this.presentLoading(false);
+          this.showLoader = false;
+          // this.presentLoading(false);
           this.teacherDetails = data.data[0];
-          console.log('teacher details : ', data.data[0]);
-
-          // if(data.data[0].nameclass){
-          //   this.showSelectDepartmentBtn = false;
-          // }else{
-          //   this.showSelectDepartmentBtn = true;
-          // }
-				}
+          // console.log('teacher details : ', data.data[0]);
+				}else{
+          this.showLoader = false;
+        }
 			});
   }
 
@@ -96,28 +97,28 @@ export class ParentsAccountPage {
 
 
 
-  presentLoading(load: boolean) {
-		if (load) {
-			return this.loading.present();
-		}
-		else {
-			setTimeout(() => {
-				return this.loading.dismiss();
-			}, 1000);
-		}
-  }
+  // presentLoading(load: boolean) {
+	// 	if (load) {
+	// 		return this.loading.present();
+	// 	}
+	// 	else {
+	// 		setTimeout(() => {
+	// 			return this.loading.dismiss();
+	// 		}, 1000);
+	// 	}
+  // }
 
 
 
   
 
 
-  initLoader() {
-		this.loading = this.loadingController.create({
-			spinner: 'hide',
-			content: '<img class="loader-class" src="assets/icon/tail-spin.svg"> <p>Loading please wait...</p>',
-		});
-  }
+  // initLoader() {
+	// 	this.loading = this.loadingController.create({
+	// 		spinner: 'hide',
+	// 		content: '<img class="loader-class" src="assets/icon/tail-spin.svg"> <p>Loading please wait...</p>',
+	// 	});
+  // }
 
 
   
@@ -128,10 +129,9 @@ export class ParentsAccountPage {
     this.localUserData = JSON.parse(data);
     // console.log('local data : ', this.localUserData); 
     if(this.localUserData.profile_image){
-      this.profile_image = `${apiUrl.url}public/uploads/profile_pic/${this.localUserData.profile_image}`
-
+      this.profile_image = `${apiUrl.url}public/uploads/profile_pic/${this.localUserData.profile_image}`;
     }else{
-      this.profile_image = `assets/imgs/student-icon.png`
+      this.profile_image = `assets/imgs/student-icon.png`;
     }   
   }
 
@@ -246,6 +246,7 @@ export class QuesmodalPage {
   guarId: string;
   securityPin: number;
   btnDisabled: boolean = false;
+  showLoader: boolean;
   // showDeptSelection: boolean = true;
 
   constructor(
@@ -263,6 +264,7 @@ export class QuesmodalPage {
   ) {
     // var characters = [];
     // this.character = characters[this.params.get('charNum')];
+    this.showLoader = true;
     this.getUserDataFromLocal();
   }
 
@@ -307,6 +309,7 @@ export class QuesmodalPage {
   // ----------- submit Guardian Info function -----------
   // ########################################################################
   submitSecurityPin() {
+    this.showLoader = true;
     let header = new Headers();
     header.set("Content-Type", "application/json");
 
@@ -321,12 +324,14 @@ export class QuesmodalPage {
       .map(res => res.json())
       .subscribe(
         getdata => {
-          console.log('after add pin submit : ', getdata);
+          // console.log('after add pin submit : ', getdata);
           if (getdata.status == 1) {
+            this.showLoader = false;
             this.dismiss();
             localStorage.setItem("securitypinadded", JSON.stringify(data));
             // this.navCtrl.push();
           } else {
+            this.showLoader = false;
             // this.presentToast('Sorry, Something went wrong.');
           }
         });
@@ -338,7 +343,7 @@ export class QuesmodalPage {
   // checkForValidPin
   checkForValidPin() {
     let pinString = this.securityPin.toString();
-    console.log('pin length : ', pinString.length);
+    // console.log('pin length : ', pinString.length);
     if (pinString.length === 6) {
       this.btnDisabled = true;
     } else {

@@ -161,13 +161,25 @@ page-staff-info {
 
 		.weatherdata1 {
 			position: relative;
-			top: -73px;
+			top: -50px;
 			left: 72px;
 		}
 
 
 		.wether-icon1 {
 			width: 70px;
+		}
+
+
+		.overley {
+			position: fixed;
+			top: 0px;
+			left: 0px;
+			width: 100vw;
+			height: 100vh;
+			background-color: #000;
+			opacity: 0.6;
+			z-index: 999999999;
 		}
 		
 }

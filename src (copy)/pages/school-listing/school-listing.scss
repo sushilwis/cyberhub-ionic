@@ -1,0 +1,62 @@
+page-school-listing {
+    html, body{
+        font-family: Roboto, Cochin, Georgia, Times, 'Times New Roman', serif;
+    }
+    .search-result{
+		position: absolute;
+		left: 0;
+		/* top: 56px; */
+		background: rgba(255, 255, 255, 0.839);
+		width: 100%;
+		// height: 100vh;
+		z-index: 99;
+		border: 1px solid #ddd;
+        overflow-y: scroll;
+        
+		/* visibility: hidden; */
+		/* opacity: 0; */
+    }
+    .toolbar-title-md {
+        color: #000;
+    }
+    .text-input{
+        background-color: #3f3f3f;
+    }
+    .item-md {
+        background-color: #3f3f3f;
+        color: #fff;
+        font-size: 13px;
+    }
+    .note-md{
+        color: #fff;
+        opacity: .3;
+        font-size: 11px;
+        margin: -10px 8px 9px 0 !important;
+    }
+    .col-result-add {
+        color: #fff;
+        opacity: .6;
+        font-size: 11px;
+        margin-top: 5px;
+    }
+    .item-input .label-md, .item-select .label-md, .item-datetime .label-md {
+        color: #795548;
+    }
+    .icon-md-light {
+        color: #000;
+    }
+    ion-app.md.scroll-content {
+        padding: 0px !important;
+    }
+    
+    .overley {
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        width: 100vw;
+        height: 100vh;
+        background-color: #000;
+        opacity: 0.6;
+        z-index: 999999999;
+    }
+}

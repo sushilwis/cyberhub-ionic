@@ -17,12 +17,14 @@ import { StaffTabsPage } from "../staff-tabs/staff-tabs";
 @IonicPage()
 @Component({
   selector: "page-staff-login",
-  templateUrl: "staff-login.html"
+  templateUrl: "staff-login.html",
 })
+
 export class StaffLoginPage implements OnInit {
   regID: any;
   pass: any;
   loading: any;
+  showLoader: boolean;
 
   constructor(
     public navCtrl: NavController,
@@ -32,14 +34,16 @@ export class StaffLoginPage implements OnInit {
     public loadingController: LoadingController,
     public fcm: FcmProvider
   ) {
-    this.initLoader();
+    // this.initLoader();
   }
 
   ngOnInit() {
+    this.showLoader = true;
     localStorage.clear();
   }
 
   ionViewDidLoad() {
+    this.showLoader = false;
     console.log("ionViewDidLoad StaffLoginPage");
   }
 
@@ -47,17 +51,17 @@ export class StaffLoginPage implements OnInit {
     this.navCtrl.push(StaffInfoPage);
   }
 
-  initLoader() {
-    this.loading = this.loadingController.create({
-      spinner: "hide",
-      content:
-        '<img class="loader-class" src="assets/icon/tail-spin.svg"> <p>Loading please wait...</p>'
-    });
-  }
+  // initLoader() {
+  //   this.loading = this.loadingController.create({
+  //     spinner: "hide",
+  //     content:
+  //       '<img class="loader-class" src="assets/icon/tail-spin.svg"> <p>Loading please wait...</p>'
+  //   });
+  // }
 
 
   gotoHome() {
-    this.navCtrl.setRoot(HomePage);
+    this.navCtrl.setRoot(HomePage, {loader: false});
   }
 
   goToRegister() {
@@ -70,8 +74,9 @@ export class StaffLoginPage implements OnInit {
   
 
   onStuffLoginSubmit() {
+    this.showLoader = true;
     if (this.regID && this.pass) {
-      this.presentLoading(true);
+      // this.presentLoading(true);
       // localStorage.removeItem('userData');
       var headers = new Headers();
       headers.append("Content-Type", "application/json");
@@ -88,22 +93,25 @@ export class StaffLoginPage implements OnInit {
         .post(`${apiUrl.url}user/applogin`, data, options)
         .map(res => res.json())
         .subscribe(data => {
-          console.log("stuff login info : ", data.data);
+          // console.log("stuff login info : ", data.data);
           if (data.data.length > 0) {
+            this.showLoader = false;
             // console.log(data.data[0]);
             localStorage.setItem("userData", JSON.stringify(data.data[0]));
             this.fcm.getToken();
-            this.presentLoading(false);
+            // this.presentLoading(false);
             this.navCtrl.setRoot(StaffTabsPage);
           } else {
+            this.showLoader = false;
             this.showAlert(
               "Alert!",
               "User not found. Please check your ID or Password"
             );
-            this.presentLoading(false);
+            // this.presentLoading(false);
           }
         });
     } else {
+      this.showLoader = false;
       this.showAlert("Alert!", "Please fill all the fields");
     }
   }
@@ -150,13 +158,17 @@ export class StaffLoginPage implements OnInit {
 
 
 
-  presentLoading(load: boolean) {
-    if (load) {
-      return this.loading.present();
-    } else {
-      setTimeout(() => {
-        return this.loading.dismiss();
-      }, 1000);
-    }
-  }
+  // presentLoading(load: boolean) {
+  //   if (load) {
+  //     return this.loading.present();
+  //   } else {
+  //     setTimeout(() => {
+  //       return this.loading.dismiss();
+  //     }, 1000);
+  //   }
+  // }
+
+
+
+
 }

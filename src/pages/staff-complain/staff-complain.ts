@@ -27,8 +27,10 @@ export class StaffComplainPage implements OnInit {
   btnDisabled: boolean = true;
   allMsgs: any;
   totalcomplain;
+  showLoader: boolean;
   
   constructor(public navCtrl: NavController, public navParams: NavParams, public menuCtrl: MenuController, public loadingController: LoadingController, private http: Http, public alertCtrl: AlertController) {
+    this.showLoader = true;
   }
 
   ngOnInit() {
@@ -39,6 +41,7 @@ export class StaffComplainPage implements OnInit {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad StaffComplainPage');
+    this.showLoader = false;
   }
 
   goHide() {
@@ -82,8 +85,10 @@ export class StaffComplainPage implements OnInit {
 
 
   async sendComplain() {
+    this.showLoader = true;
 
     if(this.totalcomplain >= '3') {
+      this.showLoader = false;
       this.showAlert('Alert!', 'Your complain limit is over, contact your upper authority');
       this.navCtrl.setRoot(StaffInfoPage);
     }else{
@@ -112,8 +117,10 @@ export class StaffComplainPage implements OnInit {
               this.countComplain();
               this.getComplainAndReplys();
               this.showAlert('Alert!', 'Your Complain has been Submited');
+              this.showLoader = false;
             } else {
               this.showAlert('Alert!', 'Something went wrong. Please try again');
+              this.showLoader = false;
             }
       });
 
@@ -125,6 +132,7 @@ export class StaffComplainPage implements OnInit {
 
 
   async getComplainAndReplys() {
+    this.showLoader = true;
     // this.presentLoading(true);
     await this.getUserDataFromLocal();
 
@@ -144,6 +152,9 @@ export class StaffComplainPage implements OnInit {
             console.log('message list data : ', data);
             if(data.data.length > 0){
               this.allMsgs = data.data;
+              this.showLoader = false;
+            }else{
+              this.showLoader = false;
             }
       });
   }
@@ -152,28 +163,28 @@ export class StaffComplainPage implements OnInit {
 
 
 
-  presentLoading(load: boolean) {
-		if (load) {
-			return this.loading.present();
-		}
-		else {
-			setTimeout(() => {
-				return this.loading.dismiss();
-			}, 1000);
-		}
-  }
+  // presentLoading(load: boolean) {
+	// 	if (load) {
+	// 		return this.loading.present();
+	// 	}
+	// 	else {
+	// 		setTimeout(() => {
+	// 			return this.loading.dismiss();
+	// 		}, 1000);
+	// 	}
+  // }
 
 
 
   
 
 
-  initLoader() {
-		this.loading = this.loadingController.create({
-			spinner: 'hide',
-			content: '<img class="loader-class" src="assets/icon/tail-spin.svg"> <p>Loading please wait...</p>',
-		});
-  }
+  // initLoader() {
+	// 	this.loading = this.loadingController.create({
+	// 		spinner: 'hide',
+	// 		content: '<img class="loader-class" src="assets/icon/tail-spin.svg"> <p>Loading please wait...</p>',
+	// 	});
+  // }
 
 
   

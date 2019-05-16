@@ -1,0 +1,47 @@
+<div class="overley" *ngIf="showLoader"></div>  
+<div class="spinner" *ngIf="showLoader">
+        <div class="rect1"></div>
+        <div class="rect2"></div>
+        <div class="rect3"></div>
+        <div class="rect4"></div>
+        <div class="rect5"></div>
+</div>
+
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Search Institution</ion-title>
+
+    <ion-buttons end (click)=goToHome()>
+				<button ion-button icon-only>
+          <!-- <ion-icon name="home" color="light"></ion-icon> -->
+          <img class="" src="assets/icon/Home_btn.svg" style="height: 18px"/>
+				</button>
+		</ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-label>
+        <ion-icon ios="ios-search" md="md-search"></ion-icon>
+      </ion-label>
+      <ion-input #search placeholder="Type Your Institution" (keyup)="getItems($event)" (click)="onSearchButtonClick()"></ion-input>
+    </ion-item>
+  </ion-list>
+    
+				
+  <ion-list class="search-result" [ngStyle]="{'display':isSearchbarOpened ? 'block' : 'none' }">
+    <ion-item *ngFor="let item of items" (click)="openActionSheet(item)">
+      {{ item?.name }}
+      <p class="col-result-add">{{ item?.landmark }}, {{ item?.city }}</p>
+      <ion-note item-end>
+        {{ item?.org }}
+      </ion-note>
+    </ion-item>
+  </ion-list>
+</ion-content>

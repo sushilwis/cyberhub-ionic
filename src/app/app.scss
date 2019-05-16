@@ -277,14 +277,19 @@ ion-icon {
 
 
 .spinner {
-  margin: 100px auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0px auto;
   width: 100px;
   height: 70px;
   text-align: center;
   font-size: 10px;
+  z-index: 99999999999;
 }
 
-.spinner > div {
+.spinner>div {
   background-color: #333;
   border-radius: 5px;
   height: 100%;
@@ -323,13 +328,16 @@ ion-icon {
   -webkit-animation-delay: -0.8s;
   animation-delay: -0.8s;
 }
+
 @keyframes sk-stretchdelay {
+
   0%,
   40%,
   100% {
     transform: scaleY(0.4);
     border-radius: 320px;
   }
+
   20% {
     transform: scaleY(1);
     border-radius: 50px;
@@ -342,12 +350,16 @@ ion-icon {
 }
 
 
-.item-md.item-input.ng-valid.item-input-has-value .item-inner, .item-md.item-input.ng-valid.input-has-value .item-inner, .list-md.item.item-block.item-md.item-select.item-input-has-value .item-inner, .list-md.item.item-block.item-md.item-select.input-has-value .item-inner {
+.item-md.item-input.ng-valid.item-input-has-value .item-inner,
+.item-md.item-input.ng-valid.input-has-value .item-inner,
+.list-md.item.item-block.item-md.item-select.item-input-has-value .item-inner,
+.list-md.item.item-block.item-md.item-select.input-has-value .item-inner {
   box-shadow: none !important;
   border-bottom: 1px solid #32db64 !important;
 }
 
-.list-md .item-block .item-input-has-value .item-inner, .list-md .item-block .input-has-value .item-inner {
+.list-md .item-block .item-input-has-value .item-inner,
+.list-md .item-block .input-has-value .item-inner {
   border-bottom: 1px solid #32db64 !important;
   box-shadow: none !important;
 }
@@ -366,17 +378,33 @@ ion-icon {
 }
 
 
-.list-md .item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus):last-child, .list-md .item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus):last-child{
+.list-md .item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus):last-child,
+.list-md .item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus):last-child {
   box-shadow: none !important;
 }
 
 
-.list-md .item-input.ng-valid.item-input-has-value:last-child, .list-md .item-input.ng-valid.input-has-value:last-child {
+.list-md .item-input.ng-valid.item-input-has-value:last-child,
+.list-md .item-input.ng-valid.input-has-value:last-child {
   border-bottom-color: #32db64 !important;
   box-shadow: none !important;
 }
 
-.list-md .item-input.ng-valid.item-input-has-focus:last-child, .list-md .item-input.ng-valid.input-has-focus:last-child {
+.list-md .item-input.ng-valid.item-input-has-focus:last-child,
+.list-md .item-input.ng-valid.input-has-focus:last-child {
   border-bottom-color: #dedede !important;
   box-shadow: none !important;
 }
+
+// .overley {
+//   position: fixed;
+//   top: 0px;
+//   left: 0px;
+//   width: 100vw;
+//   height: 100vh;
+//   background-color: #000;
+//   opacity: 0.6;
+//   z-index: 999999999;
+// }
+
+

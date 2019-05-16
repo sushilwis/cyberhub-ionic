@@ -3,13 +3,6 @@ import { IonicPage, NavController, NavParams, LoadingController, MenuController 
 import { Http, RequestOptions, Headers } from '@angular/http';
 import { apiUrl } from '../../apiUrl';
 
-/**
- * Generated class for the StuffExamdutyPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 @IonicPage()
 @Component({
   selector: 'page-stuff-examduty',
@@ -26,9 +19,11 @@ export class StuffExamdutyPage implements OnInit {
   floor: any;
   room: any;
   dayName: any = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+  showLoader: boolean;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public menuCtrl: MenuController, public loadingController: LoadingController, private http: Http) {
-    this.initLoader();
+    // this.initLoader();
+    this.showLoader = true;
     this.getUserDataFromLocal();
   }
 
@@ -36,6 +31,7 @@ export class StuffExamdutyPage implements OnInit {
 
 
   ngOnInit() {
+    this.showLoader = true;
     this.getStudentRoutine();
   }
 
@@ -43,6 +39,7 @@ export class StuffExamdutyPage implements OnInit {
 
 
   ionViewDidLoad() {
+    this.showLoader = false;
     console.log('ionViewDidLoad StuffExamdutyPage');
   }
 
@@ -77,7 +74,7 @@ export class StuffExamdutyPage implements OnInit {
 getUserDataFromLocal() {
   let data = localStorage.getItem('userData');
   this.localUserData = JSON.parse(data);
-  console.log('local data : ', this.localUserData);       
+  // console.log('local data : ', this.localUserData);       
 }
 
 
@@ -90,7 +87,8 @@ getUserDataFromLocal() {
 // |--------------------------------------------------------------------
 
 getStudentRoutine() {
-  this.presentLoading(true);
+  this.showLoader = true;
+  // this.presentLoading(true);
 
   var headers = new Headers();
   headers.append('Content-Type', 'application/json');
@@ -107,12 +105,14 @@ getStudentRoutine() {
     map(res => res.json()).subscribe(data => {				
       // console.log('routine list : ', data);
       if (data.data.length > 0) {
+        this.showLoader = false;
         // this.presentLoading(false);
         this.rawRoutineList = data.data;
-        console.log('raw routine list : ', this.rawRoutineList);
+        // console.log('raw routine list : ', this.rawRoutineList);
         this.sortArr(this.rawRoutineList);
       }else{
-        this.presentLoading(false);
+        this.showLoader = false;
+        // this.presentLoading(false);
       }
 
     });
@@ -128,15 +128,15 @@ getStudentRoutine() {
 // |---- loading start and stop method by passing true or false ----
 // |--------------------------------------------------------------------
 
-presentLoading(load: boolean) {
-  if (load) {
-    return this.loading.present();
-  }else {
-    setTimeout(() => {
-      return this.loading.dismiss();
-    }, 500);
-  }
-}
+// presentLoading(load: boolean) {
+//   if (load) {
+//     return this.loading.present();
+//   }else {
+//     setTimeout(() => {
+//       return this.loading.dismiss();
+//     }, 500);
+//   }
+// }
 
 
 
@@ -147,12 +147,12 @@ presentLoading(load: boolean) {
 // |--------- loading initialization --------------
 // |--------------------------------------------------------------------
 
-initLoader() {
-  this.loading = this.loadingController.create({
-    spinner: 'hide',
-    content: '<img class="loader-class" src="assets/icon/tail-spin.svg"> <p>Loading please wait...</p>',
-  });
-}
+// initLoader() {
+//   this.loading = this.loadingController.create({
+//     spinner: 'hide',
+//     content: '<img class="loader-class" src="assets/icon/tail-spin.svg"> <p>Loading please wait...</p>',
+//   });
+// }
 
 
 
@@ -235,8 +235,8 @@ async sortArr(rawRoutineArr) {
   });
 
   this.routineList = new_arry;
-  console.log('final array routine list: ', this.routineList);
-  this.presentLoading(false);
+  // console.log('final array routine list: ', this.routineList);
+  // this.presentLoading(false);
 }
 
 

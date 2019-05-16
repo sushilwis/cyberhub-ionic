@@ -50,13 +50,15 @@ export class StudentOwndetailsPage implements OnInit {
   maxTemp: any;
   minTemp: any;
   humidity: any;
+  showLoader: boolean;
   
   constructor(public navCtrl: NavController, public navParams: NavParams, 
     public menuCtrl: MenuController, 
     public loadingController: LoadingController, 
     private http: Http, public platform: Platform, public modalCtrl: ModalController, public viewCtrl: ViewController, public alertCtrl: AlertController) {
+      this.showLoader = true;
     this.menuCtrl.enable(false);
-    this.initLoader();
+    // this.initLoader();
 
     this.platform.registerBackButtonAction(() => {
       if (this.navCtrl.getViews().length > 1) {
@@ -65,7 +67,6 @@ export class StudentOwndetailsPage implements OnInit {
     });
     this.getUserDataFromLocal();
     // this.getUserData();
-
   }
 
   ngOnInit(){
@@ -83,6 +84,7 @@ export class StudentOwndetailsPage implements OnInit {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad StudentOwndetailsPage');
+    this.showLoader = false;
   }
 
 
@@ -131,6 +133,7 @@ export class StudentOwndetailsPage implements OnInit {
 
 
   getUserData() {
+    this.showLoader = true;
     //this.presentLoading(true);
 		var header = new Headers();
 		header.append('Content-Type', 'application/json');
@@ -150,7 +153,8 @@ export class StudentOwndetailsPage implements OnInit {
           this.pin = data.data[0].pin;
           // console.log('org details : ...', this.orgDetails);
           // console.log('PIN: ...', this.pin);
-          this.getWeatherData();          				
+          this.getWeatherData(); 
+          this.showLoader = false;         				
         }
         
 			});
@@ -179,28 +183,28 @@ export class StudentOwndetailsPage implements OnInit {
 
 
 
-  presentLoading(load: boolean) {
-		if (load) {
-			return this.loading.present();
-		}
-		else {
-			setTimeout(() => {
-				return this.loading.dismiss();
-			}, 1000);
-		}
-  }
+  // presentLoading(load: boolean) {
+	// 	if (load) {
+	// 		return this.loading.present();
+	// 	}
+	// 	else {
+	// 		setTimeout(() => {
+	// 			return this.loading.dismiss();
+	// 		}, 1000);
+	// 	}
+  // }
 
 
 
   
 
 
-  initLoader() {
-		this.loading = this.loadingController.create({
-			spinner: 'hide',
-			content: '<img class="loader-class" src="assets/icon/tail-spin.svg"> <p>Loading please wait...</p>',
-		});
-  }
+  // initLoader() {
+	// 	this.loading = this.loadingController.create({
+	// 		spinner: 'hide',
+	// 		content: '<img class="loader-class" src="assets/icon/tail-spin.svg"> <p>Loading please wait...</p>',
+	// 	});
+  // }
 
 
   
@@ -210,7 +214,7 @@ export class StudentOwndetailsPage implements OnInit {
     let data = localStorage.getItem('userData');
     this.localUserData = JSON.parse(data); 
     
-    if(this.localUserData){
+    if(this.localUserData) {
       // alert('In the student home before modal called.');
       if(this.localUserData.is_app_closed){
           // console.log('app closed false');
@@ -247,6 +251,7 @@ export class StudentOwndetailsPage implements OnInit {
 
 
   async getNoticeList() {
+    this.showLoader = true;
     // this.presentLoading(true);
     await this.getUserDataFromLocal();
 
@@ -271,9 +276,11 @@ export class StudentOwndetailsPage implements OnInit {
               });              
               // this.personalNoticeCount = this.allPersonalNotice.length;
               // console.log('personal notice count : ', this.personalNoticeCount);
-              // this.presentLoading(false);             
+              // this.presentLoading(false);  
+              this.showLoader = false;           
             }else{
               // this.presentLoading(false);
+              this.showLoader = false;
             }          
       });
   }
@@ -283,7 +290,8 @@ export class StudentOwndetailsPage implements OnInit {
 
 
   getStudentDetails() {
-    this.presentLoading(true);
+    this.showLoader = true;
+    // this.presentLoading(true);
 
     var headers = new Headers();
     headers.append('Content-Type', 'application/json');
@@ -295,12 +303,15 @@ export class StudentOwndetailsPage implements OnInit {
 
     this.http.post(`${apiUrl.url}student/studentdetail`, data, options).
       map(res => res.json()).subscribe(data => {
-        this.presentLoading(false);
+        // this.presentLoading(false);
         // console.log('student detail data : ', data);
         if (data.data[0]) {
           this.studentDetails = data.data[0];
           this.studentName = data.data[0].f_name;
-          // console.log('student detail data : ', data.data[0]);          
+          // console.log('student detail data : ', data.data[0]);  
+          this.showLoader = false;        
+        }else{
+          this.showLoader = false;
         }
       });
   }
@@ -308,10 +319,14 @@ export class StudentOwndetailsPage implements OnInit {
 
 
     getnotificationcount() {
+      this.showLoader = true;
       this.http.get(`${apiUrl.url}notification/count/${this.localUserData.id}`).map(res => res.json())
       .subscribe(data => {
         if(data.count){
           this.personalNoticeCount =  data.count
+          this.showLoader = false;
+        }else{
+          this.showLoader = false;
         }
         
       })
@@ -331,6 +346,7 @@ export class StudentOwndetailsPage implements OnInit {
   getWeatherData() {
     // b60c3e9d5ed15819d78fd18b00e5cfbb
     // https://openweathermap.org/img/w/
+    this.showLoader = true;
     var headers = new Headers();
 		headers.append('Content-Type', 'application/json');
     let options = new RequestOptions({headers: headers});
@@ -345,7 +361,8 @@ export class StudentOwndetailsPage implements OnInit {
         this.humidity = this.weatherdata.humidity;
 
         this.weatherIcon = `https://openweathermap.org/img/w/${data.weather[0].icon}.png`; 
-        console.log('weather : ', this.weatherdata);     
+        console.log('weather : ', this.weatherdata); 
+        this.showLoader = false;    
 			});
   }
 
@@ -371,7 +388,7 @@ export class StudentOwndetailsPage implements OnInit {
           handler: () => {
             // console.log('Agree clicked');
             localStorage.clear();
-            this.navCtrl.setRoot(HomePage);
+            this.navCtrl.setRoot(HomePage, {loader: false});
             // this.navCtrl.push(StudentLoginPage);
           }
         }

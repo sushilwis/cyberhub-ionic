@@ -50,6 +50,7 @@ export class StaffInfoPage {
   maxTemp: any;
   minTemp: any;
   humidity: any;
+  showLoader: boolean;
 
   constructor(
     public navCtrl: NavController,
@@ -60,6 +61,9 @@ export class StaffInfoPage {
     public alertCtrl: AlertController,
     public platform: Platform
   ) {
+
+    this.showLoader = true;
+
     this.platform.registerBackButtonAction(() => {
       if (this.navCtrl.getViews().length > 1) {
         this.navCtrl.pop();
@@ -68,19 +72,23 @@ export class StaffInfoPage {
 
     this.getUserDataFromLocal();
     this.menuCtrl.enable(false);
-    this.initLoader();
+    // this.initLoader();
 
     this.getUserData();
     this.getTeacherDetails();
   }
 
+
+
   ngOnInit() {
-    console.log("Stuff info page...");
+    this.showLoader = true;
   }
 
+
+
   ionViewDidLoad() {
-    // console.log('ionViewDidLoad StaffInfoPage');
-    // this.getWeatherData();
+    this.showLoader = false;
+    console.log('ionViewDidLoad StaffInfoPage');
   }
 
   goToAllPdf() {
@@ -119,13 +127,20 @@ export class StaffInfoPage {
   goToChangeLang() {
     console.log("goToChangeLang");
   }
+
+
+
   goToEvents() {
     this.navCtrl.push(SchoolcalenderPage, {
       id: this.localUserData.org_code
     });
   }
 
+
+
+
   getUserData() {
+    this.showLoader = true;
     // this.presentLoading(true);
     var header = new Headers();
     header.append("Content-Type", "application/json");
@@ -143,54 +158,19 @@ export class StaffInfoPage {
         // console.log('org_details : ', data.data[0]);
 
         if (data.data) {
+          this.showLoader = false;
           this.orgDetails = data.data[0];
           this.pin = data.data[0].pin;
           // console.log('org_details : ', data.data[0]);
           // console.log('PIN : ', this.pin);
           this.getWeatherData();
+        }else{
+          this.showLoader = false;
         }
       });
   }
 
-  // getUserData() {
-  //   this.presentLoading(true);
-  // 	var header = new Headers();
-  // 	header.append('Content-Type', 'application/json');
-  // 	let options = new RequestOptions({headers: header});
-
-  // 	let data = {
-  //     'org_id': this.localUserData.org_code,
-  //   }
-
-  // 	this.http.post(`${apiUrl.url}org/getdetail`, data, options).
-  // 		map(res => res.json()).subscribe(data => {
-  // 			console.log('org_details : ', data.data[0]);
-
-  // 			if (data.data) {
-  //         this.presentLoading(false);
-  //         this.orgDetails = data.data[0];
-  //       }
-
-  // 		});
-  // }
-
-  presentLoading(load: boolean) {
-    if (load) {
-      return this.loading.present();
-    } else {
-      setTimeout(() => {
-        return this.loading.dismiss();
-      }, 1000);
-    }
-  }
-
-  initLoader() {
-    this.loading = this.loadingController.create({
-      spinner: "hide",
-      content:
-        '<img class="loader-class" src="assets/icon/tail-spin.svg"> <p>Loading please wait...</p>'
-    });
-  }
+  
 
   getUserDataFromLocal() {
     // this.presentLoading(true);
@@ -206,6 +186,10 @@ export class StaffInfoPage {
     }
   }
 
+
+
+
+
   goToLogout() {
     // this.showAlert('Logout', 'Are you sure want to logout ?');
     // localStorage.clear();
@@ -213,7 +197,12 @@ export class StaffInfoPage {
     this.showAlert("Logout !", "Are you sure ?");
   }
 
+
+
+  
+
   getTeacherDetails() {
+    this.showLoader = true;
     var headers = new Headers();
     headers.append("Content-Type", "application/json");
     let options = new RequestOptions({ headers: headers });
@@ -229,6 +218,7 @@ export class StaffInfoPage {
       .subscribe(data => {
         // this.presentLoading(false);
         if (data.data[0]) {
+          this.showLoader = false;
           this.teacherDetails = data.data[0];
           // console.log('teacher details : ', data.data[0]);
 
@@ -237,11 +227,18 @@ export class StaffInfoPage {
           // }else{
           //   this.showSelectDepartmentBtn = true;
           // }
+        }else{
+          this.showLoader = false;
         }
       });
   }
 
+
+
+  
+
   getWeatherData() {
+    this.showLoader = true;
     // b60c3e9d5ed15819d78fd18b00e5cfbb
     // https://openweathermap.org/img/w/
     var headers = new Headers();
@@ -256,6 +253,7 @@ export class StaffInfoPage {
       )
       .map(res => res.json())
       .subscribe(data => {
+        this.showLoader = false;
         // console.log('weather data.../',data);
         this.weatherdata = data.main;
         this.temp = Math.round(parseInt(this.weatherdata.temp) - 273.15);
@@ -269,6 +267,10 @@ export class StaffInfoPage {
         // console.log('weather img link : ', this.temp );
       });
   }
+
+
+
+
 
   showAlert(title, msg) {
     const alert = this.alertCtrl.create({
@@ -287,7 +289,7 @@ export class StaffInfoPage {
           cssClass: "okBtn",
           handler: () => {
             localStorage.clear();
-            this.navCtrl.setRoot(HomePage);
+            this.navCtrl.setRoot(HomePage, {loader: false});
             // this.navCtrl.push(StaffLoginPage);
           }
         }

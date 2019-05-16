@@ -37,9 +37,11 @@ export class StdRegPage {
   idList = [];
 
   type: string;
+  showLoader: boolean;
   constructor(public navCtrl: NavController, public navParams: NavParams, private http: Http, public menuCtrl: MenuController, public loadingController: LoadingController, public alertCtrl: AlertController, public toastCtrl: ToastController) {
+    this.showLoader = true;
     this.menuCtrl.enable(true);
-    this.initLoader();
+    // this.initLoader();
   }
 
 
@@ -52,6 +54,7 @@ export class StdRegPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad StdRegPage');
+    this.showLoader = false;
   }
 
 
@@ -64,7 +67,8 @@ export class StdRegPage {
 
 
   getCollege() {
-    this.presentLoading(true);
+    this.showLoader = true;
+    // this.presentLoading(true);
 
 		var header = new Headers();
 		header.append('Content-Type', 'application/json');
@@ -74,9 +78,10 @@ export class StdRegPage {
 			map(res => res.json()).subscribe(data => {				
 				// console.log(data)
 				if (data.data) {
-          this.presentLoading(false);
+          // this.presentLoading(false);
           // console.log('receive college list : ', data);
-          this.collegeList = data.data;					
+          this.collegeList = data.data;
+          this.showLoader = false;					
 				}
 			});
   }
@@ -85,33 +90,34 @@ export class StdRegPage {
 
 
 
-  presentLoading(load: boolean) {
-		if (load) {
-			return this.loading.present();
-		}
-		else {
-			setTimeout(() => {
-				return this.loading.dismiss();
-			}, 1000);
-		}
-  }
+  // presentLoading(load: boolean) {
+	// 	if (load) {
+	// 		return this.loading.present();
+	// 	}
+	// 	else {
+	// 		setTimeout(() => {
+	// 			return this.loading.dismiss();
+	// 		}, 1000);
+	// 	}
+  // }
 
 
 
 
-  initLoader() {
-		this.loading = this.loadingController.create({
-			spinner: 'hide',
-			content: '<img class="loader-class" src="assets/icon/tail-spin.svg"> <p>Loading please wait...</p>',
-		});
-  }
+  // initLoader() {
+	// 	this.loading = this.loadingController.create({
+	// 		spinner: 'hide',
+	// 		content: '<img class="loader-class" src="assets/icon/tail-spin.svg"> <p>Loading please wait...</p>',
+	// 	});
+  // }
 
 
 
 
   registrationSubmit() {
+    this.showLoader = true;
 	
-      this.presentLoading(true);
+      // this.presentLoading(true);
   
       var headers = new Headers();
       headers.append('Content-Type', 'application/json');
@@ -129,12 +135,14 @@ export class StdRegPage {
       this.http.post(`${apiUrl.url}user/register`, data, options).
         map(res => res.json()).subscribe(data => {          	  
           if (data.data) { 
-            this.presentLoading(false);           
-            console.log('student data : ', data);	
-            this.showAlert('Success!', `Your Username is : ${data.data[0].username} and Password is : ${data.data[0].hint}. Please login to continue`);				
+            // this.presentLoading(false);           
+            // console.log('student data : ', data);	
+            this.showAlert('Success!', `Your Username is : ${data.data[0].username} and Password is : ${data.data[0].hint}. Please login to continue`);	
+            this.showLoader = false;			
           }else{
-            this.presentLoading(false);
+            // this.presentLoading(false);
             this.showAlert('Error!', `${data.Error}`);
+            this.showLoader = false;
           }
       });    
   }
@@ -244,6 +252,7 @@ export class StdRegPage {
 
 
   getData() {
+    this.showLoader = true;
     var headers = new Headers();
     headers.append('Content-Type', 'application/json');
     let options = new RequestOptions({ headers: headers });
@@ -274,7 +283,8 @@ export class StdRegPage {
             this.list.push(obj);
           });
 
-          console.log("arr list..... : ", this.list);
+          // console.log("arr list..... : ", this.list);
+          this.showLoader = false;
         }        
       });
   }

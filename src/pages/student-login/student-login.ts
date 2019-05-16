@@ -29,11 +29,13 @@ export class StudentLoginPage {
 	otp_pass: number;
 	userdata: any;
 	show: boolean = false;
+	showLoader: boolean;
 
 	constructor(public navCtrl: NavController, public navParams: NavParams, 
 		private http: Http, public loadingController: LoadingController, 
 		public jsonp: Jsonp, public alertCtrl: AlertController, public fcm: FcmProvider ) {
-		this.initLoader();
+		this.showLoader = true;
+		// this.initLoader();
 		// setTimeout(() => {
 		// 	//
 		// }, 1000);
@@ -47,20 +49,21 @@ export class StudentLoginPage {
 
   
 
-	initLoader() {
-		this.loading = this.loadingController.create({
-			spinner: 'hide',
-			content: '<img class="loader-class" src="assets/icon/tail-spin.svg"> <p>Loading please wait...</p>',
-		});
-	}
+	// initLoader() {
+	// 	this.loading = this.loadingController.create({
+	// 		spinner: 'hide',
+	// 		content: '<img class="loader-class" src="assets/icon/tail-spin.svg"> <p>Loading please wait...</p>',
+	// 	});
+	// }
 
 
 	gotoHome(){
-		this.navCtrl.setRoot(HomePage);
+		this.navCtrl.setRoot(HomePage, {loader: false});
 	}
 
 	ionViewDidLoad() {	
 		console.log('ionViewDidLoad StudentLoginPage');
+		this.showLoader = false;
 	}
 
 
@@ -69,8 +72,9 @@ export class StudentLoginPage {
 
 
   loginSubmit() {
+	this.showLoader = true;
 	  if(this.student_register && this.student_password) {
-		this.presentLoading(true);
+		// this.presentLoading(true);
 
 		var headers = new Headers();
 		headers.append('Content-Type', 'application/json');
@@ -88,15 +92,18 @@ export class StudentLoginPage {
 					localStorage.setItem('userData', JSON.stringify(data.data[0]));
 					// console.log('login data : ', data.data);	
 					this.fcm.getToken();				
-					this.presentLoading(false);
-					this.navCtrl.setRoot(StudentsTabsPage);					
+					// this.presentLoading(false);
+					this.navCtrl.setRoot(StudentsTabsPage);	
+					this.showLoader = false;				
 				}else {
 					this.showAlert('Alert!', 'User not found. Please check your ID or Password');
-					this.presentLoading(false);
+					// this.presentLoading(false);
+					this.showLoader = false;
 				}
 			});
 	  }	else {
 		this.showAlert('Alert!', 'Please enter all the field');
+		this.showLoader = false;
 	  }	
 	}
 
@@ -131,21 +138,20 @@ export class StudentLoginPage {
 
 
 
-	presentLoading(load: boolean) {
-		if (load) {
-			return this.loading.present();
-		}
-		else {
-			setTimeout(() => {
-				return this.loading.dismiss();
-			}, 1000);
-		}
-	}
+	// presentLoading(load: boolean) {
+	// 	if (load) {
+	// 		return this.loading.present();
+	// 	}
+	// 	else {
+	// 		setTimeout(() => {
+	// 			return this.loading.dismiss();
+	// 		}, 1000);
+	// 	}
+	// }
 
 
 	password() {
-		this.show = !this.show;
-		
+		this.show = !this.show;		
 	}
 
 	// showAlert(title, msg) {
@@ -178,6 +184,9 @@ export class StudentLoginPage {
 		
 		alert.present();
 	}
+
+
+
 
 
 }

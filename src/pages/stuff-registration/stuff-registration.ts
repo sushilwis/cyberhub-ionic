@@ -36,25 +36,30 @@ export class StuffRegistrationPage {
   jela: string;
   type: string;
   identityNo: any;
+  showLoader: boolean;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private http: Http, public menuCtrl: MenuController, public loadingController: LoadingController, public alertCtrl: AlertController, public toastCtrl: ToastController) {
+    this.showLoader = true;
     this.menuCtrl.enable(true);
-    this.initLoader();
+    // this.initLoader();
     // this.getData();
   }
 
   ngOnInit(){
+    this.showLoader = true;
     this.getCollege();
   }
 
   ionViewDidLoad() {
+    this.showLoader = false;
     console.log('ionViewDidLoad StuffRegistrationPage');
   }
 
 
 
   getCollege() {
-    this.presentLoading(true);
+    this.showLoader = false;
+    // this.presentLoading(true);
 
 		var header = new Headers();
 		header.append('Content-Type', 'application/json');
@@ -64,10 +69,13 @@ export class StuffRegistrationPage {
 			map(res => res.json()).subscribe(data => {				
 				// console.log(data)
 				if (data.data) {
-          this.presentLoading(false);
+          this.showLoader = false;
+          // this.presentLoading(false);
           // console.log('receive college list : ', data);
           this.collegeList = data.data;					
-				}
+				}else{
+          this.showLoader = false;
+        }
 			});
   }
 
@@ -75,30 +83,31 @@ export class StuffRegistrationPage {
 
 
 
-  presentLoading(load: boolean) {
-		if (load) {
-			return this.loading.present();
-		} else {
-			setTimeout(() => {
-				return this.loading.dismiss();
-			}, 1000);
-		}
-  }
+  // presentLoading(load: boolean) {
+	// 	if (load) {
+	// 		return this.loading.present();
+	// 	} else {
+	// 		setTimeout(() => {
+	// 			return this.loading.dismiss();
+	// 		}, 1000);
+	// 	}
+  // }
 
 
 
 
-  initLoader() {
-		this.loading = this.loadingController.create({
-			spinner: 'hide',
-			content: '<img class="loader-class" src="assets/icon/tail-spin.svg"> <p>Loading please wait...</p>',
-		});
-  }
+  // initLoader() {
+	// 	this.loading = this.loadingController.create({
+	// 		spinner: 'hide',
+	// 		content: '<img class="loader-class" src="assets/icon/tail-spin.svg"> <p>Loading please wait...</p>',
+	// 	});
+  // }
 
 
 
 
   registrationSubmit() {
+      this.showLoader = true;
 	
       // this.presentLoading(true);
   
@@ -112,15 +121,17 @@ export class StuffRegistrationPage {
         id_no: this.identityNo,
       }
 
-      console.log('sent stuff reg data : ', data);      
+      // console.log('sent stuff reg data : ', data);      
 
       this.http.post(`${apiUrl.url}user/register`, data, options).
         map(res => res.json()).subscribe(data => {
-          console.log('after stuff reg :... ', data);          	  
+          // console.log('after stuff reg :... ', data);          	  
           if (data.data) {
+            this.showLoader = false;
             this.showAlert('Success!', `Your Username is : ${data.data.username} and Password is : ${data.data.hint}. Please login to continue`);
             this.navCtrl.push(StaffLoginPage);				
           }else{
+            this.showLoader = false;
             this.showAlert('Error!', `Sorry, Invalid Credential !`);
           }
       });    
@@ -194,7 +205,7 @@ export class StuffRegistrationPage {
         return item.name.toLowerCase().indexOf(val.toLowerCase()) > -1;
       });
 
-      console.log('items : ...', this.items);      
+      // console.log('items : ...', this.items);      
     }
   }
 
@@ -258,6 +269,8 @@ export class StuffRegistrationPage {
 
 
   getData() {
+    this.showLoader = true;
+
     var headers = new Headers();
     headers.append('Content-Type', 'application/json');
     let options = new RequestOptions({ headers: headers });
@@ -273,9 +286,10 @@ export class StuffRegistrationPage {
       .subscribe(data => {
         // this.presentLoading(false);
         this.allSchoolsList = data.data;
-        console.log("school list..... : ", this.allSchoolsList);
+        // console.log("school list..... : ", this.allSchoolsList);
         // console.log("school list length..... : ", data.data.length);
         if(this.allSchoolsList.length > 0){
+          this.showLoader = false;
           this.allSchoolsList.forEach(ele => {
             const obj = {
               id: ele.id,
@@ -283,9 +297,10 @@ export class StuffRegistrationPage {
             };
             this.list.push(obj);
           });
-
-          console.log("arr list..... : ", this.list);
-        }        
+          // console.log("arr list..... : ", this.list);
+        } else {
+          this.showLoader = false;
+        }       
       });
   }
 

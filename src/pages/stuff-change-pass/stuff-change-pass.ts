@@ -158,7 +158,7 @@ export class StuffChangePassPage implements OnInit {
 
   goToLogout() {
     localStorage.clear();
-    this.navCtrl.setRoot(HomePage);
+    this.navCtrl.setRoot(HomePage, {loader: false});
   }
 
 

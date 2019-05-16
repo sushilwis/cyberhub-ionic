@@ -1,0 +1,99 @@
+<div class="overley" *ngIf="showLoader"></div>  
+  <div class="spinner" *ngIf="showLoader">
+        <div class="rect1"></div>
+        <div class="rect2"></div>
+        <div class="rect3"></div>
+        <div class="rect4"></div>
+        <div class="rect5"></div>
+	</div>
+	
+	
+<ion-header>
+		<ion-navbar color="blue">
+			<ion-title>Submit Enquiry</ion-title>
+			
+			<ion-buttons end (click)=goToHome()>
+				<button ion-button icon-only>
+					<!-- <ion-icon name="home" color="light"></ion-icon> -->
+					<img class="" src="assets/icon/Home_btn.svg" style="height: 18px"/>
+				</button>
+			</ion-buttons>
+			<!-- <ion-searchbar #search (ionInput)="getItems($event)" *ngIf="isSearchbarOpened" showCancelButton="true" (ionCancel)="isSearchbarOpened=false"></ion-searchbar> -->
+		</ion-navbar>
+		<!-- <div class="search-result" [ngStyle]="{'display':isSearchbarOpened ? 'block' : 'none' }">
+			<ion-list>
+			<ion-item *ngFor="let item of items" (click)="schoolsDetails(item.id)">
+				{{ item.name }}
+			</ion-item>
+		</ion-list>
+		</div> -->
+</ion-header>
+
+
+<ion-content class="item-center" padding color="light">
+	<!-- <img src="assets/imgs/inunco-dark.png" class="img-width"/> -->
+	<!-- <h1 class="heading" text-center text-uppercase>CyberHub</h1> -->
+	<!-- <img src="assets/imgs/bk.png" class="img-width" /> -->
+	<div class="enquiry-form">
+			<!-- <h1 text-center text-uppercase margin-bottom color="blue">Search Organization</h1>
+
+				<ion-input #search placeholder="Search" (keyup)="getItems($event)" (click)="onSearchButtonClick()"></ion-input>
+				
+					<ion-list class="search-result" [ngStyle]="{'display':isSearchbarOpened ? 'block' : 'none' }">
+						<ion-item *ngFor="let item of items" (click)="schoolsDetails(item.id)">
+								{{ item.name }}
+						</ion-item>
+					</ion-list> -->
+				
+
+		<p text-center text-uppercase margin-bottom class="top-heading" style="margin-top: 30px; text-align: center;">Find Your institution</p>
+		 
+	 <!-- <form> -->
+	 	<ion-item class="select-css">
+		  <ion-label>Country</ion-label>
+		  <ion-select [(ngModel)]="country" name="country" [selectOptions]="selectOptions" (ionChange)="onChangeCountry()">
+		    <ion-option value="101">India</ion-option>		    
+		  </ion-select>
+		</ion-item>
+
+	 	<ion-item class="select-css">
+	 		<ion-label>State</ion-label>
+		  <ion-select [(ngModel)]="state" name="state" (ionChange)="onChangeState()" [disabled]="stateDisabled()">
+		    <ion-option *ngFor="let state of states" value="{{state.id}}">{{state?.name}}</ion-option>		    
+		  </ion-select>
+		</ion-item>
+
+		<ion-item>
+			<ion-label>District</ion-label>
+			<ion-select [(ngModel)]="dist" name="dist" [disabled]="distDisabled()">
+		    <ion-option *ngFor="let dist of dists" value="{{dist.id}}">{{dist?.name}}</ion-option>		    
+		  </ion-select>
+		</ion-item>
+
+		<ion-item>
+			<ion-label>Type</ion-label>
+			<ion-select [(ngModel)]="type" name="type">
+		    <ion-option value = "1" >School</ion-option>		    
+		    <ion-option value = "2" >College</ion-option>		    
+		    <ion-option value = "3" >University</ion-option>		    
+		  </ion-select>
+		</ion-item>
+
+		<!-- <ion-item>
+			<ion-label>City</ion-label>
+			<ion-select [(ngModel)]="city" name="city">
+		    <ion-option value="">West Bangal</ion-option>		    
+		  </ion-select>
+		</ion-item> -->
+
+		<div text-center style="border-bottom: none; margin-top: 40px;">
+		  <button ion-button margin-top type="submit" class="btn-size mt-10" color="blue" (click)="goToListing()">NEXT</button>
+		</div>
+		 <!-- <button ion-button type="submit" block outline color="blue" (click)=goToHome()>Back To Home</button> -->
+
+		 <div text-capitalize text-center>
+			 <p (click)="goToSearchOrg()" style="font-size: 16px; cursor: pointer; font-weight: bold; margin-top: 40px;">Not Sure?<br> Search your institution name instead</p>
+		 </div>
+	<!-- </form> -->
+</div>
+</ion-content>

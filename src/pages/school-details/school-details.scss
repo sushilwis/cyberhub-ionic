@@ -91,7 +91,7 @@ page-school-details {
 
     .wether-icon{
 		position: relative;
-		top: -61px;
+		top: -58px;
 		left: 12px;
 		width: 50px !important;
 	}
@@ -110,12 +110,23 @@ page-school-details {
     
     .weatherdata1 {
 		position: relative;
-		top: -129px;
+		top: -100px;
 		left: 70px;
 	}
 
 	.wether-icon1 {
 		width: 70px;
-	}
+    }
+    
+    .overley {
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        width: 100vw;
+        height: 100vh;
+        background-color: #000;
+        opacity: 0.6;
+        z-index: 999999999;
+    }
         
 }

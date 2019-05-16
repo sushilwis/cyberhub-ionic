@@ -89,7 +89,7 @@ page-std-reg {
 		border-top: 1px solid #909090;
 		border-bottom: 1px solid #909090;
 		padding: 10px;
-		margin: 15px 16px 15px 16px;
+		margin: 35px 16px 15px 16px;
 		// color: #909090;
 		color: #8a8a8a;
 	}
@@ -136,5 +136,16 @@ page-std-reg {
 
 	.list-md .item-input.ng-valid.item-input-has-value:last-child, .list-md .item-input.ng-valid.input-has-value:last-child {
 		box-shadow: none !important;
+	}
+
+	.overley {
+		position: fixed;
+		top: 0px;
+		left: 0px;
+		width: 100vw;
+		height: 100vh;
+		background-color: #000;
+		opacity: 0.6;
+		z-index: 999999999;
 	}
 }

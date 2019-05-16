@@ -1,7 +1,22 @@
+<ion-header *ngIf="showHeader" class="custom-header">
+  <ion-navbar color="">
+    <ion-title>{{tabHeaderTitle}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
 <ion-content padding>
+  <div class="overley" *ngIf="showLoader"></div>  
+  <div class="spinner" *ngIf="showLoader">
+        <div class="rect1"></div>
+        <div class="rect2"></div>
+        <div class="rect3"></div>
+        <div class="rect4"></div>
+        <div class="rect5"></div>
+  </div>
+
   <div [ngSwitch]="guestTab">
     <div *ngSwitchCase="'search'">
-      <div text-center margin-top style="margin-bottom: 40px;">
+      <div text-center margin-top style="margin-top: 40px;">
         <h4 style="font-size: 1.9rem;">
           <img class="login-page-logo" src="assets/icon/cyverhub_logo.svg">
           <img class="straight-line" src="assets/icon/substract.svg"> Welcome Guest !
@@ -29,38 +44,173 @@
 
   <div [ngSwitch]="guestTab">
       <div *ngSwitchCase="'live'">
-      
+          <ion-list class="search-result">
+              <ion-item *ngFor="let item of lists" (click)="goToLiveSection(item.id)">
+                {{ item?.name }}
+                <p class="col-result-add">{{ item?.landmark }}, {{ item?.city }}</p>
+                <ion-note item-end class="note note-md">
+                  {{ item?.org }}
+                </ion-note>
+              </ion-item>
+          </ion-list> 
+          
+          
+          <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+              <ion-infinite-scroll-content></ion-infinite-scroll-content>
+          </ion-infinite-scroll>
       </div>
-    </div>
+  </div>
 
 
 
-    <div [ngSwitch]="guestTab">
+  <div [ngSwitch]="guestTab">
         <div *ngSwitchCase="'skill'">
-        
+            <ion-list class="search-result">
+                <ion-item *ngFor="let item of lists" (click)="goToSkillSection(item.id)">
+                  {{ item?.name }}
+                  <p class="col-result-add">{{ item?.landmark }}, {{ item?.city }}</p>
+                  <ion-note item-end class="note note-md">
+                    {{ item?.org }}
+                  </ion-note>
+                </ion-item>
+              </ion-list> 
+            
+            
+              <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+                <ion-infinite-scroll-content></ion-infinite-scroll-content>
+              </ion-infinite-scroll>
         </div>
+   </div>
+
+
+  <div [ngSwitch]="guestTab">
+      <div *ngSwitchCase="'library'">
+
+        <ion-list class="search-result">
+          <ion-item *ngFor="let item of lists" (click)="goToLibrarySection(item.id)">
+            {{ item?.name }}
+            <p class="col-result-add">{{ item?.landmark }}, {{ item?.city }}</p>
+            <ion-note item-end class="note note-md">
+              {{ item?.org }}
+            </ion-note>
+          </ion-item>
+        </ion-list> 
+      
+      
+        <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+          <ion-infinite-scroll-content></ion-infinite-scroll-content>
+        </ion-infinite-scroll>
+
+      </div>
+  </div>
+
+
+<div [ngSwitch]="guestTab">
+    <div *ngSwitchCase="'event'">
+        <ion-list class="search-result">
+            <ion-item *ngFor="let item of lists" (click)="goToEventSection(item.id)">
+              {{ item?.name }}
+              <p class="col-result-add">{{ item?.landmark }}, {{ item?.city }}</p>
+              <ion-note item-end class="note note-md">
+                {{ item?.org }}
+              </ion-note>
+            </ion-item>
+          </ion-list> 
+        
+        
+          <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+            <ion-infinite-scroll-content></ion-infinite-scroll-content>
+          </ion-infinite-scroll>
     </div>
+</div>
+
+
+<div [ngSwitch]="guestTab">
+    <div *ngSwitchCase="'stuff'">
+        <ion-list class="search-result">
+            <ion-item *ngFor="let item of lists" (click)="goToStaffSection(item.id)">
+              {{ item?.name }}
+              <p class="col-result-add">{{ item?.landmark }}, {{ item?.city }}</p>
+              <ion-note item-end class="note note-md">
+                {{ item?.org }}
+              </ion-note>
+            </ion-item>
+        </ion-list> 
+        
+        
+        <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+            <ion-infinite-scroll-content></ion-infinite-scroll-content>
+        </ion-infinite-scroll>
+    </div>
+</div>
+
+
+
+  <div [ngSwitch]="guestTab">
+      <div *ngSwitchCase="'admission'">
+
+        <ion-list class="search-result">
+          <ion-item *ngFor="let item of lists" (click)="schoolsDetails(item.id)">
+            {{ item?.name }}
+            <p class="col-result-add">{{ item?.landmark }}, {{ item?.city }}</p>
+            <ion-note item-end class="note note-md">
+              {{ item?.org }}
+            </ion-note>
+          </ion-item>
+        </ion-list> 
+      
+      
+        <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+          <ion-infinite-scroll-content></ion-infinite-scroll-content>
+        </ion-infinite-scroll>
+
+      </div>
+  </div>
+
+
+
+  <div [ngSwitch]="guestTab">
+      <div *ngSwitchCase="'payment'">
+
+        <ion-list class="search-result">
+          <ion-item *ngFor="let item of lists">
+            {{ item?.name }}
+            <p class="col-result-add">{{ item?.landmark }}, {{ item?.city }}</p>
+            <ion-note item-end class="note note-md">
+              {{ item?.org }}
+            </ion-note>
+          </ion-item>
+        </ion-list> 
+      
+      
+        <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+          <ion-infinite-scroll-content></ion-infinite-scroll-content>
+        </ion-infinite-scroll>
+
+      </div>
+  </div>
+
 </ion-content>
 
 
 
-<ion-footer>
+<ion-footer style="border-top: 1px solid #393939;">
 
     <ion-toolbar no-border-top>
         <ion-segment [(ngModel)]="guestTab">
-          <ion-segment-button value="search">
+          <ion-segment-button value="search" (click)="onClickTab('1')">
             <p>
               <img class="notice-img" style="height: 20px" src="assets/imgs/generalNotice.svg">
             </p>        
             Search Institution
           </ion-segment-button>
-          <ion-segment-button value="live">
+          <ion-segment-button value="live" (click)="onClickTab('2')">
               <p>
                 <img class="notice-img" style="height: 20px" src="assets/imgs/personalNotice.svg">
               </p>
             Live Stream
           </ion-segment-button>
-          <ion-segment-button value="library">
+          <ion-segment-button value="library" (click)="onClickTab('3')">
             <p>
               <img class="notice-img" style="height: 20px" src="assets/imgs/personalNotice.svg">
             </p>
@@ -71,25 +221,53 @@
   
     <ion-toolbar no-border-top>
         <ion-segment [(ngModel)]="guestTab">
-          <ion-segment-button value="event">
+          <ion-segment-button value="event" (click)="onClickTab('4')">
             <p>
               <img class="notice-img" style="height: 20px" src="assets/icon/calender_btn.svg">
             </p>        
             Event Viewer
           </ion-segment-button>
-          <ion-segment-button value="skill">
+          <ion-segment-button value="skill" (click)="onClickTab('5')">
               <p>
                 <img class="notice-img" style="height: 20px" src="assets/imgs/departmentalNotice.svg">
               </p>
             Skill Development
           </ion-segment-button>
-          <ion-segment-button value="stuff">
+          <ion-segment-button value="stuff" (click)="onClickTab('6')">
             <p>
               <img class="notice-img" style="height: 20px" src="assets/imgs/departmentalNotice.svg">
             </p>
             Staff Details
           </ion-segment-button>
         </ion-segment>
-    </ion-toolbar>
-  
+    </ion-toolbar> 
+    
+    
+    <ion-toolbar no-border-top>
+      <ion-segment [(ngModel)]="guestTab">
+
+        <ion-segment-button value="admission" (click)="onClickTab('7')">
+          <p>
+            <img class="notice-img" style="height: 20px" src="assets/icon/calender_btn.svg">
+          </p>        
+          Admission
+        </ion-segment-button>
+
+        <ion-segment-button value="payment" (click)="onClickTab('8')">
+            <p>
+              <img class="notice-img" style="height: 20px" src="assets/imgs/departmentalNotice.svg">
+            </p>
+          Online Payment  
+        </ion-segment-button>
+
+        <ion-segment-button value="stuff" (click)="onClickTab('9')">
+          <!-- <p>
+            <img class="notice-img" style="height: 20px" src="assets/imgs/departmentalNotice.svg">
+          </p>
+          Staff Details -->
+        </ion-segment-button>
+
+      </ion-segment>
+    </ion-toolbar> 
+
   </ion-footer>
