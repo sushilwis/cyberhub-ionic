@@ -1,4 +1,4 @@
-<ion-header *ngIf="showHeader" class="custom-header">
+<ion-header class="custom-header">
   <ion-navbar color="">
     <ion-title>{{tabHeaderTitle}}</ion-title>
   </ion-navbar>
@@ -190,12 +190,89 @@
       </div>
   </div>
 
+  <div [ngSwitch]="guestTab">
+    <div *ngSwitchCase="'exam_schedule'">
+      <ion-list>
+        <ion-item>
+          <ion-label>
+            <ion-icon ios="ios-search" md="md-search"></ion-icon>
+          </ion-label>
+          <ion-input [(ngModel)]="searchOrg" placeholder="Type Your Institution" (keyup)="filterCollgList($event)">
+          </ion-input>
+        </ion-item>
+      </ion-list>
+      
+      <ion-list *ngIf="searchCollgResult.length > 0" class="search-result">
+        <ion-item *ngFor="let item of searchCollgResult" (click)="onSelectSearch(item)">
+          {{ item?.name }}
+          <p class="col-result-add">{{ item?.landmark }}, {{ item?.city }} 
+            <span>Ph:-</span>{{item?.phone_no}}
+          </p>
+          <ion-note item-end class="note note-md">
+            {{ item?.org }}
+          </ion-note>
+        </ion-item>
+      </ion-list>
+      <ion-list *ngIf="showData">
+        <ion-item>
+          <ion-label floating style="color: #9a9a9a">
+            <ion-icon ios="ios-mail" md="md-mail"></ion-icon> Registration No/ Roll No
+          </ion-label>
+          <ion-input type="text" name="regID" no-margin [(ngModel)]="regID"></ion-input>
+        </ion-item>
+        <div text-center style="margin-top: 25px;">
+          <button ion-button color="blue" type="button" class="btn-size mt-10" (click)="searchStudent()" >Search</button>
+        </div>
+      </ion-list>
+      <div class="mt-3" *ngIf="SearchedResult.length > 0">
+        <ion-grid>
+          <ion-row>
+            <ion-col col-3>
+             Applicant Name
+            </ion-col>
+            <ion-col col-3>
+              Room No
+            </ion-col>
+            <ion-col col-3>
+              Subject
+            </ion-col>
+            <ion-col col-3>
+              Date Of Exam
+            </ion-col>
+          </ion-row>
+          <ion-row *ngFor="let item of SearchedResult[0].exam_date">
+            <ion-col col-3>
+              {{item.exam_room[0].std_name}}
+            </ion-col>
+            <ion-col col-3>
+              {{item.exam_room[0].room.name}} ({{item.exam_room[0].room.floor_name}})
+            </ion-col>
+            <ion-col col-3>
+              {{item.dept}}
+            </ion-col>
+            <ion-col col-3>
+              {{item.exam_date}}
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+      <div class="mt-3" style="text-align: center" *ngIf="SearchedResult.length == 0 && showError">
+        <p class="text-ios-light">No Record Found.</p>
+      </div>
+      <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+        <ion-infinite-scroll-content></ion-infinite-scroll-content>
+      </ion-infinite-scroll>
+  
+    </div>
+  </div>
+
 </ion-content>
 
 
 
 <ion-footer style="border-top: 1px solid #393939;">
-
+    <ion-icon style="color: #ccc; font-size: 2.2em; position: fixed; z-index: 999; left: 2%; bottom: 3%;" name="ios-arrow-back" (click)="scrollToRight()"></ion-icon>
+    <ion-icon style="color: #ccc; font-size: 2.2em; position: fixed; z-index: 999; right: 2%; bottom: 3%;" name="ios-arrow-forward" (click)="scrollToLeft()"></ion-icon>
     <ion-toolbar no-border-top>
         <ion-segment [(ngModel)]="guestTab">
           <ion-segment-button value="search" (click)="onClickTab('1')">
@@ -252,20 +329,19 @@
           </p>        
           Admission
         </ion-segment-button>
-
-        <ion-segment-button value="payment" (click)="onClickTab('8')">
+          <ion-segment-button value="exam_schedule" (click)="onClickTab('8')">
             <p>
-              <img class="notice-img" style="height: 20px" src="assets/imgs/departmentalNotice.svg">
+              <img class="notice-img" style="height: 20px" src="assets/icon/calender_btn.svg">
             </p>
-          Online Payment  
-        </ion-segment-button>
+            Exam Schedule
+          </ion-segment-button>
 
-        <ion-segment-button value="stuff" (click)="onClickTab('9')">
-          <!-- <p>
+        <!-- <ion-segment-button value="">
+          <p>
             <img class="notice-img" style="height: 20px" src="assets/imgs/departmentalNotice.svg">
           </p>
-          Staff Details -->
-        </ion-segment-button>
+          Staff Details
+        </ion-segment-button> -->
 
       </ion-segment>
     </ion-toolbar> 

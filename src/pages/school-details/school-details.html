@@ -116,7 +116,7 @@
 
 
 
-  <ion-card *ngIf="isAdmission">    
+  <ion-card *ngIf="!isAdmission">    
     <ion-card-content>
       <div class="info" style="padding: 10px; height: 80px;">
         <div class="" *ngIf="weatherdata">
@@ -173,40 +173,18 @@
       </ion-card-content>
   </ion-card>    -->
   
-  
-
-
   <ion-grid *ngIf="isAdmission">
-      <ion-row>
-        <ion-col col-6>
-          <div><img src="https://image.shutterstock.com/image-vector/classical-school-building-bus-isolated-260nw-306667898.jpg" alt="gallary" class="img-thumbnail"></div>
-        </ion-col>
-        <ion-col col-6>
-            <div><img src="https://data.whicdn.com/images/318259030/original.gif?t=1535130760" alt="gallary" class="img-thumbnail"></div>
-        </ion-col>
-        <ion-col col-6>
-            <div>
-                <img src="https://www.voicesofyouth.org/sites/default/files/images/2019-03/school.jpg" alt="gallary" class="img-thumbnail">
-            </div>
-        </ion-col>
-        <ion-col col-6>
-            <div>
-                <img src="https://www.matrixschools.edu.my/wp-content/uploads/2016/01/homeprimary.jpg" alt="gallary" class="img-thumbnail">
-            </div>
-        </ion-col>
-        <ion-col col-6>
-            <div>
-                <img src="https://images.livemint.com/rf/Image-621x414/LiveMint/Period2/2017/10/02/Photos/Processed/school-kvnB--621x414@LiveMint.jpg" alt="gallary" class="img-thumbnail">
-            </div>
-        </ion-col>
+    <button ion-button color="light" (click)="goAdmissionArea()" clear>Go to Admission</button>
 
-        <ion-col col-6>
-            <div>
-                <img src="http://thecambridgeschool.ac.in/wp-content/uploads/2017/08/Untitled-design-43.jpg" alt="gallary" class="img-thumbnail">
-            </div>
-        </ion-col>
-        
-      </ion-row>
+  </ion-grid>
+
+
+  <ion-grid *ngIf="!isAdmission">
+      <ion-slides class="image-slider" slidesPerView="2">
+        <ion-slide *ngFor="let img of orgImages">
+          <img src="http://inunco.com/school_hub/public/uploads/Gallery/{{img.img_path}}" class="org-img" imageViewer />
+        </ion-slide>
+      </ion-slides>
   </ion-grid>
 
   <!-- <ion-grid>

@@ -49,6 +49,7 @@ import StudentsTabsPage from '../pages/students-tabs/students-tabs';
 // import { StudentNoticeBoardPage, NoticeModalPage } from './student-notice-board';
 import { StuffChangePassPage } from '../pages/stuff-change-pass/stuff-change-pass';
 import { NotificationListPage } from "../pages/notification-list/notification-list";
+import { AdmissionFormPage } from "../pages/admission-form/admission-form";
 // import { RippleDirective } from 'ng2-ripple-directive';
 
 // import { StreamingMedia } from '@ionic-native/streaming-media';
@@ -85,6 +86,7 @@ import { ParentRegPage } from '../pages/parent-reg/parent-reg';
 import { ParentHomePage } from '../pages/parent-home/parent-home';
 import { AddChildPage } from '../pages/add-child/add-child';
 import { ViewChildPage } from '../pages/view-child/view-child';
+import { IonicImageViewerModule } from 'ionic-img-viewer';
 
 const firebase = {
  // your firebase web config
@@ -136,6 +138,7 @@ const firebase = {
     ComplainReplyPage,
     StuffExamdutyPage,
     // RippleDirective,
+    AdmissionFormPage,
     AnimatesDirective,
     SchoolcalenderPage,
     StudentsTabsPage,
@@ -153,6 +156,7 @@ const firebase = {
     ParentHomePage,
     AddChildPage,
     ViewChildPage,
+    
   ],
   imports: [
     BrowserModule,
@@ -160,6 +164,7 @@ const firebase = {
     JsonpModule,
     IonicModule.forRoot(MyApp),
     NgCalendarModule,
+    IonicImageViewerModule
     // PdfViewerModule,
     // AngularFireModule.initializeApp(firebase, "inunco-app"), 
     // AngularFirestoreModule,
@@ -179,6 +184,7 @@ const firebase = {
     StudentOwndetailsPage,
     PersonalNoticePage,
     LiveStreamPage,
+    AdmissionFormPage,
     AttendancePage,
     RoutinePage,
     ParentsLoginPage,

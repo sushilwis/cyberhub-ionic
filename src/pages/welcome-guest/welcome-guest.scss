@@ -151,7 +151,31 @@ page-welcome-guest {
     opacity: 0.6;
     z-index: 999999999;
   }
+  .list-md .item-input.item-input-has-focus:last-child,
+  .list-md .item-input.input-has-focus:last-child {
+      border-bottom-color: #cacaca !important;
+      box-shadow: none !important;
+  }
+  .list-md .item-input:last-child {
+    border-bottom: 1px solid #1b1b1b;
+  }
 
-  
+  [col-3] {
+    border: 1px solid #eee !important;
+  }
+  ion-footer {
+    flex-direction: row !important;
+    display: flex !important;
+    overflow: scroll !important
+  }
 
+  .segment-md .segment-button {
+    width: 96px !important;
+  }
+  .toolbar {
+    overflow: unset;
+  }
+  .scroll-content {
+    margin-bottom: 0px !important;
+  }
 }

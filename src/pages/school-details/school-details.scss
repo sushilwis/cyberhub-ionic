@@ -128,5 +128,14 @@ page-school-details {
         opacity: 0.6;
         z-index: 999999999;
     }
+
+    ion-slide.swiper-slide {
+        left: 25%;
+    }
+    
+ 
+    .thumb-img {
+        padding: 10px;
+    }
         
 }
