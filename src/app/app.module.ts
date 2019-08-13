@@ -32,7 +32,7 @@ import { ProfilePage } from '../pages/student-library-list/student-library-list'
 import { StudentNoticeBoardPage, NoticeModalPage } from '../pages/student-notice-board/student-notice-board';
 import AccountPage, { ModalPage, SecuritypinPage } from '../pages/account/account';
 import { ChangepasswordPage } from '../pages/changepassword/changepassword';
-import { ParentsAccountPage, QuesmodalPage } from '../pages/parents-account/parents-account';
+import { ParentsAccountPage, QuesmodalPage, AskDeptModal } from '../pages/parents-account/parents-account';
 import { StaffLoginPage } from '../pages/staff-login/staff-login';
 import { StaffInfoPage } from '../pages/staff-info/staff-info';
 import { StaffComplainPage } from '../pages/staff-complain/staff-complain';
@@ -124,6 +124,7 @@ const firebase = {
     AccountPage,
     SecuritypinPage,
     QuesmodalPage,
+    AskDeptModal,
     ModalPage,
     StaffTabsPage,
     ChangepasswordPage,
@@ -181,6 +182,7 @@ const firebase = {
     StudentLoginPage,
     LibraryListPage,
     QuesmodalPage,
+    AskDeptModal, 
     StudentOwndetailsPage,
     PersonalNoticePage,
     LiveStreamPage,

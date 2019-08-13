@@ -29,17 +29,17 @@
     <ion-card-content>
         <p class="color-white"><strong>Email</strong>: {{teacherDetails?.email}}</p>
         <p class="color-white"><strong>Identification No.</strong>: {{teacherDetails?.adhar_no}}</p>
-        <p class="color-white"><strong>Mobile</strong>: {{teacherDetails?.mobile_no}}</p>
+        <p class="color-white"><strong>Mobile</strong>: {{teacherDetails?.user[0]?.mobile_no}}</p>
         <p class="color-white"><strong>Gender</strong>: {{teacherDetails?.gender}}</p>
         <p class="color-white"><strong>qualification</strong>: {{teacherDetails?.qualification}}</p>
         <p class="color-white"><strong>Short Name</strong>: {{teacherDetails?.short_name}}</p>
-        <p class="color-white"><strong>Department</strong>: Physics </p>
+        <p class="color-white"><strong>Department</strong>: {{teacherDetails?.depts?.name}} </p>
         <!-- <p class="color-white"><strong>DOB</strong>: 31/01/1970 </p> -->
-        <p class="color-white" *ngIf="teacherDetails?.role_name === null">
+        <p class="color-white" *ngIf="teacherDetails?.role_cat?.role_name === null">
           <strong>Designation</strong>: NA 
         </p>
-        <p class="color-white" *ngIf="teacherDetails?.role_name !== null">
-          <strong>Designation</strong>: {{teacherDetails?.role_name}}
+        <p class="color-white" *ngIf="teacherDetails?.role_cat?.role_name !== null">
+          <strong>Designation</strong>: {{teacherDetails?.role_cat?.role_name}}
         </p>
         <br/>
         <button ion-button type="submit" block outline color="blue" class="mt-10" (click)=goToPassword()>Change Password</button>
