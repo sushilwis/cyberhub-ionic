@@ -30,7 +30,7 @@ import { ParentsChildTabsPage } from '../pages/parents-child-tabs/parents-child-
 import { StudentLibraryListPage } from '../pages/student-library-list/student-library-list';
 import { ProfilePage } from '../pages/student-library-list/student-library-list';
 import { StudentNoticeBoardPage, NoticeModalPage } from '../pages/student-notice-board/student-notice-board';
-import AccountPage, { ModalPage, SecuritypinPage } from '../pages/account/account';
+import AccountPage, { ModalPage, SecuritypinPage, Modal1Page } from '../pages/account/account';
 import { ChangepasswordPage } from '../pages/changepassword/changepassword';
 import { ParentsAccountPage, QuesmodalPage, AskDeptModal } from '../pages/parents-account/parents-account';
 import { StaffLoginPage } from '../pages/staff-login/staff-login';
@@ -123,6 +123,7 @@ const firebase = {
     StudentNoticeBoardPage,
     AccountPage,
     SecuritypinPage,
+    Modal1Page,
     QuesmodalPage,
     AskDeptModal,
     ModalPage,
@@ -197,6 +198,7 @@ const firebase = {
     StudentNoticeBoardPage,
     AccountPage,
     SecuritypinPage,
+    Modal1Page,
     ModalPage,
     ChangepasswordPage,
     ParentsAccountPage,
