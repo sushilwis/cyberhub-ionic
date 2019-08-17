@@ -23,7 +23,7 @@ export class AttendanceListPage implements OnInit {
   joinned: boolean = false;
   newUser: any = { nickname: "", room: "" };
   msgData: any = { room: "", nickname: "", message: "" };
-  socket = io("http://3.84.60.73:3000/");
+  socket = io("http://18.212.187.222:3000/");
   localUserData: any;
   studentList: any = [];
   attenStudentList: any = [];
@@ -87,9 +87,9 @@ export class AttendanceListPage implements OnInit {
   ionViewDidLoad() {
     // console.log('Atted ID : ', JSON.parse(localStorage.getItem('atted_id')));
     // console.log('ionViewDidLoad AttendanceListPage');
-    // setTimeout(()=>{
-    //   this.deactivatePeriodAtted(JSON.parse(localStorage.getItem('atted_id')));
-    // }, 15000);
+    setTimeout(()=>{
+      this.deactivatePeriodAtted(JSON.parse(localStorage.getItem('atted_id')));
+    }, 60000);
   }
 
   async getStudentList() {
@@ -180,6 +180,7 @@ export class AttendanceListPage implements OnInit {
       .subscribe(async data => {
         // console.log("deactivate data : ", data);
         if (data.success) {
+          this.socket.emit('forceDisconnect');
           // this.showAlert(data.msg);
         } else {
           // this.showAlert(data.msg);
@@ -240,6 +241,7 @@ export class AttendanceListPage implements OnInit {
       .subscribe(async data => {
         // console.log("attendence data : ", data);
         if (data.success) {
+          this.socket.emit('forceDisconnect');
           localStorage.removeItem("atted_id");
           localStorage.removeItem("attedCode");
           localStorage.removeItem("department");
@@ -290,7 +292,12 @@ export class AttendanceListPage implements OnInit {
 
 
 
-
+  ngOnDestroy(): void {
+    //Called once, before the instance is destroyed.
+    //Add 'implements OnDestroy' to the class.
+    this.deactivatePeriodAtted(JSON.parse(localStorage.getItem('atted_id')));
+    this.socket.emit('forceDisconnect');
+  }
   
 }
 

@@ -26,7 +26,7 @@ export class AttendancePage {
   joinned: boolean = false;
   newUser: any = { nickname: "", room: "" };
   msgData: any = { room: "", nickname: "", message: "" };
-  socket = io("http://3.84.60.73:3000/");
+  socket = io("http://18.212.187.222:3000/");
   localUserData: any;
   periodList: any;
   showPeriodForm: boolean;
