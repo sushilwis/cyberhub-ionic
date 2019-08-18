@@ -16,13 +16,13 @@
 <ion-content>
   <ng-container *ngFor="let noti of allNotification">
 
-    <ion-item [ngStyle]="{'background-color':noti.is_seen == 0 ? '#333333' : '#1b1b1b' }" *ngIf="noti.notification_type_id == 2" (click)="gotoNotiece(noti.id)">
+    <ion-item [ngStyle]="{'background-color':noti.is_seen == 0 ? '#333333' : '#1b1b1b' }" *ngIf="noti.notification_type_id == 2 || noti.notification_type_id == 4" (click)="gotoNotiece(noti.id)">
       <ion-avatar item-start>
         <img src="assets/img/avatar-ts-buzz.png">
       </ion-avatar>
       <h2>{{noti.notification_title}}</h2>
       <p>{{noti.notification_desc}}</p>
-      <ion-note item-end style="font-size: 12px">{{noti.timeDifference}}</ion-note>
+      <ion-note item-end style="font-size: 12px">{{noti.created_at.split(' ')[0]}}</ion-note>
     </ion-item>
     <ion-item [ngStyle]="{'background-color':noti.is_seen == 0 ? '#333333' : '#1b1b1b' }" *ngIf="noti.notification_type_id == 1" (click)="gotoPersonalNotiece(noti.id)">
       <!-- <ion-avatar item-start>
@@ -30,7 +30,15 @@
           </ion-avatar> -->
       <h2>{{noti.notification_title}}</h2>
       <p>{{noti.notification_desc}}</p>
-      <ion-note item-end style="font-size: 12px">{{noti.timeDifference}}</ion-note>
+      <ion-note item-end style="font-size: 12px">{{noti.created_at.split(' ')[0]}}</ion-note>
+    </ion-item>
+    <ion-item [ngStyle]="{'background-color':noti.is_seen == 0 ? '#333333' : '#1b1b1b' }" *ngIf="noti.notification_type_id == 3" (click)="gotoRoutinePage(noti.id)">
+      <!-- <ion-avatar item-start>
+            <img src="assets/img/avatar-ts-buzz.png">
+          </ion-avatar> -->
+      <h2>{{noti.notification_title}}</h2>
+      <p>{{noti.notification_desc}}</p>
+      <ion-note item-end style="font-size: 12px">{{noti.created_at.split(' ')[0]}}</ion-note>
     </ion-item>
   </ng-container>
   <p style="text-align: center" *ngIf="allNotification?.length == 0 ">No Notification Found </p>

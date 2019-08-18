@@ -21,6 +21,7 @@ import { ToastController } from "ionic-angular";
 import { tap } from "rxjs/operators";
 import { Observable } from "rxjs";
 import { Firebase } from "@ionic-native/firebase";
+import { NotificationListPage } from "../pages/notification-list/notification-list";
 // import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 
 // import {timer} from 'rxjs/observable/timer';
@@ -72,7 +73,7 @@ export class MyApp {
       // abcs.valueChanges().subscribe(data => console.log(data))
 
       //  yolo kya baat
-
+      
       // Listen to incoming messages
       // this.fcm.listenToNotifications().pipe(
       //   tap(msg => {
@@ -103,7 +104,22 @@ export class MyApp {
       setTimeout(() => {
         this.splashScreen.hide();
       }, 1000);
+      if (this.platform.is('android') || this.platform.is('ios')) {
 
+        this.firebase.onNotificationOpen().subscribe((data: any) => {
+          if (data.wasTapped) {
+            // Notification was received on device tray and tapped by the user.
+            if (localVal.user_type_id == 4) {
+              this.nav.push(NotificationListPage)
+            }
+            if (localVal.user_type_id == 2) {
+              // this.rootPage = StaffTabsPage;
+            }
+          } else {
+            // Notification was received in foreground. Maybe the user needs to be notified.
+          }
+        })
+      }
       // timer(3000).subscribe(()=> this.showSplash = false);
       // this.splashScreen.show();
     });

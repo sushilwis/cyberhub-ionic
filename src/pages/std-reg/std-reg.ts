@@ -175,7 +175,7 @@ export class StdRegPage {
           text: 'OK',
           cssClass: "okBtn",
           handler: () => {
-            // this.navCtrl.push(WelcomeGuestPage);
+            this.navCtrl.push(StudentLoginPage);
           }
         }
       ]

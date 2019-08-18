@@ -87,9 +87,9 @@ export class AttendanceListPage implements OnInit {
   ionViewDidLoad() {
     // console.log('Atted ID : ', JSON.parse(localStorage.getItem('atted_id')));
     // console.log('ionViewDidLoad AttendanceListPage');
-    setTimeout(()=>{
-      this.deactivatePeriodAtted(JSON.parse(localStorage.getItem('atted_id')));
-    }, 60000);
+    // setTimeout(()=>{
+    //   this.deactivatePeriodAtted(JSON.parse(localStorage.getItem('atted_id')));
+    // }, 60000);
   }
 
   async getStudentList() {
@@ -180,6 +180,9 @@ export class AttendanceListPage implements OnInit {
       .subscribe(async data => {
         // console.log("deactivate data : ", data);
         if (data.success) {
+          localStorage.removeItem("atted_id");
+          localStorage.removeItem("attedCode");
+          localStorage.removeItem("department");
           this.socket.emit('forceDisconnect');
           // this.showAlert(data.msg);
         } else {
@@ -241,10 +244,9 @@ export class AttendanceListPage implements OnInit {
       .subscribe(async data => {
         // console.log("attendence data : ", data);
         if (data.success) {
-          this.socket.emit('forceDisconnect');
-          localStorage.removeItem("atted_id");
-          localStorage.removeItem("attedCode");
-          localStorage.removeItem("department");
+          // this.socket.emit('forceDisconnect');
+          
+          this.ngOnDestroy();
           this.showAlert("Digital Attendance and Manual Check out Successfully Submitted");
           this.navCtrl.setRoot(StaffInfoPage);
         } else {
@@ -296,6 +298,7 @@ export class AttendanceListPage implements OnInit {
     //Called once, before the instance is destroyed.
     //Add 'implements OnDestroy' to the class.
     this.deactivatePeriodAtted(JSON.parse(localStorage.getItem('atted_id')));
+    
     this.socket.emit('forceDisconnect');
   }
   
