@@ -161,7 +161,8 @@ export class GetAttendancePage {
     if (this.filteredArrayForSectionList.length > 0) {
       this.filteredArrayForSectionList = this.filteredArrayForSectionList[0].sections;
     }
-
+    this.newFilterSectionArry = [];
+    this.onSemChange(this.sem_no);
     console.log(this.filteredArrayForSectionList);
   }
 

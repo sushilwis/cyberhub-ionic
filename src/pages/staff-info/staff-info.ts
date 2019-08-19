@@ -98,7 +98,7 @@ export class StaffInfoPage {
     this.navCtrl.push(StudentLibraryListPage);
   }
   goToPersonalNotice() {
-    this.navCtrl.push(PersonalNoticePage);
+    this.navCtrl.push(StudentNoticeBoardPage);
   }
   gotoLiveStream() {
     // this.navCtrl.push(LiveStreamPage);

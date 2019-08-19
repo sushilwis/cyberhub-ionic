@@ -742,7 +742,7 @@ export class SecuritypinPage {
   guarId: string;
   securityPin: number;
   btnDisabled: boolean = false;
-  showLoader: boolean;
+  // showLoader: boolean = false;
 
   constructor(
     public platform: Platform,
@@ -757,18 +757,16 @@ export class SecuritypinPage {
     public modalCtrl: ModalController,
     public toastCtrl: ToastController,
   ) {
-    this.showLoader = true;
+    // this.showLoader = false;
     this.getUserDataFromLocal();
   }
 
 
 
   ngOnInit() {
-    this.showLoader = false;   
+    // this.showLoader = false;   
   }
-
-
-
+  
 
 
 
@@ -784,6 +782,7 @@ export class SecuritypinPage {
 //    -------------- getting user data from localstorage ---------------
 // ########################################################################
     getUserDataFromLocal() {
+      // this.showLoader = false;   
       let data = localStorage.getItem('userData');
       this.localUserData = JSON.parse(data);
       // console.log('local data : ', this.localUserData);    
@@ -796,7 +795,7 @@ export class SecuritypinPage {
 // ----------- submit Guardian Info function -----------
 // ########################################################################
     submitSecurityPin() {
-      this.showLoader = true;
+      // this.showLoader = true;
           let header = new Headers();
           header.set("Content-Type", "application/json");
 
@@ -815,10 +814,10 @@ export class SecuritypinPage {
                   this.dismiss();
                   localStorage.setItem("securitypinadded", JSON.stringify(data));
                   this.navCtrl.push(AccountPage); 
-                  this.showLoader = false;                 
+                  // this.showLoader = false;                 
                 }else{
                   this.presentToast('Sorry, Something went wrong.');
-                  this.showLoader = false;
+                  // this.showLoader = false;
                 }                                
           });
     }

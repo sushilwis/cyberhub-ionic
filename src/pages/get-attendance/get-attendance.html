@@ -65,7 +65,7 @@
     <ion-item>
       <ion-label>Choose Session</ion-label>
       <ion-select [(ngModel)]="period" (ionChange)="getSubjectid($event)" [disabled]="periodDisabled()">
-        <ion-option *ngFor="let period of periodList" value="{{period.id}}">{{period.priod_name}} ({{period.from_time}}
+        <ion-option *ngFor="let period of periodList" value="{{period.id}}">{{period.period_name}} ({{period.from_time}}
           {{period.to_time}})</ion-option>
       </ion-select>
     </ion-item>
