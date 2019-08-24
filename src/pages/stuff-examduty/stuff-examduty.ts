@@ -176,6 +176,8 @@ async sortArr(rawRoutineArr) {
       .indexOf(element.day);
     
     if (pos < 0) {
+      console.log(element.rutinedetails.length);
+      
       if(element.rutinedetails.length > 0){
         this.subject = element.rutinedetails[0].class.section.sec_name;
         this.room = element.rutinedetails[0].room.name;
@@ -196,7 +198,7 @@ async sortArr(rawRoutineArr) {
         priods: [
           {
             priod_id: element.priod_id,
-            priod_name: element.priod.priod_name,
+            priod_name: element.priod.period_name,
             from_time: element.priod.from_time,
             to_time: element.priod.to_time,
             sub: this.subject,
@@ -207,6 +209,8 @@ async sortArr(rawRoutineArr) {
         ]
       };
       new_arry.push(new_data);
+      console.log(new_data);
+      
     } else {
       
       let exsisting_data = {
@@ -233,8 +237,9 @@ async sortArr(rawRoutineArr) {
   await new_arry.forEach((elem, i) => {     
       new_arry[i].priods.sort(function(a, b){return a.priod_id - b.priod_id});     
   });
-
+  
   this.routineList = new_arry;
+  console.log(this.routineList);
   // console.log('final array routine list: ', this.routineList);
   // this.presentLoading(false);
 }

@@ -25,6 +25,7 @@ import { StuffExamdutyPage } from "../stuff-examduty/stuff-examduty";
 import { HomePage } from "../home/home";
 import { StaffLoginPage } from "../staff-login/staff-login";
 import { SchoolcalenderPage } from "../schoolcalender/schoolcalender";
+import { NotificationListPage } from "../notification-list/notification-list";
 /**
  * Generated class for the StaffInfoPage page.
  *
@@ -98,7 +99,7 @@ export class StaffInfoPage {
     this.navCtrl.push(StudentLibraryListPage);
   }
   goToPersonalNotice() {
-    this.navCtrl.push(StudentNoticeBoardPage);
+    this.navCtrl.push(NotificationListPage);
   }
   gotoLiveStream() {
     // this.navCtrl.push(LiveStreamPage);
