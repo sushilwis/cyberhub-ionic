@@ -68,7 +68,16 @@ export class StudentNoticeBoardPage implements OnInit {
     // console.log('guest org id : ', this.guestOrgId);    
     this.getNotice();
   }
-
+  doRefresh(refresher) {
+    this.getNotice();
+    this.departmentalNotice = [];
+    this.generalNotice = [];
+    this.personalNotice = [];
+    setTimeout(() => {
+      // console.log('Async operation has ended');
+      refresher.complete();
+    }, 3000);
+  }
   ionViewDidLoad() {
     console.log("StudentNoticeBoardPage");
     // this.showLoader = false;

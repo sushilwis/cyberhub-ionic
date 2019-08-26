@@ -71,7 +71,9 @@
     </ion-item>
   </ion-list>
 
-  <button ion-button block outline color="blue" class="mt-10" (click)="onPeriodSubmit()">Continue to Generate
+  <button ion-button block outline color="blue"
+    [disabled] = "classfilteredSubject.lenght == 0"
+   class="mt-10" (click)="onPeriodSubmit()">Continue to Generate
     Code</button>
 
 </ion-content>
