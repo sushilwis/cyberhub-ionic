@@ -8,7 +8,7 @@ import {
   AlertController
 } from "ionic-angular";
 import { AttendanceListPage } from "../attendance-list/attendance-list";
-import { RequestOptions, Headers, Http } from "@angular/http";
+import {Headers, Http } from "@angular/http";
 import { apiUrl } from "../../apiUrl";
 
 
@@ -148,12 +148,14 @@ export class GetAttendancePage {
   }
 
   onChooseClassStream(e) {
+    // console.log(e);
+    
     // console.log(this.sortArray);
 
     this.filteredArrayForSectionList = [];
     this.classStreamID = e;
     var d = new Date();
-    var n = d.getFullYear();
+    // var n = d.getFullYear();
     this.filteredArrayForSectionList = this.sortArray.filter(element => {
       return element.class_id == e;
     });
@@ -163,6 +165,7 @@ export class GetAttendancePage {
     }
     this.newFilterSectionArry = [];
     this.onSemChange(this.sem_no);
+    // this.streamname = 
     console.log(this.filteredArrayForSectionList);
   }
 
@@ -208,8 +211,9 @@ export class GetAttendancePage {
       dept_id: this.department,
       sem: this.sem_no,
       // day: new Date().getDay(),
+      shift: this.shift,
       day: 1,
-      stream: this.stream == 1 ? "B.A" : this.stream == 3 ? "B.Com" : 'B.Sc'
+      stream: this.stream == 1 ? "B.A" : this.stream == 3 ? "B. Com" : 'B.Sc'
     };
     // console.log(data);
 

@@ -46,7 +46,7 @@
       <ion-label>Choose Sem</ion-label>
       <ion-select [(ngModel)]="sem_no" (ionChange)="onSemChange($event)" [disabled]="semDisabled()">
         <ion-option *ngFor="let sem of allSemList" value="{{sem.id}}">
-          {{sem.sem_no}}
+          Sem {{sem.sem_no}}
         </ion-option>
       </ion-select>
     </ion-item>
