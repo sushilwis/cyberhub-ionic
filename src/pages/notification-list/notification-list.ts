@@ -81,4 +81,18 @@ export class NotificationListPage {
       }
     })
   }
+
+
+
+  doRefresh(refresher) {
+    this.getallNotification();
+    this.allNotification = [];
+    setTimeout(() => {
+      // console.log('Async operation has ended');
+      refresher.complete();
+    }, 3000);
+  }
+
+
+  
 }

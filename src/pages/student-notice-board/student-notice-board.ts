@@ -177,6 +177,13 @@ export class StudentNoticeBoardPage implements OnInit {
       if(item.notice != null && item.notiece_type_id == '3'){
         this.personalNotice.push(item);
       }
+      if(this.localUserData.user_type_id == 2 && item.notice != null && item.notiece_type_id == '5'){
+        if (item.send_id == this.localUserData.master_id) {
+          
+          this.personalNotice.push(item);
+        }
+      }
+
     });
   }
 

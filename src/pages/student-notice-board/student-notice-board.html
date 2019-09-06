@@ -1,39 +1,36 @@
-
-
-
 <ion-header>
-  
-  <ion-navbar color="blue">
-    <ion-title>Notice Board</ion-title>
-    <ion-buttons end (click)=goToHome() *ngIf="localUserData == null">
-        <button ion-button icon-only>
+
+    <ion-navbar color="blue">
+        <ion-title>Notice Board</ion-title>
+        <ion-buttons end (click)=goToHome() *ngIf="localUserData == null">
+            <button ion-button icon-only>
           <ion-icon name="home" color="light"></ion-icon>
         </button>
-    </ion-buttons>
-  </ion-navbar>
+        </ion-buttons>
+    </ion-navbar>
 
-  <ion-toolbar no-border-top class="toolbar1">
-    <ion-segment [(ngModel)]="notice">
-      <ion-segment-button value="general">
-        <p>
-          <img class="notice-img" style="height: 20px" src="assets/imgs/generalNotice.svg">
-        </p>        
-        GENERAL NOTICE
-      </ion-segment-button>
-      <ion-segment-button value="personal">
-          <p>
-              <img class="notice-img" style="height: 20px" src="assets/imgs/personalNotice.svg">
-            </p>
-        PERSONAL NOTICE
-      </ion-segment-button>
-      <ion-segment-button value="departmental">
-          <p>
-              <img class="notice-img" style="height: 20px" src="assets/imgs/departmentalNotice.svg">
-            </p>
-        DEPARTMENTAL NOTICE
-      </ion-segment-button>
-    </ion-segment>
-  </ion-toolbar>
+    <ion-toolbar no-border-top class="toolbar1">
+        <ion-segment [(ngModel)]="notice">
+            <ion-segment-button value="general">
+                <p>
+                    <img class="notice-img" style="height: 20px" src="assets/imgs/generalNotice.svg">
+                </p>
+                GENERAL NOTICE
+            </ion-segment-button>
+            <ion-segment-button value="personal">
+                <p>
+                    <img class="notice-img" style="height: 20px" src="assets/imgs/personalNotice.svg">
+                </p>
+                PERSONAL NOTICE
+            </ion-segment-button>
+            <ion-segment-button value="departmental">
+                <p>
+                    <img class="notice-img" style="height: 20px" src="assets/imgs/departmentalNotice.svg">
+                </p>
+                DEPARTMENTAL NOTICE
+            </ion-segment-button>
+        </ion-segment>
+    </ion-toolbar>
 </ion-header>
 
 
@@ -41,92 +38,88 @@
 
 <ion-content>
     <ion-refresher (ionRefresh)="doRefresh($event)">
-        <ion-refresher-content
-        pullingIcon="arrow-dropdown"
-        pullingText="Pull to refresh"
-        refreshingSpinner="circles"
-        ></ion-refresher-content>
-      </ion-refresher>
-    <div class="overley" *ngIf="showLoader"></div>  
+        <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="circles"></ion-refresher-content>
+    </ion-refresher>
+    <div class="overley" *ngIf="showLoader"></div>
     <div class="spinner" *ngIf="showLoader">
-            <div class="rect1"></div>
-            <div class="rect2"></div>
-            <div class="rect3"></div>
-            <div class="rect4"></div>
-            <div class="rect5"></div>
+        <div class="rect1"></div>
+        <div class="rect2"></div>
+        <div class="rect3"></div>
+        <div class="rect4"></div>
+        <div class="rect5"></div>
     </div>
 
-    
-  <div [ngSwitch]="notice">
 
-    <ion-list *ngSwitchCase="'general'">
-        <ion-item *ngFor="let notice of generalNotice" style="background-color: #1b1b1b; color: #f6f6f6; border-bottom: 1px solid #3b3b3b">
-            <ion-thumbnail item-start (click)="presentProfileModal(notice.id)">
-              <img *ngIf="notice?.docType == 'pdf'" class="notice-img" src="assets/imgs/pdf_logo.svg">
-              <img *ngIf="!notice?.docType" class="notice-img" src="assets/icon/file.svg">
-              <img *ngIf="notice?.docType == 'docx'" class="notice-img" src="assets/icon/doc.svg">
-            </ion-thumbnail>
-            <h2 (click)="presentProfileModal(notice.id)">{{notice?.notice?.subject}}</h2>
-            <p style="font-size: 10px; color: #a0a0a0" (click)="presentProfileModal(notice.id)">{{notice?.notice?.text}}</p>
-            <!-- <p>{{notice?.noticetype?.type_name}}</p> -->
-            <ion-note style="font-size: 10px; color: #a0a0a0" item-end>{{notice?.created_at.substring(0,10)}}</ion-note>
-            <!-- <ion-note item-end style="font-size: 11px;">
+    <div [ngSwitch]="notice">
+
+        <ion-list *ngSwitchCase="'general'">
+            <ion-item *ngFor="let notice of generalNotice" style="background-color: #1b1b1b; color: #f6f6f6; border-bottom: 1px solid #3b3b3b">
+                <ion-thumbnail item-start (click)="presentProfileModal(notice.id)">
+                    <img *ngIf="notice?.docType == 'pdf'" class="notice-img" src="assets/imgs/pdf_logo.svg">
+                    <img *ngIf="!notice?.docType" class="notice-img" src="assets/icon/file.svg">
+                    <img *ngIf="notice?.docType == 'docx'" class="notice-img" src="assets/icon/doc.svg">
+                </ion-thumbnail>
+                <h2 (click)="presentProfileModal(notice.id)">{{notice?.notice?.subject}}</h2>
+                <p style="font-size: 10px; color: #a0a0a0" (click)="presentProfileModal(notice.id)">{{notice?.notice?.text}}</p>
+                <!-- <p>{{notice?.noticetype?.type_name}}</p> -->
+                <ion-note style="font-size: 10px; color: #a0a0a0" item-end>{{notice?.created_at.substring(0,10)}}</ion-note>
+                <!-- <ion-note item-end style="font-size: 11px;">
               {{notice?.timeDifference}}
             </ion-note> -->
-            <a style="padding: 0px" *ngIf="notice?.notice?.file_url" ion-button clear target="_blank" href="http://softechs.co.in/school_hub/public/uploads/Notices/{{notice?.notice?.file_url}}">
-              <!-- <i class="fas fa-download fa-2x"></i> -->
-              View Pdf
-            </a>            
-        </ion-item>
-    </ion-list>
+                <a style="padding: 0px" *ngIf="notice?.notice?.file_url" ion-button clear target="_blank" href="http://inunco.com/school_hub/public/uploads/Notices/{{notice?.notice?.file_url}}">
+                    <!-- <i class="fas fa-download fa-2x"></i> -->
+                    View Pdf
+                </a>
+            </ion-item>
+        </ion-list>
 
 
-    <ion-list *ngSwitchCase="'personal'">
-      <ion-item *ngFor="let notice of personalNotice" style="background-color: #1b1b1b; color: #f6f6f6; border-bottom: 1px solid #3b3b3b">
-        <ion-thumbnail item-start (click)="presentProfileModal(notice.id)">
-            <img *ngIf="notice?.docType == 'pdf'" class="notice-img" src="assets/imgs/pdf_logo.svg">
-            <img *ngIf="!notice?.docType" class="notice-img" src="assets/icon/file.svg">
-            <img *ngIf="notice?.docType == 'docx'" class="notice-img" src="assets/icon/doc.svg">
-        </ion-thumbnail>
-        <h2 (click)="presentProfileModal(notice.id)">{{notice?.notice?.subject}}</h2>
-        <p style="font-size: 10px; color: #a0a0a0" (click)="presentProfileModal(notice.id)">{{notice?.notice?.text}}</p>
-        <!-- <p>{{notice?.noticetype?.type_name}}</p> -->
-        <ion-note style="font-size: 10px; color: #a0a0a0" item-end>{{notice?.created_at.substring(0,10)}}</ion-note>
-        <!-- <p style="font-size: 10px; color: #a0a0a0">{{notice?.created_at}}</p> -->
-        <!-- <ion-note item-end style="font-size: 11px;">
+        <ion-list *ngSwitchCase="'personal'">
+            <ion-item *ngFor="let notice of personalNotice" style="background-color: #1b1b1b; color: #f6f6f6; border-bottom: 1px solid #3b3b3b">
+                <ion-thumbnail item-start (click)="presentProfileModal(notice.id)">
+                    <img *ngIf="notice?.docType == 'pdf'" class="notice-img" src="assets/imgs/pdf_logo.svg">
+                    <img *ngIf="!notice?.docType" class="notice-img" src="assets/icon/file.svg">
+                    <img *ngIf="notice?.docType == 'docx'" class="notice-img" src="assets/icon/doc.svg">
+                </ion-thumbnail>
+                <h2 (click)="presentProfileModal(notice.id)">{{notice?.notice?.subject}}</h2>
+                <p style="font-size: 10px; color: #a0a0a0" (click)="presentProfileModal(notice.id)">{{notice?.notice?.text}}</p>
+                <!-- <p>{{notice?.noticetype?.type_name}}</p> -->
+                <ion-note style="font-size: 10px; color: #a0a0a0" item-end>{{notice?.created_at.substring(0,10)}}</ion-note>
+                <!-- <p style="font-size: 10px; color: #a0a0a0">{{notice?.created_at}}</p> -->
+                <!-- <ion-note item-end style="font-size: 11px;">
           {{notice?.timeDifference}}
         </ion-note> -->
-        <a style="padding: 0px" *ngIf="notice?.notice?.file_url" ion-button clear target="_blank" href="http://softechs.co.in/school_hub/public/uploads/Notices/{{notice?.notice?.file_url}}">
-          <!-- <i class="fas fa-download fa-2x"></i> -->
-          View Pdf
-        </a>
-        
-      </ion-item>
-    </ion-list>
+                <a style="padding: 0px" *ngIf="notice?.notice?.file_url" ion-button clear target="_blank" href="http://inunco.com/school_hub/public/uploads/Notices/{{notice?.notice?.file_url}}">
+                    <!-- <i class="fas fa-download fa-2x"></i> -->
+                    View Pdf
+                </a>
 
-    <ion-list *ngSwitchCase="'departmental'">
-        <ion-item *ngFor="let notice of departmentalNotice" style="background-color: #1b1b1b; color: #f6f6f6; border-bottom: 1px solid #3b3b3b">
-            <ion-thumbnail item-start (click)="presentProfileModal(notice.id)">
-                <img *ngIf="notice?.docType == 'pdf'" class="notice-img" src="assets/imgs/pdf_logo.svg">
-                <img *ngIf="!notice?.docType" class="notice-img" src="assets/icon/file.svg">
-                <img *ngIf="notice?.docType == 'docx'" class="notice-img" src="assets/icon/doc.svg">
-            </ion-thumbnail>
-            <h2 (click)="presentProfileModal(notice.id)">{{notice?.notice?.subject}}</h2>
-            <p style="font-size: 10px; color: #a0a0a0" (click)="presentProfileModal(notice.id)">{{notice?.notice?.text}}</p>
-            <!-- <p>{{notice?.noticetype?.type_name}}</p> -->
-            <!-- <p style="font-size: 10px; color: #a0a0a0">{{notice?.created_at}}</p> -->
-            <ion-note style="font-size: 10px; color: #a0a0a0" item-end>{{notice?.created_at.substring(0,10)}}</ion-note>
-            <!-- <ion-note item-end style="font-size: 11px;">
+            </ion-item>
+        </ion-list>
+
+        <ion-list *ngSwitchCase="'departmental'">
+            <ion-item *ngFor="let notice of departmentalNotice" style="background-color: #1b1b1b; color: #f6f6f6; border-bottom: 1px solid #3b3b3b">
+                <ion-thumbnail item-start (click)="presentProfileModal(notice.id)">
+                    <img *ngIf="notice?.docType == 'pdf'" class="notice-img" src="assets/imgs/pdf_logo.svg">
+                    <img *ngIf="!notice?.docType" class="notice-img" src="assets/icon/file.svg">
+                    <img *ngIf="notice?.docType == 'docx'" class="notice-img" src="assets/icon/doc.svg">
+                </ion-thumbnail>
+                <h2 (click)="presentProfileModal(notice.id)">{{notice?.notice?.subject}}</h2>
+                <p style="font-size: 10px; color: #a0a0a0" (click)="presentProfileModal(notice.id)">{{notice?.notice?.text}}</p>
+                <!-- <p>{{notice?.noticetype?.type_name}}</p> -->
+                <!-- <p style="font-size: 10px; color: #a0a0a0">{{notice?.created_at}}</p> -->
+                <ion-note style="font-size: 10px; color: #a0a0a0" item-end>{{notice?.created_at.substring(0,10)}}</ion-note>
+                <!-- <ion-note item-end style="font-size: 11px;">
               {{notice?.timeDifference}}
             </ion-note> -->
-            <a style="padding: 0px" *ngIf="notice?.notice?.file_url" ion-button clear target="_blank" href="http://softechs.co.in/school_hub/public/uploads/Notices/{{notice?.notice?.file_url}}">
-              <!-- <i class="fas fa-download fa-2x"></i> -->
-              View Pdf
-            </a>
-            
-        </ion-item>
-    </ion-list>
-  </div>
+                <a style="padding: 0px" *ngIf="notice?.notice?.file_url" ion-button clear target="_blank" href="http://inunco.com/school_hub/public/uploads/Notices/{{notice?.notice?.file_url}}">
+                    <!-- <i class="fas fa-download fa-2x"></i> -->
+                    View Pdf
+                </a>
+
+            </ion-item>
+        </ion-list>
+    </div>
 </ion-content>
 
 

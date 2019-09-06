@@ -75,19 +75,20 @@ export class MyApp {
       //  yolo kya baat
       
       // Listen to incoming messages
-      // this.fcm.listenToNotifications().pipe(
-      //   tap(msg => {
-      //     // show a toast
-      //     const toast = this.toastCtrl.create({
-      //       message: msg.body,
-      //       duration: 3000
-      //     });
-      //     toast.present();
-      //   })
-      // )
-      // .subscribe((data)=> {
-      //   console.log('listen to notification : ', data);
-      // })
+      this.fcm.listenToNotifications().pipe(
+        tap(msg => {
+          // show a toast
+          const toast = this.toastCtrl.create({
+            message: msg.body,
+            duration: 3000,
+            position: 'top'
+          });
+          toast.present();
+        })
+      )
+      .subscribe((data)=> {
+        console.log('listen to notification : ', data);
+      })
 
       if (localVal) {
         if (localVal.user_type_id == 4) {
