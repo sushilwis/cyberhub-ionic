@@ -1,0 +1,38 @@
+<div class="overley" *ngIf="showLoader"></div>  
+<div class="spinner" *ngIf="showLoader">
+        <div class="rect1"></div>
+        <div class="rect2"></div>
+        <div class="rect3"></div>
+        <div class="rect4"></div>
+        <div class="rect5"></div>
+</div>
+
+
+
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Save Your Class Depertment </ion-title>
+    <ion-buttons start>
+      <button ion-button (click)="dismiss()">
+        <span ion-text color="primary" showWhen="ios">Cancel</span>
+        <ion-icon name="md-close" showWhen="android, windows" style="font-size: 3rem;"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list style="margin-top: 12%">
+    <ion-item style="box-shadow: none;">
+       <ion-label>Choose Your Depertment</ion-label>
+        <ion-select [(ngModel)]="dept_id">
+          <ion-option *ngFor="let item of depts" [value]="item.id">{{item?.name}}</ion-option>
+          
+        </ion-select>
+    </ion-item>
+  </ion-list>
+
+  <button style="margin-top: 10%" ion-button type="submit" block outline color="blue" class="mt-10" (click)="saveDept()">Submit</button>
+  <!-- <button ion-button type="submit" block outline color="blue" class="mt-10" (click)="dismiss()">Skip For Now</button> -->
+</ion-content>

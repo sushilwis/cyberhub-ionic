@@ -1,11 +1,4 @@
-<div class="overley" *ngIf="showLoader"></div>  
-<div class="spinner" *ngIf="showLoader">
-        <div class="rect1"></div>
-        <div class="rect2"></div>
-        <div class="rect3"></div>
-        <div class="rect4"></div>
-        <div class="rect5"></div>
-</div>
+
 
 
 <ion-header>
@@ -47,6 +40,23 @@
 
 
 <ion-content>
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content
+        pullingIcon="arrow-dropdown"
+        pullingText="Pull to refresh"
+        refreshingSpinner="circles"
+        ></ion-refresher-content>
+      </ion-refresher>
+    <div class="overley" *ngIf="showLoader"></div>  
+    <div class="spinner" *ngIf="showLoader">
+            <div class="rect1"></div>
+            <div class="rect2"></div>
+            <div class="rect3"></div>
+            <div class="rect4"></div>
+            <div class="rect5"></div>
+    </div>
+
+    
   <div [ngSwitch]="notice">
 
     <ion-list *ngSwitchCase="'general'">

@@ -13,6 +13,7 @@ import { HomePage } from '../home/home';
 import { StudentNoticeBoardPage } from '../student-notice-board/student-notice-board';
 import { StudentOwndetailsPage } from '../student-owndetails/student-owndetails';
 import { StaffInfoPage } from '../staff-info/staff-info';
+import { AdmissionFormPage } from '../admission-form/admission-form';
 
 
 @IonicPage()
@@ -37,14 +38,15 @@ export class SchoolDetailsPage implements OnInit {
   humidity: any;
   showLoader: boolean;
   isAdmission: boolean = false;
+  orgImages: any = [];
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     private http: Http, public loadingController: LoadingController, private menuCtrl: MenuController, public platform: Platform) {
     this.showLoader = true;
     this.getUserDataFromLocal();
     this.schoolId = navParams.get('id');
-    this.isAdmission = navParams.get('admission');
-    console.log(navParams.get('admission'));
+    this.isAdmission = navParams.get('admission') == 1 ? true : false
+    console.log(this.isAdmission);
     
     // this.initLoader();
     this.menuCtrl.enable(false);
@@ -88,13 +90,13 @@ export class SchoolDetailsPage implements OnInit {
     let header = new Headers();
     header.set("Content-Type", "application/json");
 
-    let data = {
+    let api_data = {
       org_id: id,
     }
 
     // console.log('data : ', data);    
 
-    this.http.post(`${apiUrl.url}org/getdetail`, data, {headers: header}).
+    this.http.post(`${apiUrl.url}org/getdetail`, api_data, {headers: header}).
       map(res => res.json()).subscribe(data => {
         // this.presentLoading(false);
         this.schoolDetails = data.data[0];
@@ -104,11 +106,24 @@ export class SchoolDetailsPage implements OnInit {
         this.getWeatherData();
         // console.log(this.pin);
         console.log('school details :....', this.schoolDetails);
-        this.showLoader = false;
+        
       })
+    this.http.post(`${apiUrl.url}gallery/getallimage`, api_data, {headers: header}).
+      map(res => res.json()).subscribe(data => {
+        console.log(data);
+        this.showLoader = false;
+        this.orgImages = data.data
+      })
+
+
   }
 
 
+  goAdmissionArea() {
+    this.navCtrl.push(AdmissionFormPage, {
+      id: this.schoolId
+    })
+  }
 
 
 

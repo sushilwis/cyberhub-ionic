@@ -48,8 +48,8 @@
             <p text-left text-uppercase no-padding no-margin class="stdsmallinfo">
               {{studentDetails?.nameclass?.class?.class_name}} {{studentDetails?.nameclass?.section?.sec_name}}</p>
             <p text-left text-uppercase no-padding no-margin class="stdsmallinfo">Semester :
-              {{studentDetails?.nameclass?.sem_id?.sem_no}}</p>
-            <p text-left text-uppercase no-padding no-margin class="stdsmallinfo">Attendance : 60%</p>
+              {{studentDetails?.nameclass?.sem?.sem_no}}</p>
+            <!-- <p text-left text-uppercase no-padding no-margin class="stdsmallinfo">Attendance : 60%</p> -->
           </div>
         </div>
       </div>
@@ -156,7 +156,7 @@
     </ion-col> -->
       <ion-col col-md-4 class="icon-center" (click)=gotoLiveStream() style="border-top: 2px solid #fff;">
         <img class="logo-action" src="assets/icon/live_stream_btn.svg" />
-        <p text-uppercase>Live Stream</p>
+        <p text-uppercase>Video Stream</p>
       </ion-col>
       <ion-col col-md-4 class="icon-center" (click)=goToEvents() style="border-top: 2px solid #fff;">
         <img class="logo-action" src="assets/icon/calender_btn.svg" />

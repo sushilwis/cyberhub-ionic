@@ -84,7 +84,7 @@ export class StudentOwndetailsPage implements OnInit {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad StudentOwndetailsPage');
-    this.showLoader = false;
+    // this.showLoader = false;
   }
 
 
@@ -154,8 +154,8 @@ export class StudentOwndetailsPage implements OnInit {
           // console.log('org details : ...', this.orgDetails);
           // console.log('PIN: ...', this.pin);
           this.getWeatherData(); 
-          this.showLoader = false;         				
         }
+        this.showLoader = false;         				
         
 			});
   }

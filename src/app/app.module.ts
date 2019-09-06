@@ -30,9 +30,9 @@ import { ParentsChildTabsPage } from '../pages/parents-child-tabs/parents-child-
 import { StudentLibraryListPage } from '../pages/student-library-list/student-library-list';
 import { ProfilePage } from '../pages/student-library-list/student-library-list';
 import { StudentNoticeBoardPage, NoticeModalPage } from '../pages/student-notice-board/student-notice-board';
-import AccountPage, { ModalPage, SecuritypinPage } from '../pages/account/account';
+import AccountPage, { ModalPage, SecuritypinPage, Modal1Page } from '../pages/account/account';
 import { ChangepasswordPage } from '../pages/changepassword/changepassword';
-import { ParentsAccountPage, QuesmodalPage } from '../pages/parents-account/parents-account';
+import { ParentsAccountPage, QuesmodalPage, AskDeptModal } from '../pages/parents-account/parents-account';
 import { StaffLoginPage } from '../pages/staff-login/staff-login';
 import { StaffInfoPage } from '../pages/staff-info/staff-info';
 import { StaffComplainPage } from '../pages/staff-complain/staff-complain';
@@ -49,6 +49,7 @@ import StudentsTabsPage from '../pages/students-tabs/students-tabs';
 // import { StudentNoticeBoardPage, NoticeModalPage } from './student-notice-board';
 import { StuffChangePassPage } from '../pages/stuff-change-pass/stuff-change-pass';
 import { NotificationListPage } from "../pages/notification-list/notification-list";
+import { AdmissionFormPage } from "../pages/admission-form/admission-form";
 // import { RippleDirective } from 'ng2-ripple-directive';
 
 // import { StreamingMedia } from '@ionic-native/streaming-media';
@@ -85,6 +86,7 @@ import { ParentRegPage } from '../pages/parent-reg/parent-reg';
 import { ParentHomePage } from '../pages/parent-home/parent-home';
 import { AddChildPage } from '../pages/add-child/add-child';
 import { ViewChildPage } from '../pages/view-child/view-child';
+import { IonicImageViewerModule } from 'ionic-img-viewer';
 
 const firebase = {
  // your firebase web config
@@ -121,7 +123,9 @@ const firebase = {
     StudentNoticeBoardPage,
     AccountPage,
     SecuritypinPage,
+    Modal1Page,
     QuesmodalPage,
+    AskDeptModal,
     ModalPage,
     StaffTabsPage,
     ChangepasswordPage,
@@ -136,6 +140,7 @@ const firebase = {
     ComplainReplyPage,
     StuffExamdutyPage,
     // RippleDirective,
+    AdmissionFormPage,
     AnimatesDirective,
     SchoolcalenderPage,
     StudentsTabsPage,
@@ -153,6 +158,7 @@ const firebase = {
     ParentHomePage,
     AddChildPage,
     ViewChildPage,
+    
   ],
   imports: [
     BrowserModule,
@@ -160,6 +166,7 @@ const firebase = {
     JsonpModule,
     IonicModule.forRoot(MyApp),
     NgCalendarModule,
+    IonicImageViewerModule
     // PdfViewerModule,
     // AngularFireModule.initializeApp(firebase, "inunco-app"), 
     // AngularFirestoreModule,
@@ -176,9 +183,11 @@ const firebase = {
     StudentLoginPage,
     LibraryListPage,
     QuesmodalPage,
+    AskDeptModal, 
     StudentOwndetailsPage,
     PersonalNoticePage,
     LiveStreamPage,
+    AdmissionFormPage,
     AttendancePage,
     RoutinePage,
     ParentsLoginPage,
@@ -189,6 +198,7 @@ const firebase = {
     StudentNoticeBoardPage,
     AccountPage,
     SecuritypinPage,
+    Modal1Page,
     ModalPage,
     ChangepasswordPage,
     ParentsAccountPage,

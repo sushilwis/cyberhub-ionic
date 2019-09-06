@@ -108,7 +108,7 @@ getStudentRoutine() {
         this.showLoader = false;
         // this.presentLoading(false);
         this.rawRoutineList = data.data;
-        // console.log('raw routine list : ', this.rawRoutineList);
+        console.log('raw routine list : ', this.rawRoutineList);
         this.sortArr(this.rawRoutineList);
       }else{
         this.showLoader = false;
@@ -174,16 +174,26 @@ async sortArr(rawRoutineArr) {
         return e.day;
       })
       .indexOf(element.day);
+
+      console.log('pos...................', pos);
+      // console.log('element.rutinedetails.length...................', element.rutinedetails.length);
+      
     
     if (pos < 0) {
+      // console.log('pos < 0', element.rutinedetails.length);
+      // rutinedetails
       if(element.rutinedetails.length > 0){
+        console.log('pos < 0 .....if', element.rutinedetails.length);
+
         this.subject = element.rutinedetails[0].class.section.sec_name;
         this.room = element.rutinedetails[0].room.name;
         this.floor = element.rutinedetails[0].room.floor_name;
       }else{
+        console.log('pos < 0.....else', element.rutinedetails.length);
+
         this.subject = 'No Class';
         this.room = 'N/A';
-        this.floor = 'N/A'
+        this.floor = 'N/A';
       }
 
 
@@ -196,7 +206,7 @@ async sortArr(rawRoutineArr) {
         priods: [
           {
             priod_id: element.priod_id,
-            priod_name: element.priod.priod_name,
+            priod_name: element.priod.period_name,
             from_time: element.priod.from_time,
             to_time: element.priod.to_time,
             sub: this.subject,
@@ -207,7 +217,23 @@ async sortArr(rawRoutineArr) {
         ]
       };
       new_arry.push(new_data);
+      // console.log(new_data);
+      
     } else {
+
+      if(element.rutinedetails.length > 0){
+        console.log('pos < 0 .....if', element.rutinedetails.length);
+
+        this.subject = element.rutinedetails[0].class.section.sec_name;
+        this.room = element.rutinedetails[0].room.name;
+        this.floor = element.rutinedetails[0].room.floor_name;
+      }else{
+        console.log('pos < 0.....else', element.rutinedetails.length);
+
+        this.subject = 'No Class';
+        this.room = 'N/A';
+        this.floor = 'N/A';
+      }
       
       let exsisting_data = {
         priod_id: element.priod_id,
@@ -233,9 +259,10 @@ async sortArr(rawRoutineArr) {
   await new_arry.forEach((elem, i) => {     
       new_arry[i].priods.sort(function(a, b){return a.priod_id - b.priod_id});     
   });
-
+  
   this.routineList = new_arry;
-  // console.log('final array routine list: ', this.routineList);
+  // console.log(this.routineList);
+  console.log('final array routine list: ', this.routineList);
   // this.presentLoading(false);
 }
 

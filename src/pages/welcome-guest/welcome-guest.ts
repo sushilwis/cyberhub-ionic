@@ -17,7 +17,7 @@ import { SchoolDetailsPage } from '../school-details/school-details';
 export class WelcomeGuestPage {
 
   guestTab: string = 'search';
-  tabHeaderTitle: any = '';
+  tabHeaderTitle: any = 'Guest';
   showHeader: boolean = false;
   allSchoolsList: any;
   lists: any = [];
@@ -29,6 +29,13 @@ export class WelcomeGuestPage {
   loading: any;
   typeId: any;
   showLoader: boolean;
+  searchCollgResult: any = [];
+  searchOrg: any;
+  SearchOrgId: any;
+  regID: any;
+  SearchedResult: any = [];
+  showData: boolean = false 
+  showError: boolean = false;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private http: Http, public menuCtrl: MenuController, public loadingController: LoadingController, public alertCtrl: AlertController, public toastCtrl: ToastController) {
     this.showLoader = true;
@@ -57,7 +64,19 @@ export class WelcomeGuestPage {
   }
 
 
+  filterCollgList(ev) {
+    const val = ev.target.value;
+    // console.log(this.items);
 
+    // if the value is an empty string don't filter the items
+    if (val && val.trim() != "") {
+      this.searchCollgResult = this.lists.filter(item => {
+        return item.name.toLowerCase().indexOf(val.toLowerCase()) > -1;
+      });
+
+      console.log('items : ...', this.searchCollgResult);
+    }
+  }
 
 
   onClickTab(value) {
@@ -174,7 +193,7 @@ export class WelcomeGuestPage {
       case '7':
         return "Admission"; 
       case '8':
-        return "Online Payment";         
+        return "Exam Schedule";         
       default:
         return "";
     }
@@ -289,9 +308,54 @@ export class WelcomeGuestPage {
 
 
 
+  onSelectSearch(values){
+    this.searchOrg = values.name;
+    this.SearchOrgId = values.id;
+    this.searchCollgResult = [];
+    this.showData = true;
+  }
 
+  searchStudent() {
+     this.showLoader = true;
+    var headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    let options = new RequestOptions({ headers: headers });
 
+    let data = {
+      org_id: this.SearchOrgId,
+      applicantNo: this.regID
+    }
 
+    this.http
+      .post(`${apiUrl.url}exam/search-student`, data, options)
+      .map(res => res.json())
+      .subscribe(data => {
+        // console.log(data);
+        if (data.data) {
+          this.SearchedResult = []
+          this.showLoader = false;
+          data.data.forEach((element: any) => {
+            if (element.exam_date.length > 0 && element.exam_date[0].exam_room.length >0) {
+              this.SearchedResult.push(element)
+            }
+          });
+          if (this.SearchedResult.length == 0) {
+            this.showError = true
+          }
+          console.log(this.showError);
+          
+        }
+      })
+  }
+
+  searchedNo(data) {
+    if (data.std_regs_no == this.regID) {
+      return data.std_regs_no
+    }
+    else{
+      data.std_roll_no
+    }
+  }
   getData(id, skip) {
     // this.presentLoading(true);
     this.showLoader = true;
@@ -342,7 +406,12 @@ export class WelcomeGuestPage {
       });
   }
 
-
+  scrollToLeft() {
+    (<HTMLElement>document.getElementsByClassName('footer')[0]).scrollLeft += 60;
+  }
+  scrollToRight() {
+    (<HTMLElement>document.getElementsByClassName('footer')[0]).scrollLeft -= 60;
+  }
 
 
 

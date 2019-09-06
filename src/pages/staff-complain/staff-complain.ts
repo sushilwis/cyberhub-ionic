@@ -28,7 +28,8 @@ export class StaffComplainPage implements OnInit {
   allMsgs: any;
   totalcomplain;
   showLoader: boolean;
-  
+  Math: any = Math;
+
   constructor(public navCtrl: NavController, public navParams: NavParams, public menuCtrl: MenuController, public loadingController: LoadingController, private http: Http, public alertCtrl: AlertController) {
     this.showLoader = true;
   }

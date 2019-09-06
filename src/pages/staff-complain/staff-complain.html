@@ -29,7 +29,7 @@
 			    <ion-textarea name="complainMsg" [(ngModel)]="complainMsg" placeholder="Complain limit 150 character." (keyup)="onChangeTextValue()"></ion-textarea>
 				</ion-item>
 				
-			  <ion-note text-right float-right style="margin-top: 5px; margin-bottom: 5px;">Left {{totalcomplain-3}} of 3 Complain</ion-note>
+			  <ion-note text-right float-right style="margin-top: 5px; margin-bottom: 5px;">Left {{ Math.abs(totalcomplain -3) }} of 3 </ion-note>
 				<button ion-button block outline color="light" class="mt-10" (click)=sendComplain() (click)=goHide() [disabled]="btnDisabled">Submit</button>
 				<!-- <p class="text-blue" *ngIf="isShown">Your Complain has been Submited to the Principal</p> -->
 			</ion-list>

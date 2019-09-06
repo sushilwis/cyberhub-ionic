@@ -149,6 +149,10 @@ export default class AccountPage implements OnInit {
       .subscribe(data => {
         if (data.data[0]) {
           this.studentDetails = data.data[0];
+          if (this.studentDetails.nameclass == null) {
+            let modal = this.modalCtrl.create(ModalPage);
+            modal.present();
+          }
           if (data.data[0].nameclass) {
             this.getAttendanceDetails(this.studentDetails.class_id);
             this.showSelectDepartmentBtn = false;
@@ -246,15 +250,15 @@ export default class AccountPage implements OnInit {
 
   getAttendanceDetails(class_id) {
     this.showLoader = true;
-
+    console.log(this.chartAttdValue);
     var headers = new Headers();
     headers.append("Content-Type", "application/json");
     let options = new RequestOptions({ headers: headers });
 
     let apidata = {
       org_id: this.localUserData.org_code,
-      dept_id: 31,
-      std_id: 110
+      dept_id: class_id,
+      std_id: this.localUserData.master_id
       
     };
 
@@ -309,6 +313,8 @@ export default class AccountPage implements OnInit {
 
 
   renderGraph() {
+    
+    
     this.doughnutChart = new Chart(this.doughnutCanvas.nativeElement, {
       type: "bar",
       options: {
@@ -545,7 +551,8 @@ submitDepartment() {
         .subscribe(
           data => {
             
-            if(data.status == 1){                           
+            if(data.status == 1){   
+              this.viewCtrl.dismiss();                        
                 let modal1 = this.modalCtrl.create(Modal1Page);
                 modal1.present();
                 this.showLoader = false;              
@@ -735,7 +742,7 @@ export class SecuritypinPage {
   guarId: string;
   securityPin: number;
   btnDisabled: boolean = false;
-  showLoader: boolean;
+  // showLoader: boolean = false;
 
   constructor(
     public platform: Platform,
@@ -750,18 +757,16 @@ export class SecuritypinPage {
     public modalCtrl: ModalController,
     public toastCtrl: ToastController,
   ) {
-    this.showLoader = true;
+    // this.showLoader = false;
     this.getUserDataFromLocal();
   }
 
 
 
   ngOnInit() {
-    this.showLoader = false;   
+    // this.showLoader = false;   
   }
-
-
-
+  
 
 
 
@@ -777,6 +782,7 @@ export class SecuritypinPage {
 //    -------------- getting user data from localstorage ---------------
 // ########################################################################
     getUserDataFromLocal() {
+      // this.showLoader = false;   
       let data = localStorage.getItem('userData');
       this.localUserData = JSON.parse(data);
       // console.log('local data : ', this.localUserData);    
@@ -789,7 +795,7 @@ export class SecuritypinPage {
 // ----------- submit Guardian Info function -----------
 // ########################################################################
     submitSecurityPin() {
-      this.showLoader = true;
+      // this.showLoader = true;
           let header = new Headers();
           header.set("Content-Type", "application/json");
 
@@ -808,10 +814,10 @@ export class SecuritypinPage {
                   this.dismiss();
                   localStorage.setItem("securitypinadded", JSON.stringify(data));
                   this.navCtrl.push(AccountPage); 
-                  this.showLoader = false;                 
+                  // this.showLoader = false;                 
                 }else{
                   this.presentToast('Sorry, Something went wrong.');
-                  this.showLoader = false;
+                  // this.showLoader = false;
                 }                                
           });
     }

@@ -137,7 +137,8 @@ export class StdRegPage {
           if (data.data) { 
             // this.presentLoading(false);           
             // console.log('student data : ', data);	
-            this.showAlert('Success!', `Your Username is : ${data.data[0].username} and Password is : ${data.data[0].hint}. Please login to continue`);	
+            this.showAlert('Success!', `Your Username is : ${data.data[0].username} and Password is : ${data.data[0].hint}. Please login to continue`);
+            // this.showAlert('Success!', `Your Username is : ${data.data.username} and Password is : ${data.data.hint}. Please login to continue`);	
             this.showLoader = false;			
           }else{
             // this.presentLoading(false);
@@ -174,7 +175,7 @@ export class StdRegPage {
           text: 'OK',
           cssClass: "okBtn",
           handler: () => {
-            // this.navCtrl.push(WelcomeGuestPage);
+            this.navCtrl.push(StudentLoginPage);
           }
         }
       ]

@@ -85,6 +85,10 @@ export class ParentsAccountPage {
           this.showLoader = false;
           // this.presentLoading(false);
           this.teacherDetails = data.data[0];
+          if (this.teacherDetails.user[0].is_first_time == 0) {
+            let modal = this.modalCtrl.create(AskDeptModal);
+            modal.present();  
+          }
           // console.log('teacher details : ', data.data[0]);
 				}else{
           this.showLoader = false;
@@ -218,9 +222,87 @@ export class ParentsAccountPage {
 
 }
 
+@Component({
+  templateUrl: './askdeptModal.html'
+})
+
+export class AskDeptModal {
+  showLoader: boolean;
+  dept_id: any;
+  depts: any;
+  constructor(
+    public platform: Platform,
+    public params: NavParams,
+    public viewCtrl: ViewController,
+    private http: Http,
+    public loadingController: LoadingController,
+    public jsonp: Jsonp,
+    public modalCtrl: ModalController,
+    public toastCtrl: ToastController,
+  ) {
+    this.getDepts();
+  }
+
+  getDepts(){
+    this.showLoader = true;
+      let header = new Headers();
+      header.set("Content-Type", "application/json");
+
+      let data = {
+        org_id: JSON.parse(localStorage.getItem('userData')).org_code
+      };
+
+      this.http
+        .get(`${apiUrl.url}classsection/depts`)
+        .map(res => res.json())
+        .subscribe(
+          data => {
+            if (data.data) {
+              
+              this.depts = data.data;
+            }
+            
+            this.showLoader = false;
+      });
+  }
 
 
+  dismiss() {
+    this.viewCtrl.dismiss();
+  }
 
+  saveDept() {
+    this.showLoader = true;
+    let header = new Headers();
+    header.set("Content-Type", "application/json");
+    let data = {
+      id: JSON.parse(localStorage.getItem('userData')).master_id,
+      dept_id : this.dept_id
+    }
+    this.http
+      .post(`${apiUrl.url}staff/update_staff_on_first_login`, data, { headers: header })
+      .map(res => res.json())
+      .subscribe(
+        getdata => {
+          if (getdata.status == 1) {
+            this.presentToast(getdata.msg);
+            this.viewCtrl.dismiss();
+          }
+        })
+    
+  }
+
+  presentToast(text) {
+    let toast = this.toastCtrl.create({
+      message: text,
+      duration: 3000,
+      position: 'top'
+    });
+
+    toast.present();
+  }
+
+}
 
 
 

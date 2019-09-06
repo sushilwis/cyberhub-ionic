@@ -8,7 +8,7 @@ import {
   AlertController
 } from "ionic-angular";
 import { AttendanceListPage } from "../attendance-list/attendance-list";
-import { RequestOptions, Headers, Http } from "@angular/http";
+import {Headers, Http } from "@angular/http";
 import { apiUrl } from "../../apiUrl";
 
 
@@ -40,7 +40,7 @@ export class GetAttendancePage {
   sem_no: any = "";
   showTeacherForm: boolean = true;
   newFilterSectionArry;
-  classfilteredSubject;
+  classfilteredSubject: any = [];
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -148,12 +148,14 @@ export class GetAttendancePage {
   }
 
   onChooseClassStream(e) {
+    // console.log(e);
+    
     // console.log(this.sortArray);
 
     this.filteredArrayForSectionList = [];
     this.classStreamID = e;
     var d = new Date();
-    var n = d.getFullYear();
+    // var n = d.getFullYear();
     this.filteredArrayForSectionList = this.sortArray.filter(element => {
       return element.class_id == e;
     });
@@ -161,7 +163,9 @@ export class GetAttendancePage {
     if (this.filteredArrayForSectionList.length > 0) {
       this.filteredArrayForSectionList = this.filteredArrayForSectionList[0].sections;
     }
-
+    this.newFilterSectionArry = [];
+    this.onSemChange(this.sem_no);
+    // this.streamname = 
     console.log(this.filteredArrayForSectionList);
   }
 
@@ -196,7 +200,7 @@ export class GetAttendancePage {
     // console.log(this.newFilterSectionArry);
   }
   getSubjectid(e) {
-    // console.log(e);
+    console.log(this.stream);
     this.showLoader = true;
     let header = new Headers();
     header.set("Content-Type", "application/json");
@@ -207,8 +211,9 @@ export class GetAttendancePage {
       dept_id: this.department,
       sem: this.sem_no,
       // day: new Date().getDay(),
+      shift: this.shift,
       day: 1,
-      stream: this.stream == 1 ? "B.A" : "B.Sc"
+      stream: this.stream == 1 ? "B.A" : this.stream == 3 ? "B. Com" : 'B.Sc'
     };
     // console.log(data);
 
@@ -216,7 +221,7 @@ export class GetAttendancePage {
       .post(`${apiUrl.url}routine/getdayroutine`, data)
       .map(res => res.json())
       .subscribe(data => {
-        if (data.length == 0 && data[0].rutinedetails) {
+        if (data.data.length == 0 ) {
           this.showLoader = false;
           alert("No Class found in your routine");
         } else {
@@ -338,49 +343,56 @@ export class GetAttendancePage {
       return;
     }
 
-    let data = {
-      period_id: this.period,
-      department_id: this.department,
-      stream_id: this.stream,
-      shift_id: this.shift,
-      org_id: this.localUserData.org_code,
-      master_id: this.localUserData.master_id,
-      atted_code:
-        Math.floor(1000 + Math.random() * 9000) +
-        "" +
-        this.localUserData.org_code +
-        "" +
-        this.localUserData.master_id,
-      date: this.makeDateString(new Date()),
-      class_sub_id: this.classfilteredSubject[0].rutinedetails[0].class_sub_id
-    };
+    if (this.classfilteredSubject.length > 0) {
+      
+      let data = {
+        period_id: this.period,
+        department_id: this.department,
+        stream_id: this.stream,
+        shift_id: this.shift,
+        org_id: this.localUserData.org_code,
+        master_id: this.localUserData.master_id,
+        atted_code:
+          Math.floor(1000 + Math.random() * 9000) +
+          "" +
+          this.localUserData.org_code +
+          "" +
+          this.localUserData.master_id,
+        date: this.makeDateString(new Date()),
+        class_sub_id: this.classfilteredSubject[0].rutinedetails[0].class_sub_id
+      };
+  
+      // console.log(data);
+  
+      let header = new Headers();
+      header.set("Content-Type", "application/json");
+  
+      this.http
+        .post(`${apiUrl.node_url}attendance/addAttedData`, data, {
+          headers: header
+        })
+        .map(res => res.json())
+        .subscribe(async data => {
+          // console.log("data : ", data);
+          if (data.success) {
+            this.showLoader = false;
+            this.genAttCode = await data.data[0].atted_code;
+            localStorage.setItem("attedCode", JSON.stringify(this.genAttCode));
+            localStorage.setItem("department", JSON.stringify(this.department));
+            localStorage.setItem("atted_id", JSON.stringify(data.data[0]._id));
+            this.showTeacherForm = false;
+            this.showAlert(data.msg);
+          } else {
+            this.showLoader = false;
+            this.showTeacherForm = true;
+            this.showAlert(data.msg);
+          }
+        });
+    }else{
+      this.showLoader = false;
+      alert("No Class found in your routine");
+    }
 
-    // console.log(data);
-
-    let header = new Headers();
-    header.set("Content-Type", "application/json");
-
-    this.http
-      .post(`${apiUrl.node_url}attendance/addAttedData`, data, {
-        headers: header
-      })
-      .map(res => res.json())
-      .subscribe(async data => {
-        // console.log("data : ", data);
-        if (data.success) {
-          this.showLoader = false;
-          this.genAttCode = await data.data[0].atted_code;
-          localStorage.setItem("attedCode", JSON.stringify(this.genAttCode));
-          localStorage.setItem("department", JSON.stringify(this.department));
-          localStorage.setItem("atted_id", JSON.stringify(data.data[0]._id));
-          this.showTeacherForm = false;
-          this.showAlert(data.msg);
-        } else {
-          this.showLoader = false;
-          this.showTeacherForm = true;
-          this.showAlert(data.msg);
-        }
-      });
   }
 
   onStartAttendence() {

@@ -68,10 +68,19 @@ export class StudentNoticeBoardPage implements OnInit {
     // console.log('guest org id : ', this.guestOrgId);    
     this.getNotice();
   }
-
+  doRefresh(refresher) {
+    this.getNotice();
+    this.departmentalNotice = [];
+    this.generalNotice = [];
+    this.personalNotice = [];
+    setTimeout(() => {
+      // console.log('Async operation has ended');
+      refresher.complete();
+    }, 3000);
+  }
   ionViewDidLoad() {
     console.log("StudentNoticeBoardPage");
-    this.showLoader = false;
+    // this.showLoader = false;
   }
 
   goToHome() {
@@ -159,13 +168,13 @@ export class StudentNoticeBoardPage implements OnInit {
 
   filterAllNotices(arr) {
     arr.forEach(item => {
-      if(item.notiece_type_id == '1'){
+      if(item.notice != null && item.notiece_type_id == '1'){
         this.departmentalNotice.push(item);
       }
-      if(item.notiece_type_id == '2'){
+      if(item.notice != null && item.notiece_type_id == '2'){
         this.generalNotice.push(item);
       }
-      if(item.notiece_type_id == '3'){
+      if(item.notice != null && item.notiece_type_id == '3'){
         this.personalNotice.push(item);
       }
     });

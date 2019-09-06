@@ -18,8 +18,21 @@
 
 
 
-<ion-content *ngIf="showPeriodForm" class="item-center" padding>
-	<h4 class="title" text-center text-uppercase margin-bottom>Select Session</h4>
+<ion-content padding>
+	<div *ngIf="showPeriodForm">
+		<h4 class="title" text-center text-uppercase margin-bottom>Select Session</h4>
+		<ion-list>
+				<ion-item>
+					<ion-label>Choose from Drop Down</ion-label>
+					<ion-select [(ngModel)]="period">
+						<ion-option *ngFor="let period of periodList" value="{{period.id}}">
+							{{period.priod_name}} ({{period.from_time}} {{period.to_time}})
+						</ion-option>
+					</ion-select>
+				</ion-item>
+				<button ion-button block outline color="blue" class="mt-10" (click)="onPeriodSubmit()">Click To Put Attendance</button>
+		</ion-list>
+	</div>
 	 <!-- <ion-list>
 			<ion-item>
 				<ion-label>Shift</ion-label>
@@ -49,35 +62,20 @@
 			</ion-item>
 	</ion-list>		 -->
 
-	<ion-list>
-			<ion-item>
-				<ion-label>Choose from Drop Down</ion-label>
-				<ion-select [(ngModel)]="period">
-					<ion-option *ngFor="let period of periodList" value="{{period.id}}">
-						{{period.priod_name}} ({{period.from_time}} {{period.to_time}})
-					</ion-option>
-				</ion-select>
-			</ion-item>
-	</ion-list>
-
-	<button ion-button block outline color="blue" class="mt-10" (click)="onPeriodSubmit()">Click To Put Attendance</button>
-</ion-content>
-
-
-
-
-
-<ion-content class="item-center" *ngIf="!showPeriodForm" padding>
-	<div class="enquiry-form">
+	
+	<div  *ngIf="!showPeriodForm">
 		<h1 class="title" text-center text-uppercase margin-bottom>Enter Attendance Pin</h1>
 	 	<form>
 		  <ion-item class="select-css">
-		    <ion-input type="text" name="attPin" placeholder="Enter Pin" [(ngModel)]="attPin"></ion-input>
+		    <ion-input type="nubmer" name="attPin" placeholder="Enter Pin" [(ngModel)]="attPin"></ion-input>
 			</ion-item>
 		 <button ion-button type="submit" block outline color="blue" class="mt-10" (click)="onSubmitStudentAttPin()">Submit</button>
 		</form>
 	</div>
+	
 </ion-content>
+
+
 
 
 

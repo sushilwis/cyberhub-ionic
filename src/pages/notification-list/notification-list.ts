@@ -6,6 +6,7 @@ import * as moment from 'moment';
 
 import { StudentNoticeBoardPage } from "../student-notice-board/student-notice-board";
 import { PersonalNoticePage } from "../personal-notice/personal-notice";
+import { RoutinePage } from '../routine/routine';
 /**
  * Generated class for the NotificationListPage page.
  *
@@ -70,5 +71,14 @@ export class NotificationListPage {
       }
     })
     
+  }
+
+  gotoRoutinePage(id){
+    this.http.get(`${apiUrl.url}notification/seen/${id}`).map(res => res.json()).subscribe(data => {
+      if (data.status) {
+
+        this.navCtrl.push(RoutinePage);
+      }
+    })
   }
 }

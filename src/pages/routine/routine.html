@@ -44,7 +44,7 @@
         
               <ion-list *ngIf="routine?.showDetails">
                 <ion-item *ngFor="let r of routine.priods" style="padding-top: 5px; padding-bottom: 5px;">
-                  <p>Priod : {{r?.priod_name}} Priod ({{r?.from_time}} to {{r?.to_time}})</p>
+                  <p>Period : {{r?.period_name}} Period ({{r?.from_time}} to {{r?.to_time}})</p>
                   <p *ngIf="r?.rutinedetails[0]">Subject Name : {{r?.rutinedetails[0]?.class_sub?.subject_name}}</p>
                   <p *ngIf="!r?.rutinedetails[0]">Subject Name : </p>
                   <!-- <p *ngIf="r?.rutinedetails[0]">Time : {{r?.from_time}} to {{r?.to_time}}</p> -->
