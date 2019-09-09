@@ -63,11 +63,16 @@ export class StudentNoticeBoardPage implements OnInit {
     
   }
 
+
+
   ngOnInit() {
     this.guestOrgId = this.navParams.get('id');
     // console.log('guest org id : ', this.guestOrgId);    
     this.getNotice();
   }
+
+
+
   doRefresh(refresher) {
     this.getNotice();
     this.departmentalNotice = [];
@@ -78,6 +83,18 @@ export class StudentNoticeBoardPage implements OnInit {
       refresher.complete();
     }, 3000);
   }
+
+
+
+  refreshNotice() {
+    this.getNotice();
+    this.departmentalNotice = [];
+    this.generalNotice = [];
+    this.personalNotice = [];
+  }
+
+
+
   ionViewDidLoad() {
     console.log("StudentNoticeBoardPage");
     // this.showLoader = false;

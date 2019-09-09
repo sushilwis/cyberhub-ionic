@@ -237,7 +237,7 @@ async sortArr(rawRoutineArr) {
       
       let exsisting_data = {
         priod_id: element.priod_id,
-        priod_name: element.priod.priod_name,
+        priod_name: element.priod.period_name,
         from_time: element.priod.from_time,
         to_time: element.priod.to_time,
         sub: this.subject,

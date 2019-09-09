@@ -1,34 +1,39 @@
-<div class="overley" *ngIf="showLoader"></div>  
+<div class="overley" *ngIf="showLoader"></div>
 <div class="spinner" *ngIf="showLoader">
-        <div class="rect1"></div>
-        <div class="rect2"></div>
-        <div class="rect3"></div>
-        <div class="rect4"></div>
-        <div class="rect5"></div>
+    <div class="rect1"></div>
+    <div class="rect2"></div>
+    <div class="rect3"></div>
+    <div class="rect4"></div>
+    <div class="rect5"></div>
 </div>
 
 
 <ion-header>
-  <ion-navbar color="blue">
-    <ion-title>Schedule</ion-title>
-  </ion-navbar>
+    <ion-navbar color="blue">
+        <ion-title>Schedule</ion-title>
+        <ion-buttons end>
+            <button ion-button icon-only (click)="getStudentRoutine()">
+        <ion-icon name="refresh"></ion-icon>
+    </button>
+        </ion-buttons>
+    </ion-navbar>
 
-  <ion-toolbar no-border-top class="toolbar1">
-      <ion-segment [(ngModel)]="scheduleTab">
-        <ion-segment-button value="class">
-          <p>
-            <img class="notice-img" style="height: 20px" src="assets/imgs/generalNotice.svg">
-          </p>        
-          Class Schedule
-        </ion-segment-button>
-        <ion-segment-button value="exam">
-            <p>
-              <img class="notice-img" style="height: 20px" src="assets/imgs/personalNotice.svg">
-            </p>
-          Exam Schedule
-        </ion-segment-button>
-      </ion-segment>        
-  </ion-toolbar>
+    <ion-toolbar no-border-top class="toolbar1">
+        <ion-segment [(ngModel)]="scheduleTab">
+            <ion-segment-button value="class">
+                <p>
+                    <img class="notice-img" style="height: 20px" src="assets/imgs/generalNotice.svg">
+                </p>
+                Class Schedule
+            </ion-segment-button>
+            <ion-segment-button value="exam">
+                <p>
+                    <img class="notice-img" style="height: 20px" src="assets/imgs/personalNotice.svg">
+                </p>
+                Exam Schedule
+            </ion-segment-button>
+        </ion-segment>
+    </ion-toolbar>
 </ion-header>
 
 
@@ -38,29 +43,28 @@
     <div [ngSwitch]="scheduleTab">
         <ion-list *ngSwitchCase="'class'">
             <ion-item padding *ngFor="let routine of routineList" (click)="toggleDetails(routine)" style="padding-top: 5px; padding-bottom: 5px;">
-              <ion-icon style="color: #fff;" item-right [name]="routine?.icon"></ion-icon>
-              {{routine?.dayName}}
-              <!-- <table *ngIf="routine.showDetails">{{routine}}</table> -->
-        
-              <ion-list *ngIf="routine?.showDetails">
-                <ion-item *ngFor="let r of routine.priods" style="padding-top: 5px; padding-bottom: 5px;">
-                  <p>Period : {{r?.period_name}} Period ({{r?.from_time}} to {{r?.to_time}})</p>
-                  <p *ngIf="r?.rutinedetails[0]">Subject Name : {{r?.rutinedetails[0]?.class_sub?.subject_name}}</p>
-                  <p *ngIf="!r?.rutinedetails[0]">Subject Name : </p>
-                  <!-- <p *ngIf="r?.rutinedetails[0]">Time : {{r?.from_time}} to {{r?.to_time}}</p> -->
-                  <!-- <p *ngIf="!r?.rutinedetails[0]">Time : NA</p> -->
-                  <p *ngIf="r?.rutinedetails[0]">Teacher : {{r?.rutinedetails[0]?.teacher?.name}} ({{r?.rutinedetails[0]?.teacher?.short_name}})</p>
-                  <p *ngIf="r?.rutinedetails[0]">Room Name : {{r?.rutinedetails[0]?.room?.name}}</p>
-                  <p *ngIf="!r?.rutinedetails[0]">Teacher : </p>
-                  <p *ngIf="!r?.rutinedetails[0]">Room Name : </p>
-                </ion-item>
-              </ion-list>
-            
+                <ion-icon style="color: #fff;" item-right [name]="routine?.icon"></ion-icon>
+                {{routine?.dayName}}
+                <!-- <table *ngIf="routine.showDetails">{{routine}}</table> -->
+
+                <ion-list *ngIf="routine?.showDetails">
+                    <ion-item *ngFor="let r of routine.priods" style="padding-top: 5px; padding-bottom: 5px;">
+                        <p>Period : {{r?.period_name}} Period ({{r?.from_time}} to {{r?.to_time}})</p>
+                        <p *ngIf="r?.rutinedetails[0]">Subject Name : {{r?.rutinedetails[0]?.class_sub?.subject_name}}</p>
+                        <p *ngIf="!r?.rutinedetails[0]">Subject Name : </p>
+                        <!-- <p *ngIf="r?.rutinedetails[0]">Time : {{r?.from_time}} to {{r?.to_time}}</p> -->
+                        <!-- <p *ngIf="!r?.rutinedetails[0]">Time : NA</p> -->
+                        <p *ngIf="r?.rutinedetails[0]">Teacher : {{r?.rutinedetails[0]?.teacher?.name}} ({{r?.rutinedetails[0]?.teacher?.short_name}})</p>
+                        <p *ngIf="r?.rutinedetails[0]">Room Name : {{r?.rutinedetails[0]?.room?.name}}</p>
+                        <p *ngIf="!r?.rutinedetails[0]">Teacher : </p>
+                        <p *ngIf="!r?.rutinedetails[0]">Room Name : </p>
+                    </ion-item>
+                </ion-list>
+
             </ion-item>
         </ion-list>
-    
-    
-        <ion-list *ngSwitchCase="'exam'"></ion-list>
-      </div>
-</ion-content>
 
+
+        <ion-list *ngSwitchCase="'exam'"></ion-list>
+    </div>
+</ion-content>

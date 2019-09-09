@@ -2,10 +2,11 @@
 
     <ion-navbar color="blue">
         <ion-title>Notice Board</ion-title>
-        <ion-buttons end (click)=goToHome() *ngIf="localUserData == null">
-            <button ion-button icon-only>
-          <ion-icon name="home" color="light"></ion-icon>
-        </button>
+        <!-- (click)=goToHome() *ngIf="localUserData == null" -->
+        <ion-buttons end>
+            <button ion-button icon-only (click)="refreshNotice()">
+                <ion-icon name="refresh"></ion-icon>
+            </button>
         </ion-buttons>
     </ion-navbar>
 
