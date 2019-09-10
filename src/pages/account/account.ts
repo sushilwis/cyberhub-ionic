@@ -26,6 +26,7 @@ declare var cordova: any;
   templateUrl: "account.html"
 })
 export default class AccountPage implements OnInit {
+
   @ViewChild("doughnutCanvas") doughnutCanvas;
   doughnutChart: any;
 
@@ -250,7 +251,7 @@ export default class AccountPage implements OnInit {
 
   getAttendanceDetails(class_id) {
     this.showLoader = true;
-    console.log(this.chartAttdValue);
+    // console.log(this.chartAttdValue);
     var headers = new Headers();
     headers.append("Content-Type", "application/json");
     let options = new RequestOptions({ headers: headers });
@@ -258,8 +259,7 @@ export default class AccountPage implements OnInit {
     let apidata = {
       org_id: this.localUserData.org_code,
       dept_id: class_id,
-      std_id: this.localUserData.master_id
-      
+      std_id: this.localUserData.master_id      
     };
 
     this.http
@@ -270,13 +270,14 @@ export default class AccountPage implements OnInit {
       )
       .map(res => res.json())
       .subscribe(data => {
-        console.log("attn data : ", data);
+        // console.log("attn data : ", data);
         if (data.status) {
+          this.showLoader = true;
           this.http
             .post(`${apiUrl.url}coursecat/getsubcource`, apidata, options)
             .map(res => res.json())
             .subscribe(classes => {
-              console.log(classes);
+              // console.log(classes);
 
               classes.data.forEach((element, i) => {
                 let new_arry = [];
@@ -293,18 +294,25 @@ export default class AccountPage implements OnInit {
                   this.chartClassList.push(element.subject_name);
                   this.chartcolor.push(this.backgroundColor[i]);
                 }
-                this.showLoader = false;
+                // this.showLoader = false;
               });
+
               let sum = this.chartAttdValue.reduce(
                 (partial_sum, a) => partial_sum + a
               );
 
               this.avgAtdence = sum / this.chartAttdValue.length;
-              this.renderGraph();
+
+              if(this.chartAttdValue && this.chartAttdValue.length > 0){
+                this.renderGraph();
+              }else{
+                this.showLoader = false;
+              }
+              
+              console.log("attn data............. : ", data);
             });
-            this.showLoader = false;
-        }
-      
+            // this.showLoader = false;
+        }      
       });
   }
 
@@ -312,8 +320,7 @@ export default class AccountPage implements OnInit {
 
 
 
-  renderGraph() {
-    
+  renderGraph() {   
     
     this.doughnutChart = new Chart(this.doughnutCanvas.nativeElement, {
       type: "bar",
@@ -332,6 +339,8 @@ export default class AccountPage implements OnInit {
         ]
       }
     });
+
+    this.showLoader = false;
   }
 
 

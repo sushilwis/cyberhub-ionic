@@ -52,6 +52,7 @@ export class StaffInfoPage {
   minTemp: any;
   humidity: any;
   showLoader: boolean;
+  isPrincipal: boolean = false;
 
   constructor(
     public navCtrl: NavController,
@@ -83,6 +84,7 @@ export class StaffInfoPage {
 
   ngOnInit() {
     this.showLoader = true;
+    this.getStaffRole();
   }
 
 
@@ -298,4 +300,43 @@ export class StaffInfoPage {
     });
     alert.present();
   }
+
+
+
+
+  getStaffRole() {
+    this.showLoader = true;
+    // this.presentLoading(true);
+    var header = new Headers();
+    header.append("Content-Type", "application/json");
+    let options = new RequestOptions({ headers: header });
+
+    let data = {
+      master_id: this.localUserData.master_id,
+      user_type_id: this.localUserData.user_type_id,
+      org_id: this.localUserData.org_code
+    };
+
+    this.http
+      .post(`${apiUrl.url}role/getprincipal`, data, options)
+      .map(res => res.json())
+      .subscribe(data => {
+        if (data && data.status == 1) {
+          console.log('getStaffRole() : .............', data);          
+          this.isPrincipal = true;
+          // this.showLoader = false;
+          // this.orgDetails = data.data[0];
+          // this.pin = data.data[0].pin;
+          // console.log('org_details : ', data.data[0]);
+          // console.log('PIN : ', this.pin);
+          // this.getWeatherData();
+        }else{
+          this.showLoader = false;
+        }
+      });
+  }
+
+
+
+
 }
