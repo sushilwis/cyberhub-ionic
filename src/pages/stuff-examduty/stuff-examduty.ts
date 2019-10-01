@@ -18,6 +18,9 @@ export class StuffExamdutyPage implements OnInit {
   subject: any;
   floor: any;
   room: any;
+  course: any;
+  department: any;
+  sem: any;
   dayName: any = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
   showLoader: boolean;
 
@@ -184,17 +187,25 @@ async sortArr(rawRoutineArr) {
       // rutinedetails
       if(element.rutinedetails.length > 0){
         console.log('pos < 0 .....if', element.rutinedetails.length);
+        
 
         this.subject = element.rutinedetails[0].class.section.sec_name;
         this.room = element.rutinedetails[0].room.name;
         this.floor = element.rutinedetails[0].room.floor_name;
+        this.course = element.rutinedetails[0].class_sub.subcourse[0].count_name;
+        this.department = element.rutinedetails[0].class.section.sec_name;
+        this.sem = element.sem.sem_no;
       }else{
         console.log('pos < 0.....else', element.rutinedetails.length);
 
         this.subject = 'No Class';
         this.room = 'N/A';
         this.floor = 'N/A';
+        this.course = 'N/A';
+        this.department = 'N/A';
+        this.sem = 'N/A';
       }
+      console.log('this.course.........',this.course);
 
 
       let new_data = {
@@ -212,6 +223,9 @@ async sortArr(rawRoutineArr) {
             sub: this.subject,
             floor: this.floor,
             room: this.room,
+            course: this.course,
+            department: this.department,
+            sem: this.sem,
             rutinedetails: element.rutinedetails
           }
         ]
@@ -227,12 +241,18 @@ async sortArr(rawRoutineArr) {
         this.subject = element.rutinedetails[0].class.section.sec_name;
         this.room = element.rutinedetails[0].room.name;
         this.floor = element.rutinedetails[0].room.floor_name;
+        this.course = element.rutinedetails[0].class_sub.subcourse[0].count_name;
+        this.department = element.rutinedetails[0].class.section.sec_name;
+        this.sem = element.sem.sem_no;
       }else{
         console.log('pos < 0.....else', element.rutinedetails.length);
 
         this.subject = 'No Class';
         this.room = 'N/A';
         this.floor = 'N/A';
+        this.course = 'N/A';
+        this.department = 'N/A';
+        this.sem = 'N/A';
       }
       
       let exsisting_data = {
@@ -243,6 +263,9 @@ async sortArr(rawRoutineArr) {
         sub: this.subject,
         floor: this.floor,
         room: this.room,
+        course: this.course,
+        department: this.department,
+        sem: this.sem,
         icon: 'ios-add-circle-outline',
         showDetails: false,
         rutinedetails: element.rutinedetails

@@ -270,6 +270,11 @@ export class StuffRegistrationPage {
 
   getData() {
     this.showLoader = true;
+    this.inputShowValue = '';
+    this.list = [];
+    this.items = [];
+    this.mobileNo = '';
+    this.identityNo = '';
 
     var headers = new Headers();
     headers.append('Content-Type', 'application/json');
@@ -284,6 +289,7 @@ export class StuffRegistrationPage {
       .post(`${apiUrl.url}org/orgsearchbytype`, data, options)
       .map(res => res.json())
       .subscribe(data => {
+        this.showLoader = false;
         // this.presentLoading(false);
         this.allSchoolsList = data.data;
         // console.log("school list..... : ", this.allSchoolsList);

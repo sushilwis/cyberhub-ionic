@@ -254,6 +254,13 @@ export class StdRegPage {
 
   getData() {
     this.showLoader = true;
+    this.inputShowValue = '';
+    this.list = [];
+    this.items = [];
+    this.mobileNo = '';
+    this.idNo = '';
+
+
     var headers = new Headers();
     headers.append('Content-Type', 'application/json');
     let options = new RequestOptions({ headers: headers });
@@ -269,6 +276,7 @@ export class StdRegPage {
       .subscribe(data => {
         // this.presentLoading(false);
         this.allSchoolsList = data.data;
+        this.showLoader = false;
         // console.log("school list... : ", this.allSchoolsList);
         // console.log("school list length..... : ", data.data.length);
         if(this.allSchoolsList.length > 0){

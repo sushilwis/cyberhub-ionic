@@ -1,5 +1,10 @@
 page-notification-list {
-    .item-md,.item-ios{
+    .item-md,
+    .item-ios {
         border-bottom: 1px solid #fff;
+    }
+    .notification-icon {
+        width: 35px !important;
+        height: 36px !important;
     }
 }

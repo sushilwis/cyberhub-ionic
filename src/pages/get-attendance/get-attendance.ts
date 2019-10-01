@@ -213,7 +213,7 @@ export class GetAttendancePage {
       // day: new Date().getDay(),
       shift: this.shift,
       day: 1,
-      stream: this.stream == 1 ? "B.A" : this.stream == 3 ? "B. Com" : 'B.Sc'
+      stream: this.stream == 1 ? "B.A." : this.stream == 3 ? "B. Com." : 'B.Sc.'
     };
     // console.log(data);
 

@@ -350,7 +350,12 @@ export class StudentNoticeBoardPage implements OnInit {
 
 
 @Component({
-  templateUrl: 'notice-modal.html'
+  templateUrl: 'notice-modal.html',
+  styles: [`
+  .toolbar-background-md{
+    background-color: #000 !important;
+  }   
+  `],
 })
 export class NoticeModalPage implements OnInit {
   notice: any;
