@@ -39,7 +39,7 @@
           <strong>Designation</strong>: NA 
         </p>
         <p class="color-white" *ngIf="teacherDetails?.role_cat?.role_name !== null">
-          <strong>Designation</strong>: {{teacherDetails?.role_cat?.role_name}}
+          <strong>Designation</strong>: {{teacherDetails?.role_cat?.name}}
         </p>
         <br/>
         <button ion-button type="submit" block outline color="blue" class="mt-10" (click)=goToPassword()>Change Password</button>
