@@ -37,6 +37,7 @@ export class PrincipalExamviewPage {
   dayName: any = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 
   routineList: any;
+  stream: string;
   constructor(public navCtrl: NavController, public navParams: NavParams,
   private alertCtrl: AlertController, public http: Http) {
   }
@@ -79,9 +80,11 @@ export class PrincipalExamviewPage {
     }
   }
 
-    onChooseShift(e) {
+  onChooseShift(e) {
     this.sortArray = [];
+    this.routineList = [];
     this.shiftID = e;
+    this.stream = '';
     // console.log(e);
     // console.log(this.allSelected);
     // console.log('shift : ', e.value);
@@ -137,8 +140,9 @@ export class PrincipalExamviewPage {
     // console.log("Org Class list : ", this.sortArray);
   }
   onChooseClassStream(e) {
-    console.log(e);
-    
+    // console.log(e);
+    this.showLoader = true
+    this.routineList = [];
     // console.log(this.sortArray);
 
     // this.filteredArrayForSectionList = [];
@@ -339,6 +343,7 @@ export class PrincipalExamviewPage {
       });
       
       this.routineList = new_arry;
+      this.showLoader = false
       // console.log(this.routineList);
       console.log('final array routine list: ', this.routineList);
       // this.presentLoading(false);

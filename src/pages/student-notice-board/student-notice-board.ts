@@ -197,7 +197,7 @@ export class StudentNoticeBoardPage implements OnInit {
       if(this.localUserData.user_type_id == 2 && item.notice != null && item.notiece_type_id == '5'){
         if (item.send_id == this.localUserData.master_id) {
           
-          this.personalNotice.push(item);
+          this.departmentalNotice.push(item);
         }
       }
 

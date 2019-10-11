@@ -562,8 +562,8 @@ submitDepartment() {
             
             if(data.status == 1){   
               this.viewCtrl.dismiss();                        
-                let modal1 = this.modalCtrl.create(Modal1Page);
-                modal1.present();
+                // let modal1 = this.modalCtrl.create(Modal1Page);
+                // modal1.present();
                 this.showLoader = false;              
             }
             this.showLoader = false;
@@ -721,7 +721,8 @@ export class Modal1Page {
                 if(data.data){
                   this.localUserData.is_first_time = '1';
                   localStorage.setItem('userData', JSON.stringify(this.localUserData));
-                  this.navCtrl.push(AccountPage);
+                  this.dismiss();
+                  // this.navCtrl.push(AccountPage);
                   this.showLoader = false;
                 }else{
                   this.showLoader = false;

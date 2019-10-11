@@ -2,4 +2,14 @@ page-principal-examview {
 	.border ion-col{
 		border: 1px solid #f2f4f4;
 	}
+
+	item-md ion-icon[item-right]{
+		
+	}
+
+	.item-md ion-icon[item-left], .item-md ion-icon[item-right], .item-md ion-icon[item-start], .item-md ion-icon[item-end]{
+		position: absolute;
+		right: 8px;
+		top: 0;
+	}
 }

@@ -17,6 +17,7 @@ import { NotificationListPage } from "../notification-list/notification-list";
 import { GuestEnquiryPage } from '../guest-enquiry/guest-enquiry';
 import { SchoolcalenderPage } from '../schoolcalender/schoolcalender';
 import { StudentLoginPage } from '../student-login/student-login';
+// import {ModalPage }from '../account/account'
 /**
  * Generated class for the StudentOwndetailsPage page.
  *
@@ -99,8 +100,8 @@ export class StudentOwndetailsPage implements OnInit {
     this.navCtrl.push(PersonalNoticePage);
   }
   gotoLiveStream(){
-    // this.navCtrl.push(LiveStreamPage);
-    console.log('goToChangeLang');
+    this.navCtrl.push(LiveStreamPage);
+    // console.log('goToChangeLang');
   }
   goToChangeLang(){
     console.log('goToChangeLang');    
@@ -216,7 +217,7 @@ export class StudentOwndetailsPage implements OnInit {
     
     if(this.localUserData) {
       // alert('In the student home before modal called.');
-      if(this.localUserData.is_app_closed){
+      if (this.localUserData.is_first_time == 0){
           // console.log('app closed false');
           let modal = this.modalCtrl.create(Modal1Page);
           modal.present();
@@ -253,7 +254,7 @@ export class StudentOwndetailsPage implements OnInit {
   async getNoticeList() {
     this.showLoader = true;
     // this.presentLoading(true);
-    await this.getUserDataFromLocal();
+    // await this.getUserDataFromLocal();
 
     let header = new Headers();
     header.set("Content-Type", "application/json");

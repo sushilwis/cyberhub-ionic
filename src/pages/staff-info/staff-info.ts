@@ -104,7 +104,7 @@ export class StaffInfoPage {
     this.navCtrl.push(NotificationListPage);
   }
   gotoLiveStream() {
-    // this.navCtrl.push(LiveStreamPage);
+    this.navCtrl.push(LiveStreamPage);
   }
   goToAttendance() {
     this.navCtrl.push(GetAttendancePage);

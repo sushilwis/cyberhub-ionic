@@ -14,6 +14,15 @@
 
 
 <ion-content>
+  <div class="overley" *ngIf="showLoader"></div>
+  <div class="spinner" *ngIf="showLoader">
+    <div class="rect1"></div>
+    <div class="rect2"></div>
+    <div class="rect3"></div>
+    <div class="rect4"></div>
+    <div class="rect5"></div>
+  </div>
+
   <ion-list>
     <ion-item>
       <ion-label>Choose Shift</ion-label>
@@ -43,39 +52,41 @@
                 <ion-list *ngIf="routine?.showDetails" style="padding-bottom: 0px; margin-bottom: 0px;">
                     <ion-item *ngFor="let r of routine.priods" style="padding-bottom: 0px; margin-bottom: 0px;">
 
-                        <ion-card style="background-color: #353434; color: #fff;" [ngStyle]="{'border': (r?.rutinedetails && r?.rutinedetails[0]?.isUpdated == '1') ? '1px red solid' : '1px #353434 solid'}">
+                        <ion-card style="background-color: #353434; color: #fff;" >
                             <ion-grid>
                                 <ion-row style="color: #fff;">
                                     <ion-col col-md-12 text-uppercase text-center style="color: #fff;">
-                                        <h2 style="color: #fff;"><strong>Period {{r?.priod_name}}</strong></h2>
+                                        <h2 style="color: #fff;"><strong>Period {{r?.priod_name}} ({{r?.rutinedetails[0]?.teacher?.short_name}})</strong></h2>
                                     </ion-col>
                                 </ion-row>
                                 <ion-row class="border">
                                     <ion-col col-md-4>
                                         <p style="color: #fff;font-size: 1.1rem;"><strong>Time</strong>:</p>
-                                        <p style="color: #fff;font-size: 1.1rem;">{{r?.from_time}} - {{r?.to_time}}</p>
+                                        <p style="color: #c5c5c5;font-size: 1.1rem;">{{r?.from_time}} - {{r?.to_time}}</p>
                                     </ion-col>
                                     <ion-col col-md-4 style="color: #fff;">
                                         <p style="color: #fff;font-size: 1.1rem;"><strong>Room No</strong>:</p>
-                                        <p style="color: #fff;font-size: 1.1rem;">{{r?.room}}</p>
+                                        <p style="color: #c5c5c5;font-size: 1.1rem;">{{r?.room}}</p>
                                     </ion-col>
                                     <ion-col col-md-4 style="color: #fff;">
                                         <p style="color: #fff;font-size: 1.1rem;"><strong>Floor</strong>:</p>
-                                        <p style="color: #fff;font-size: 1.1rem;">{{r?.floor}}</p>
+                                        <p style="color: #c5c5c5;font-size: 1.1rem;">{{r?.floor}}</p>
                                     </ion-col>
                                 </ion-row>
                                 <ion-row class="border">
                                     <ion-col col-md-4 style="color: #fff;">
                                         <p style="color: #fff;font-size: 1.1rem;"><strong>Course/Sub</strong>:</p>
-                                        <p style="color: #fff;font-size: 1.1rem;">{{r?.course}}</p>
+                                        <p style="color: #c5c5c5;font-size: 1.1rem;">{{r?.course}}</p>
+                                        <!-- <p style="color: #fff;font-size: 1.1rem;"></p> -->
+
                                     </ion-col>
                                     <ion-col col-md-4 style="color: #fff;">
                                         <p style="color: #fff;font-size: 1.1rem;"><strong>Dept/Sec</strong>:</p>
-                                        <p style="color: #fff;font-size: 1.1rem;">{{r?.department}}</p>
+                                        <p style="color: #c5c5c5;font-size: 1.1rem;">{{r?.department}}</p>
                                     </ion-col>
                                     <ion-col col-md-4 style="color: #fff;">
                                         <p style="color: #fff;font-size: 1.1rem;"><strong>Year/Sem</strong>:</p>
-                                        <p style="color: #fff;font-size: 1.1rem;">{{r?.sem}}</p>
+                                        <p style="color: #c5c5c5;font-size: 1.1rem;">{{r?.sem}}</p>
                                     </ion-col>
                                 </ion-row>
                             </ion-grid>

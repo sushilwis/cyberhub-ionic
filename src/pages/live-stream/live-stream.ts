@@ -17,30 +17,79 @@ import { apiUrl } from '../../apiUrl';
   templateUrl: 'live-stream.html',
 })
 export class LiveStreamPage implements OnInit {
+  video_details: any = [];
+  showLoader: boolean = false;
+  localUserData: any;
+  orgDetails: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public loadingCtrl: LoadingController, private http: Http) {
 	// this.loadingCtrl.page(true);  	
   }
 
   ngOnInit(){
+    let data = localStorage.getItem('userData');
+    this.localUserData = JSON.parse(data); 
+    this.getUserData();
+  }
+  getUserData() {
+    this.showLoader = true;
+    //this.presentLoading(true);
+    var header = new Headers();
+    header.append('Content-Type', 'application/json');
+    let options = new RequestOptions({ headers: header });
 
+    let data = {
+      'org_id': this.localUserData.org_code,
+      // 'master_id': this.localUserData.master_id
+    }
+
+    this.http.post(`${apiUrl.url}org/getdetail`, data, options).
+      map(res => res.json()).subscribe(data => {
+
+        if (data.data) {
+          //this.presentLoading(false);
+          // this.orgDetails = data.data[0];
+
+          if (data.data[0].youtube_channel_id) {
+            this.getVideos(data.data[0].youtube_channel_id)
+          }
+        }
+        this.showLoader = false;
+
+      });
   }
 
- presentLoadingDefault() {
-  let loading = this.loadingCtrl.create({
-    content: 'Please wait...'
-  });
 
-  loading.present();
+  getVideos(chanelId: string) {
+    this.http.get(`https://www.googleapis.com/youtube/v3/search?key=AIzaSyBuM2gCCThKbGByZCCG8YAdkqkSUbItSZ8&channelId=${chanelId}&part=snippet,id&order=date&maxResults=20`).map(resp => resp.json()).subscribe((data: any) => {
+      let videos = data.items;
+      let length = videos.length;
+      let i = 0;
 
-  setTimeout(() => {
-    loading.dismiss();
-  }, 5000);
-}
+      videos.forEach(video => {
+        i++;
+        if (i != length)
+          this.video_details.push(video);
+      });
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad LiveStreamPage');
+    });
   }
+
+//  presentLoadingDefault() {
+//   let loading = this.loadingCtrl.create({
+//     content: 'Please wait...'
+//   });
+
+//   loading.present();
+
+//   setTimeout(() => {
+//     loading.dismiss();
+//   }, 5000);
+// }
+
+//   ionViewDidLoad() {
+//     console.log('ionViewDidLoad LiveStreamPage');
+//   }
 
 
 
