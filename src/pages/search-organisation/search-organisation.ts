@@ -383,7 +383,8 @@ export class SearchOrganisationPage {
       handler: data => {
         // console.log(data);
         if(data != '' && data != null){
-          this.getData(data); 
+          // this.getData(data); 
+          this.chooseCollegeType(data)
         }else{
           this.showAlert('Alert!', 'Please select a type of institution');
         }       
@@ -401,7 +402,54 @@ export class SearchOrganisationPage {
     // })
   }
 
+  chooseCollegeType(typeId: any) {
+    if (typeId == 2) {
+      
+      let alert = this.alertCtrl.create();
+      alert.setTitle('SELECT WHAT TO SEARCH');
+      alert.addInput(
+        {
+          type: 'radio',
+          label: 'Technical',
+          value: '4',
+          checked: false
+        }
+      );
   
+      alert.addInput(
+        {
+          type: 'radio',
+          label: 'Non Technical',
+          value: '5',
+          checked: false
+        }
+      );
+  
+      // alert.addButton('Cancel');
+      alert.addButton({
+        text: 'Cancel',
+        cssClass: "cancelBtn",
+        handler: data => {
+          console.log('cancel clicked :...');
+          this.navCtrl.pop();
+        }
+      });
+      alert.addButton({
+        text: 'OK',
+        cssClass: "okBtn",
+        handler: data => {
+          // console.log(data);
+          if (data != '' && data != null) {
+            this.getData(data); 
+            // this.chooseCollegeType(data)
+          } else {
+            this.showAlert('Alert!', 'Please select a type of institution');
+          }
+        }
+      });
+      alert.present();
+    }
+  }
 
 
 

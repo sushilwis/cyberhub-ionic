@@ -72,19 +72,20 @@
 
 		<ion-item>
 			<ion-label>Type</ion-label>
-			<ion-select [(ngModel)]="type" name="type">
+			<ion-select name="type" (ionChange)="onChangeOrgType($event)">
 		    <ion-option value = "1" >School</ion-option>		    
 		    <ion-option value = "2" >College</ion-option>		    
 		    <ion-option value = "3" >University</ion-option>		    
 		  </ion-select>
 		</ion-item>
 
-		<!-- <ion-item>
-			<ion-label>City</ion-label>
-			<ion-select [(ngModel)]="city" name="city">
-		    <ion-option value="">West Bangal</ion-option>		    
+		<ion-item *ngIf="openCllgType">
+			<ion-label>College Type</ion-label>
+			<ion-select [(ngModel)]="type" name="type">
+			<ion-option value="4">Technical</ion-option>
+			<ion-option value="5">Non Technical</ion-option>
 		  </ion-select>
-		</ion-item> -->
+		</ion-item>
 
 		<div text-center style="border-bottom: none; margin-top: 40px;">
 		  <button ion-button margin-top type="submit" class="btn-size mt-10" color="blue" (click)="goToListing()">NEXT</button>

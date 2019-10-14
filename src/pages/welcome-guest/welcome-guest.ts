@@ -7,6 +7,7 @@ import { apiUrl } from '../../apiUrl';
 import { StudentLibraryListPage } from '../student-library-list/student-library-list';
 import { SchoolcalenderPage } from '../schoolcalender/schoolcalender';
 import { SchoolDetailsPage } from '../school-details/school-details';
+import { OrgStaffListPage } from '../org-staff-list/org-staff-list';
 
 
 @IonicPage()
@@ -287,7 +288,8 @@ export class WelcomeGuestPage {
         console.log(data);
         if(data != '' && data != null){
           this.typeId = data;
-          this.getData(data, this.skip);
+          this.chooseCollegeType(data)
+          // this.getData(data, this.skip);
         }else{
           this.showAlert('Alert!', 'Please select a type of institution');
         }       
@@ -305,6 +307,55 @@ export class WelcomeGuestPage {
     // })
   }
 
+  chooseCollegeType(typeId: any) {
+    if (typeId == 2) {
+
+      let alert = this.alertCtrl.create();
+      alert.setTitle('SELECT WHAT TO SEARCH');
+      alert.addInput(
+        {
+          type: 'radio',
+          label: 'Technical',
+          value: '4',
+          checked: false
+        }
+      );
+
+      alert.addInput(
+        {
+          type: 'radio',
+          label: 'Non Technical',
+          value: '5',
+          checked: false
+        }
+      );
+
+      // alert.addButton('Cancel');
+      alert.addButton({
+        text: 'Cancel',
+        cssClass: "cancelBtn",
+        handler: data => {
+          console.log('cancel clicked :...');
+          this.navCtrl.pop();
+        }
+      });
+      alert.addButton({
+        text: 'OK',
+        cssClass: "okBtn",
+        handler: data => {
+          // console.log(data);
+          if (data != '' && data != null) {
+            this.typeId = data;
+            this.getData(data, this.skip);
+            // this.chooseCollegeType(data)
+          } else {
+            this.showAlert('Alert!', 'Please select a type of institution');
+          }
+        }
+      });
+      alert.present();
+    }
+  }
 
 
 
@@ -512,7 +563,7 @@ export class WelcomeGuestPage {
 
 
   goToStaffSection(org_id){
-
+    this.navCtrl.push(OrgStaffListPage, { org_id })
   }
 
 

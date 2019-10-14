@@ -33,14 +33,22 @@
             <ion-item>
               <ion-label style="color: #9a9a9a">Institution Type</ion-label>
 
-              <ion-select [(ngModel)]="type" (ngModelChange)="getData()">
+              <ion-select (ionChange)="getData($event)">
                 <ion-option value="1">School</ion-option>
                 <ion-option value="2">College</ion-option>
                 <ion-option value="3">University</ion-option>                
               </ion-select>
 
             </ion-item>
+            <ion-item *ngIf="showCllgType">
+              <ion-label style="color: #9a9a9a">College Type</ion-label>
 
+              <ion-select [(ngModel)]="type" (ngModelChange)="getData($event)">
+                <ion-option value="4">Technical</ion-option>
+                <ion-option value="5">Non Technical</ion-option>
+              </ion-select>
+
+            </ion-item>
             <ion-item>  
               <ion-label floating style="color: #9a9a9a">Type Your Institution Name</ion-label>
               <ion-input type="text" name="inputShowValue" [(ngModel)]="inputShowValue" (keyup)="getItems($event)"></ion-input>

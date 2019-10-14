@@ -42,6 +42,7 @@ export class GuestEnquiryPage implements OnInit, AfterViewInit {
   type: string = '';
   selectOptions: any;
   showLoader: boolean;
+  openCllgType: boolean;
 
   constructor(
     public platform: Platform,
@@ -480,7 +481,14 @@ export class GuestEnquiryPage implements OnInit, AfterViewInit {
     }
   }
 
-
+  onChangeOrgType(_event) {
+    // console.log($event);
+    if (_event == 2) {
+      this.openCllgType = true;
+    }else{
+      this.type = _event
+    }
+  }
 
 
 

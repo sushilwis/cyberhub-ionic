@@ -50,6 +50,7 @@ import StudentsTabsPage from '../pages/students-tabs/students-tabs';
 import { StuffChangePassPage } from '../pages/stuff-change-pass/stuff-change-pass';
 import { NotificationListPage } from "../pages/notification-list/notification-list";
 import { AdmissionFormPage } from "../pages/admission-form/admission-form";
+import { OrgStaffListPage } from "../pages/org-staff-list/org-staff-list";
 // import { RippleDirective } from 'ng2-ripple-directive';
 
 // import { StreamingMedia } from '@ionic-native/streaming-media';
@@ -158,7 +159,7 @@ const firebase = {
     ParentHomePage,
     AddChildPage,
     ViewChildPage,
-    
+    OrgStaffListPage
   ],
   imports: [
     BrowserModule,
@@ -227,6 +228,7 @@ const firebase = {
     ParentHomePage,
     AddChildPage,
     ViewChildPage,
+    OrgStaffListPage
   ],
   
   providers: [

@@ -38,6 +38,7 @@ export class StdRegPage {
 
   type: string;
   showLoader: boolean;
+  showCllgType: boolean;
   constructor(public navCtrl: NavController, public navParams: NavParams, private http: Http, public menuCtrl: MenuController, public loadingController: LoadingController, public alertCtrl: AlertController, public toastCtrl: ToastController) {
     this.showLoader = true;
     this.menuCtrl.enable(true);
@@ -252,7 +253,9 @@ export class StdRegPage {
 
 
 
-  getData() {
+  getData(event) {
+    console.log(event);
+    
     this.showLoader = true;
     this.inputShowValue = '';
     this.list = [];
@@ -260,42 +263,47 @@ export class StdRegPage {
     this.mobileNo = '';
     this.idNo = '';
 
-
-    var headers = new Headers();
-    headers.append('Content-Type', 'application/json');
-    let options = new RequestOptions({ headers: headers });
-
-    let data = {
-      type: this.type,
-      is_reg: true,
-    }
-    
-    this.http
-      .post(`${apiUrl.url}org/orgsearchbytype`, data, options)
-      .map(res => res.json())
-      .subscribe(data => {
-        // this.presentLoading(false);
-        this.allSchoolsList = data.data;
-        this.showLoader = false;
-        // console.log("school list... : ", this.allSchoolsList);
-        // console.log("school list length..... : ", data.data.length);
-        if(this.allSchoolsList.length > 0){
-          this.list = [];
-          this.allSchoolsList.forEach(ele => {
-            const obj = {
-              id: ele.id,
-              name: ele.org_name,
-              city: ele.org_city,
-              pin: ele.pin,
-            };
-            
-            this.list.push(obj);
-          });
-
-          // console.log("arr list..... : ", this.list);
+    if (event == 2) {
+      this.showCllgType = true;
+      this.showLoader = false;
+    }else{
+      var headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      let options = new RequestOptions({ headers: headers });
+  
+      let data = {
+        type: this.type,
+        is_reg: true,
+      }
+      
+      this.http
+        .post(`${apiUrl.url}org/orgsearchbytype`, data, options)
+        .map(res => res.json())
+        .subscribe(data => {
+          // this.presentLoading(false);
+          this.allSchoolsList = data.data;
           this.showLoader = false;
-        }        
-      });
+          // console.log("school list... : ", this.allSchoolsList);
+          // console.log("school list length..... : ", data.data.length);
+          if(this.allSchoolsList.length > 0){
+            this.list = [];
+            this.allSchoolsList.forEach(ele => {
+              const obj = {
+                id: ele.id,
+                name: ele.org_name,
+                city: ele.org_city,
+                pin: ele.pin,
+              };
+              
+              this.list.push(obj);
+            });
+  
+            // console.log("arr list..... : ", this.list);
+            this.showLoader = false;
+          }        
+        });
+    }
+
   }
 
 
