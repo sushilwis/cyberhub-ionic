@@ -37,6 +37,7 @@ export class WelcomeGuestPage {
   SearchedResult: any = [];
   showData: boolean = false 
   showError: boolean = false;
+  showList: boolean;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private http: Http, public menuCtrl: MenuController, public loadingController: LoadingController, public alertCtrl: AlertController, public toastCtrl: ToastController) {
     this.showLoader = true;
@@ -182,7 +183,7 @@ export class WelcomeGuestPage {
   getHeaderTitle(type) {
     switch(type) {
       case '2':        
-        return "Live Stream";
+        return "Video Stream";
       case '3':        
         return "Library";        
       case '4':
@@ -566,9 +567,36 @@ export class WelcomeGuestPage {
     this.navCtrl.push(OrgStaffListPage, { org_id })
   }
 
+  onSearchButtonClick(){
+    this.orgList = []
+    this.showList = false;
+  }
 
+  getItems(ev: any) {
+    // Reset items back to all of the items
+    if (ev.target.value == "") {
+      this.showList = false;
+      this.orgList = []
+      return;
+    }
 
+    this.showList = true;
+    // console.log('value : ', ev.target.value);
+    // this.initializeItems();
 
+    // set val to the value of the searchbar
+    const val = ev.target.value;
+    // console.log(this.items);
+
+    // if the value is an empty string don't filter the items
+    if (val && val.trim() != "") {
+      this.orgList = this.lists.filter(item => {
+        return item.name.toLowerCase().indexOf(val.toLowerCase()) > -1;
+      });
+
+      console.log('items : ...', this.orgList);
+    }
+  }
   // getBookList(org_id) {
   //   // this.presentLoading(true);
   //   this.showLoader = true;

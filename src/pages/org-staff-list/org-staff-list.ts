@@ -23,16 +23,33 @@ export class OrgStaffListPage {
   localUserData: any;
   allStaffList: any = [];
   showLoader: boolean;
+  alldepts: any;
+  copyallStaffList: any;
   constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http) {
     this.org_id = this.navParams.get('org_id');
     console.log(this.org_id);
-    this.getOrgStaffList()
+    // this.getOrgStaffList()
+    this.getdeptList()
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad OrgStaffListPage');
   }
 
+  getdeptList() {
+    this.http.get(`${apiUrl.url}classsection/depts`).map(res => res.json()).subscribe((data: any) => {
+      if (data.data) {
+        this.alldepts = data.data;
+      }
+    })
+  }
+
+  onChooseDept(_e:any) {
+
+    this.copyallStaffList = this.allStaffList.filter(ele => ele.dept_id == _e);
+    console.log(this.copyallStaffList);
+    
+  }
   getOrgStaffList(){
     this.showLoader = true
     let data = {
@@ -43,8 +60,9 @@ export class OrgStaffListPage {
       console.log(data);
       if (data.data) {
         data.data.forEach(element => {
-          if (element.user[0].user_type_id == 2) {
+          if (element.use && element.user[0].user_type_id == 2) {
             this.allStaffList.push(element)
+            this.copyallStaffList = [];
           }
           this.showLoader = false
         });

@@ -275,7 +275,7 @@ export class StudentOwndetailsPage implements OnInit {
               this.allPersonalNotice = await this.allNotice.filter((item)=>{
                 return item.notiece_type_id == 3; 
               });              
-              // this.personalNoticeCount = this.allPersonalNotice.length;
+              this.personalNoticeCount = this.allPersonalNotice.length;
               // console.log('personal notice count : ', this.personalNoticeCount);
               // this.presentLoading(false);  
               this.showLoader = false;           
