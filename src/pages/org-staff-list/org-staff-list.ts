@@ -28,7 +28,7 @@ export class OrgStaffListPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http) {
     this.org_id = this.navParams.get('org_id');
     console.log(this.org_id);
-    // this.getOrgStaffList()
+    this.getOrgStaffList()
     this.getdeptList()
   }
 
@@ -45,7 +45,7 @@ export class OrgStaffListPage {
   }
 
   onChooseDept(_e:any) {
-
+    console.log(_e);
     this.copyallStaffList = this.allStaffList.filter(ele => ele.dept_id == _e);
     console.log(this.copyallStaffList);
     
@@ -59,10 +59,11 @@ export class OrgStaffListPage {
     .map(res => res.json()).subscribe((data: any) => {
       console.log(data);
       if (data.data) {
+        this.copyallStaffList = [];
         data.data.forEach(element => {
-          if (element.use && element.user[0].user_type_id == 2) {
+          if (element.user && element.user[0].user_type_id == 2) {
             this.allStaffList.push(element)
-            this.copyallStaffList = [];
+            
           }
           this.showLoader = false
         });
@@ -73,6 +74,8 @@ export class OrgStaffListPage {
   }
 
   returnImage(data) {
+    // console.log(data);
+    
     if (data.profile_image) {
       return data.profile_image
     }else{

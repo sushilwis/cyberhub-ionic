@@ -242,6 +242,7 @@ export class WelcomeGuestPage {
 
 
   showRadio() {
+    this.orgList = [];
     let alert = this.alertCtrl.create();
     alert.setTitle('SELECT WHAT TO SEARCH');
 
