@@ -22,6 +22,7 @@ import { tap } from "rxjs/operators";
 import { Observable } from "rxjs";
 import { Firebase } from "@ionic-native/firebase";
 import { NotificationListPage } from "../pages/notification-list/notification-list";
+import { ParentHomePage } from "../pages/parent-home/parent-home";
 // import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 
 // import {timer} from 'rxjs/observable/timer';
@@ -91,11 +92,15 @@ export class MyApp {
       // })
 
       if (localVal) {
+        this.fcm.getToken();
         if (localVal.user_type_id == 4) {
           this.rootPage = StudentsTabsPage;
         }
         if (localVal.user_type_id == 2) {
           this.rootPage = StaffTabsPage;
+        }
+        if (localVal.user_type_id == 3) {
+          this.rootPage = ParentHomePage;
         }
       } else {
         this.rootPage = HomePage;

@@ -186,15 +186,25 @@ async sortArr(rawRoutineArr) {
       // console.log('pos < 0', element.rutinedetails.length);
       // rutinedetails
       if(element.rutinedetails.length > 0){
-        console.log('pos < 0 .....if', element.rutinedetails.length);
-        
 
-        this.subject = element.rutinedetails[0].class.section.sec_name;
-        this.room = element.rutinedetails[0].room.name;
-        this.floor = element.rutinedetails[0].room.floor_name;
-        this.course = element.rutinedetails[0].class_sub.subcourse[0].count_name;
-        this.department = element.rutinedetails[0].class.section.sec_name;
-        this.sem = element.sem.sem_no;
+        console.log('pos < 0 .....if', element.rutinedetails.length);
+        if (element.rutinedetails[0].update_routine.length > 0) {
+          this.subject = element.rutinedetails[0].class.section.sec_name;
+          this.room = element.rutinedetails[0].update_routine[0].room.name;
+          this.floor = element.rutinedetails[0].update_routine[0].room.floor_name;
+          this.course = element.rutinedetails[0].update_routine[0].class_sub.subcourse[0].count_name;
+          this.department = element.rutinedetails[0].class.section.sec_name;
+          this.sem = element.sem.sem_no;
+        }else{
+
+          this.subject = element.rutinedetails[0].class.section.sec_name;
+          this.room = element.rutinedetails[0].room.name;
+          this.floor = element.rutinedetails[0].room.floor_name;
+          this.course = element.rutinedetails[0].class_sub.subcourse[0].count_name;
+          this.department = element.rutinedetails[0].class.section.sec_name;
+          this.sem = element.sem.sem_no;
+        }
+
       }else{
         console.log('pos < 0.....else', element.rutinedetails.length);
 
@@ -237,13 +247,22 @@ async sortArr(rawRoutineArr) {
 
       if(element.rutinedetails.length > 0){
         console.log('pos < 0 .....if', element.rutinedetails.length);
+        if (element.rutinedetails[0].update_routine.length > 0) {
+          this.subject = element.rutinedetails[0].class.section.sec_name;
+          this.room = element.rutinedetails[0].update_routine[0].room.name;
+          this.floor = element.rutinedetails[0].update_routine[0].room.floor_name;
+          this.course = element.rutinedetails[0].update_routine[0].class_sub.subcourse[0].count_name;
+          this.department = element.rutinedetails[0].class.section.sec_name;
+          this.sem = element.sem.sem_no;
+        }else{
 
-        this.subject = element.rutinedetails[0].class.section.sec_name;
-        this.room = element.rutinedetails[0].room.name;
-        this.floor = element.rutinedetails[0].room.floor_name;
-        this.course = element.rutinedetails[0].class_sub.subcourse[0].count_name;
-        this.department = element.rutinedetails[0].class.section.sec_name;
-        this.sem = element.sem.sem_no;
+          this.subject = element.rutinedetails[0].class.section.sec_name;
+          this.room = element.rutinedetails[0].room.name;
+          this.floor = element.rutinedetails[0].room.floor_name;
+          this.course = element.rutinedetails[0].class_sub.subcourse[0].count_name;
+          this.department = element.rutinedetails[0].class.section.sec_name;
+          this.sem = element.sem.sem_no;
+        }
       }else{
         console.log('pos < 0.....else', element.rutinedetails.length);
 
