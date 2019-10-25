@@ -1,15 +1,24 @@
 page-principal-examview {
-	.border ion-col{
-		border: 1px solid #f2f4f4;
-	}
-
-	item-md ion-icon[item-right]{
-		
-	}
-
-	.item-md ion-icon[item-left], .item-md ion-icon[item-right], .item-md ion-icon[item-start], .item-md ion-icon[item-end]{
-		position: absolute;
-		right: 8px;
-		top: 0;
-	}
+    .border ion-col {
+        border: 1px solid #f2f4f4;
+    }
+    item-md ion-icon[item-right] {}
+    .item-md ion-icon[item-left],
+    .item-md ion-icon[item-right],
+    .item-md ion-icon[item-start],
+    .item-md ion-icon[item-end] {
+        position: absolute;
+        right: 8px;
+        top: 0;
+    }
+    .toolbar1>.toolbar-background-md {
+        background-color: #1b1b1b !important;
+    }
+    .notice-img {
+        width: 40% !important;
+    }
+    .segment-md .segment-button.activated,
+    .segment-md .segment-button.segment-activated {
+        border-color: #fff;
+    }
 }

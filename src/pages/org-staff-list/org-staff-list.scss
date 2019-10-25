@@ -1,29 +1,30 @@
 page-org-staff-list {
-  ion-card {
-    position: relative;
-    text-align: center;
-    
-  }
-
-  .card-md {
-    background: #3c3c3c !important;
-  }
-
-  .card-title {
-    // position: absolute;
-    // top: 36%;
-    font-size: 2.0rem;
-    width: 100%;
-    font-weight: bold;
-    color: #fff;
-  }
-
-  .card-subtitle {
-    font-size: 1.0em;
-    // position: absolute;
-    // top: 52%;
-    width: 100%;
-    color: #fff;
-  }
-
+    ion-card {
+        position: relative;
+        text-align: center;
+    }
+    .card-md {
+        background: #3c3c3c !important;
+    }
+    .card-title {
+        // position: absolute;
+        // top: 36%;
+        font-size: 2.0rem;
+        width: 100%;
+        font-weight: bold;
+        color: #fff;
+    }
+    .card-subtitle {
+        font-size: 1.0em;
+        // position: absolute;
+        // top: 52%;
+        width: 100%;
+        color: #fff;
+    }
+    .stuff-img {
+        width: 70%;
+        text-align: center;
+        margin: 0px auto;
+        padding: 5px;
+    }
 }

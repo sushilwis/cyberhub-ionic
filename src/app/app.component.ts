@@ -66,6 +66,7 @@ export class MyApp {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       let localVal = JSON.parse(localStorage.getItem("userData"));
+      let parentLocalVal = JSON.parse(localStorage.getItem('parentData'));
 
       //   this.afs.collection('devices', ref => ref.where('userId', '==','testUser1')).snapshotChanges().subscribe(data => {
       //    data.map(x => console.log(x.payload.doc.data()))
@@ -102,7 +103,11 @@ export class MyApp {
         if (localVal.user_type_id == 3) {
           this.rootPage = ParentHomePage;
         }
-      } else {
+      } else if(parentLocalVal){
+        if(parentLocalVal.user_type_id == 3){
+          this.rootPage = ParentHomePage;
+        }
+      }else {
         this.rootPage = HomePage;
       }
 

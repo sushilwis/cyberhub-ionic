@@ -86,6 +86,14 @@
     <div [ngSwitch]="guestTab">
         <div *ngSwitchCase="'library'">
 
+            <ion-item>
+                <ion-label>
+                    <ion-icon ios="ios-search" md="md-search"></ion-icon>
+                </ion-label>
+                <ion-input #search placeholder="Type Your Institution" (keyup)="getItems($event)"></ion-input>
+                <!-- (click)="onSearchButtonClick()" -->
+            </ion-item>
+
             <ion-list class="search-result">
                 <ion-item *ngFor="let item of lists" (click)="goToLibrarySection(item.id)">
                     {{ item?.name }}
@@ -107,6 +115,15 @@
 
     <div [ngSwitch]="guestTab">
         <div *ngSwitchCase="'event'">
+
+            <ion-item>
+                <ion-label>
+                    <ion-icon ios="ios-search" md="md-search"></ion-icon>
+                </ion-label>
+                <ion-input #search placeholder="Type Your Institution" (keyup)="getItems($event)"></ion-input>
+                <!-- (click)="onSearchButtonClick()" -->
+            </ion-item>
+
             <ion-list class="search-result">
                 <ion-item *ngFor="let item of lists" (click)="goToEventSection(item.id)">
                     {{ item?.name }}
@@ -128,17 +145,15 @@
     <div [ngSwitch]="guestTab">
         <div *ngSwitchCase="'stuff'">
             <ion-list class="search-result">
-                
                 <ion-item>
                     <ion-label>
                         <ion-icon ios="ios-search" md="md-search"></ion-icon>
                     </ion-label>
-                    <ion-input #search placeholder="Type Your Institution" (keyup)="getItems($event)"
-                        (click)="onSearchButtonClick()"></ion-input>
+                    <ion-input #search placeholder="Type Your Institution" (keyup)="getItems($event)" (click)="onSearchButtonClick()"></ion-input>
                 </ion-item>
-                <div style="height: calc(85vh - 40px ); overflow: scroll;">
 
-                    <ion-item *ngFor="let item of orgList" (click)="goToStaffSection(item.id)" >
+                <div style="height: calc(85vh - 40px ); overflow: scroll;">
+                    <ion-item *ngFor="let item of orgList" (click)="goToStaffSection(item.id)">
                         {{ item?.name }}
                         <p class="col-result-add">{{ item?.landmark }}, {{ item?.city }}</p>
                         <ion-note item-end class="note note-md">
@@ -160,6 +175,14 @@
 
     <div [ngSwitch]="guestTab">
         <div *ngSwitchCase="'admission'">
+
+            <ion-item>
+                <ion-label>
+                    <ion-icon ios="ios-search" md="md-search"></ion-icon>
+                </ion-label>
+                <ion-input #search placeholder="Type Your Institution" (keyup)="getItems($event)"></ion-input>
+                <!-- (click)="onSearchButtonClick()" -->
+            </ion-item>
 
             <ion-list class="search-result">
                 <ion-item *ngFor="let item of lists" (click)="schoolsDetails(item.id)">
@@ -183,6 +206,14 @@
 
     <div [ngSwitch]="guestTab">
         <div *ngSwitchCase="'payment'">
+
+            <ion-item>
+                <ion-label>
+                    <ion-icon ios="ios-search" md="md-search"></ion-icon>
+                </ion-label>
+                <ion-input #search placeholder="Type Your Institution" (keyup)="getItems($event)"></ion-input>
+                <!-- (click)="onSearchButtonClick()" -->
+            </ion-item>
 
             <ion-list class="search-result">
                 <ion-item *ngFor="let item of lists">

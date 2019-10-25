@@ -8,6 +8,8 @@ import { Modal1Page } from '../account/account';
 import { apiUrl } from '../../apiUrl';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { Transfer, FileUploadOptions } from '@ionic-native/transfer';
+import StudentsTabsPage from '../students-tabs/students-tabs';
+import { StudentOwndetailsPage } from '../student-owndetails/student-owndetails';
 
 
 @IonicPage()
@@ -26,6 +28,9 @@ export class ParentHomePage {
   parentName: any;
   loading: any;
   showLoader: boolean;
+  parentData: any;
+  studentList: any;
+  studentId: any;
   
 
   constructor(
@@ -48,11 +53,13 @@ export class ParentHomePage {
     this.showLoader = true;
     this.getUserDataFromLocal();
     // this.initLoader();
+    this.getParentData();
   }
 
   ionViewDidLoad() {
     this.showLoader = false;
     console.log('ionViewDidLoad ParentHomePage');
+    this.getStudents();
   }
 
   goToAddChild() {
@@ -60,7 +67,8 @@ export class ParentHomePage {
   }
 
   goToViewChildDetails() {
-    this.navCtrl.push(ViewChildPage);
+    // this.navCtrl.push(ViewChildPage);
+    this.chooseStudent(); 
   }
 
   goToLogout() {
@@ -102,7 +110,8 @@ export class ParentHomePage {
 
 
   getUserDataFromLocal() {
-    let data = localStorage.getItem('userData');
+    let data = localStorage.getItem('parentData');
+    if(data){
     this.localUserData = JSON.parse(data); 
     // console.log('local data : ...', data);    
     
@@ -128,6 +137,9 @@ export class ParentHomePage {
     }else{
       this.profile_image = `assets/imgs/student-icon.png`;
     }
+
+  }
+
   }
 
 
@@ -255,6 +267,121 @@ export class ParentHomePage {
 	// 		content: '<img class="loader-class" src="assets/icon/tail-spin.svg"> <p>Loading please wait...</p>',
 	// 	});
   // }
+
+
+
+  getStudents(){
+    // this.showLoader = true;
+    var headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    let options = new RequestOptions({ headers: headers });
+  
+    let data = {
+      id: this.parentData.id
+    };
+  
+    this.http
+        .post(`${apiUrl.url}parent/fetchstudentlist`, data, options)
+        .map(res => res.json())
+        .subscribe(data => {
+          console.log('student list :..........................', data);
+          this.showLoader = false;
+          if (data.data) {
+            this.studentList = data.data;
+          }
+        })
+  }
+
+
+
+  getStudentDetails(id){
+    this.showLoader = true;
+    var headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    let options = new RequestOptions({ headers: headers });
+  
+    let data = {
+      id: id,
+      user_type_id: 4
+    };
+  
+    this.http
+        .post(`${apiUrl.url}user/user-details`, data, options)
+        .map(res => res.json())
+        .subscribe(data => {
+          console.log('student details :..........................', data.data[0]);
+          this.showLoader = false;
+          if (data.data && data.data.length > 0) {
+            // this.studentList = data.data;
+            localStorage.setItem("userData", JSON.stringify(data.data[0]));
+            // this.navCtrl.push();
+            this.navCtrl.push(StudentOwndetailsPage);
+          }
+        })
+  }
+  
+  
+  
+  
+    getParentData() {
+      let parentLocalVal = localStorage.getItem('parentData');
+      if(parentLocalVal){
+        let localdata = JSON.parse(parentLocalVal);
+        this.parentData = localdata;
+      }    
+    }
+
+
+
+
+
+    chooseStudent() {
+      // if (typeId == 2) {
+  
+        let alert = this.alertCtrl.create();
+        alert.setTitle('SELECT STUDENT');
+  
+        for (let index = 0; index < this.studentList.length; index++) {        
+          alert.addInput(
+            {
+              type: 'radio',
+              label: this.studentList[index].name,
+              value: this.studentList[index].student_master_id,
+              checked: false
+            }
+          );
+        }      
+  
+        // alert.addInput(
+        //   {
+        //     type: 'radio',
+        //     label: 'Non Technical',
+        //     value: '5',
+        //     checked: false
+        //   }
+        // );
+  
+        // alert.addButton('Cancel');
+        alert.addButton({
+          text: 'Cancel',
+          cssClass: "cancelBtn",
+          handler: data => {
+            console.log('cancel clicked :...');
+            this.navCtrl.pop();
+          }
+        });
+        alert.addButton({
+          text: 'OK',
+          cssClass: "okBtn",
+          handler: data => {
+            console.log('student id :..............', data);  
+            this.studentId = data;
+            this.getStudentDetails(data);          
+          }
+        });
+        alert.present();
+      // }
+    }
 
 
 

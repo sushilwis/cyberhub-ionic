@@ -449,6 +449,7 @@ export class WelcomeGuestPage {
           });
           // this.presentLoading(false);
           // console.log("arr list..... : ", this.lists);
+          this.orgList = this.lists; 
           this.showLoader = false;
         } else {
           this.showLoader = false;
@@ -577,7 +578,7 @@ export class WelcomeGuestPage {
     // Reset items back to all of the items
     if (ev.target.value == "") {
       this.showList = false;
-      this.orgList = []
+      this.orgList = this.lists;
       return;
     }
 
@@ -594,10 +595,37 @@ export class WelcomeGuestPage {
       this.orgList = this.lists.filter(item => {
         return item.name.toLowerCase().indexOf(val.toLowerCase()) > -1;
       });
-
-      console.log('items : ...', this.orgList);
+      console.log('this.orgList items : ...', this.orgList);
     }
   }
+
+
+
+
+  // getBooks(ev: any) {
+  //   // Reset items back to all of the items
+  //   if (ev.target.value == "") {
+  //     this.showList = false;
+  //     this.orgList = this.lists;
+  //     return;
+  //   }
+
+  //   this.showList = true;
+  //   // console.log('value : ', ev.target.value);
+  //   // this.initializeItems();
+
+  //   // set val to the value of the searchbar
+  //   const val = ev.target.value;
+  //   // console.log(this.items);
+
+  //   // if the value is an empty string don't filter the items
+  //   if (val && val.trim() != "") {
+  //     this.orgList = this.lists.filter(item => {
+  //       return item.name.toLowerCase().indexOf(val.toLowerCase()) > -1;
+  //     });
+  //     console.log('this.orgList items : ...', this.orgList);
+  //   }
+  // }
   // getBookList(org_id) {
   //   // this.presentLoading(true);
   //   this.showLoader = true;

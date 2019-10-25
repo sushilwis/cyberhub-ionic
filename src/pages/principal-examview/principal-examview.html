@@ -1,58 +1,73 @@
-<!--
-  Generated template for the PrincipalExamviewPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
-<ion-header>
-
-  <ion-navbar color="blue">
-    <ion-title>Schedule</ion-title>
-  </ion-navbar>
-
-</ion-header>
-
-
-<ion-content>
-  <div class="overley" *ngIf="showLoader"></div>
-  <div class="spinner" *ngIf="showLoader">
+<div class="overley" *ngIf="showLoader"></div>
+<div class="spinner" *ngIf="showLoader">
     <div class="rect1"></div>
     <div class="rect2"></div>
     <div class="rect3"></div>
     <div class="rect4"></div>
     <div class="rect5"></div>
-  </div>
+</div>
 
-  <ion-list>
-    <ion-item>
-      <ion-label>Choose Shift</ion-label>
-      <ion-select [(ngModel)]="shift" (ionChange)="onChooseShift($event)">
-        <ng-container *ngFor="let shift of orgShiftLists">
-          <ion-option value="{{shift.orgshift[0]?.id}}" *ngIf="shift.orgshift[0]?.id">{{shift.name}}</ion-option>
-        </ng-container>
-      </ion-select>
-    </ion-item>
-  </ion-list>
+<ion-header>
 
-  <ion-list>
-    <ion-item>
-      <ion-label>Choose Stream</ion-label>
-      <ion-select [(ngModel)]="stream" (ionChange)="onChooseClassStream($event)" [disabled]="streamDisabled()">
-        <ion-option value="{{classStream.class_id}}" *ngFor="let classStream of sortArray">{{classStream.class_name}}
-        </ion-option>
-      </ion-select>
-    </ion-item>
-  </ion-list>
-  
+    <ion-navbar color="blue">
+        <ion-title>Master Schedule</ion-title>
+    </ion-navbar>
+
+    <ion-toolbar no-border-top class="toolbar1">
+        <ion-segment [(ngModel)]="scheduleTab">
+            <ion-segment-button value="class">
+                <p>
+                    <img class="notice-img" style="height: 25px" src="assets/imgs/generalNotice.svg">
+                </p>
+                Class Schedule
+            </ion-segment-button>
+            <ion-segment-button value="exam">
+                <p>
+                    <img class="notice-img" style="height: 25px" src="assets/imgs/personalNotice.svg">
+                </p>
+                Exam Schedule
+            </ion-segment-button>
+        </ion-segment>
+    </ion-toolbar>
+
+</ion-header>
+
+
+<ion-content>
+
+    <div [ngSwitch]="scheduleTab">
+
+        <ion-list *ngSwitchCase="'class'">
+
+            <ion-list>
+                <ion-item>
+                    <ion-label>Choose Shift</ion-label>
+                    <ion-select [(ngModel)]="shift" (ionChange)="onChooseShift($event)">
+                        <ng-container *ngFor="let shift of orgShiftLists">
+                            <ion-option value="{{shift.orgshift[0]?.id}}" *ngIf="shift.orgshift[0]?.id">{{shift.name}}</ion-option>
+                        </ng-container>
+                    </ion-select>
+                </ion-item>
+            </ion-list>
+
+            <ion-list>
+                <ion-item>
+                    <ion-label>Choose Stream</ion-label>
+                    <ion-select [(ngModel)]="stream" (ionChange)="onChooseClassStream($event)" [disabled]="streamDisabled()">
+                        <ion-option value="{{classStream.class_id}}" *ngFor="let classStream of sortArray">{{classStream.class_name}}
+                        </ion-option>
+                    </ion-select>
+                </ion-item>
+            </ion-list>
+
             <ion-item *ngFor="let routine of routineList" style="padding-bottom: 0px; margin-bottom: 0px;" (click)="toggleDetails(routine)">
                 <ion-icon color="light" item-right [name]="routine?.icon"></ion-icon>
                 {{routine?.dayName}}
-                <!-- <table *ngIf="routine.showDetails">{{routine}}</table> -->
 
                 <ion-list *ngIf="routine?.showDetails" style="padding-bottom: 0px; margin-bottom: 0px;">
                     <ion-item *ngFor="let r of routine.priods" style="padding-bottom: 0px; margin-bottom: 0px;">
 
-                        <ion-card style="background-color: #353434; color: #fff;" >
+                        <ion-card style="background-color: #353434; color: #fff;">
                             <ion-grid>
                                 <ion-row style="color: #fff;">
                                     <ion-col col-md-12 text-uppercase text-center style="color: #fff;">
@@ -77,8 +92,6 @@
                                     <ion-col col-md-4 style="color: #fff;">
                                         <p style="color: #fff;font-size: 1.1rem;"><strong>Course/Sub</strong>:</p>
                                         <p style="color: #c5c5c5;font-size: 1.1rem;">{{r?.course}}</p>
-                                        <!-- <p style="color: #fff;font-size: 1.1rem;"></p> -->
-
                                     </ion-col>
                                     <ion-col col-md-4 style="color: #fff;">
                                         <p style="color: #fff;font-size: 1.1rem;"><strong>Dept/Sec</strong>:</p>
@@ -93,9 +106,31 @@
                         </ion-card>
                     </ion-item>
                 </ion-list>
-
             </ion-item>
-<!-- <ion-card>
+        </ion-list>
+
+
+        <ion-list *ngSwitchCase="'exam'"></ion-list>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- <ion-card>
 <ion-grid>
   <ion-row>
     <ion-col col-12 text-uppercase text-center>

@@ -121,7 +121,7 @@ export class ParentsLoginPage {
 				// console.log('login data : ', data.data);
 				if (data.data.length > 0) {
 					this.showLoader = false;
-					localStorage.setItem('userData', JSON.stringify(data.data[0]));
+					localStorage.setItem('parentData', JSON.stringify(data.data[0]));
 					// console.log('login data : ', data.data);				
 					// this.presentLoading(false);
 					this.navCtrl.setRoot(ParentHomePage);					

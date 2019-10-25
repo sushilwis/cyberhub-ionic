@@ -6,44 +6,51 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>Staff List</ion-title>
-  </ion-navbar>
+    <ion-navbar>
+        <ion-title>Staff List</ion-title>
+    </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-  <div class="overley" *ngIf="showLoader"></div>
-  <div class="spinner" *ngIf="showLoader">
-    <div class="rect1"></div>
-    <div class="rect2"></div>
-    <div class="rect3"></div>
-    <div class="rect4"></div>
-    <div class="rect5"></div>
-  </div>
+    <div class="overley" *ngIf="showLoader"></div>
+    <div class="spinner" *ngIf="showLoader">
+        <div class="rect1"></div>
+        <div class="rect2"></div>
+        <div class="rect3"></div>
+        <div class="rect4"></div>
+        <div class="rect5"></div>
+    </div>
 
-  <ion-grid>
-    <ion-row>
-      <ion-col col-12>
-        <ion-list>
-          <ion-item>
-            <ion-label>Choose Department</ion-label>
-            <ion-select [(ngModel)]="dept" (ionChange)="onChooseDept($event)">
-              <ng-container *ngFor="let dept of alldepts">
-                <ion-option value="{{dept?.id}}">{{dept.name}}</ion-option>
-              </ng-container>
-            </ion-select>
-          </ion-item>
-        </ion-list>
-      </ion-col>
-      <ion-col col-6 *ngFor="let staff of copyallStaffList">
-        <ion-card>
-          <img [src]="returnImage(staff.user[0])" />
-          <div class="card-title">{{staff.name}}</div>
-          <div class="card-subtitle">{{staff.qualification}}</div>
-        </ion-card>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+    <ion-grid>
+        <ion-row>
+            <ion-col col-12>
+                <ion-list>
+                    <ion-item>
+                        <ion-label>Choose Department</ion-label>
+                        <ion-select [(ngModel)]="dept" (ionChange)="onChooseDept($event)">
+                            <ng-container *ngFor="let dept of alldepts">
+                                <ion-option value="{{dept?.id}}">{{dept.name}}</ion-option>
+                            </ng-container>
+                        </ion-select>
+                    </ion-item>
+                </ion-list>
+            </ion-col>
+
+
+            <ion-col col-6 *ngFor="let staff of copyallStaffList">
+                <ion-card>
+                    <img class="stuff-img" [src]="returnImage(staff.user[0])" />
+                    <div class="card-title" style="font-size: 16px;">{{staff.name}}</div>
+                    <div class="card-subtitle" style="font-size: 12px;">{{staff.qualification}}</div>
+                    <div class="card-subtitle" style="font-size: 12px;">{{staff.role_cat.name}}</div>
+                    <div class="card-subtitle" style="font-size: 12px;">{{staff.email}}</div>
+                    <div class="card-subtitle" style="font-size: 12px; margin-bottom: 5px;">{{staff.user[0].mobile_no}}</div>
+                </ion-card>
+            </ion-col>
+
+
+        </ion-row>
+    </ion-grid>
 </ion-content>

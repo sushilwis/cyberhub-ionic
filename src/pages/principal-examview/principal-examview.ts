@@ -4,19 +4,13 @@ import {Headers, Http } from "@angular/http";
 
 import { apiUrl } from "../../apiUrl";
 
-/**
- * Generated class for the PrincipalExamviewPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 @IonicPage()
 @Component({
   selector: 'page-principal-examview',
   templateUrl: 'principal-examview.html',
 })
 export class PrincipalExamviewPage {
+  scheduleTab: string = "class";
   localUserData: any;
   orgShiftLists: any;
   selectedData: any = {};
