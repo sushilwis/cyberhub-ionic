@@ -89,6 +89,7 @@ export class StudentLoginPage {
 			map(res => res.json()).subscribe(data => {	
 				console.log('login data : ', data.data);
 				if (data.data.length > 0) {
+					localStorage.setItem("showAttn", JSON.stringify({show: true}));
 					localStorage.setItem('userData', JSON.stringify(data.data[0]));
 					// console.log('login data : ', data.data);	
 					this.fcm.getToken();				

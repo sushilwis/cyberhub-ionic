@@ -321,26 +321,44 @@ export default class AccountPage implements OnInit {
 
 
   renderGraph() {   
-    
-    this.doughnutChart = new Chart(this.doughnutCanvas.nativeElement, {
-      type: "bar",
-      options: {
-        legend: {
-            display: false,
-        }
-      },
-      data: {
-        labels: this.chartClassList,
-        datasets: [
-          {
-            data: this.chartAttdValue,
-            backgroundColor: this.chartcolor
+
+    if(this.doughnutCanvas){
+      this.doughnutChart = new Chart(this.doughnutCanvas.nativeElement, {
+        type: "bar",
+        options: {
+          legend: {
+              display: false,
           }
-        ]
-      }
-    });
+        },
+        data: {
+          labels: this.chartClassList,
+          datasets: [
+            {
+              data: this.chartAttdValue,
+              backgroundColor: this.chartcolor
+            }
+          ]
+        }
+      });
+    }   
 
     this.showLoader = false;
+  }
+
+
+
+
+
+  getAttendanceShowValue() {
+    let localShowValue = localStorage.getItem('showAttn');
+    if(localShowValue){
+      let localShowValueObj = JSON.parse(localShowValue);
+      if(localShowValueObj.show){
+        return true;
+      }else{
+        return false;
+      }
+    }
   }
 
 
@@ -620,11 +638,19 @@ createSortArray(arr){
         this.sortArray.push(obj);
       }
     }
-  });
-
-
-      
+  });      
 }
+
+
+
+
+
+
+
+
+
+
+
 
 }
 

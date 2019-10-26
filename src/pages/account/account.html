@@ -45,7 +45,7 @@
         <button class="btnStyle" ion-button color="dark" outline (click)="openModal()" *ngIf="studentDetails?.nameclass == null">Select Department</button>
     </p>
 
-    <ion-card style="background-color: #1b1b1b">
+    <ion-card style="background-color: #1b1b1b" *ngIf="getAttendanceShowValue()">
         <ion-card-header style="color: #eee">
             Attendance
         </ion-card-header>

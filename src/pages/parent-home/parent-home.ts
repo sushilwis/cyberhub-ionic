@@ -294,31 +294,31 @@ export class ParentHomePage {
 
 
 
-  getStudentDetails(id){
-    this.showLoader = true;
-    var headers = new Headers();
-    headers.append('Content-Type', 'application/json');
-    let options = new RequestOptions({ headers: headers });
+  // getStudentDetails(id){
+  //   this.showLoader = true;
+  //   var headers = new Headers();
+  //   headers.append('Content-Type', 'application/json');
+  //   let options = new RequestOptions({ headers: headers });
   
-    let data = {
-      id: id,
-      user_type_id: 4
-    };
+  //   let data = {
+  //     id: id,
+  //     user_type_id: 4
+  //   };
   
-    this.http
-        .post(`${apiUrl.url}user/user-details`, data, options)
-        .map(res => res.json())
-        .subscribe(data => {
-          console.log('student details :..........................', data.data[0]);
-          this.showLoader = false;
-          if (data.data && data.data.length > 0) {
-            // this.studentList = data.data;
-            localStorage.setItem("userData", JSON.stringify(data.data[0]));
-            // this.navCtrl.push();
-            this.navCtrl.push(StudentOwndetailsPage);
-          }
-        })
-  }
+  //   this.http
+  //       .post(`${apiUrl.url}user/user-details`, data, options)
+  //       .map(res => res.json())
+  //       .subscribe(data => {
+  //         console.log('student details :..........................', data.data[0]);
+  //         this.showLoader = false;
+  //         if (data.data && data.data.length > 0) {
+  //           // this.studentList = data.data;
+  //           localStorage.setItem("userData", JSON.stringify(data.data[0]));
+  //           // this.navCtrl.push();
+  //           this.navCtrl.push(StudentOwndetailsPage);
+  //         }
+  //       })
+  // }
   
   
   
@@ -345,8 +345,8 @@ export class ParentHomePage {
           alert.addInput(
             {
               type: 'radio',
-              label: this.studentList[index].name,
-              value: this.studentList[index].student_master_id,
+              label: this.studentList[index].student.name,
+              value: this.studentList[index].student.user[0],
               checked: false
             }
           );
@@ -375,8 +375,10 @@ export class ParentHomePage {
           cssClass: "okBtn",
           handler: data => {
             console.log('student id :..............', data);  
-            this.studentId = data;
-            this.getStudentDetails(data);          
+            this.studentId = data;  
+            localStorage.setItem("userData", JSON.stringify(data));
+            localStorage.setItem("showAttn", JSON.stringify({show: false}));
+            this.navCtrl.push(StudentOwndetailsPage);        
           }
         });
         alert.present();
