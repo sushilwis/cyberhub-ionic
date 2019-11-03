@@ -76,6 +76,7 @@ export class WelcomeGuestPage {
         return item.name.toLowerCase().indexOf(val.toLowerCase()) > -1;
       });
 
+      this.lists = this.searchCollgResult;
       console.log('items : ...', this.searchCollgResult);
     }
   }
@@ -596,6 +597,7 @@ export class WelcomeGuestPage {
         return item.name.toLowerCase().indexOf(val.toLowerCase()) > -1;
       });
       console.log('this.orgList items : ...', this.orgList);
+      this.lists = this.orgList;
     }
   }
 

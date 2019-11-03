@@ -15,17 +15,17 @@
 
     <ion-toolbar no-border-top class="toolbar1">
         <ion-segment [(ngModel)]="scheduleTab">
-            <ion-segment-button value="class">
-                <p>
-                    <img class="notice-img" style="height: 25px" src="assets/imgs/generalNotice.svg">
+            <ion-segment-button value="class" style="height: 65px">
+                <p class="tab-image">
+                    <img class="notice-img" style="height: 25px" src="assets/imgs/generalNotice.svg">                    
                 </p>
-                Class Schedule
+                <p class="tab-text">Class Schedule</p>   
             </ion-segment-button>
-            <ion-segment-button value="exam">
-                <p>
+            <ion-segment-button value="exam" style="height: 65px">
+                <p class="tab-image">
                     <img class="notice-img" style="height: 25px" src="assets/imgs/personalNotice.svg">
                 </p>
-                Exam Schedule
+                <p class="tab-text">Exam Schedule</p>
             </ion-segment-button>
         </ion-segment>
     </ion-toolbar>

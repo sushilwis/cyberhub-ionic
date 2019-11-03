@@ -12,12 +12,8 @@ import 'rxjs/add/operator/map';
 import { apiUrl } from '../../apiUrl';
 import AccountPage  from '../account/account';
 import { StudentNoticeBoardPage } from "../student-notice-board/student-notice-board";
-/**
- * Generated class for the StudentsTabsPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { StuffExamdutyPage } from '../stuff-examduty/stuff-examduty';
+
 
 @IonicPage()
 @Component({
@@ -26,7 +22,8 @@ import { StudentNoticeBoardPage } from "../student-notice-board/student-notice-b
 })
 export default class StudentsTabsPage implements OnInit {
   tab1Root = StudentOwndetailsPage;
-  tab2Root = RoutinePage;
+  // tab2Root = RoutinePage;
+  tab2Root = StuffExamdutyPage;
   tab3Root = AttendancePage;
   tab4Root = StudentNoticeBoardPage;
   loaded: boolean = false;

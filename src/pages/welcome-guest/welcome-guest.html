@@ -44,6 +44,14 @@
 
     <div [ngSwitch]="guestTab">
         <div *ngSwitchCase="'live'">
+                <ion-item>
+                        <ion-label>
+                            <ion-icon ios="ios-search" md="md-search"></ion-icon>
+                        </ion-label>
+                        <ion-input #search placeholder="Type Your Institution" (keyup)="getItems($event)"></ion-input>
+                        <!-- (click)="onSearchButtonClick()" -->
+                    </ion-item>
+
             <ion-list class="search-result">
                 <ion-item *ngFor="let item of lists" (click)="goToLiveSection(item.id)">
                     {{ item?.name }}
@@ -65,6 +73,15 @@
 
     <div [ngSwitch]="guestTab">
         <div *ngSwitchCase="'skill'">
+            
+                <ion-item>
+                        <ion-label>
+                            <ion-icon ios="ios-search" md="md-search"></ion-icon>
+                        </ion-label>
+                        <ion-input #search placeholder="Type Your Institution" (keyup)="getItems($event)"></ion-input>
+                        <!-- (click)="onSearchButtonClick()" -->
+                    </ion-item>
+
             <ion-list class="search-result">
                 <ion-item *ngFor="let item of lists" (click)="goToSkillSection(item.id)">
                     {{ item?.name }}
@@ -235,6 +252,7 @@
 
     <div [ngSwitch]="guestTab">
         <div *ngSwitchCase="'exam_schedule'">
+
             <ion-list>
                 <ion-item>
                     <ion-label>
@@ -245,7 +263,7 @@
                 </ion-item>
             </ion-list>
 
-            <ion-list *ngIf="searchCollgResult.length > 0" class="search-result">
+            <!-- <ion-list *ngIf="searchCollgResult.length > 0" class="search-result">
                 <ion-item *ngFor="let item of searchCollgResult" (click)="onSelectSearch(item)">
                     {{ item?.name }}
                     <p class="col-result-add">{{ item?.landmark }}, {{ item?.city }}
@@ -255,7 +273,18 @@
                         {{ item?.org }}
                     </ion-note>
                 </ion-item>
-            </ion-list>
+            </ion-list> -->
+
+            <ion-list class="search-result">
+                    <ion-item *ngFor="let item of lists" (click)="schoolsDetails(item.id)">
+                        {{ item?.name }}
+                        <p class="col-result-add">{{ item?.landmark }}, {{ item?.city }}</p>
+                        <ion-note item-end class="note note-md">
+                            {{ item?.org }}
+                        </ion-note>
+                    </ion-item>
+                </ion-list>
+
             <ion-list *ngIf="showData">
                 <ion-item>
                     <ion-label floating style="color: #9a9a9a">
@@ -267,6 +296,7 @@
                     <button ion-button color="blue" type="button" class="btn-size mt-10" (click)="searchStudent()">Search</button>
                 </div>
             </ion-list>
+
             <div class="mt-3" *ngIf="SearchedResult.length > 0">
                 <ion-grid>
                     <ion-row>
@@ -314,8 +344,12 @@
 
 
 <ion-footer style="border-top: 1px solid #393939;">
-    <ion-icon style="color: #ccc; font-size: 2.2em; position: fixed; z-index: 999; left: 2%; bottom: 3%;" name="ios-arrow-back" (click)="scrollToRight()"></ion-icon>
-    <ion-icon style="color: #ccc; font-size: 2.2em; position: fixed; z-index: 999; right: 2%; bottom: 3%;" name="ios-arrow-forward" (click)="scrollToLeft()"></ion-icon>
+
+    <ion-icon style="color: #ccc; font-size: 2.2em; position: fixed; z-index: 999; left: 2%; bottom: 3%;" name="ios-arrow-back" (click)="scrollToRight()">
+    </ion-icon>
+    <ion-icon style="color: #ccc; font-size: 2.2em; position: fixed; z-index: 999; right: 2%; bottom: 3%;" name="ios-arrow-forward" (click)="scrollToLeft()">
+    </ion-icon>
+
     <ion-toolbar no-border-top>
         <ion-segment [(ngModel)]="guestTab">
             <ion-segment-button value="search" (click)="onClickTab('1')">

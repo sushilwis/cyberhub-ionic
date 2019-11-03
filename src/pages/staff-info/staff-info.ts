@@ -53,6 +53,7 @@ export class StaffInfoPage {
   humidity: any;
   showLoader: boolean;
   isPrincipal: boolean = false;
+  personalNoticeCount: any;
 
   constructor(
     public navCtrl: NavController,
@@ -85,6 +86,7 @@ export class StaffInfoPage {
   ngOnInit() {
     this.showLoader = true;
     this.getStaffRole();
+    this.getnotificationcount();
   }
 
 
@@ -334,6 +336,23 @@ export class StaffInfoPage {
           this.showLoader = false;
         }
       });
+  }
+
+
+
+
+  getnotificationcount() {
+    this.showLoader = true;
+    this.http.get(`${apiUrl.url}notification/count/${this.localUserData.id}`).map(res => res.json())
+    .subscribe(data => {
+      if(data.count){
+        this.personalNoticeCount =  data.count
+        this.showLoader = false;
+      }else{
+        this.showLoader = false;
+      }
+      
+    })
   }
 
 

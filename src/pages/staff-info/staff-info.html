@@ -16,10 +16,14 @@
    </button> -->
         <ion-title>Welcome {{teacherDetails?.f_name}}</ion-title>
         <ion-buttons end>
-            <button class="bell-icon" (click)=goToPersonalNotice()>
+        <button class="bell-icon" (click)=goToPersonalNotice()>
         <!-- <i class="fas fa-bell fa-inverse fa-lg"></i>  -->
-        <img class="" src="assets/icon/notification.svg" style="height: 18px" />
-      </button>
+          <img class="" src="assets/icon/notification.svg" style="height: 18px" />
+        </button>
+        <ion-badge style="background-color: #455a64 !important; border-radius: 50%; width: 18px; height: 18px; color: #ffffff; position: relative;
+        top: -8px;
+        left: 32px;
+        font-size: 10px;">{{personalNoticeCount}}</ion-badge>
         </ion-buttons>
         <ion-buttons end>
             <button class="bell-icon" (click)=goToLogout()>

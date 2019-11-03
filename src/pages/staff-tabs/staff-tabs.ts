@@ -28,7 +28,8 @@ import { StudentNoticeBoardPage } from '../student-notice-board/student-notice-b
 })
 export class StaffTabsPage implements OnInit {
   tab1Root = StaffInfoPage;
-  tab2Root = StuffExamdutyPage;
+  // tab2Root = StuffExamdutyPage;
+  tab2Root = RoutinePage;
   tab3Root = GetAttendancePage;
   tab4Root = StudentNoticeBoardPage;
   loaded: boolean = false;
