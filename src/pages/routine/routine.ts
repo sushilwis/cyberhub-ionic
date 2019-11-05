@@ -229,7 +229,7 @@ export class RoutinePage implements OnInit {
           priods: [
             {
               priod_id: element.priod_id,
-              priod_name: element.priod.priod_name,
+              priod_name: element.priod.period_name,
               from_time: element.priod.from_time,
               to_time: element.priod.to_time,
               rutinedetails: element.rutinedetails
@@ -240,7 +240,7 @@ export class RoutinePage implements OnInit {
       } else {
         let exsisting_data = {
           priod_id: element.priod_id,
-          priod_name: element.priod.priod_name,
+          priod_name: element.priod.period_name,
           from_time: element.priod.from_time,
           to_time: element.priod.to_time,
           icon: 'ios-add-circle-outline',

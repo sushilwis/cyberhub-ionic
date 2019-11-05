@@ -90,8 +90,10 @@ export class GetAttendancePage {
   }
 
   onChooseShift(e) {
+
     this.sortArray = [];
     this.shiftID = e;
+
     // console.log(e);
     // console.log(this.allSelected);
     // console.log('shift : ', e.value);
@@ -147,6 +149,8 @@ export class GetAttendancePage {
     // console.log("Org Class list : ", this.sortArray);
   }
 
+
+
   onChooseClassStream(e) {
     // console.log(e);
     
@@ -169,6 +173,9 @@ export class GetAttendancePage {
     console.log(this.filteredArrayForSectionList);
   }
 
+
+
+
   getallsem() {
     this.showLoader = true;
     let header = new Headers();
@@ -185,6 +192,12 @@ export class GetAttendancePage {
         this.showLoader = false;
         // console.log("Org Class list : ", data.data);
         this.allSemList = data.data;
+        this.allSemList = this.allSemList.filter(data => {
+          if(data.sem_no != null && data.sem_no != '') {
+            return data;
+          } 
+        });
+        console.log('sem list :.....................', this.allSemList);        
         // this.createSortArray(this.orgClassSectionList);
         // this.sortArray.unshift({
         //   class_name: "All",
@@ -193,12 +206,19 @@ export class GetAttendancePage {
       });
   }
 
+
+
+
   onSemChange(e) {
     this.newFilterSectionArry = this.filteredArrayForSectionList.filter(ele => {
       return ele.sem_id == e;
     });
     // console.log(this.newFilterSectionArry);
   }
+
+
+
+
   getSubjectid(e) {
     console.log(this.stream);
     this.showLoader = true;

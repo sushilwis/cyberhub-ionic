@@ -1,79 +1,81 @@
-<div class="overley" *ngIf="showLoader"></div>  
-  <div class="spinner" *ngIf="showLoader">
-        <div class="rect1"></div>
-        <div class="rect2"></div>
-        <div class="rect3"></div>
-        <div class="rect4"></div>
-        <div class="rect5"></div>
-  </div>
+<div class="overley" *ngIf="showLoader"></div>
+<div class="spinner" *ngIf="showLoader">
+    <div class="rect1"></div>
+    <div class="rect2"></div>
+    <div class="rect3"></div>
+    <div class="rect4"></div>
+    <div class="rect5"></div>
+</div>
 
-  
+
 <ion-header>
 
-  <ion-navbar color="blue">
-    <ion-title>Attendance</ion-title>
-  </ion-navbar>
+    <ion-navbar color="blue">
+        <ion-title>Attendance</ion-title>
+    </ion-navbar>
 
 </ion-header>
 
 
 <ion-content *ngIf="showTeacherForm" class="item-center" padding>
 
-  <h4 class="title" text-center text-uppercase margin-bottom>preparation of Attendance</h4>
+    <h4 class="title" text-center text-uppercase margin-bottom>preparation of Attendance</h4>
 
-  <ion-list>
-    <ion-item>
-      <ion-label>Choose Shift</ion-label>
-      <ion-select [(ngModel)]="shift" (ionChange)="onChooseShift($event)">
-        <ng-container *ngFor="let shift of orgShiftLists">
-          <ion-option value="{{shift.orgshift[0]?.id}}" *ngIf="shift.orgshift[0]?.id">{{shift.name}}</ion-option>
-        </ng-container>
-      </ion-select>
-    </ion-item>
-  </ion-list>
+    <ion-list>
+        <ion-item>
+            <ion-label>Choose Shift</ion-label>
+            <ion-select [(ngModel)]="shift" (ionChange)="onChooseShift($event)">
+                <ng-container *ngFor="let shift of orgShiftLists">
+                    <ion-option value="{{shift.orgshift[0]?.id}}" *ngIf="shift.orgshift[0]?.id">{{shift.name}}</ion-option>
+                </ng-container>
+            </ion-select>
+        </ion-item>
+    </ion-list>
 
-  <ion-list>
-    <ion-item>
-      <ion-label>Choose Stream</ion-label>
-      <ion-select [(ngModel)]="stream" (ionChange)="onChooseClassStream($event)" [disabled]="streamDisabled()">
-        <ion-option value="{{classStream.class_id}}" *ngFor="let classStream of sortArray">{{classStream.class_name}}
-        </ion-option>
-      </ion-select>
-    </ion-item>
-  </ion-list>
-  <ion-list>
-    <ion-item>
-      <ion-label>Choose Sem</ion-label>
-      <ion-select [(ngModel)]="sem_no" (ionChange)="onSemChange($event)" [disabled]="semDisabled()">
-        <ion-option *ngFor="let sem of allSemList" value="{{sem.id}}">
-          Sem {{sem.sem_no}}
-        </ion-option>
-      </ion-select>
-    </ion-item>
-  </ion-list>
-  <ion-list>
-    <ion-item>
-      <ion-label>Choose Department</ion-label>
-      <ion-select [(ngModel)]="department" (ionChange)="getPeriod()" [disabled]="departmentDisabled()">
-        <ion-option value="{{sec.classSectionIndexId}}" *ngFor="let sec of newFilterSectionArry">{{sec.section_name}}
-        </ion-option>
-      </ion-select>
-    </ion-item>
-  </ion-list>
+    <ion-list>
+        <ion-item>
+            <ion-label>Choose Stream</ion-label>
+            <ion-select [(ngModel)]="stream" (ionChange)="onChooseClassStream($event)" [disabled]="streamDisabled()">
+                <ion-option value="{{classStream.class_id}}" *ngFor="let classStream of sortArray">{{classStream.class_name}}
+                </ion-option>
+            </ion-select>
+        </ion-item>
+    </ion-list>
 
-  <ion-list>
-    <ion-item>
-      <ion-label>Choose Session</ion-label>
-      <ion-select [(ngModel)]="period" (ionChange)="getSubjectid($event)" [disabled]="periodDisabled()">
-        <ion-option *ngFor="let period of periodList" value="{{period.id}}">{{period.period_name}} ({{period.from_time}}
-          {{period.to_time}})</ion-option>
-      </ion-select>
-    </ion-item>
-  </ion-list>
 
-  <button ion-button block outline color="blue"
-    [disabled] = "classfilteredSubject.lenght == 0"
-   class="mt-10" (click)="onPeriodSubmit()">Continue to Generate
+    <ion-list>
+        <ion-item>
+            <ion-label>Choose Sem</ion-label>
+            <ion-select [(ngModel)]="sem_no" (ionChange)="onSemChange($event)" [disabled]="semDisabled()">
+                <ion-option *ngFor="let sem of allSemList" value="{{sem.id}}">
+                    Sem {{sem.sem_no}}
+                </ion-option>
+            </ion-select>
+        </ion-item>
+    </ion-list>
+
+
+    <ion-list>
+        <ion-item>
+            <ion-label>Choose Department</ion-label>
+            <ion-select [(ngModel)]="department" (ionChange)="getPeriod()" [disabled]="departmentDisabled()">
+                <ion-option value="{{sec.classSectionIndexId}}" *ngFor="let sec of newFilterSectionArry">{{sec.section_name}}
+                </ion-option>
+            </ion-select>
+        </ion-item>
+    </ion-list>
+
+    <ion-list>
+        <ion-item>
+            <ion-label>Choose Session</ion-label>
+            <ion-select [(ngModel)]="period" (ionChange)="getSubjectid($event)" [disabled]="periodDisabled()">
+                <ion-option *ngFor="let period of periodList" value="{{period.id}}">{{period.period_name}} ({{period.from_time}} {{period.to_time}})
+                </ion-option>
+            </ion-select>
+        </ion-item>
+    </ion-list>
+
+    <button ion-button block outline color="blue" [disabled]="classfilteredSubject.lenght == 0" class="mt-10" (click)="onPeriodSubmit()">Continue to Generate
     Code</button>
 
 </ion-content>
@@ -87,9 +89,9 @@
 
 <ion-content *ngIf="!showTeacherForm" class="item-center" padding>
 
-  <h3 class="title" text-center text-uppercase margin-bottom style="margin-top: 7rem;">Your Attendance Code</h3>
-  <h4 text-center margin-bottom>{{genAttCode}}</h4>
+    <h3 class="title" text-center text-uppercase margin-bottom style="margin-top: 7rem;">Your Attendance Code</h3>
+    <h4 text-center margin-bottom>{{genAttCode}}</h4>
 
-  <button ion-button block outline color="blue" class="mt-10" (click)="onStartAttendence()">Start</button>
+    <button ion-button block outline color="blue" class="mt-10" (click)="onStartAttendence()">Start</button>
 
 </ion-content>

@@ -26,6 +26,18 @@
     <ion-grid>
         <ion-row>
             <ion-col col-12>
+
+                <ion-list>
+                    <ion-item>
+                        <ion-label>Choose Shift</ion-label>
+                        <ion-select [(ngModel)]="shift" (ionChange)="onChooseShift($event)">
+                            <ng-container *ngFor="let shift of orgShiftLists">
+                                <ion-option value="{{shift.orgshift[0]?.id}}" *ngIf="shift.orgshift[0]?.id">{{shift.name}}</ion-option>
+                            </ng-container>
+                        </ion-select>
+                    </ion-item>
+                </ion-list>
+
                 <ion-list>
                     <ion-item>
                         <ion-label>Choose Department</ion-label>
@@ -36,6 +48,7 @@
                         </ion-select>
                     </ion-item>
                 </ion-list>
+
             </ion-col>
 
 
