@@ -38,6 +38,8 @@ export class WelcomeGuestPage {
   showData: boolean = false 
   showError: boolean = false;
   showList: boolean;
+  orgList2: any;
+  lists2: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private http: Http, public menuCtrl: MenuController, public loadingController: LoadingController, public alertCtrl: AlertController, public toastCtrl: ToastController) {
     this.showLoader = true;
@@ -68,6 +70,13 @@ export class WelcomeGuestPage {
 
   filterCollgList(ev) {
     const val = ev.target.value;
+
+    if (ev.target.value == "") {
+      this.showList = false;
+      this.orgList = this.lists;
+      this.lists = this.orgList2;
+      return;
+    }
     // console.log(this.items);
 
     // if the value is an empty string don't filter the items
@@ -77,6 +86,7 @@ export class WelcomeGuestPage {
       });
 
       this.lists = this.searchCollgResult;
+      this.lists2 = this.searchCollgResult;
       console.log('items : ...', this.searchCollgResult);
     }
   }
@@ -449,8 +459,9 @@ export class WelcomeGuestPage {
             this.lists.push(obj);
           });
           // this.presentLoading(false);
-          // console.log("arr list..... : ", this.lists);
+          console.log("arr list..... : ", this.lists);
           this.orgList = this.lists; 
+          this.orgList2 = this.lists; 
           this.showLoader = false;
         } else {
           this.showLoader = false;
@@ -580,6 +591,7 @@ export class WelcomeGuestPage {
     if (ev.target.value == "") {
       this.showList = false;
       this.orgList = this.lists;
+      this.lists = this.orgList2;
       return;
     }
 
@@ -596,6 +608,7 @@ export class WelcomeGuestPage {
       this.orgList = this.lists.filter(item => {
         return item.name.toLowerCase().indexOf(val.toLowerCase()) > -1;
       });
+
       console.log('this.orgList items : ...', this.orgList);
       this.lists = this.orgList;
     }

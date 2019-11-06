@@ -81,7 +81,7 @@ export class SchoolListingPage {
       .post(`${apiUrl.url}org/searchApp`, data, options)
       .map(res => res.json())
       .subscribe(data => {
-        // console.log('school list : ', data);        
+        console.log('school list : ..................', data);        
         if (data.length > 0) {
           // this.presentLoading(false);
           // this.orgList = data;
@@ -133,6 +133,10 @@ export class SchoolListingPage {
     if(org_type_id == '3'){
       this.headTitle = 'University';
       return 'UNIVERSITY';
+    }
+    if(org_type_id == '5'){
+      this.headTitle = 'College';
+      return 'COLLEGE';
     }
   }
 
