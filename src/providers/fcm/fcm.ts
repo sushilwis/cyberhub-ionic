@@ -44,15 +44,12 @@ export class FcmProvider {
 
     let token;
 
-    if (this.platform.is('android')) {
-     
-      token = await this.firebaseNative.getToken()
-      
+    if (this.platform.is('android')) {     
+      token = await this.firebaseNative.getToken()      
     } 
 
     if (this.platform.is('ios')) {
-      token = await this.firebaseNative.getToken();
-     
+      token = await this.firebaseNative.getToken();     
       const perm = await this.firebaseNative.grantPermission();
     } 
     

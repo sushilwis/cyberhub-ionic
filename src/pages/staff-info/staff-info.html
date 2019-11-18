@@ -16,11 +16,11 @@
    </button> -->
         <ion-title>Welcome {{teacherDetails?.f_name}}</ion-title>
         <ion-buttons end>
-        <button class="bell-icon" (click)=goToPersonalNotice()>
+            <button class="bell-icon" (click)=goToPersonalNotice()>
         <!-- <i class="fas fa-bell fa-inverse fa-lg"></i>  -->
           <img class="" src="assets/icon/notification.svg" style="height: 18px" />
         </button>
-        <ion-badge style="background-color: #455a64 !important; border-radius: 50%; width: 18px; height: 18px; color: #ffffff; position: relative;
+            <ion-badge style="background-color: #455a64 !important; border-radius: 50%; width: 18px; height: 18px; color: #ffffff; position: relative;
         top: -8px;
         left: 32px;
         font-size: 10px;">{{personalNoticeCount}}</ion-badge>
@@ -51,6 +51,7 @@
                     <div class="text-position">
                         <h5 text-center text-uppercase color="light">{{teacherDetails?.name}}</h5>
                         <p text-center text-uppercase *ngIf="teacherDetails?.depts?.name">Dept: {{teacherDetails?.depts?.name}}</p>
+                        <p text-center text-uppercase *ngIf="teacherDetails?.role_cat?.name">{{teacherDetails?.role_cat?.name}}</p>
                     </div>
                 </div>
             </div>
@@ -184,14 +185,6 @@
         </ion-row>
 
         <ion-row>
-            <!-- <ion-col col-md-3 class="icon-center" (click)=goToAttendance()>
-        <img src="assets/imgs/icon3.png"/>
-        <p>Attendance</p>
-      </ion-col> -->
-            <!-- <ion-col col-md-3 class="icon-center" (click)=goToStaffDuty()>
-        <img src="assets/icon/staffRoutine.svg" class="iconSize"/>
-        <p>Staff Duty</p>
-      </ion-col> -->
             <ion-col col-md-3 class="icon-center" (click)=gotoLiveStream()>
                 <img src="assets/icon/live_stream_btn.svg" class="iconSize" />
                 <p text-uppercase>Video Stream</p>
@@ -204,67 +197,37 @@
                 <img class="logo-action iconSize" src="assets/icon/changeLanguage.svg" />
                 <p text-uppercase>Change Language</p>
             </ion-col>
-
-            <!-- <ion-col col-md-4 class="icon-center" (click)=goToGuest()>
-          <img src="assets/icon/guest_logo.svg" class="iconSize"/>
-          <p>Guest</p>
-        </ion-col> -->
         </ion-row>
 
         <ion-row>
-            <!-- <ion-col col-md-4 class="icon-center" (click)=goToGuest()>
-        <img src="assets/imgs/guest.png"/>
-        <p>Guest</p>
-      </ion-col> -->
+            <ion-col col-md-3 class="icon-center">
+                <img src="assets/icon/live_stream_btn.svg" class="iconSize" />
+                <p text-uppercase>PTM Details View</p>
+            </ion-col>
+            <ion-col col-md-4 class="icon-center" style="border-top: 2px solid #fff;">
+                <img class="logo-action iconSize" src="assets/icon/calender_btn.svg" />
+                <p text-uppercase>Home Assignment</p>
+            </ion-col>
+            <ion-col col-md-4 class="icon-center" style="border-top: 2px solid #fff;">
+                <img class="logo-action iconSize" src="assets/icon/changeLanguage.svg" />
+                <p text-uppercase>Class Work</p>
+            </ion-col>
+        </ion-row>
 
-            <!-- <ion-col col-md-4 class="icon-center" (click)=goToLogout()>
-        <img src="assets/icon/logout.svg" class="iconSize"/>
-        <p>Logout</p>
-      </ion-col> -->
-
-            <!-- <ion-col col-md-4 class="">
-        <img src=""/>
-        <p></p>
-      </ion-col>
-
-      <ion-col col-md-4 class="">
-        <img src=""/>
-        <p></p>
-      </ion-col>
-
-      <ion-col col-md-4 class="">
-        <img src=""/>
-        <p></p>
-      </ion-col> -->
+        <ion-row>
+            <ion-col col-md-3 class="icon-center">
+                <img src="assets/icon/live_stream_btn.svg" class="iconSize" />
+                <p text-uppercase>Syllabus</p>
+            </ion-col>
+            <ion-col col-md-4 class="icon-center" style="border-top: 2px solid #fff;">
+                <img class="logo-action iconSize" src="assets/icon/calender_btn.svg" />
+                <p text-uppercase>Internal Choice Base Exam Details</p>
+            </ion-col>
+            <ion-col col-md-4 class="icon-center" style="border-top: 2px solid #fff;">
+                <img class="logo-action iconSize" src="assets/icon/changeLanguage.svg" />
+                <p text-uppercase>Results</p>
+            </ion-col>
         </ion-row>
 
     </ion-grid>
 </ion-content>
-
-
-<!-- 
-
-<ion-footer class="fixed">
-    <ion-toolbar color="primary">  
-    <ion-grid text-center >
-      <ion-row>
-        <div col-3 (click)=goToHome()>
-          <img src="assets/imgs/white-icon5.png">
-          <p class="footer-p">Home</p>
-        </div>
-        <div col-3 (click)=gotoLiveStream()>
-          <img src="assets/imgs/white-icon1.png">
-          <p class="footer-p">Streaming</p>
-        </div>
-        <div col-3 (click)=goToAttendance()>
-          <img src="assets/imgs/white-icon2.png">
-          <p  class="footer-p">Attendance</p>
-        </div>
-        <div col-3 (click)=goToRoutine()>
-          <img src="assets/imgs/white-icon3.png">
-          <p  class="footer-p">Routine</p>
-        </div>
-      </ion-row>
-    </ion-grid>
-    </ion-toolbar>
-</ion-footer> -->

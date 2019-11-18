@@ -225,7 +225,7 @@ export class StaffInfoPage {
         if (data.data[0]) {
           this.showLoader = false;
           this.teacherDetails = data.data[0];
-          // console.log('teacher details : ', data.data[0]);
+          console.log('teacher details : ', data.data[0]);
 
           // if(data.data[0].nameclass){
           //   this.showSelectDepartmentBtn = false;
